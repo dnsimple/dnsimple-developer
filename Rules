@@ -13,21 +13,36 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+
+# ASSETS
+
+compile '/assets/*/' do
+  # don't filter or layout
+end
+
+route '/assets/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
 compile '/stylesheet/' do
   # don’t filter or layout
 end
+
+route '/stylesheet/' do
+  '/style.css'
+end
+
+
+# SITE
 
 compile '*' do
   if item.binary?
     # don’t filter binary items
   else
     filter :erb
+    filter :redcarpet
     layout 'default'
   end
-end
-
-route '/stylesheet/' do
-  '/style.css'
 end
 
 route '*' do
@@ -39,5 +54,6 @@ route '*' do
     item.identifier + 'index.html'
   end
 end
+
 
 layout '*', :erb

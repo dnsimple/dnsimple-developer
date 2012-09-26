@@ -1,0 +1,34 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    adsf (1.1.1)
+      rack (>= 1.0.0)
+    colored (1.2)
+    cri (2.3.0)
+      colored (>= 1.2)
+    mime-types (1.19)
+    nanoc (3.4.1)
+      cri (~> 2.2)
+    nokogiri (1.5.5)
+    posix-spawn (0.3.6)
+    pygments.rb (0.3.0)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
+    rack (1.4.1)
+    redcarpet (2.1.1)
+    sass (3.2.1)
+    systemu (2.5.2)
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  adsf
+  mime-types
+  nanoc (~> 3.4.0)
+  nokogiri
+  pygments.rb
+  redcarpet
+  sass
+  systemu
