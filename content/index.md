@@ -1,9 +1,11 @@
 ---
-title: DNSimple Documentation
+title: DNSimple API
 ---
 
-# DNSimple Documentation
+# The DNSimple API
 
-Welcome to the official [DNSimple](https://dnsimple.com/) documentation.
+Welcome to the official [DNSimple](https://dnsimple.com/) API documentation.
 
 DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.
+
+The following documentation describes the DNSimple REST API.
