@@ -6,7 +6,7 @@ This is the DNSimple API documentation built with [nanoc](http://nanoc.stoneship
 
 Ruby 1.9 is required to build the site, all the dependencies are managed using Bundler.
 
-    $ git clone ...
+    $ git clone git@github.com:aetrion/dnsimple-developer.git
     $ cd dnsimple-docs
     $ bundle
 
@@ -16,7 +16,7 @@ For a list of `nanoc` commands type
 
 ## Development
 
-`nanoc` ships with an autocompiler that automatically compiles changes files on every HTTP request.
+`nanoc` ships with an autocompiler that automatically compiles changed files on every HTTP request.
 
     $ nanoc aco
 
