@@ -16,20 +16,29 @@
 
 # ASSETS
 
+compile '/assets/css/*/' do
+  if item.identifier =~ %r{/_[^/]+/$}
+    # don't compile partials
+  else
+    filter :sass, :syntax => :scss, :style => :compressed
+    filter :relativize_paths, type: :css
+  end
+end
+
 compile '/assets/*/' do
   # don't filter or layout
 end
 
+route '/assets/css/*/' do
+  if item.identifier =~ %r{/_[^/]+/$}
+    # don't route partials
+  else
+    item.identifier.chop + '.css'
+  end
+end
+
 route '/assets/*/' do
   item.identifier.chop + '.' + item[:extension]
-end
-
-compile '/stylesheet/' do
-  # don’t filter or layout
-end
-
-route '/stylesheet/' do
-  '/style.css'
 end
 
 
@@ -41,6 +50,7 @@ compile '*' do
   else
     filter :erb
     filter :redcarpet
+    filter :colorize_syntax, default_colorizer: :pygmentsrb
     layout 'default'
   end
 end
