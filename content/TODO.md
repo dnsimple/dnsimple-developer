@@ -45,7 +45,3 @@ Extended Attributes
 WHOIS Privacy Protection
     Enable Privacy Protection
     Disable Priacy Protection
-Sharing
-    List Domain Members
-    Add Domain Member
-    Remove Domain Member

@@ -134,11 +134,11 @@ The following fields are optional:
 
 - `certificate[csr]`
 
-The `name` is the subdomain for the certificate. For example, if you have the domain mydomain.com and you want to register a certificate for www.mydomain.com then the name would be www. If you would like a certificate for the domain itself, such as mydomain.com, then leave name blank.
+`name` is the subdomain for the certificate. For example, if you have the domain mydomain.com and you want to register a certificate for www.mydomain.com then the name would be www. If you would like a certificate for the domain itself, such as mydomain.com, then leave name blank.
 
-The `contact_id` is the ID of the contact that is responsible for the certificate. In case of wildcard domains, the contact information must match what is in the Certificate Signing Request. If you plan on submitting your own Certificate Signing Request then you must ensure these details match.
+`contact_id` is the ID of the contact that is responsible for the certificate. In case of wildcard domains, the contact information must match what is in the Certificate Signing Request. If you plan on submitting your own Certificate Signing Request then you must ensure these details match.
 
-The optional `csr` field stands for Certificate Signing Request. If you do not want DNSimple to generate your private key then you generate your own Certificate Signing Request using a tool such as OpenSSL or GnuTLS. You must ensure that the common name in the CSR is your fully qualified domain name (for example, www.mydomain.com or *.mydomain.com).
+`csr` field stands for Certificate Signing Request. If you do not want DNSimple to generate your private key then you generate your own Certificate Signing Request using a tool such as OpenSSL or GnuTLS. You must ensure that the common name in the CSR is your fully qualified domain name (for example, www.mydomain.com or *.mydomain.com).
 
 ~~~ js
 {
