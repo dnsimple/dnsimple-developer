@@ -26,7 +26,7 @@ If the user already exists or is invalid then this will return response code 422
 
 ### Input
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "user": {
     "email": "john.smith@example.com",
@@ -34,10 +34,10 @@ If the user already exists or is invalid then this will return response code 422
     "password_confirmation": "x8ejfhfgjQ#A" 
   }
 }
-</code></pre>
+~~~
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~

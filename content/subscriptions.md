@@ -21,7 +21,7 @@ View the current subscription details.
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "chargify_subscription": {
     "allocated_quantity": 0,
@@ -37,7 +37,7 @@ View the current subscription details.
     "user_id": 4321
   }
 }
-</code></pre>
+~~~
 
 ## Create the subscription
 
@@ -55,7 +55,7 @@ Create a subscription for the currently authenticated user.
 
 ### Input
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "subscription": {
     "plan": "Silver",
@@ -71,10 +71,10 @@ Create a subscription for the currently authenticated user.
     }
   }
 }
-</code></pre>
+~~~
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~

@@ -19,7 +19,7 @@ API for listing account history as statements.
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 [
   {
     "statement": {
@@ -52,4 +52,4 @@ API for listing account history as statements.
     }
   }
 ]
-</code></pre>
+~~~

@@ -19,9 +19,9 @@ Purchase and manage SSL certificates.
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~
 
 
 # Get a certificate
@@ -36,7 +36,7 @@ TODO
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "certificate": {
     "approver_email": null,
@@ -103,7 +103,7 @@ TODO
     postmaster@www.example.com"
   }
 }
-</code></pre>
+~~~
 
 
 # Purchase a certificate
@@ -137,20 +137,20 @@ The `contact_id` is the ID of the contact that is responsible for the certificat
 
 The optional `csr` field stands for Certificate Signing Request. If you do not want DNSimple to generate your private key then you generate your own Certificate Signing Request using a tool such as OpenSSL or GnuTLS. You must ensure that the common name in the CSR is your fully qualified domain name (for example, www.mydomain.com or *.mydomain.com).
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "certificate": {
     "name": "",
     "contact_id": 1
   }
 }
-</code></pre>
+~~~
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~
 
 
 # Submit a certificate for signing
@@ -169,8 +169,8 @@ Submit a previously purchased certificate for signing by the certificate authori
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~
 
 

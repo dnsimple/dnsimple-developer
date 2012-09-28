@@ -21,20 +21,20 @@ Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-s
 
 ### Input
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 {
   "email_forward": {
     "from": "john",
     "to": "someone@example.com"
   }
 }
-</code></pre>
+~~~
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~
 
 
 ## Delete a forward
@@ -51,6 +51,6 @@ TODO
 
 ### Response
 
-<pre class="highlight"><code class="language-js">
+~~~ js
 TODO
-</code></pre>
+~~~
