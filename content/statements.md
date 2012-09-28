@@ -6,6 +6,7 @@ title: Statements
 
 API for listing account history as statements.
 
+
 ## List statements
 
     GET /statements
