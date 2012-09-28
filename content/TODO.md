@@ -11,10 +11,6 @@ Domains
     Delete a Domain
     Transfer out a Domain
     Push a Domain
-Name Servers
-    Change Domain Name Servers
-    Register a Name Server
-    De-register a Name Server
 Services
     List Services
     Get Service Details
