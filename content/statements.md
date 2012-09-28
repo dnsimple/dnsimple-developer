@@ -10,7 +10,7 @@ API for listing account history as statements.
 
     GET /statements
 
-### Example
+### Example
 
     curl -H "X-DNSimple-Token: <token>" https://dnsimple.com/statements
 
@@ -49,6 +49,4 @@ API for listing account history as statements.
     }
   }
 ]
-
 </code></pre>
-
