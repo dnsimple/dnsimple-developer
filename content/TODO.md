@@ -42,6 +42,3 @@ Template Records
     Delete a Template Record
 Extended Attributes
     List Extended Attributes
-WHOIS Privacy Protection
-    Enable Privacy Protection
-    Disable Priacy Protection
