@@ -4,7 +4,7 @@ title: Libraries
 
 # Libraries
 
-There are already a couple different libraries that use the DNSimple REST API. You can use these as a starting point or continue on through the documentation below.
+There are already a couple different libraries that use the DNSimple API. You can use these as a starting point or continue on through the documentation below.
 
 If you develop a client for the API [please let us know](mailto:support@dnsimple.com) so we can add it here.com.
 
