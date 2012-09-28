@@ -2,17 +2,19 @@
 title: Statements
 ---
 
-# Statements
+# Statement API
 
 API for listing account history as statements.
 
-## List your statements
+## List statements
 
     GET /statements
 
 ### Example
 
-    curl -H "X-DNSimple-Token: <token>" https://dnsimple.com/statements
+    curl  -H "X-DNSimple-Token: <token>" \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/statements
 
 ### Response
 
