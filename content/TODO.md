@@ -27,9 +27,6 @@ Records
     Add a Record
     Update a Record
     Delete a Record
-Vanity Name Servers
-    Enable Vanity Name Servers
-    Disable Vanity Name Servers
 Contacts
     List Contacts
     Get Contact Details
