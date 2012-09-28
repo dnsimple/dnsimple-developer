@@ -6,6 +6,9 @@ title: Email Forwards
 
 Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple) from your domain to another email account.
 
+* TOC
+{:toc}
+
 
 ## Create a forward
 
@@ -37,7 +40,7 @@ TODO
 ~~~
 
 
-## Delete a forward
+## Delete a forward
 
     DELETE /domains/:domain/email_forwards/:id
 

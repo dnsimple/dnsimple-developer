@@ -6,6 +6,8 @@ title: Subscriptions
 
 API for creating and managing account subscriptions.
 
+{:toc}
+
 
 ## Get the subscription 
 

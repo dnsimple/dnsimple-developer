@@ -6,8 +6,11 @@ title: SSL Certificates
 
 Purchase and manage SSL certificates.
 
+* TOC
+{:toc}
 
-# List certificates for a domain
+
+## List certificates for a domain
 
     GET /domains/:domain/certificates
 
@@ -24,7 +27,7 @@ TODO
 ~~~
 
 
-# Get a certificate
+## Get a certificate
 
     GET /domains/:domain/certificates/:id
 
@@ -106,7 +109,7 @@ TODO
 ~~~
 
 
-# Purchase a certificate
+## Purchase a certificate
 
     POST /domains/:domain/certificates
 
@@ -153,7 +156,7 @@ TODO
 ~~~
 
 
-# Submit a certificate for signing
+## Submit a certificate for signing
 
 Submit a previously purchased certificate for signing by the certificate authority.
 

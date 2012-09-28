@@ -6,6 +6,8 @@ title: Statements
 
 API for listing account history as statements.
 
+{:toc}
+
 
 ## List statements
 
