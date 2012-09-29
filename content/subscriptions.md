@@ -41,6 +41,7 @@ View the current subscription details.
 }
 ~~~
 
+
 ## Create the subscription
 
 Create a subscription for the currently authenticated user.

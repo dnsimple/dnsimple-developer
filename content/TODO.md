@@ -23,12 +23,6 @@ Records
     Add a Record
     Update a Record
     Delete a Record
-Contacts
-    List Contacts
-    Get Contact Details
-    Add a Contact
-    Update a Contact
-    Delete a Contact
 Templates
     List Templates
     Get Template Details
