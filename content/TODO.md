@@ -40,5 +40,3 @@ Template Records
     Get Template Record Details
     Add a Template Record
     Delete a Template Record
-Extended Attributes
-    List Extended Attributes
