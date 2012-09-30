@@ -15,14 +15,11 @@ Provision a new user account.
 
     POST /users
 
-If the user can be created then this method will respond with 201.
-If the user already exists or is invalid then this will return response code 422.
-
 ### Example
 
 Provision a new user:
 
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+    curl  \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
@@ -30,6 +27,15 @@ Provision a new user:
           https://dnsimple.com/users
 
 ### Input
+
+user[:email]
+: Required _string_
+
+user[:password]
+: Required _string_
+
+user[:password_confirmation]
+: Required _string_
 
 ~~~ js
 {
@@ -43,6 +49,34 @@ Provision a new user:
 
 ### Response
 
+Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "user": {
+    "access_code": null,
+    "authy_identifier": null,
+    "authy_verified_at": null,
+    "cancel_warning_sent_at": null,
+    "country_code": null,
+    "created_at": "2012-09-30T15:46:39Z",
+    "default_contact_id": null,
+    "email": "john.smith@example.com",
+    "failed_login_count": 0,
+    "first_name": null,
+    "fraud": null,
+    "id": 2,
+    "last_name": null,
+    "login_count": 1,
+    "phone": null,
+    "referral_token": "0f82b5484cd663",
+    "single_access_token": "o4xuNjyjtIn9mw1d2WGM",
+    "style": null,
+    "unsubscribed_at": null,
+    "updated_at": "2012-09-30T15:46:39Z",
+    "domain_count": 0,
+    "domain_limit": 10
+  }
+}
 ~~~
