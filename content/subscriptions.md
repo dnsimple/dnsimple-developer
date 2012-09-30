@@ -17,7 +17,7 @@ View the current subscription details.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/subscription
 
@@ -50,7 +50,7 @@ Create a subscription for the currently authenticated user.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \

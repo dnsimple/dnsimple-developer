@@ -14,7 +14,7 @@ title: Applied Services
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/domains/:domain/applied_services
 
@@ -52,7 +52,7 @@ title: Applied Services
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/domains/:domain/available_services
 
@@ -120,7 +120,7 @@ title: Applied Services
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \
@@ -146,7 +146,7 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X DELETE \

@@ -15,7 +15,7 @@ API for listing account history as statements.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/statements
 

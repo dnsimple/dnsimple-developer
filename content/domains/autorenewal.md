@@ -16,7 +16,7 @@ Some TLDs do not support auto-renewal and will respond with an error condition i
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \
@@ -35,7 +35,7 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X DELETE \

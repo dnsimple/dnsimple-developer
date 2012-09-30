@@ -17,7 +17,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/services
 
@@ -55,7 +55,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/services/:id
 

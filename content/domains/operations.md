@@ -20,7 +20,7 @@ so please be careful with this command.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \
@@ -93,7 +93,7 @@ however domains ending in `.us` and `.ca` may not.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \
@@ -145,7 +145,7 @@ which is 1 year for most domains but for some domains may be more.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \

@@ -16,7 +16,7 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/templates
 
@@ -45,7 +45,7 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           https://dnsimple.com/templates/:id
 
@@ -72,7 +72,7 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X POST \
@@ -112,7 +112,7 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <token>" \
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
           -X DELETE \
