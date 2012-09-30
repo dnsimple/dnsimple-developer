@@ -1,5 +1,5 @@
 ---
-title: Template Application
+title: Applied Templates
 ---
 
 # Applied Template API

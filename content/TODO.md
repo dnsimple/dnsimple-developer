@@ -11,10 +11,3 @@ Domains
     Delete a Domain
     Transfer out a Domain
     Push a Domain
-Services
-    List Services
-    Get Service Details
-    List a Domain's Applied Services
-    List a Domain's Available Services
-    Apply a Service to a Domain
-    Remove a Service from a Domain
