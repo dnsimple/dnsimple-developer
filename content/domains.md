@@ -177,3 +177,70 @@ that was checked along with a status string.
   "status": "available"
 }
 ~~~
+
+
+## Transfer out a domain
+
+Prepare a domain for transferring out.
+
+    POST /domains/:id/transfer_outs
+
+This will unlock a domain and send the authorization code to the domain's administrative contact.
+
+### Example
+
+    curl  -H "X-DNSimple-Token: <token>" \
+          -H 'Accept: application/json' \
+          -H "Content-Type: application/json" \
+          -X POST \
+          https://dnsimple.com/domains/:id/transfer_outs
+
+### Response
+
+~~~ js
+TODO
+~~~
+
+
+## Move domain to another account
+
+Push a domain from the current DNSimple account to another.
+
+    POST /domains/:id/push
+
+Once a domain is pushed you will no longer be able to access it through your account.
+You will need to acces it using the new account's credentials.
+
+### Example
+
+    curl  -H "X-DNSimple-Token: <token>" \
+          -H 'Accept: application/json' \
+          -H "Content-Type: application/json" \
+          -X POST \
+          https://dnsimple.com/domains/:id/push
+
+### Input
+
+The following fields are required:
+
+- `push[new_user_email]`
+- `push[contact_id]`
+
+`push[new_user_email]` must match the new account's email address exactly.
+
+`push[contact_id]` must exist in the new account.
+
+~~~ js
+{
+  "push": {
+    "new_user_email": "john@example.com",
+    "contact_id": 1234
+  }
+}
+~~~
+
+### Response
+
+~~~ js
+TODO
+~~~
