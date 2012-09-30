@@ -75,6 +75,7 @@ Templates provide a way to group common records together and apply them en masse
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/templates
 

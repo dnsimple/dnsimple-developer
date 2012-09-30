@@ -120,6 +120,7 @@ This is the first step in the process for buying a certificate. Once you have su
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/domains/:domain/certificates
 

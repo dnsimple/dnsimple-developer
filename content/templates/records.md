@@ -93,6 +93,7 @@ title: Template Records
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/templates/:template/records
 

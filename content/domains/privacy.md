@@ -22,7 +22,7 @@ If the privacy protection is currently disabled then it will be enabled.
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
-          -X POST
+          -X POST \
           https://dnsimple.com/domains/:domain/whois_privacy
 
 ### Response

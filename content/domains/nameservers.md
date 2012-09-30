@@ -21,6 +21,7 @@ Change the name servers either to external name servers or back to DNSimple's na
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/domains/:domain/name_servers
 
@@ -70,6 +71,7 @@ The domain must be registered with DNSimple in order for this command to work.
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/domains/:domain/registry_name_servers
 

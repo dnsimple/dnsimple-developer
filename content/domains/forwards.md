@@ -19,6 +19,7 @@ Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-s
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/domains/:domain/email_forwards
 

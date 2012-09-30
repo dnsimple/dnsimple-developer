@@ -120,6 +120,7 @@ with DNSimple or transferred into DNSimple from another registrar.
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST \
           -d <json> \
           https://dnsimple.com/contacts
 

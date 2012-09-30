@@ -19,7 +19,7 @@ Some TLDs do not support auto-renewal and will respond with an error condition i
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
-          -X POST
+          -X POST \
           https://dnsimple.com/domains/:domain/auto_renewal
 
 ### Response
