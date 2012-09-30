@@ -23,6 +23,9 @@ View the current subscription details.
 
 ### Response
 
+Responds with HTTP 200 on success.
+Responds with HTTP 402 if the current user has no subscription.
+
 ~~~ js
 {
   "chargify_subscription": {
@@ -106,6 +109,23 @@ subscription.credit_card.cvv
 
 ### Response
 
+Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "chargify_subscription": {
+    "allocated_quantity": 0,
+    "created_at": "2012-09-30T17:40:42Z",
+    "customer_id": 1,
+    "domain_limit": 50,
+    "failure_reason": null,
+    "id": 2,
+    "plan_name": "Unknown",
+    "state": "subscribing",
+    "statements_refreshed_at": null,
+    "updated_at": "2012-09-30T17:40:42Z",
+    "user_id": null
+  }
+}
 ~~~
