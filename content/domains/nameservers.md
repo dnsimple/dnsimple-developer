@@ -18,11 +18,11 @@ Change the name servers either to external name servers or back to DNSimple's na
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/domains/:domain/name_servers
 
 ### Input
@@ -68,11 +68,11 @@ The domain must be registered with DNSimple in order for this command to work.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/domains/:domain/registry_name_servers
 
 ### Input
@@ -101,9 +101,9 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/domains/:domain/registry_name_servers/:name
 

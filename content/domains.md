@@ -14,7 +14,7 @@ title: Domains
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/domains
 
@@ -71,7 +71,7 @@ title: Domains
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/domains/:id
 
@@ -100,11 +100,11 @@ title: Domains
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/domains
 
 ### Input
@@ -139,9 +139,9 @@ this will not delete the domain from the registry.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/domains/:id
 
@@ -160,7 +160,7 @@ Check if a domain is available for registration.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/domains/:name/check
 
@@ -190,9 +190,9 @@ This will unlock a domain and send the authorization code to the domain's admini
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
           https://dnsimple.com/domains/:id/transfer_outs
 
@@ -214,9 +214,9 @@ You will need to acces it using the new account's credentials.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
           https://dnsimple.com/domains/:id/push
 

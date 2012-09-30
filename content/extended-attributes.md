@@ -16,7 +16,7 @@ This API interface provides information on the extended attributes for any parti
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/extended_attributes/:tld
 

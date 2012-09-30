@@ -19,9 +19,9 @@ If the privacy protection is currently disabled then it will be enabled.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
           https://dnsimple.com/domains/:domain/whois_privacy
 
@@ -50,9 +50,9 @@ If the privacy protection has not expired it can always be turned back on with n
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/domains/:domain/whois_privacy
 

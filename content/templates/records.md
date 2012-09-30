@@ -14,7 +14,7 @@ title: Template Records
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/templates/:template/records
 
@@ -60,7 +60,7 @@ title: Template Records
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/templates/:template/records/:id
 
@@ -90,11 +90,11 @@ title: Template Records
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/templates/:template/records
 
 ### Input
@@ -134,9 +134,9 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/templates/:template/records/:id
 

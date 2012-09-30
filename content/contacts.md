@@ -17,7 +17,7 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/contacts
 
@@ -79,7 +79,7 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/contacts/:id
 
@@ -117,11 +117,11 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/contacts
 
 ### Input
@@ -178,11 +178,11 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X PUT \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/contacts/:id
 
 ### Input
@@ -202,9 +202,9 @@ TODO
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/contacts/:id
 

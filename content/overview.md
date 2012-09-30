@@ -22,7 +22,7 @@ HTTP Basic Authentication credentials are the same as your account: your email a
 
 The X-DNSimple-Token header is your email address joined with your API token separated by a colon. You may create, reset or clear your API token by going to [your Account page](https://dnsimple.com/account).
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/users/me
 

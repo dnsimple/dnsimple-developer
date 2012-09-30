@@ -16,9 +16,9 @@ Apply the specific template to the domain.
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
           https://dnsimple.com/domains/:domain/templates/:id/apply
 

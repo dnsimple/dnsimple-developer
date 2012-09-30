@@ -20,11 +20,13 @@ If the user already exists or is invalid then this will return response code 422
 
 ### Example
 
-    curl  -H "X-DNSimple-Token: <email>:<token>" \
+Provision a new user:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          -H "Content-Type: application/json" \
+          -H 'Content-Type: application/json' \
           -X POST \
-          -d <json> \
+          -d '<json>' \
           https://dnsimple.com/users
 
 ### Input
