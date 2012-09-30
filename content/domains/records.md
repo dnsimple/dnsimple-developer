@@ -135,7 +135,7 @@ The following fields are optional:
 
 ~~~ js
 {
-  "record":{
+  "record": {
     "name": "",
     "record_type": "MX",
     "content": "mail1.mailservers.com",
@@ -176,7 +176,7 @@ The following fields are updateable:
 
 ~~~ js
 {
-  "record":{
+  "record": {
     "name": "",
     "content": "1.2.3.4",
     "ttl": 600

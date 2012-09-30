@@ -37,7 +37,7 @@ Example with `dnsimple` source.
 
 ~~~ js
 {
-  "vanity_nameserver_configuration":{
+  "vanity_nameserver_configuration": {
     "server_source": "dnsimple"
   }
 }
@@ -47,7 +47,7 @@ Example with `external` source.
 
 ~~~ js
 {
-  "vanity_nameserver_configuration":{
+  "vanity_nameserver_configuration": {
     "server_source": "external",
     "ns1": "ns1.example.com",
     "ns2": "ns2.example.com"
