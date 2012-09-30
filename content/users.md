@@ -31,6 +31,15 @@ Provision a new user:
 
 ### Input
 
+user[:email]
+: Required _string_
+
+user[:password]
+: Required _string_
+
+user[:password_confirmation]
+: Required _string_
+
 ~~~ js
 {
   "user": {
