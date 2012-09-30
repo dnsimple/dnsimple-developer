@@ -28,13 +28,13 @@ Provision a new user:
 
 ### Input
 
-user[:email]
+user.email
 : Required _string_
 
-user[:password]
+user.password
 : Required _string_
 
-user[:password_confirmation]
+user.password_confirmation
 : Required _string_
 
 ~~~ js

@@ -23,6 +23,9 @@ View the current subscription details.
 
 ### Response
 
+Responds with HTTP 200 on success.
+Responds with HTTP 402 if the current user has no subscription.
+
 ~~~ js
 {
   "chargify_subscription": {
@@ -59,19 +62,46 @@ Create a subscription for the currently authenticated user.
 
 ### Input
 
+subscription.plan
+: Required _string_
+
+subscription.credit_card.number
+: Required _string_
+
+subscription.credit_card.first_name
+: Required _string_
+
+subscription.credit_card.last_name
+: Required _string_
+
+subscription.credit_card.billing_address
+: Required _string_
+
+subscription.credit_card.billing_zip
+: Required _string_
+
+subscription.credit_card.month
+: Required _string_
+
+subscription.credit_card.year
+: Required _string_
+
+subscription.credit_card.cvv
+: Required _string_
+
 ~~~ js
 {
   "subscription": {
     "plan": "Silver",
     "credit_card": {
-       "number": "1",
-       "first_name": "John",
-       "last_name": "Smith",
-       "billing_address": "111 SW 1st Street",
-       "billing_zip": "12345",
-       "month": "02",
-       "year": "2015",
-       "cvv": "111"
+      "number": "1",
+      "first_name": "John",
+      "last_name": "Smith",
+      "billing_address": "111 SW 1st Street",
+      "billing_zip": "12345",
+      "month": "02",
+      "year": "2015",
+      "cvv": "111"
     }
   }
 }
@@ -79,6 +109,23 @@ Create a subscription for the currently authenticated user.
 
 ### Response
 
+Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "chargify_subscription": {
+    "allocated_quantity": 0,
+    "created_at": "2012-09-30T17:40:42Z",
+    "customer_id": 1,
+    "domain_limit": 50,
+    "failure_reason": null,
+    "id": 2,
+    "plan_name": "Unknown",
+    "state": "subscribing",
+    "statements_refreshed_at": null,
+    "updated_at": "2012-09-30T17:40:42Z",
+    "user_id": null
+  }
+}
 ~~~
