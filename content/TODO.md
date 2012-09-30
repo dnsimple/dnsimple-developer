@@ -23,14 +23,3 @@ Records
     Add a Record
     Update a Record
     Delete a Record
-Templates
-    List Templates
-    Get Template Details
-    Add a Template
-    Delete a Template
-    Apply a Template to a Domain
-Template Records
-    List Template Records
-    Get Template Record Details
-    Add a Template Record
-    Delete a Template Record
