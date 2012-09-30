@@ -22,7 +22,7 @@ If the user already exists or is invalid then this will return response code 422
 
 Provision a new user:
 
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+    curl  \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
