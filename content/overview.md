@@ -16,11 +16,15 @@ There are two authentication methods availabe: `HTTP Basic Authentication` or th
 
 HTTP Basic Authentication credentials are the same as your account: your email address and password.
 
-    curl -u "<email>:<password>" https://dnsimple.com/users/me
+    curl  -u "<email>:<password>" \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/users/me
 
 The X-DNSimple-Token header is your email address joined with your API token separated by a colon. You may create, reset or clear your API token by going to [your Account page](https://dnsimple.com/account).
 
-    curl -H "X-DNSimple-Token: <email>:<token>" https://dnsimple.com/users/me
+    curl  -H "X-DNSimple-Token: <email>:<token>" \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/users/me
 
 
 ## Requests
