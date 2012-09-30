@@ -1,8 +1,8 @@
 ---
-title: Sharing
+title: Domain Sharing
 ---
 
-# Sharing API
+# Domain sharing API
 
 * TOC
 {:toc}
@@ -34,6 +34,7 @@ TODO
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
           -H "Content-Type: application/json" \
+          -X POST
           -d <json> \
           https://dnsimple.com/domains/:domain/memberships
 
