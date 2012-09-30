@@ -8,7 +8,7 @@ title: Template Records
 {:toc}
 
 
-## List records
+## List template records
 
     GET /templates/:template/records
 
@@ -54,7 +54,7 @@ title: Template Records
 ~~~
 
 
-## Get a record
+## Get a template record
 
     GET /templates/:template/records/:id
 
@@ -62,7 +62,7 @@ title: Template Records
 
     curl  -H "X-DNSimple-Token: <token>" \
           -H 'Accept: application/json' \
-          https://dnsimple.com/templates/:id
+          https://dnsimple.com/templates/:template/records/:id
 
 ### Response
 
@@ -84,7 +84,7 @@ title: Template Records
 ~~~
 
 
-## Create a record
+## Create a template record
 
     POST /templates/:template/records
 
@@ -127,7 +127,7 @@ TODO
 ~~~
 
 
-## Delete a record
+## Delete a template record
 
     DELETE /templates/:template/records/:id
 

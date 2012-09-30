@@ -18,8 +18,3 @@ Services
     List a Domain's Available Services
     Apply a Service to a Domain
     Remove a Service from a Domain
-Records
-    List Records
-    Add a Record
-    Update a Record
-    Delete a Record
