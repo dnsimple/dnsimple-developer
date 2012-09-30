@@ -1,8 +1,8 @@
 ---
-title: Templates
+title: Template Application
 ---
 
-# Template API
+# Applied Template API
 
 * TOC
 {:toc}
