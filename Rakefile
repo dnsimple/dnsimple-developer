@@ -24,9 +24,9 @@ task :publish do
     tsha = `git write-tree`.strip
     puts "Created tree #{tsha}"
     if osha.size == 40
-      csha = `echo '#{MessageGenerator.generate}' | git commit-tree #{tsha} -p #{osha}`.strip
+      csha = `echo '#{MessageGenerator.new.generate}' | git commit-tree #{tsha} -p #{osha}`.strip
     else
-      csha = `echo '#{MessageGenerator.generate}' | git commit-tree #{tsha}`.strip
+      csha = `echo '#{MessageGenerator.new.generate}' | git commit-tree #{tsha}`.strip
     end
     puts "Created commit #{csha}"
     puts `git show #{csha} --stat`
