@@ -31,7 +31,6 @@ Responds with HTTP 402 if the current user has no subscription.
   "chargify_subscription": {
     "allocated_quantity": 0,
     "created_at": "2012-05-09T15:35:57Z",
-    "customer_id": 1234,
     "domain_limit": 10,
     "failure_reason": null,
     "id": 3817,
@@ -117,7 +116,6 @@ Responds with HTTP 400 if the validation fails.
   "chargify_subscription": {
     "allocated_quantity": 0,
     "created_at": "2012-09-30T17:40:42Z",
-    "customer_id": 1,
     "domain_limit": 50,
     "failure_reason": null,
     "id": 2,
