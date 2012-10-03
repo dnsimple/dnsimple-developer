@@ -38,7 +38,7 @@ zone_import.zone_data
 
 ### Response
 
-Responds with HTTP 200 on success.
+Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 ~~~ js
@@ -46,37 +46,44 @@ Responds with HTTP 400 if the validation fails.
   "zone_import": {
     "imported_records": [
       {
-        "record": {
-          "content": "184.106.215.134",
-          "created_at": "2012-10-02T16:39:49Z",
-          "domain_id": 406,
-          "id": 388,
-          "name": "ds1",
-          "prio": null,
-          "record_type": "A",
-          "ttl": 3600,
-          "updated_at": "2012-10-02T16:39:49Z"
-        }
+        "content": "184.106.215.134",
+        "created_at": "2012-10-03T09:28:58Z",
+        "domain_id": 414,
+        "id": 400,
+        "name": "ds1",
+        "prio": null,
+        "record_type": "A",
+        "ttl": 3600,
+        "updated_at": "2012-10-03T09:28:58Z"
       },
       {
-        "record": {
-          "content": "ds1.example.com.example.com",
-          "created_at": "2012-10-02T16:39:49Z",
-          "domain_id": 406,
-          "id": 389,
-          "name": "index",
-          "prio": null,
-          "record_type": "NS",
-          "ttl": 3600,
-          "updated_at": "2012-10-02T16:39:49Z"
-        }
+        "content": "ds1.example.com.example.com",
+        "created_at": "2012-10-03T09:28:58Z",
+        "domain_id": 414,
+        "id": 401,
+        "name": "index",
+        "prio": null,
+        "record_type": "NS",
+        "ttl": 3600,
+        "updated_at": "2012-10-03T09:28:58Z"
       }
     ],
     "imported_records_count": 2,
     "not_imported_records": [
-
+      {
+        "content": "184.106.214.600",
+        "created_at": null,
+        "domain_id": 414,
+        "id": null,
+        "name": "ds2",
+        "prio": null,
+        "record_type": "A",
+        "ttl": 3600,
+        "updated_at": null,
+        "errors": "Content IP address is invalid"
+      }
     ],
-    "not_imported_records_count": 0
+    "not_imported_records_count": 1
   }
 }
 ~~~
