@@ -24,3 +24,9 @@ For a list of `nanoc` commands type
     [2012-09-26 15:07:52] INFO  WEBrick 1.3.1
     [2012-09-26 15:07:52] INFO  ruby 1.9.2 (2012-04-20) [x86_64-darwin12.1.0]
     [2012-09-26 15:07:52] INFO  WEBrick::HTTPServer#start: pid=23121 port=3000
+
+`master` is the current stable branch. To publish the site run
+
+    $ rake publish
+
+The task compiles the site, commits it to the `gh-pages` branch and pushes the commit to GitHub.
