@@ -6,7 +6,7 @@ This is the DNSimple API documentation built with [nanoc](http://nanoc.stoneship
 
 Ruby 1.9 is required to build the site, all the dependencies are managed using Bundler.
 
-    $ git clone git@github.com:aetrion/developer.dnsimple.com.git dnsimple-developer
+    $ git clone https://github.com/aetrion/developer.dnsimple.com.git dnsimple-developer
     $ cd dnsimple-developer
     $ bundle
 
@@ -25,7 +25,9 @@ For a list of `nanoc` commands type
     [2012-09-26 15:07:52] INFO  ruby 1.9.2 (2012-04-20) [x86_64-darwin12.1.0]
     [2012-09-26 15:07:52] INFO  WEBrick::HTTPServer#start: pid=23121 port=3000
 
-`master` is the current stable branch. To publish the site run
+## Deployment
+
+To publish the site run
 
     $ rake publish
 
