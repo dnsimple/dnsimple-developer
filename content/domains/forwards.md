@@ -12,7 +12,7 @@ Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-s
 
 ## List forwards
 
-    GET /domain/:domain/email_forwards
+    GET /domains/:domain/email_forwards
 
 ### Example
 
@@ -20,13 +20,13 @@ List email forwards for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domain/example.com/email_forwards
+          https://dnsimple.com/domains/example.com/email_forwards
 
 List email forwards for domain with ID `123`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domain/123/email_forwards
+          https://dnsimple.com/domains/123/email_forwards
 
 ### Response
 
@@ -109,7 +109,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a forward
 
-Delete the an email forward `2` for domain `example.com`:
+Delete the email forward `2` for domain `example.com`:
 
     DELETE /domains/:domain/email_forwards/:id
 
