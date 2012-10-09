@@ -10,6 +10,52 @@ Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-s
 {:toc}
 
 
+## List forwards
+
+    GET /domain/:domain/email_forwards
+
+### Example
+
+List email forwards for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/domain/example.com/email_forwards
+
+List email forwards for domain with ID `123`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/domain/123/email_forwards
+
+### Response
+
+~~~ js
+[
+  {
+    "email_forward": {
+      "id": 2,
+      "domain_id": 20,
+      "from": "john@example.com",
+      "to": "someone@somedomain.com",
+      "created_at": "2012-10-09T14:54:17Z",
+      "updated_at": "2012-10-09T14:54:17Z"
+    }
+  },
+  {
+    "email_forward": {
+      "id": 3,
+      "domain_id": 20,
+      "from": "bob@example.com",
+      "to": "someone@somedomain.com",
+      "created_at": "2012-10-09T14:54:17Z",
+      "updated_at": "2012-10-09T14:54:17Z"
+    }
+  }
+]
+~~~
+
+
 ## Create a forward
 
 Create an email forward for domain `example.com`:
@@ -53,7 +99,7 @@ Responds with HTTP 400 if the validation fails.
     "id": 2,
     "domain_id": 20,
     "from": "john@example.com",
-    "to": "someone@example.com",
+    "to": "someone@somedomain.com",
     "created_at": "2012-10-09T14:51:07Z",
     "updated_at": "2012-10-09T14:51:07Z"
   }
