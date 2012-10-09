@@ -23,6 +23,15 @@ Import zone for domain `example.com`:
           -d '<json>' \
           /domains/example.com/zone_imports
 
+Import zone for domain with ID `123`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          -d '<json>' \
+          /domains/123/zone_imports
+
 ### Input
 
 zone_import.zone_data
