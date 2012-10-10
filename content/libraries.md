@@ -31,6 +31,10 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 
 - [DNSimple Java library](https://github.com/milkmansrevenge/dnsimple-java)
 
+### PHP
+
+- [DNSimple PHP library](https://github.com/fvdm/dnsimple-php)
+
 
 ## Tools
 
