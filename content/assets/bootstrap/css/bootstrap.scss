@@ -150,11 +150,11 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #ff7724;
+  color: #cc8b00;
   text-decoration: none;
 }
 a:hover {
-  color: #d65100;
+  color: #996800;
   text-decoration: underline;
 }
 .img-rounded {
@@ -2322,30 +2322,30 @@ table [class*=span],
 .dropdown-submenu:hover > a {
   text-decoration: none;
   color: #ffffff;
-  background-color: #ff7724;
-  background-color: #ff711a;
-  background-image: -moz-linear-gradient(top, #ff7724, #ff670a);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff7724), to(#ff670a));
-  background-image: -webkit-linear-gradient(top, #ff7724, #ff670a);
-  background-image: -o-linear-gradient(top, #ff7724, #ff670a);
-  background-image: linear-gradient(to bottom, #ff7724, #ff670a);
+  background-color: #cc8b00;
+  background-color: #c28400;
+  background-image: -moz-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cc8b00), to(#b37a00));
+  background-image: -webkit-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: -o-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: linear-gradient(to bottom, #cc8b00, #b37a00);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff7724', endColorstr='#ffff670a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcc8b00', endColorstr='#ffb37a00', GradientType=0);
 }
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #ff7724;
-  background-color: #ff711a;
-  background-image: -moz-linear-gradient(top, #ff7724, #ff670a);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff7724), to(#ff670a));
-  background-image: -webkit-linear-gradient(top, #ff7724, #ff670a);
-  background-image: -o-linear-gradient(top, #ff7724, #ff670a);
-  background-image: linear-gradient(to bottom, #ff7724, #ff670a);
+  background-color: #cc8b00;
+  background-color: #c28400;
+  background-image: -moz-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cc8b00), to(#b37a00));
+  background-image: -webkit-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: -o-linear-gradient(top, #cc8b00, #b37a00);
+  background-image: linear-gradient(to bottom, #cc8b00, #b37a00);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff7724', endColorstr='#ffff670a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcc8b00', endColorstr='#ffb37a00', GradientType=0);
 }
 .dropdown-menu .disabled > a,
 .dropdown-menu .disabled > a:hover {
@@ -2866,13 +2866,13 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #ff7724;
+  color: #cc8b00;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
 .btn-link:hover {
-  color: #d65100;
+  color: #996800;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3189,7 +3189,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ff7724;
+  background-color: #cc8b00;
 }
 .nav-list [class^="icon-"] {
   margin-right: 2px;
@@ -3268,7 +3268,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: #ffffff;
-  background-color: #ff7724;
+  background-color: #cc8b00;
 }
 .nav-stacked > li {
   float: none;
@@ -3322,13 +3322,13 @@ input[type="submit"].btn.btn-mini {
   border-radius: 6px;
 }
 .nav .dropdown-toggle .caret {
-  border-top-color: #ff7724;
-  border-bottom-color: #ff7724;
+  border-top-color: #cc8b00;
+  border-bottom-color: #cc8b00;
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #d65100;
-  border-bottom-color: #d65100;
+  border-top-color: #996800;
+  border-bottom-color: #996800;
 }
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
@@ -4431,7 +4431,7 @@ input[type="submit"].btn.btn-mini {
   transition: all 0.2s ease-in-out;
 }
 a.thumbnail:hover {
-  border-color: #ff7724;
+  border-color: #cc8b00;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
