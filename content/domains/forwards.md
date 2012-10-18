@@ -58,11 +58,11 @@ List email forwards for domain with ID `123`:
 
 ## Create a forward
 
-Create an email forward for domain `example.com`:
-
     POST /domains/:domain/email_forwards
 
 ### Example
+
+Create an email forward for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -109,11 +109,11 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a forward
 
-Delete the email forward `2` for domain `example.com`:
-
     DELETE /domains/:domain/email_forwards/:id
 
 ### Example
+
+Delete the email forward with ID `2` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
