@@ -35,7 +35,7 @@ List email forwards for domain with ID `123`:
   {
     "email_forward": {
       "id": 2,
-      "domain_id": 20,
+      "domain_id": 123,
       "from": "john@example.com",
       "to": "someone@somedomain.com",
       "created_at": "2012-10-09T14:54:17Z",
@@ -45,7 +45,7 @@ List email forwards for domain with ID `123`:
   {
     "email_forward": {
       "id": 3,
-      "domain_id": 20,
+      "domain_id": 123,
       "from": "bob@example.com",
       "to": "someone@somedomain.com",
       "created_at": "2012-10-09T14:54:17Z",
@@ -58,11 +58,11 @@ List email forwards for domain with ID `123`:
 
 ## Create a forward
 
-Create an email forward for domain `example.com`:
-
     POST /domains/:domain/email_forwards
 
 ### Example
+
+Create an email forward for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -97,7 +97,7 @@ Responds with HTTP 400 if the validation fails.
 {
   "email_forward": {
     "id": 2,
-    "domain_id": 20,
+    "domain_id": 123,
     "from": "john@example.com",
     "to": "someone@somedomain.com",
     "created_at": "2012-10-09T14:51:07Z",
@@ -109,11 +109,11 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a forward
 
-Delete the email forward `2` for domain `example.com`:
-
     DELETE /domains/:domain/email_forwards/:id
 
 ### Example
+
+Delete the email forward with ID `2` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
