@@ -14,14 +14,43 @@ title: Domain Sharing
 
 ### Example
 
+List memberships for domain `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain/memberships
+          https://dnsimple.com/domains/example.com/memberships
+
+List memberships for domain with ID `123`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://dnsimple.com/domains/123/memberships
 
 ### Response
 
 ~~~ js
-TODO
+[
+  {
+    "membership": {
+      "id": 712,
+      "domain_id": 123,
+      "user_id": 1560,
+      "permission": "manage",
+      "created_at": "2012-10-18T11:38:20Z",
+      "updated_at": "2012-10-18T11:38:20Z"
+    }
+  },
+  {
+    "membership": {
+      "id": 715,
+      "domain_id": 123,
+      "user_id": 1120,
+      "permission": "manage",
+      "created_at": "2012-10-18T11:41:41Z",
+      "updated_at": "2012-10-18T11:41:41Z"
+    }
+  }
+]
 ~~~
 
 
