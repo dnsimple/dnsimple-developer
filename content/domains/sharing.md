@@ -65,7 +65,7 @@ Add a membership for domain `example.com`:
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
-          -X POST
+          -X POST \
           -d '<json>' \
           https://dnsimple.com/domains/example.com/memberships
 
