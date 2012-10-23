@@ -107,7 +107,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a membership
 
-    DELETE /domains/:domain/memberships/:email
+    DELETE /domains/:domain/memberships/:membership
 
 ### Example
 
@@ -118,6 +118,14 @@ Delete the membership with ID `712` for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X DELETE \
           https://dnsimple.com/domains/example.com/memberships/712
+
+Delete the membership with email `member@example.com` for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X DELETE \
+          https://dnsimple.com/domains/example.com/memberships/member@example.com
 
 ### Response
 
