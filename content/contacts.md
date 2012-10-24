@@ -17,6 +17,8 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
+List all contacts.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://dnsimple.com/contacts
@@ -59,7 +61,7 @@ with DNSimple or transferred into DNSimple from another registrar.
       "updated_at": "2010-09-03T20:11:51Z",
       "postal_code": "33143",
       "organization_name": "Little Co Inc.",
-      "id": 6,
+      "id": 123,
       "user_id": 1,
       "phone_ext": null,
       "phone": "505 111 2222",
@@ -79,9 +81,11 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
+Get the contact with ID `123`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/contacts/:id
+          https://dnsimple.com/contacts/123
 
 ### Response
 
@@ -98,7 +102,7 @@ with DNSimple or transferred into DNSimple from another registrar.
     "updated_at": "2010-09-03T20:11:51Z",
     "postal_code": "33143",
     "organization_name": "Little Co Inc.",
-    "id": 6,
+    "id": 123,
     "user_id": 1,
     "phone_ext": null,
     "phone": "505 111 2222",
@@ -117,6 +121,8 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Example
 
+Create a contact.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
@@ -126,49 +132,96 @@ with DNSimple or transferred into DNSimple from another registrar.
 
 ### Input
 
-The following fields are required:
+contact.first_name
+: Required _string_
 
-- `contact[first_name]`
-- `contact[last_name]`
-- `contact[address1]`
-- `contact[city]`
-- `contact[state_province]`
-- `contact[postal_code]`
-- `contact[country]`
-- `contact[email_address]`
-- `contact[phone]`
+contact.last_name
+: Required _string_
 
-The following fields are optional:
+contact.organization_name
+: Optional _string_ representing the organization/company name.
+  If the `organization_name` is specified, then you must also include `job_title`.
 
-- `contact[organization_name]`
-- `contact[job_title]`
-- `contact[fax]`
-- `contact[phone_ext]`
-- `contact[label]`
+contact.job_title
+: Optional _string_
 
-If the `contact[organization_name]` is specified then you must also include `contact[job_title]`.
+contact.address1
+: Required _string_
+
+contact.city
+: Required _string_
+
+contact.state_province
+: Required _string_
+
+contact.postal_code
+: Required _string_
+
+contact.country
+: Required _string_
+
+contact.email_address
+: Required _string_
+
+contact.phone
+: Required _string_
+
+contact.phone_ext
+: Optional _string_
+
+contact.fax
+: Optional _string_
+
+contact.label
+: Optional _string_
 
 ~~~ js
 {
   "contact": {
     "first_name": "John",
-    "last_name": "Doe",
-    "address1": "1 SW 1st Street",
+    "last_name": "Smith",
+    "address1": "1000 SW 1st Street",
     "city": "Miami",
     "state_province": "FL",
     "postal_code": "33143",
     "country": "US",
-    "email_address": "john.doe@gmail.com",
-    "phone": "+15551122323",
-    "label": "Home"
+    "email_address": "john.smith@example.com",
+    "phone": "505 111 2222",
+    "organization_name": "Little Co Inc.",
+    "job_title": "President",
+    "label": "Office"
   }
 }
 ~~~
 
 ### Response
 
+Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "contact": {
+    "city": "Miami",
+    "address1": "1000 SW 1st Street",
+    "state_province": "FL",
+    "created_at": "2010-09-03T20:11:51Z",
+    "address2": "",
+    "job_title": "President",
+    "country": "US",
+    "updated_at": "2010-09-03T20:11:51Z",
+    "postal_code": "33143",
+    "organization_name": "Little Co Inc.",
+    "id": 123,
+    "user_id": 1,
+    "phone_ext": null,
+    "phone": "505 111 2222",
+    "last_name": "Smith",
+    "fax": null,
+    "email_address": "john.smith@example.com",
+    "first_name": "John"
+  }
+}
 ~~~
 
 
@@ -178,21 +231,47 @@ TODO
 
 ### Example
 
+Update the contact with ID `123`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PUT \
           -d '<json>' \
-          https://dnsimple.com/contacts/:id
+          https://dnsimple.com/contacts/123
 
 ### Input
 
-See "Create a contact".
+See [Create a contact](#create-a-contact).
 
 ### Response
 
+Responds with HTTP 200 on success.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "contact": {
+    "city": "Miami",
+    "address1": "1000 SW 1st Street",
+    "state_province": "FL",
+    "created_at": "2010-09-03T20:11:51Z",
+    "address2": "",
+    "job_title": "President",
+    "country": "US",
+    "updated_at": "2010-09-03T20:11:51Z",
+    "postal_code": "33143",
+    "organization_name": "Little Co Inc.",
+    "id": 123,
+    "user_id": 1,
+    "phone_ext": null,
+    "phone": "505 111 2222",
+    "last_name": "Smith",
+    "fax": null,
+    "email_address": "john.smith@example.com",
+    "first_name": "John"
+  }
+}
 ~~~
 
 
@@ -202,14 +281,14 @@ TODO
 
 ### Example
 
+Delete the contact with ID `123`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/contacts/:id
+          https://dnsimple.com/contacts/123
 
 ### Response
 
-~~~ js
-TODO
-~~~
+Responds with HTTP 204 on success.
