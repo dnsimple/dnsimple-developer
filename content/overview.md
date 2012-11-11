@@ -34,3 +34,15 @@ All requests should be sent with `application/json` content type, but form-encod
 The examples below are shown with JSON.
 
 All requests must include the `Accept` header set to `application/json`.
+
+## CORS
+
+If you are using the DNSimple API in JavaScript from within a web browser then your browser will need to support CORS.
+
+Our CORS response headers are currently as follows:
+
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Authorization,Accepts,Content-Type,X-DNSimple-Domain-Token,X-CSRF-Token,X-Requested-With
+    Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
+
+As you can see we allow any origin to access the DNSimple API, so you should be able to embed a JavaScript library directly in your web application if you would like.
