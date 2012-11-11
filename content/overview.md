@@ -41,8 +41,8 @@ If you are using the DNSimple API in JavaScript from within a web browser then y
 
 Our CORS response headers are currently as follows:
 
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: Authorization,Accepts,Content-Type,X-DNSimple-Domain-Token,X-CSRF-Token,X-Requested-With
-Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Authorization,Accepts,Content-Type,X-DNSimple-Domain-Token,X-CSRF-Token,X-Requested-With
+    Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
 
 As you can see we allow any origin to access the DNSimple API, so you should be able to embed a JavaScript library directly in your web application if you would like.
