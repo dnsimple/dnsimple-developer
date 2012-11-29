@@ -23,7 +23,7 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 - [DNSimple JavaScript client](https://github.com/aetrion/dnsimple-js)
 - [DNSimple Node.js client](https://search.npmjs.org/#/dnsimple) ([GitHub](https://github.com/fvdm/nodejs-dnsimple))
 
-### C#
+### C♯
 
 - [DNSimple C# client](https://github.com/anderly/dnsimple-csharp)
 
