@@ -96,3 +96,31 @@ Responds with HTTP 400 if the validation fails.
   }
 }
 ~~~
+
+## Export Domain Zone
+
+    GET /domains/:domain/zone.txt
+
+### Example
+
+Export zone for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          https://dnsimple.com/domains/example.com/zone.txt
+
+Export zone for domain with ID `123`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          https://dnsimple.com/domains/123/zone.txt
+
+### Response
+
+~~~
+$ORIGIN example.com.
+$TTL 1h
+example.com. IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300
+example.com. IN NS  ns1.dnsimple.com.
+example.com. IN NS  ns2.dnsimple.com.
+example.com. IN NS  ns3.dnsimple.com.
+example.com. IN NS  ns4.dnsimple.com.
+~~~
