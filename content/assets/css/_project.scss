@@ -23,6 +23,14 @@ h2 {
   border-bottom: 1px solid #eee;
 }
 
+// <pre> should not wrap text
+pre {
+  word-break: normal;
+  word-wrap: normal;
+  overflow-y: auto;
+  white-space: pre;
+}
+
 footer {
   margin-top: 20px;
   padding-top: 20px;
