@@ -21,7 +21,7 @@ Import zone for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          /domains/example.com/zone_imports
+          https://dnsimple.com/domains/example.com/zone_imports
 
 Import zone for domain with ID `123`:
 
@@ -30,7 +30,7 @@ Import zone for domain with ID `123`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          /domains/123/zone_imports
+          https://dnsimple.com/domains/123/zone_imports
 
 ### Input
 
