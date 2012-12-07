@@ -262,12 +262,11 @@ push.contact_id
 
 ### Response
 
-
-Responds with HTTP 200 on success.
-
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 200 on success.
 
 ~~~ js
 {

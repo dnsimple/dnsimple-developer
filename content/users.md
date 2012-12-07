@@ -49,9 +49,9 @@ user.password_confirmation
 
 ### Response
 
-Responds with HTTP 201 on success.
-
 Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 201 on success.
 
 ~~~ js
 {
