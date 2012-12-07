@@ -24,6 +24,7 @@ View the current subscription details.
 ### Response
 
 Responds with HTTP 200 on success.
+
 Responds with HTTP 402 if the current user has no subscription.
 
 ~~~ js
@@ -109,6 +110,7 @@ subscription.credit_card.cvv
 ### Response
 
 Responds with HTTP 201 on success.
+
 Responds with HTTP 400 if the validation fails.
 
 ~~~ js

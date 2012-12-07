@@ -197,6 +197,7 @@ contact.label
 ### Response
 
 Responds with HTTP 201 on success.
+
 Responds with HTTP 400 if the validation fails.
 
 ~~~ js
@@ -247,6 +248,7 @@ See [Create a contact](#create-a-contact).
 ### Response
 
 Responds with HTTP 200 on success.
+
 Responds with HTTP 400 if the validation fails.
 
 ~~~ js

@@ -264,7 +264,9 @@ push.contact_id
 
 
 Responds with HTTP 200 on success.
+
 Responds with HTTP 400 if bad request.
+
 Responds with HTTP 400 if the validation fails.
 
 ~~~ js
