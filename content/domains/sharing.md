@@ -71,8 +71,6 @@ Add a membership for domain `example.com`:
 
 ### Input
 
-The following fields are required:
-
 membership.email
 : Required _string_ address for the person to add.
   If the person already exists in DNSimple as a customer then he will immediately be added to the domain's membership list.

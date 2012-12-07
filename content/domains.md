@@ -80,15 +80,25 @@ title: Domains
 ~~~ js
 {
   "domain": {
-    "name": "example.com",
+    "auto_renew": null,
+    "created_at": "2012-09-21T21:15:19Z",
     "expires_at": "3/18/2012 4:07:00 PM",
-    "created_at": "2010-10-03T11:38:04Z",
-    "registration_status": "registered",
-    "updated_at": "2010-10-28T10:00:17Z",
+    "id": 123,
+    "language": null,
+    "lockable": true,
+    "name": "example.com",
+    "name_server_status": "active",
+    "parsed_expiration_date": "2012-03-18T04:07:00Z",
     "registrant_id": 1,
-    "id": 1,
+    "state": "registered",
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "unicode_name": "example.com",
+    "updated_at": "2012-12-07T14:55:25Z",
     "user_id": 1,
-    "name_server_status": "active"
+    "uses_external_name_servers": null,
+    "record_count": 0,
+    "service_count": 0,
+    "private_whois?": false
   }
 }
 ~~~
@@ -207,29 +217,39 @@ TODO
 
 Push a domain from the current DNSimple account to another.
 
-    POST /domains/:id/push
+    POST /domains/:domain/push
 
 Once a domain is pushed you will no longer be able to access it through your account.
 You will need to acces it using the new account's credentials.
 
 ### Example
 
+Move domain `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://dnsimple.com/domains/:id/push
+          -d '<json>' \
+          https://dnsimple.com/domains/example.com/push
+
+Move domain with ID `123`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          -d '<json>' \
+          https://dnsimple.com/domains/123/push
 
 ### Input
 
-The following fields are required:
+push.new_user_email
+: Required _string_ email of the new account's email address.
 
-- `push[new_user_email]`
-- `push[contact_id]`
+push.contact_id
+: Required _integer_ corresponding to the new account's registrant.
 
-`push[new_user_email]` must match the new account's email address exactly.
-
-`push[contact_id]` must exist in the new account.
 
 ~~~ js
 {
@@ -242,6 +262,33 @@ The following fields are required:
 
 ### Response
 
+
+Responds with HTTP 200 on success.
+Responds with HTTP 400 if bad request.
+Responds with HTTP 400 if the validation fails.
+
 ~~~ js
-TODO
+{
+  "domain": {
+    "auto_renew": null,
+    "created_at": "2012-09-21T21:15:19Z",
+    "expires_at": "3/18/2012 4:07:00 PM",
+    "id": 123,
+    "language": null,
+    "lockable": true,
+    "name": "example.com",
+    "name_server_status": "active",
+    "parsed_expiration_date": "2012-03-18T04:07:00Z",
+    "registrant_id": 1234,
+    "state": "registered",
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "unicode_name": "example.com",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "user_id": 4,
+    "uses_external_name_servers": null,
+    "record_count": 0,
+    "service_count": 0,
+    "private_whois?": false
+  }
+}
 ~~~
