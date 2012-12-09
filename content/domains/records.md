@@ -10,13 +10,13 @@ title: Domain Records
 
 ## List domain records
 
-    GET /domain/:domain/records
+    GET /domains/:domain/records
 
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domain/:domain/records
+          https://dnsimple.com/domains/:domain/records
 
 ### Parameters
 
