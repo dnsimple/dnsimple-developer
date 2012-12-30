@@ -29,7 +29,7 @@ Responds with HTTP 200 on success.
 
 ~~~ js
 {
-  "chargify_subscription": {
+  "subscription": {
     "allocated_quantity": 0,
     "created_at": "2012-05-09T15:35:57Z",
     "domain_limit": 10,
@@ -115,7 +115,7 @@ Responds with HTTP 201 on success.
 
 ~~~ js
 {
-  "chargify_subscription": {
+  "subscription": {
     "allocated_quantity": 0,
     "created_at": "2012-09-30T17:40:42Z",
     "domain_limit": 50,
