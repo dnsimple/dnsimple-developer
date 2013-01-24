@@ -172,6 +172,10 @@ Responds with HTTP 201 on success.
 
 ## Delete a domain
 
+<div class="alert">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain">planned changes</a> for this API method.
+</div>
+
 Delete the given domain from your account.
 
     DELETE /domains/:domain
@@ -198,10 +202,6 @@ Delete the domain `example.com`.
           https://dnsimple.com/domains/example.com
 
 ### Response
-
-<div class="alert">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain">planned changes</a> for this API method.
-</div>
 
 Responds with HTTP 201 on success.
 
