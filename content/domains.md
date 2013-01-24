@@ -257,11 +257,12 @@ This will unlock a domain and send the authorization code to the domain's admini
           -X POST \
           https://dnsimple.com/domains/:id/transfer_outs
 
+<!-- TODO
 ### Response
 
 ~~~ js
-TODO
 ~~~
+-->
 
 
 ## Move domain to another account
