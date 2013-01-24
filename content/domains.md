@@ -68,7 +68,7 @@ List all domains.
 
 ## Get a domain
 
-    GET /domains/:id
+    GET /domains/:domain
 
 ### Example
 
@@ -174,7 +174,7 @@ Responds with HTTP 201 on success.
 
 Delete the given domain from your account.
 
-    DELETE /domains/:id
+    DELETE /domains/:domain
 
 Please note that for domains which are registered with DNSimple
 this will not delete the domain from the registry.
