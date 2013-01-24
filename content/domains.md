@@ -323,14 +323,13 @@ Responds with HTTP 200 on success.
 {
   "domain": {
     "auto_renew": null,
-    "created_at": "2012-09-21T21:15:19Z",
-    "expires_at": "3/18/2012 4:07:00 PM",
+    "created_at": "2013-01-24T19:23:08Z",
+    "expires_on": "2012-03-18",
     "id": 123,
     "language": null,
     "lockable": true,
     "name": "example.com",
     "name_server_status": "active",
-    "parsed_expiration_date": "2012-03-18T04:07:00Z",
     "registrant_id": 1234,
     "state": "registered",
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
