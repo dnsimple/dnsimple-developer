@@ -1,0 +1,10 @@
+---
+title: Planned Changes
+---
+
+# Planned Changes
+
+### DELETE /domains/:domain
+
+- Response code is expected to HTTP 204 instead of HTTP 200.
+- Response is expected to be empty instead of a JSON object.
