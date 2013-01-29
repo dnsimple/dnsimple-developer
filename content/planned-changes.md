@@ -8,3 +8,7 @@ title: Planned Changes
 
 - Response code is expected to HTTP 204 instead of HTTP 200.
 - Response is expected to be empty instead of a JSON object.
+
+### DELETE /domains/:domain/records/:id
+
+- Response code is expected to HTTP 204 instead of HTTP 200.

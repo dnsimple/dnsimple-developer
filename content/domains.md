@@ -203,7 +203,7 @@ Delete the domain `example.com`.
 
 ### Response
 
-Responds with HTTP 201 on success.
+Responds with HTTP 200 on success.
 
 ~~~ js
 {

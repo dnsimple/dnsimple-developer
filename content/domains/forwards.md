@@ -97,7 +97,7 @@ Responds with HTTP 201 on success.
 ~~~ js
 {
   "email_forward": {
-    "id": 2,
+    "id": 123,
     "domain_id": 123,
     "from": "john@example.com",
     "to": "someone@somedomain.com",
@@ -114,13 +114,13 @@ Responds with HTTP 201 on success.
 
 ### Example
 
-Delete the email forward with ID `2` for domain `example.com`:
+Delete the email forward with ID `123` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/email_forwards/2
+          https://dnsimple.com/domains/example.com/email_forwards/123
 
 ### Response
 
