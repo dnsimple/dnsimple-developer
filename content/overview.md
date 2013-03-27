@@ -37,7 +37,7 @@ There are two authentication methods availabe: `HTTP Basic Authentication` or th
           -H 'Accept: application/json' \
           https://dnsimple.com/domains/:domain
 
-The [Authentication](/authentication) page provides more information about how to use them.
+The [Authentication](/authentication/) page provides more information about how to use them.
 
 
 ## Requests
