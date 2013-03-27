@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'nanoc',      '~> 3.4.0'
+gem 'nanoc', '~> 3.6.0'
 gem 'mime-types'
 gem 'nokogiri'
 gem 'pygments.rb'
