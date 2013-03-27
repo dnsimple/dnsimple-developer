@@ -138,7 +138,7 @@ TODO
 
 Renew a domain name in your account.
 
-    POST /domain_renewal
+    POST /domain_renewals
 
 Domains will always be renewed for their minimum renewal period,
 which is 1 year for most domains but for some domains may be more.
@@ -150,7 +150,7 @@ which is 1 year for most domains but for some domains may be more.
           -H 'Content-Type: application/json' \
           -X POST \
           -d <data> \
-          https://dnsimple.com/domain_renewal
+          https://dnsimple.com/domain_renewals
 
 ### Input
 
