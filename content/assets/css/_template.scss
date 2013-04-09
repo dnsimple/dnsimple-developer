@@ -46,12 +46,21 @@ pre {
 
 footer {
   margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
   background-color: #f8f8f8;
-  border-top: 1px solid #ccc;
   color: #7b7b7b;
   font-size: 13px;
+
+  ul {
+    list-style: none;
+    margin: 0 0 3px 0;
+  }
+
+  ul li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+  }
 
   a {
     margin-right: 10px;
