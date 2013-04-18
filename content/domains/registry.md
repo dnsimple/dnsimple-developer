@@ -1,8 +1,8 @@
 ---
-title: Domain Operations
+title: Domain Registry
 ---
 
-# Domain Operation API
+# Domain Registry API
 
 * TOC
 {:toc}
