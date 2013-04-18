@@ -72,9 +72,11 @@ Example with extended attributes.
 Upon successful creation of the domain the response code will be a 201
 and the response body will contain the domain details.
 
+<!-- TODO
 ~~~ js
 TODO
 ~~~
+-->
 
 
 ## Transfer a domain
@@ -129,9 +131,35 @@ you must include the following:
 Upon successful issuance of the transfer order the response code will be a 201
 and the response body will contain the transfer order details.
 
+<!-- TODO
 ~~~ js
 TODO
 ~~~
+-->
+
+
+## Transfer out a domain
+
+Prepare a domain for transferring out.
+
+    POST /domains/:id/transfer_outs
+
+This will unlock a domain and send the authorization code to the domain's administrative contact.
+
+### Example
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          https://dnsimple.com/domains/:id/transfer_outs
+
+<!-- TODO
+### Response
+
+~~~ js
+~~~
+-->
 
 
 ## Renew a domain
@@ -170,9 +198,9 @@ The following fields are optional:
 }
 ~~~
 
+<!-- TODO
 ### Response
 
 ~~~ js
-TODO
 ~~~
-
+-->
