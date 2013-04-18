@@ -138,30 +138,6 @@ TODO
 -->
 
 
-## Transfer out a domain
-
-Prepare a domain for transferring out.
-
-    POST /domains/:id/transfer_outs
-
-This will unlock a domain and send the authorization code to the domain's administrative contact.
-
-### Example
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          https://dnsimple.com/domains/:id/transfer_outs
-
-<!-- TODO
-### Response
-
-~~~ js
-~~~
--->
-
-
 ## Renew a domain
 
 Renew a domain name in your account.
@@ -197,6 +173,30 @@ The following fields are optional:
   }
 }
 ~~~
+
+<!-- TODO
+### Response
+
+~~~ js
+~~~
+-->
+
+
+## Transfer out a domain
+
+Prepare a domain for transferring out.
+
+    POST /domains/:domain/transfer_outs
+
+This will unlock a domain and send the authorization code to the domain's administrative contact.
+
+### Example
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          https://dnsimple.com/domains/:domain/transfer_outs
 
 <!-- TODO
 ### Response
