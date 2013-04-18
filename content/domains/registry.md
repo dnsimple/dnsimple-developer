@@ -29,19 +29,17 @@ so please be careful with this command.
 
 ### Input
 
-The following fields are required:
+domain.name
+: Required _string_
 
-- `domain[name]`
-- `domain[registrant_id]`
+domain.registrant_id
+: Required _integer_ The ID of an existing contact in your account.
 
-`domain[registrant_id]` is the ID of an existing contact in your account.
+domain.extended_attribute
+: optional _hash_ For TLDs that require [extended attributes](/extended-attributes/).
 
-For TLDs that require [extended attributes](/extended-attributes/),
-you must also include `extended_attribute`:
 
-- `domain[extended_attribute][]`
-
-Example.
+**Example.**
 
 ~~~ js
 {
@@ -52,7 +50,7 @@ Example.
 }
 ~~~
 
-Example with extended attributes.
+**Example with extended attributes.**
 
 ~~~ js
 {
@@ -104,15 +102,18 @@ however domains ending in `.us` and `.ca` may not.
 
 ### Input
 
-The following fields are required:
+domain.name
+: Required _string_
 
-- `domain[name]`
-- `domain[registrant_id]`
+domain.registrant_id
+: Required _integer_ The ID of an existing contact in your account.
 
-For top-level domains that require an authorization code,
-you must include the following:
+domain.extended_attribute
+: optional _hash_ For TLDs that require [extended attributes](/extended-attributes/).
 
-- `transfer_order[authinfo]`
+transfer_order.authinfo
+: optional _string_ Required for top-level domains that require an authorization code.
+
 
 ~~~ js
 {
@@ -158,13 +159,12 @@ which is 1 year for most domains but for some domains may be more.
 
 ### Input
 
-The following fields are required:
+domain.name
+: Required _string_
 
-- `domain[name]`
+domain.renew_whois_privacy
+: Optional _boolean_
 
-The following fields are optional:
-
-- `domain[renew_whois_privacy]`
 
 ~~~ js
 {
