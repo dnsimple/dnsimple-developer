@@ -180,14 +180,14 @@ Responds with HTTP 201 on success.
 
 ### Example
 
-Create the record with ID `123` for domain `example.com`:
+Update the record with ID `123` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PUT
           -d '<json>' \
-          https://dnsimple.com/domains/example/records/123
+          https://dnsimple.com/domains/example.com/records/123
 
 ### Input
 
@@ -255,7 +255,7 @@ Delete the record with ID `123` for domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example/records/123
+          https://dnsimple.com/domains/example.com/records/123
 
 ### Response
 
