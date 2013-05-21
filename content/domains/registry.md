@@ -56,11 +56,11 @@ domain.extended_attribute
 {
   "domain": {
     "name": "newdomain.us",
-    "registrant_id": 1,
-    "extended_attribute": {
-      "us_nexus": "C11",
-      "us_purpose": "P3"
-    }
+    "registrant_id": 1
+  },
+  "extended_attribute": {
+    "us_nexus": "C11",
+    "us_purpose": "P3"
   }
 }
 ~~~
