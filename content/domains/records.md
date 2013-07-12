@@ -260,3 +260,7 @@ Delete the record with ID `123` for domain `example.com`:
 ### Response
 
 Responds with HTTP 200 on success.
+
+<div class="alert">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
+</div>

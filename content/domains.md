@@ -205,12 +205,9 @@ Delete the domain `example.com`.
 
 Responds with HTTP 200 on success.
 
-~~~ js
-{
-  "name": "example.com",
-  "status": "deleted"
-}
-~~~
+<div class="alert">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
+</div>
 
 
 ## Check domain availability

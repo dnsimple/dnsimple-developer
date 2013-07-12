@@ -60,15 +60,8 @@ If the privacy protection has not expired it can always be turned back on with n
 
 ### Response
 
-~~~ js
-{
-  "whois_privacy": {
-    "id": 18,
-    "domain_id": 1000,
-    "auto_renew": false,
-    "expires_on": "2012-07-23",
-    "enabled": false,
-  }
-}
-~~~
+Responds with HTTP 200 on success.
 
+<div class="alert">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
+</div>
