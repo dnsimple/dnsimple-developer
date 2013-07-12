@@ -10,7 +10,7 @@ WHOIS Privacy Protection replaces a domain's WHOIS data with a proxy service to 
 {:toc}
 
 
-## Enable privacy protection
+## Enable WHOIS Privacy
 
     POST /domains/:domain/whois_privacy
 
@@ -30,19 +30,21 @@ If the privacy protection is currently disabled then it will be enabled.
 ~~~ js
 {
   "whois_privacy": {
-    "autorenew": false,
-    "created_at": "2011-07-23T20:42:48Z",
-    "domain_id": 1000,
-    "enabled": true,
-    "expires_on": "2012-07-23",
     "id": 18,
-    "updated_at": "2011-07-23T20:42:48Z"
+    "domain_id": 1000,
+    "auto_renew": false,
+    "expires_on": "2012-07-23",
+    "enabled": false,
   }
 }
 ~~~
 
 
-## Disable privacy protection
+## Disable WHOIS Privacy
+
+<div class="alert">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy">planned changes</a> for this API method.
+</div>
 
     DELETE /domains/:domain/whois_privacy
 
@@ -59,5 +61,14 @@ If the privacy protection has not expired it can always be turned back on with n
 ### Response
 
 ~~~ js
-TODO
+{
+  "whois_privacy": {
+    "id": 18,
+    "domain_id": 1000,
+    "auto_renew": false,
+    "expires_on": "2012-07-23",
+    "enabled": false,
+  }
+}
 ~~~
+
