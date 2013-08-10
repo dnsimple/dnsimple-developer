@@ -24,43 +24,47 @@ List all domains.
 
 ~~~ js
 [
-  "domain": {
-    "auto_renew": null,
-    "created_at": "2013-01-24T19:23:08Z",
-    "expires_on": "2012-03-18",
-    "id": 123,
-    "language": null,
-    "lockable": true,
-    "name": "example.com",
-    "name_server_status": "unknown",
-    "registrant_id": null,
-    "state": "registered",
-    "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
-    "unicode_name": "example.com",
-    "updated_at": "2013-01-24T19:23:08Z",
-    "user_id": 1,
-    "record_count": 0,
-    "service_count": 0,
-    "private_whois?": false
+  {
+    "domain": {
+      "auto_renew": null,
+      "created_at": "2013-01-24T19:23:08Z",
+      "expires_on": "2012-03-18",
+      "id": 123,
+      "language": null,
+      "lockable": true,
+      "name": "example.com",
+      "name_server_status": "unknown",
+      "registrant_id": null,
+      "state": "registered",
+      "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
+      "unicode_name": "example.com",
+      "updated_at": "2013-01-24T19:23:08Z",
+      "user_id": 1,
+      "record_count": 0,
+      "service_count": 0,
+      "private_whois?": false
+    },
   },
-  "domain": {
-    "auto_renew": null,
-    "created_at": "2013-01-24T19:23:08Z",
-    "expires_on": "2012-03-18",
-    "id": 124,
-    "language": null,
-    "lockable": true,
-    "name": "example2.com",
-    "name_server_status": "unknown",
-    "registrant_id": null,
-    "state": "registered",
-    "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
-    "unicode_name": "example.com",
-    "updated_at": "2013-01-24T19:23:08Z",
-    "user_id": 1,
-    "record_count": 0,
-    "service_count": 0,
-    "private_whois?": false
+  {
+    "domain": {
+      "auto_renew": null,
+      "created_at": "2013-01-24T19:23:08Z",
+      "expires_on": "2012-03-18",
+      "id": 124,
+      "language": null,
+      "lockable": true,
+      "name": "example2.com",
+      "name_server_status": "unknown",
+      "registrant_id": null,
+      "state": "registered",
+      "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
+      "unicode_name": "example.com",
+      "updated_at": "2013-01-24T19:23:08Z",
+      "user_id": 1,
+      "record_count": 0,
+      "service_count": 0,
+      "private_whois?": false
+    }
   }
 ]
 ~~~
