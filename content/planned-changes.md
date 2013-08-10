@@ -10,6 +10,10 @@ We hate to break backward compatibility, however there are cases where a method 
 
 Please review the following changes and write your code accordingly. In most cases, you should be able to support both current and planned API response by loosening validation checks. For example, you can check whether the response code of a delete is `2xx` and you'll match both `200` (current) and `204` (planned).
 
+### Domain serialization
+
+- The `name_server_status` is no longer used and will be removed soon.
+
 
 ### DELETE /domains/:domain
 
