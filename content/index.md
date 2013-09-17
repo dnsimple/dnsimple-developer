@@ -17,4 +17,4 @@ There are some [planned changes](/planned-changes/) (last update 2013-08-10) we'
 
 ### Changelog
 
-View the API Changelog for information on existing and planned changes to the API.
+View the [API Changelog](/changelog/) for information on existing and planned changes to the API.
