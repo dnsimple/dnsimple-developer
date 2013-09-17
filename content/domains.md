@@ -29,7 +29,7 @@ List all domains.
       "auto_renew": null,
       "created_at": "2013-01-24T19:23:08Z",
       "expires_on": "2012-03-18",
-      "id": 123,
+      "id": 1,
       "language": null,
       "lockable": true,
       "name": "example.com",
@@ -49,7 +49,7 @@ List all domains.
       "auto_renew": null,
       "created_at": "2013-01-24T19:23:08Z",
       "expires_on": "2012-03-18",
-      "id": 124,
+      "id": 11,
       "language": null,
       "lockable": true,
       "name": "example2.com",
@@ -74,11 +74,11 @@ List all domains.
 
 ### Example
 
-Get the domain with ID `123`.
+Get the domain with ID `1`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/123
+          https://dnsimple.com/domains/1
 
 Get the domain `example.com`.
 
@@ -94,7 +94,7 @@ Get the domain `example.com`.
     "auto_renew": null,
     "created_at": "2013-01-24T19:23:08Z",
     "expires_on": "2012-03-18",
-    "id": 123,
+    "id": 1,
     "language": null,
     "lockable": true,
     "name": "example.com",
@@ -152,7 +152,7 @@ Responds with HTTP 201 on success.
     "auto_renew": null,
     "created_at": "2013-01-24T19:23:08Z",
     "expires_on": null,
-    "id": 123,
+    "id": 1,
     "language": null,
     "lockable": true,
     "name": "example.com",
@@ -185,13 +185,13 @@ this will not delete the domain from the registry.
 
 ### Example
 
-Delete the domain with ID `123`:
+Delete the domain with ID `1`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/123
+          https://dnsimple.com/domains/1
 
 Delete the domain `example.com`.
 
@@ -258,14 +258,14 @@ Move domain `example.com`:
           -d '<json>' \
           https://dnsimple.com/domains/example.com/push
 
-Move domain with ID `123`:
+Move domain with ID `1`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/123/push
+          https://dnsimple.com/domains/1/push
 
 ### Input
 
@@ -280,7 +280,7 @@ push.contact_id
 {
   "push": {
     "new_user_email": "john@example.com",
-    "contact_id": 1234
+    "contact_id": 100
   }
 }
 ~~~
@@ -299,16 +299,16 @@ Responds with HTTP 200 on success.
     "auto_renew": null,
     "created_at": "2013-01-24T19:23:08Z",
     "expires_on": "2012-03-18",
-    "id": 123,
+    "id": 1,
     "language": null,
     "lockable": true,
     "name": "example.com",
-    "registrant_id": 1234,
+    "registrant_id": 100,
     "state": "registered",
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
     "unicode_name": "example.com",
     "updated_at": "2012-12-07T14:55:25Z",
-    "user_id": 4,
+    "user_id": 1,
     "uses_external_name_servers": null,
     "record_count": 0,
     "service_count": 0,
