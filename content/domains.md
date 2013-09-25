@@ -72,6 +72,11 @@ List all domains.
 
     GET /domains/:domain
 
+### Params
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 Get the domain with ID `1`.
@@ -183,6 +188,11 @@ Delete the given domain from your account.
 Please note that for domains which are registered with DNSimple
 this will not delete the domain from the registry.
 
+### Params
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 Delete the domain with ID `1`:
@@ -270,6 +280,11 @@ Check if a domain is available for registration.
 
     GET /domains/:name/check
 
+### Params
+
+:domain
+: The _string_ domain name
+
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
@@ -300,6 +315,11 @@ Push a domain from the current DNSimple account to another.
 
 Once a domain is pushed you will no longer be able to access it through your account.
 You will need to acces it using the new account's credentials.
+
+### Params
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 
