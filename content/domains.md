@@ -91,19 +91,19 @@ Get the domain `example.com`.
 ~~~ js
 {
   "domain": {
-    "auto_renew": null,
-    "created_at": "2013-01-24T19:23:08Z",
-    "expires_on": "2012-03-18",
     "id": 1,
-    "language": null,
-    "lockable": true,
+    "user_id": 2,
+    "registrant_id": 100,
     "name": "example.com",
-    "registrant_id": null,
-    "state": "registered",
-    "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
     "unicode_name": "example.com",
-    "updated_at": "2013-01-24T19:23:08Z",
-    "user_id": 1,
+    "lockable": true,
+    "auto_renew": null,
+    "state": "registered",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "expires_on": "2012-03-18",
     "record_count": 0,
     "service_count": 0,
     "private_whois?": false
@@ -149,19 +149,19 @@ Responds with HTTP 201 on success.
 ~~~ js
 {
   "domain": {
-    "auto_renew": null,
-    "created_at": "2013-01-24T19:23:08Z",
-    "expires_on": null,
     "id": 1,
-    "language": null,
-    "lockable": true,
-    "name": "example.com",
+    "user_id": 2,
     "registrant_id": null,
-    "state": "hosted",
-    "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
+    "name": "example.com",
     "unicode_name": "example.com",
-    "updated_at": "2013-01-24T19:23:08Z",
-    "user_id": 1,
+    "lockable": true,
+    "auto_renew": null,
+    "state": "hosted",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "expires_on": null,
     "record_count": 0,
     "service_count": 0,
     "private_whois?": false
@@ -208,6 +208,60 @@ Responds with HTTP 200 on success.
 <div class="alert">
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
 </div>
+
+
+## Reset domain token
+
+    POST /domains/:domain/token
+
+### Params
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
+### Example
+
+Reset the token for the domain `example.com`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -X POST \
+          -H 'Content-Type: application/json' \
+          -d '{}' \
+          https://dnsimple.com/domains/example.com/token
+
+### Input
+
+Empty.
+
+### Response
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 200 on success.
+
+~~~ js
+{
+  "domain": {
+    "id": 1,
+    "user_id": 2,
+    "registrant_id": null,
+    "name": "example.com",
+    "unicode_name": "example.com",
+    "lockable": true,
+    "auto_renew": null,
+    "state": "hosted",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "expires_on": null,
+    "record_count": 0,
+    "service_count": 0,
+    "private_whois?": false
+  }
+}
+~~~
 
 
 ## Check domain availability
@@ -296,20 +350,19 @@ Responds with HTTP 200 on success.
 ~~~ js
 {
   "domain": {
-    "auto_renew": null,
-    "created_at": "2013-01-24T19:23:08Z",
-    "expires_on": "2012-03-18",
     "id": 1,
-    "language": null,
-    "lockable": true,
-    "name": "example.com",
+    "user_id": 2,
     "registrant_id": 100,
-    "state": "registered",
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "name": "example.com",
     "unicode_name": "example.com",
+    "lockable": true,
+    "auto_renew": null,
+    "state": "registered",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
     "updated_at": "2012-12-07T14:55:25Z",
-    "user_id": 1,
-    "uses_external_name_servers": null,
+    "expires_on": "2012-03-18",
     "record_count": 0,
     "service_count": 0,
     "private_whois?": false
