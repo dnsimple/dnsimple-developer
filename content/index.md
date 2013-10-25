@@ -14,7 +14,3 @@ The following documentation describes the DNSimple REST API.
 ### Expected Changes
 
 There are some [planned changes](/planned-changes/) (last update 2013-08-10) we'll implement someday in the future. Please review them and make sure to write your code accordingly.
-
-### Changelog
-
-View the [API Changelog](/changelog/) for information on existing and planned changes to the API.
