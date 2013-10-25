@@ -22,6 +22,8 @@ List all domains.
 
 ### Response
 
+Responds with HTTP 200.
+
 ~~~ js
 [
   {
@@ -93,6 +95,8 @@ Get the domain `example.com`.
 
 ### Response
 
+Responds with HTTP 200, returns the domain.
+
 ~~~ js
 {
   "domain": {
@@ -149,7 +153,7 @@ Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
 
-Responds with HTTP 201 on success.
+Responds with HTTP 201 on success, returns the domain.
 
 ~~~ js
 {
@@ -248,7 +252,7 @@ Empty.
 
 Responds with HTTP 400 if bad request.
 
-Responds with HTTP 200 on success.
+Responds with HTTP 200 on success, returns the domain.
 
 ~~~ js
 {
@@ -323,7 +327,7 @@ You will need to acces it using the new account's credentials.
 
 ### Example
 
-Move domain `example.com`:
+Move the domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -331,15 +335,6 @@ Move domain `example.com`:
           -X POST \
           -d '<json>' \
           https://dnsimple.com/domains/example.com/push
-
-Move domain with ID `1`:
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '<json>' \
-          https://dnsimple.com/domains/1/push
 
 ### Input
 
@@ -365,7 +360,7 @@ Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
 
-Responds with HTTP 200 on success.
+Responds with HTTP 200 on success, returns the domain.
 
 ~~~ js
 {
