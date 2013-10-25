@@ -28,7 +28,7 @@ Responds with HTTP 200.
 [
   {
     "domain": {
-      "auto_renew": null,
+      "auto_renew": false,
       "created_at": "2013-01-24T19:23:08Z",
       "expires_on": "2012-03-18",
       "id": 1,
@@ -48,7 +48,7 @@ Responds with HTTP 200.
   },
   {
     "domain": {
-      "auto_renew": null,
+      "auto_renew": false,
       "created_at": "2013-01-24T19:23:08Z",
       "expires_on": "2012-03-18",
       "id": 11,
@@ -106,7 +106,7 @@ Responds with HTTP 200, returns the domain.
     "name": "example.com",
     "unicode_name": "example.com",
     "lockable": true,
-    "auto_renew": null,
+    "auto_renew": false,
     "state": "registered",
     "language": null,
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
@@ -164,7 +164,7 @@ Responds with HTTP 201 on success, returns the domain.
     "name": "example.com",
     "unicode_name": "example.com",
     "lockable": true,
-    "auto_renew": null,
+    "auto_renew": false,
     "state": "hosted",
     "language": null,
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
@@ -263,7 +263,7 @@ Responds with HTTP 200 on success, returns the domain.
     "name": "example.com",
     "unicode_name": "example.com",
     "lockable": true,
-    "auto_renew": null,
+    "auto_renew": false,
     "state": "hosted",
     "language": null,
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
@@ -371,7 +371,7 @@ Responds with HTTP 200 on success, returns the domain.
     "name": "example.com",
     "unicode_name": "example.com",
     "lockable": true,
-    "auto_renew": null,
+    "auto_renew": false,
     "state": "registered",
     "language": null,
     "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
