@@ -44,8 +44,8 @@ domain.extended_attribute
 ~~~ js
 {
   "domain": {
-    "name": "newdomain.com",
-    "registrant_id": 1
+    "name": "example.com",
+    "registrant_id": 100
   }
 }
 ~~~
@@ -55,8 +55,8 @@ domain.extended_attribute
 ~~~ js
 {
   "domain": {
-    "name": "newdomain.us",
-    "registrant_id": 1
+    "name": "example.us",
+    "registrant_id": 100
   },
   "extended_attribute": {
     "us_nexus": "C11",
@@ -67,14 +67,30 @@ domain.extended_attribute
 
 ### Response
 
-Upon successful creation of the domain the response code will be a 201
-and the response body will contain the domain details.
+Responds with HTTP 201 on success, returns the domain.
 
-<!-- TODO
 ~~~ js
-TODO
+{
+  "domain": {
+    "id": 1,
+    "user_id": 2,
+    "registrant_id": 100,
+    "name": "example.com",
+    "unicode_name": "example.com",
+    "lockable": true,
+    "auto_renew": false,
+    "state": "registered",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "expires_on": "2012-03-18",
+    "record_count": 0,
+    "service_count": 0,
+    "private_whois?": false
+  }
+}
 ~~~
--->
 
 
 ## Transfer a domain
@@ -129,14 +145,7 @@ transfer_order.authinfo
 
 ### Response
 
-Upon successful issuance of the transfer order the response code will be a 201
-and the response body will contain the transfer order details.
-
-<!-- TODO
-~~~ js
-TODO
-~~~
--->
+Responds with HTTP 201 on success, returns the transfer order.
 
 
 ## Renew a domain
@@ -174,12 +183,32 @@ domain.renew_whois_privacy
 }
 ~~~
 
-<!-- TODO
 ### Response
 
+Responds with HTTP 201 on success, returns the domain.
+
 ~~~ js
+{
+  "domain": {
+    "id": 1,
+    "user_id": 2,
+    "registrant_id": 100,
+    "name": "example.com",
+    "unicode_name": "example.com",
+    "lockable": true,
+    "auto_renew": false,
+    "state": "registered",
+    "language": null,
+    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
+    "created_at": "2013-01-24T19:23:08Z",
+    "updated_at": "2012-12-07T14:55:25Z",
+    "expires_on": "2012-03-18",
+    "record_count": 0,
+    "service_count": 0,
+    "private_whois?": false
+  }
+}
 ~~~
--->
 
 
 ## Transfer out a domain
@@ -198,9 +227,7 @@ This will unlock a domain and send the authorization code to the domain's admini
           -X POST \
           https://dnsimple.com/domains/:domain/transfer_outs
 
-<!-- TODO
 ### Response
 
-~~~ js
-~~~
--->
+Responds with HTTP 201 on success, returns the transfer out order.
+
