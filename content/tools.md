@@ -19,3 +19,6 @@ If you develop a tool for the API [please let us know](mailto:support@dnsimple.c
 - [Dynamic IP Updater for Windows](https://github.com/dwdii/DNScymbal) by [dwdii](https://github.com/dwdii)
 - [Chef Cookbook for DNSimple](http://community.opscode.com/cookbooks/dnsimple)
 - [DitchDaddy](https://github.com/jm/ditchdaddy) - for batch transferring domains out of GoDaddy by [jm](https://github.com/jm)
+
+
+Also, make sure to [check out the libraries](http://developer.dnsimple.com/libraries) you can use to build your own tools around our API.
