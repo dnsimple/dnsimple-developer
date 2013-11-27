@@ -14,6 +14,7 @@ If you develop a tool for the API [please let us know](mailto:support@dnsimple.c
 - [Dynamic IP Updater in Bash](https://dnsimple.com/extras/ddns.sh.txt) (official)
 - [Dynamic IP Updater in Bash](http://jasonseifer.com/2011/04/04/auto-update-ip-dnsimple) (original)
 - [Dynamic IP Updater in Ruby](https://github.com/hamstarr/dyn-dnsimple)
+- [Dynamic IP Updater in Ruby](https://github.com/bjoernalbers/dynsimple)
 - [Dynamic IP Updater in Node.js](https://github.com/jcarley/node-dns)
 - [Dynamic IP Updater for Windows](https://github.com/dwdii/DNScymbal)
 - [Chef Cookbook for DNSimple](http://community.opscode.com/cookbooks/dnsimple)
