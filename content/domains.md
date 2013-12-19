@@ -307,7 +307,7 @@ have to reserve the domain for, if you decide to get it.
 An available domain looks like this:
 
 ~~~ js
-// 200 OK
+// 404 Not Found
 {
   "name":"available-domain.com",
   "status":"available",
@@ -321,7 +321,7 @@ An available domain looks like this:
 An unavailable domain looks like this:
 
 ~~~ js
-// 404 Not Found
+// 200 OK
 {
   "name":"somebody-already-has-it.com",
   "status":"unavailable",
