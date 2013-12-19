@@ -297,19 +297,33 @@ Check if a domain is available for registration.
 
 ### Response
 
-If the domain is available then this will return a 404 which indicates
-that the name is available. If it is not available then the response will be a 200.
-
-In addition the body of the response will contain the domain name
-that was checked along with a status string.
+A successful response will be a `200 OK` with relevant information like
+availability, price, and the minimum number of years you'll have to reserve the
+domain for, if you decide to get it. An available domain looks like this:
 
 ~~~ js
 {
-  "name": "available-domain.com",
-  "status": "available"
+  "name":"available-domain.com",
+  "status":"available",
+  "price":"14.0",
+  "currency":"USD",
+  "currency_symbol":"$",
+  "minimum_number_of_years":1
 }
 ~~~
 
+An unavailable domain looks like this:
+
+~~~ js
+{
+  "name":"somebody-already-has-it.com",
+  "status":"unavailable",
+  "price":"14.0",
+  "currency":"USD",
+  "currency_symbol":"$",
+  "minimum_number_of_years":1
+}
+~~~
 
 ## Move domain to another account
 
