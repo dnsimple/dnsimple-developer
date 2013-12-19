@@ -297,11 +297,17 @@ Check if a domain is available for registration.
 
 ### Response
 
-A successful response will be a `200 OK` with relevant information like
-availability, price, and the minimum number of years you'll have to reserve the
-domain for, if you decide to get it. An available domain looks like this:
+If the domain is available then this will return a 404 which indicates that the
+name is available. If it is not available then the response will be a 200.
+
+In either case, the JSON response will contain some additional relevant
+information like availability, price, and the minimum number of years you'll
+have to reserve the domain for, if you decide to get it.
+
+An available domain looks like this:
 
 ~~~ js
+// 200 OK
 {
   "name":"available-domain.com",
   "status":"available",
@@ -315,6 +321,7 @@ domain for, if you decide to get it. An available domain looks like this:
 An unavailable domain looks like this:
 
 ~~~ js
+// 404 Not Found
 {
   "name":"somebody-already-has-it.com",
   "status":"unavailable",
