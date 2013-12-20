@@ -4,7 +4,7 @@ title: Email Forwards
 
 # Email Forwarding API
 
-Set up [email forwarding](http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple) from your domain to another email account.
+Set up email forwarding from your domain to another email account.
 
 * TOC
 {:toc}
