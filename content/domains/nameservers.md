@@ -4,8 +4,6 @@ title: Name Servers
 
 # Name Server API
 
-Vanity name servers are used to hide the use of DNSimple's name servers and instead use our name servers with different names.
-
 * TOC
 {:toc}
 
