@@ -7,10 +7,11 @@ title: Extended Attributes
 Some TLDs require extended attributes when registering or transferring a domain.
 This API interface provides information on the extended attributes for any particular TLD.
 
+* TOC
 {:toc}
 
 
-## List extended attributes for a TLD
+## List TLD extended attributes
 
     GET /extended_attributes/:tld
 
