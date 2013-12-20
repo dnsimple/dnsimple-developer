@@ -8,7 +8,7 @@ title: Prices
 {:toc}
 
 
-## List Prices
+## List prices
 
 List all prices.
 

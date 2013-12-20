@@ -12,7 +12,7 @@ Note: you must request activation of the vanity name servers feature on your acc
 {:toc}
 
 
-## Enable vanity name servers for a domain
+## Enable domain vanity name servers
 
     POST /domains/:domain/vanity_name_servers
 
@@ -64,7 +64,7 @@ TODO
 ~~~
 
 
-## Disable vanity name servers for a domain
+## Disable domain vanity name servers
 
     DELETE /domains/:domain/vanity_name_servers
 

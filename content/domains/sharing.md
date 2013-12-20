@@ -2,7 +2,7 @@
 title: Domain Sharing
 ---
 
-# Domain sharing API
+# Domain Sharing API
 
 * TOC
 {:toc}

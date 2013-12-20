@@ -8,7 +8,7 @@ title: Name Servers
 {:toc}
 
 
-## Change the name servers
+## Change domain name servers
 
 Change the name servers either to external name servers or back to DNSimple's name servers.
 
@@ -58,7 +58,7 @@ TODO
 ~~~
 
 
-## Register a name server in the registry
+## Register a domain name server at the registry
 
     POST /domains/:domain/registry_name_servers
 
@@ -93,7 +93,7 @@ TODO
 ~~~
 
 
-## De-register a name server in the registry
+## De-register a domain name server at the registry
 
     DELETE /domains/:domain/registry_name_servers/:name
 

@@ -8,7 +8,7 @@ title: Domain Zones
 {:toc}
 
 
-## Import Domain Zone
+## Import a domain zone
 
     POST /domains/:domain/zone_imports
 
@@ -98,7 +98,7 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
-## Export Domain Zone
+## Export a domain zone
 
     GET /domains/:domain/zone.txt
 

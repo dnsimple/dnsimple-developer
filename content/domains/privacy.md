@@ -10,7 +10,7 @@ WHOIS Privacy Protection replaces a domain's WHOIS data with a proxy service to 
 {:toc}
 
 
-## Enable WHOIS Privacy
+## Enable domain WHOIS Privacy
 
     POST /domains/:domain/whois_privacy
 
@@ -40,7 +40,7 @@ If the privacy protection is currently disabled then it will be enabled.
 ~~~
 
 
-## Disable WHOIS Privacy
+## Disable domain WHOIS Privacy
 
 <div class="alert">
   <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy">planned changes</a> for this API method.

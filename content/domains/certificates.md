@@ -10,7 +10,7 @@ Purchase and manage SSL certificates.
 {:toc}
 
 
-## List certificates for a domain
+## List domain certificates
 
     GET /domains/:domain/certificates
 
@@ -155,7 +155,7 @@ List certificates for domain `example.com`:
 ~~~
 
 
-## Get a certificate
+## Get a domain certificate
 
     GET /domains/:domain/certificates/:id
 
@@ -241,7 +241,7 @@ Get the certificate with ID `2`.
 ~~~
 
 
-## Purchase a certificate
+## Purchase a domain certificate
 
     POST /domains/:domain/certificates
 
@@ -352,7 +352,7 @@ certificate.csr
 ~~~
 
 
-## Configure a certificate
+## Configure a domain certificate
 
 Configured a purchased certificate.
 
@@ -443,7 +443,7 @@ Configure the certificate with ID `2`.
 ~~~
 
 
-## Submit a certificate for signing
+## Submit a domain certificate
 
 Submit a configured certificate for signing by the certificate authority.
 
