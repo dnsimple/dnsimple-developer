@@ -11,14 +11,31 @@ We hate to break backward compatibility, however there are cases where a method 
 Please review the following changes and write your code accordingly. In most cases, you should be able to support both current and planned API response by loosening validation checks. For example, you can check whether the response code of a delete is `2xx` and you'll match both `200` (current) and `204` (planned).
 
 
+## Serialization changes
+
 ### Domain serialization
 
-- The `name_server_status` is no longer used and will be removed soon.
+- `name_server_status` is deprecated and will be removed.
+- `private_whois?` is deprecated and will be removed, use `whois_protected` instead.
+- `parsed_expiration_date` is deprecated and will be removed, use `expires_on` instead.
+- `expires_at` is deprecated and will be removed.
 
 ### Certificate serialization
 
-- The `available_approver_emails` is no longer used and will be removed soon. It has been replaced by the `approver_emails` array field displayed in case of configured certificate.
-- The `certificate_status` is no longer used and will be removed soon. Use the `state` field instead.
+- `name_server_status` is deprecated and will be removed. Use `approver_emails` instead (the field is displayed only when the certificate is in the `configured` state).
+- `certificate_status` is deprecated and will be removed.
+
+### Contact serialization
+
+- `phone_ext` is deprecated and will be removed.
+
+### User serialization
+
+- `first_name` is deprecated and will be removed.
+- `last_name` is deprecated and will be removed.
+
+
+## Method changes
 
 ### DELETE /domains/:domain
 
