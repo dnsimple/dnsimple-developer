@@ -14,7 +14,7 @@ Purchase and manage SSL certificates.
 
     GET /domains/:domain/certificates
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -159,7 +159,7 @@ List certificates for domain `example.com`:
 
     GET /domains/:domain/certificates/:id
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -247,7 +247,7 @@ Get the certificate with ID `2`.
 
 This is the first step in the process for buying a certificate. Once you have successfully purchased a certificate you will need to submit it to complete the process and receive your SSL certificate.
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -358,7 +358,7 @@ Configured a purchased certificate.
 
     PUT /domains/:domain/certificates/:id/configure
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -449,7 +449,7 @@ Submit a configured certificate for signing by the certificate authority.
 
     PUT /domains/:domain/certificates/:id/submit
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id

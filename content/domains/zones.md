@@ -12,6 +12,11 @@ title: Domain Zones
 
     POST /domains/:domain/zone_imports
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 Import zone for domain `example.com`:
@@ -101,6 +106,11 @@ Responds with HTTP 201 on success.
 ## Export a domain zone
 
     GET /domains/:domain/zone.txt
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

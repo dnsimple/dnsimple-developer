@@ -20,6 +20,9 @@ title: Domain Records
 
 ### Parameters
 
+:domain
+: The _string_ domain name or _integer_ domain id
+
 name
 : _String_ name to search. Example: `www`
 
@@ -78,6 +81,11 @@ type
 
     GET /domains/:domain/records/:id
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 Get the record `123` for domain `example.com`.
@@ -108,6 +116,11 @@ Get the record `123` for domain `example.com`.
 ## Create a domain record
 
     POST /domains/:domain/records
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 
@@ -178,6 +191,11 @@ Responds with HTTP 201 on success.
 
     PUT /domains/:domain/records/:id
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 Update the record with ID `123` for domain `example.com`:
@@ -246,6 +264,11 @@ Responds with HTTP 200 on success.
 </div>
 
     DELETE /domains/:domain/records/:id
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

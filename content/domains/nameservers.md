@@ -14,6 +14,11 @@ Change the name servers either to external name servers or back to DNSimple's na
 
     POST /domains/:domain/name_servers
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
@@ -62,6 +67,11 @@ TODO
 
     POST /domains/:domain/registry_name_servers
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 The domain must be registered with DNSimple in order for this command to work.
 
 ### Example
@@ -96,6 +106,11 @@ TODO
 ## De-register a domain name server at the registry
 
     DELETE /domains/:domain/registry_name_servers/:name
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

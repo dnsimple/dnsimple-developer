@@ -74,7 +74,7 @@ Responds with HTTP 200.
 
     GET /domains/:domain
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -192,7 +192,7 @@ Delete the given domain from your account.
 Please note that for domains which are registered with DNSimple
 this will not delete the domain from the registry.
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -228,7 +228,7 @@ Responds with HTTP 200 on success.
 
     POST /domains/:domain/token
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -284,7 +284,7 @@ Check if a domain is available for registration.
 
     GET /domains/:name/check
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name
@@ -341,7 +341,7 @@ Push a domain from the current DNSimple account to another.
 Once a domain is pushed you will no longer be able to access it through your account.
 You will need to acces it using the new account's credentials.
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id

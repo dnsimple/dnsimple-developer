@@ -219,6 +219,11 @@ Prepare a domain for transferring out.
 
 This will unlock a domain and send the authorization code to the domain's administrative contact.
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \

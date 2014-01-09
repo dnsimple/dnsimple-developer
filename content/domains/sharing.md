@@ -12,6 +12,11 @@ title: Domain Sharing
 
     GET /domains/:domain/memberships
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 List memberships for domain `example.com`:
@@ -57,6 +62,11 @@ List memberships for domain with ID `123`:
 ## Add a membership
 
     POST /domains/:domain/memberships
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 
@@ -107,6 +117,11 @@ Responds with HTTP 201 on success.
 ## Delete a membership
 
     DELETE /domains/:domain/memberships/:membership
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

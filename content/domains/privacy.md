@@ -17,6 +17,11 @@ WHOIS Privacy Protection replaces a domain's WHOIS data with a proxy service to 
 If WHOIS Privacy Protection has not yet been purchased then invoking this will purchase the service and enable it.
 If the privacy protection is currently disabled then it will be enabled.
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
@@ -49,6 +54,11 @@ If the privacy protection is currently disabled then it will be enabled.
     DELETE /domains/:domain/whois_privacy
 
 If the privacy protection has not expired it can always be turned back on with no additional charge.
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

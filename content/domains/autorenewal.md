@@ -12,7 +12,7 @@ title: Domain Auto-renewal
 
     POST /domains/:domain/auto_renewal
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id
@@ -59,7 +59,7 @@ Responds with HTTP 200 on success, returns the domain.
 
     DELETE /domains/:domain/auto_renewal
 
-### Params
+### Parameters
 
 :domain
 : The _string_ domain name or _integer_ domain id

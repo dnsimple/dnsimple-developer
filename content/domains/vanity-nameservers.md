@@ -16,6 +16,11 @@ Note: you must request activation of the vanity name servers feature on your acc
 
     POST /domains/:domain/vanity_name_servers
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
@@ -67,6 +72,11 @@ TODO
 ## Disable domain vanity name servers
 
     DELETE /domains/:domain/vanity_name_servers
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 

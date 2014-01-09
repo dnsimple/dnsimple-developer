@@ -14,6 +14,11 @@ Set up email forwarding from your domain to another email account.
 
     GET /domains/:domain/email_forwards
 
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
+
 ### Example
 
 List email forwards for domain `example.com`:
@@ -59,6 +64,11 @@ List email forwards for domain with ID `123`:
 ## Create a forward
 
     POST /domains/:domain/email_forwards
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 
@@ -111,6 +121,11 @@ Responds with HTTP 201 on success.
 ## Delete a forward
 
     DELETE /domains/:domain/email_forwards/:id
+
+### Parameters
+
+:domain
+: The _string_ domain name or _integer_ domain id
 
 ### Example
 
