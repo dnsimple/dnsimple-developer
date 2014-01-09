@@ -87,12 +87,14 @@ The domain must be registered with DNSimple in order for this command to work.
 
 ### Example
 
+Register a name server belonging to `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/:domain/registry_name_servers
+          https://dnsimple.com/domains/example.com/registry_name_servers
 
 ### Input
 
@@ -107,12 +109,19 @@ The domain must be registered with DNSimple in order for this command to work.
 
 ### Response
 
+Responds with HTTP 200 on success, returns the name server.
+
 ~~~ js
-TODO
+{
+  "name": "ns1.example.com",
+  "ip": 12
+}
 ~~~
 
 
 ## De-register a domain name server at the registry
+
+De-register the name server `ns1.example.com` belonging to `example.com`:
 
     DELETE /domains/:domain/registry_name_servers/:name
 
@@ -121,6 +130,7 @@ TODO
 | Name | Type | Description |
 | -----|------|-------------|
 `:domain` | `string`, `integer` | The domain name or id
+`:name` | `string` | The name server name
 
 ### Example
 
@@ -128,10 +138,8 @@ TODO
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/:domain/registry_name_servers/:name
+          https://dnsimple.com/domains/example.com/registry_name_servers/ns1.example.com
 
 ### Response
 
-~~~ js
-TODO
-~~~
+Responds with HTTP 204 on success.
