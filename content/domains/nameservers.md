@@ -96,8 +96,6 @@ The domain must be registered with DNSimple in order for this command to work.
 
 ### Input
 
-This API accepts up to 6 name servers.
-
 ~~~ js
 {
   "name_server": {
