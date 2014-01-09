@@ -72,6 +72,8 @@ Responds with HTTP 200 on success, returns the array of assigned name servers.
 ]
 ~~~
 
+Responds with HTTP 400 if bad request.
+
 
 ## Register a domain name server at the registry
 
@@ -118,6 +120,8 @@ Responds with HTTP 200 on success, returns the name server.
 }
 ~~~
 
+Responds with HTTP 400 if bad request.
+
 
 ## De-register a domain name server at the registry
 
@@ -143,3 +147,5 @@ De-register the name server `ns1.example.com` belonging to `example.com`:
 ### Response
 
 Responds with HTTP 204 on success.
+
+Responds with HTTP 400 if bad request.
