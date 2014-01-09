@@ -22,12 +22,14 @@ Change the name servers either to external name servers or back to DNSimple's na
 
 ### Example
 
+Change name servers for domain `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/:domain/name_servers
+          https://dnsimple.com/domains/example.com/name_servers
 
 ### Input
 
@@ -59,8 +61,15 @@ To change the name servers back to DNSimple's name servers, send the following b
 
 ### Response
 
+Responds with HTTP 200 on success, returns the array of assigned name servers.
+
 ~~~ js
-TODO
+[
+  "ns1.example.com",
+  "ns2.example.com",
+  "ns3.example.com",
+  "ns4.example.com"
+]
 ~~~
 
 
