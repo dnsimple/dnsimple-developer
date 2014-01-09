@@ -221,8 +221,9 @@ This will unlock a domain and send the authorization code to the domain's admini
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 

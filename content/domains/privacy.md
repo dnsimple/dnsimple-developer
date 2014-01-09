@@ -19,8 +19,9 @@ If the privacy protection is currently disabled then it will be enabled.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -57,8 +58,9 @@ If the privacy protection has not expired it can always be turned back on with n
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 

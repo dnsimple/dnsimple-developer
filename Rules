@@ -36,6 +36,7 @@ compile '*' do
   else
     filter :erb
     filter :kramdown, toc_levels: [2]
+    filter :postprocess
     filter :colorize_syntax, default_colorizer: :pygmentsrb
     layout 'default'
   end

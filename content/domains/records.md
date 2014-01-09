@@ -20,14 +20,11 @@ title: Domain Records
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
-
-name
-: _String_ name to search. Example: `www`
-
-type
-: _String_ record type. Example: `CNAME`
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
+`name` | `string` | The name to search for. Example: `www`
+`type` | `string` | The record type to search for. Example: `www`
 
 ### Response
 
@@ -83,8 +80,9 @@ type
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -119,8 +117,9 @@ Get the record `123` for domain `example.com`.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -193,8 +192,9 @@ Responds with HTTP 201 on success.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -267,8 +267,9 @@ Responds with HTTP 200 on success.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 

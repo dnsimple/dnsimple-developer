@@ -76,6 +76,21 @@ footer {
 // Main CSS file for the project.
 // -----------------------------------------------------------------------------
 
+// Reset Bootstrap rounded corners on <pre>.
+pre {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+// Reset Bootstrap style on <code> inside table.
+.table td code {
+  padding: 0;
+  color: #333;
+  background-color: transparent;
+  border: none;
+}
+
 #contribute {
   font-size: 13px;
   margin: 30px 0;

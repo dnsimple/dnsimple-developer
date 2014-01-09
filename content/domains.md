@@ -76,8 +76,9 @@ Responds with HTTP 200.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -194,8 +195,9 @@ this will not delete the domain from the registry.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -230,8 +232,9 @@ Responds with HTTP 200 on success.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -286,8 +289,9 @@ Check if a domain is available for registration.
 
 ### Parameters
 
-:domain
-: The _string_ domain name
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string` | The domain name
 
 ### Example
 
@@ -343,8 +347,9 @@ You will need to acces it using the new account's credentials.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 

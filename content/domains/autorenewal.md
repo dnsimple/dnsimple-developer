@@ -14,8 +14,9 @@ title: Domain Auto-renewal
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -61,8 +62,9 @@ Responds with HTTP 200 on success, returns the domain.
 
 ### Parameters
 
-:domain
-: The _string_ domain name or _integer_ domain id
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
