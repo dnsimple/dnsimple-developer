@@ -19,7 +19,7 @@ This API interface provides information on the extended attributes for any parti
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/extended_attributes/:tld
+          https://api.dnsimple.com/v1/extended_attributes/:tld
 
 ### Response
 

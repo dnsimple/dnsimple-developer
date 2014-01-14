@@ -16,7 +16,7 @@ title: Applied Services
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain/applied_services
+          https://api.dnsimple.com/v1/domains/:domain/applied_services
 
 ### Response
 
@@ -54,7 +54,7 @@ title: Applied Services
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain/available_services
+          https://api.dnsimple.com/v1/domains/:domain/available_services
 
 ### Response
 
@@ -125,7 +125,7 @@ title: Applied Services
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/:domain/applied_services
+          https://api.dnsimple.com/v1/domains/:domain/applied_services
 
 ### Input
 
@@ -150,7 +150,7 @@ TODO
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/:domain/applied_services/:id
+          https://api.dnsimple.com/v1/domains/:domain/applied_services/:id
 
 ### Response
 

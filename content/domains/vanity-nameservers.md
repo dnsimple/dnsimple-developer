@@ -29,7 +29,7 @@ Note: you must request activation of the vanity name servers feature on your acc
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/:domain/vanity_name_servers
+          https://api.dnsimple.com/v1/domains/:domain/vanity_name_servers
 
 ### Input
 
@@ -86,7 +86,7 @@ TODO
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/:domain/vanity_name_servers
+          https://api.dnsimple.com/v1/domains/:domain/vanity_name_servers
 
 ### Response
 

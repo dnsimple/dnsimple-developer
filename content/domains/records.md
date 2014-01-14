@@ -16,7 +16,7 @@ title: Domain Records
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain/records
+          https://api.dnsimple.com/v1/domains/:domain/records
 
 ### Parameters
 
@@ -90,7 +90,7 @@ Get the record `123` for domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/123
 
 ### Response
 
@@ -130,7 +130,7 @@ Create a record for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/records
+          https://api.dnsimple.com/v1/domains/example.com/records
 
 ### Input
 
@@ -205,7 +205,7 @@ Update the record with ID `123` for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X PUT
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/123
 
 ### Input
 
@@ -279,7 +279,7 @@ Delete the record with ID `123` for domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/123
 
 ### Response
 

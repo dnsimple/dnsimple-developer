@@ -18,7 +18,7 @@ List all domains.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains
+          https://api.dnsimple.com/v1/domains
 
 ### Response
 
@@ -86,13 +86,13 @@ Get the domain with ID `1`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/1
+          https://api.dnsimple.com/v1/domains/1
 
 Get the domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com
+          https://api.dnsimple.com/v1/domains/example.com
 
 ### Response
 
@@ -133,7 +133,7 @@ Responds with HTTP 200, returns the domain.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains
+          https://api.dnsimple.com/v1/domains
 
 ### Input
 
@@ -207,7 +207,7 @@ Delete the domain with ID `1`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/1
+          https://api.dnsimple.com/v1/domains/1
 
 Delete the domain `example.com`.
 
@@ -215,7 +215,7 @@ Delete the domain `example.com`.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com
+          https://api.dnsimple.com/v1/domains/example.com
 
 ### Response
 
@@ -245,7 +245,7 @@ Reset the token for the domain `example.com`.
           -X POST \
           -H 'Content-Type: application/json' \
           -d '{}' \
-          https://dnsimple.com/domains/example.com/token
+          https://api.dnsimple.com/v1/domains/example.com/token
 
 ### Input
 
@@ -297,7 +297,7 @@ Check if a domain is available for registration.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:name/check
+          https://api.dnsimple.com/v1/domains/:name/check
 
 ### Response
 
@@ -360,7 +360,7 @@ Move the domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/push
+          https://api.dnsimple.com/v1/domains/example.com/push
 
 ### Input
 

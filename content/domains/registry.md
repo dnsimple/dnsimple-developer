@@ -25,7 +25,7 @@ so please be careful with this command.
           -H 'Content-Type: application/json' \
           -X POST \
           -d <data> \
-          https://dnsimple.com/domain_registrations
+          https://api.dnsimple.com/v1/domain_registrations
 
 ### Input
 
@@ -114,7 +114,7 @@ however domains ending in `.us` and `.ca` may not.
           -H 'Content-Type: application/json' \
           -X POST \
           -d <data> \
-          https://dnsimple.com/domain_transfers
+          https://api.dnsimple.com/v1/domain_transfers
 
 ### Input
 
@@ -164,7 +164,7 @@ which is 1 year for most domains but for some domains may be more.
           -H 'Content-Type: application/json' \
           -X POST \
           -d <data> \
-          https://dnsimple.com/domain_renewals
+          https://api.dnsimple.com/v1/domain_renewals
 
 ### Input
 
@@ -231,7 +231,7 @@ This will unlock a domain and send the authorization code to the domain's admini
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://dnsimple.com/domains/:domain/transfer_outs
+          https://api.dnsimple.com/v1/domains/:domain/transfer_outs
 
 ### Response
 

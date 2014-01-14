@@ -16,7 +16,7 @@ HTTP Basic Authentication credentials are the same as your account: your email a
 
     curl  -u "<email>:<password>" \
           -H 'Accept: application/json' \
-          https://dnsimple.com/users/me
+          https://api.dnsimple.com/v1/users/me
 
 
 ## DNSimple API token
@@ -27,13 +27,13 @@ The token must be sent in a header called `X-DNSimple-Token`. The `X-DNSimple-To
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/users/me
+          https://api.dnsimple.com/v1/users/me
 
 For example, if your email is `example@example.com` and your token is `1234567890`, the request will be
 
     curl  -H 'X-DNSimple-Token: example@example.com:1234567890' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/users/me
+          https://api.dnsimple.com/v1/users/me
 
 ## DNSimple Domain token
 
@@ -43,13 +43,13 @@ The token must be sent in a header called `X-DNSimple-Domain-Token`. The `X-DNSi
 
     curl  -H 'X-DNSimple-Domain-Token: <token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain
+          https://api.dnsimple.com/v1/domains/:domain
 
 For example, if the token for the domain `example.com` is `1234567890`, the request will be
 
     curl  -H 'X-DNSimple-Domain-Token: 1234567890' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com
+          https://api.dnsimple.com/v1/domains/example.com
 
 The domain token grants access only to certain methods of the corresponding domain. You can use the domain token to authenticate the following domain API calls:
 

@@ -21,7 +21,7 @@ List all contacts.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/contacts
+          https://api.dnsimple.com/v1/contacts
 
 ### Response
 
@@ -85,7 +85,7 @@ Get the contact with ID `123`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/contacts/123
+          https://api.dnsimple.com/v1/contacts/123
 
 ### Response
 
@@ -128,7 +128,7 @@ Create a contact.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/contacts
+          https://api.dnsimple.com/v1/contacts
 
 ### Input
 
@@ -239,7 +239,7 @@ Update the contact with ID `123`:
           -H 'Content-Type: application/json' \
           -X PUT \
           -d '<json>' \
-          https://dnsimple.com/contacts/123
+          https://api.dnsimple.com/v1/contacts/123
 
 ### Input
 
@@ -289,7 +289,7 @@ Delete the contact with ID `123`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/contacts/123
+          https://api.dnsimple.com/v1/contacts/123
 
 ### Response
 

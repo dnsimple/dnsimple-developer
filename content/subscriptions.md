@@ -20,7 +20,7 @@ View the current subscription details.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/subscription
+          https://api.dnsimple.com/v1/subscription
 
 ### Response
 
@@ -59,7 +59,7 @@ Create a subscription for the currently authenticated user.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/subscription
+          https://api.dnsimple.com/v1/subscription
 
 ### Input
 

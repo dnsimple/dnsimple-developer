@@ -27,7 +27,7 @@ Import zone for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/zone_imports
+          https://api.dnsimple.com/v1/domains/example.com/zone_imports
 
 Import zone for domain with ID `123`:
 
@@ -36,7 +36,7 @@ Import zone for domain with ID `123`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/123/zone_imports
+          https://api.dnsimple.com/v1/domains/123/zone_imports
 
 ### Input
 
@@ -119,12 +119,12 @@ Responds with HTTP 201 on success.
 Export zone for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          https://dnsimple.com/domains/example.com/zone.txt
+          https://api.dnsimple.com/v1/domains/example.com/zone.txt
 
 Export zone for domain with ID `123`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          https://dnsimple.com/domains/123/zone.txt
+          https://api.dnsimple.com/v1/domains/123/zone.txt
 
 ### Response
 

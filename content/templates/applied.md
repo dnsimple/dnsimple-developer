@@ -20,7 +20,7 @@ Apply the specific template to the domain.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://dnsimple.com/domains/:domain/templates/:id/apply
+          https://api.dnsimple.com/v1/domains/:domain/templates/:id/apply
 
 ### Response
 
