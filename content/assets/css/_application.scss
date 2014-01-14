@@ -29,6 +29,7 @@
   padding: 15px;
 }
 
+// Make the first title of the page more prominent
 main > h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -38,12 +39,13 @@ main > h1 {
   border-bottom: 1px solid #eeeeee;
 }
 
+// Increase bottom margin. It looks better.
 h2 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-
+// Restore custom sidebar navigation style
 .nav-list {
   margin-right: 0;
   margin-left: 0;
