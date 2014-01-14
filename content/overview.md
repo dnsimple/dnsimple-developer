@@ -8,9 +8,24 @@ title: Overview
 {:toc}
 
 
-## End Point
+## URL
 
-The DNSimple API end-point URL is `https://dnsimple.com/`.
+All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain.
+
+In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
+
+    https://api.dnsimple.com/v1/
+
+The current API version is `v1`.
+
+
+## Requests
+
+All requests should be sent with `application/json` content type, but form-encoded data can be sent as well using the `application/x-www-form-urlencoded` content type.
+
+The examples below are shown with JSON.
+
+All requests must include the `Accept` header set to `application/json`.
 
 
 ## Authentication
@@ -40,17 +55,9 @@ There are two authentication methods availabe: `HTTP Basic Authentication` or th
 The [Authentication](/authentication/) page provides more information about how to use them.
 
 
-## Requests
+## Cross Origin Resource Sharing
 
-All requests should be sent with `application/json` content type, but form-encoded data can be sent as well using the `application/x-www-form-urlencoded` content type.
-
-The examples below are shown with JSON.
-
-All requests must include the `Accept` header set to `application/json`.
-
-## CORS
-
-If you are using the DNSimple API in JavaScript from within a web browser then your browser will need to support CORS.
+If you are using the DNSimple API in JavaScript from within a web browser then your browser will need to support for Cross Origin Resource Sharing (CORS).
 
 Our CORS response headers are currently as follows:
 
