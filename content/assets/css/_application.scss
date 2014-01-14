@@ -1,0 +1,17 @@
+//
+// Application Template
+// --------------------------------------------------
+
+// Reset Bootstrap style on <code> inside table.
+.table td code {
+  padding: 0;
+  color: #333;
+  background-color: transparent;
+  border: none;
+}
+
+#contribute {
+  font-size: 13px;
+  margin: 30px 0;
+  padding: 15px;
+}
