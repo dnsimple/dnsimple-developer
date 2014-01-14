@@ -1,8 +1,8 @@
 ---
-title: DNSimple API
+title: DNSimple Developer
 ---
 
-# The DNSimple API
+# DNSimple API Documentation
 
 Welcome to the official [DNSimple](https://dnsimple.com/) API documentation.
 
