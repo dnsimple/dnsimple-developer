@@ -1,10 +1,5 @@
-// Bootstrap.scss
-// Manifest file for Bootstrap.
-// -----------------------------------------------------------------------------
-
 @import "mixins";
 @import "../bootstrap/css/bootstrap";
-@import "../bootstrap/css/bootstrap-responsive";
 
 
 .navbar {
@@ -19,8 +14,8 @@
 }
 
 // Make sure links are visible in the alert.
-.alert {
-  a {
-    text-decoration: underline;
-  }
-}
+// .alert {
+//   a {
+//     text-decoration: underline;
+//   }
+// }
