@@ -2,6 +2,10 @@
 // Application Template
 // --------------------------------------------------
 
+.container {
+  max-width: 970px !important;
+}
+
 // Reset Bootstrap style on <code> inside table.
 .table td code {
   padding: 0;
