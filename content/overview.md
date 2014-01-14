@@ -21,11 +21,11 @@ The current API version is `v1`.
 
 ## Requests
 
-All requests should be sent with `application/json` content type, but form-encoded data can be sent as well using the `application/x-www-form-urlencoded` content type.
+All requests should include the `Accept` header set to `application/json`. All data is sent and received as JSON.
 
-The examples below are shown with JSON.
-
-All requests must include the `Accept` header set to `application/json`.
+<div class="alert">
+  <strong>Warning!</strong> Passing form-encoded post data using the `application/x-www-form-urlencoded` content type is deprecated.
+</div>
 
 
 ## Authentication
