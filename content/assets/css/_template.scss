@@ -1,0 +1,83 @@
+//
+// Base Template
+// --------------------------------------------------
+
+body {
+  background-color: #fefefe;
+  line-height: 1.6;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+// Reset Bootstrap rounded corners on <pre>.
+pre {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+
+// Header
+// -------------------------
+
+.site-head {
+  background: #242424 no-repeat center center;
+  padding: 10px 0;
+  color: #fff;
+
+  // gradient shadow before the content
+  border-bottom: 1px solid #ffffff;
+  -webkit-box-shadow: 0 0 20px rgba(#000, 0.7);
+  -moz-box-shadow: 0 0 20px rgba(#000, 0.7);
+  box-shadow: 0 0 20px rgba(#000, 0.7);
+}
+
+
+// Footer
+// -------------------------
+
+.site-footer {
+  margin: 8rem 0 0 0;
+  padding: 4rem 0;
+  border-top: 1px solid #dddddd;
+  box-shadow: inset 0 1px 0 #ffffff;
+  color: #aaaaaa;
+  background: #f2f2f2;
+  font-size: 1.4rem;
+}
+
+.site-footer-links {
+  // .list-inline
+  padding-left: 0;
+  list-style: none;
+}
+.site-footer-links li {
+  padding-right: 0;
+  padding-left: 0;
+
+  // .list-inline > li {
+  display: inline-block;
+}
+.site-footer-links li:before {
+  content: '\00B7';
+  padding-right: 15px;
+  padding-left: 10px;
+}
+.site-footer-links li:first-child {
+  // .list-inline > li:first-child
+  padding-left: 0;
+}
+.site-footer-links li:first-child:before {
+  content: none;
+  padding-left: 0;
+}
+
+.site-footer a {
+  color: #7a7a7a;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: #333333;
+}

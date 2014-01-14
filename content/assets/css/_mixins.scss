@@ -1,6 +1,6 @@
-// Mixins.scss
-// Shared functions.
-// -----------------------------------------------------------------------------
+//
+// Mixins
+// --------------------------------------------------
 
 @mixin gradient-vertical($startColor: #555, $endColor: #333) {
   background-color: mix($startColor, $endColor, 60%);
