@@ -40,6 +40,9 @@
   ],
   "js": [
     "tooltip.js",
+    "affix.js",
+    "collapse.js",
+    "scrollspy.js",
     "transition.js"
   ]
 }
