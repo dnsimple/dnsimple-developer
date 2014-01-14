@@ -182,8 +182,8 @@ Responds with HTTP 201 on success, returns the domain.
 
 ## Delete a domain
 
-<div class="alert">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain">planned changes</a> for this API method.
+<div class="alert alert-warning">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
 </div>
 
 Delete the given domain from your account.
@@ -221,8 +221,8 @@ Delete the domain `example.com`.
 
 Responds with HTTP 200 on success.
 
-<div class="alert">
-  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
+<div class="alert alert-warning">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
 </div>
 
 
