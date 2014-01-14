@@ -39,19 +39,19 @@ There are three ways to authenticate through DNSimple API. Two of them are globa
 
 There are two authentication methods availabe: `HTTP Basic Authentication` or the `X-DNSimple-Token` header.
 
-**HTTP Basic Authentication**
+##### HTTP Basic Authentication
 
     curl  -u "<email>:<password>" \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/users/me
 
-**DNSimple API Token** (sent in a header)
+##### DNSimple API Token (sent in a header)
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/users/me
 
-**DNSimple Domain Token** (sent in a header)
+##### DNSimple Domain Token (sent in a header)
 
     curl  -H 'X-DNSimple-Domain-Token: <token>' \
           -H 'Accept: application/json' \
