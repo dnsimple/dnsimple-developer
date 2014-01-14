@@ -50,16 +50,16 @@
 
   <div class="container">
     <div class="row">
-      <div id="main" class="span8">
+      <main id="main" class="col-md-8" role="main">
         <%= yield %>
-      </div>
-      <div id="sidebar" class="span4">
+      </main>
+      <aside id="sidebar" class="col-md-4" role="sidebar">
         <%= render "sidebar" %>
-      </div>
+      </aside>
     </div>
   </div>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <ul class="site-footer-links">
         <li>&copy; <%= Time.now.year %> Aetrion LLC</li>
