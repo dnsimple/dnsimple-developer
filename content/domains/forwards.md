@@ -26,13 +26,13 @@ List email forwards for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com/email_forwards
+          https://api.dnsimple.com/v1/domains/example.com/email_forwards
 
 List email forwards for domain with ID `123`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/123/email_forwards
+          https://api.dnsimple.com/v1/domains/123/email_forwards
 
 ### Response
 
@@ -81,7 +81,7 @@ Create an email forward for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/email_forwards
+          https://api.dnsimple.com/v1/domains/example.com/email_forwards
 
 ### Input
 
@@ -138,7 +138,7 @@ Delete the email forward with ID `123` for domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/email_forwards/123
+          https://api.dnsimple.com/v1/domains/example.com/email_forwards/123
 
 ### Response
 

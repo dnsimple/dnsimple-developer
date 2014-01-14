@@ -17,7 +17,7 @@ List all prices.
 ### Example
 
     curl  -H 'Accept: application/json' \
-          https://dnsimple.com/prices
+          https://api.dnsimple.com/v1/prices
 
 ### Response
 

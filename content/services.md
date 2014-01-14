@@ -19,7 +19,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/services
+          https://api.dnsimple.com/v1/services
 
 ### Response
 
@@ -57,7 +57,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/services/:id
+          https://api.dnsimple.com/v1/services/:id
 
 ### Response
 

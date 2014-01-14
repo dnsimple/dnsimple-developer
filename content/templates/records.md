@@ -16,7 +16,7 @@ title: Template Records
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/templates/:template/records
+          https://api.dnsimple.com/v1/templates/:template/records
 
 ### Response
 
@@ -62,7 +62,7 @@ title: Template Records
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/templates/:template/records/:id
+          https://api.dnsimple.com/v1/templates/:template/records/:id
 
 ### Response
 
@@ -95,7 +95,7 @@ title: Template Records
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/templates/:template/records
+          https://api.dnsimple.com/v1/templates/:template/records
 
 ### Input
 
@@ -138,7 +138,7 @@ TODO
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/templates/:template/records/:id
+          https://api.dnsimple.com/v1/templates/:template/records/:id
 
 ### Response
 

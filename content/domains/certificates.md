@@ -26,7 +26,7 @@ List certificates for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com/certificates
+          https://api.dnsimple.com/v1/domains/example.com/certificates
 
 ### Response
 
@@ -175,7 +175,7 @@ Get the certificate with ID `2`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com/certificates/2
+          https://api.dnsimple.com/v1/domains/example.com/certificates/2
 
 ### Response
 
@@ -262,7 +262,7 @@ This is the first step in the process for buying a certificate. Once you have su
           -X POST \
           -H 'Content-Type: application/json' \
           -d '<json>' \
-          https://dnsimple.com/domains/:domain/certificates
+          https://api.dnsimple.com/v1/domains/:domain/certificates
 
 ### Input
 
@@ -378,7 +378,7 @@ Configure the certificate with ID `2`.
           -H 'Accept: application/json' \
           -X PUT \
           -H 'Content-Type: application/json' \
-          https://dnsimple.com/domains/example.com/certificates/2/configure
+          https://api.dnsimple.com/v1/domains/example.com/certificates/2/configure
 
 ### Response
 
@@ -471,7 +471,7 @@ Submit the certificate with ID `2`.
           -X PUT \
           -H 'Content-Type: application/json' \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/certificates/2/submit
+          https://api.dnsimple.com/v1/domains/example.com/certificates/2/submit
 
 ### Input
 

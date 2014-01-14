@@ -29,7 +29,7 @@ Change name servers for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/name_servers
+          https://api.dnsimple.com/v1/domains/example.com/name_servers
 
 ### Input
 
@@ -96,7 +96,7 @@ Register a name server belonging to `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/registry_name_servers
+          https://api.dnsimple.com/v1/domains/example.com/registry_name_servers
 
 ### Input
 
@@ -142,7 +142,7 @@ De-register the name server `ns1.example.com` belonging to `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/registry_name_servers/ns1.example.com
+          https://api.dnsimple.com/v1/domains/example.com/registry_name_servers/ns1.example.com
 
 ### Response
 

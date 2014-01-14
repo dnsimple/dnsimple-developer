@@ -25,7 +25,7 @@ Provision a new user:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/users
+          https://api.dnsimple.com/v1/users
 
 ### Input
 

@@ -24,13 +24,13 @@ List memberships for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/example.com/memberships
+          https://api.dnsimple.com/v1/domains/example.com/memberships
 
 List memberships for domain with ID `123`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/123/memberships
+          https://api.dnsimple.com/v1/domains/123/memberships
 
 ### Response
 
@@ -79,7 +79,7 @@ Add a membership for domain `example.com`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://dnsimple.com/domains/example.com/memberships
+          https://api.dnsimple.com/v1/domains/example.com/memberships
 
 ### Input
 
@@ -134,7 +134,7 @@ Delete the membership with ID `712` for domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/memberships/712
+          https://api.dnsimple.com/v1/domains/example.com/memberships/712
 
 Delete the membership with email `member@example.com` for domain `example.com`:
 
@@ -142,7 +142,7 @@ Delete the membership with email `member@example.com` for domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/example.com/memberships/member@example.com
+          https://api.dnsimple.com/v1/domains/example.com/memberships/member@example.com
 
 ### Response
 

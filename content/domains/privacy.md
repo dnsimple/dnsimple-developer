@@ -29,7 +29,7 @@ If the privacy protection is currently disabled then it will be enabled.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://dnsimple.com/domains/:domain/whois_privacy
+          https://api.dnsimple.com/v1/domains/:domain/whois_privacy
 
 ### Response
 
@@ -68,7 +68,7 @@ If the privacy protection has not expired it can always be turned back on with n
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://dnsimple.com/domains/:domain/whois_privacy
+          https://api.dnsimple.com/v1/domains/:domain/whois_privacy
 
 ### Response
 

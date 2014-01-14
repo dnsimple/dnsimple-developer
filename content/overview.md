@@ -43,19 +43,19 @@ There are two authentication methods availabe: `HTTP Basic Authentication` or th
 
     curl  -u "<email>:<password>" \
           -H 'Accept: application/json' \
-          https://dnsimple.com/users/me
+          https://api.dnsimple.com/v1/users/me
 
 **DNSimple API Token** (sent in a header)
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/users/me
+          https://api.dnsimple.com/v1/users/me
 
 **DNSimple Domain Token** (sent in a header)
 
     curl  -H 'X-DNSimple-Domain-Token: <token>' \
           -H 'Accept: application/json' \
-          https://dnsimple.com/domains/:domain
+          https://api.dnsimple.com/v1/domains/:domain
 
 The [Authentication](/authentication/) page provides more information about how to use them.
 
