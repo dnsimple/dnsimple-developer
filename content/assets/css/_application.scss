@@ -10,6 +10,15 @@
   border: none;
 }
 
+#sidebar {
+  margin-top: 25px;
+}
+.sidebar-title {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
 .sidebar-panel {
   font-size: 1.4rem;
   margin: 3rem 0;
@@ -28,4 +37,47 @@ main > h1 {
 h2 {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+
+.nav-list {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-list li a {
+  display: block;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-left: 5px solid #ddd;
+  color: #333;
+}
+.nav-list li a:hover,
+.nav-list li .active a {
+  border-left: 5px solid #0088cc;
+  background: none;
+  color: #0088cc;
+  text-decoration: none;
+  // text-shadow: 1px 1px 0px white;
+}
+.nav-list li a {
+  padding-left: 15px;
+}
+.nav-list ul li a {
+  padding-left: 30px;
+}
+.nav-list li {
+  padding: 0;
+  margin-right: 0;
+  margin-left: 0
+}
+.nav-list li a:hover,
+.nav-list li.active a {
+  color: #cc8b00;
+  border-left: 5px solid #cc8b00;
 }
