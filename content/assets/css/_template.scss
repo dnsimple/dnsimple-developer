@@ -21,6 +21,17 @@ pre {
 // Header
 // -------------------------
 
+.site-head {
+  background: #242424 no-repeat center center;
+  padding: 10px 0;
+  color: #fff;
+
+  // gradient shadow before the content
+  border-bottom: 1px solid #ffffff;
+  -webkit-box-shadow: 0 0 20px rgba(#000, 0.7);
+  -moz-box-shadow: 0 0 20px rgba(#000, 0.7);
+  box-shadow: 0 0 20px rgba(#000, 0.7);
+}
 
 
 // Footer
@@ -47,8 +58,6 @@ pre {
 
   // .list-inline > li {
   display: inline-block;
-  // padding-left: 5px;
-  // padding-right: 5px;
 }
 .site-footer-links li:before {
   content: '\00B7';

@@ -10,8 +10,22 @@
   border: none;
 }
 
-#contribute {
-  font-size: 13px;
-  margin: 30px 0;
+.sidebar-panel {
+  font-size: 1.4rem;
+  margin: 3rem 0;
   padding: 15px;
+}
+
+main > h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  // .page-header
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
