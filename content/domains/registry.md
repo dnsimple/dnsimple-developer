@@ -72,22 +72,22 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
+    "id": 227,
+    "user_id": 19,
     "registrant_id": 100,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
+    "token": "domain-token",
     "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": "2012-03-18",
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~
@@ -178,7 +178,7 @@ domain.renew_whois_privacy
 ~~~ js
 {
   "domain": {
-    "name": "renewable.com"
+    "name": "example.com"
   }
 }
 ~~~
@@ -190,22 +190,22 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
-    "registrant_id": 100,
+    "id": 227,
+    "user_id": 19,
+    "registrant_id": 28,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
+    "token": "domain-token",
     "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": "2012-03-18",
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~

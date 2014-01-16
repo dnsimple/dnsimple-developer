@@ -28,42 +28,42 @@ Responds with HTTP 200.
 [
   {
     "domain": {
-      "auto_renew": false,
-      "created_at": "2013-01-24T19:23:08Z",
-      "expires_on": "2012-03-18",
-      "id": 1,
+      "id": 228,
+      "user_id": 19,
+      "registrant_id": null,
+      "name": "example.it",
+      "unicode_name": "example.it",
+      "token": "domain-token",
+      "state": "hosted",
       "language": null,
       "lockable": true,
-      "name": "example.com",
-      "registrant_id": null,
-      "state": "registered",
-      "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
-      "unicode_name": "example.com",
-      "updated_at": "2013-01-24T19:23:08Z",
-      "user_id": 1,
-      "record_count": 0,
+      "auto_renew": false,
+      "whois_protected": false,
+      "record_count": 5,
       "service_count": 0,
-      "private_whois?": false
-    },
+      "expires_on": null,
+      "created_at": "2014-01-15T22:03:49Z",
+      "updated_at": "2014-01-15T22:03:49Z"
+    }
   },
   {
     "domain": {
-      "auto_renew": false,
-      "created_at": "2013-01-24T19:23:08Z",
-      "expires_on": "2012-03-18",
-      "id": 11,
+      "id": 227,
+      "user_id": 19,
+      "registrant_id": 28,
+      "name": "example.com",
+      "unicode_name": "example.com",
+      "token": "domain-token",
+      "state": "registered",
       "language": null,
       "lockable": true,
-      "name": "example2.com",
-      "registrant_id": null,
-      "state": "registered",
-      "token": "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
-      "unicode_name": "example.com",
-      "updated_at": "2013-01-24T19:23:08Z",
-      "user_id": 1,
-      "record_count": 0,
+      "auto_renew": true,
+      "whois_protected": false,
+      "record_count": 7,
       "service_count": 0,
-      "private_whois?": false
+      "expires_on": "2015-01-16",
+      "created_at": "2014-01-15T22:01:55Z",
+      "updated_at": "2014-01-16T22:56:22Z"
     }
   }
 ]
@@ -101,22 +101,22 @@ Responds with HTTP 200, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
-    "registrant_id": 100,
+    "id": 227,
+    "user_id": 19,
+    "registrant_id": 28,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
+    "token": "domain-token",
     "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": "2012-03-18",
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~
@@ -159,22 +159,22 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
-    "registrant_id": null,
+    "id": 227,
+    "user_id": 19,
+    "registrant_id": 28,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
-    "state": "hosted",
+    "token": "domain-token",
+    "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": null,
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~
@@ -260,22 +260,22 @@ Responds with HTTP 200 on success, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
-    "registrant_id": null,
+    "id": 227,
+    "user_id": 19,
+    "registrant_id": 28,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
-    "state": "hosted",
+    "token": "domain-token",
+    "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": null,
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~
@@ -391,22 +391,22 @@ Responds with HTTP 200 on success, returns the domain.
 ~~~ js
 {
   "domain": {
-    "id": 1,
-    "user_id": 2,
+    "id": 227,
+    "user_id": 19,
     "registrant_id": 100,
     "name": "example.com",
     "unicode_name": "example.com",
-    "lockable": true,
-    "auto_renew": false,
+    "token": "domain-token",
     "state": "registered",
     "language": null,
-    "token": "Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA",
-    "created_at": "2013-01-24T19:23:08Z",
-    "updated_at": "2012-12-07T14:55:25Z",
-    "expires_on": "2012-03-18",
-    "record_count": 0,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
     "service_count": 0,
-    "private_whois?": false
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
   }
 }
 ~~~
