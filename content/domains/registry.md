@@ -29,17 +29,13 @@ so please be careful with this command.
 
 ### Input
 
-domain.name
-: Required _string_
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+`domain.name` | `string` | `true` | 
+`domain.registrant_id` | `integer` | `true` | The ID of an existing contact in your account.
+`domain.extended_attribute` | `hash` | `false` | For TLDs that require [extended attributes](/extended-attributes/).
 
-domain.registrant_id
-: Required _integer_ The ID of an existing contact in your account.
-
-domain.extended_attribute
-: optional _hash_ For TLDs that require [extended attributes](/extended-attributes/).
-
-
-**Example.**
+##### Example
 
 ~~~ js
 {
@@ -50,7 +46,7 @@ domain.extended_attribute
 }
 ~~~
 
-**Example with extended attributes.**
+##### Example with extended attributes
 
 ~~~ js
 {
@@ -118,18 +114,14 @@ however domains ending in `.us` and `.ca` may not.
 
 ### Input
 
-domain.name
-: Required _string_
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+`domain.name` | `string` | `true` | 
+`domain.registrant_id` | `integer` | `true` | The ID of an existing contact in your account.
+`domain.extended_attribute` | `hash` | `false` | For TLDs that require [extended attributes](/extended-attributes/).
+`transfer_order.authinfo` | `string` | `false` | Required for top-level domains that require an authorization code.
 
-domain.registrant_id
-: Required _integer_ The ID of an existing contact in your account.
-
-domain.extended_attribute
-: optional _hash_ For TLDs that require [extended attributes](/extended-attributes/).
-
-transfer_order.authinfo
-: optional _string_ Required for top-level domains that require an authorization code.
-
+##### Example
 
 ~~~ js
 {
@@ -168,12 +160,12 @@ which is 1 year for most domains but for some domains may be more.
 
 ### Input
 
-domain.name
-: Required _string_
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+`domain.name` | `string` | `true` | 
+`domain.renew_whois_privacy` | `boolean` | `false`
 
-domain.renew_whois_privacy
-: Optional _boolean_
-
+##### Example
 
 ~~~ js
 {
@@ -227,11 +219,21 @@ This will unlock a domain and send the authorization code to the domain's admini
 
 ### Example
 
+Transfer out the domain with ID `1`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://api.dnsimple.com/v1/domains/:domain/transfer_outs
+          https://api.dnsimple.com/v1/domains/1/transfer_outs
+
+Transfer out the domain `example.com`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          https://api.dnsimple.com/v1/domains/example.com/transfer_outs
 
 ### Response
 

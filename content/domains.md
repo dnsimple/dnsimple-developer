@@ -137,8 +137,11 @@ Responds with HTTP 200, returns the domain.
 
 ### Input
 
-domain.name
-: Required _string_
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+`domain.name` | `string` | `true`
+
+##### Example
 
 ~~~ js
 {
@@ -149,10 +152,6 @@ domain.name
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success, returns the domain.
 
@@ -178,6 +177,10 @@ Responds with HTTP 201 on success, returns the domain.
   }
 }
 ~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
 
 
 ## Delete a domain
@@ -253,8 +256,6 @@ Empty.
 
 ### Response
 
-Responds with HTTP 400 if bad request.
-
 Responds with HTTP 200 on success, returns the domain.
 
 ~~~ js
@@ -279,6 +280,8 @@ Responds with HTTP 200 on success, returns the domain.
   }
 }
 ~~~
+
+Responds with HTTP 400 if bad request.
 
 
 ## Check domain availability
@@ -336,6 +339,7 @@ An unavailable domain looks like this:
 }
 ~~~
 
+
 ## Move domain to another account
 
 Push a domain from the current DNSimple account to another.
@@ -364,12 +368,12 @@ Move the domain `example.com`:
 
 ### Input
 
-push.new_user_email
-: Required _string_ email of the new account's email address.
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+`push.new_user_email` | `string` | `true` | Email of the new account's email address.
+`push.contact_id` | `integer` | `true` | The new account's registrant ID.
 
-push.contact_id
-: Required _integer_ corresponding to the new account's registrant.
-
+##### Example
 
 ~~~ js
 {
@@ -381,10 +385,6 @@ push.contact_id
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 200 on success, returns the domain.
 
@@ -410,3 +410,7 @@ Responds with HTTP 200 on success, returns the domain.
   }
 }
 ~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
