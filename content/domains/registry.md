@@ -239,3 +239,58 @@ Transfer out the domain `example.com`.
 
 Responds with HTTP 201 on success, returns the transfer out order.
 
+
+## Check domain availability
+
+Check if a domain is available for registration.
+
+    GET /domains/:name/check
+
+### Parameters
+
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string` | The domain name
+
+### Example
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/domains/:name/check
+
+### Response
+
+If the domain is available then this will return a 404 which indicates that the
+name is available. If it is not available then the response will be a 200.
+
+In either case, the JSON response will contain some additional relevant
+information like availability, price, and the minimum number of years you'll
+have to reserve the domain for, if you decide to get it.
+
+An available domain looks like this:
+
+~~~ js
+// 404 Not Found
+{
+  "name":"available-domain.com",
+  "status":"available",
+  "price":"14.0",
+  "currency":"USD",
+  "currency_symbol":"$",
+  "minimum_number_of_years":1
+}
+~~~
+
+An unavailable domain looks like this:
+
+~~~ js
+// 200 OK
+{
+  "name":"somebody-already-has-it.com",
+  "status":"unavailable",
+  "price":"14.0",
+  "currency":"USD",
+  "currency_symbol":"$",
+  "minimum_number_of_years":1
+}
+~~~
