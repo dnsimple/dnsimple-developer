@@ -29,11 +29,11 @@ so please be careful with this command.
 
 ### Input
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-`domain.name` | `string` | `true` | 
-`domain.registrant_id` | `integer` | `true` | The ID of an existing contact in your account.
-`domain.extended_attribute` | `hash` | `false` | For TLDs that require [extended attributes](/extended-attributes/).
+| Name | Type | Description |
+|------|------|-------------|
+`domain.name` | `string` | **Required**.
+`domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
+`domain.extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
 
 ##### Example
 
@@ -114,12 +114,12 @@ however domains ending in `.us` and `.ca` may not.
 
 ### Input
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-`domain.name` | `string` | `true` | 
-`domain.registrant_id` | `integer` | `true` | The ID of an existing contact in your account.
-`domain.extended_attribute` | `hash` | `false` | For TLDs that require [extended attributes](/extended-attributes/).
-`transfer_order.authinfo` | `string` | `false` | Required for top-level domains that require an authorization code.
+| Name | Type | Description |
+|------|------|-------------|
+`domain.name` | `string` | **Required**.
+`domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
+`domain.extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`transfer_order.authinfo` | `string` | **Required** for top-level domains that require an authorization code.
 
 ##### Example
 
@@ -160,10 +160,10 @@ which is 1 year for most domains but for some domains may be more.
 
 ### Input
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-`domain.name` | `string` | `true` | 
-`domain.renew_whois_privacy` | `boolean` | `false`
+| Name | Type | Description |
+|------|------|-------------|
+`domain.name` | `string` | **Required**.
+`domain.renew_whois_privacy` | `boolean` | Set to `true` to also renew the associated Whois Privacy. Default: `false`.
 
 ##### Example
 

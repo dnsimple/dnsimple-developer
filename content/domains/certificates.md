@@ -2,7 +2,7 @@
 title: SSL Certificates
 ---
 
-# Certificate API
+# SSL Certificate API
 
 Purchase and manage SSL certificates.
 

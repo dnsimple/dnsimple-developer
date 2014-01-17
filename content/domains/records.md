@@ -8,7 +8,7 @@ title: Domain Records
 {:toc}
 
 
-## List domain records
+## List records for a domain
 
     GET /domains/:domain/records
 
@@ -74,7 +74,77 @@ title: Domain Records
 ~~~
 
 
-## Get a domain record
+## Create a record
+
+    POST /domains/:domain/records
+
+### Parameters
+
+| Name | Type | Description |
+| -----|------|-------------|
+`:domain` | `string`, `integer` | The domain name or id
+
+### Example
+
+Create a record for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          -d '<json>' \
+          https://api.dnsimple.com/v1/domains/example.com/records
+
+### Input
+
+| Name | Type | Description |
+|------|------|-------------|
+`record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
+`record.record_type` | `string` | **Required**.
+`record.content` | `string` | **Required**.
+`record.ttl` | `integer` |
+`record.prio` | `integer` |
+
+##### Example
+
+~~~ js
+{
+  "record": {
+    "name": "",
+    "record_type": "MX",
+    "content": "mail.example.com",
+    "ttl": 3600,
+    "prio": 10
+  }
+}
+~~~
+
+### Response
+
+Responds with HTTP 201 on success.
+
+~~~ js
+{
+  "record": {
+    "content": "mail.example.com",
+    "created_at": "2013-01-29T14:25:38Z",
+    "domain_id": 28,
+    "id": 172,
+    "name": "",
+    "prio": 10,
+    "record_type": "MX",
+    "ttl": 3600,
+    "updated_at": "2013-01-29T14:25:38Z"
+  }
+}
+~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
+
+
+## Get a record
 
     GET /domains/:domain/records/:id
 
@@ -111,82 +181,7 @@ Get the record `123` for domain `example.com`.
 ~~~
 
 
-## Create a domain record
-
-    POST /domains/:domain/records
-
-### Parameters
-
-| Name | Type | Description |
-| -----|------|-------------|
-`:domain` | `string`, `integer` | The domain name or id
-
-### Example
-
-Create a record for domain `example.com`:
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '<json>' \
-          https://api.dnsimple.com/v1/domains/example.com/records
-
-### Input
-
-record.name
-: Required _string_
-
-record.record_type
-: Required _string_
-
-record.content
-: Required _string_
-
-record.ttl
-: Optional _integer_
-
-record.prio
-: Optional _integer_
-
-~~~ js
-{
-  "record": {
-    "name": "",
-    "record_type": "MX",
-    "content": "mail.example.com",
-    "ttl": 3600,
-    "prio": 10
-  }
-}
-~~~
-
-### Response
-
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the validation fails.
-
-Responds with HTTP 201 on success.
-
-~~~ js
-{
-  "record": {
-    "content": "mail.example.com",
-    "created_at": "2013-01-29T14:25:38Z",
-    "domain_id": 28,
-    "id": 172,
-    "name": "",
-    "prio": 10,
-    "record_type": "MX",
-    "ttl": 3600,
-    "updated_at": "2013-01-29T14:25:38Z"
-  }
-}
-~~~
-
-
-## Update a domain record
+## Update a record
 
     PUT /domains/:domain/records/:id
 
@@ -209,19 +204,16 @@ Update the record with ID `123` for domain `example.com`:
 
 ### Input
 
-The following fields are updateable.
+The following fields are updateable. You can pass zero of any of them.
 
-record.name
-: Required _string_
+| Name | Type | Description |
+|------|------|-------------|
+`record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
+`record.content` | `string` | **Required**.
+`record.ttl` | `integer` |
+`record.prio` | `integer` |
 
-record.content
-: Required _string_
-
-record.ttl
-: Optional _integer_
-
-record.prio
-: Optional _integer_
+##### Example
 
 ~~~ js
 {
@@ -233,10 +225,6 @@ record.prio
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 200 on success.
 
@@ -256,8 +244,12 @@ Responds with HTTP 200 on success.
 }
 ~~~
 
+Responds with HTTP 400 if bad request.
 
-## Delete a domain record
+Responds with HTTP 400 if the validation fails.
+
+
+## Delete a record
 
 <div class="alert alert-warning">
   <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a> for this API method.

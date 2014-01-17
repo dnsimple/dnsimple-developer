@@ -70,6 +70,67 @@ Responds with HTTP 200.
 ~~~
 
 
+## Create a domain
+
+    POST /domains
+
+### Example
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          -d '<json>' \
+          https://api.dnsimple.com/v1/domains
+
+### Input
+
+| Name | Type | Description |
+|------|------|-------------|
+`domain.name` | `string` | **Required**.
+
+##### Example
+
+~~~ js
+{
+  "domain": {
+    "name": "example.com"
+  }
+}
+~~~
+
+### Response
+
+Responds with HTTP 201 on success, returns the domain.
+
+~~~ js
+{
+  "domain": {
+    "id": 227,
+    "user_id": 19,
+    "registrant_id": 28,
+    "name": "example.com",
+    "unicode_name": "example.com",
+    "token": "domain-token",
+    "state": "registered",
+    "language": null,
+    "lockable": true,
+    "auto_renew": true,
+    "whois_protected": false,
+    "record_count": 7,
+    "service_count": 0,
+    "expires_on": "2015-01-16",
+    "created_at": "2014-01-15T22:01:55Z",
+    "updated_at": "2014-01-16T22:56:22Z"
+  }
+}
+~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
+
+
 ## Get a domain
 
     GET /domains/:domain
@@ -122,67 +183,6 @@ Responds with HTTP 200, returns the domain.
 ~~~
 
 
-## Create a domain
-
-    POST /domains
-
-### Example
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '<json>' \
-          https://api.dnsimple.com/v1/domains
-
-### Input
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-`domain.name` | `string` | `true`
-
-##### Example
-
-~~~ js
-{
-  "domain": {
-    "name": "example.com"
-  }
-}
-~~~
-
-### Response
-
-Responds with HTTP 201 on success, returns the domain.
-
-~~~ js
-{
-  "domain": {
-    "id": 227,
-    "user_id": 19,
-    "registrant_id": 28,
-    "name": "example.com",
-    "unicode_name": "example.com",
-    "token": "domain-token",
-    "state": "registered",
-    "language": null,
-    "lockable": true,
-    "auto_renew": true,
-    "whois_protected": false,
-    "record_count": 7,
-    "service_count": 0,
-    "expires_on": "2015-01-16",
-    "created_at": "2014-01-15T22:01:55Z",
-    "updated_at": "2014-01-16T22:56:22Z"
-  }
-}
-~~~
-
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the validation fails.
-
-
 ## Delete a domain
 
 <div class="alert alert-warning">
@@ -229,7 +229,7 @@ Responds with HTTP 200 on success.
 </div>
 
 
-## Reset domain token
+## Reset a domain token
 
     POST /domains/:domain/token
 
@@ -284,9 +284,9 @@ Responds with HTTP 200 on success, returns the domain.
 Responds with HTTP 400 if bad request.
 
 
-## Move domain to another account
+## Push a domain
 
-Push a domain from the current DNSimple account to another.
+Move a domain from the current DNSimple account to another.
 
     POST /domains/:domain/push
 
@@ -312,10 +312,10 @@ Move the domain `example.com`:
 
 ### Input
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-`push.new_user_email` | `string` | `true` | Email of the new account's email address.
-`push.contact_id` | `integer` | `true` | The new account's registrant ID.
+| Name | Type || Description |
+|------|------||-------------|
+`push.new_user_email` | `string` | **Required**. Email of the new account's email address.
+`push.contact_id` | `integer` | **Required**. The new account's registrant ID.
 
 ##### Example
 
