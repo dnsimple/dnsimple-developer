@@ -153,6 +153,7 @@ Responds with HTTP 400 if the validation fails.
 | Name | Type | Description |
 | -----|------|-------------|
 `:domain` | `string`, `integer` | The domain name or id
+`:id` | `integer` | The record id
 
 ### Example
 
@@ -190,6 +191,7 @@ Get the record `123` for domain `example.com`.
 | Name | Type | Description |
 | -----|------|-------------|
 `:domain` | `string`, `integer` | The domain name or id
+`:id` | `integer` | The record id
 
 ### Example
 
@@ -262,6 +264,7 @@ Responds with HTTP 400 if the validation fails.
 | Name | Type | Description |
 | -----|------|-------------|
 `:domain` | `string`, `integer` | The domain name or id
+`:id` | `integer` | The record id
 
 ### Example
 
