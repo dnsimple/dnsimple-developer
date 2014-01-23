@@ -14,19 +14,10 @@
   border: none;
 }
 
-#sidebar {
+// Increase bottom margin. It looks better.
+h2 {
   margin-top: 20px;
-}
-.sidebar-title {
-  margin-top: 25px;
-  margin-bottom: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-}
-.sidebar-infobox {
-  font-size: 1.3rem;
-  margin: 3rem 0;
-  padding: 15px;
+  margin-bottom: 20px;
 }
 
 // Make the first title of the page more prominent
@@ -39,11 +30,6 @@ main > h1 {
   border-bottom: 1px solid #eeeeee;
 }
 
-// Increase bottom margin. It looks better.
-h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
 // Restore custom sidebar navigation style
 .nav-list {
@@ -86,4 +72,20 @@ h2 {
 .nav-list li.active a {
   color: #cc8b00;
   border-left: 5px solid #cc8b00;
+}
+
+
+#sidebar {
+  margin-top: 20px;
+}
+.sidebar-title {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+.sidebar-infobox {
+  font-size: 1.3rem;
+  margin: 3rem 0;
+  padding: 15px;
 }
