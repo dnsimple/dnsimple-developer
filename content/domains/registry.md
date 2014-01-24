@@ -8,7 +8,7 @@ title: Domain Registry
 {:toc}
 
 
-## Register a domain
+## Register a domain {#register}
 
 Register a domain name with DNSimple and the appropriate domain registry.
 
@@ -89,7 +89,7 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~
 
 
-## Transfer a domain
+## Transfer a domain {#transfer}
 
 Transfer a domain name from another domain registrar into DNSimple.
 
@@ -140,7 +140,7 @@ however domains ending in `.us` and `.ca` may not.
 Responds with HTTP 201 on success, returns the transfer order.
 
 
-## Renew a domain
+## Renew a domain {#renew}
 
 Renew a domain name in your account.
 
@@ -203,7 +203,7 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~
 
 
-## Transfer out a domain
+## Transfer out a domain {#transfer-out}
 
 Prepare a domain for transferring out.
 
@@ -240,7 +240,7 @@ Transfer out the domain `example.com`.
 Responds with HTTP 201 on success, returns the transfer out order.
 
 
-## Check domain availability
+## Check domain availability {#availability}
 
 Check if a domain is available for registration.
 

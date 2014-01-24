@@ -8,7 +8,7 @@ title: Domains
 {:toc}
 
 
-## List domains
+## List domains {#list}
 
 List all domains.
 
@@ -70,7 +70,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## Create a domain
+## Create a domain {#create}
 
     POST /domains
 
@@ -131,7 +131,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a domain
+## Get a domain {#get}
 
     GET /domains/:domain
 
@@ -183,7 +183,7 @@ Responds with HTTP 200, returns the domain.
 ~~~
 
 
-## Delete a domain
+## Delete a domain {#delete}
 
 <div class="alert alert-warning">
   <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
@@ -229,7 +229,7 @@ Responds with HTTP 200 on success.
 </div>
 
 
-## Reset a domain token
+## Reset a domain token {#reset-token}
 
     POST /domains/:domain/token
 
@@ -284,7 +284,7 @@ Responds with HTTP 200 on success, returns the domain.
 Responds with HTTP 400 if bad request.
 
 
-## Push a domain
+## Push a domain {#push}
 
 Move a domain from the current DNSimple account to another.
 

@@ -8,7 +8,7 @@ title: Domain Auto-renewal
 {:toc}
 
 
-## Enable domain auto-renewal
+## Enable domain auto-renewal {#enable}
 
     POST /domains/:domain/auto_renewal
 
@@ -56,7 +56,7 @@ Responds with HTTP 200 on success, returns the domain.
 ~~~
 
 
-## Disable domain auto-renewal
+## Disable domain auto-renewal {#disable}
 
     DELETE /domains/:domain/auto_renewal
 
