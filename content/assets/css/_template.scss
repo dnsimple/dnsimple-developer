@@ -18,6 +18,14 @@ pre {
   border-radius: 2px;
 }
 
+// Bootstrap code color is horrible
+code {
+  color: inherit;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
 // h5 is often used as an alternative for a **small title**
 h5 {
   font-weight: bold;
