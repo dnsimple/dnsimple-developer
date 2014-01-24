@@ -23,7 +23,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "service": {
@@ -61,7 +61,7 @@ Additionally any changes made to a service will automatically be reflected in th
 
 ### Response
 
-~~~ js
+~~~js
 {
   "service": {
     "created_at": "2010-12-15T08:08:02Z",

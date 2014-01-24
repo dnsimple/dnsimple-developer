@@ -38,7 +38,7 @@ user.password
 user.password_confirmation
 : Required _string_
 
-~~~ js
+~~~js
 {
   "user": {
     "email": "john.smith@example.com",
@@ -54,7 +54,7 @@ Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
-~~~ js
+~~~js
 {
   "user": {
     "authy_identifier": null,

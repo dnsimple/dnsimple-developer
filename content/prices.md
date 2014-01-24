@@ -21,7 +21,7 @@ List all prices.
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "price": {

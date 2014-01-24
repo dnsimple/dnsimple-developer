@@ -30,7 +30,7 @@ List certificates for domain `example.com`:
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "certificate": {
@@ -179,7 +179,7 @@ Get the certificate with ID `2`.
 
 ### Response
 
-~~~ js
+~~~js
 {
   "certificate": {
     "id": 2,
@@ -280,7 +280,7 @@ certificate.contact_id
 certificate.csr
 : Optional _string_ with a custom Certificate Signing Request.
 
-~~~ js
+~~~js
 {
   "certificate": {
     "name": "www",
@@ -291,7 +291,7 @@ certificate.csr
 
 ### Response
 
-~~~ js
+~~~js
 {
   "certificate": {
     "id": 2,
@@ -382,7 +382,7 @@ Configure the certificate with ID `2`.
 
 ### Response
 
-~~~ js
+~~~js
 {
   "certificate": {
     "id": 2,
@@ -478,7 +478,7 @@ Submit the certificate with ID `2`.
 certificate.approver_email
 : Required _string_
 
-~~~ js
+~~~js
 {
   "certificate": {
     "approver_email": "admin@example.com"
@@ -488,7 +488,7 @@ certificate.approver_email
 
 ### Response
 
-~~~ js
+~~~js
 {
   "certificate": {
     "id": 2,

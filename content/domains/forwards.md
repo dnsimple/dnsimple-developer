@@ -36,7 +36,7 @@ List email forwards for domain with ID `123`:
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "email_forward": {
@@ -91,7 +91,7 @@ email_forward.from
 email_forward.to
 : Required _string_
 
-~~~ js
+~~~js
 {
   "email_forward": {
     "from": "john",
@@ -106,7 +106,7 @@ Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
-~~~ js
+~~~js
 {
   "email_forward": {
     "id": 123,

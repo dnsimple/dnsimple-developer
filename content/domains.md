@@ -24,7 +24,7 @@ List all domains.
 
 Responds with HTTP 200.
 
-~~~ js
+~~~js
 [
   {
     "domain": {
@@ -91,7 +91,7 @@ Responds with HTTP 200.
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "domain": {
     "name": "example.com"
@@ -103,7 +103,7 @@ Responds with HTTP 200.
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -159,7 +159,7 @@ Get the domain `example.com`.
 
 Responds with HTTP 200, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -258,7 +258,7 @@ Empty.
 
 Responds with HTTP 200 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -319,7 +319,7 @@ Move the domain `example.com`:
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "push": {
     "new_user_email": "john@example.com",
@@ -332,7 +332,7 @@ Move the domain `example.com`:
 
 Responds with HTTP 200 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,

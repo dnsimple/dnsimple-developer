@@ -28,7 +28,7 @@ title: Domain Records
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "record": {
@@ -107,7 +107,7 @@ Create a record for domain `example.com`:
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "record": {
     "name": "",
@@ -123,7 +123,7 @@ Create a record for domain `example.com`:
 
 Responds with HTTP 201 on success.
 
-~~~ js
+~~~js
 {
   "record": {
     "content": "mail.example.com",
@@ -165,7 +165,7 @@ Get the record `123` for domain `example.com`.
 
 ### Response
 
-~~~ js
+~~~js
 {
   "record": {
     "name": "www",
@@ -217,7 +217,7 @@ The following fields are updateable. You can pass zero of any of them.
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "record": {
     "content": "updated.example.com",
@@ -230,7 +230,7 @@ The following fields are updateable. You can pass zero of any of them.
 
 Responds with HTTP 200 on success.
 
-~~~ js
+~~~js
 {
   "record": {
     "content": "updated.example.com",

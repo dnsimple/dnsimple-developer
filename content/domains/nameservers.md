@@ -35,7 +35,7 @@ Change name servers for domain `example.com`:
 
 This API accepts up to 6 name servers.
 
-~~~ js
+~~~js
 {
   "name_servers": {
     "ns1": "ns1.example.com",
@@ -48,7 +48,7 @@ This API accepts up to 6 name servers.
 
 To change the name servers back to DNSimple's name servers, send the following body:
 
-~~~ js
+~~~js
 {
   "name_servers": {
     "ns1": "ns1.dnsimple.com",
@@ -63,7 +63,7 @@ To change the name servers back to DNSimple's name servers, send the following b
 
 Responds with HTTP 200 on success, returns the array of assigned name servers.
 
-~~~ js
+~~~js
 [
   "ns1.example.com",
   "ns2.example.com",
@@ -100,7 +100,7 @@ Register a name server belonging to `example.com`:
 
 ### Input
 
-~~~ js
+~~~js
 {
   "name_server": {
     "name": "ns1.example.com",
@@ -113,7 +113,7 @@ Register a name server belonging to `example.com`:
 
 Responds with HTTP 200 on success, returns the name server.
 
-~~~ js
+~~~js
 {
   "name": "ns1.example.com",
   "ip": 12

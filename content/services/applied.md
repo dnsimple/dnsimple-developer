@@ -20,7 +20,7 @@ title: Applied Services
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "service": {
@@ -58,7 +58,7 @@ title: Applied Services
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "service": {
@@ -135,7 +135,7 @@ The following fields are required:
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~
 
@@ -154,6 +154,6 @@ TODO
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~

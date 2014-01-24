@@ -43,7 +43,7 @@ You may use up to 4 external name servers (`ns1` through `ns4`).
 
 Example with `dnsimple` source.
 
-~~~ js
+~~~js
 {
   "vanity_nameserver_configuration": {
     "server_source": "dnsimple"
@@ -53,7 +53,7 @@ Example with `dnsimple` source.
 
 Example with `external` source.
 
-~~~ js
+~~~js
 {
   "vanity_nameserver_configuration": {
     "server_source": "external",
@@ -65,7 +65,7 @@ Example with `external` source.
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~
 
@@ -90,7 +90,7 @@ TODO
 
 ### Response
 
-~~~ js
+~~~js
 {
   "status": "disabled"
 }

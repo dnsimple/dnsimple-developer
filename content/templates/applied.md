@@ -24,6 +24,6 @@ Apply the specific template to the domain.
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~

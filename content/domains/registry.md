@@ -37,7 +37,7 @@ so please be careful with this command.
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "domain": {
     "name": "example.com",
@@ -48,7 +48,7 @@ so please be careful with this command.
 
 ##### Example with extended attributes
 
-~~~ js
+~~~js
 {
   "domain": {
     "name": "example.us",
@@ -65,7 +65,7 @@ so please be careful with this command.
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -123,7 +123,7 @@ however domains ending in `.us` and `.ca` may not.
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "domain": {
     "name": "transferdomain.com",
@@ -167,7 +167,7 @@ which is 1 year for most domains but for some domains may be more.
 
 ##### Example
 
-~~~ js
+~~~js
 {
   "domain": {
     "name": "example.com"
@@ -179,7 +179,7 @@ which is 1 year for most domains but for some domains may be more.
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -269,7 +269,7 @@ have to reserve the domain for, if you decide to get it.
 
 An available domain looks like this:
 
-~~~ js
+~~~js
 // 404 Not Found
 {
   "name":"available-domain.com",
@@ -283,7 +283,7 @@ An available domain looks like this:
 
 An unavailable domain looks like this:
 
-~~~ js
+~~~js
 // 200 OK
 {
   "name":"somebody-already-has-it.com",

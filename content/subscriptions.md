@@ -28,7 +28,7 @@ Responds with HTTP 402 if the current user has no subscription.
 
 Responds with HTTP 200 on success.
 
-~~~ js
+~~~js
 {
   "subscription": {
     "allocated_quantity": 0,
@@ -90,7 +90,7 @@ subscription.credit_card.year
 subscription.credit_card.cvv
 : Required _string_
 
-~~~ js
+~~~js
 {
   "subscription": {
     "plan": "Silver",
@@ -114,7 +114,7 @@ Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
-~~~ js
+~~~js
 {
   "subscription": {
     "allocated_quantity": 0,

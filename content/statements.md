@@ -22,7 +22,7 @@ API for listing account history as statements.
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "statement": {

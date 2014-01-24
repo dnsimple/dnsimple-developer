@@ -23,7 +23,7 @@ This API interface provides information on the extended attributes for any parti
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "name": "uk_legal_type",

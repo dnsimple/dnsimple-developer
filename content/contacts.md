@@ -25,7 +25,7 @@ List all contacts.
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "contact": {
@@ -89,7 +89,7 @@ Get the contact with ID `123`.
 
 ### Response
 
-~~~ js
+~~~js
 {
   "contact": {
     "city": "Miami",
@@ -175,7 +175,7 @@ contact.fax
 contact.label
 : Optional _string_
 
-~~~ js
+~~~js
 {
   "contact": {
     "first_name": "John",
@@ -200,7 +200,7 @@ Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
-~~~ js
+~~~js
 {
   "contact": {
     "city": "Miami",
@@ -251,7 +251,7 @@ Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 200 on success.
 
-~~~ js
+~~~js
 {
   "contact": {
     "city": "Miami",

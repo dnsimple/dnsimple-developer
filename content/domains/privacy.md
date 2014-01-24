@@ -33,7 +33,7 @@ If the privacy protection is currently disabled then it will be enabled.
 
 ### Response
 
-~~~ js
+~~~js
 {
   "whois_privacy": {
     "id": 18,

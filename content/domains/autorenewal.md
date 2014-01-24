@@ -32,7 +32,7 @@ Enable auto-renewal for the domain `example.com`:
 
 Responds with HTTP 200 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,
@@ -80,7 +80,7 @@ Disable auto-renewal for the domain `example.com`:
 
 Responds with HTTP 200 on success, returns the domain.
 
-~~~ js
+~~~js
 {
   "domain": {
     "id": 227,

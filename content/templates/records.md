@@ -20,7 +20,7 @@ title: Template Records
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "dns_template_record": {
@@ -66,7 +66,7 @@ title: Template Records
 
 ### Response
 
-~~~ js
+~~~js
 {
   "dns_template_record": {
     "name": "",
@@ -110,7 +110,7 @@ The following fields are optional:
 – `dns_template_record[ttl]`
 – `dns_template_record[prio]`
 
-~~~ js
+~~~js
 {
   "dns_template_record": {
     "name": "sample",
@@ -123,7 +123,7 @@ The following fields are optional:
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~
 
@@ -142,6 +142,6 @@ TODO
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~

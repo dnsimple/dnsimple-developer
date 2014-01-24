@@ -22,7 +22,7 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Response
 
-~~~ js
+~~~js
 [
   {
     "dns_template": {
@@ -51,7 +51,7 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Response
 
-~~~ js
+~~~js
 {
   "dns_template": {
     "name": "Example",
@@ -90,7 +90,7 @@ The following fields are optional:
 
 - `dns_template[description]`
 
-~~~ js
+~~~js
 {
   "dns_template": {
     "name": "My Template",
@@ -101,7 +101,7 @@ The following fields are optional:
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~
 
@@ -120,6 +120,6 @@ TODO
 
 ### Response
 
-~~~ js
+~~~js
 TODO
 ~~~
