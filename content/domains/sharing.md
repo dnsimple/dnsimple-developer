@@ -8,7 +8,7 @@ title: Domain Sharing
 {:toc}
 
 
-## List memberships
+## List memberships {#list}
 
     GET /domains/:domain/memberships
 
@@ -60,9 +60,11 @@ List memberships for domain with ID `123`:
 ~~~
 
 
-## Add a membership
+## Add a membership {#create}
 
     POST /domains/:domain/memberships
+
+If the person already exists in DNSimple as a customer then he will immediately be added to the domain's membership list. If the person does not yet have a DNSimple account then he will receive an invitation to join via email.
 
 ### Parameters
 
@@ -81,12 +83,12 @@ Add a membership for domain `example.com`:
           -d '<json>' \
           https://api.dnsimple.com/v1/domains/example.com/memberships
 
+
 ### Input
 
-membership.email
-: Required _string_ address for the person to add.
-  If the person already exists in DNSimple as a customer then he will immediately be added to the domain's membership list.
-  If the person does not yet have a DNSimple account then he will receive an invitation to join via email.
+| Name | Type | Description |
+|------|------|-------------|
+`membership.email` | `string` | **Required** email address for the person to add.
 
 ~~~ js
 {
@@ -97,8 +99,6 @@ membership.email
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
@@ -115,8 +115,10 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
+Responds with HTTP 400 if the validation fails.
 
-## Delete a membership
+
+## Delete a membership {#delete}
 
     DELETE /domains/:domain/memberships/:membership
 
@@ -125,6 +127,7 @@ Responds with HTTP 201 on success.
 | Name | Type | Description |
 | -----|------|-------------|
 `:domain` | `string`, `integer` | The domain name or id
+`:membership` | `string`, `integer` | The member email or id
 
 ### Example
 
