@@ -11,7 +11,7 @@ If you develop a tool for the API [please let us know](mailto:support@dnsimple.c
 
 - [DNSimple iPhone app](http://itunes.apple.com/app/dnsimple-app/id507299306?mt=8)
 - [Import tool in Ruby](https://github.com/aetrion/dnsimple-importer)
-- [Dynamic IP Updater in Bash](https://dnsimple.com/extras/ddns.sh.txt) (official)
+- [Dynamic IP Updater in Bash](/ddns) (official)
 - [Dynamic IP Updater in Bash](http://jasonseifer.com/2011/04/04/auto-update-ip-dnsimple) (original by [Jason Seifer](http://jasonseifer.com)
 - [Dynamic IP Updater in Ruby](https://github.com/hamstarr/dyn-dnsimple) by [hamstarr](https://github.com/hamstarr)
 - [Dynamic IP Updater in Ruby](https://github.com/bjoernalbers/dynsimple) by [bjoernalbers](https://github.com/bjoernalbers)
