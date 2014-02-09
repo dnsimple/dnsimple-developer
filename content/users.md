@@ -10,7 +10,7 @@ API for provisioning users.
 {:toc}
 
 
-## Create an user
+## Create an user {#create}
 
 Provision a new user account.
 
@@ -29,14 +29,11 @@ Provision a new user:
 
 ### Input
 
-user.email
-: Required _string_
-
-user.password
-: Required _string_
-
-user.password_confirmation
-: Required _string_
+| Name | Type | Description |
+|------|------|-------------|
+`user.email` | `string` | **Required**.
+`user.password` | `string` | **Required**.
+`user.password_confirmation` | `string` | **Required**.
 
 ~~~js
 {
@@ -50,31 +47,25 @@ user.password_confirmation
 
 ### Response
 
-Responds with HTTP 400 if the validation fails.
-
 Responds with HTTP 201 on success.
 
 ~~~js
 {
   "user": {
-    "authy_identifier": null,
-    "authy_verified_at": null,
-    "country_code": null,
-    "created_at": "2012-09-30T15:46:39Z",
+    "id": 1,
+    "email": "example@example.com",
+    "referral_token": "ad932ffb60c295",
+    "single_access_token": "api-token",
     "default_contact_id": null,
-    "email": "john.smith@example.com",
+    "domain_count": 2,
+    "domain_limit": 500,
+    "login_count": 3,
     "failed_login_count": 0,
-    "first_name": null,
-    "id": 2,
-    "last_name": null,
-    "login_count": 1,
-    "phone": null,
-    "referral_token": "0f82b5484cd663",
-    "single_access_token": "o4xuNjyjtIn9mw1d2WGM",
     "unsubscribed_at": null,
-    "updated_at": "2012-09-30T15:46:39Z",
-    "domain_count": 0,
-    "domain_limit": 10
+    "created_at": "2014-01-15T21:59:04Z",
+    "updated_at": "2014-01-15T23:21:50Z",
   }
 }
 ~~~
+
+Responds with HTTP 400 if the validation fails.
