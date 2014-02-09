@@ -10,7 +10,7 @@ Set up email forwarding from your domain to another email account.
 {:toc}
 
 
-## List forwards
+## List forwards {#list}
 
     GET /domains/:domain/email_forwards
 
@@ -62,7 +62,7 @@ List email forwards for domain with ID `123`:
 ~~~
 
 
-## Create a forward
+## Create a forward {#create}
 
     POST /domains/:domain/email_forwards
 
@@ -85,11 +85,10 @@ Create an email forward for domain `example.com`:
 
 ### Input
 
-email_forward.from
-: Required _string_
-
-email_forward.to
-: Required _string_
+| Name | Type | Description |
+|------|------|-------------|
+`email_forward.from` | `string` | **Required**. The forward email address, without the domain.
+`email_forward.to` | `string` | **Required**. The complete forward email recipient.
 
 ~~~js
 {
@@ -101,8 +100,6 @@ email_forward.to
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
@@ -119,8 +116,10 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
+Responds with HTTP 400 if the validation fails.
 
-## Delete a forward
+
+## Delete a forward {#delete}
 
     DELETE /domains/:domain/email_forwards/:id
 
