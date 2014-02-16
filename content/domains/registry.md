@@ -33,7 +33,7 @@ so please be careful with this command.
 |------|------|-------------|
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`domain.extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
 
 ##### Example
 
@@ -118,7 +118,7 @@ however domains ending in `.us` and `.ca` may not.
 |------|------|-------------|
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`domain.extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
 `transfer_order.authinfo` | `string` | **Required** for top-level domains that require an authorization code.
 
 ##### Example
@@ -131,6 +131,24 @@ however domains ending in `.us` and `.ca` may not.
   },
   "transfer_order": {
     "authinfo": "xjfjfjvhc293"
+  }
+}
+~~~
+
+##### Example with extended attributes
+
+~~~js
+{
+  "domain": {
+    "name": "transferdomain.com",
+    "registrant_id": 1
+  },
+  "transfer_order": {
+    "authinfo": "xjfjfjvhc293"
+  }
+  "extended_attribute": {
+    "us_nexus": "C11",
+    "us_purpose": "P3"
   }
 }
 ~~~
