@@ -16,7 +16,7 @@ HTTP Basic Authentication credentials are the same as your account: your email a
 
     curl  -u "<email>:<password>" \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/users/me
+          https://api.dnsimple.com/v1/user
 
 
 ## DNSimple API token
@@ -27,13 +27,13 @@ The token must be sent in a header called `X-DNSimple-Token`. The `X-DNSimple-To
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/users/me
+          https://api.dnsimple.com/v1/user
 
 For example, if your email is `example@example.com` and your token is `1234567890`, the request will be
 
     curl  -H 'X-DNSimple-Token: example@example.com:1234567890' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/users/me
+          https://api.dnsimple.com/v1/user
 
 ## DNSimple Domain token
 
