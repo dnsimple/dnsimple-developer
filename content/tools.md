@@ -17,6 +17,7 @@ If you develop a tool for the API [please let us know](mailto:support@dnsimple.c
 - [Dynamic IP Updater in Ruby](https://github.com/bjoernalbers/dynsimple) by [bjoernalbers](https://github.com/bjoernalbers)
 - [Dynamic IP Updater in Node.js](https://github.com/jcarley/node-dns) by [jcarley](https://github.com/jcarley)
 - [Dynamic IP Updater for Windows](https://github.com/dwdii/DNScymbal) by [dwdii](https://github.com/dwdii)
+- [Dynamic IP Updater in Golang](https://github.com/jcarley/go-dns) by [jcarley](https://github.com/jcarley)
 - [Chef Cookbook for DNSimple](http://community.opscode.com/cookbooks/dnsimple)
 - [DitchDaddy](https://github.com/jm/ditchdaddy) - for batch transferring domains out of GoDaddy by [jm](https://github.com/jm)
 - [Screw You Zerigo](https://gist.github.com/bhauman/8225787) - for moving zones from Zerigo to DNSimple by [bhauman](https://gist.github.com/bhauman)
