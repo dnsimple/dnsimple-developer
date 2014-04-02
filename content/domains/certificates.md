@@ -16,8 +16,8 @@ Purchase and manage SSL certificates.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -162,8 +162,8 @@ List certificates for domain `example.com`:
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 :id
@@ -251,8 +251,8 @@ This is the first step in the process for buying a certificate. Once you have su
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -363,8 +363,8 @@ Configured a purchased certificate.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 :id
@@ -455,8 +455,8 @@ Submit a configured certificate for signing by the certificate authority.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 :id

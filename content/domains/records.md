@@ -20,8 +20,8 @@ title: Domain Records
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `name` | `string` | The name to search for. Example: `www`
 `type` | `string` | The record type to search for. Example: `www`
@@ -80,8 +80,8 @@ title: Domain Records
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -97,8 +97,8 @@ Create a record for domain `example.com`:
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
 `record.record_type` | `string` | **Required**.
 `record.content` | `string` | **Required**.
@@ -150,8 +150,8 @@ Responds with HTTP 400 if the validation fails.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `:id` | `integer` | The record id
 
@@ -188,8 +188,8 @@ Get the record `123` for domain `example.com`.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `:id` | `integer` | The record id
 
@@ -208,8 +208,8 @@ Update the record with ID `123` for domain `example.com`:
 
 The following fields are updateable. You can pass zero of any of them.
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
 `record.content` | `string` | **Required**.
 `record.ttl` | `integer` |
@@ -261,8 +261,8 @@ Responds with HTTP 400 if the validation fails.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `:id` | `integer` | The record id
 

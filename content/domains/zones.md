@@ -14,8 +14,8 @@ title: Domain Zones
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -110,8 +110,8 @@ Responds with HTTP 201 on success.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example

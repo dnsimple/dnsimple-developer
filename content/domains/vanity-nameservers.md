@@ -18,8 +18,8 @@ Note: you must request activation of the vanity name servers feature on your acc
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -76,8 +76,8 @@ TODO
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example

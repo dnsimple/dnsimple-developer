@@ -231,8 +231,8 @@ This will unlock a domain and send the authorization code to the domain's admini
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -266,8 +266,8 @@ Check if a domain is available for registration.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string` | The domain name
 
 ### Example

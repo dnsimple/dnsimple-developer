@@ -16,8 +16,8 @@ Change the name servers either to external name servers or back to DNSimple's na
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -81,8 +81,8 @@ Responds with HTTP 400 if bad request.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 The domain must be registered with DNSimple in order for this command to work.
@@ -131,8 +131,8 @@ De-register the name server `ns1.example.com` belonging to `example.com`:
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `:name` | `string` | The name server name
 

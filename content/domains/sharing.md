@@ -14,8 +14,8 @@ title: Domain Sharing
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -68,8 +68,8 @@ If the person already exists in DNSimple as a customer then he will immediately 
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
@@ -124,8 +124,8 @@ Responds with HTTP 400 if the validation fails.
 
 ### Parameters
 
-| Name | Type | Description |
-| -----|------|-------------|
+Name | Type | Description
+-----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
 `:membership` | `string`, `integer` | The member email or id
 
