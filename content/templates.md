@@ -10,7 +10,7 @@ Templates provide a way to group common records together and apply them en masse
 {:toc}
 
 
-## List templates
+## List templates {#list}
 
     GET /templates
 
@@ -21,6 +21,8 @@ Templates provide a way to group common records together and apply them en masse
           https://api.dnsimple.com/v1/templates
 
 ### Response
+
+Responds with HTTP 200.
 
 ~~~js
 [
@@ -39,15 +41,29 @@ Templates provide a way to group common records together and apply them en masse
 ~~~
 
 
-## Get a template
+## Get a template {#get}
 
-    GET /templates/:id
+    GET /templates/:template
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `string`, `integer` | The template short-name or id
 
 ### Example
 
+Get the template with ID `1`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/templates/:id
+          https://api.dnsimple.com/v1/templates/1
+
+Get the template with short-name `heroku`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/templates/heroku
 
 ### Response
 
@@ -66,7 +82,7 @@ Templates provide a way to group common records together and apply them en masse
 ~~~
 
 
-## Create a template
+## Create a template {#create}
 
     POST /templates
 
@@ -81,20 +97,19 @@ Templates provide a way to group common records together and apply them en masse
 
 ### Input
 
-The following fields are required:
+| Name | Type | Description |
+|------|------|-------------|
+`dns_template.name` | `string` | **Required**.
+`dns_template.short_name` | `string` | **Required**.
+`dns_template.description` | `string` |
 
-- `dns_template[name]`
-- `dns_template[short_name]`
-
-The following fields are optional:
-
-- `dns_template[description]`
+##### Example
 
 ~~~js
 {
   "dns_template": {
     "name": "My Template",
-    "short_name": "my_template" 
+    "short_name": "my_template"
   }
 }
 ~~~
@@ -106,17 +121,33 @@ TODO
 ~~~
 
 
-## Delete a template
+## Delete a template {#delete}
 
     DELETE /templates/:id
 
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `string`, `integer` | The template short-name or id
+
 ### Example
+
+Get the template with ID `1`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/templates/:id
+          https://api.dnsimple.com/v1/templates/1
+
+Get the template with short-name `heroku`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X DELETE \
+          https://api.dnsimple.com/v1/templates/heroku
 
 ### Response
 

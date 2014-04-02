@@ -8,7 +8,7 @@ title: Domain Records
 {:toc}
 
 
-## List records for a domain
+## List records for a domain {#list}
 
     GET /domains/:domain/records
 
@@ -27,6 +27,8 @@ Name | Type | Description
 `type` | `string` | The record type to search for. Example: `www`
 
 ### Response
+
+Responds with HTTP 200.
 
 ~~~js
 [
@@ -74,7 +76,7 @@ Name | Type | Description
 ~~~
 
 
-## Create a record
+## Create a record {#create}
 
     POST /domains/:domain/records
 
@@ -144,7 +146,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a record
+## Get a record {#get}
 
     GET /domains/:domain/records/:id
 
@@ -182,7 +184,7 @@ Get the record `123` for domain `example.com`.
 ~~~
 
 
-## Update a record
+## Update a record {#update}
 
     PUT /domains/:domain/records/:id
 
@@ -251,7 +253,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Delete a record
+## Delete a record {#delete}
 
 <warning>
   #### Planned Changes
