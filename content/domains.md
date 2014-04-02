@@ -185,9 +185,11 @@ Responds with HTTP 200, returns the domain.
 
 ## Delete a domain {#delete}
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
-</div>
+<warning>
+  #### Planned Changes
+
+  There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
+</warning>
 
 Delete the given domain from your account.
 

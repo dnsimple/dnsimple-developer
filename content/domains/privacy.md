@@ -48,9 +48,11 @@ Name | Type | Description
 
 ## Disable domain WHOIS Privacy
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy" class="alert-link">planned changes</a> for this API method.
-</div>
+<warning>
+  #### Planned Changes
+
+  There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy" class="alert-link">planned changes</a> for this API method.
+</warning>
 
     DELETE /domains/:domain/whois_privacy
 

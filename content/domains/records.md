@@ -253,9 +253,11 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a record
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a> for this API method.
-</div>
+<warning>
+  #### Planned Changes
+
+  There are <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a> for this API method.
+</warning>
 
     DELETE /domains/:domain/records/:id
 
@@ -280,6 +282,8 @@ Delete the record with ID `123` for domain `example.com`:
 
 Responds with HTTP 200 on success.
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
-</div>
+<warning>
+  #### Planned Changes
+
+  The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
+</warning>
