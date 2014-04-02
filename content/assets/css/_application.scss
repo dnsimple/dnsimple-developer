@@ -21,6 +21,91 @@ h2 {
 }
 
 
+// Markers
+// ---------------
+
+.marker {
+  margin: 20px 0;
+  padding: 15px;
+  border-left: 3px solid #eee;
+}
+
+.marker :first-child {
+  margin-top: 0;
+}
+
+.marker p:last-child {
+  margin-bottom: 0;
+}
+
+.marker-note {
+  border-color: #ddd;
+  background-color: #fdf7f7;
+}
+
+.marker-info {
+  border-color: #5bc0de;
+  background-color: #f4f8fa;
+}
+
+.marker-warning {
+  border-color: #f0ad4e;
+  background-color: #fcf8f2;
+}
+
+.marker-danger {
+  border-color: #d9534f;
+  background-color: #fdf7f7;
+}
+
+
+// Article
+// -------------------------
+// Styles for a single article entry.
+
+// .article img {
+#main img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+// Main
+// -------------------------
+
+// Make the first title of the page more prominent.
+#main > h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  // .page-header
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+// Sidebar
+// -------------------------
+
+#sidebar {
+  margin-top: 20px;
+}
+.sidebar-title {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+.sidebar-infobox {
+  font-size: 1.3rem;
+  margin: 3rem 0;
+  padding: 15px;
+}
+
+
+// Sidebar Navigation
+// -------------------------
+
 // Restore custom sidebar navigation style
 .nav-list {
   margin-right: 0;
@@ -53,37 +138,3 @@ h2 {
   color: #cc8b00;
   border-left: 5px solid #cc8b00;
 }
-
-
-// Make the first title of the page more prominent.
-#main > h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  // .page-header
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-// Center-align images and display them as block by default.
-#main img {
-  display: block;
-  margin: 20px auto;
-}
-
-
-#sidebar {
-  margin-top: 20px;
-}
-.sidebar-title {
-  margin-top: 25px;
-  margin-bottom: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-}
-.sidebar-infobox {
-  font-size: 1.3rem;
-  margin: 3rem 0;
-  padding: 15px;
-}
-

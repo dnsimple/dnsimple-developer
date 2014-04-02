@@ -35,6 +35,7 @@ compile '*' do
     # don’t filter binary items
   else
     filter :erb
+    filter :preprocess
     filter :kramdown, toc_levels: [2]
     filter :postprocess
     filter :colorize_syntax, default_colorizer: :pygmentsrb
