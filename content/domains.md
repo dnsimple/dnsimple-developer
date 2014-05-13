@@ -8,6 +8,17 @@ title: Domains
 {:toc}
 
 
+## Overview {#overview}
+
+Domains will always be in one of the following states:
+
+* hosted
+* registering
+* registered
+* transferring_in
+* transferring_out
+* expired
+
 ## List domains {#list}
 
 List all domains.
