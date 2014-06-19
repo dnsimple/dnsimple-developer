@@ -12,12 +12,6 @@ title: Domain Records
 
     GET /domains/:domain/records
 
-### Example
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/domains/:domain/records
-
 ### Parameters
 
 Name | Type | Description
@@ -25,6 +19,14 @@ Name | Type | Description
 `:domain` | `string`, `integer` | The domain name or id
 `name` | `string` | The name to search for. Example: `www`
 `type` | `string` | The record type to search for. Example: `www`
+
+### Example
+
+List records for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/domains/example.com/records
 
 ### Response
 
