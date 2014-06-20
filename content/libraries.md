@@ -6,7 +6,7 @@ title: Libraries
 
 There are several libraries available that use the DNSimple API. You can use these as a starting point or continue on through the documentation below.
 
-If you develop a client for the API [please let us know](mailto:support@dnsimple.com) so we can add it here.com.
+If you develop a client for the API [please let us know](mailto:support@dnsimple.com) so we can add it here.
 
 
 ### Ruby
