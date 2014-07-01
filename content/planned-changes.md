@@ -25,10 +25,6 @@ Please review the following changes and write your code accordingly. In most cas
 - `name_server_status` is deprecated and will be removed. Use `approver_emails` instead (the field is displayed only when the certificate is in the `configured` state).
 - `certificate_status` is deprecated and will be removed.
 
-### Contact serialization
-
-- `phone_ext` is deprecated and will be removed.
-
 ### User serialization
 
 - `first_name` is deprecated and will be removed.

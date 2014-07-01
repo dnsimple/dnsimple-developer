@@ -29,46 +29,46 @@ List all contacts.
 [
   {
     "contact": {
-      "city": "Miami",
-      "address1": "2834 SW 88th Ave",
-      "state_province": "FL",
-      "created_at": "2010-08-24T01:58:22Z",
-      "address2": "",
-      "job_title": "",
-      "country": "US",
-      "updated_at": "2010-08-24T01:58:22Z",
-      "postal_code": "33546",
-      "organization_name": "",
-      "id": 1,
-      "user_id": 1,
-      "phone_ext": null,
-      "phone": "+13051123333",
-      "last_name": "Doe",
-      "fax": null,
-      "email_address": "jane.doe@gmail.com",
-      "first_name": "Jane"
+      "id": 28,
+      "user_id": 19,
+      "label": "Simone",
+      "first_name": "Simone",
+      "last_name": "Carletti",
+      "job_title": "Underwater Programmer",
+      "organization_name": "DNSimple",
+      "email_address": "simone.carletti@dnsimple.com",
+      "phone": "+1 111 4567890",
+      "fax": "+1 222 4567890",
+      "address1": "Awesome Street",
+      "address2": "c/o Someone",
+      "city": "Rome",
+      "state_province": "RM",
+      "postal_code": "00171",
+      "country": "IT",
+      "created_at": "2014-01-15T22:08:07.390Z",
+      "updated_at": "2014-01-15T22:08:07.390Z"
     }
   },
   {
     "contact": {
-      "city": "Miami",
-      "address1": "1000 SW 1st Street",
-      "state_province": "FL",
-      "created_at": "2010-09-03T20:11:51Z",
-      "address2": "",
-      "job_title": "President",
-      "country": "US",
-      "updated_at": "2010-09-03T20:11:51Z",
-      "postal_code": "33143",
-      "organization_name": "Little Co Inc.",
-      "id": 123,
-      "user_id": 1,
-      "phone_ext": null,
-      "phone": "505 111 2222",
-      "last_name": "Smith",
-      "fax": null,
-      "email_address": "john.smith@example.com",
-      "first_name": "John"
+      "id": 28,
+      "user_id": 19,
+      "label": "Simone",
+      "first_name": "Simone",
+      "last_name": "Carletti",
+      "job_title": "Underwater Programmer",
+      "organization_name": "DNSimple",
+      "email_address": "simone.carletti@dnsimple.com",
+      "phone": "+1 111 4567890",
+      "fax": "+1 222 4567890",
+      "address1": "Awesome Street",
+      "address2": "c/o Someone",
+      "city": "Rome",
+      "state_province": "RM",
+      "postal_code": "00171",
+      "country": "IT",
+      "created_at": "2014-01-15T22:08:07.390Z",
+      "updated_at": "2014-01-15T22:08:07.390Z"
     }
   }
 ]
@@ -92,24 +92,24 @@ Get the contact with ID `123`.
 ~~~js
 {
   "contact": {
-    "city": "Miami",
-    "address1": "1000 SW 1st Street",
-    "state_province": "FL",
-    "created_at": "2010-09-03T20:11:51Z",
-    "address2": "",
-    "job_title": "President",
-    "country": "US",
-    "updated_at": "2010-09-03T20:11:51Z",
-    "postal_code": "33143",
-    "organization_name": "Little Co Inc.",
-    "id": 123,
-    "user_id": 1,
-    "phone_ext": null,
-    "phone": "505 111 2222",
-    "last_name": "Smith",
-    "fax": null,
-    "email_address": "john.smith@example.com",
-    "first_name": "John"
+    "id": 28,
+    "user_id": 19,
+    "label": "Simone",
+    "first_name": "Simone",
+    "last_name": "Carletti",
+    "job_title": "Underwater Programmer",
+    "organization_name": "DNSimple",
+    "email_address": "simone.carletti@dnsimple.com",
+    "phone": "+1 111 4567890",
+    "fax": "+1 222 4567890",
+    "address1": "Awesome Street",
+    "address2": "c/o Someone",
+    "city": "Rome",
+    "state_province": "RM",
+    "postal_code": "00171",
+    "country": "IT",
+    "created_at": "2014-01-15T22:08:07.390Z",
+    "updated_at": "2014-01-15T22:08:07.390Z"
   }
 }
 ~~~
@@ -166,9 +166,6 @@ contact.email_address
 contact.phone
 : Required _string_
 
-contact.phone_ext
-: Optional _string_
-
 contact.fax
 : Optional _string_
 
@@ -178,18 +175,20 @@ contact.label
 ~~~js
 {
   "contact": {
-    "first_name": "John",
-    "last_name": "Smith",
-    "address1": "1000 SW 1st Street",
-    "city": "Miami",
-    "state_province": "FL",
-    "postal_code": "33143",
-    "country": "US",
-    "email_address": "john.smith@example.com",
-    "phone": "505 111 2222",
-    "organization_name": "Little Co Inc.",
-    "job_title": "President",
-    "label": "Office"
+    "label": "Simone",
+    "first_name": "Simone",
+    "last_name": "Carletti",
+    "job_title": "Underwater Programmer",
+    "organization_name": "DNSimple",
+    "email_address": "simone.carletti@dnsimple.com",
+    "phone": "+1 111 4567890",
+    "fax": "+1 222 4567890",
+    "address1": "Awesome Street",
+    "address2": "c/o Someone",
+    "city": "Rome",
+    "state_province": "RM",
+    "postal_code": "00171",
+    "country": "IT",
   }
 }
 ~~~
@@ -203,24 +202,24 @@ Responds with HTTP 201 on success.
 ~~~js
 {
   "contact": {
-    "city": "Miami",
-    "address1": "1000 SW 1st Street",
-    "state_province": "FL",
-    "created_at": "2010-09-03T20:11:51Z",
-    "address2": "",
-    "job_title": "President",
-    "country": "US",
-    "updated_at": "2010-09-03T20:11:51Z",
-    "postal_code": "33143",
-    "organization_name": "Little Co Inc.",
-    "id": 123,
-    "user_id": 1,
-    "phone_ext": null,
-    "phone": "505 111 2222",
-    "last_name": "Smith",
-    "fax": null,
-    "email_address": "john.smith@example.com",
-    "first_name": "John"
+    "id": 28,
+    "user_id": 19,
+    "label": "Simone",
+    "first_name": "Simone",
+    "last_name": "Carletti",
+    "job_title": "Underwater Programmer",
+    "organization_name": "DNSimple",
+    "email_address": "simone.carletti@dnsimple.com",
+    "phone": "+1 111 4567890",
+    "fax": "+1 222 4567890",
+    "address1": "Awesome Street",
+    "address2": "c/o Someone",
+    "city": "Rome",
+    "state_province": "RM",
+    "postal_code": "00171",
+    "country": "IT",
+    "created_at": "2014-01-15T22:08:07.390Z",
+    "updated_at": "2014-01-15T22:08:07.390Z"
   }
 }
 ~~~
@@ -254,24 +253,24 @@ Responds with HTTP 200 on success.
 ~~~js
 {
   "contact": {
-    "city": "Miami",
-    "address1": "1000 SW 1st Street",
-    "state_province": "FL",
-    "created_at": "2010-09-03T20:11:51Z",
-    "address2": "",
-    "job_title": "President",
-    "country": "US",
-    "updated_at": "2010-09-03T20:11:51Z",
-    "postal_code": "33143",
-    "organization_name": "Little Co Inc.",
-    "id": 123,
-    "user_id": 1,
-    "phone_ext": null,
-    "phone": "505 111 2222",
-    "last_name": "Smith",
-    "fax": null,
-    "email_address": "john.smith@example.com",
-    "first_name": "John"
+    "id": 28,
+    "user_id": 19,
+    "label": "Simone",
+    "first_name": "Simone",
+    "last_name": "Carletti",
+    "job_title": "Underwater Programmer",
+    "organization_name": "DNSimple",
+    "email_address": "simone.carletti@dnsimple.com",
+    "phone": "+1 111 4567890",
+    "fax": "+1 222 4567890",
+    "address1": "Awesome Street",
+    "address2": "c/o Someone",
+    "city": "Rome",
+    "state_province": "RM",
+    "postal_code": "00171",
+    "country": "IT",
+    "created_at": "2014-01-15T22:08:07.390Z",
+    "updated_at": "2014-01-15T22:08:07.390Z"
   }
 }
 ~~~
