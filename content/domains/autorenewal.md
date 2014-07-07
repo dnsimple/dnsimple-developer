@@ -26,7 +26,7 @@ Enable auto-renewal for the domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://api.dnsimple.com/v1/domains/:domain/auto_renewal
+          https://api.dnsimple.com/v1/domains/example.com/auto_renewal
 
 ### Response
 
@@ -74,7 +74,7 @@ Disable auto-renewal for the domain `example.com`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/domains/:domain/auto_renewal
+          https://api.dnsimple.com/v1/domains/example.com/auto_renewal
 
 ### Response
 
