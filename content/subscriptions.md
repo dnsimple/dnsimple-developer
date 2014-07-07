@@ -31,16 +31,13 @@ Responds with HTTP 200 on success.
 ~~~js
 {
   "subscription": {
-    "allocated_quantity": 0,
-    "created_at": "2012-05-09T15:35:57Z",
-    "domain_limit": 10,
-    "failure_reason": null,
-    "id": 3817,
-    "plan_name": "Silver",
+    "id": 80,
+    "user_id": 19,
+    "plan_name": "Gold",
     "state": "subscribed",
-    "statements_refreshed_at": "2012-09-26T10:55:21Z",
-    "updated_at": "2012-09-26T10:55:21Z",
-    "user_id": 4321
+    "domain_limit": 50,
+    "created_at": "2014-06-24T13:42:51.355Z",
+    "updated_at": "2014-07-06T20:37:52.279Z"
   }
 }
 ~~~
@@ -63,32 +60,19 @@ Create a subscription for the currently authenticated user.
 
 ### Input
 
-subscription.plan
-: Required _string_
+Name | Type | Description
+-----|------|------------
+`subscription.plan` | `string` | **Required**.
+`subscription.credit_card.number` | `string` | **Required**.
+`subscription.credit_card.first_name` | `string` | **Required**.
+`subscription.credit_card.last_name` | `string` | **Required**.
+`subscription.credit_card.billing_address` | `string` | **Required**.
+`subscription.credit_card.billing_zip` | `string` | **Required**.
+`subscription.credit_card.month` | `string` | **Required**.
+`subscription.credit_card.year` | `string` | **Required**.
+`subscription.credit_card.cvv` | `string` | **Required**.
 
-subscription.credit_card.number
-: Required _string_
-
-subscription.credit_card.first_name
-: Required _string_
-
-subscription.credit_card.last_name
-: Required _string_
-
-subscription.credit_card.billing_address
-: Required _string_
-
-subscription.credit_card.billing_zip
-: Required _string_
-
-subscription.credit_card.month
-: Required _string_
-
-subscription.credit_card.year
-: Required _string_
-
-subscription.credit_card.cvv
-: Required _string_
+##### Example
 
 ~~~js
 {
@@ -110,23 +94,20 @@ subscription.credit_card.cvv
 
 ### Response
 
-Responds with HTTP 400 if the validation fails.
-
 Responds with HTTP 201 on success.
 
 ~~~js
 {
   "subscription": {
-    "allocated_quantity": 0,
-    "created_at": "2012-09-30T17:40:42Z",
+    "id": 80,
+    "user_id": 19,
+    "plan_name": "Gold",
+    "state": "subscribed",
     "domain_limit": 50,
-    "failure_reason": null,
-    "id": 2,
-    "plan_name": "Unknown",
-    "state": "subscribing",
-    "statements_refreshed_at": null,
-    "updated_at": "2012-09-30T17:40:42Z",
-    "user_id": null
+    "created_at": "2014-06-24T13:42:51.355Z",
+    "updated_at": "2014-07-06T20:37:52.279Z"
   }
 }
 ~~~
+
+Responds with HTTP 400 if the validation fails.
