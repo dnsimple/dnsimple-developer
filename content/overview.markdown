@@ -7,12 +7,9 @@ title: Overview
 * TOC
 {:toc}
 
-
 ## URL
 
-All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain.
-
-Sandbox accounts must use the `api.sandbox.dnsimple.com` domain.
+All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain. [Sandbox accounts](/sandbox/) must use the `api.sandbox.dnsimple.com` domain.
 
 In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
 
