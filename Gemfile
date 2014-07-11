@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'nanoc', '~> 3.6.0'
+gem 'nanoc', '~> 3.7.0'
 gem 'adsf'
 gem 'kramdown'
 gem 'mime-types'
