@@ -12,6 +12,8 @@ title: Overview
 
 All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain.
 
+Sandbox accounts must use the `api.sandbox.dnsimple.com` domain.
+
 In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
 
     https://api.dnsimple.com/v1/
