@@ -15,14 +15,13 @@ Please review the following changes and write your code accordingly. In most cas
 
 ### Domain serialization
 
-- `name_server_status` is deprecated and will be removed.
 - `private_whois?` is deprecated and will be removed, use `whois_protected` instead.
 - `parsed_expiration_date` is deprecated and will be removed, use `expires_on` instead.
 - `expires_at` is deprecated and will be removed.
 
 ### Certificate serialization
 
-- `name_server_status` is deprecated and will be removed. Use `approver_emails` instead (the field is displayed only when the certificate is in the `configured` state).
+- `available_approver_emails` is deprecated and will be removed. Use `approver_emails` instead (the field is displayed only when the certificate is in the `configured` state).
 - `certificate_status` is deprecated and will be removed.
 
 ### User serialization
