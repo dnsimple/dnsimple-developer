@@ -53,6 +53,6 @@ For example, if the token for the domain `example.com` is `1234567890`, the requ
 
 The domain token grants access only to certain methods of the corresponding domain. You can use the domain token to authenticate the following domain API calls:
 
-- [Get a domain](/domains/#get-a-domain)
+- [Get a domain](/domains/#get)
 - [Manage domain record](/domains/records/)
 
