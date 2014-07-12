@@ -76,6 +76,16 @@ The domain token grants access only to certain methods of the corresponding doma
 
 ## Working with two-factor authentication {#twofa}
 
+<info>
+#### Two-factor authentication support is currently not enabled by default
+
+The two-factor authentication support is in beta, and it's not currently enabled by default. To enable it, send the additional HTTP header `X-DNSimple-2FA-Strict` with value `1`.
+
+You should start testing and updating your integration to support 2FA as soon as possible.
+
+2FA in API will be eventually turned on by default in September. At that point, the `X-DNSimple-2FA-Strict` will no longer have effect since it will be the default for everyone.
+</info>
+
 For users with two-factor authentication enabled, HTTP Basic Authentication requires an extra step.
 
 When you attempt to authenticate with HTTP Basic Authentication, the server will respond with a 401 and an `X-DNSimple-OTP: required` header. This indicates that a two-factor authentication token is needed (in addition to the username and password).
