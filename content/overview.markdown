@@ -28,9 +28,9 @@ The legacy API (called `v0`) will no longer be available after June 30th. Please
 All requests should include the `Accept` header set to `application/json`. All data is sent and received as JSON.
 
 <warning>
-  #### Planned Changes
+#### Planned Changes
 
-  Passing form-encoded post data using the `application/x-www-form-urlencoded` content type is deprecated.
+Passing form-encoded post data using the `application/x-www-form-urlencoded` content type is deprecated.
 </warning>
 
 
@@ -38,21 +38,25 @@ All requests should include the `Accept` header set to `application/json`. All d
 
 There are three ways to authenticate through DNSimple API. Two of them are global to all the API methods, one provides access to limited resources.
 
-There are two authentication methods availabe: `HTTP Basic Authentication` or the `X-DNSimple-Token` header.
+There are two authentication methods available: the **HTTP Basic Authentication** and the **API token**.
+
+<info>
+The API token is the recommended authentication mechanism.
+</info>
 
 ##### HTTP Basic Authentication
 
-    curl  -u "<email>:<password>" \
+    curl  -u '<email>:<password>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/user
 
-##### DNSimple API Token (sent in a header)
+##### DNSimple API Token (passed as header)
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/user
 
-##### DNSimple Domain Token (sent in a header)
+##### DNSimple Domain Token (passed as header)
 
     curl  -H 'X-DNSimple-Domain-Token: <token>' \
           -H 'Accept: application/json' \
