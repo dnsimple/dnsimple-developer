@@ -106,7 +106,9 @@ Responds with HTTP 201 on success.
 
 ## Export a domain zone
 
-    GET /domains/:domain/zone.txt
+    GET /domains/:domain/zone
+
+Note that this API endpoint responds only using the MIME type plain/text at the moment.
 
 ### Parameters
 
@@ -118,13 +120,15 @@ Name | Type | Description
 
 Export zone for domain `example.com`:
 
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          https://api.dnsimple.com/v1/domains/example.com/zone.txt
+    curl  -H 'Accept: text/plain' \
+          -H 'X-DNSimple-Token: <email>:<token>' \
+          https://api.dnsimple.com/v1/domains/example.com/zone
 
 Export zone for domain with ID `123`:
 
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          https://api.dnsimple.com/v1/domains/123/zone.txt
+    curl  -H 'Accept: text/plain' \
+          -H 'X-DNSimple-Token: <email>:<token>' \
+          https://api.dnsimple.com/v1/domains/123/zone
 
 ### Response
 
