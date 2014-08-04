@@ -11,7 +11,7 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 
 ### Ruby
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby) (reference implementation)
+- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby) (official)
 - [Fog](http://fog.io/) (includes DNSimple support)
 
 ### Python
