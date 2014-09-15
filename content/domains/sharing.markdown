@@ -41,7 +41,6 @@ List memberships for domain with ID `123`:
       "id": 712,
       "domain_id": 123,
       "user_id": 1560,
-      "permission": "manage",
       "created_at": "2012-10-18T11:38:20Z",
       "updated_at": "2012-10-18T11:38:20Z"
     }
@@ -51,7 +50,6 @@ List memberships for domain with ID `123`:
       "id": 715,
       "domain_id": 123,
       "user_id": 1120,
-      "permission": "manage",
       "created_at": "2012-10-18T11:41:41Z",
       "updated_at": "2012-10-18T11:41:41Z"
     }
@@ -108,7 +106,6 @@ Responds with HTTP 201 on success.
     "id": 712,
     "domain_id": 123,
     "user_id": 1560,
-    "permission": "manage",
     "created_at": "2012-10-18T11:38:20Z",
     "updated_at": "2012-10-18T11:38:20Z"
   }
