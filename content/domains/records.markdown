@@ -204,7 +204,7 @@ Update the record with ID `123` for domain `example.com`:
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
-          -X PUT
+          -X PUT \
           -d '<json>' \
           https://api.dnsimple.com/v1/domains/example.com/records/123
 
