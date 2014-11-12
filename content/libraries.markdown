@@ -21,11 +21,13 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 ### JavaScript
 
 - [DNSimple JavaScript client](https://github.com/aetrion/dnsimple-js)
-- [DNSimple Node.js client](https://www.npmjs.org/package/dnsimple) ([GitHub](https://github.com/fvdm/nodejs-dnsimple))
+- [Node.js client](https://www.npmjs.org/package/dnsimple) ([GitHub](https://github.com/fvdm/nodejs-dnsimple))
+- [Node.js client](https://www.npmjs.org/package/dnsimple-cli) ([GitHub](https://github.com/anderly/dnsimple-cli))
 
 ### Golang
 
 - [DNSimple Go client](https://github.com/rubyist/go-dnsimple)
+- [Go Command Line Tool](https://github.com/jrwren/domasimu)
 
 ### C♯
 
