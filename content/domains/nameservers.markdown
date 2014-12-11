@@ -8,9 +8,44 @@ title: Name Servers
 {:toc}
 
 
-## Change domain name servers
+## List domain name servers {#list}
 
-Change the name servers either to external name servers or back to DNSimple's name servers.
+List the delegated name servers for a domain.
+
+    GET /domains/:domain/name_servers
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:domain` | `string`, `integer` | The domain name or id
+
+### Example
+
+List delegated name servers for domain `example.com`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          https://api.dnsimple.com/v1/domains/example.com/name_servers
+
+### Response
+
+Responds with HTTP 200 on success, returns the array of assigned name servers.
+
+~~~js
+[
+  "ns1.example.com",
+  "ns2.example.com",
+  "ns3.example.com",
+  "ns4.example.com"
+]
+~~~
+
+
+## Change domain name servers {#change}
+
+Change the delegated name servers for a domain, either to external name servers or back to DNSimple's name servers.
 
     POST /domains/:domain/name_servers
 
@@ -22,7 +57,7 @@ Name | Type | Description
 
 ### Example
 
-Change name servers for domain `example.com`:
+Change delegated name servers for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
