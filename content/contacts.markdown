@@ -195,8 +195,6 @@ contact.label
 
 ### Response
 
-Responds with HTTP 400 if the validation fails.
-
 Responds with HTTP 201 on success.
 
 ~~~js
@@ -224,6 +222,8 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
+Responds with HTTP 400 if the validation fails.
+
 
 ## Update a contact
 
@@ -245,8 +245,6 @@ Update the contact with ID `123`:
 See [Create a contact](#create-a-contact).
 
 ### Response
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 200 on success.
 
@@ -274,6 +272,8 @@ Responds with HTTP 200 on success.
   }
 }
 ~~~
+
+Responds with HTTP 400 if the validation fails.
 
 
 ## Delete a contact
