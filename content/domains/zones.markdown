@@ -104,7 +104,7 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
-## Export a domain zone
+## Export a domain zone {#get}
 
     GET /domains/:domain/zone
 
