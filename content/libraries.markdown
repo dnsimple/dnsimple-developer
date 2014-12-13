@@ -26,7 +26,7 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 
 ### Golang
 
-- [DNSimple Go client](https://github.com/rubyist/go-dnsimple)
+- [dnsimple-go](https://github.com/weppos/go-dnsimple)
 - [Go Command Line Tool](https://github.com/jrwren/domasimu)
 
 ### C♯
