@@ -6,44 +6,44 @@ title: Libraries
 
 There are several libraries available that use the DNSimple API. You can use these as a starting point or continue on through the documentation below.
 
-If you develop a client for the API [please let us know](mailto:support@dnsimple.com) so we can add it here.
+If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
 
 
 ### Ruby
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby) (official)
-- [Fog](http://fog.io/) (includes DNSimple support)
+- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
+- [Fog](http://fog.io/) - The Ruby cloud services library. Includes DNSimple support.
 
 ### Python
 
-- [DNSimple Python client](https://github.com/mikemaccana/dnsimple-python)
+- [dnsimple-python](https://github.com/mikemaccana/dnsimple-python) - A Python API client.
 
 ### JavaScript
 
-- [DNSimple JavaScript client](https://github.com/aetrion/dnsimple-js)
-- [Node.js client](https://www.npmjs.org/package/dnsimple) ([GitHub](https://github.com/fvdm/nodejs-dnsimple))
-- [Node.js client](https://www.npmjs.org/package/dnsimple-cli) ([GitHub](https://github.com/anderly/dnsimple-cli))
+- [dnsimple-js](https://github.com/aetrion/dnsimple-js) - A jQuery-based DNSimple library.
+- [nodejs-dnsimple](https://www.npmjs.org/package/dnsimple) - A Node.js API client.
+- [dnsimple-cli](https://www.npmjs.org/package/dnsimple-cli) - A command line tool written in Node.js
 
 ### Golang
 
-- [dnsimple-go](https://github.com/weppos/go-dnsimple)
-- [Go Command Line Tool](https://github.com/jrwren/domasimu)
+- [dnsimple-go](https://github.com/weppos/go-dnsimple) - A Go API client.
+- [domasimu](https://github.com/jrwren/domasimu) - A simple domain management command line tool.
 
 ### C♯
 
-- [DNSimple C# client](https://github.com/anderly/dnsimple-csharp)
+- [dnsimple-csharp](https://github.com/anderly/dnsimple-csharp) - A C♯ API wrapper.
 
 ### Java
 
-- [DNSimple Java library](https://github.com/milkmansrevenge/dnsimple-java)
+- [dnsimple-java](https://github.com/milkmansrevenge/dnsimple-java) - A simple Java API wrapper.
 
 ### PHP
 
-- [DNSimple PHP library](https://github.com/fvdm/dnsimple-php)
+- [dnsimple-php](https://github.com/fvdm/dnsimple-php) - A simple PHP API class.
 
 ### PowerShell
 
-- [DNSimple PowerShell library](https://github.com/adminian/PowerDNSimple)
+- [PowerDNSimple](https://github.com/adminian/PowerDNSimple) - A PowerShell module for working with DNSimple API.
 
 
 Also, make sure to [check out the tools](http://developer.dnsimple.com/tools) that are built on the DNSimple API.

@@ -6,7 +6,7 @@ title: Tools
 
 Tools built around the DNSimple API.
 
-If you develop a tool for the API [please let us know](mailto:support@dnsimple.com) so we can add it here.
+If you've developed a tool for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
 
 
 - [DNSimple iPhone app](http://itunes.apple.com/app/dnsimple-app/id507299306?mt=8)
