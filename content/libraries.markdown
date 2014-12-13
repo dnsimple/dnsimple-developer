@@ -8,6 +8,8 @@ There are several libraries available that use the DNSimple API. You can use the
 
 If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
 
+_Please keep in mind that some of these libraries may be incomplete or oudated._
+
 
 ### Ruby
 
