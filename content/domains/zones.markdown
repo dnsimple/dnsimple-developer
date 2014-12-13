@@ -104,7 +104,9 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
-## Export a domain zone {#get}
+## Get a domain zone {#get}
+
+Get the domain as a [zone file](https://www.ietf.org/rfc/rfc1035.txt) content.
 
     GET /domains/:domain/zone
 
@@ -118,13 +120,13 @@ Name | Type | Description
 
 ### Example
 
-Export zone for domain `example.com`:
+Get the zone content for domain `example.com`:
 
     curl  -H 'Accept: text/plain' \
           -H 'X-DNSimple-Token: <email>:<token>' \
           https://api.dnsimple.com/v1/domains/example.com/zone
 
-Export zone for domain with ID `123`:
+Get the zone content for domain with ID `123`:
 
     curl  -H 'Accept: text/plain' \
           -H 'X-DNSimple-Token: <email>:<token>' \
@@ -132,12 +134,14 @@ Export zone for domain with ID `123`:
 
 ### Response
 
+Responds with HTTP 200 on success, returns the zone file content.
+
 ~~~
 $ORIGIN example.com.
 $TTL 1h
-example.com. IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300
-example.com. IN NS  ns1.dnsimple.com.
-example.com. IN NS  ns2.dnsimple.com.
-example.com. IN NS  ns3.dnsimple.com.
-example.com. IN NS  ns4.dnsimple.com.
+example.com. 3600 IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300
+example.com. 3600 IN NS  ns1.dnsimple.com.
+example.com. 3600 IN NS  ns2.dnsimple.com.
+example.com. 3600 IN NS  ns3.dnsimple.com.
+example.com. 3600 IN NS  ns4.dnsimple.com.
 ~~~
