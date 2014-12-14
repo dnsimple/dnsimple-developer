@@ -11,7 +11,7 @@ with DNSimple or transferred into DNSimple from another registrar.
 {:toc}
 
 
-## List contacts
+## List contacts {#list}
 
     GET /contacts
 
@@ -75,47 +75,7 @@ List all contacts.
 ~~~
 
 
-## Get a contact
-
-    GET /contacts/:id
-
-### Example
-
-Get the contact with ID `123`.
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/contacts/123
-
-### Response
-
-~~~js
-{
-  "contact": {
-    "id": 28,
-    "user_id": 19,
-    "label": "Simone",
-    "first_name": "Simone",
-    "last_name": "Carletti",
-    "job_title": "Underwater Programmer",
-    "organization_name": "DNSimple",
-    "email_address": "simone.carletti@dnsimple.com",
-    "phone": "+1 111 4567890",
-    "fax": "+1 222 4567890",
-    "address1": "Awesome Street",
-    "address2": "c/o Someone",
-    "city": "Rome",
-    "state_province": "RM",
-    "postal_code": "00171",
-    "country": "IT",
-    "created_at": "2014-01-15T22:08:07.390Z",
-    "updated_at": "2014-01-15T22:08:07.390Z"
-  }
-}
-~~~
-
-
-## Create a contact
+## Create a contact {#create}
 
     POST /contacts
 
@@ -132,45 +92,21 @@ Create a contact.
 
 ### Input
 
-contact.first_name
-: Required _string_
-
-contact.last_name
-: Required _string_
-
-contact.organization_name
-: Optional _string_ representing the organization/company name.
-  If the `organization_name` is specified, then you must also include `job_title`.
-
-contact.job_title
-: Optional _string_
-
-contact.address1
-: Required _string_
-
-contact.city
-: Required _string_
-
-contact.state_province
-: Required _string_
-
-contact.postal_code
-: Required _string_
-
-contact.country
-: Required _string_
-
-contact.email_address
-: Required _string_
-
-contact.phone
-: Required _string_
-
-contact.fax
-: Optional _string_
-
-contact.label
-: Optional _string_
+Name | Type | Description
+-----|------|------------
+`contact.label` | `string` |
+`contact.first_name` | `string` | **Required**.
+`contact.last_name` | `string` | **Required**.
+`contact.organization_name` | `string` | The organization/company name. If the `organization_name` is specified, then you must also include `job_title`.
+`contact.job_title` | `string` |
+`contact.address1` | `string` | **Required**.
+`contact.city` | `string` | **Required**.
+`contact.state_province` | `string` | **Required**.
+`contact.postal_code` | `string` | **Required**.
+`contact.country` | `string` | **Required**.
+`contact.email_address` | `string` | **Required**.
+`contact.phone` | `string` | **Required**.
+`contact.fax` | `string` | **Required**.
 
 ~~~js
 {
@@ -225,9 +161,61 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Update a contact
+## Get a contact {#get}
+
+    GET /contacts/:id
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:id` | `integer` | The contact id
+
+### Example
+
+Get the contact with ID `123`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/contacts/123
+
+### Response
+
+~~~js
+{
+  "contact": {
+    "id": 28,
+    "user_id": 19,
+    "label": "Simone",
+    "first_name": "Simone",
+    "last_name": "Carletti",
+    "job_title": "Underwater Programmer",
+    "organization_name": "DNSimple",
+    "email_address": "simone.carletti@dnsimple.com",
+    "phone": "+1 111 4567890",
+    "fax": "+1 222 4567890",
+    "address1": "Awesome Street",
+    "address2": "c/o Someone",
+    "city": "Rome",
+    "state_province": "RM",
+    "postal_code": "00171",
+    "country": "IT",
+    "created_at": "2014-01-15T22:08:07.390Z",
+    "updated_at": "2014-01-15T22:08:07.390Z"
+  }
+}
+~~~
+
+
+## Update a contact {#update}
 
     PUT /contacts/:id
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:id` | `integer` | The contact id
 
 ### Example
 
@@ -242,7 +230,7 @@ Update the contact with ID `123`:
 
 ### Input
 
-See [Create a contact](#create-a-contact).
+See [Create a contact](#create).
 
 ### Response
 
@@ -276,9 +264,15 @@ Responds with HTTP 200 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Delete a contact
+## Delete a contact {#delete}
 
     DELETE /contacts/:id
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:id` | `integer` | The contact id
 
 ### Example
 
