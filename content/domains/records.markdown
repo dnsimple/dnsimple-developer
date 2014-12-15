@@ -150,22 +150,22 @@ Responds with HTTP 400 if the validation fails.
 
 ## Get a record {#get}
 
-    GET /domains/:domain/records/:id
+    GET /domains/:domain/records/:record
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-`:id` | `integer` | The record id
+`:record` | `integer` | The record id
 
 ### Example
 
-Get the record `123` for domain `example.com`.
+Get the record `2` for domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/2
 
 ### Response
 
@@ -188,25 +188,25 @@ Get the record `123` for domain `example.com`.
 
 ## Update a record {#update}
 
-    PUT /domains/:domain/records/:id
+    PUT /domains/:domain/records/:record
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-`:id` | `integer` | The record id
+`:record` | `integer` | The record id
 
 ### Example
 
-Update the record with ID `123` for domain `example.com`:
+Update the record with ID `2` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PUT \
           -d '<json>' \
-          https://api.dnsimple.com/v1/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/2
 
 ### Input
 
@@ -214,7 +214,7 @@ The following fields are updateable. You can pass zero of any of them.
 
 Name | Type | Description
 -----|------|------------
-`record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
+`record.name` | `string` | **Required**.
 `record.content` | `string` | **Required**.
 `record.ttl` | `integer` |
 `record.prio` | `integer` |
@@ -263,24 +263,24 @@ Responds with HTTP 400 if the validation fails.
   There are <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a> for this API method.
 </warning>
 
-    DELETE /domains/:domain/records/:id
+    DELETE /domains/:domain/records/:record
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-`:id` | `integer` | The record id
+`:record` | `integer` | The record id
 
 ### Example
 
-Delete the record with ID `123` for domain `example.com`:
+Delete the record with ID `2` for domain `example.com`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/domains/example.com/records/123
+          https://api.dnsimple.com/v1/domains/example.com/records/2
 
 ### Response
 
@@ -289,5 +289,5 @@ Responds with HTTP 200 on success.
 <warning>
   #### Planned Changes
 
-  The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
+  The method will return a blank response in the future, you should not depend on the response body.
 </warning>

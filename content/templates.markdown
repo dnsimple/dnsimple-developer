@@ -86,6 +86,8 @@ Responds with HTTP 200.
 
 ### Response
 
+Responds with HTTP 201 on success.
+
 ~~~js
 {
   "dns_template": {
@@ -100,6 +102,10 @@ Responds with HTTP 200.
 }
 ~~~
 
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
+
 
 ## Get a template {#get}
 
@@ -109,7 +115,7 @@ Responds with HTTP 200.
 
 Name | Type | Description
 -----|------|------------
-`:template` | `string`, `integer` | The template short-name or id
+`:template` | `integer`,`string` | The template id or short-name
 
 ### Example
 
@@ -150,7 +156,7 @@ Get the template with short-name `heroku`.
 
 Name | Type | Description
 -----|------|------------
-`:template` | `string`, `integer` | The template short-name or id
+`:template` | `integer`,`string` | The template id or short-name
 
 ### Example
 
@@ -185,6 +191,8 @@ Responds with HTTP 200 on success.
 }
 ~~~
 
+Responds with HTTP 400 if bad request.
+
 Responds with HTTP 400 if the validation fails.
 
 
@@ -196,7 +204,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:template` | `string`, `integer` | The template short-name or id
+`:template` | `integer`,`string` | The template id or short-name
 
 ### Example
 

@@ -8,140 +8,263 @@ title: Template Records
 {:toc}
 
 
-## List template records
+## List template records {#list}
 
     GET /templates/:template/records
 
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `integer`,`string` | The template id or short-name
+
 ### Example
+
+List records for template `1`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/templates/:template/records
+          https://api.dnsimple.com/v1/templates/1/records
+
+List records for template `foo`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/templates/foo/records
 
 ### Response
+
+Responds with HTTP 200.
 
 ~~~js
 [
   {
     "dns_template_record": {
-      "name": "",
+      "id": 1,
+      "dns_template_id": 11,
+      "name": "ww1",
+      "content": "127.0.0.1",
       "ttl": 3600,
-      "dns_template_id": 31,
-      "created_at": "2010-09-30T20:02:11Z",
-      "special_type": "",
-      "updated_at": "2010-09-30T20:02:11Z",
-      "id": 119,
-      "content": "1.2.3.4",
-      "record_type": "A",
-      "prio": null
+      "prio": null,
+      "record_type": "ALIAS",
+      "created_at": "2014-12-15T17:26:11.648Z",
+      "updated_at": "2014-12-15T17:26:11.648Z"
     }
   },
   {
     "dns_template_record": {
-      "name": "www",
+      "id": 2,
+      "dns_template_id": 12,
+      "name": "ww2",
+      "content": "127.0.0.1",
       "ttl": 3600,
-      "dns_template_id": 31,
-      "created_at": "2010-09-30T20:02:11Z",
-      "special_type": "",
-      "updated_at": "2010-09-30T20:02:11Z",
-      "id": 120,
-      "content": "example.com",
-      "record_type": "CNAME",
-      "prio": null
+      "prio": null,
+      "record_type": "ALIAS",
+      "created_at": "2014-12-15T17:25:20.431Z",
+      "updated_at": "2014-12-15T17:25:20.431Z"
     }
   }
 ]
+
 ~~~
 
 
-## Get a template record
-
-    GET /templates/:template/records/:id
-
-### Example
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/templates/:template/records/:id
-
-### Response
-
-~~~js
-{
-  "dns_template_record": {
-    "name": "",
-    "ttl": 3600,
-    "dns_template_id": 31,
-    "created_at": "2010-09-30T20:02:11Z",
-    "special_type": "",
-    "updated_at": "2010-09-30T20:02:11Z",
-    "id": 119,
-    "content": "1.2.3.4",
-    "record_type": "A",
-    "prio": null
-  }
-}
-~~~
-
-
-## Create a template record
+## Create a template record {#create}
 
     POST /templates/:template/records
 
 ### Example
+
+Create a record for template `1`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v1/templates/:template/records
+          https://api.dnsimple.com/v1/templates/1/records
 
 ### Input
 
-The following fields are required:
-
-- `dns_template_record[name]`
-- `dns_template_record[record_type]`
-- `dns_template_record[content]`
-
-The following fields are optional:
-
-– `dns_template_record[ttl]`
-– `dns_template_record[prio]`
+Name | Type | Description
+-----|------|------------
+`record.name` | `string` | **Required**. Use an empty string to create a record for the root domain.
+`record.record_type` | `string` | **Required**.
+`record.content` | `string` | **Required**.
+`record.ttl` | `integer` |
+`record.prio` | `integer` |
 
 ~~~js
 {
   "dns_template_record": {
-    "name": "sample",
-    "record_type": "A",
-    "content": "1.2.3.4",
-    "ttl": 7200
+    "name": "",
+    "record_type": "MX",
+    "content": "mail.example.com",
+    "ttl": 3600,
+    "prio": 10
   }
 }
 ~~~
 
 ### Response
 
+Responds with HTTP 201 on success.
+
 ~~~js
-TODO
+{
+  "dns_template_record": {
+    "id": 1,
+    "dns_template_id": 11,
+    "name": "ww2",
+    "content": "127.0.0.1",
+    "ttl": 3600,
+    "prio": null,
+    "record_type": "ALIAS",
+    "created_at": "2014-12-15T17:26:11.648Z",
+    "updated_at": "2014-12-15T17:26:11.648Z"
+  }
+}
+~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
+
+
+## Get a template record {#get}
+
+    GET /templates/:template/records/:record
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `integer`,`string` | The template id or short-name
+`:record` | `integer` | The record id
+
+### Example
+
+Get the record `2` for template `1`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/templates/1/records/2
+
+### Response
+
+~~~js
+{
+  "dns_template_record": {
+    "id": 1,
+    "dns_template_id": 11,
+    "name": "ww1",
+    "content": "127.0.0.1",
+    "ttl": 3600,
+    "prio": null,
+    "record_type": "ALIAS",
+    "created_at": "2014-12-15T17:26:11.648Z",
+    "updated_at": "2014-12-15T17:26:11.648Z"
+  }
+}
 ~~~
 
 
-## Delete a template record
+## Update a template record {#update}
 
-    DELETE /templates/:template/records/:id
+    PUT /templates/:domain/records/:record
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `integer`,`string` | The template id or short-name
+`:record` | `integer` | The record id
 
 ### Example
+
+Update the record with ID `2` for template `1`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X PUT \
+          -d '<json>' \
+          https://api.dnsimple.com/v1/templates/1/records/2
+
+### Input
+
+The following fields are updateable. You can pass zero of any of them.
+
+Name | Type | Description
+-----|------|------------
+`record.name` | `string` | **Required**.
+`record.content` | `string` | **Required**.
+`record.ttl` | `integer` |
+`record.prio` | `integer` |
+
+##### Example
+
+~~~js
+{
+  "record": {
+    "content": "updated.example.com",
+    "ttl": 600
+  }
+}
+~~~
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~js
+{
+  "dns_template_record": {
+    "id": 1,
+    "dns_template_id": 11,
+    "name": "ww1",
+    "content": "127.0.0.1",
+    "ttl": 3600,
+    "prio": null,
+    "record_type": "ALIAS",
+    "created_at": "2014-12-15T17:26:11.648Z",
+    "updated_at": "2014-12-15T17:26:11.648Z"
+  }
+}
+~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the validation fails.
+
+
+## Delete a template record {#delete}
+
+    DELETE /templates/:template/records/:record
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `integer`,`string` | The template id or short-name
+`:record` | `integer` | The record id
+
+### Example
+
+Delete the record with ID `2` for template `1`:
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/templates/:template/records/:id
+          https://api.dnsimple.com/v1/templates/1/records/2
 
 ### Response
 
-~~~js
-TODO
-~~~
+Responds with HTTP 200 on success.
+
+<warning>
+  #### Planned Changes
+
+  The method will return a blank response in the future, you should not depend on the response body.
+</warning>
