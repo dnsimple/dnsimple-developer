@@ -11,11 +11,13 @@ Additionally any changes made to a service will automatically be reflected in th
 {:toc}
 
 
-## List services
+## List services {#list}
 
     GET /services
 
 ### Example
+
+List all services.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -49,15 +51,23 @@ Additionally any changes made to a service will automatically be reflected in th
 ~~~
 
 
-## Get a service
+## Get a service {#get}
 
     GET /services/:id
 
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:id` | `integer` | The service id
+
 ### Example
+
+Get the service with ID `123`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/services/:id
+          https://api.dnsimple.com/v1/services/123
 
 ### Response
 

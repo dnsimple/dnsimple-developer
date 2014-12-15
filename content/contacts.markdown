@@ -230,7 +230,7 @@ Update the contact with ID `123`:
 
 ### Input
 
-See [Create a contact](#create).
+See [create](#create).
 
 ### Response
 

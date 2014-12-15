@@ -28,57 +28,27 @@ Responds with HTTP 200.
 [
   {
     "dns_template": {
+      "id": 1,
+      "user_id": 11,
       "name": "Example",
-      "created_at": "2010-09-30T20:01:55Z",
-      "updated_at": "2010-09-30T20:01:55Z",
-      "id": 31,
-      "user_id": 1,
+      "description": "An example of a template.",
       "short_name": "example",
-      "description": "An example of a template."
+      "created_at": "2010-09-30T20:01:55Z",
+      "updated_at": "2010-09-30T20:01:55Z"
+    }
+  },
+  {
+    "dns_template": {
+      "id": 2,
+      "user_id": 12,
+      "name": "Example",
+      "description": "An example of a template.",
+      "short_name": "example-2",
+      "created_at": "2010-09-30T20:01:55Z",
+      "updated_at": "2010-09-30T20:01:55Z"
     }
   }
 ]
-~~~
-
-
-## Get a template {#get}
-
-    GET /templates/:template
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:template` | `string`, `integer` | The template short-name or id
-
-### Example
-
-Get the template with ID `1`.
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/templates/1
-
-Get the template with short-name `heroku`.
-
-    curl  -H 'X-DNSimple-Token: <email>:<token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/templates/heroku
-
-### Response
-
-~~~js
-{
-  "dns_template": {
-    "name": "Example",
-    "created_at": "2010-09-30T20:01:55Z",
-    "updated_at": "2010-09-30T20:01:55Z",
-    "id": 31,
-    "user_id": 1,
-    "short_name": "example",
-    "description": "An example of a template."
-  }
-}
 ~~~
 
 
@@ -117,8 +87,105 @@ Get the template with short-name `heroku`.
 ### Response
 
 ~~~js
-TODO
+{
+  "dns_template": {
+    "id": 1,
+    "user_id": 11,
+    "name": "Example",
+    "description": "An example of a template.",
+    "short_name": "example",
+    "created_at": "2010-09-30T20:01:55Z",
+    "updated_at": "2010-09-30T20:01:55Z"
+  }
+}
 ~~~
+
+
+## Get a template {#get}
+
+    GET /templates/:template
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `string`, `integer` | The template short-name or id
+
+### Example
+
+Get the template with ID `1`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/templates/1
+
+Get the template with short-name `heroku`.
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v1/templates/heroku
+
+### Response
+
+~~~js
+{
+  "dns_template": {
+    "id": 1,
+    "user_id": 11,
+    "name": "Example",
+    "description": "An example of a template.",
+    "short_name": "example",
+    "created_at": "2010-09-30T20:01:55Z",
+    "updated_at": "2010-09-30T20:01:55Z"
+  }
+}
+~~~
+
+
+## Update a template {#update}
+
+    PUT /templates/:id
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:template` | `string`, `integer` | The template short-name or id
+
+### Example
+
+Update the template with ID `1`:
+
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X PUT \
+          -d '<json>' \
+          https://api.dnsimple.com/v1/templates/1
+
+### Input
+
+See [create](#create).
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~js
+{
+  "dns_template": {
+    "id": 1,
+    "user_id": 11,
+    "name": "Example",
+    "description": "An example of a template.",
+    "short_name": "example",
+    "created_at": "2010-09-30T20:01:55Z",
+    "updated_at": "2010-09-30T20:01:55Z"
+  }
+}
+~~~
+
+Responds with HTTP 400 if the validation fails.
 
 
 ## Delete a template {#delete}
@@ -151,6 +218,10 @@ Get the template with short-name `heroku`.
 
 ### Response
 
-~~~js
-TODO
-~~~
+Responds with HTTP 200 on success.
+
+<warning>
+  #### Planned Changes
+
+  The method will return a blank response in the future, you should not depend on the response body.
+</warning>
