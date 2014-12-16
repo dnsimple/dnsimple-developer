@@ -258,7 +258,7 @@ Transfer out the domain `example.com`.
 Responds with HTTP 201 on success, returns the transfer out order.
 
 
-## Check domain availability {#availability}
+## Check domain availability {#check}
 
 Check if a domain is available for registration.
 
