@@ -10,7 +10,7 @@ Purchase and manage SSL certificates.
 {:toc}
 
 
-## List domain certificates
+## List domain certificates {#list}
 
     GET /domains/:domain/certificates
 
@@ -156,22 +156,20 @@ List certificates for domain `example.com`:
 ~~~
 
 
-## Get a domain certificate
+## Get a domain certificate {#get}
 
-    GET /domains/:domain/certificates/:id
+    GET /domains/:domain/certificates/:certificate
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-
-:id
-: The _integer_ certificate id
+`:certificate` | `integer` | The certificate id
 
 ### Example
 
-Get the certificate with ID `2`.
+Get the certificate with ID `2` for the domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -257,28 +255,25 @@ Name | Type | Description
 
 ### Example
 
+Purchase a certificate for the domain `example.com`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -X POST \
           -H 'Content-Type: application/json' \
           -d '<json>' \
-          https://api.dnsimple.com/v1/domains/:domain/certificates
+          https://api.dnsimple.com/v1/domains/example.com/certificates
 
 ### Input
 
-certificate.name
-: Required _string_ subdomain for the certificate.
-  Leave it blank to purchase a certificate for the root domain.
-  Enter `*` to purchase a wildcard certificate for the domain.
-  Enter the subdomain name to purchase a certificate for a subdomain, for example use `www` to purchase the certificate for `www.mydomain.com`.
-
-certificate.contact_id
-: Required _integer_ corresponding to the ID of the contact responsible for the certificate.
-  In case of wildcard domains, the contact information must match what is in the Certificate Signing Request.
-  If you plan on submitting your own Certificate Signing Request then you must ensure these details match.
-
-certificate.csr
-: Optional _string_ with a custom Certificate Signing Request.
+Name | Type | Description
+-----|------|------------
+`certificate.name` | `string` | **Required**. The subdomain for the certificate. 
+                                Enter `*` to purchase a wildcard certificate for the domain.
+                                Enter the subdomain name to purchase a certificate for a subdomain, for example use `www` to purchase the certificate for `www.mydomain.com`.
+                                Leave it blank to purchase a certificate for the root domain.
+`certificate.contact_id` | `string` | **Required**.
+`certificate.csr` | `string` | A with a custom Certificate Signing Request.
 
 ~~~js
 {
@@ -290,6 +285,8 @@ certificate.csr
 ~~~
 
 ### Response
+
+Responds with HTTP 201 on success.
 
 ~~~js
 {
@@ -354,25 +351,27 @@ certificate.csr
 }
 ~~~
 
+Responds with HTTP 400 if bad request.
 
-## Configure a domain certificate
+Responds with HTTP 400 if the validation fails.
 
-Configured a purchased certificate.
 
-    PUT /domains/:domain/certificates/:id/configure
+## Configure a domain certificate {#configure}
+
+Configure a purchased certificate.
+
+    PUT /domains/:domain/certificates/:certificate/configure
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-
-:id
-: The _integer_ certificate id
+`:certificate` | `integer` | The certificate id
 
 ### Example
 
-Configure the certificate with ID `2`.
+Configure the certificate with ID `2` for the domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -436,7 +435,7 @@ Configure the certificate with ID `2`.
     ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM
     oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=
     -----END RSA PRIVATE KEY-----",
-    "approver_email": nil,
+    "approver_email": null,
     "approver_emails": ["admin@example.com", "admin@www.example.com"],
     "created_at": "2011-05-14T15:14:43Z",
     "updated_at": "2011-05-14T15:14:43Z",
@@ -451,20 +450,18 @@ Configure the certificate with ID `2`.
 
 Submit a configured certificate for signing by the certificate authority.
 
-    PUT /domains/:domain/certificates/:id/submit
+    PUT /domains/:domain/certificates/:certificate/submit
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
 `:domain` | `string`, `integer` | The domain name or id
-
-:id
-: The _integer_ certificate id
+`:certificate` | `integer` | The certificate id
 
 ### Example
 
-Submit the certificate with ID `2`.
+Submit the certificate with ID `2` for the domain `example.com`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
@@ -475,8 +472,9 @@ Submit the certificate with ID `2`.
 
 ### Input
 
-certificate.approver_email
-: Required _string_
+Name | Type | Description
+-----|------|------------
+`certificate.approver_email` | `string` | **Required**.
 
 ~~~js
 {
