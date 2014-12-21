@@ -4,22 +4,31 @@ title: Extended Attributes
 
 # Extended Attribute API
 
-Some TLDs require extended attributes when registering or transferring a domain.
-This API interface provides information on the extended attributes for any particular TLD.
-
 * TOC
 {:toc}
 
+Some TLDs require extended attributes when registering or transferring a domain.
 
-## List TLD extended attributes
+This API interface provides information on the extended attributes for any particular TLD.
+
+
+## List extended attributes for a TLD #{list}
 
     GET /extended_attributes/:tld
 
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:tld` | `string` | The TLD name
+
 ### Example
+
+List the extended attributes for tld `CA`.
 
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v1/extended_attributes/:tld
+          https://api.dnsimple.com/v1/extended_attributes/ca
 
 ### Response
 
