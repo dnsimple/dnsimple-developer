@@ -39,9 +39,7 @@ Enable vanity name servers for domain `example.com`.
 
 Name | Type | Description
 -----|------|------------
-`vanity_nameserver_configuration.server_source` | `string` | **Required**. Either `dnsimple` or `external`.
-                                                             If you pass `external` as the server source then you must include name servers to use.
-                                                             You may use up to 4 external name servers (`ns1` through `ns4`).
+`vanity_nameserver_configuration.server_source` | `string` | **Required**. Either `dnsimple` or `external`. If you pass `external` as the server source then you must include name servers to use. You may use up to 4 external name servers (`ns1` through `ns4`).
 
 ##### Example with `dnsimple` source
 
