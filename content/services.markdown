@@ -4,11 +4,11 @@ title: Services
 
 # Service API
 
-Services provide a way to apply many records to a domain at once.
-Additionally any changes made to a service will automatically be reflected in the domain's records.
-
 * TOC
 {:toc}
+
+Services provide a way to apply many records to a domain at once.
+Additionally any changes made to a service will automatically be reflected in the domain's records.
 
 
 ## List services {#list}

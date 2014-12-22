@@ -4,12 +4,12 @@ title: Vanity Name Servers
 
 # Vanity Name Server API
 
+* TOC
+{:toc}
+
 Vanity name servers are used to hide the use of DNSimple's name servers and instead use our name servers with different names.
 
 Note: you must request activation of the vanity name servers feature on your account before you can manage vanity name servers through the API. Contact support@dnsimple.com for more details.
-
-* TOC
-{:toc}
 
 
 ## Enable domain vanity name servers

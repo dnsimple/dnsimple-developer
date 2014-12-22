@@ -4,11 +4,11 @@ title: Contacts
 
 # Contact API
 
-Contacts are used for domain registrant information when a domain is registered
-with DNSimple or transferred into DNSimple from another registrar.
-
 * TOC
 {:toc}
+
+Contacts are used for domain registrant information when a domain is registered
+with DNSimple or transferred into DNSimple from another registrar.
 
 
 ## List contacts {#list}

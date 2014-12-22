@@ -4,10 +4,10 @@ title: SSL Certificates
 
 # SSL Certificate API
 
-Purchase and manage SSL certificates.
-
 * TOC
 {:toc}
+
+Purchase and manage SSL certificates.
 
 
 ## List domain certificates {#list}

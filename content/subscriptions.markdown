@@ -4,10 +4,10 @@ title: Subscriptions
 
 # Subscription API
 
-API for creating and managing account subscriptions.
-
 * TOC
 {:toc}
+
+API for creating and managing account subscriptions.
 
 
 ## Get the subscription 

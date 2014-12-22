@@ -4,10 +4,10 @@ title: Email Forwards
 
 # Email Forwarding API
 
-Set up email forwarding from your domain to another email account.
-
 * TOC
 {:toc}
+
+Set up email forwarding from your domain to another email account.
 
 
 ## List forwards {#list}

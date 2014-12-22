@@ -4,10 +4,10 @@ title: Users
 
 # User API
 
-API for provisioning users.
-
 * TOC
 {:toc}
+
+API for provisioning users.
 
 
 ## Create an user {#create}

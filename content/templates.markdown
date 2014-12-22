@@ -4,10 +4,10 @@ title: Templates
 
 # Template API
 
-Templates provide a way to group common records together and apply them en masse to a domain.
-
 * TOC
 {:toc}
+
+Templates provide a way to group common records together and apply them en masse to a domain.
 
 
 ## List templates {#list}
