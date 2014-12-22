@@ -85,8 +85,8 @@ Create an email forward for domain `example.com`:
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `email_forward.from` | `string` | **Required**. The forward email address, without the domain.
 `email_forward.to` | `string` | **Required**. The complete forward email recipient.
 

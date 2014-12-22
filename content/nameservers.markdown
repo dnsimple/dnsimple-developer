@@ -110,7 +110,7 @@ Responds with HTTP 200 on success, returns the array of assigned name servers.
 Responds with HTTP 400 if bad request.
 
 
-## Register a domain name server at the registry
+## Register a name server at the registry {#register}
 
     POST /domains/:domain/registry_name_servers
 
@@ -135,6 +135,11 @@ Register a name server belonging to `example.com`:
 
 ### Input
 
+Name | Type | Description
+-----|------|------------
+`name_server.name` | `string` | **Required**.
+`name_server.ip` | `string` | **Required**.
+
 ~~~js
 {
   "name_server": {
@@ -158,11 +163,11 @@ Responds with HTTP 200 on success, returns the name server.
 Responds with HTTP 400 if bad request.
 
 
-## De-register a domain name server at the registry
-
-De-register the name server `ns1.example.com` belonging to `example.com`:
+## De-register a name server at the registry {#deregister}
 
     DELETE /domains/:domain/registry_name_servers/:name
+
+De-register the name server `ns1.example.com` belonging to `example.com`:
 
 ### Parameters
 
