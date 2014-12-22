@@ -263,8 +263,6 @@ Delete the record with ID `2` for template `1`:
 
 Responds with HTTP 200 on success.
 
-<warning>
-  #### Planned Changes
-
-  The method will return a blank response in the future, you should not depend on the response body.
-</warning>
+<div class="alert alert-warning">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/" class="alert-link">planned changes</a>.
+</div>

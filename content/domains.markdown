@@ -196,12 +196,6 @@ Responds with HTTP 200, returns the domain.
 
 ## Delete a domain {#delete}
 
-<warning>
-  #### Planned Changes
-
-  There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
-</warning>
-
 Delete the given domain from your account.
 
     DELETE /domains/:domain
@@ -238,7 +232,7 @@ Delete the domain `example.com`.
 Responds with HTTP 200 on success.
 
 <div class="alert alert-warning">
-  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/" class="alert-link">planned changes</a>.
 </div>
 
 

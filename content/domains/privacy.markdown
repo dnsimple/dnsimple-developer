@@ -48,12 +48,6 @@ Name | Type | Description
 
 ## Disable domain WHOIS Privacy
 
-<warning>
-  #### Planned Changes
-
-  There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy" class="alert-link">planned changes</a> for this API method.
-</warning>
-
     DELETE /domains/:domain/whois_privacy
 
 If the privacy protection has not expired it can always be turned back on with no additional charge.
@@ -77,5 +71,5 @@ Name | Type | Description
 Responds with HTTP 200 on success.
 
 <div class="alert alert-warning">
-  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/" class="alert-link">planned changes</a>.
 </div>

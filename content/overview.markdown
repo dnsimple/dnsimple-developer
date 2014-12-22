@@ -27,7 +27,7 @@ The legacy API (called `v0`) will no longer be available after June 30th. Please
 
 All requests should include the `Accept` header set to `application/json`. All data is sent and received as JSON.
 
-<warning>
+<warning markdown="1">
 #### Planned Changes
 
 Passing form-encoded post data using the `application/x-www-form-urlencoded` content type is deprecated.
