@@ -10,7 +10,7 @@ WHOIS Privacy Protection replaces a domain's WHOIS data with a proxy service to 
 {:toc}
 
 
-## Enable domain WHOIS Privacy
+## Enable domain WHOIS Privacy {#enable}
 
     POST /domains/:domain/whois_privacy
 
@@ -25,28 +25,31 @@ Name | Type | Description
 
 ### Example
 
+Enable WHOIS privacy for the domain `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://api.dnsimple.com/v1/domains/:domain/whois_privacy
+          https://api.dnsimple.com/v1/domains/example.com/whois_privacy
 
 ### Response
+
+Responds with HTTP 201 on success.
 
 ~~~js
 {
   "whois_privacy": {
-    "id": 18,
-    "domain_id": 1000,
-    "auto_renew": false,
-    "expires_on": "2012-07-23",
-    "enabled": false,
+    "id": 1,
+    "domain_id": 12,
+    "enabled": true,
+    "expires_on": "2015-12-22"
   }
 }
 ~~~
 
 
-## Disable domain WHOIS Privacy
+## Disable domain WHOIS Privacy {#disable}
 
     DELETE /domains/:domain/whois_privacy
 
@@ -60,16 +63,25 @@ Name | Type | Description
 
 ### Example
 
+Disable WHOIS privacy for the domain `example.com`:
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/domains/:domain/whois_privacy
+          https://api.dnsimple.com/v1/domains/example.com/whois_privacy
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/" class="alert-link">planned changes</a>.
-</div>
+~~~js
+{
+  "whois_privacy": {
+    "id": 1,
+    "domain_id": 12,
+    "enabled": false,
+    "expires_on": "2015-12-22"
+  }
+}
+~~~
