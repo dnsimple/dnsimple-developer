@@ -151,7 +151,7 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 200 on success, returns the name server.
+Responds with HTTP 201 on success, returns the name server.
 
 ~~~js
 {
