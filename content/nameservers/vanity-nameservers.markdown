@@ -12,7 +12,7 @@ Vanity name servers are used to hide the use of DNSimple's name servers and inst
 Note: you must request activation of the vanity name servers feature on your account before you can manage vanity name servers through the API. Contact support@dnsimple.com for more details.
 
 
-## Enable domain vanity name servers
+## Enable domain vanity name servers {#enable}
 
     POST /domains/:domain/vanity_name_servers
 
@@ -24,24 +24,24 @@ Name | Type | Description
 
 ### Example
 
+Enable vanity name servers for domain `example.com`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v1/domains/:domain/vanity_name_servers
+          https://api.dnsimple.com/v1/domains/example.com/vanity_name_servers
 
 ### Input
 
-Required fields:
+Name | Type | Description
+-----|------|------------
+`vanity_nameserver_configuration.server_source` | `string` | **Required**. Either `dnsimple` or `external`.
+                                                             If you pass `external` as the server source then you must include name servers to use.
+                                                             You may use up to 4 external name servers (`ns1` through `ns4`).
 
-- `vanity_nameserver_configuration[server_source]`
-
-`server_source` must be either `dnsimple` or `external`.
-If you pass `external` as the server source then you must include name servers to use.
-You may use up to 4 external name servers (`ns1` through `ns4`).
-
-Example with `dnsimple` source.
+##### Example with `dnsimple` source
 
 ~~~js
 {
@@ -51,7 +51,7 @@ Example with `dnsimple` source.
 }
 ~~~
 
-Example with `external` source.
+##### Example with `external` source
 
 ~~~js
 {
@@ -66,11 +66,13 @@ Example with `external` source.
 ### Response
 
 ~~~js
-TODO
+{
+  "status": "enabled"
+}
 ~~~
 
 
-## Disable domain vanity name servers
+## Disable domain vanity name servers {#disable}
 
     DELETE /domains/:domain/vanity_name_servers
 
@@ -82,11 +84,13 @@ Name | Type | Description
 
 ### Example
 
+Disable vanity name servers for domain `example.com`.
+
     curl  -H 'X-DNSimple-Token: <email>:<token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v1/domains/:domain/vanity_name_servers
+          https://api.dnsimple.com/v1/domains/example.com/vanity_name_servers
 
 ### Response
 
