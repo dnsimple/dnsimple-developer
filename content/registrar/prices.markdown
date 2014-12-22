@@ -8,9 +8,7 @@ title: Prices
 {:toc}
 
 
-## List prices
-
-List all prices.
+## List prices {#list}
 
     GET /prices
 
@@ -25,38 +23,26 @@ List all prices.
 [
   {
     "price": {
+      "tld": "com",
       "minimum_registration": 1,
-        "registration_enabled": true,
-        "registration_price": "14.00",
-        "renewal_enabled": true,
-        "renewal_price": "14.00",
-        "tld": "com",
-        "transfer_enabled": true,
-        "transfer_price": "14.00"
+      "registration_price": "14.00",
+      "registration_enabled": true,
+      "transfer_price": "14.00",
+      "transfer_enabled": true,
+      "renewal_price": "14.00",
+      "renewal_enabled": true
     }
   },
   {
     "price": {
-      "minimum_registration": 1,
-      "registration_enabled": true,
-      "registration_price": "14.00",
-      "renewal_enabled": true,
-      "renewal_price": "14.00",
       "tld": "net",
-      "transfer_enabled": true,
-      "transfer_price": "14.00"
-    }
-  },
-  {
-    "price": {
       "minimum_registration": 1,
-      "registration_enabled": true,
       "registration_price": "14.00",
-      "renewal_enabled": true,
-      "renewal_price": "14.00",
-      "tld": "org",
+      "registration_enabled": true,
+      "transfer_price": "14.00",
       "transfer_enabled": true,
-      "transfer_price": "14.00"
+      "renewal_price": "14.00",
+      "renewal_enabled": true
     }
   }
 ]
