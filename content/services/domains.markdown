@@ -8,7 +8,7 @@ title: Applied Services
 {:toc}
 
 
-## List applied services
+## List applied services {#applied}
 
     GET /domains/:domain/applied_services
 
@@ -54,7 +54,7 @@ List applied services for domain `example.com`:
 ~~~
 
 
-## List available services
+## List available services {#available}
 
     GET /domains/:domain/available_services
 
@@ -130,7 +130,7 @@ List available services for domain `example.com`:
 ~~~
 
 
-## Apply a service
+## Apply a service {#apply}
 
     POST /domains/:domain/applied_services
 
@@ -188,7 +188,7 @@ Responds with HTTP 200 on success, returns the list of services applied to the d
 ~~~
 
 
-## Unapply a service
+## Unapply a service {#unapply}
 
     DELETE /domains/:domain/applied_services/:id
 

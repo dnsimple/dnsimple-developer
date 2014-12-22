@@ -8,7 +8,7 @@ title: Domain Zones
 {:toc}
 
 
-## Import a domain zone
+## Import a domain zone {#import}
 
     POST /domains/:domain/zone_imports
 

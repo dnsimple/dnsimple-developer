@@ -241,7 +241,7 @@ Get the certificate with ID `2` for the domain `example.com`.
 ~~~
 
 
-## Purchase a domain certificate
+## Purchase a domain certificate {#purchase}
 
     POST /domains/:domain/certificates
 
@@ -446,7 +446,7 @@ Configure the certificate with ID `2` for the domain `example.com`.
 ~~~
 
 
-## Submit a domain certificate
+## Submit a domain certificate {#submit}
 
 Submit a configured certificate for signing by the certificate authority.
 
