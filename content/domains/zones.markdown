@@ -40,8 +40,9 @@ Import zone for domain with ID `123`:
 
 ### Input
 
-zone_import.zone_data
-: Required _string_
+Name | Type | Description
+-----|------|------------
+`:zone_import.zone_data` | `string` | **Required**.
 
 ~~~js
 {
@@ -52,8 +53,6 @@ zone_import.zone_data
 ~~~
 
 ### Response
-
-Responds with HTTP 400 if the validation fails.
 
 Responds with HTTP 201 on success.
 
@@ -104,13 +103,18 @@ Responds with HTTP 201 on success.
 }
 ~~~
 
-## Get a domain zone {#get}
+Responds with HTTP 400 if the validation fails.
 
-Get the domain as a [zone file](https://www.ietf.org/rfc/rfc1035.txt) content.
+
+## Get a domain zone {#get}
 
     GET /domains/:domain/zone
 
-Note that this API endpoint responds only using the MIME type plain/text at the moment.
+Get the domain as a [zone file](https://www.ietf.org/rfc/rfc1035.txt) content.
+
+<note>
+This API endpoint responds also to the MIME type `plain/text`.
+</note>
 
 ### Parameters
 
@@ -122,26 +126,22 @@ Name | Type | Description
 
 Get the zone content for domain `example.com`:
 
-    curl  -H 'Accept: text/plain' \
-          -H 'X-DNSimple-Token: <email>:<token>' \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/domains/example.com/zone
 
 Get the zone content for domain with ID `123`:
 
-    curl  -H 'Accept: text/plain' \
-          -H 'X-DNSimple-Token: <email>:<token>' \
+    curl  -H 'X-DNSimple-Token: <email>:<token>' \
+          -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/domains/123/zone
 
 ### Response
 
 Responds with HTTP 200 on success, returns the zone file content.
 
-~~~
-$ORIGIN example.com.
-$TTL 1h
-example.com. 3600 IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300
-example.com. 3600 IN NS  ns1.dnsimple.com.
-example.com. 3600 IN NS  ns2.dnsimple.com.
-example.com. 3600 IN NS  ns3.dnsimple.com.
-example.com. 3600 IN NS  ns4.dnsimple.com.
+~~~js
+{
+  "zone": "$ORIGIN example.com.\n$TTL 1h\nexample.com. 3600 IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300\nexample.com. 3600 IN NS  ns1.dnsimple.com.\nexample.com. 3600 IN NS  ns2.dnsimple.com.\nexample.com. 3600 IN NS  ns3.dnsimple.com.\nexample.com. 3600 IN NS  ns4.dnsimple.com."
+}
 ~~~
