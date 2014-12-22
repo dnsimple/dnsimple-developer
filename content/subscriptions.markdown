@@ -10,7 +10,7 @@ title: Subscriptions
 API for creating and managing account subscriptions.
 
 
-## Get the subscription 
+## Get the subscription  {#get}
 
 View the current subscription details.
 
@@ -43,7 +43,7 @@ Responds with HTTP 200 on success.
 ~~~
 
 
-## Create the subscription
+## Create the subscription {#create}
 
 Create a subscription for the currently authenticated user.
 
