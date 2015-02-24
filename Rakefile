@@ -5,15 +5,13 @@ require 'fileutils'
 
 desc "Compile the site"
 task :compile do
+  puts "Compiling site"
   FileUtils.rm_r('output') if File.exist?('output')
   `nanoc compile`
 end
 
 desc "Publish to developer.dnsimple.com"
-task :publish do
-  FileUtils.rm_r('output') if File.exist?('output')
-  `nanoc compile`
-
+task :'publish-github' => :compile do
   ENV['GIT_DIR'] = File.expand_path(`git rev-parse --git-dir`.chomp)
   osha = `git rev-parse refs/remotes/origin/gh-pages`.chomp
   Dir.chdir('output') do
@@ -35,6 +33,13 @@ task :publish do
     `git update-ref refs/heads/gh-pages #{csha}`
     `git push origin gh-pages`
   end
+end
+
+desc "Publish to S3"
+task :'publish' => :compile do
+  puts "Publishing to S3"
+  `s3_website push`
+  puts "Published"
 end
 
 

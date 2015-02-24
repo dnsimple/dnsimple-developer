@@ -2,3 +2,4 @@
 output
 tmp
 crash.log
+.env

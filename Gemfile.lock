@@ -4,8 +4,12 @@ GEM
     adsf (1.2.0)
       rack (>= 1.0.0)
     colored (1.2)
+    configure-s3-website (1.7.1)
+      deep_merge (= 1.0.0)
     cri (2.6.1)
       colored (~> 1.2)
+    deep_merge (1.0.0)
+    dotenv (1.0.2)
     kramdown (1.4.0)
     mime-types (2.3)
     mini_portile (0.6.0)
@@ -18,8 +22,14 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
     rack (1.5.2)
+    s3_website (2.8.3)
+      colored (= 1.2)
+      configure-s3-website (= 1.7.1)
+      dotenv (~> 1.0)
+      thor (~> 0.18)
     sass (3.3.9)
     systemu (2.6.4)
+    thor (0.19.1)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -32,5 +42,6 @@ DEPENDENCIES
   nanoc (~> 3.7.0)
   nokogiri
   pygments.rb
+  s3_website
   sass
   systemu
