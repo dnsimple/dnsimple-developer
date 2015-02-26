@@ -1,5 +1,6 @@
 ---
 title: Sandbox
+excerpt: Welcome to DNSimple. This page explains our sandbox environment. Enjoy low cost hosted DNS services, an easy to use web interface, and REST API.
 ---
 
 # Sandbox

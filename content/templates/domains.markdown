@@ -1,5 +1,6 @@
 ---
 title: Applied Templates
+excerpt: Welcome to DNSimple. This page is about the API for applying templates. Hosted DNS has never been this easy.
 ---
 
 # Applied Template API

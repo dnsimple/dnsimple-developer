@@ -1,5 +1,6 @@
 ---
 title: Domain Registry
+excerpt: Welcome to DNSimple. This page is about registering domains via our API. Hosted DNS has never been this easy.
 ---
 
 # Domain Registry API

@@ -1,5 +1,6 @@
 ---
 title: Services
+excerpt: Welcome to DNSimple. This page is about our API for Services. Hosted DNS has never been this easy.
 ---
 
 # Service API

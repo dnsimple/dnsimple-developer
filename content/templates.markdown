@@ -1,5 +1,6 @@
 ---
 title: Templates
+excerpt: Welcome to DNSimple. This page is about our template API. Enjoy low cost hosted DNS services, an easy to use web interface, and a REST API for automation.
 ---
 
 # Template API

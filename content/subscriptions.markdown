@@ -1,5 +1,6 @@
 ---
 title: Subscriptions
+excerpt: Welcome to DNSimple. This page is about managing subscriptions.  Hosted DNS has never been this easy.
 ---
 
 # Subscription API

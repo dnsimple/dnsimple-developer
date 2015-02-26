@@ -1,5 +1,6 @@
 ---
 title: Prices
+excerpt: Welcome to DNSimple. This page describes the API for fetching registration prices. Enjoy low cost hosted DNS and our REST API for automation.
 ---
 
 # Prices API

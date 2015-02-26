@@ -1,5 +1,6 @@
 ---
 title: Domain Sharing
+excerpt: Welcome to DNSimple. This page explains our API sharing domain management. Hosted DNS has never been this easy.
 ---
 
 # Domain Sharing API

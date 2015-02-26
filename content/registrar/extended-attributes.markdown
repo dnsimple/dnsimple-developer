@@ -1,5 +1,6 @@
 ---
 title: Extended Attributes
+excerpt: Welcome to DNSimple. This page is about our extended attributes API. Hosted DNS has never been this easy.
 ---
 
 # Extended Attribute API

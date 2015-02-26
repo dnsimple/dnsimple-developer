@@ -1,5 +1,6 @@
 ---
 title: Applied Services
+excerpt: Welcome to DNSimple. This page is about applying services with our API. Enjoy low cost hosted DNS services and our REST API.
 ---
 
 # Applied Service API

@@ -1,5 +1,6 @@
 ---
 title: Domain Auto-renewal
+excerpt: Welcome to DNSimple. This page is about managing auto-renewal with our API. Hosted DNS has never been this easy.
 ---
 
 # Domain Auto-renewal API

@@ -1,5 +1,6 @@
 ---
 title: Domains
+excerpt: Welcome to DNSimple. This page explains our domain API. Hosted DNS has never been this easy.
 ---
 
 # Domain API

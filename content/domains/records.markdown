@@ -1,5 +1,6 @@
 ---
 title: Domain Records
+excerpt: Welcome to DNSimple. This page is about our domain records API. Hosted DNS has never been this easy.
 ---
 
 # Domain Record API

@@ -1,5 +1,6 @@
 ---
 title: Users
+excerpt: Welcome to DNSimple. This page is about our users API. Hosted DNS has never been this easy.
 ---
 
 # User API

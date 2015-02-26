@@ -1,5 +1,6 @@
 ---
 title: Template Records
+excerpt: Welcome to DNSimple. This page is about our template record API. Hosted DNS has never been this easy.
 ---
 
 # Template Record API

@@ -1,5 +1,6 @@
 ---
 title: Overview
+excerpt: Welcome to DNSimple. This page gives an overview of the developer documentation. Hosted DNS has never been this easy.
 ---
 
 # Overview

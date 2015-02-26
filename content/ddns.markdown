@@ -1,5 +1,6 @@
 ---
 title: Dynamic DNS Shell Script
+excerpt: Welcome to DNSimple. This page is about configuring dynamic DNS using our API. Hosted DNS has never been this easy.
 ---
 
 # Dynamic DNS Shell Script

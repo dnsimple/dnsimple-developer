@@ -1,5 +1,6 @@
 ---
 title: Vanity Name Servers
+excerpt: Welcome to DNSimple. This page is about managing vanity nameservers via our API. Hosted DNS has never been this easy.
 ---
 
 # Vanity Name Server API

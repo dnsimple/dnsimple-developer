@@ -1,5 +1,6 @@
 ---
 title: Tools
+excerpt: Welcome to DNSimple. This page highlights some awesome DNS Tools built with our DNS API.
 ---
 
 # Tools

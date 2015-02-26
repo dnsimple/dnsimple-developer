@@ -1,5 +1,6 @@
 ---
 title: Email Forwards
+excerpt: Welcome to DNSimple. This page is about our API for email forwarding rules. Enjoy low cost hosted DNS, an easy to use web interface, and REST API for automation.
 ---
 
 # Email Forwarding API
