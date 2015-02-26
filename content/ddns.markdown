@@ -1,5 +1,5 @@
 ---
-titie: Dynamic DNS Shell Script
+title: Dynamic DNS Shell Script
 ---
 
 # Dynamic DNS Shell Script
