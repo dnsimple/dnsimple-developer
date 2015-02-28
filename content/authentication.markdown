@@ -1,5 +1,6 @@
 ---
 title: Authentication
+excerpt: This page documents the authentication mechanism to access the DNSimple API.
 ---
 
 # Authentication
