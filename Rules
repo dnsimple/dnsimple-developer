@@ -34,6 +34,10 @@ compile '/sitemap/' do
   filter :erb
 end
 
+compile '/robots/' do
+  filter :erb
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -66,6 +70,10 @@ end
 
 route '/sitemap/' do
   item.identifier.chop + '.xml'
+end
+
+route '/robots/' do
+  item.identifier.chop + '.txt'
 end
 
 route '*' do
