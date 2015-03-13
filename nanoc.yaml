@@ -76,3 +76,5 @@ watcher:
   # When to send notifications (using Growl or notify-send).
   notify_on_compilation_success: true
   notify_on_compilation_failure: true
+
+base_url: https://developer.dnsimple.com
