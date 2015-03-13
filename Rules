@@ -30,7 +30,7 @@ end
 compile '/CNAME/' do
 end
 
-compile '/sitemap' do
+compile '/sitemap/' do
   filter :erb
 end
 
@@ -64,7 +64,7 @@ route '/CNAME/' do
   '/CNAME'
 end
 
-route '/sitemap' do
+route '/sitemap/' do
   item.identifier.chop + '.xml'
 end
 
