@@ -3,6 +3,7 @@ GEM
   specs:
     adsf (1.2.0)
       rack (>= 1.0.0)
+    builder (3.2.2)
     colored (1.2)
     configure-s3-website (1.7.1)
       deep_merge (= 1.0.0)
@@ -37,6 +38,7 @@ PLATFORMS
 
 DEPENDENCIES
   adsf
+  builder
   kramdown
   mime-types
   nanoc (~> 3.7.0)
