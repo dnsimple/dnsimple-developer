@@ -269,10 +269,7 @@ Purchase a certificate for the domain `example.com`.
 
 Name | Type | Description
 -----|------|------------
-`certificate.name` | `string` | **Required**. The subdomain for the certificate. 
-                                Enter `*` to purchase a wildcard certificate for the domain.
-                                Enter the subdomain name to purchase a certificate for a subdomain, for example use `www` to purchase the certificate for `www.mydomain.com`.
-                                Leave it blank to purchase a certificate for the root domain.
+`certificate.name` | `string` | **Required**. The subdomain for the certificate. Enter `*` to purchase a wildcard certificate for the domain. Enter the subdomain name to purchase a certificate for a subdomain, for example use `www` to purchase the certificate for `www.mydomain.com`. Leave it blank to purchase a certificate for the root domain.
 `certificate.contact_id` | `string` | **Required**.
 `certificate.csr` | `string` | A with a custom Certificate Signing Request.
 
