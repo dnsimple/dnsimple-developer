@@ -13,7 +13,7 @@ end
 desc "Publish to S3"
 task :'publish' => :compile do
   puts "Publishing to S3"
-  `s3_website push`
+  puts `s3_website push`
   puts "Published"
 end
 
