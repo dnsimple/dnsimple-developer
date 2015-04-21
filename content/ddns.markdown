@@ -1,11 +1,15 @@
 ---
 title: Dynamic DNS Shell Script
-excerpt: Welcome to DNSimple. This page is about configuring dynamic DNS using our API. Hosted DNS has never been this easy.
+excerpt: Set up Dynamic DNS with this simple shell script using our REST API.
 ---
 
-# Dynamic DNS Shell Script
+## What is Dynamic DNS?
 
-Use this shell script to dynamically update a record on a regular schedule.
+While many production environments are able to obtain static IP addresses, there is sometimes a need to access a device with a dynamic address over the internet. Dynamic DNS services provide the ability to update the DNS record for a given device automatically.
+
+Some DNS providers offer a proprietary tool to accomplish this and others even specialize as dynamic DNS providers. With DNSimple, it's possible to have simple dynamic DNS service for a specific record by customizing the script below to your needs and running it on the schedule you choose.
+
+## Dynamic DNS Shell Script
 
 ~~~bash
 #!/bin/bash
