@@ -44,9 +44,9 @@ compile '*' do
   else
     filter :erb
     filter :preprocess
-    filter :kramdown, toc_levels: [2]
-    filter :postprocess
+    filter :kramdown, toc_levels: [2], enable_coderay: false
     filter :colorize_syntax, default_colorizer: :pygmentsrb
+    filter :postprocess
     layout 'default'
   end
 end
