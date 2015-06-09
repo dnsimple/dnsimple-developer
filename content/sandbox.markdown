@@ -12,9 +12,8 @@ excerpt: Welcome to DNSimple. This page explains our sandbox environment. Enjoy 
 
 We maintain an isolated test site at [sandbox.dnsimple.com](https://sandbox.dnsimple.com/). Please feel free to test your applications that integrate with the DNSimple API here.
 
-<note>
 Sandbox data and systems are generally treated like production, however we may not apply the same backup, monitoring and high availability policies. That means we may occasionally need to take this environment down, wipe out a portion, or clear all stored data.
-</note>
+
 
 ## URL
 

@@ -1,12 +1,18 @@
 ---
-title: Overview
-excerpt: Welcome to DNSimple. This page gives an overview of the developer documentation. Hosted DNS has never been this easy.
+title: DNSimple API v1
+excerpt: This page provides an overview of the official DNSimple API v1.
 ---
 
 # Overview
 
+
+This page provides an overview of the official DNSimple API v1.
+
 * TOC
 {:toc}
+
+---
+
 
 ## URL
 
