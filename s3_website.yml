@@ -43,10 +43,31 @@ cloudfront_distribution_config:
 
 # concurrency_level: 5
 
-# redirects:
-#   index.php: /
-#   about.php: about.html
-#   music-files/promo.mp4: http://www.youtube.com/watch?v=dQw4w9WgXcQ
+redirects:
+  authentication/index.html: /v1/authentication/
+  certificates/index.html: /v1/certificates/
+  contacts/index.html: /v1/contacts/
+  domains/autorenewal/index.html: /v1/domains/autorenewal/
+  domains/forwards/index.html: /v1/domains/forwards/
+  domains/privacy/index.html: /v1/domains/privacy/
+  domains/records/index.html: /v1/domains/records/
+  domains/sharing/index.html: /v1/domains/sharing/
+  domains/zones/index.html: /v1/domains/zones/
+  domains/index.html: /v1/domains/
+  nameservers/vanity-nameservers/index.html: /v1/nameservers/vanity-nameservers/
+  nameservers/index.html: /v1/nameservers/
+  overview/index.html: /v1/
+  planned-changes/index.html: /v1/planned-changes/index.html
+  registrar/extended-attributes/index.html: /v1/registrar/extended-attributes/
+  registrar/prices/index.html: /v1/registrar/prices/
+  registrar/index.html: /v1/registrar/
+  services/domains/index.html: /v1/services/domains/
+  services/index.html: /v1/services/
+  subscriptions/index.html: /v1/subscriptions/
+  templates/domains/index.html: /v1/templates/domains/
+  templates/records/index.html: /v1/templates/records/
+  templates/index.html: /v1/templates/
+  users/index.html: /v1/users/
 
 # routing_rules:
 #   - condition:
