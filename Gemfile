@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'nanoc', '~> 3.7.0'
 gem 'builder'
