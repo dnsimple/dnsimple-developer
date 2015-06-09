@@ -13,6 +13,10 @@ This page provides an overview of the official DNSimple API v1.
 
 ---
 
+### Expected Changes
+
+There are some [planned changes](/v1/planned-changes/) (last update 2013-08-10) we'll implement someday in the future. Please review them and make sure to write your code accordingly.
+
 
 ## URL
 
