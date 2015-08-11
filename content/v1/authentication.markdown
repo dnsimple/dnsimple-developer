@@ -32,7 +32,7 @@ For users with two-factor authentication enabled, [Basic Authentication requires
 
 ### API token {#api-token}
 
-The API Token is a token that uniquely identifies a DNSimple account. You can create, reset or clear your API token by going to [your account page](https://dnsimple.com/account).
+The API Token is a token that uniquely identifies a DNSimple account. You can create, reset or clear your API token by going to [your user page](https://dnsimple.com/user).
 
 The token must be sent in a header called `X-DNSimple-Token`. The `X-DNSimple-Token` header is your email address joined with your API token separated by a colon. 
 
