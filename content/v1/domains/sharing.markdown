@@ -85,8 +85,8 @@ Add a membership for domain `example.com`:
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `membership.email` | `string` | **Required** email address for the person to add.
 
 ~~~js

@@ -1,6 +1,6 @@
 ---
 title: Templates
-excerpt: Welcome to DNSimple. This page is about our template API. Enjoy low cost hosted DNS services, an easy to use web interface, and a REST API for automation.
+excerpt: This page documents the DNSimple Templates API v1.
 ---
 
 # Template API
@@ -68,8 +68,8 @@ Responds with HTTP 200.
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `dns_template.name` | `string` | **Required**.
 `dns_template.short_name` | `string` | **Required**.
 `dns_template.description` | `string` |

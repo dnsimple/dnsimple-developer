@@ -1,6 +1,6 @@
 ---
 title: Users
-excerpt: Welcome to DNSimple. This page is about our users API. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Users API v1.
 ---
 
 # User API
@@ -30,8 +30,8 @@ Provision a new user:
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `user.email` | `string` | **Required**.
 `user.password` | `string` | **Required**.
 `user.password_confirmation` | `string` | **Required**.
@@ -41,7 +41,7 @@ Provision a new user:
   "user": {
     "email": "john.smith@example.com",
     "password": "x8ejfhfgjQ#A",
-    "password_confirmation": "x8ejfhfgjQ#A" 
+    "password_confirmation": "x8ejfhfgjQ#A"
   }
 }
 ~~~

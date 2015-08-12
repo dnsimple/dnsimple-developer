@@ -1,6 +1,6 @@
 ---
 title: Planned Changes
-excerpt: Welcome to DNSimple. This page explains our planned changes to the API. Hosted DNS has never been this easy.
+excerpt: This page documents the planned changes to the DNSimple API v1.
 ---
 
 # Planned Changes

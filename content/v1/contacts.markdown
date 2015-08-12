@@ -1,6 +1,6 @@
 ---
 title: Contacts
-excerpt: Welcome to DNSimple. This page is about the API for contacts. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Contacts API v1.
 ---
 
 # Contact API

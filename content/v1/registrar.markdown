@@ -1,6 +1,6 @@
 ---
 title: Domain Registry
-excerpt: Welcome to DNSimple. This page is about registering domains via our API. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Registry/Registrar API v1.
 ---
 
 # Domain Registry API
@@ -30,8 +30,8 @@ so please be careful with this command.
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
 `extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
@@ -115,8 +115,8 @@ however domains ending in `.us` and `.ca` may not.
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
 `extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
@@ -179,8 +179,8 @@ which is 1 year for most domains but for some domains may be more.
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `domain.name` | `string` | **Required**.
 `domain.renew_whois_privacy` | `boolean` | Set to `true` to also renew the associated Whois Privacy. Default: `false`.
 

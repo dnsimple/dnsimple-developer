@@ -1,6 +1,6 @@
 ---
 title: Domains
-excerpt: Welcome to DNSimple. This page explains our domain API. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Domains API v1.
 ---
 
 # Domain API
@@ -97,8 +97,8 @@ Responds with HTTP 200.
 
 ### Input
 
-| Name | Type | Description |
-|------|------|-------------|
+Name | Type | Description
+-----|------|------------
 `domain.name` | `string` | **Required**.
 
 ##### Example
@@ -320,8 +320,8 @@ Move the domain `example.com`:
 
 ### Input
 
-| Name | Type || Description |
-|------|------||-------------|
+Name | Type | Description
+-----|------|------------
 `push.new_user_email` | `string` | **Required**. Email of the new account's email address.
 `push.contact_id` | `integer` | **Required**. The new account's registrant ID.
 

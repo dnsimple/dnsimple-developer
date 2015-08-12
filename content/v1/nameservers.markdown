@@ -1,6 +1,6 @@
 ---
 title: Name Servers
-excerpt: Welcome to DNSimple. This page explains our API for managing the name servers for a domain. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Name Servers API v1.
 ---
 
 # Name Server API

@@ -1,6 +1,6 @@
 ---
 title: SSL Certificates
-excerpt: Welcome to DNSimple, this page is about managing certificates with our REST API. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Certificates API v1.
 ---
 
 # SSL Certificate API

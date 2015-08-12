@@ -1,6 +1,6 @@
 ---
 title: Services
-excerpt: Welcome to DNSimple. This page is about our API for Services. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple Services API v1.
 ---
 
 # Service API
@@ -35,8 +35,8 @@ List all services.
       "id": 1,
       "name": "Google Apps",
       "short_name": "googleapps",
-      "updated_at": "2010-12-15T08:08:02Z" 
-    } 
+      "updated_at": "2010-12-15T08:08:02Z"
+    }
   },
   {
     "service": {
@@ -45,8 +45,8 @@ List all services.
       "id": 2,
       "name": "Heroku",
       "short_name": "heroku",
-      "updated_at": "2010-12-15T08:08:02Z" 
-    } 
+      "updated_at": "2010-12-15T08:08:02Z"
+    }
   }
 ]
 ~~~
