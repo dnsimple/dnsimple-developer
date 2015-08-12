@@ -1,0 +1,26 @@
+---
+title: DNSimple API v2
+excerpt: This page provides an overview of the official DNSimple API v2.
+---
+
+# Overview
+
+This page provides an overview of the official DNSimple API v2.
+
+* TOC
+{:toc}
+
+---
+
+## URL
+
+All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain. [Sandbox accounts](/sandbox/) must use the `api.sandbox.dnsimple.com` domain.
+
+In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
+
+    https://api.dnsimple.com/v2/
+
+
+## Current Version
+
+The current API version is `v1`. `v2` is in early development.

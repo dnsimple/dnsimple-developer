@@ -5,7 +5,6 @@ excerpt: This page provides an overview of the official DNSimple API v1.
 
 # Overview
 
-
 This page provides an overview of the official DNSimple API v1.
 
 * TOC
