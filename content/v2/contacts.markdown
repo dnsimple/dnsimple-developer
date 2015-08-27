@@ -13,6 +13,8 @@ excerpt: This page documents the DNSimple Contacts API v2.
 
     GET /:account/contacts
 
+List contacts for the account.
+
 ### Parameters
 
 Name | Type | Description
@@ -28,6 +30,8 @@ List all contacts for the account 1010.
           https://api.dnsimple.com/v2/1010/contacts
 
 ### Response
+
+Responds with HTTP 200.
 
 ~~~js
 [
@@ -77,9 +81,7 @@ Name | Type | Description
 `job_title`         | `string` |
 
 ~~~js
-{
-  {}
-}
+{}
 ~~~
 
 ### Response
@@ -87,9 +89,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~js
-{
-  {}
-}
+{}
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -117,9 +117,7 @@ Get the contact with ID `1`.
 ### Response
 
 ~~~js
-{
-  {}
-}
+{}
 ~~~
 
 
@@ -154,9 +152,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~js
-{
-  {}
-}
+{}
 ~~~
 
 Responds with HTTP 400 if the validation fails.
