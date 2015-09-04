@@ -1,6 +1,6 @@
 ---
 title: WHOIS Privacy Protection
-excerpt: Welcome to DNSimple. This page is about our WHOIS Privacy Protection API. Hosted DNS has never been this easy.
+excerpt: This page documents the DNSimple WHOIS Privacy Protection API v1.
 ---
 
 # WHOIS Privacy Protection API
