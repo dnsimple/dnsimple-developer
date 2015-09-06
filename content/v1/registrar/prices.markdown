@@ -1,6 +1,6 @@
 ---
 title: Prices
-excerpt: This page documents the DNSimple Prices API v1.
+excerpt: This page documents the DNSimple prices API v1.
 ---
 
 # Prices API

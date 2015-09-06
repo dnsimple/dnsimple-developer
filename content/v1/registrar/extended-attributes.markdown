@@ -1,6 +1,6 @@
 ---
 title: Extended Attributes
-excerpt: This page documents the DNSimple Extebded Attributes API v1.
+excerpt: This page documents the DNSimple extended attributes API v1.
 ---
 
 # Extended Attribute API

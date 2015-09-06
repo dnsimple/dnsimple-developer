@@ -1,6 +1,6 @@
 ---
 title: WHOIS Privacy Protection
-excerpt: This page documents the DNSimple WHOIS Privacy Protection API v1.
+excerpt: This page documents the DNSimple WHOIS privacy protection API v1.
 ---
 
 # WHOIS Privacy Protection API
