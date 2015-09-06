@@ -8,7 +8,7 @@ excerpt: This page documents the DNSimple certificates API v1.
 * TOC
 {:toc}
 
-The SSL certificate API allows you to purchase and manage SSL certificates. At this [SSL certificates](http://support.dnsimple.com/articles/ssl-certificates/) article you can read more about the SSL certificate types we support.
+The SSL certificate API allows you to purchase and manage SSL certificates. At this [SSL certificates](https://support.dnsimple.com/articles/ssl-certificates/) article you can read more about the SSL certificate types we support.
 
 
 ## List domain certificates {#list}
@@ -271,7 +271,7 @@ Name | Type | Description
 -----|------|------------
 `certificate.name` | `string` | **Required**. The subdomain for the certificate. Enter `*` to purchase a wildcard certificate for the domain. Enter the subdomain name to purchase a certificate for a subdomain, for example use `www` to purchase the certificate for `www.mydomain.com`. Leave it blank to purchase a certificate for the root domain.
 `certificate.contact_id` | `string` | **Required**.
-`certificate.csr` | `string` | A with a custom Certificate Signing Request.
+`certificate.csr` | `string` | Used to provide a custom [CSR (Certificate Signing Request)](https://support.dnsimple.com/articles/what-is-csr/).
 
 ~~~js
 {
