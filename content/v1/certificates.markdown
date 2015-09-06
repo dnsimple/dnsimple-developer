@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple certificates API v1.
 The SSL certificate API allows you to purchase and manage SSL certificates. At this [SSL certificates](https://support.dnsimple.com/articles/ssl-certificates/) article you can read more about the SSL certificate types we support.
 
 
-## List domain certificates {#list}
+## List domain SSL certificates {#list}
 
     GET /domains/:domain/certificates
 
@@ -157,7 +157,7 @@ List certificates for domain `example.com`:
 ~~~
 
 
-## Get a domain certificate {#get}
+## Get an SSL certificate {#get}
 
     GET /domains/:domain/certificates/:certificate
 
@@ -242,7 +242,7 @@ Get the certificate with ID `2` for the domain `example.com`.
 ~~~
 
 
-## Purchase a domain certificate {#purchase}
+## Purchase an SSL certificate {#purchase}
 
     POST /domains/:domain/certificates
 
@@ -354,7 +354,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Configure a domain certificate {#configure}
+## Configure an SSL certificate {#configure}
 
 Configure a purchased certificate.
 
@@ -444,7 +444,7 @@ Configure the certificate with ID `2` for the domain `example.com`.
 ~~~
 
 
-## Submit a domain certificate {#submit}
+## Submit an SSL certificate {#submit}
 
 Submit a configured certificate for signing by the certificate authority.
 
