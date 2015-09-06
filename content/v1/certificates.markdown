@@ -1,6 +1,6 @@
 ---
 title: SSL Certificates
-excerpt: This page documents the DNSimple Certificates API v1.
+excerpt: This page documents the DNSimple certificates API v1.
 ---
 
 # SSL Certificate API
@@ -8,7 +8,7 @@ excerpt: This page documents the DNSimple Certificates API v1.
 * TOC
 {:toc}
 
-Purchase and manage SSL certificates.
+The SSL certificate API allows you to purchase and manage SSL certificates. At this [SSL certificates](http://support.dnsimple.com/articles/ssl-certificates/) article you can read more about the SSL certificate types we support.
 
 
 ## List domain certificates {#list}
