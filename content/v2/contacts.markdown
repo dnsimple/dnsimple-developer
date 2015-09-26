@@ -1,6 +1,6 @@
 ---
 title: Contacts | DNSimple API v2
-excerpt: This page documents the DNSimple Contacts API v2.
+excerpt: This page documents the DNSimple contacts API v2.
 ---
 
 # Contact API
@@ -80,6 +80,8 @@ Name | Type | Description
 `organization_name` | `string` | The company name. If the `organization_name` is specified, then you must also include `job_title`.
 `job_title`         | `string` |
 
+##### Example
+
 ~~~js
 {}
 ~~~
@@ -123,7 +125,7 @@ Get the contact with ID `1`.
 
 ## Update a contact {#update}
 
-    PUT /:account/contacts/:contact
+    PATCH /:account/contacts/:contact
 
 ### Parameters
 
@@ -139,7 +141,7 @@ Update the contact with ID `1`:
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
-          -X PUT \
+          -X PATCH \
           -d '<json>' \
           https://api.dnsimple.com/v2/_/contacts/1
 
