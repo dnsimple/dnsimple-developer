@@ -1,6 +1,6 @@
 ---
 title: Domains | DNSimple API v2
-excerpt: This page documents the DNSimple Domains API v2.
+excerpt: This page documents the DNSimple domains API v2.
 ---
 
 # Domain API
@@ -152,7 +152,7 @@ Delete the domain `example.com`.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/example.com
+          https://api.dnsimple.com/v2/_/domains/example.com
 
 ### Response
 
