@@ -47,7 +47,11 @@ compile '*' do
     filter :kramdown, toc_levels: [2], enable_coderay: false
     filter :colorize_syntax, default_colorizer: :pygmentsrb
     filter :postprocess
-    layout 'default'
+    if item.identifier =~ /v2/
+      layout 'v2'
+    else
+      layout 'default'
+    end
   end
 end
 
