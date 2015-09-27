@@ -38,33 +38,6 @@ compile '/robots/' do
   filter :erb
 end
 
-compile '/v2/' do
-  if item.binary?
-    # don't filter binary items
-  else
-    filter :erb
-    filter :preprocess
-    filter :kramdown, toc_levels: [2], enable_coderay: false
-    filter :colorize_syntax, default_colorizer: :pygmentsrb
-    filter :postprocess
-    layout 'v2'
-  end
-end
-
-compile '/v2/*' do
-  if item.binary?
-    # don't filter binary items
-  else
-    filter :erb
-    filter :preprocess
-    filter :kramdown, toc_levels: [2], enable_coderay: false
-    filter :colorize_syntax, default_colorizer: :pygmentsrb
-    filter :postprocess
-    layout 'v2'
-  end
-end
-
-
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -74,7 +47,11 @@ compile '*' do
     filter :kramdown, toc_levels: [2], enable_coderay: false
     filter :colorize_syntax, default_colorizer: :pygmentsrb
     filter :postprocess
-    layout 'default'
+    if item.identifier =~ /v2/
+      layout 'v2'
+    else
+      layout 'default'
+    end
   end
 end
 
