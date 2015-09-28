@@ -17,6 +17,7 @@ excerpt: This page documents the DNSimple records API v2.
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id or wildcard (`_`)
 `:zone` | `string` | The zone name
 
 ### Example
@@ -47,6 +48,7 @@ Responds with HTTP 200.
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id or wildcard (`_`)
 `:zone` | `string` | The zone name
 
 ### Example
@@ -97,6 +99,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id or wildcard (`_`)
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
@@ -123,6 +126,7 @@ Get the record `2` for the zone `example.com`.
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id or wildcard (`_`)
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
@@ -175,6 +179,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id or wildcard (`_`)
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
