@@ -1,6 +1,6 @@
 ---
 title: Domain Auto-renewal
-excerpt: This page documents the DNSimple domain auto-renewal API v1.
+excerpt: This page documents the DNSimple domain registration auto-renewal API v1.
 ---
 
 # Domain Auto-renewal API
