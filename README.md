@@ -4,7 +4,7 @@ This is the DNSimple API documentation built with [nanoc](http://nanoc.stoneship
 
 ## Setup
 
-Ruby 1.9 is required to build the site, all the dependencies are managed using Bundler.
+Ruby 2 is required to build the site, all the dependencies are managed using Bundler.
 
     $ git clone https://github.com/aetrion/developer.dnsimple.com.git dnsimple-developer
     $ cd dnsimple-developer
@@ -37,3 +37,4 @@ First, install Java (note on OS X I had to install the full JDK to get the comma
 Finally, run:
 
     $ rake publish
+
