@@ -27,7 +27,6 @@ h2 {
 .marker {
   margin: 20px 0;
   padding: 15px;
-  border-left: 3px solid #eee;
 }
 
 .marker :first-child {
@@ -38,24 +37,46 @@ h2 {
   margin-bottom: 0;
 }
 
-.marker-note {
-  border-color: #ddd;
-  background-color: #fdf7f7;
-}
-
-.marker-info {
-  border-color: #5bc0de;
-  background-color: #f4f8fa;
+.marker-info, .marker-note {
+  background: lighten($accent-color, 50%);
+  color: lighten($accent-color, 10%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f05a";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 .marker-warning {
-  border-color: #f0ad4e;
-  background-color: #fcf8f2;
+  background: lighten($warning-color, 32%);
+  color: darken($warning-color, 15%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f071";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 .marker-danger {
-  border-color: #d9534f;
-  background-color: #fdf7f7;
+  background: lighten($accent-color, 32%);
+  color: darken($accent-color, 15%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f1e2";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 
