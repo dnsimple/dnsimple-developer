@@ -11,9 +11,9 @@ excerpt: Welcome to DNSimple. This page is about managing vanity nameservers via
 Vanity name servers are used to hide the use of DNSimple's name servers and instead use our name servers with different names.
 
 <note>
-In order to have access to vanity name servers you must be subscribed to a plan that grants you access to them. Check out [our plans](https://dnsimple.com/pricing) for more details on the supported features.
+In order to enable vanity name servers you must be subscribed to a plan that grants you access that feature. Check out [our plans](https://dnsimple.com/pricing) for more details.
 
-If you try to enable vanity name servers without access to the feature you will get the following response:
+If you try to enable vanity name servers from a wrong plan you will get the following response:
 
 ~~~js
 {
