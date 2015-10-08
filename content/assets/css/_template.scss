@@ -36,11 +36,40 @@ h5 {
 // -------------------------
 
 .site-head {
-  background: #242424 no-repeat center center;
+  background: #242424;
   padding: 10px 0;
   color: #fff;
 }
 
+.site-logo {
+  width: 111px;
+}
+
+.site-label {
+  margin-left: $base-unit / 2;
+  padding: $base-unit / 4 $base-unit / 2;
+  text-transform: uppercase;
+  border: $accent-color-alt 2px solid;
+  color: $accent-color-alt;
+  border-radius: 3px;
+  font-size: 10px;
+  letter-spacing: .5px;
+  font-weight: bold;
+}
+
+.site-link-to-app {
+  padding-top: $base-unit / 4;
+  color: $gray;
+  &:before {
+    margin-right: 10px;
+    content: "\f08e";
+    font-family: FontAwesome;
+  }
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
 
 // Footer
 // -------------------------
