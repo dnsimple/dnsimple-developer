@@ -70,20 +70,6 @@ h2 {
   max-width: 100%;
 }
 
-// Main
-// -------------------------
-
-// Make the first title of the page more prominent.
-#main > h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  // .page-header
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-
 // Sidebar
 // -------------------------
 
@@ -93,8 +79,6 @@ h2 {
 .sidebar-title {
   margin-top: 25px;
   margin-bottom: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
 }
 .sidebar-infobox {
   font-size: 1.3rem;
@@ -135,6 +119,6 @@ h2 {
 }
 .nav-list li a:hover,
 .nav-list li.active a {
-  color: #cc8b00;
-  border-left: 5px solid #cc8b00;
+  color: $accent-color;
+  border-left: 5px solid $accent-color;
 }

@@ -4,7 +4,6 @@
 
 body {
   background-color: #fafafa;
-  line-height: 1.6;
 }
 
 a {
@@ -40,12 +39,6 @@ h5 {
   background: #242424 no-repeat center center;
   padding: 10px 0;
   color: #fff;
-
-  // gradient shadow before the content
-  border-bottom: 1px solid #ffffff;
-  -webkit-box-shadow: 0 0 20px rgba(#000, 0.7);
-  -moz-box-shadow: 0 0 20px rgba(#000, 0.7);
-  box-shadow: 0 0 20px rgba(#000, 0.7);
 }
 
 
