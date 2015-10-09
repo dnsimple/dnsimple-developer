@@ -25,24 +25,27 @@
 
   <header class="site-head">
     <div class="container">
-      <a class="header-logo" href="/" title="DNSimple Developer">
-        <img src="/assets/images/dnsimple-logo.png" alt="DNSimple Developer" />
-      </a>
-      <!-- <ul class="nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="#">Link</a></li>
-      </ul> -->
+      <div class="row">
+        <div class="col-md-3">
+          <a class="header-logo" href="/" title="DNSimple Developer">
+            <img src="/assets/images/dnsimple-logo.png" class="site-logo" alt="DNSimple Developer" />
+          </a>
+          <span class="site-label">Developer</span>
+        </div>
+        <div class="col-md-9">
+          <a href="https://dnsimple.com" class="site-link-to-app pull-right">DNSimple app</a>
+        </div>
     <div>
   </header>
 
   <div class="container">
     <div class="row">
-      <main id="main" class="col-md-9" role="main">
-        <%= yield %>
-      </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <%= render "v2-sidebar" %>
       </aside>
+      <main id="main" class="col-md-9" role="main">
+        <%= yield %>
+      </main>
     </div>
   </div>
 

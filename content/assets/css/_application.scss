@@ -27,7 +27,6 @@ h2 {
 .marker {
   margin: 20px 0;
   padding: 15px;
-  border-left: 3px solid #eee;
 }
 
 .marker :first-child {
@@ -38,24 +37,46 @@ h2 {
   margin-bottom: 0;
 }
 
-.marker-note {
-  border-color: #ddd;
-  background-color: #fdf7f7;
-}
-
-.marker-info {
-  border-color: #5bc0de;
-  background-color: #f4f8fa;
+.marker-info, .marker-note {
+  background: lighten($accent-color, 50%);
+  color: lighten($accent-color, 10%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f05a";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 .marker-warning {
-  border-color: #f0ad4e;
-  background-color: #fcf8f2;
+  background: lighten($warning-color, 32%);
+  color: darken($warning-color, 15%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f071";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 .marker-danger {
-  border-color: #d9534f;
-  background-color: #fdf7f7;
+  background: lighten($accent-color, 32%);
+  color: darken($accent-color, 15%);
+  p {
+    &:first-child {
+      &:before {
+        margin-right: 10px;
+        content: "\f1e2";
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 
@@ -70,20 +91,6 @@ h2 {
   max-width: 100%;
 }
 
-// Main
-// -------------------------
-
-// Make the first title of the page more prominent.
-#main > h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  // .page-header
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-
 // Sidebar
 // -------------------------
 
@@ -93,11 +100,8 @@ h2 {
 .sidebar-title {
   margin-top: 25px;
   margin-bottom: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
 }
 .sidebar-infobox {
-  font-size: 1.3rem;
   margin: 3rem 0;
   padding: 15px;
 }
@@ -135,6 +139,6 @@ h2 {
 }
 .nav-list li a:hover,
 .nav-list li.active a {
-  color: #cc8b00;
-  border-left: 5px solid #cc8b00;
+  color: $accent-color;
+  border-left: 5px solid $accent-color;
 }

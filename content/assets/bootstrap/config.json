@@ -1,6 +1,5 @@
 {
   "vars": {
-    "@font-family-sans-serif": "\"Open Sans\", Helvetica, Arial, sans-serif",
     "@font-family-monospace": "Consolas, Menlo, \"Liberation Mono\", \"Courier New\", monospace"
   },
   "css": [
