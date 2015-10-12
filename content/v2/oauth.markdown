@@ -23,3 +23,16 @@ This is a description of the OAuth 2 flow for authorizing users from 3rd party w
 ### Step 2 - Access Token
 
 ### Step 3 - API authentication
+
+The access token allows you to make requests to the API on a behalf of a user. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
+
+~~~
+Authorization: Bearer ACCESS_TOKEN
+~~~
+
+Replace `ACCESS_TOKEN` with the real token you received in the previous step. Here's an example with `curl`:
+
+~~~
+$ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoami
+~~~
+
