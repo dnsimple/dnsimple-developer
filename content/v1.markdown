@@ -70,7 +70,7 @@ The API token is the recommended authentication mechanism.
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v1/domains/:domain
 
-The [Authentication](/authentication/) page provides more information about how to use them.
+The [Authentication](/v1/authentication/) page provides more information about how to use them.
 
 
 ## Cross Origin Resource Sharing
