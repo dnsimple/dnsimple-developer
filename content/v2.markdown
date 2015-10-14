@@ -63,7 +63,7 @@ All successful responses will be returned as a JSON object with at least one key
 
 The `data` element will contain either a single JSON object or a list of JSON objects, depending on the endpoint.
 
-```json
+~~~
 {
   "data": {
     "id": 1,
@@ -71,15 +71,15 @@ The `data` element will contain either a single JSON object or a list of JSON ob
     "last_name": "Smith"
   }
 }
-```
+~~~
 
 ## Errors
 
 Error responses will be returned as a JSON object with at least a `message` key. For example, failure to authenticate would result in a 401 response with a body like this:
 
-```json
+~~~
 {"message":"Authentication failed"}
-```
+~~~
 
 ## Pagination
 
@@ -96,7 +96,7 @@ The `pagination` object contains the following details:
 
 For example:
 
-```json
+~~~
 {
   "data": [
     {
@@ -117,7 +117,7 @@ For example:
     "total_pages": 1
   }
 }
-```
+~~~
 
 You may include the following arguments as query parameters when you call an API endpoint that supports pagination:
 
