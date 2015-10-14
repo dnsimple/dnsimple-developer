@@ -57,3 +57,75 @@ curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' \
 
 The [Authentication](/v2/authentication/) page provides more information about how to use them.
 
+## Responses
+
+All successful responses will be returned as a JSON object with at least one key: `data`.
+
+The `data` element will contain either a single JSON object or a list of JSON objects, depending on the endpoint.
+
+~~~
+{
+  "data": {
+    "id": 1,
+    "first_name": "Jane",
+    "last_name": "Smith"
+  }
+}
+~~~
+
+## Errors
+
+Error responses will be returned as a JSON object with at least a `message` key. For example, failure to authenticate would result in a 401 response with a body like this:
+
+~~~
+{"message":"Authentication failed"}
+~~~
+
+## Pagination
+
+Any API endpoint that returns a list of items requires pagination. By default we will return 30 records from any listing endpoint.
+
+If an API endpoint returns a list of items, then it will include a `pagination` object that contains pagination information.
+
+The `pagination` object contains the following details:
+
+- `current_page`: The page currently returned (default: 1)
+- `per_page`: The number of entries returned per page (default: 30)
+- `total_entries`: The total number of entries available in the entire collection
+- `total_pages`: The total number of pages available given the current `per_page` value
+
+For example:
+
+~~~
+{
+  "data": [
+    {
+      "id": 1,
+      "first_name": "Jane",
+      "last_name": "Smith"
+    },
+    {
+      "id": 3,
+      "first_name": "John",
+      "last_name": "Smith",
+    }
+  ],
+  "pagination": {
+    "current_page": 1,
+    "per_page": 30,
+    "total_entries": 2,
+    "total_pages": 1
+  }
+}
+~~~
+
+You may include the following arguments as query parameters when you call an API endpoint that supports pagination:
+
+- `page`: The page to return (default: 1)
+- `per_page`: The number of entries to return per page (default: 30)
+
+For example:
+
+    https://api.dnsimple.com/v2/_/domains?per_page=100&page=2
+
+

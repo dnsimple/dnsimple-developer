@@ -3,3 +3,4 @@ output
 tmp
 crash.log
 .env
+s3_website.jar
