@@ -60,7 +60,7 @@ Create a domain in the account 1010.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/:account/domains
+          https://api.dnsimple.com/v2/1010/domains
 
 ### Input
 
