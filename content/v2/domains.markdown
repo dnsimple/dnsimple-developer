@@ -123,7 +123,7 @@ Responds with HTTP 200, renders the domain.
 
 ## Delete a domain {#delete}
 
-    DELETE /domains/:domain
+    DELETE /:account/domains/:domain
 
 Delete the domain from the account.
 
