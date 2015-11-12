@@ -4,7 +4,7 @@ LOGIN="your@email"
 TOKEN="your-api-token"
 DOMAIN_ID="yourdomain.com"
 RECORD_ID="12345" # Replace with the Record ID
-IP="`curl http://jsonip.com | sed 's/{"ip":"\(.*\)"/\1/g' | sed 's/}//'`"
+IP=`curl -s http://icanhazip.com/`
  
 curl -H "Accept: application/json" \
      -H "Content-Type: application/json" \
