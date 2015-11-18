@@ -7,14 +7,14 @@ excerpt: Welcome to DNSimple. This page is about libraries for interacting with 
 
 There are several libraries available that use the DNSimple API. You can use these as a starting point or continue on through the documentation below.
 
-If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
+If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here. Also, make sure to [check out the tools](/tools) that are built on the DNSimple API.
 
 _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 
 ### Ruby
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
+- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)- The official DNSimple Ruby API client.
 - [Fog](http://fog.io/) - The Ruby cloud services library. Includes DNSimple support.
 
 ### Python
@@ -49,4 +49,3 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [PowerDNSimple](https://github.com/adminian/PowerDNSimple) - A PowerShell module for working with DNSimple API.
 
 
-Also, make sure to [check out the tools](http://developer.dnsimple.com/tools) that are built on the DNSimple API.
