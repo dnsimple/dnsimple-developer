@@ -3,7 +3,7 @@ title: Services
 excerpt: This page documents the DNSimple Services API v2.
 ---
 
-# Service API
+# Services API
 
 * TOC
 {:toc}
@@ -60,7 +60,7 @@ List all services.
 
 Name | Type | Description
 -----|------|------------
-`:service` | `integer` | The service id
+`:service` | `string`, `integer` | The service name or id
 
 ### Example
 
