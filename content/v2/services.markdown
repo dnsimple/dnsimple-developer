@@ -1,6 +1,6 @@
 ---
-title: Services
-excerpt: This page documents the DNSimple Services API v2.
+title: Services | DNSimple API v2
+excerpt: This page documents the DNSimple services API v2.
 ---
 
 # Services API

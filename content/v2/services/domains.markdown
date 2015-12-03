@@ -1,6 +1,6 @@
 ---
-title: Domain Services
-excerpt: This page documents the DNSimple Domain Services API v2.
+title: Domain Services | DNSimple API v2
+excerpt: This page documents the DNSimple domain services API v2.
 ---
 
 # Domain Services API
