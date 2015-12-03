@@ -30,8 +30,6 @@ In order to maintain compatibility in the future, all requests must specify an A
 
 The current API version is `v1`.
 
-The legacy API (called `v0`) will no longer be available after June 30th. Please switch to API `v1` as soon as possible. Read the [versioned API announcement for more details](http://blog.dnsimple.com/2014/01/versioned-api/).
-
 
 ## Requests
 
