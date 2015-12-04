@@ -1,0 +1,10 @@
+language: ruby
+sudo: false
+
+cache:
+- bundler
+
+notifications:
+  slack:
+    secure: YE9LirevstqJ9qglWo2C1IrFEObyThgS72ks0oikEyqKyx1UeEljX3OPX03k+fref/3Z2smtAMH2OgCaXi3cpLIDJI3J14EXOyzMHYz1ul1h52Qp5UrwbKIikD4Yi+RywVLGhLZMedKKI1D0MwcHlwSEuATyIJpZ7do28lEcuL0=
+
