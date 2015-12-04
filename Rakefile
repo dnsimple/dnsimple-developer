@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'rake/testtask'
 require 'fileutils'
 
 
@@ -11,9 +12,16 @@ task :compile do
 end
 
 desc "Publish to S3"
-task :'publish' => :compile do
+task :publish => :compile do
   puts "Publishing to S3"
   puts `s3_website push`
   puts "Published"
+end
+
+task :default => [:test]
+Rake::TestTask.new do |t|
+  t.libs << "_test"
+  t.test_files = FileList["_test/*_test.rb"]
+  t.verbose = true
 end
 
