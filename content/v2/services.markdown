@@ -8,10 +8,6 @@ excerpt: This page documents the DNSimple services API v2.
 * TOC
 {:toc}
 
-Services provide a way to apply many records to a domain at once.
-Additionally any changes made to a service will automatically be reflected in the domain's records.
-
-
 ## List services {#list}
 
     GET /services
@@ -84,5 +80,3 @@ Get the service with ID `1`.
   }
 }
 ~~~
-
-Responds with HTTP 404 if not found.
