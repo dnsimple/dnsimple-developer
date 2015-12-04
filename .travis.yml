@@ -6,5 +6,5 @@ cache:
 
 notifications:
   slack:
-    secure: YE9LirevstqJ9qglWo2C1IrFEObyThgS72ks0oikEyqKyx1UeEljX3OPX03k+fref/3Z2smtAMH2OgCaXi3cpLIDJI3J14EXOyzMHYz1ul1h52Qp5UrwbKIikD4Yi+RywVLGhLZMedKKI1D0MwcHlwSEuATyIJpZ7do28lEcuL0=
+    secure: "K85xR9b1VQMK2c3KpXjho4WBz1fTIUSfsmLCMFRkYY8ykOoH7fjBLRJRQtAOMfjUNfjDt+VMwFTky0F8lMmZRMnBBYZ8mTzhmKjJY0ToWLiDIJm48ncPleJRzMR0ku9xU7x1DHB6QEMu6DFXkgoe4/b0VOsFwYzQGmelfZNhD6U="
 
