@@ -11,9 +11,9 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 ## Register a domain {#register}
 
-Register a domain name with DNSimple.
-
     POST /:account/registrar/:domain/registration
+
+Register a domain name with DNSimple.
 
 Your account must already be active for this command to complete successfully.
 You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
@@ -26,6 +26,8 @@ Name | Type | Description
 `:domain` | `string` | The domain name
 
 ### Example
+
+Register the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
