@@ -15,7 +15,7 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 Register a domain name with DNSimple.
 
-Your account must already be active for this command to complete successfully.
+Your account must be active for this command to complete successfully.
 You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
 
 ### Parameters
