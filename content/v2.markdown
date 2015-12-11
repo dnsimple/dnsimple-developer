@@ -136,8 +136,6 @@ There is a limit to the number of requests that you can perform per hour.
 - For **authenticated requests** you can make **up to 4,000 requests per hour**.
 - For **unauthenticated requests**, you can make **up to 30 requests per hour**.
 
-Note that both authenticated and unauthenticated requests are associated with your IP address, and not the user or account making them.
-
 You can see your current rate limit status by checking the HTTP headers of any API request:
 
 ~~~
