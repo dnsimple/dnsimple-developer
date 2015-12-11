@@ -57,6 +57,29 @@ curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' \
 
 The [Authentication](/v2/authentication/) page provides more information about how to use them.
 
+## Response Codes
+
+DNSimple uses conventional HTTP response codes to indicate success or failure of an API request.
+
+### Successful
+
+- `200 OK` - Everything worked as expected.
+- `201 Created` - The request was successful and a resource was created. This is typically a response from a POST request to create a resource, such as the registration of a Domain or the creation of a Contact.
+- `202 Accepted` - The request has been accepted for processing. This is typically a response from a POST request that is handled async in our system, such as a Domain transfer request.
+- `204 No Content` - The request was successful but the response body is empty. This is typically a response from a DELETE request to delete a resource.
+
+### Error
+
+- `400 Bad Request` - A required parameter or the request is invalid.
+- `401 Unauthorized` - The authentication credentials are invalid.
+- `402 Payment Required` - Your account is not subscribed or not in good standing.
+- `404 Not Found` - The requested resource doesn't exist.
+- `429 Too Many Requests` - You exceeded the allowed number of requests per hour and your request has temporarily been throttled.
+
+### Kaboom!
+
+- `500`, `502`, `503`, `504 Server errors` - something went wrong on DNSimple's end.
+
 ## Responses
 
 All successful responses will be returned as a JSON object with at least one key: `data`.
