@@ -1,21 +1,21 @@
 ---
-title: Whois Privacy | DNSimple API v2
-excerpt: This page documents the DNSimple whois privacy API v2.
+title: Whois privacy | DNSimple API v2
+excerpt: This page documents the DNSimple WHOIS privacy API v2.
 ---
 
-# Whois Privacy API
-
-Enable and disable whois privacy on registered domains.
+# Whois privacy API
 
 * TOC
 {:toc}
 
+Enable and disable WHOIS privacy on registered domains.
 
-## Get whois privacy for a domain {#get}
+
+## Get WHOIS privacy for a domain {#get}
 
     GET /:account/domains/:domain/whois_privacy
 
-Get the whois privacy details for a domain.
+Get the WHOIS privacy details for a domain.
 
 ### Parameters
 
@@ -26,7 +26,7 @@ Name | Type | Description
 
 ### Example
 
-Whois privacy for the domain example.com in the account 1010.
+Get the WHOIS privacy for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -34,17 +34,23 @@ Whois privacy for the domain example.com in the account 1010.
 
 ### Response
 
-Responds with HTTP 200 if whois privacy is purchased for the domain.
+Responds with HTTP 200 if WHOIS privacy is purchased for the domain.
 
 ~~~js
 {}
 ~~~
 
-Responds with HTTP 404 if whois privacy is not purchased.
+Responds with HTTP 404 if WHOIS privacy is not purchased.
 
 ## Enable whois privacy {#enable}
 
       PUT /:account/domains/:domain/whois_privacy
+
+Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS
+privacy will cause the service to be purchased for a period of 1 year.
+
+If WHOIS privacy was previously purchased and disabled, then calling this will
+enable the WHOIS privacy.
 
 ### Parameters
 
@@ -55,15 +61,7 @@ Name | Type | Description
 
 ### Example
 
-Enable whois privacy for the domain example.com.
-
-Note that if the whois privacy is not purchased for the domain, enabling whois
-privacy will cause the service to be purchased for a period of 1 year.
-
-If whois privacy was previously purchased and disabled, then calling this will
-enable the whois privacy.
-
-Whois privacy for the domain example.com in the account 1010.
+Enable WHOIS privacy for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -72,10 +70,9 @@ Whois privacy for the domain example.com in the account 1010.
 
 ### Response
 
-Responds with HTTP 201 if whois privacy is purchased and enabled.
+Responds with HTTP 201 if WHOIS privacy is purchased and enabled.
 
-Responds with HTTP 200 if whois privacy is only enabled because it was purchased
-previously.
+Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased previously.
 
 ~~~js
 {}
@@ -85,6 +82,12 @@ previously.
 
       DELETE /:account/domains/:domain/whois_privacy
 
+Note that if the WHOIS privacy is not purchased for the domain, this method will
+do nothing.
+
+If WHOIS privacy was previously purchased and enabled, then calling this will
+disable the WHOIS privacy.
+
 ### Parameters
 
 Name | Type | Description
@@ -94,15 +97,7 @@ Name | Type | Description
 
 ### Example
 
-Disable whois privacy for the domain example.com.
-
-Note that if the whois privacy is not purchased for the domain, this method will
-do nothing.
-
-If whois privacy was previously purchased and enabled, then calling this will
-disable the whois privacy.
-
-Whois privacy for the domain example.com in the account 1010.
+Disable whois privacy for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -111,7 +106,7 @@ Whois privacy for the domain example.com in the account 1010.
 
 ### Response
 
-Responds with HTTP 200 if whois privacy is disabled.
+Responds with HTTP 200 if WHOIS privacy is disabled.
 
 ~~~js
 {}

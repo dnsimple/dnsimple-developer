@@ -3,7 +3,7 @@ title: Domains | DNSimple API v2
 excerpt: This page documents the DNSimple domains API v2.
 ---
 
-# Domain API
+# Domains API
 
 * TOC
 {:toc}

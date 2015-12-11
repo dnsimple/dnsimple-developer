@@ -1,9 +1,9 @@
 ---
-title: Domain registration auto-renewal
+title: Domain auto-renewal | Registrar | DNSimple API v2
 excerpt: This page documents the DNSimple domain registration auto-renewal API v2.
 ---
 
-# Domain registration auto-renewal API
+# Domain auto-renewal API
 
 * TOC
 {:toc}

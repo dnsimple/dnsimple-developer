@@ -3,7 +3,7 @@ title: Contacts | DNSimple API v2
 excerpt: This page documents the DNSimple contacts API v2.
 ---
 
-# Contact API
+# Contacts API
 
 * TOC
 {:toc}

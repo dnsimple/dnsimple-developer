@@ -1,14 +1,12 @@
----
-title: Domain | Name Servers | DNSimple API v2
 excerpt: This page documents the DNSimple domain name servers API v2.
 ---
 
-# Domain Name Servers API
-
-Retrieve and manage delegation for a domain in DNSimple.
+# Domain name servers API
 
 * TOC
 {:toc}
+
+Retrieve and manage delegation for a domain in DNSimple.
 
 
 ## List name servers for a domain {#list}

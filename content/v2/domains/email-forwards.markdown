@@ -1,9 +1,9 @@
 ---
-title: Email Forwards | DNSimple API v2
+title: Email forwards | Domains | DNSimple API v2
 excerpt: This page documents the DNSimple email forwards API v2.
 ---
 
-# Email Forwards API
+# Email forwards API
 
 * TOC
 {:toc}

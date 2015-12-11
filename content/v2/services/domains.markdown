@@ -1,9 +1,9 @@
 ---
-title: Domain Services | DNSimple API v2
+title: Domain services | Services | DNSimple API v2
 excerpt: This page documents the DNSimple domain services API v2.
 ---
 
-# Domain Services API
+# Domain services API
 
 * TOC
 {:toc}
