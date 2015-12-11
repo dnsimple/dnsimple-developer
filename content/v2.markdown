@@ -74,7 +74,7 @@ DNSimple uses conventional HTTP response codes to indicate success or failure of
 - 401 Unauthorized - The authentication credentials are invalid.
 - 402 Payment Required - Your account is not subscribed or not in good standing.
 - 404 Not Found - The requested resource doesn't exist.
-- 429 Too Many Requests - You exceeded the allowed number of requests and your request has temporarily been throttled.
+- 429 Too Many Requests - You exceeded the allowed number of requests per hour and your request has temporarily been throttled.
 
 ### Kaboom!
 
