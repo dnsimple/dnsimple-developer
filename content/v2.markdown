@@ -170,7 +170,7 @@ X-RateLimit-Reset: 1449836141
 Content-Type: application/json; charset=utf-8
 Content-Length: 28
 
-{"message":"quota exceeded"}%
+{"message":"quota exceeded"}
 ~~~
 
 
