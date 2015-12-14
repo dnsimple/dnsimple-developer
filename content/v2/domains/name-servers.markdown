@@ -1,3 +1,5 @@
+---
+title: Name Servers | Domains | DNSimple API v2
 excerpt: This page documents the DNSimple domain name servers API v2.
 ---
 
