@@ -82,7 +82,10 @@ Name | Type | Description
 Responds with HTTP 200 on success, renders the list of name server names.
 
 ~~~js
-{}
+[
+  "ns1.example.com",
+  "ns2.example.com"
+]
 ~~~
 
 Responds with HTTP 400 if bad request.
