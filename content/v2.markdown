@@ -51,8 +51,7 @@ Note that Oauth2 tokens cam be acquired [programmatically and via OAuth dance](/
 ##### DNSimple Domain Token
 
 ~~~
-curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' \
-     https://api.dnsimple.com/v2/_/domains/example.com
+curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' https://api.dnsimple.com/v2/_/domains/example.com
 ~~~
 
 The [Authentication](/v2/authentication/) page provides more information about how to use them.
@@ -139,7 +138,7 @@ There is a limit to the number of requests that you can perform per hour.
 You can see your current rate limit status by checking the HTTP headers of any API request:
 
 ~~~
-$ curl -H "Authorization: Bearer XXXXXXX" -I "https://api.dnsimple.com/v2/whatever"
+$ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
 
 HTTP/1.1 200 OK
 Date: Fri, 11 Dec 2015 11:15:42 GMT
@@ -161,7 +160,7 @@ The headers have all the information you need to know about your current rate li
 Once you go over the rate limit you will receive an error response:
 
 ~~~
-$ curl -H "Authorization: Bearer XXXXXXX" -I "https://api.dnsimple.com/v2/whatever"
+$ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
 
 HTTP/1.1 429 Too Many Requests
 X-Ratelimit-Limit: 4000
