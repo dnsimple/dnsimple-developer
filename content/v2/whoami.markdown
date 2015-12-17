@@ -25,7 +25,7 @@ Get details about the current authenticated entity used to access the API.
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 {
   "user": {},
   "account": {}
