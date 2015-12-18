@@ -15,7 +15,7 @@ In order to enable vanity name servers you must be subscribed to a plan that gra
 
 If you try to enable vanity name servers from a wrong plan you will get the following response:
 
-~~~js
+~~~json
 {
   "errors": [ "Feature not enabled" ]
 }
@@ -52,7 +52,7 @@ Name | Type | Description
 
 ##### Example with `dnsimple` source
 
-~~~js
+~~~json
 {
   "vanity_nameserver_configuration": {
     "server_source": "dnsimple"
@@ -62,7 +62,7 @@ Name | Type | Description
 
 ##### Example with `external` source
 
-~~~js
+~~~json
 {
   "vanity_nameserver_configuration": {
     "server_source": "external",
@@ -74,7 +74,7 @@ Name | Type | Description
 
 ### Response
 
-~~~js
+~~~json
 {
   "status": "enabled"
 }
@@ -103,7 +103,7 @@ Disable vanity name servers for domain `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "status": "disabled"
 }

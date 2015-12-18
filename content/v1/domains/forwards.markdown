@@ -37,7 +37,7 @@ List email forwards for domain with ID `123`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "email_forward": {
@@ -91,7 +91,7 @@ Name | Type | Description
 `email_forward.from` | `string` | **Required**. The forward email address, without the domain.
 `email_forward.to` | `string` | **Required**. The complete forward email recipient.
 
-~~~js
+~~~json
 {
   "email_forward": {
     "from": "john",
@@ -104,7 +104,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "email_forward": {
     "id": 123,
@@ -141,7 +141,7 @@ Get the record `2` for domain `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "email_forward": {
     "id": 2,

@@ -35,7 +35,7 @@ List memberships for domain with ID `123`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "membership": {
@@ -89,7 +89,7 @@ Name | Type | Description
 -----|------|------------
 `membership.email` | `string` | **Required** email address for the person to add.
 
-~~~js
+~~~json
 {
   "membership": {
     "email": "john.smith@example.com"
@@ -101,7 +101,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "membership": {
     "id": 712,

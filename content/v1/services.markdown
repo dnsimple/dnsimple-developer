@@ -26,7 +26,7 @@ List all services.
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "service": {
@@ -72,7 +72,7 @@ Get the service with ID `123`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "service": {
     "created_at": "2010-12-15T08:08:02Z",

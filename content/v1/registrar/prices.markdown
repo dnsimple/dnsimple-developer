@@ -20,7 +20,7 @@ excerpt: This page documents the DNSimple prices API v1.
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "price": {

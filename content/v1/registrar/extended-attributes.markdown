@@ -31,7 +31,7 @@ List the extended attributes for tld `CA`.
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "name": "uk_legal_type",

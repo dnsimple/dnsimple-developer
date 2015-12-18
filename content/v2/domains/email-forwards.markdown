@@ -34,7 +34,7 @@ List all email forwards for the domain example.com in the account 1010.
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {},
   {}
@@ -72,7 +72,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -80,7 +80,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, renders the email forward.
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -112,7 +112,7 @@ Get the email forward with the ID `1` in the domain `example.com`.
 
 Responds with HTTP 200, renders the email forward.
 
-~~~js
+~~~json
 {}
 ~~~
 

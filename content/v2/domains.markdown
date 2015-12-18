@@ -33,7 +33,7 @@ List all domains for the account 1010.
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {},
   {}
@@ -70,7 +70,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -78,7 +78,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, renders the domain.
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -116,7 +116,7 @@ Get the domain `example.com`.
 
 Responds with HTTP 200, renders the domain.
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -189,7 +189,7 @@ Empty.
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {}
 ~~~
 

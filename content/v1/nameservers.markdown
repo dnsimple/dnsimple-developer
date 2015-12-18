@@ -34,7 +34,7 @@ List delegated name servers for domain `example.com`:
 
 Responds with HTTP 200 on success, returns the array of assigned name servers.
 
-~~~js
+~~~json
 [
   "ns1.example.com",
   "ns2.example.com",
@@ -71,7 +71,7 @@ Change delegated name servers for domain `example.com`:
 
 This API accepts up to 6 name servers.
 
-~~~js
+~~~json
 {
   "name_servers": {
     "ns1": "ns1.example.com",
@@ -84,7 +84,7 @@ This API accepts up to 6 name servers.
 
 To change the name servers back to DNSimple's name servers, send the following body:
 
-~~~js
+~~~json
 {
   "name_servers": {
     "ns1": "ns1.dnsimple.com",
@@ -99,7 +99,7 @@ To change the name servers back to DNSimple's name servers, send the following b
 
 Responds with HTTP 200 on success, returns the array of assigned name servers.
 
-~~~js
+~~~json
 [
   "ns1.example.com",
   "ns2.example.com",
@@ -141,7 +141,7 @@ Name | Type | Description
 `name_server.name` | `string` | **Required**.
 `name_server.ip` | `string` | **Required**.
 
-~~~js
+~~~json
 {
   "name_server": {
     "name": "ns1.example.com",
@@ -154,7 +154,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, returns the name server.
 
-~~~js
+~~~json
 {
   "name": "ns1.example.com",
   "ip": 12

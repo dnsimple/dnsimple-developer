@@ -45,14 +45,14 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
 }
 ~~~
 
 ##### Example with extended attributes
 
-~~~js
+~~~json
 {
 }
 ~~~
@@ -61,7 +61,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~js
+~~~json
 {
 }
 ~~~

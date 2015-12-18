@@ -37,7 +37,7 @@ List records for template `foo`:
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {
     "dns_template_record": {
@@ -95,7 +95,7 @@ Name | Type | Description
 `record.ttl` | `integer` |
 `record.prio` | `integer` |
 
-~~~js
+~~~json
 {
   "dns_template_record": {
     "name": "",
@@ -111,7 +111,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "dns_template_record": {
     "id": 1,
@@ -153,7 +153,7 @@ Get the record `2` for template `1`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "dns_template_record": {
     "id": 1,
@@ -205,7 +205,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "record": {
     "content": "updated.example.com",
@@ -218,7 +218,7 @@ Name | Type | Description
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "dns_template_record": {
     "id": 1,

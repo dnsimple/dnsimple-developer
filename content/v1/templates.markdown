@@ -25,7 +25,7 @@ Templates provide a way to group common records together and apply them en masse
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {
     "dns_template": {
@@ -76,7 +76,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "dns_template": {
     "name": "My Template",
@@ -89,7 +89,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "dns_template": {
     "id": 1,
@@ -134,7 +134,7 @@ Get the template with short-name `heroku`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "dns_template": {
     "id": 1,
@@ -178,7 +178,7 @@ See [create](#create).
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "dns_template": {
     "id": 1,

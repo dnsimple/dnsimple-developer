@@ -33,7 +33,7 @@ List all contacts for the account 1010.
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {},
   {}
@@ -82,7 +82,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -90,7 +90,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -118,7 +118,7 @@ Get the contact with ID `1`.
 
 ### Response
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -153,7 +153,7 @@ See [create](#create).
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {}
 ~~~
 

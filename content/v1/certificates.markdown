@@ -31,7 +31,7 @@ List certificates for domain `example.com`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "certificate": {
@@ -178,7 +178,7 @@ Get the certificate with ID `2` for the domain `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "certificate": {
     "id": 2,
@@ -273,7 +273,7 @@ Name | Type | Description
 `certificate.contact_id` | `string` | **Required**.
 `certificate.csr` | `string` | Used to provide a custom [CSR (Certificate Signing Request)](https://support.dnsimple.com/articles/what-is-csr/).
 
-~~~js
+~~~json
 {
   "certificate": {
     "name": "www",
@@ -286,7 +286,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "certificate": {
     "id": 2,
@@ -379,7 +379,7 @@ Configure the certificate with ID `2` for the domain `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "certificate": {
     "id": 2,
@@ -474,7 +474,7 @@ Name | Type | Description
 -----|------|------------
 `certificate.approver_email` | `string` | **Required**.
 
-~~~js
+~~~json
 {
   "certificate": {
     "approver_email": "admin@example.com"
@@ -484,7 +484,7 @@ Name | Type | Description
 
 ### Response
 
-~~~js
+~~~json
 {
   "certificate": {
     "id": 2,

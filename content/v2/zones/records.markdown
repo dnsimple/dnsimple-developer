@@ -32,7 +32,7 @@ List records for the zone `example.com`:
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {},
   {}
@@ -74,7 +74,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -82,7 +82,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -113,7 +113,7 @@ Get the record `2` for the zone `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -154,7 +154,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {}
 ~~~
 
@@ -162,7 +162,7 @@ Name | Type | Description
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {}
 ~~~
 

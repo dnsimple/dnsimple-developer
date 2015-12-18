@@ -38,7 +38,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "domain": {
     "name": "example.com",
@@ -49,7 +49,7 @@ Name | Type | Description
 
 ##### Example with extended attributes
 
-~~~js
+~~~json
 {
   "domain": {
     "name": "example.us",
@@ -66,7 +66,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~js
+~~~json
 {
   "domain": {
     "id": 227,
@@ -124,7 +124,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "domain": {
     "name": "transferdomain.com",
@@ -138,7 +138,7 @@ Name | Type | Description
 
 ##### Example with extended attributes
 
-~~~js
+~~~json
 {
   "domain": {
     "name": "transferdomain.com",
@@ -186,7 +186,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "domain": {
     "name": "example.com"
@@ -198,7 +198,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success, returns the domain.
 
-~~~js
+~~~json
 {
   "domain": {
     "id": 227,
@@ -288,7 +288,7 @@ have to reserve the domain for, if you decide to get it.
 
 An available domain looks like this:
 
-~~~js
+~~~json
 // 404 Not Found
 {
   "name":"available-domain.com",
@@ -302,7 +302,7 @@ An available domain looks like this:
 
 An unavailable domain looks like this:
 
-~~~js
+~~~json
 // 200 OK
 {
   "name":"somebody-already-has-it.com",

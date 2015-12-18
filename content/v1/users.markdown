@@ -36,7 +36,7 @@ Name | Type | Description
 `user.password` | `string` | **Required**.
 `user.password_confirmation` | `string` | **Required**.
 
-~~~js
+~~~json
 {
   "user": {
     "email": "john.smith@example.com",
@@ -50,7 +50,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "user": {
     "id": 1,

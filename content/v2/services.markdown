@@ -23,7 +23,7 @@ List all services.
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "service": {
@@ -69,7 +69,7 @@ Get the service with ID `1`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "service": {
     "id": 1,

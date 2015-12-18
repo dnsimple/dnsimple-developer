@@ -29,7 +29,7 @@ Responds with HTTP 402 if the current user has no subscription.
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "subscription": {
     "id": 80,
@@ -75,7 +75,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "subscription": {
     "plan": "Silver",
@@ -97,7 +97,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "subscription": {
     "id": 80,

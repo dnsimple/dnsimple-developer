@@ -45,7 +45,7 @@ Name | Type | Description
 -----|------|------------
 `:zone_import.zone_data` | `string` | **Required**.
 
-~~~js
+~~~json
 {
   "zone_import": {
     "zone_data": "$ORIGIN example.com.\n$TTL 1h\nexample.com. IN  SOA ns1.dnsimple.com admin.dnsimple.com 2011092001 86400 7200 604800 300\nexample.com. IN NS  ns1.dnsimple.com.\nexample.com. IN NS  ns2.dnsimple.com.\nexample.com. IN NS  ns3.dnsimple.com.\nexample.com. IN NS  ns4.dnsimple.com.\nds1.example.com. 3600 IN  A 184.106.215.134\nindex.example.com. 3600 IN  NS ds1.example.com\n; example.com. 3600 IN  URL http://dnsimple.com\n; www.example.com. 3600 IN  URL https://dnsimple.com"
@@ -57,7 +57,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "zone_import": {
     "imported_records": [
@@ -141,7 +141,7 @@ Get the zone content for domain with ID `123`:
 
 Responds with HTTP 200 on success, returns the zone file content.
 
-~~~js
+~~~json
 {
   "zone": "$ORIGIN example.com.\n$TTL 1h\nexample.com. 3600 IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300\nexample.com. 3600 IN NS  ns1.dnsimple.com.\nexample.com. 3600 IN NS  ns2.dnsimple.com.\nexample.com. 3600 IN NS  ns3.dnsimple.com.\nexample.com. 3600 IN NS  ns4.dnsimple.com."
 }

@@ -29,7 +29,7 @@ List applied services for domain `example.com`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "service": {
@@ -75,7 +75,7 @@ List available services for domain `example.com`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "service": {
@@ -163,7 +163,7 @@ Name | Type | Description
 
 Responds with HTTP 200 on success, returns the list of services applied to the domain.
 
-~~~js
+~~~json
 [
   {
     "service": {

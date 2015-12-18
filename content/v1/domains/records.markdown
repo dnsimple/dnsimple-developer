@@ -33,7 +33,7 @@ List records for domain `example.com`:
 
 Responds with HTTP 200.
 
-~~~js
+~~~json
 [
   {
     "record": {
@@ -112,7 +112,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "record": {
     "name": "",
@@ -128,7 +128,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "record": {
     "content": "mail.example.com",
@@ -170,7 +170,7 @@ Get the record `2` for domain `example.com`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "record": {
     "name": "www",
@@ -222,7 +222,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~js
+~~~json
 {
   "record": {
     "content": "updated.example.com",
@@ -235,7 +235,7 @@ Name | Type | Description
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "record": {
     "content": "updated.example.com",

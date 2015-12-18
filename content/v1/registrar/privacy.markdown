@@ -38,7 +38,7 @@ Enable WHOIS privacy for the domain `example.com`:
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "whois_privacy": {
     "id": 1,
@@ -76,7 +76,7 @@ Disable WHOIS privacy for the domain `example.com`:
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "whois_privacy": {
     "id": 1,

@@ -30,7 +30,7 @@ List applied services for domain with ID `1`:
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "service": {
@@ -88,7 +88,7 @@ Name | Type | Description
 
 Responds with HTTP 204 on success.
 
-~~~js
+~~~json
 ~~~
 
 
@@ -116,6 +116,6 @@ Unapply the service with ID `2` from domain with ID `1`:
 
 Responds with HTTP 204 on success.
 
-~~~js
+~~~json
 ~~~
 

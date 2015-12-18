@@ -26,7 +26,7 @@ List all contacts.
 
 ### Response
 
-~~~js
+~~~json
 [
   {
     "contact": {
@@ -109,7 +109,7 @@ Name | Type | Description
 `contact.phone` | `string` | **Required**.
 `contact.fax` | `string` | **Required**.
 
-~~~js
+~~~json
 {
   "contact": {
     "label": "Simone",
@@ -134,7 +134,7 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~js
+~~~json
 {
   "contact": {
     "id": 28,
@@ -182,7 +182,7 @@ Get the contact with ID `123`.
 
 ### Response
 
-~~~js
+~~~json
 {
   "contact": {
     "id": 28,
@@ -237,7 +237,7 @@ See [create](#create).
 
 Responds with HTTP 200 on success.
 
-~~~js
+~~~json
 {
   "contact": {
     "id": 28,
