@@ -51,8 +51,7 @@ Note that Oauth2 tokens cam be acquired [programmatically and via OAuth dance](/
 ##### DNSimple Domain Token
 
 ~~~
-curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' \
-     https://api.dnsimple.com/v2/_/domains/example.com
+curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' https://api.dnsimple.com/v2/_/domains/example.com
 ~~~
 
 The [Authentication](/v2/authentication/) page provides more information about how to use them.
@@ -150,5 +149,50 @@ You may include the following arguments as query parameters when you call an API
 For example:
 
     https://api.dnsimple.com/v2/_/domains?per_page=100&page=2
+
+
+## Rate limiting
+
+There is a limit to the number of requests that you can perform per hour.
+
+- For **authenticated requests** you can make **up to 4,000 requests per hour**.
+- For **unauthenticated requests**, you can make **up to 30 requests per hour**.
+
+You can see your current rate limit status by checking the HTTP headers of any API request:
+
+~~~
+$ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
+
+HTTP/1.1 200 OK
+Date: Fri, 11 Dec 2015 11:15:42 GMT
+Status: 200 OK
+Connection: close
+X-RateLimit-Limit: 4000
+X-RateLimit-Remaining: 3999
+X-RateLimit-Reset: 1449836141
+~~~
+
+The headers have all the information you need to know about your current rate limit status:
+
+| **Header** | **Description** |
+|------------|-----------------|
+| `X-RateLimit-Limit` | The maximum number of requests you can perform per hour. |
+| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |
+| `X-RateLimit-Reset` | The time at which the current rate limit window in [Unix time](https://en.wikipedia.org/wiki/Unix_time) format. |
+
+Once you go over the rate limit you will receive an error response:
+
+~~~
+$ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
+
+HTTP/1.1 429 Too Many Requests
+X-Ratelimit-Limit: 4000
+X-Ratelimit-Remaining: 0
+X-RateLimit-Reset: 1449836141
+Content-Type: application/json; charset=utf-8
+Content-Length: 28
+
+{"message":"quota exceeded"}
+~~~
 
 
