@@ -1,9 +1,9 @@
 ---
-title: Template Records
+title: Template Records | DNSimple API v2
 excerpt: This page documents the DNSimple Template Records API v2.
 ---
 
-# Template Record API
+# Template Records API
 
 * TOC
 {:toc}
