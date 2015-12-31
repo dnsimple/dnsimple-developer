@@ -24,6 +24,8 @@ The API currently supports only the OAuth 2 [Authorization Code Grant](http://to
 
 ### Step 1 - Authorization
 
+This starts the OAuth 2.0 authorization flow. This isn't an API call — it's the web page that lets the user sign in to DNSimple and authorize your app. After the user decides whether or not to authorize your app, they will be redirected to the URI specified by `redirect_uri`.
+
 Your web or mobile app should redirect users to the following URL:
 
 ~~~
