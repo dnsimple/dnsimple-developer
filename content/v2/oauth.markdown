@@ -29,14 +29,14 @@ This starts the OAuth 2.0 authorization flow. This isn't an API call — it's th
 Your web or mobile app should redirect users to the following URL:
 
 ~~~
-https://dnsimple.com/oauth/authorize
+GET https://dnsimple.com/oauth/authorize
 ~~~
 
 The following values should be passed as GET parameters:
 
 `response_type` | **Required**. The grant type requested. We currently only support `code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
-`redirect_uri`  | Where to redirect the user after authorization has completed. This must be the exact URI registered or a subdirectory. See details below about [redirect urls](#redirect-urls).
+`redirect_uri`  | Where to redirect the user after authorization has completed. This must be the exact URI registered or a subdirectory.
 `scope`         | We currently don't use this field.
 `state`         | An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
 
@@ -55,9 +55,24 @@ If an error occurs, including if the user has chosen not to authorize the app, t
 
 ### Step 2 - Access Token
 
+This API method is used to exchange the `code` with a bearer token you can use to authenticate to the DNSimple API.
+
+~~~
+POST https://dnsimple.com/oauth/access_token
+~~~
+
+The following values should be passed as POST parameters:
+
+`client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
+`client_secret` | **Required**. The client secret you received from DNSimple when you registered the application.
+`code`          | **Required**. The code acquired in the previous authorization step.
+`redirect_uri`  | Only used to validate that it matches the original `/oauth/authorize`, not used to redirect again.
+
+You'll receive a JSON response. If the request is successful, the response will include an access token, the token type and the account ID. The token type will always be `bearer`.
+
 ### Step 3 - API authentication
 
-The access token allows you to make requests to the API on a behalf of a user. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
+The access token allows you to execute authenticated API requests on a behalf of the user account. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
 
 ~~~
 Authorization: Bearer ACCESS_TOKEN
