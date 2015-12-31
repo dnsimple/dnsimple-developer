@@ -99,7 +99,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:template` | `integer` or `string` | The template id or short name
 `:record` | `integer` | The record id
 
@@ -126,7 +126,7 @@ Get the record `2` for the template `example` in the account `1001`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:template` | `integer` or `string` | The template id or short name
 `:record` | `integer` | The record id
 

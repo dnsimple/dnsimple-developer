@@ -95,7 +95,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:template` | `integer`, `string` | The template id or short name
 
 ### Example
@@ -127,7 +127,7 @@ Get the template with short name `example`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:template` | `integer`, `string` | The template id or short name
 
 ### Example
@@ -173,7 +173,7 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:template` | `integer`, `string` | The template id or short name
 
 ### Example
