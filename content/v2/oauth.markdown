@@ -70,6 +70,17 @@ The following values should be passed as POST parameters:
 
 You'll receive a JSON response. If the request is successful, the response will include an access token, the token type and the account ID. The token type will always be `bearer`.
 
+##### Example Response
+
+~~~json
+{
+  "access_token": "ACCESS_TOKEN",
+  "account_id": 1010,
+  "token_type": "bearer",
+  "scope": null
+}
+~~~
+
 ### Step 3 - API authentication
 
 The access token allows you to execute authenticated API requests on a behalf of the user account. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
