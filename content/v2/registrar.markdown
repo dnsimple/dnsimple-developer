@@ -41,7 +41,7 @@ Register the domain example.com in the account 1010.
 Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
 
 ##### Example
 
