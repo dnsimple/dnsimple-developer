@@ -38,7 +38,13 @@ The HTTP Basic Authentication and the OAuth grant access to the entire account o
 curl -u 'EMAIL:PASSWORD' https://api.dnsimple.com/v2/whoami
 ~~~
 
-For users with two-factor authentication enabled, Basic Authentication requires an extra step. Check the [Authentication](/v2/authentication/) page for more information and details on how to use Oauth2 tokens via Basic Auth in place of username and password.
+Users with two-factor authentication enabled must send an extra HTTP header for the request.
+
+~~~
+curl -u 'EMAIL:PASSWORD' -H "X-Dnsimple-OTP: 2FA-TOKEN" https://api.dnsimple.com/v2/whoami
+~~~
+
+In case two-factor authentication is enabled but the header is not sent, the application will respond with a `401` and a response header: `X-Dnsimple-OTP: required`.
 
 ##### OAuth2 Token
 
