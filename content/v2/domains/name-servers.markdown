@@ -62,14 +62,14 @@ Update name servers for the domain example.com in the account 1010.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
+          -d '["ns1.example.com","ns2.example.com"]' \
           https://api.dnsimple.com/v2/1010/domains/example.com/name_servers
 
 ### Input
 
 Name | Type | Description
 -----|------|------------
-`name_servers` | `list` | **Required** A list of name server names as strings.
+`name_servers` | `array` | **Required** A list of name server names as strings.
 
 ##### Example
 
