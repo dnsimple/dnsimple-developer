@@ -69,7 +69,7 @@ Update name servers for the domain example.com in the account 1010.
 
 Name | Type | Description
 -----|------|------------
-`name_servers` | `array` | **Required** A list of name server names as strings.
+ | `list` | **Required** A list of name server names as strings.
 
 ##### Example
 
