@@ -74,21 +74,10 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-"{
-  "name_servers": [
-    "ns1.example.com",
-    "ns2.example.com"
-  ]
-}"
-~~~
-
-Alternatively, this is a shorter valid payload to use.
-
-~~~json
-"[
+[
   "ns1.example.com",
   "ns2.example.com"
-]"
+]
 ~~~
 
 ### Response
