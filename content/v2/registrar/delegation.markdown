@@ -61,7 +61,7 @@ Update name servers for the domain example.com in the account 1010.
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
-          -X POST \
+          -X PUT \
           -d '["ns1.example.com","ns2.example.com"]' \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation
 
