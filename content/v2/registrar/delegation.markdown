@@ -1,5 +1,5 @@
 ---
-title: Name Servers | Domains | DNSimple API v2
+title: Name Servers | Registrar | DNSimple API v2
 excerpt: This page documents the DNSimple domain name servers API v2.
 ---
 
@@ -30,7 +30,7 @@ List name servers for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/name_servers
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation
 
 ### Response
 
@@ -63,7 +63,7 @@ Update name servers for the domain example.com in the account 1010.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '["ns1.example.com","ns2.example.com"]' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/name_servers
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation
 
 ### Input
 

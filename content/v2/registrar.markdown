@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 ## Register a domain {#register}
 
-    POST /:account/registrar/:domain/registration
+    POST /:account/registrar/domains/:domain/registration
 
 Register a domain name with DNSimple.
 
@@ -34,7 +34,7 @@ Register the domain example.com in the account 1010.
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/registrar/example.com/registration
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registration
 
 ### Input
 
@@ -67,4 +67,3 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~
 
 Responds with HTTP 400 if the validation fails.
-
