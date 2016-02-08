@@ -1,9 +1,9 @@
 ---
-title: Whoami | DNSimple API v2
-excerpt: This page documents the DNSimple whoami API v2 endpoint.
+title: Identity | DNSimple API v2
+excerpt: This page documents the DNSimple identity API v2 endpoint.
 ---
 
-# Whoami API
+# Identity API
 
 * TOC
 {:toc}
@@ -56,4 +56,3 @@ Responds with HTTP 200. Either user or account may be nil, depending on how you 
   }
 }
 ~~~
-
