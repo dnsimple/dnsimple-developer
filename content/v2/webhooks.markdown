@@ -25,6 +25,7 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
   "api_version": "v2",
   "request_identifier", "fca1f30a-4219-4278-9272-c00e5cc2eb5c",
   "data": {},
+  "account": {},
   "actor": {}
 }
 ```
@@ -48,6 +49,8 @@ The `data` attribute contains any data for the object or objects related to the 
   }
 }
 ```
+
+The `account` is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the `id`, a unique `identifier` and a `display` text representation.
 
 The `actor` is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process.
 
