@@ -58,7 +58,7 @@ If an error occurs, including if the user has chosen not to authorize the app, t
 This API method is used to exchange the `code` with a bearer token you can use to authenticate to the DNSimple API.
 
 ~~~
-POST https://dnsimple.com/oauth/access_token
+POST https://api.dnsimple.com/v2/oauth/access_token
 ~~~
 
 The following values should be passed as POST parameters:
@@ -98,4 +98,3 @@ $ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoam
 <info>
 If you are using the [sandbox environment](/sandbox/) replace `dnsimple.com` with `sandbox.dnsimple.com`.
 </info>
-
