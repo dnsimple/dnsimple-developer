@@ -55,6 +55,32 @@ The `actor` is an object describing the entity that triggered the event. This ma
 
 To confirm receipt of a webhook, your server must respond with an HTTP 200 response. Any other response will be considered an error and may cause the event to be retried.
 
+### Event List
+
+The following events are available:
+
+- account.update
+- account.billing\_settings\_update
+- account.add\_user
+- account.remove\_user
+- certificate.issue
+- certificate.reissue
+- certificate.remove\_private\_key
+- domain.create
+- domain.delete
+- domain.token\_reset
+- domain.registration:started
+- domain.registration
+- domain.transfer:started
+- domain.transfer
+- domain.renew
+- domain.auto\_renew
+- domain.auto\_renewal\_enable
+- domain.auto\_renewal\_disable
+- webhook.create
+- webhook.delete
+
+
 ## List webhooks {#list}
 
     GET /:account/webhooks
