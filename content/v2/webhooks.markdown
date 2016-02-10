@@ -69,6 +69,9 @@ The following events are available:
 - certificate.issue
 - certificate.reissue
 - certificate.remove\_private\_key
+- contact.create
+- contact.update
+- contact.delete
 - domain.create
 - domain.delete
 - domain.token\_reset
