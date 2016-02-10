@@ -21,7 +21,7 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
 
 ```json
 {
-  "action": "object.event",
+  "name": "object.action",
   "api_version": "v2",
   "request_identifier", "fca1f30a-4219-4278-9272-c00e5cc2eb5c",
   "data": {},
@@ -29,7 +29,7 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
 }
 ```
 
-The `action` attribute contains a string representing the event that occurred. It will always have an `object` and `event` separated by a period. It may also include a state for objects that go through state changes. For example: `domain.registration:started`.
+The `name` attribute contains a string representing the name of event that occurred. It will always have an `object` and `action` separated by a period. It may also include a state for objects that go through state changes. For example: `domain.registration:started`.
 
 The `api_version` is the API version used to serialize the data in the payload. For version 2 of the API, this is the string `v2`.
 
