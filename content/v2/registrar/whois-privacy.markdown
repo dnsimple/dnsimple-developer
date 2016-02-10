@@ -13,7 +13,7 @@ Enable and disable WHOIS privacy on registered domains.
 
 ## Get WHOIS privacy for a domain {#get}
 
-    GET /:account/domains/:domain/whois_privacy
+    GET /:account/registrar/domains/:domain/whois_privacy
 
 Get the WHOIS privacy details for a domain.
 
@@ -30,7 +30,7 @@ Get the WHOIS privacy for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/whois_privacy
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy
 
 ### Response
 
@@ -44,7 +44,7 @@ Responds with HTTP 404 if WHOIS privacy is not purchased.
 
 ## Enable whois privacy {#enable}
 
-      PUT /:account/domains/:domain/whois_privacy
+      PUT /:account/registrar/domains/:domain/whois_privacy
 
 Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS
 privacy will cause the service to be purchased for a period of 1 year.
@@ -66,7 +66,7 @@ Enable WHOIS privacy for the domain example.com in the account 1010.
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X PUT \
-          https://api.dnsimple.com/v2/1010/domains/example.com/whois_privacy
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy
 
 ### Response
 
@@ -80,7 +80,7 @@ Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased
 
 ## Disable whois privacy {#disable}
 
-      DELETE /:account/domains/:domain/whois_privacy
+      DELETE /:account/registrar/domains/:domain/whois_privacy
 
 Note that if the WHOIS privacy is not purchased for the domain, this method will
 do nothing.
@@ -102,7 +102,7 @@ Disable whois privacy for the domain example.com in the account 1010.
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/1010/domains/example.com/whois_privacy
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy
 
 ### Response
 
@@ -110,4 +110,3 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 
 ~~~json
 {}
-
