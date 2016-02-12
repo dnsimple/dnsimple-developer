@@ -43,6 +43,7 @@ Responds with HTTP 200.
 ]
 ~~~
 
+
 ## Update name servers for a domain {#update}
 
     PUT /:account/domains/:domain/name_servers

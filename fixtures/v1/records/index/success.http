@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.4
+Date: Wed, 15 Jan 2014 23:22:52 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+Status: 200 OK
+X-DNSimple-API-Version: 1.0.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Authorization,Accepts,Content-Type,X-DNSimple-Token,X-DNSimple-Domain-Token,X-CSRF-Token,x-requested-with
+Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "92649036ddbdc042e4f55203a1eaf6d2"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: d2a201ed1cdf6899fa837a3ec4eede91
+X-Runtime: 0.034567
+Strict-Transport-Security: max-age=315360000
+
+[{"record":{"id":1533,"domain_id":227,"parent_id":null,"name":"","content":"ns1.dnsimple.com admin.dnsimple.com 2014011501 86400 10800 604800 300","ttl":3600,"prio":null,"record_type":"SOA","system_record":true,"created_at":"2014-01-15T22:01:55Z","updated_at":"2014-01-15T22:02:02Z"}},{"record":{"id":1534,"domain_id":227,"parent_id":null,"name":"","content":"ns1.dnsimple.com","ttl":3600,"prio":null,"record_type":"NS","system_record":true,"created_at":"2014-01-15T22:01:55Z","updated_at":"2014-01-15T22:02:02Z"}},{"record":{"id":1535,"domain_id":227,"parent_id":null,"name":"","content":"ns2.dnsimple.com","ttl":3600,"prio":null,"record_type":"NS","system_record":true,"created_at":"2014-01-15T22:01:55Z","updated_at":"2014-01-15T22:02:03Z"}},{"record":{"id":1536,"domain_id":227,"parent_id":null,"name":"","content":"ns3.dnsimple.com","ttl":3600,"prio":null,"record_type":"NS","system_record":true,"created_at":"2014-01-15T22:01:55Z","updated_at":"2014-01-15T22:02:03Z"}},{"record":{"id":1537,"domain_id":227,"parent_id":null,"name":"","content":"ns4.dnsimple.com","ttl":3600,"prio":null,"record_type":"NS","system_record":true,"created_at":"2014-01-15T22:01:55Z","updated_at":"2014-01-15T22:02:03Z"}},{"record":{"id":1538,"domain_id":227,"parent_id":null,"name":"","content":"1.2.3.4","ttl":3600,"prio":null,"record_type":"A","system_record":null,"created_at":"2014-01-15T22:02:37Z","updated_at":"2014-01-15T22:02:38Z"}},{"record":{"id":1539,"domain_id":227,"parent_id":null,"name":"","content":"mail.example.com","ttl":3600,"prio":1,"record_type":"MX","system_record":null,"created_at":"2014-01-15T22:03:03Z","updated_at":"2014-01-15T22:03:04Z"}}]

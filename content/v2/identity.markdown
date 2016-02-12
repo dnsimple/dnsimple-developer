@@ -28,31 +28,11 @@ Responds with HTTP 200. Either user or account may be nil, depending on how you 
 **Example when authenticated with an Account access token**
 
 ~~~json
-{
-  "data": {
-    "user": null,
-    "account": {
-      "id": 1,
-      "email": "account@example.com",
-      "created_at": "2014-05-19T14:20:32.263Z",
-      "updated_at": "2015-04-01T10:07:47.559Z"
-    }
-  }
-}
+<%= pretty_print_fixture("/whoami/success-account.http") %>
 ~~~
 
 **Example when authenticated with an User access token**
 
 ~~~json
-{
-  "data": {
-    "user": {
-      "id": 1,
-      "email": "user@example.com",
-      "created_at": "2014-05-19T14:20:32.263Z",
-      "updated_at": "2015-04-01T10:07:47.559Z"
-    },
-    "account": null
-  }
-}
+<%= pretty_print_fixture("/whoami/success-user.http") %>
 ~~~

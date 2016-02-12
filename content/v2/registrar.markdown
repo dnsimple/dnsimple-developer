@@ -62,8 +62,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-{
-}
+<%= pretty_print_fixture("/register/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.

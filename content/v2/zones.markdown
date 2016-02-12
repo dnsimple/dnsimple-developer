@@ -34,10 +34,7 @@ List all zones for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listZones/success.http") %>
 ~~~
 
 
@@ -65,6 +62,6 @@ Get the zone `example.com` for the account 1010.
 Responds with HTTP 200, renders the zone.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getZone/success.http") %>
 ~~~
 

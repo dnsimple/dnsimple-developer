@@ -34,10 +34,7 @@ List all domains for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listDomains/success.http") %>
 ~~~
 
 
@@ -79,7 +76,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, renders the domain.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createDomain/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -117,7 +114,7 @@ Get the domain `example.com`.
 Responds with HTTP 200, renders the domain.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getDomain/success.http") %>
 ~~~
 
 
@@ -190,7 +187,7 @@ Empty.
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/resetDomainToken/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.

@@ -24,28 +24,6 @@ List all services.
 ### Response
 
 ~~~json
-[
-  {
-    "service": {
-      "id": 1,
-      "name": "Google Apps",
-      "short_name": "googleapps",
-      "description": "Add Google Apps for your domain.",
-      "created_at": "2015-11-23T11:40:05Z",
-      "updated_at": "2015-11-23T11:40:05Z",
-    }
-  },
-  {
-    "service": {
-      "id": 2,
-      "name": "Heroku",
-      "short_name": "heroku",
-      "description": "Use Heroku as your web host.",
-      "created_at": "2015-11-23T11:40:05Z",
-      "updated_at": "2015-11-23T11:40:05Z",
-    }
-  }
-]
 ~~~
 
 
@@ -70,14 +48,4 @@ Get the service with ID `1`.
 ### Response
 
 ~~~json
-{
-  "service": {
-    "id": 1,
-    "name": "Google Apps",
-    "short_name": "googleapps",
-    "description": "Add Google Apps for your domain.",
-    "created_at": "2015-11-23T11:40:05Z",
-    "updated_at": "2015-11-23T11:40:05Z",
-  }
-}
 ~~~

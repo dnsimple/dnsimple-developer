@@ -1,0 +1,11 @@
+{
+  "subscription": {
+    "id": 80,
+    "user_id": 19,
+    "plan_name": "Gold",
+    "state": "subscribed",
+    "domain_limit": 50,
+    "created_at": "2014-06-24T13:42:51.355Z",
+    "updated_at": "2014-07-06T20:37:52.279Z"
+  }
+}

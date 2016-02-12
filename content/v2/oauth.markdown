@@ -73,12 +73,7 @@ You'll receive a JSON response. If the request is successful, the response will 
 ##### Example Response
 
 ~~~json
-{
-  "access_token": "ACCESS_TOKEN",
-  "account_id": 1010,
-  "token_type": "bearer",
-  "scope": null
-}
+<%= pretty_print_fixture("/oauthAccessToken/success.http") %>
 ~~~
 
 ### Step 3 - API authentication
