@@ -37,7 +37,7 @@ Get the WHOIS privacy for the domain example.com in the account 1010.
 Responds with HTTP 200 if WHOIS privacy is purchased for the domain.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getWhoisPrivacy/success.http") %>
 ~~~
 
 Responds with HTTP 404 if WHOIS privacy is not purchased.
@@ -75,7 +75,7 @@ Responds with HTTP 201 if WHOIS privacy is purchased and enabled.
 Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased previously.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/enableWhoisPrivacy/success.http") %>
 ~~~
 
 ## Disable whois privacy {#disable}
@@ -109,4 +109,5 @@ Disable whois privacy for the domain example.com in the account 1010.
 Responds with HTTP 200 if WHOIS privacy is disabled.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/disableWhoisPrivacy/success.http") %>
+~~~
