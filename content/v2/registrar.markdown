@@ -66,3 +66,54 @@ Responds with HTTP 201 on success, returns the domain.
 ~~~
 
 Responds with HTTP 400 if the validation fails.
+
+
+## Renew a domain {#renew}
+
+    POST /:account/registrar/domains/:domain/renewal
+
+Renew a domain name already registered with DNSimple.
+
+Your account must be active for this command to complete successfully.
+You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Example
+
+Renew the domain example.com in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          -d '<json>' \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewal
+
+### Input
+
+Name | Type | Description
+-----|------|------------
+`period` | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD.
+
+##### Example
+
+~~~json
+{
+}
+~~~
+
+### Response
+
+Responds with HTTP 201 on success, returns the domain.
+
+~~~json
+<%= pretty_print_fixture("/renew/success.http") %>
+~~~
+
+Responds with HTTP 400 if the validation fails.
