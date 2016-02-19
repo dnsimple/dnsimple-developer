@@ -57,9 +57,14 @@ Get the TLD with name `"com"`.
 ~~~json
 ~~~
 
-## Get TLD Extended Attributes {#extendedAttributes}
+## Get TLD Extended Attributes {#extended-attributes}
 
     GET /tlds/:tld/extended_attributes
+
+Some TLDs require extended attributes when registering or transferring a domain.
+This API interface provides information on the extended attributes for any particular TLD.
+
+Extended attributes are extra TLD-specific attributes, required by the TLD registry to collect extra information about the registrant or legal agreements.
 
 ### Parameters
 
