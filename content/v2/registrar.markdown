@@ -47,13 +47,7 @@ Name | Type | Description
 
 ~~~json
 {
-}
-~~~
-
-##### Example with extended attributes
-
-~~~json
-{
+  "registrant_id": 1
 }
 ~~~
 
@@ -128,9 +122,10 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success, returns the transfer information.
+Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
+<%= pretty_print_fixture("/transfer/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -160,7 +155,6 @@ Renew the domain example.com in the account 1010.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewal
 
 ### Input
@@ -169,10 +163,11 @@ Name | Type | Description
 -----|------|------------
 `period` | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD.
 
-##### Example
+##### Example with optional period
 
 ~~~json
 {
+  "period": 2
 }
 ~~~
 
@@ -208,14 +203,10 @@ Transfer out the domain example.com in the account 1010.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfer_out
 
 ### Response
 
 Responds with HTTP 204 on success.
-
-~~~json
-~~~
 
 Responds with HTTP 400 if the validation fails.
