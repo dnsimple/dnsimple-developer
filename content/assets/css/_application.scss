@@ -91,6 +91,14 @@ h2 {
   max-width: 100%;
 }
 
+#toc {
+  &:before {
+    margin-right: 10px;
+    content: "\f02e";
+    font-family: FontAwesome;
+  }
+}
+
 // Sidebar
 // -------------------------
 
