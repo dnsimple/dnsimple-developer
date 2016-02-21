@@ -41,7 +41,7 @@ Register the domain example.com in the account 1010.
 Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
+`private_whois` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
 
@@ -102,7 +102,7 @@ Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
 `auth_info` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
-`privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
+`private_whois` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/registrar/tlds/#extended-attributes/).
 
