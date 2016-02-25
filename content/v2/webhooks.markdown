@@ -64,6 +64,7 @@ The following events are available:
 
 - account.update
 - account.billing\_settings\_update
+- account.payment\_details\_update
 - account.add\_user
 - account.remove\_user
 - certificate.issue
@@ -72,19 +73,43 @@ The following events are available:
 - contact.create
 - contact.update
 - contact.delete
+- domain.auto\_renewal\_disable
+- domain.auto\_renewal\_enable
 - domain.create
 - domain.delete
+- domain.register:started
+- domain.register
+- domain.renew
+- domain.delegation\_change
+- domain.registrant\_change
+- domain.resolution\_disable
+- domain.resolution\_enable
 - domain.token\_reset
-- domain.registration:started
-- domain.registration
 - domain.transfer:started
 - domain.transfer
-- domain.renew
-- domain.auto\_renew
-- domain.auto\_renewal\_enable
-- domain.auto\_renewal\_disable
+- email\_forward.create
+- email\_forward.delete
+- push.accept
+- push.initiate
+- push.reject
+- record.create
+- record.delete
+- record.update
+- secondary\_dns.create
+- secondary\_dns.delete
+- secondary\_dns.update
+- template.create
+- template.delete
+- template.update
+- template\_record.create
+- template\_record.delete
 - webhook.create
 - webhook.delete
+- whois\_privacy.disable
+- whois\_privacy.enable
+- whois\_privacy.renew
+- zone.create
+- zone.delete
 
 
 ## List webhooks {#list}
