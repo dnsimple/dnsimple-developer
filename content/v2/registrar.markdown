@@ -9,6 +9,37 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 {:toc}
 
 
+## Check domain availability {#check}
+
+    GET /:account/registrar/domains/:domain/check
+
+Check if the domain is available for registration or transfer.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Example
+
+Check the domain example.com in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/check
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain availability information.
+
+~~~json
+<%= pretty_print_fixture("/checkDomain/success.http") %>
+~~~
+
+
 ## Register a domain {#register}
 
     POST /:account/registrar/domains/:domain/registration
