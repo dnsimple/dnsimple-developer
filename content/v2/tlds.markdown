@@ -24,6 +24,7 @@ List all TLDs.
 ### Response
 
 ~~~json
+<%= pretty_print_fixture("/listTlds/success.http") %>
 ~~~
 
 ### TLD Types
@@ -34,7 +35,23 @@ Value | Type
 `2`   | `ccTLD`
 `3`   | `newTLD`
 
-## Get a TLD {#get}
+## Attributes meaning
+
+minimum_registration
+: the minimum RTR period, in years.
+
+whois_privacy
+: true if the suffix allows WHOIS privacy as a separate component.
+  Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
+
+auto_renew_only
+: true if the suffix requires auto-renewal and can't be renewed manually.
+
+idn
+: true if the suffix supports Internationalized Domain Names (IDN).
+
+
+## Get TLD details {#get}
 
     GET /tlds/:tld
 
@@ -55,6 +72,7 @@ Get the TLD with name `"com"`.
 ### Response
 
 ~~~json
+<%= pretty_print_fixture("/getTld/success.http") %>
 ~~~
 
 ## Get TLD Extended Attributes {#extended-attributes}
