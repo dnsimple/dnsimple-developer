@@ -9,6 +9,22 @@ excerpt: This page documents the DNSimple TLDs API v2.
 {:toc}
 
 
+## TLD attributes
+
+minimum_registration
+: the minimum RTR period, in years.
+
+whois_privacy
+: true if the suffix allows WHOIS privacy as a separate component.
+  Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
+
+auto_renew_only
+: true if the suffix requires auto-renewal and can't be renewed manually.
+
+idn
+: true if the suffix supports Internationalized Domain Names (IDN).
+
+
 ## List TLDs {#list}
 
     GET /tlds
@@ -34,22 +50,6 @@ Value | Type
 `1`   | `gTLD`
 `2`   | `ccTLD`
 `3`   | `newTLD`
-
-## Attributes meaning
-
-minimum_registration
-: the minimum RTR period, in years.
-
-whois_privacy
-: true if the suffix allows WHOIS privacy as a separate component.
-  Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
-
-auto_renew_only
-: true if the suffix requires auto-renewal and can't be renewed manually.
-
-idn
-: true if the suffix supports Internationalized Domain Names (IDN).
-
 
 ## Get TLD details {#get}
 
