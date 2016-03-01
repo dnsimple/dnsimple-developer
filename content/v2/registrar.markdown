@@ -93,7 +93,7 @@ This API method response format will be changed before GA to return a representa
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/register/success.http") %>
+<%= pretty_print_fixture("/registerDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -168,7 +168,7 @@ This API method response format will be changed before GA to return a representa
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/transfer/success.http") %>
+<%= pretty_print_fixture("/transferDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -219,7 +219,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/renew/success.http") %>
+<%= pretty_print_fixture("/renewDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
