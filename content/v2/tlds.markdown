@@ -101,4 +101,5 @@ Get extended attributes for TLD with name `"com"`.
 ### Response
 
 ~~~json
+<%= pretty_print_fixture("/getTldsExtendedAttributes/success.http") %>
 ~~~
