@@ -63,6 +63,7 @@ POST https://api.dnsimple.com/v2/oauth/access_token
 
 The following values should be passed as POST parameters:
 
+`grant_type`    | **Required**. The grant type requested. We currently only support `authorization_code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
 `client_secret` | **Required**. The client secret you received from DNSimple when you registered the application.
 `code`          | **Required**. The code acquired in the previous authorization step.
