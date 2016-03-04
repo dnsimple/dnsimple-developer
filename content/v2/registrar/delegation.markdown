@@ -98,6 +98,10 @@ Responds with HTTP 400 if the delegation fails.
 
 ## Delegate to Vanity Name Servers {#delegateToVanity}
 
+<note>
+This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
+</note>
+
     PUT /:account/domains/:domain/name_servers/delegation/vanity
 
 ### Parameters
@@ -149,6 +153,10 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the delegation fails.
 
 ## Dedelegate from Vanity Name Servers {#dedelegateFromVanity}
+
+<note>
+This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
+</note>
 
     DELETE /:account/domains/:domain/name_servers/delegation/vanity
 
