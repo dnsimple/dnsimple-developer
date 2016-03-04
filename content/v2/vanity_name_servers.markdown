@@ -13,7 +13,8 @@ excerpt: This page documents the DNSimple contacts API v2.
 
     PUT /:account/vanity/:domain
 
-Enable Vanity Name Servers for the domain.
+Enable Vanity Name Servers for the domain. Note that this call sets up the appropriate A and AAAA records for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers, please use 
+the endpoints to [Delegate to Vanity Name Servers](http://localhost:3000/v2/registrar/delegation/#delegateToVanity) or [Dedelegate from Vanity Name Servers](http://localhost:3000/v2/registrar/delegation/#dedelegateFromVanity).
 
 ### Parameters
 
@@ -47,7 +48,9 @@ Responds with HTTP 400 if the delegation fails.
 
     DELETE /:account/vanity/:domain
 
-Disable Vanity Name Servers for the domain.
+Disable Vanity Name Servers for the domain. Note that this call removes the A and AAAA records required for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers, please use 
+the endpoints to [Delegate to Vanity Name Servers](http://localhost:3000/v2/registrar/delegation/#delegateToVanity) or [Dedelegate from Vanity Name Servers](http://localhost:3000/v2/registrar/delegation/#dedelegateFromVanity).
+
 
 ### Parameters
 
