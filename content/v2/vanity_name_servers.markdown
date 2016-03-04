@@ -36,12 +36,11 @@ Enable Vanity Name Servers for the domain example.com in the account 1010.
 
 Responds with HTTP 200 on success.
 
-Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the delegation fails.
-
 ~~~json
 ~~~
+
+Responds with HTTP 400 if bad request.
+
 
 ## Disable {#disable}
 
@@ -72,5 +71,3 @@ Enable Vanity Name Servers for the domain example.com in the account 1010.
 Responds with HTTP 204 on success.
 
 Responds with HTTP 400 if bad request.
-
-Responds with HTTP 400 if the dedelegation fails.
