@@ -1,6 +1,6 @@
 ---
 title: Vanity Name Servers | DNSimple API v2
-excerpt: This page documents the DNSimple contacts API v2.
+excerpt: This page documents the DNSimple vanity name servers API v2.
 ---
 
 # Vanity Name Servers API
