@@ -95,3 +95,84 @@ Responds with HTTP 200 on success, renders the list of name server names.
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the delegation fails.
+
+## Delegate to Vanity Name Servers {#delegateToVanity}
+
+    PUT /:account/domains/:domain/name_servers/delegation/vanity
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
+
+### Example
+
+Update name servers for the domain example.com in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X PUT \
+          -d '["ns1.example.com","ns2.example.com"]' \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation/vanity
+
+### Input
+
+Name | Type | Description
+-----|------|------------
+ | `array` | **Required** A list of name server names as strings.
+
+##### Example
+
+~~~json
+[
+  "ns1.example.com",
+  "ns2.example.com"
+]
+~~~
+
+### Response
+
+Responds with HTTP 200 on success, renders the list of name server names.
+
+~~~json
+[
+  "ns1.example.com",
+  "ns2.example.com"
+]
+~~~
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the delegation fails.
+
+## Dedelegate from Vanity Name Servers {#dedelegateFromVanity}
+
+    DELETE /:account/domains/:domain/name_servers/delegation/vanity
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
+
+### Example
+
+Update name servers for the domain example.com in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X DELETE \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation/vanity
+
+### Response
+
+Responds with HTTP 204 on success.
+
+Responds with HTTP 400 if bad request.
+
+Responds with HTTP 400 if the dedelegation fails.
