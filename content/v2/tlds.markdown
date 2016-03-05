@@ -11,18 +11,22 @@ excerpt: This page documents the DNSimple TLDs API v2.
 
 ## TLD attributes
 
-minimum_registration
-: the minimum RTR period, in years.
+Name | Type | Description
+-----|------|------------
+`tld`                   | `string`  | the registerable suffix. In most cases the suffix matches a TLD, but there are some cases where the suffix is a subzone of the TLD (e.g. `com.au`).
+`tld_type`              | `integer` | the type of TLD. See [TLD types](#tld-types).
+`minimum_registration`  | `integer` | the minimum RTR period, in years.
+`whois_privacy`         | `bool`    | `true` if the suffix allows WHOIS privacy as a separate component. Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
+`auto_renew_only`       | `bool`    | `true` if the suffix requires auto-renewal and can't be renewed manually.
+`idn`                   | `bool`    | `true` if the suffix supports Internationalized Domain Names (IDN).
 
-whois_privacy
-: true if the suffix allows WHOIS privacy as a separate component.
-  Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
+### TLD Types {#tld-types}
 
-auto_renew_only
-: true if the suffix requires auto-renewal and can't be renewed manually.
-
-idn
-: true if the suffix supports Internationalized Domain Names (IDN).
+Value | Description
+------|------------
+`1`   | `gTLD` (global TLD)
+`2`   | `ccTLD` (country-code TLD)
+`3`   | `newTLD` (new global TLD)
 
 
 ## List TLDs {#list}
@@ -42,14 +46,6 @@ List all TLDs.
 ~~~json
 <%= pretty_print_fixture("/listTlds/success.http") %>
 ~~~
-
-### TLD Types
-
-Value | Type
-------|-----
-`1`   | `gTLD`
-`2`   | `ccTLD`
-`3`   | `newTLD`
 
 ## Get TLD details {#get}
 
