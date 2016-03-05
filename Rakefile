@@ -4,6 +4,8 @@ require 'rake/testtask'
 require 'fileutils'
 
 
+task :default => [:test, :compile]
+
 desc "Compile the site"
 task :compile do
   puts "Compiling site"
@@ -18,7 +20,6 @@ task :publish => :compile do
   puts "Published"
 end
 
-task :default => [:test]
 Rake::TestTask.new do |t|
   t.libs << "_test"
   t.test_files = FileList["_test/*_test.rb"]
