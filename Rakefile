@@ -12,7 +12,7 @@ task :compile => [:clean] do
   out = `nanoc compile`
 
   if $?.to_i == 0
-    puts "Compilation succeeded"
+    puts  "Compilation succeeded"
   else
     abort "Compilation failed: #{$?.to_i}\n" +
           "#{out}\n"

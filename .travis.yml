@@ -4,6 +4,11 @@ sudo: false
 cache:
 - bundler
 
+after_success:
+  if [ "$TRAVIS_BRANCH" == "master" ]; then
+    rake publish
+  fi
+
 notifications:
   slack:
     secure: "K85xR9b1VQMK2c3KpXjho4WBz1fTIUSfsmLCMFRkYY8ykOoH7fjBLRJRQtAOMfjUNfjDt+VMwFTky0F8lMmZRMnBBYZ8mTzhmKjJY0ToWLiDIJm48ncPleJRzMR0ku9xU7x1DHB6QEMu6DFXkgoe4/b0VOsFwYzQGmelfZNhD6U="
