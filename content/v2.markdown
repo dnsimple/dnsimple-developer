@@ -23,7 +23,7 @@ In order to maintain compatibility in the future, all requests must specify an A
 
 ## Current Version
 
-The current API version is `v1`. `v2` is in early development.
+The current API version is `v1`. `v2` is in public beta.
 
 
 ## Authentication
