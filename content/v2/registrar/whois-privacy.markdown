@@ -1,5 +1,5 @@
 ---
-title: Whois privacy | DNSimple API v2
+title: Whois privacy API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple WHOIS privacy API v2.
 ---
 

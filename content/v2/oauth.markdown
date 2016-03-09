@@ -1,5 +1,5 @@
 ---
-title: OAuth | DNSimple API v2
+title: OAuth API | DNSimple API v2 (Beta)
 excerpt: This page documents the OAuth 2 flow you can use to access the DNSimple API.
 ---
 

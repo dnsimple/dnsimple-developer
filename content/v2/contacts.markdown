@@ -1,5 +1,5 @@
 ---
-title: Contacts | DNSimple API v2
+title: Contacts API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple contacts API v2.
 ---
 

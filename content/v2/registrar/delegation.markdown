@@ -1,9 +1,9 @@
 ---
-title: Name Servers | Registrar | DNSimple API v2
+title: Delegation API | Registrar | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple domain name servers API v2.
 ---
 
-# Domain name servers API
+# Name servers and delegation API
 
 * TOC
 {:toc}
@@ -13,7 +13,7 @@ Retrieve and manage delegation for a domain in DNSimple.
 
 ## List name servers for a domain {#list}
 
-    GET /:account/domains/:domain/name_servers
+    GET /:account/domains/:domain/delegation
 
 List name servers for the domain in the account.
 

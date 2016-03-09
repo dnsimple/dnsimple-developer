@@ -1,5 +1,5 @@
 ---
-title: TLDs | DNSimple API v2
+title: TLDs API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple TLDs API v2.
 ---
 

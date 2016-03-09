@@ -1,5 +1,5 @@
 ---
-title: Registrar | DNSimple API v2
+title: Registrar API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple registry/registrar API v2.
 ---
 
