@@ -161,7 +161,7 @@ For example:
 
 There is a limit to the number of requests that you can perform per hour.
 
-- For **authenticated requests** you can make **up to 4,000 requests per hour**.
+- For **authenticated requests** you can make **up to 2400 requests per hour**.
 - For **unauthenticated requests**, you can make **up to 30 requests per hour**.
 
 You can see your current rate limit status by checking the HTTP headers of any API request:
