@@ -46,7 +46,7 @@ Responds with HTTP 200.
 
 ## Update name servers for a domain {#update}
 
-    PUT /:account/domains/:domain/name_servers
+    PUT /:account/domains/:domain/delegation
 
 ### Parameters
 
@@ -102,7 +102,7 @@ Responds with HTTP 400 if the delegation fails.
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 </note>
 
-    PUT /:account/domains/:domain/name_servers/delegation/vanity
+    PUT /:account/domains/:domain/delegation/vanity
 
 ### Parameters
 
@@ -158,7 +158,7 @@ Responds with HTTP 400 if the delegation fails.
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 </note>
 
-    DELETE /:account/domains/:domain/name_servers/delegation/vanity
+    DELETE /:account/domains/:domain/delegation/vanity
 
 ### Parameters
 
