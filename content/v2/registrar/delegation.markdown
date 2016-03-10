@@ -13,7 +13,7 @@ Retrieve and manage delegation for a domain in DNSimple.
 
 ## List name servers for a domain {#list}
 
-    GET /:account/domains/:domain/delegation
+    GET /:account/registrar/domains/:domain/delegation
 
 List name servers for the domain in the account.
 
@@ -46,7 +46,7 @@ Responds with HTTP 200.
 
 ## Update name servers for a domain {#update}
 
-    PUT /:account/domains/:domain/delegation
+    PUT /:account/registrar/domains/:domain/delegation
 
 ### Parameters
 
@@ -102,7 +102,7 @@ Responds with HTTP 400 if the delegation fails.
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 </note>
 
-    PUT /:account/domains/:domain/delegation/vanity
+    PUT /:account/registrar/domains/:domain/delegation/vanity
 
 ### Parameters
 
@@ -158,7 +158,7 @@ Responds with HTTP 400 if the delegation fails.
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 </note>
 
-    DELETE /:account/domains/:domain/delegation/vanity
+    DELETE /:account/registrar/domains/:domain/delegation/vanity
 
 ### Parameters
 
