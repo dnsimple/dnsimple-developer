@@ -150,10 +150,7 @@ List all webhooks for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listWebhooks/success.http") %>
 ~~~
 
 
@@ -195,7 +192,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createWebhook/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -224,7 +221,7 @@ Get the webhook with ID `1` in the account 1010.
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getWebhook/success.http") %>
 ~~~
 
 
