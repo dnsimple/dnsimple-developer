@@ -1,5 +1,5 @@
 ---
-title: Template Records | DNSimple API v2
+title: Template Records API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple Template Records API v2.
 ---
 

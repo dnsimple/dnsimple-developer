@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.4
+Date: Fri, 17 Jan 2014 16:02:56 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+Status: 200 OK
+X-DNSimple-API-Version: 1.0.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Authorization,Accepts,Content-Type,X-DNSimple-Token,X-DNSimple-Domain-Token,X-CSRF-Token,x-requested-with
+Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "b66145af33bb33a3203782afeafb53bd"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 2111bc814b413ab5dd8f6d40086abf8f
+X-Runtime: 0.034263
+Strict-Transport-Security: max-age=315360000
+
+{"dns_template":{"id":3,"user_id":null,"name":"Google Apps","short_name":"google-apps","description":"Google Mail Servers and Google Apps CNAME records in a single template.","created_at":"2014-01-17T16:02:13Z","updated_at":"2014-01-17T16:02:13Z"}}

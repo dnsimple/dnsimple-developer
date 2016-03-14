@@ -2,8 +2,12 @@
 // Base Template
 // --------------------------------------------------
 
+html {
+  background-color: #f2f2f2; // same as footer
+}
+
 body {
-  background-color: #fafafa;
+  background-color: #fefefe; // site is using #fafafa
 }
 
 a {

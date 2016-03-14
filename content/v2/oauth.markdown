@@ -1,5 +1,5 @@
 ---
-title: OAuth | DNSimple API v2
+title: OAuth API | DNSimple API v2 (Beta)
 excerpt: This page documents the OAuth 2 flow you can use to access the DNSimple API.
 ---
 
@@ -36,9 +36,9 @@ The following values should be passed as GET parameters:
 
 `response_type` | **Required**. The grant type requested. We currently only support `code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
+`state`         | **Required**. An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
 `redirect_uri`  | Where to redirect the user after authorization has completed. This must be the exact URI registered or a subdirectory.
 `scope`         | We currently don't use this field.
-`state`         | An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
 
 Because `/oauth/authorize` is a website, there is no direct return value. However, after the user authorizes your app, they will be sent to your redirect URI.
 
@@ -58,11 +58,12 @@ If an error occurs, including if the user has chosen not to authorize the app, t
 This API method is used to exchange the `code` with a bearer token you can use to authenticate to the DNSimple API.
 
 ~~~
-POST https://dnsimple.com/oauth/access_token
+POST https://api.dnsimple.com/v2/oauth/access_token
 ~~~
 
 The following values should be passed as POST parameters:
 
+`grant_type`    | **Required**. The grant type requested. We currently only support `authorization_code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
 `client_secret` | **Required**. The client secret you received from DNSimple when you registered the application.
 `code`          | **Required**. The code acquired in the previous authorization step.
@@ -73,12 +74,7 @@ You'll receive a JSON response. If the request is successful, the response will 
 ##### Example Response
 
 ~~~json
-{
-  "access_token": "ACCESS_TOKEN",
-  "account_id": 1010,
-  "token_type": "bearer",
-  "scope": null
-}
+<%= pretty_print_fixture("/oauthAccessToken/success.http") %>
 ~~~
 
 ### Step 3 - API authentication
@@ -98,4 +94,3 @@ $ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoam
 <info>
 If you are using the [sandbox environment](/sandbox/) replace `dnsimple.com` with `sandbox.dnsimple.com`.
 </info>
-

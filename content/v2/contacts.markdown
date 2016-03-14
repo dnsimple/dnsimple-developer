@@ -1,5 +1,5 @@
 ---
-title: Contacts | DNSimple API v2
+title: Contacts API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple contacts API v2.
 ---
 
@@ -34,10 +34,7 @@ List all contacts for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listContacts/success.http") %>
 ~~~
 
 
@@ -91,7 +88,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createContact/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -119,7 +116,7 @@ Get the contact with ID `1`.
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getContact/success.http") %>
 ~~~
 
 
@@ -154,7 +151,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/updateContact/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.

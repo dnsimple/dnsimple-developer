@@ -21,6 +21,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 - [Apache libcloud](https://libcloud.apache.org/) - Python library for interacting with many of the popular cloud service providers using a unified API.
 - [dnsimple-python](https://github.com/mikemaccana/dnsimple-python) - A Python API client.
+- [Lexicon](https://github.com/AnalogJ/lexicon) - Manipulate DNS records across various DNS providers in a standardized way.
 
 ### JavaScript
 

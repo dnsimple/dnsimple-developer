@@ -3,7 +3,7 @@ $font-family: "Helvetica Neue", Arial, sans-serif;
 
 body {
   font-family: $font-family;
-  font-size: 100%;
+  font-size: 16px;
   line-height: 1.5;
   color: #606060;
 }
@@ -11,29 +11,27 @@ body {
 h1, h2, h3 {
   color: #000;
   font-weight: normal;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
 }
 
 h1 {
   color: $accent-color;
   font-size: 2em;
   line-height: 1.3;
-  padding-top: $base-unit;
-  padding-bottom: $base-unit / 2;
+  margin-top: $base-unit;
+  margin-bottom: $base-unit/1.5;
 }
 
 h2 {
   font-size: 1.4em;
-  padding: $base-unit / 2 0;
+  margin: $base-unit/1.5 0;
 }
 
 h3 {
   font-size: 1em;
   font-weight: bold;
-  padding-bottom: $base-unit / 2;
+  margin-bottom: $base-unit/1.5;
   i {
-    padding-right: $base-unit / 4;
+    margin-right: $base-unit/4;
   }
 }
 
@@ -41,20 +39,10 @@ p {
   margin: 0 0 $base-unit/1.5 0;
 }
 
+pre {
+  margin: 0 0 $base-unit/1.5 0;
+}
+
 a {
   color: $accent-color;
-}
-
-.marker {
-  p {
-    padding-bottom: 0;
-  }
-}
-
-#toc {
-  &:before {
-    margin-right: 10px;
-    content: "\f02e";
-    font-family: FontAwesome;
-  }
 }

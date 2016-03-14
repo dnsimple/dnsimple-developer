@@ -1,5 +1,5 @@
 ---
-title: Email forwards | Domains | DNSimple API v2
+title: Email forwards API | Domains | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple email forwards API v2.
 ---
 
@@ -35,10 +35,7 @@ List all email forwards for the domain example.com in the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listEmailForwards/success.http") %>
 ~~~
 
 ## Create an email forward {#create}
@@ -81,12 +78,13 @@ Name | Type | Description
 Responds with HTTP 201 on success, renders the email forward.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createEmailForward/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
+
 
 ## Get an email forward {#get}
 
@@ -113,7 +111,7 @@ Get the email forward with the ID `1` in the domain `example.com`.
 Responds with HTTP 200, renders the email forward.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getEmailForward/success.http") %>
 ~~~
 
 
