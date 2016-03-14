@@ -19,7 +19,7 @@ You may register your webhook URLs either through the DNSimple web interface or 
 
 Webhook data is sent as a JSON object in a POST request to URLs you define. All webhook messages have the same basic structure, which is called the payload:
 
-```json
+~~~json
 {
   "name": "object.action",
   "api_version": "v2",
@@ -28,7 +28,7 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
   "account": {},
   "actor": {}
 }
-```
+~~~
 
 The `name` attribute contains a string representing the name of event that occurred. It will always have an `object` and `action` separated by a period. It may also include a state for objects that go through state changes. For example: `domain.registration:started`.
 
@@ -38,7 +38,7 @@ The `request_identifier` attribute is a UUID that provides a way to identify thi
 
 The `data` attribute contains any data for the object or objects related to the event. Each object in the `data` object will be keyed on an object type name. For example:
 
-```
+~~~json
 {
   ...
   "data": {
@@ -48,7 +48,7 @@ The `data` attribute contains any data for the object or objects related to the 
     }
   }
 }
-```
+~~~
 
 The `account` is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the `id`, a unique `identifier` and a `display` text representation.
 
