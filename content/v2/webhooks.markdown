@@ -52,7 +52,7 @@ The `data` attribute contains any data for the object or objects related to the 
 
 The `account` is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the `id`, a unique `identifier` and a `display` text representation.
 
-The `actor` is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process.
+The `actor` is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process. The actor object has three attributes: `id`, which is a unique identifier for the actor, `entity` which describes what type the actor is, and `pretty`, which is a printable representation of the actor for use in display.
 
 ### Responding to Webhooks
 
