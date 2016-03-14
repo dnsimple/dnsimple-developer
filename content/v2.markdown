@@ -173,8 +173,8 @@ HTTP/1.1 200 OK
 Date: Fri, 11 Dec 2015 11:15:42 GMT
 Status: 200 OK
 Connection: close
-X-RateLimit-Limit: 4000
-X-RateLimit-Remaining: 3999
+X-RateLimit-Limit: 2400
+X-RateLimit-Remaining: 2399
 X-RateLimit-Reset: 1449836141
 ~~~
 
@@ -192,7 +192,7 @@ Once you go over the rate limit you will receive an error response:
 $ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
 
 HTTP/1.1 429 Too Many Requests
-X-Ratelimit-Limit: 4000
+X-Ratelimit-Limit: 2400
 X-Ratelimit-Remaining: 0
 X-RateLimit-Reset: 1449836141
 Content-Type: application/json; charset=utf-8
