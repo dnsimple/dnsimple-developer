@@ -23,7 +23,7 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
 {
   "name": "object.action",
   "api_version": "v2",
-  "request_identifier", "fca1f30a-4219-4278-9272-c00e5cc2eb5c",
+  "request_identifier": "fca1f30a-4219-4278-9272-c00e5cc2eb5c",
   "data": {},
   "account": {},
   "actor": {}
