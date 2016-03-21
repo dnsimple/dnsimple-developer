@@ -172,7 +172,7 @@ Create a webhook in the account 1010.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
+          -d '{"url":"https://test.host/handler"}' \
           https://api.dnsimple.com/v2/1010/webhooks
 
 ### Input
@@ -184,7 +184,9 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "url": "https://test.host/handler"
+}
 ~~~
 
 ### Response
@@ -215,7 +217,7 @@ Get the webhook with ID `1` in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/webhook/1
+          https://api.dnsimple.com/v2/1010/webhooks/1
 
 
 ### Response
@@ -242,11 +244,9 @@ Delete the webhook with ID `1` in the account 1010:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
           https://api.dnsimple.com/v2/1010/webhooks/1
 
 ### Response
 
 Responds with HTTP 204 on success.
-
