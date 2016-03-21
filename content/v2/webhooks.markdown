@@ -11,9 +11,15 @@ excerpt: This page documents the DNSimple webhooks API v2.
 
 ## Overview
 
-Webhooks are used for receiving notifications via an HTTPS POST whenever an event occurs in your DNSimple account.
+Webhooks are used for receiving notifications via an HTTP request whenever an event occurs in your DNSimple account.
 
-You may register your webhook URLs either through the DNSimple web interface or through the DNSimple API. Note: Webhooks are only supported in the DNSimple API v2 and higher.
+You may register your webhook URLs either through the DNSimple web interface or through the DNSimple API. The URL must use HTTPS and the webhook handler should be able to receive HTTP POST requests.
+
+All webhooks are sent via HTTPS using POST.
+
+<note>
+Webhooks are only supported in the DNSimple API v2 and higher.
+</note>
 
 ### Webhook Payload
 
@@ -30,9 +36,9 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
 }
 ~~~
 
-The `name` attribute contains a string representing the name of event that occurred. It will always have an `object` and `action` separated by a period. It may also include a state for objects that go through state changes. For example: `domain.registration:started`.
+The `name` attribute contains a string representing the name of event that occurred. It will always have an `object` and `action` separated by a period. It may optionally include a state for objects that go through state changes, for example `domain.registration:started`.
 
-The `api_version` is the API version used to serialize the data in the payload. For version 2 of the API, this is the string `v2`.
+The `api_version` is the API version used to serialize the data in the payload. For version 2 of the API, this is the string `v2`. For example, you can expect a domain object to be serialized using the same [domain attributes](https://developer.dnsimple.com/v2/domains/#domain-attributes) described in the corresponding API page.
 
 The `request_identifier` attribute is a UUID that provides a way to identify this request. You may use this UUID to ensure a webhook is processed once and only once by keeping a persistent history of the identifiers sent and never handling a webhook which was already processed.
 
