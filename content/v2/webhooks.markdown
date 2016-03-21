@@ -100,9 +100,6 @@ The following events are available:
 - push.accept
 - push.initiate
 - push.reject
-- record.create
-- record.delete
-- record.update
 - secondary\_dns.create
 - secondary\_dns.delete
 - secondary\_dns.update
@@ -123,6 +120,9 @@ The following events are available:
 - whois\_privacy.renew
 - zone.create
 - zone.delete
+- zone\_record.create
+- zone\_record.delete
+- zone\_record.update
 
 
 ## List webhooks {#list}
