@@ -34,10 +34,7 @@ List all templates for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listTemplates/success.http") %>
 ~~~
 
 
@@ -59,7 +56,7 @@ Create a template in the account 1010.
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
+          -d '{"name": "Alpha","short_name": "alpha","description": "This is an Alpha template."}' \
           https://api.dnsimple.com/v2/1010/templates
 
 ### Input
@@ -73,7 +70,11 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "name": "Alpha",
+  "short_name": "alpha",
+  "description": "This is an Alpha template."
+}
 ~~~
 
 ### Response
@@ -81,7 +82,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createTemplate/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -115,7 +116,7 @@ Get the template with short name `example`.
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getTemplate/success.http") %>
 ~~~
 
 
@@ -138,7 +139,7 @@ Update the template with ID `1`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
-          -d '<json>' \
+          -d '{"name":"Alpha"}' \
           https://api.dnsimple.com/v2/_/templates/1
 
 Update the template with short name `example`:
@@ -147,7 +148,7 @@ Update the template with short name `example`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
-          -d '<json>' \
+          -d '{"name":"Alpha"}' \
           https://api.dnsimple.com/v2/_/templates/example
 
 ### Input
@@ -159,7 +160,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/updateTemplate/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -182,7 +183,6 @@ Delete the template with ID `1`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
           https://api.dnsimple.com/v2/_/templates/1
 
@@ -190,7 +190,6 @@ Delete the template with short name `example`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
           https://api.dnsimple.com/v2/_/templates/example
 
