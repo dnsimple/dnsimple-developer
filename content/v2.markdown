@@ -14,7 +14,11 @@ This page provides an overview of the official DNSimple API v2.
 
 ## URL
 
-All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain. [Sandbox accounts](/sandbox/) must use the `api.sandbox.dnsimple.com` domain.
+If you want to test your API integration, you should use our [Sandbox environment](/sandbox/). Requests to Sandbox must use the `api.sandbox.dnsimple.com` domain.
+
+Once you are ready to take your API integration live, you must use our production domain: `api.dnsimple.com`.
+
+All API access is over HTTPS.
 
 In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
 
