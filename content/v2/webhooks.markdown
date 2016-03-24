@@ -123,6 +123,7 @@ The following events are available:
 - webhook.delete
 - whois\_privacy.disable
 - whois\_privacy.enable
+- whois\_privacy.purchase
 - whois\_privacy.renew
 - zone.create
 - zone.delete
