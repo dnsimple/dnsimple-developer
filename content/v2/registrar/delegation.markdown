@@ -37,10 +37,7 @@ List name servers for the domain example.com in the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  "ns1.example.com",
-  "ns2.example.com"
-]
+<%= pretty_print_fixture("/getDomainDelegation/success.http") %>
 ~~~
 
 
@@ -86,15 +83,13 @@ Name | Type | Description
 Responds with HTTP 200 on success, renders the list of name server names.
 
 ~~~json
-[
-  "ns1.example.com",
-  "ns2.example.com"
-]
+<%= pretty_print_fixture("/changeDomainDelegation/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the delegation fails.
+
 
 ## Delegate to Vanity Name Servers {#delegateToVanity}
 
@@ -131,10 +126,6 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-[
-  "ns1.example.com",
-  "ns2.example.com"
-]
 ~~~
 
 ### Response
@@ -142,10 +133,6 @@ Name | Type | Description
 Responds with HTTP 200 on success, renders the list of name server names.
 
 ~~~json
-[
-  "ns1.example.com",
-  "ns2.example.com"
-]
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -173,7 +160,6 @@ Update name servers for the domain example.com in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation/vanity
 
