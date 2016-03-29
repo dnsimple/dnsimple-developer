@@ -11,10 +11,13 @@ If you've developed a library for the API, [please let us know](https://dnsimple
 
 _Please keep in mind that some of these libraries may be incomplete or oudated._
 
+### Official Clients
+
+- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
+- [DNSimple Go client](https://github.com/aetrion/dnsimple-go)
 
 ### Ruby
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)- The official DNSimple Ruby API client.
 - [Fog](http://fog.io/) - The Ruby cloud services library. Includes DNSimple support.
 
 ### Python
@@ -31,7 +34,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### Golang
 
-- [dnsimple-go](https://github.com/weppos/go-dnsimple) - A Go API client.
+- [dnsimple-go](https://github.com/weppos/go-dnsimple) - A Go API client for API v1.
 - [domasimu](https://github.com/jrwren/domasimu) - A simple domain management command line tool.
 
 ### C♯
