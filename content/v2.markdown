@@ -35,9 +35,11 @@ The current API version is `v1`. `v2` is in public beta.
 
 ## Authentication
 
-There are three ways to authenticate through DNSimple API: the **HTTP Basic Authentication**, the **OAuth2 token** and the **Domain token**.
+There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
 
-The HTTP Basic Authentication and the OAuth grant access to the entire account or user accounts, whereas the Domain token only grants access to the DNS records of a specific domain zone.
+When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either an user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+
+The HTTP Basic Authentication always authenticate you as an user.
 
 ##### HTTP Basic Authentication
 
@@ -60,14 +62,6 @@ curl -H 'Authorization: Bearer OAUTH-TOKEN' https://api.dnsimple.com/v2/whoami
 ~~~
 
 Note that Oauth2 tokens cam be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
-
-##### DNSimple Domain Token
-
-~~~
-curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' https://api.dnsimple.com/v2/_/domains/example.com
-~~~
-
-The [Authentication](/v2/authentication/) page provides more information about how to use them.
 
 ## Response Codes
 
