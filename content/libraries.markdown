@@ -11,10 +11,18 @@ If you've developed a library for the API, [please let us know](https://dnsimple
 
 _Please keep in mind that some of these libraries may be incomplete or oudated._
 
+## API v2 Clients
+
 ### Official Clients
 
 - [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
 - [DNSimple Go client](https://github.com/aetrion/dnsimple-go)
+
+## Bash
+
+- [`chorn/dnsimple_cli`](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
+
+## API v1 Clients
 
 ### Ruby
 
