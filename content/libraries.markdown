@@ -20,7 +20,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ## Bash
 
-- [`chorn/dnsimple_cli`](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
+- [chorn/dnsimple_cli](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
 
 ## API v1 Clients
 
