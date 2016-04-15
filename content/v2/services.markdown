@@ -24,6 +24,7 @@ List all services.
 ### Response
 
 ~~~json
+<%= pretty_print_fixture("/listServices/success.http") %>
 ~~~
 
 
@@ -48,4 +49,5 @@ Get the service with ID `1`.
 ### Response
 
 ~~~json
+<%= pretty_print_fixture("/getService/success.http") %>
 ~~~
