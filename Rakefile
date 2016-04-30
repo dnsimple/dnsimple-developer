@@ -9,7 +9,7 @@ task :default => [:test, :compile]
 desc "Compile the site"
 task :compile => [:clean] do
   puts "Compiling site"
-  out = `nanoc compile`
+  out = `bundle exec nanoc compile`
 
   if $?.to_i == 0
     puts  "Compilation succeeded"
