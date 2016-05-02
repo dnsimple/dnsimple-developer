@@ -1,7 +1,8 @@
 require 'net/http'
+require 'json'
 
-include Nanoc3::Helpers::Rendering
-include Nanoc3::Helpers::XMLSitemap
+include Nanoc::Helpers::Rendering
+include Nanoc::Helpers::XMLSitemap
 
 
 ROOT = File.expand_path("../../", __FILE__)

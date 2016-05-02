@@ -26,6 +26,11 @@ task :publish => :compile do
   puts "Published"
 end
 
+desc "Autocompile and view"
+task :aco do
+  `bundle exec nanoc view`
+end
+
 task :clean do
   FileUtils.rm_r('output') if File.exist?('output')
 end
