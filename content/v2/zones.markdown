@@ -37,6 +37,19 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listZones/success.http") %>
 ~~~
 
+### Filters
+
+Name | Description
+-----|------------
+`:name_like` | Only include zones containing given string
+
+### Example
+
+List all zones for the account 1010 that have name matching "example":
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones?name_like=example
 
 ## Get a zone {#get}
 

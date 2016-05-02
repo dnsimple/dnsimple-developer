@@ -37,6 +37,20 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listDomains/success.http") %>
 ~~~
 
+### Filters
+
+Name | Description
+-----|------------
+`:name_like` | Only include domains containing given string
+`:registrant_id` | Only include domains containing given registrant ID
+
+### Example
+
+List all domains for the account 1010 that have name matching "example":
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?name_like=example
 
 ## Create a domain {#create}
 

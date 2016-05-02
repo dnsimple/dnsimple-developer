@@ -39,6 +39,22 @@ Responds with HTTP 200.
 ]
 ~~~
 
+### Filters
+
+Name | Description
+-----|------------
+`:name_like` | Only include records containing given string
+`:name` | Only include records with name equal to given string
+`:record_type` | Only include records with record type equal to given string
+
+### Example
+
+List records for the zone `example.com` with TXT zone records:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/_/zones/example.com/records?record_type=TXT
+
 
 ## Create a zone record {#create}
 
