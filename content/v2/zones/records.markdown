@@ -39,6 +39,22 @@ Responds with HTTP 200.
 ]
 ~~~
 
+### Filters
+
+Name | Type | Description
+-----|------|------------
+`:name_like` | `wildcard` | Wildcard search for zone records name
+`:name` | `strict` | Strict search for zone records name
+`:record_type` | `strict` | Strict search for zone records type
+
+### Example
+
+List records for the zone `example.com` with TXT zone records:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/_/zones/example.com/records?record_type=TXT
+
 
 ## Create a zone record {#create}
 
