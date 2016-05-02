@@ -39,10 +39,10 @@ Responds with HTTP 200.
 
 ### Filters
 
-Name | Type | Description
------|------|------------
-`:name_like` | `wildcard` | Wildcard search for domain name
-`:registrant_id` | `strict` | Strict search for registrant ID
+Name | Description
+-----|------------
+`:name_like` | Only include domains containing given string
+`:registrant_id` | Only include domains containing given registrant ID
 
 ### Example
 

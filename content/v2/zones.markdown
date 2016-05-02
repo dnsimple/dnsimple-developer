@@ -39,9 +39,9 @@ Responds with HTTP 200.
 
 ### Filters
 
-Name | Type | Description
------|------|------------
-`:name_like` | `wildcard` | Wildcard search for zone name
+Name | Description
+-----|------------
+`:name_like` | Only include zones containing given string
 
 ### Example
 

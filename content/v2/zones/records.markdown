@@ -41,11 +41,11 @@ Responds with HTTP 200.
 
 ### Filters
 
-Name | Type | Description
------|------|------------
-`:name_like` | `wildcard` | Wildcard search for zone records name
-`:name` | `strict` | Strict search for zone records name
-`:record_type` | `strict` | Strict search for zone records type
+Name | Description
+-----|------------
+`:name_like` | Only include records containing given string
+`:name` | Only include records with name equal to given string
+`:record_type` | Only include records with record type equal to given string
 
 ### Example
 
