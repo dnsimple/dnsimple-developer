@@ -96,7 +96,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createZoneRecord/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
