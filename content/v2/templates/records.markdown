@@ -80,7 +80,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-<%= pretty_print_fixture("/createTemplateRecord/success.http") %>
+<%= pretty_print_fixture("/createTemplateRecord/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
