@@ -33,10 +33,7 @@ List records for the zone `example.com`:
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listZoneRecords/success.http") %>
 ~~~
 
 ### Filters
