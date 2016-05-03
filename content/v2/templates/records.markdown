@@ -111,7 +111,7 @@ Get the record `2` for the template `example` in the account `1001`.
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getTemplateRecord/success.http") %>
 ~~~
 
 
