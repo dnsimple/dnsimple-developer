@@ -118,11 +118,11 @@ Name | Type | Description
 
 ### Example
 
-Get the record `2` for the zone `example.com`.
+Get the record `64784` for the zone `example.com`.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/2
+          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
 
 ### Response
 
@@ -145,14 +145,14 @@ Name | Type | Description
 
 ### Example
 
-Update the record with ID `2` for zone `example.com`:
+Update the record with ID `64784` for zone `example.com`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '<json>' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/2
+          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
 
 ### Input
 
@@ -198,13 +198,13 @@ Name | Type | Description
 
 ### Example
 
-Delete the record with ID `2` for zone `example.com`:
+Delete the record with ID `64784` for zone `example.com`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/2
+          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
 
 ### Response
 
