@@ -127,7 +127,7 @@ Get the record `2` for the zone `example.com`.
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getZoneRecord/success.http") %>
 ~~~
 
 
