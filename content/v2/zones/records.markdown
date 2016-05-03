@@ -176,7 +176,7 @@ Name | Type | Description
 Responds with HTTP 200 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/updateZoneRecord/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
