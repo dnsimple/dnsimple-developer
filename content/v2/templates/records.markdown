@@ -33,10 +33,7 @@ List records for the template `example` in the account `1001`:
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listTemplateRecords/success.http") %>
 ~~~
 
 
