@@ -22,21 +22,18 @@ Name | Type | Description
 
 ### Example
 
-List records for the template `example` in the account `1001`:
+List records for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1001/templates/example/records
+          https://api.dnsimple.com/v2/1010/templates/alpha/records
 
 ### Response
 
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listTemplateRecords/success.http") %>
 ~~~
 
 
@@ -53,14 +50,14 @@ Name | Type | Description
 
 ### Example
 
-Create a record for the template `example` in the account `1001`:
+Create a record for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1001/templates/example.com/records
+          https://api.dnsimple.com/v2/1010/templates/alpha/records
 
 ### Input
 
@@ -83,7 +80,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createTemplateRecord/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -105,16 +102,16 @@ Name | Type | Description
 
 ### Example
 
-Get the record `2` for the template `example` in the account `1001`.
+Get the record `301` for the template `alpha` in the account `1010`.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1001/templates/example/records/2
+          https://api.dnsimple.com/v2/1010/templates/alpha/records/301
 
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getTemplateRecord/success.http") %>
 ~~~
 
 
@@ -132,13 +129,13 @@ Name | Type | Description
 
 ### Example
 
-Delete the record with ID `2` for template `example` in the account `1001`:
+Delete the record with ID `301` for template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/1001/templates/example/records/2
+          https://api.dnsimple.com/v2/1010/templates/alpha/records/301
 
 ### Response
 
