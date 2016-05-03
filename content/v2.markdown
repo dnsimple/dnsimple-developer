@@ -30,7 +30,7 @@ Please use Sandbox for testing your API integration, **before using production**
 
 ## Current Version
 
-The current API version is `v1`. `v2` is in public beta.
+The current API version is `v1`. `v2` is in public beta and ready for production usage.
 
 
 ## Authentication
