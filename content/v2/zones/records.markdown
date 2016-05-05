@@ -196,7 +196,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete a zone record {#delete}
 
-    DELETE /:account/zone/:zone/records/:record
+    DELETE /:account/zones/:zone/records/:record
 
 ### Parameters
 
