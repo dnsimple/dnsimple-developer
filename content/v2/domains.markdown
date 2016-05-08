@@ -82,7 +82,9 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "name": "example.com"
+}
 ~~~
 
 ### Response
@@ -111,17 +113,23 @@ Name | Type | Description
 
 ### Example
 
-Get the domain with ID `1`.
+Get the domain with ID `1` in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains/1
+
+Get the domain `example.com` in the account 1010.
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains/example.com
+
+Get the domain with ID `1` with implicit account.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/_/domains/1
-
-Get the domain `example.com`.
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/domains/example.com
 
 ### Response
 
@@ -149,21 +157,21 @@ Name | Type | Description
 
 ### Example
 
-Delete the domain with ID `1`:
+Delete the domain with ID `1 from the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/domains/1
+          https://api.dnsimple.com/v2/1010/domains/1
 
-Delete the domain `example.com`.
+Delete the domain `example.com` from the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/domains/example.com
+          https://api.dnsimple.com/v2/1010/domains/example.com
 
 ### Response
 
@@ -183,14 +191,14 @@ Name | Type | Description
 
 ### Example
 
-Reset the token for the domain `example.com`.
+Reset the token for the domain `example.com` in the account 1010.
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '{}' \
-          https://api.dnsimple.com/v2/_/domains/example.com/token
+          https://api.dnsimple.com/v2/1010/domains/example.com/token
 
 ### Input
 
