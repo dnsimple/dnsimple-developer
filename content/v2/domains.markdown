@@ -172,7 +172,7 @@ Responds with HTTP 204 on success.
 
 ## Reset a domain token {#reset-token}
 
-    POST /domains/:domain/token
+    POST /:account/domains/:domain/token
 
 ### Parameters
 
