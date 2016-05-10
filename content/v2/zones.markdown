@@ -51,6 +51,28 @@ List all zones for the account 1010 that have name matching "example":
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/1010/zones?name_like=example
 
+### Sorting
+
+Sort zones with the `sorting` param by specifing the field and the sorting policy: `asc` for ascending and `desc` for descending.
+Multiple fields are allowed and MUST be comma separated.
+
+Name | Description
+-----|------------
+`:id` | Sort zones by ID
+`:name` | Sort zones by name
+`:created_at` | Sort zones by creation timestamp
+`:updated_at` | Sort zones by last update timestamp
+
+The default sorting policy is by ascending `:name`.
+
+### Example
+
+List all zones for the account 1010 sorting them by name (desc) and id (asc):
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones?sorting=name:desc,id:asc
+
 ## Get a zone {#get}
 
     GET /:account/zones/:zone

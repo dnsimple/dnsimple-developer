@@ -52,6 +52,29 @@ List records for the zone `example.com` with TXT zone records:
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/_/zones/example.com/records?record_type=TXT
 
+### Sorting
+
+Sort records with the `sorting` param by specifing the field and the sorting policy: `asc` for ascending and `desc` for descending.
+Multiple fields are allowed and MUST be comma separated.
+
+Name | Description
+-----|------------
+`:id` | Sort records by ID
+`:name` | Sort records by name
+`:content` | Sort records by content
+`:record_type` | Sort records by record_type
+`:created_at` | Sort records by creation timestamp
+`:updated_at` | Sort records by last update timestamp
+
+The default sorting policy is by ascending `:id`.
+
+### Example
+
+List records for the zone `example.com` sorting them by name (asc) and record type (desc):
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/_/zones/example.com/records?sorting=name:asc,record_type:desc
 
 ## Create a zone record {#create}
 

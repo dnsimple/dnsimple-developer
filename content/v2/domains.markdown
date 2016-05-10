@@ -52,6 +52,29 @@ List all domains for the account 1010 that have name matching "example":
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/1010/domains?name_like=example
 
+### Sorting
+
+Sort records with the `sorting` param by specifing the field and the sorting policy: `asc` for ascending and `desc` for descending.
+Multiple fields are allowed and MUST be comma separated.
+
+Name | Description
+-----|------------
+`:id` | Sort domains by ID
+`:name` | Sort domains by name
+`:expires_on` | Sort domains by expiration date
+`:created_at` | Sort domains by creation timestamp
+`:updated_at` | Sort domains by last update timestamp
+
+The default sorting policy is by ascending `:name`.
+
+### Example
+
+List all domains for the account 1010 sorting them by expiration date (asc) and id (desc)
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?sorting=expires_on:asc,id:desc
+
 ## Create a domain {#create}
 
     POST /:account/domains
