@@ -53,17 +53,16 @@ List all zones for the account 1010 that have name matching "example":
 
 ### Sorting
 
-Sort zones with the `sorting` param by specifing the field and the sorting policy: `asc` for ascending and `desc` for descending.
-Multiple fields are allowed and MUST be comma separated.
+For general informations about sorting, please refer to the [main guide](/v2/#sorting).
 
 Name | Description
 -----|------------
-`:id` | Sort zones by ID
-`:name` | Sort zones by name
-`:created_at` | Sort zones by creation timestamp
-`:updated_at` | Sort zones by last update timestamp
+`id` | Sort zones by ID
+`name` | Sort zones by name
+`created_at` | Sort zones by creation timestamp
+`updated_at` | Sort zones by last update timestamp
 
-The default sorting policy is by ascending `:name`.
+The default sorting policy is by ascending `name`.
 
 ### Example
 
