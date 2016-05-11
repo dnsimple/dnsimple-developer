@@ -54,7 +54,7 @@ List records for the zone `example.com` with TXT zone records:
 
 ### Sorting
 
-For general informations about sorting, please refer to the [main guide](/v2/#sorting).
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
 
 Name | Description
 -----|------------

@@ -53,7 +53,7 @@ List all zones for the account 1010 that have name matching "example":
 
 ### Sorting
 
-For general informations about sorting, please refer to the [main guide](/v2/#sorting).
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
 
 Name | Description
 -----|------------
