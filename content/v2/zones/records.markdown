@@ -59,7 +59,7 @@ For general informations about sorting, please refer to the [main guide](/v2/#so
 Name | Description
 -----|------------
 `id` | Sort records by ID
-`name` | Sort records by name
+`name` | Sort records by name (alphabetical order)
 `content` | Sort records by content
 `type` | Sort records by type
 `created_at` | Sort records by creation timestamp

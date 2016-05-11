@@ -58,7 +58,7 @@ For general informations about sorting, please refer to the [main guide](/v2/#so
 Name | Description
 -----|------------
 `id` | Sort zones by ID
-`name` | Sort zones by name
+`name` | Sort zones by name (alphabetical order)
 `created_at` | Sort zones by creation timestamp
 `updated_at` | Sort zones by last update timestamp
 

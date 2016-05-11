@@ -59,7 +59,7 @@ For general informations about sorting, please refer to the [main guide](/v2/#so
 Name | Description
 -----|------------
 `id` | Sort domains by ID
-`name` | Sort domains by name
+`name` | Sort domains by name (alphabetical order)
 `expires_on` | Sort domains by expiration date
 `created_at` | Sort domains by creation timestamp
 `updated_at` | Sort domains by last update timestamp
