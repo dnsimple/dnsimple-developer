@@ -173,7 +173,7 @@ List all domains for the account 1010 sorting them by expiration date (asc) and 
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains?sorting=expires_on:asc,id:desc
+          https://api.dnsimple.com/v2/1010/domains?sort=expires_on:asc,id:desc
 
 ## Rate limiting
 

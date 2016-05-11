@@ -67,14 +67,6 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
-### Example
-
-List records for the zone `example.com` sorting them by name (asc) and type (desc):
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records?sorting=name:asc,type:desc
-
 ## Create a zone record {#create}
 
     POST /:account/zones/:zone/records

@@ -64,14 +64,6 @@ Name | Description
 
 The default sorting policy is by ascending `name`.
 
-### Example
-
-List all zones for the account 1010 sorting them by name (desc) and id (asc):
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones?sorting=name:desc,id:asc
-
 ## Get a zone {#get}
 
     GET /:account/zones/:zone
