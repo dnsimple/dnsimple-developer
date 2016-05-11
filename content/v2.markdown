@@ -159,12 +159,13 @@ For example:
 
 ## Sorting
 
-API v2 results are implictely sorted according to policies that vary from endpoint to endpoint.
+API v2 results are implicitly sorted according to policies that vary from endpoint to endpoint.
 
 You can decide your own sorting policy for each single API call via the `sort` param.
 This param accepts a pair of informations: the name of a field and the order (`asc` for ascending and `desc` for descending).
 
-Multiple fields are allowed and MUST be comma separated.
+This param accepts a set of comma separated key-value pairs: the name of a field and the order criteria (`asc` for ascending and `desc` for descending).
+
 The order of fields is relevant, as it will determine the priority of the sorting policies.
 
 ### Example
