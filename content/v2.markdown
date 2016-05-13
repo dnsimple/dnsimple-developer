@@ -157,6 +157,23 @@ For example:
 
     https://api.dnsimple.com/v2/_/domains?per_page=100&page=2
 
+## Sorting
+
+API v2 results are implicitly sorted according to policies that vary from endpoint to endpoint.
+
+You can decide your own sorting policy for each single API call via the `sort` parameter.
+
+This parameter accepts a set of comma separated key-value pairs: the name of a field and the order criteria (`asc` for ascending and `desc` for descending).
+
+The order of fields is relevant, as it will determine the priority of the sorting policies.
+
+### Example
+
+List all domains for the account 1010 sorting them by expiration date (asc) and id (desc)
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?sort=expires_on:asc,id:desc
 
 ## Rate limiting
 

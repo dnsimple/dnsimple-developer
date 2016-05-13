@@ -52,6 +52,20 @@ List records for the zone `example.com` with TXT zone records:
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/_/zones/example.com/records?record_type=TXT
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort records by ID
+`name` | Sort records by name (alphabetical order)
+`content` | Sort records by content
+`type` | Sort records by type
+`created_at` | Sort records by creation timestamp
+`updated_at` | Sort records by last update timestamp
+
+The default sorting policy is by ascending `id`.
 
 ## Create a zone record {#create}
 
