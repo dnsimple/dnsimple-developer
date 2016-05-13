@@ -17,6 +17,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 - [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
 - [DNSimple Go client](https://github.com/aetrion/dnsimple-go)
+- [DNSimple Elixir client](https://github.com/aetrion/dnsimple-elixir)
 
 ## Bash
 
