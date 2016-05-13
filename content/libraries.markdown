@@ -1,6 +1,6 @@
 ---
 title: Libraries
-excerpt: Welcome to DNSimple. This page is about libraries for interacting with our API. Hosted DNS has never been this easy.
+excerpt: Here's a list of libraries and API clients for interacting with the DNSimple domain and DNS API.
 ---
 
 # Libraries
