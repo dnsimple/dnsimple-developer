@@ -151,7 +151,7 @@ For example:
 You may include the following arguments as query parameters when you call an API endpoint that supports pagination:
 
 - `page`: The page to return (default: 1)
-- `per_page`: The number of entries to return per page (default: 30)
+- `per_page`: The number of entries to return per page (default: 30, maximum: 100)
 
 For example:
 
