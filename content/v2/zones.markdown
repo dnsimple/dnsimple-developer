@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple zones API v2.
 
     GET /:account/zones
 
-List zones for the account.
+List zones from the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all zones for the account 1010.
+List all zones from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -45,7 +45,7 @@ Name | Description
 
 ### Example
 
-List all zones for the account 1010 that have name matching "example":
+List all zones from the account `1010` that have name matching `"example"`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -72,12 +72,12 @@ The default sorting policy is by ascending `name`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 
 ### Example
 
-Get the zone `example.com` for the account 1010.
+Get the zone `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

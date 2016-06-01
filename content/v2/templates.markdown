@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple templates API v2.
 
     GET /:account/templates
 
-List templates for the account.
+List templates from the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all templates for the account 1010.
+List all templates from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -50,7 +50,7 @@ Name | Type | Description
 
 ### Example
 
-Create a template in the account 1010.
+Create a template from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -101,17 +101,17 @@ Name | Type | Description
 
 ### Example
 
-Get the template with ID `1`.
+Get the template with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/template/1
+          https://api.dnsimple.com/v2/1010/template/1
 
-Get the template with short name `example`.
+Get the template with short name `example` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/template/example
+          https://api.dnsimple.com/v2/1010/template/example
 
 ### Response
 
@@ -133,23 +133,23 @@ Name | Type | Description
 
 ### Example
 
-Update the template with ID `1`:
+Update the template with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '{"name":"Alpha"}' \
-          https://api.dnsimple.com/v2/_/templates/1
+          https://api.dnsimple.com/v2/1010/templates/1
 
-Update the template with short name `example`:
+Update the template with short name `example` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '{"name":"Alpha"}' \
-          https://api.dnsimple.com/v2/_/templates/example
+          https://api.dnsimple.com/v2/1010/templates/example
 
 ### Input
 
@@ -179,19 +179,19 @@ Name | Type | Description
 
 ### Example
 
-Delete the template with ID `1`:
+Delete the template with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/templates/1
+          https://api.dnsimple.com/v2/1010/templates/1
 
-Delete the template with short name `example`:
+Delete the template with short name `example` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/templates/example
+          https://api.dnsimple.com/v2/1010/templates/example
 
 ### Response
 

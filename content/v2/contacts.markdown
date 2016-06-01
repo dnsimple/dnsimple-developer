@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 
     GET /:account/contacts
 
-List contacts for the account.
+List contacts from the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all contacts for the account 1010.
+List all contacts from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -50,7 +50,7 @@ Name | Type | Description
 
 ### Example
 
-Create a contact in the account 1010.
+Create a contact from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -102,16 +102,16 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Get the contact with ID `1`.
+Get the contact with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Response
 
@@ -128,19 +128,19 @@ Get the contact with ID `1`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Update the contact with ID `1`:
+Update the contact with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '<json>' \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Input
 
@@ -165,18 +165,18 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Delete the contact with ID `1`:
+Delete the contact with ID `1` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Response
 

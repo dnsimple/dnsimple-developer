@@ -17,16 +17,16 @@ excerpt: This page documents the DNSimple domain services API v2.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
-List applied services for domain with ID `1`:
+List applied services for domain with ID `1` from the account `1010`:
 
     curl -H 'Authorization: Bearer <token>' \
          -H 'Accept: application/json' \
-         https://api.dnsimple.com/v2/_/domains/1/services
+         https://api.dnsimple.com/v2/1010/domains/1/services
 
 ### Response
 
@@ -63,20 +63,20 @@ List applied services for domain with ID `1`:
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 `:service` | `string`, `integer` | The service name or id
 
 ### Example
 
-Apply a service with ID `2` to domain with ID `1`:
+Apply a service with ID `2` to domain with ID `1`, from the account `1010`:
 
     curl -H 'Authorization: Bearer <token>' \
          -H 'Accept: application/json' \
          -H 'Content-Type: application/json' \
          -X POST \
          -d '<json>' \
-         https://api.dnsimple.com/v2/_/domains/1/services/2
+         https://api.dnsimple.com/v2/1010/domains/1/services/2
 
 ### Input
 

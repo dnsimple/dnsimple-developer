@@ -155,7 +155,7 @@ You may include the following arguments as query parameters when you call an API
 
 For example:
 
-    https://api.dnsimple.com/v2/_/domains?per_page=100&page=2
+    https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
 ## Sorting
 
@@ -169,7 +169,7 @@ The order of fields is relevant, as it will determine the priority of the sortin
 
 ### Example
 
-List all domains for the account 1010 sorting them by expiration date (asc) and id (desc)
+List all domains from the account `1010` sorting them by expiration date (asc) and id (desc)
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

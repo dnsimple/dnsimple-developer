@@ -26,7 +26,7 @@ Name | Type | Description
 
 ### Example
 
-Get the WHOIS privacy for the domain example.com in the account 1010.
+Get the WHOIS privacy for the domain `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -61,7 +61,7 @@ Name | Type | Description
 
 ### Example
 
-Enable WHOIS privacy for the domain example.com in the account 1010.
+Enable WHOIS privacy for the domain `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -97,7 +97,7 @@ Name | Type | Description
 
 ### Example
 
-Disable whois privacy for the domain example.com in the account 1010.
+Disable whois privacy for the domain `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

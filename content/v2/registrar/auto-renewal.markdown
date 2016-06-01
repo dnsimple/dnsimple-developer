@@ -17,12 +17,12 @@ excerpt: This page documents the DNSimple domain registration auto-renewal API v
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
-Enable auto-renewal for the domain `example.com`:
+Enable auto-renewal for the domain `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -43,12 +43,12 @@ Responds with HTTP 204 on success.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
-Disable auto-renewal for the domain `example.com`:
+Disable auto-renewal for the domain `example.com` from the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
