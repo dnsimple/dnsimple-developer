@@ -24,7 +24,7 @@ Name | Type | Description
 
 ### Example
 
-Check the domain `example.com` from the account `1010`:
+Check the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -58,7 +58,7 @@ Name | Type | Description
 
 ### Example
 
-Register the domain `example.com` from the account `1010`:
+Register the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -118,7 +118,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer the domain `example.com` from the account `1010`:
+Transfer the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -192,7 +192,7 @@ Name | Type | Description
 
 ### Example
 
-Renew the domain `example.com` from the account `1010`:
+Renew the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -240,7 +240,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer out the domain `example.com` from the account `1010`:
+Transfer out the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

@@ -22,7 +22,7 @@ Name | Type | Description
 
 ### Example
 
-List records for the zone `example.com` from the account `1010`:
+List records for the zone `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -46,7 +46,7 @@ Name | Description
 
 ### Example
 
-List records for the zone `example.com` with TXT zone records, from the account `1010`:
+List records for the zone `example.com` with TXT zone records, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -80,7 +80,7 @@ Name | Type | Description
 
 ### Example
 
-Create a record for the zone `example.com` from the account `1010`:
+Create a record for the zone `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -138,7 +138,7 @@ Name | Type | Description
 
 ### Example
 
-Get the record `64784` for the zone `example.com`, from the account `1010`:
+Get the record `64784` for the zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -165,7 +165,7 @@ Name | Type | Description
 
 ### Example
 
-Update the record with ID `64784` for zone `example.com`, from the account `1010`:
+Update the record with ID `64784` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -222,7 +222,7 @@ Name | Type | Description
 
 ### Example
 
-Delete the record with ID `64784` for zone `example.com`, from the account `1010`:
+Delete the record with ID `64784` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

@@ -22,7 +22,7 @@ Name | Type | Description
 
 ### Example
 
-List records for the template `alpha` from the account `1010`:
+List records for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -50,7 +50,7 @@ Name | Type | Description
 
 ### Example
 
-Create a record for the template `alpha` from the account `1010`:
+Create a record for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -102,7 +102,7 @@ Name | Type | Description
 
 ### Example
 
-Get the record `301` for the template `alpha` from the account `1010`:
+Get the record `301` for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -129,7 +129,7 @@ Name | Type | Description
 
 ### Example
 
-Delete the record with ID `301` for template `alpha` from the account `1010`:
+Delete the record with ID `301` for template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple templates API v2.
 
     GET /:account/templates
 
-List templates from the account.
+List templates in the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all templates from the account `1010`:
+List all templates in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -50,7 +50,7 @@ Name | Type | Description
 
 ### Example
 
-Create a template from the account `1010`:
+Create a template in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -101,13 +101,13 @@ Name | Type | Description
 
 ### Example
 
-Get the template with ID `1` from the account `1010`:
+Get the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/1010/template/1
 
-Get the template with short name `example` from the account `1010`:
+Get the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -133,7 +133,7 @@ Name | Type | Description
 
 ### Example
 
-Update the template with ID `1` from the account `1010`:
+Update the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -142,7 +142,7 @@ Update the template with ID `1` from the account `1010`:
           -d '{"name":"Alpha"}' \
           https://api.dnsimple.com/v2/1010/templates/1
 
-Update the template with short name `example` from the account `1010`:
+Update the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -179,14 +179,14 @@ Name | Type | Description
 
 ### Example
 
-Delete the template with ID `1` from the account `1010`:
+Delete the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X DELETE \
           https://api.dnsimple.com/v2/1010/templates/1
 
-Delete the template with short name `example` from the account `1010`:
+Delete the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

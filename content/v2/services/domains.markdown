@@ -22,7 +22,7 @@ Name | Type | Description
 
 ### Example
 
-List applied services for domain with ID `1` from the account `1010`:
+List applied services for domain with ID `1` in the account `1010`:
 
     curl -H 'Authorization: Bearer <token>' \
          -H 'Accept: application/json' \
@@ -69,7 +69,7 @@ Name | Type | Description
 
 ### Example
 
-Apply a service with ID `2` to domain with ID `1`, from the account `1010`:
+Apply a service with ID `2` to domain with ID `1`, in the account `1010`:
 
     curl -H 'Authorization: Bearer <token>' \
          -H 'Accept: application/json' \

@@ -169,7 +169,7 @@ The order of fields is relevant, as it will determine the priority of the sortin
 
 ### Example
 
-List all domains from the account `1010` sorting them by expiration date (asc) and id (desc)
+List all domains in the account `1010` sorting them by expiration date (asc) and id (desc)
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

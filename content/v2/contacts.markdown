@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 
     GET /:account/contacts
 
-List contacts from the account.
+List contacts in the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all contacts from the account `1010`:
+List all contacts in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -50,7 +50,7 @@ Name | Type | Description
 
 ### Example
 
-Create a contact from the account `1010`:
+Create a contact in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -107,7 +107,7 @@ Name | Type | Description
 
 ### Example
 
-Get the contact with ID `1` from the account `1010`:
+Get the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -133,7 +133,7 @@ Name | Type | Description
 
 ### Example
 
-Update the contact with ID `1` from the account `1010`:
+Update the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -170,7 +170,7 @@ Name | Type | Description
 
 ### Example
 
-Delete the contact with ID `1` from the account `1010`:
+Delete the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple email forwards API v2.
 
     GET /:account/domains/:domain/email_forwards
 
-List email forwards for the domain from the account.
+List email forwards for the domain in the account.
 
 ### Parameters
 
@@ -24,7 +24,7 @@ Name | Type | Description
 
 ### Example
 
-List all email forwards for the domain `example.com` from the account `1010`:
+List all email forwards for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -51,7 +51,7 @@ Name | Type | Description
 
 ### Example
 
-Create an email forward under the domain `example.com` from the account `1010`:
+Create an email forward under the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -100,7 +100,7 @@ Name | Type | Description
 
 ### Example
 
-Get the email forward with the ID `1` in the domain `example.com`, from the account `1010`:
+Get the email forward with the ID `1` in the domain `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -131,7 +131,7 @@ Name | Type | Description
 
 ### Example
 
-Delete the email forward with ID `1` under the domain `example.com`, from the account `1010`:
+Delete the email forward with ID `1` under the domain `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

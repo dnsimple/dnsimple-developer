@@ -15,7 +15,7 @@ Retrieve and manage delegation for a domain in DNSimple.
 
     GET /:account/registrar/domains/:domain/delegation
 
-List name servers for the domain from the account.
+List name servers for the domain in the account.
 
 ### Parameters
 
@@ -26,7 +26,7 @@ Name | Type | Description
 
 ### Example
 
-List name servers for the domain `example.com` from the account `1010`:
+List name servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -54,7 +54,7 @@ Name | Type | Description
 
 ### Example
 
-Update name servers for the domain `example.com` from the account `1010`:
+Update name servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -108,7 +108,7 @@ Name | Type | Description
 
 ### Example
 
-Update name servers for the domain `example.com` from the account `1010`:
+Update name servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -156,7 +156,7 @@ Name | Type | Description
 
 ### Example
 
-Update name servers for the domain `example.com` from the account `1010`:
+Update name servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
