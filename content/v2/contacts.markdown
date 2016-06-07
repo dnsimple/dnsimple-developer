@@ -71,7 +71,7 @@ Name | Type | Description
 `state_province`    | `string` | **Required**.
 `postal_code`       | `string` | **Required**.
 `country`           | `string` | **Required**.
-`email_address`     | `string` | **Required**.
+`email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
 `fax`               | `string` | **Required**.
 `organization_name` | `string` | The company name. If the `organization_name` is specified, then you must also include `job_title`.
