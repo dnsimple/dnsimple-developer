@@ -28,7 +28,7 @@ Name | Type | Description
 
 ### Example
 
-Enable Vanity Name Servers for the domain example.com in the account 1010.
+Enable Vanity Name Servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -62,7 +62,7 @@ Name | Type | Description
 
 ### Example
 
-Enable Vanity Name Servers for the domain example.com in the account 1010.
+Enable Vanity Name Servers for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

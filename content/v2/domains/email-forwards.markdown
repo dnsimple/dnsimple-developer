@@ -24,7 +24,7 @@ Name | Type | Description
 
 ### Example
 
-List all email forwards for the domain example.com in the account 1010.
+List all email forwards for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -51,7 +51,7 @@ Name | Type | Description
 
 ### Example
 
-Create an email forward under the domain example.com in the account 1010.
+Create an email forward under the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -94,17 +94,17 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 `:email_forward` | `integer` | The email forward id
 
 ### Example
 
-Get the email forward with the ID `1` in the domain `example.com`.
+Get the email forward with the ID `1` in the domain `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/domains/example.com/email_forwards/1
+          https://api.dnsimple.com/v2/1010/domains/example.com/email_forwards/1
 
 ### Response
 
@@ -125,19 +125,19 @@ Delete the email forward from the domain.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 `:email_forward` | `integer` | The email forward id
 
 ### Example
 
-Delete the email forward with ID `1` under the domain `example.com`.
+Delete the email forward with ID `1` under the domain `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/domains/example.com/email_forwards/1
+          https://api.dnsimple.com/v2/1010/domains/example.com/email_forwards/1
 
 ### Response
 

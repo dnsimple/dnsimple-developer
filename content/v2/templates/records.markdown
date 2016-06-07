@@ -102,7 +102,7 @@ Name | Type | Description
 
 ### Example
 
-Get the record `301` for the template `alpha` in the account `1010`.
+Get the record `301` for the template `alpha` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

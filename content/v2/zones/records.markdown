@@ -17,16 +17,16 @@ excerpt: This page documents the DNSimple records API v2.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 
 ### Example
 
-List records for the zone `example.com`:
+List records for the zone `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records
+          https://api.dnsimple.com/v2/1010/zones/example.com/records
 
 ### Response
 
@@ -46,11 +46,11 @@ Name | Description
 
 ### Example
 
-List records for the zone `example.com` with TXT zone records:
+List records for the zone `example.com` with TXT zone records, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records?record_type=TXT
+          https://api.dnsimple.com/v2/1010/zones/example.com/records?record_type=TXT
 
 ### Sorting
 
@@ -75,19 +75,19 @@ The default sorting policy is by ascending `id`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 
 ### Example
 
-Create a record for the zone `example.com`:
+Create a record for the zone `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records
+          https://api.dnsimple.com/v2/1010/zones/example.com/records
 
 ### Input
 
@@ -132,17 +132,17 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
 ### Example
 
-Get the record `64784` for the zone `example.com`.
+Get the record `64784` for the zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
 
 ### Response
 
@@ -159,20 +159,20 @@ Get the record `64784` for the zone `example.com`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
 ### Example
 
-Update the record with ID `64784` for zone `example.com`:
+Update the record with ID `64784` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '<json>' \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
 
 ### Input
 
@@ -216,19 +216,19 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
 
 ### Example
 
-Delete the record with ID `64784` for zone `example.com`:
+Delete the record with ID `64784` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
 
 ### Response
 
