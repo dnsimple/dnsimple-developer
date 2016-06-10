@@ -36,6 +36,22 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listTemplateRecords/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort template records by ID
+`name` | Sort template records by name (alphabetical order)
+`content` | Sort template records by content (alphabetical order)
+`type` | Sort template records by type (alphabetical order)
+`expires_on` | Sort template records by expiration date
+`created_at` | Sort template records by creation timestamp
+`updated_at` | Sort template records by last update timestamp
+
+The default sorting policy is by ascending `id`.
+
 
 ## Create a template record {#create}
 
