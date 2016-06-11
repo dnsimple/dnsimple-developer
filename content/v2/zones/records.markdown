@@ -42,7 +42,7 @@ Name | Description
 -----|------------
 `:name_like` | Only include records containing given string
 `:name` | Only include records with name equal to given string
-`:record_type` | Only include records with record type equal to given string
+`:type` | Only include records with record type equal to given string
 
 ### Example
 
@@ -50,7 +50,7 @@ List records for the zone `example.com` with TXT zone records, in the account `1
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records?record_type=TXT
+          https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
 
 ### Sorting
 
