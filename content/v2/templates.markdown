@@ -46,8 +46,6 @@ Name | Description
 `id` | Sort templates by ID
 `name` | Sort templates by name (alphabetical order)
 `short_name` | Sort templates by short name (alphabetical order)
-`created_at` | Sort templates by creation timestamp
-`updated_at` | Sort templates by last update timestamp
 
 The default sorting policy is by ascending `id`.
 

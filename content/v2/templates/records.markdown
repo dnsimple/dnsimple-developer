@@ -47,8 +47,6 @@ Name | Description
 `content` | Sort template records by content (alphabetical order)
 `type` | Sort template records by type (alphabetical order)
 `expires_on` | Sort template records by expiration date
-`created_at` | Sort template records by creation timestamp
-`updated_at` | Sort template records by last update timestamp
 
 The default sorting policy is by ascending `id`.
 

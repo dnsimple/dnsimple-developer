@@ -62,8 +62,6 @@ Name | Description
 `name` | Sort records by name (alphabetical order)
 `content` | Sort records by content
 `type` | Sort records by type
-`created_at` | Sort records by creation timestamp
-`updated_at` | Sort records by last update timestamp
 
 The default sorting policy is by ascending `id`.
 

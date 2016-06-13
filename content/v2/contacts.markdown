@@ -46,7 +46,6 @@ Name | Description
 `id` | Sort contacts by ID
 `label` | Sort contacts by label (alphabetical order)
 `email` | Sort contacts by email (alphabetical order)
-`modification` | Sort contacts by last update timestamp
 
 The default sorting policy is by ascending `id`.
 
