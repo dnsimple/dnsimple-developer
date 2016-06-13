@@ -76,6 +76,10 @@ Name | Type | Description
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
 
+<note>
+The `registrant_id` can be obtained via the [contacts endpoint](/v2/contacts)
+</note>
+
 ##### Example
 
 ~~~json
