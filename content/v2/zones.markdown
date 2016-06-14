@@ -59,8 +59,6 @@ Name | Description
 -----|------------
 `id` | Sort zones by ID
 `name` | Sort zones by name (alphabetical order)
-`created_at` | Sort zones by creation timestamp
-`updated_at` | Sort zones by last update timestamp
 
 The default sorting policy is by ascending `name`.
 

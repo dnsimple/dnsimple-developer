@@ -37,6 +37,17 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listContacts/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort contacts by ID
+`label` | Sort contacts by label (alphabetical order)
+`email` | Sort contacts by email (alphabetical order)
+
+The default sorting policy is by ascending `id`.
 
 ## Create a contact {#create}
 

@@ -61,8 +61,6 @@ Name | Description
 `id` | Sort domains by ID
 `name` | Sort domains by name (alphabetical order)
 `expires_on` | Sort domains by expiration date
-`created_at` | Sort domains by creation timestamp
-`updated_at` | Sort domains by last update timestamp
 
 The default sorting policy is by ascending `name`.
 

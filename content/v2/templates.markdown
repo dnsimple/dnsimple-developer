@@ -37,6 +37,17 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listTemplates/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort templates by ID
+`name` | Sort templates by name (alphabetical order)
+`short_name` | Sort templates by short name (alphabetical order)
+
+The default sorting policy is by ascending `id`.
 
 ## Create a template {#create}
 

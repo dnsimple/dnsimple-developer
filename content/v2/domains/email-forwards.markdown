@@ -38,6 +38,18 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listEmailForwards/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort email forwards by ID
+`from` | Sort email forwards by sender (alphabetical order)
+`to` | Sort email forwards by recipient (alphabetical order)
+
+The default sorting policy is by ascending `id`.
+
 ## Create an email forward {#create}
 
     POST /:account/domains/:domain/email_forwards

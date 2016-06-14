@@ -27,6 +27,17 @@ List all services.
 <%= pretty_print_fixture("/listServices/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort services by ID
+`short_name` | Sort services by short name (alphabetical order)
+
+The default sorting policy is by ascending `id`.
+
 
 ## Get a service {#get}
 

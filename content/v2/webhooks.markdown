@@ -160,6 +160,16 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listWebhooks/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort webhooks by ID
+
+The default sorting policy is by ascending `id`.
+
 
 ## Create a webhook {#create}
 
