@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple accounts API v2 endpoint.
 {:toc}
 
 
-## Accounts
+## List accounts
 
     GET /accounts
 
