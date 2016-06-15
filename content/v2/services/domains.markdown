@@ -94,23 +94,24 @@ Responds with HTTP 204 on success.
 
 ## Unapply a service {#unapply}
 
-    DELETE /domains/:domain/applied_services/:service
+    DELETE /:account/domains/:domain/services/:service
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
+`:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 `:service` | `string`, `integer` | The service name or id
 
 ### Example
 
-Unapply the service with ID `2` from domain with ID `1`:
+Unapply the service with ID `2` from domain with ID `1`, in the account `1010`:
 
     curl -H 'X-DNSimple-Token: <email>:<token>' \
          -H 'Accept: application/json' \
          -X DELETE \
-         https://api.dnsimple.com/v1/domains/1/services/2
+         https://api.dnsimple.com/v2/1010/domains/1/services/2
 
 ### Response
 
