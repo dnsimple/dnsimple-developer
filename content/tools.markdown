@@ -10,7 +10,6 @@ Tools built around the DNSimple API.
 If you've developed a tool for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
 
 
-- [DNSimple iPhone app](http://itunes.apple.com/app/dnsimple-app/id507299306?mt=8)
 - [Import tool in Ruby](https://github.com/aetrion/dnsimple-importer)
 - [Dynamic IP Updater in Bash](/ddns) (official)
 - [Dynamic IP Updater in Bash](http://jasonseifer.com/2011/04/04/auto-update-ip-dnsimple) (original by [Jason Seifer](http://jasonseifer.com)
