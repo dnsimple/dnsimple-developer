@@ -157,6 +157,24 @@ For example:
 
     https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
+## Filtering
+
+Filtering makes it possible to ask only for the exact subset of data that you you're looking for.
+
+With potential hundreds of result entries, it's covenient to apply a filter and receive only the interesting data.
+
+API v2 supports this feature via query string.
+
+### Example
+
+List all domains in the account `1010` that have name matching `"example"`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?name_like=example
+
+Please have a look at the documentation of each endpoint to know about the filters it supports.
+
 ## Sorting
 
 API v2 results are implicitly sorted according to policies that vary from endpoint to endpoint.
