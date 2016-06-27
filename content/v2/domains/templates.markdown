@@ -19,7 +19,7 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
-`:template` | `integer` | The template id
+`:template` | `string`, `integer` | The template id or short name
 
 ### Example
 
