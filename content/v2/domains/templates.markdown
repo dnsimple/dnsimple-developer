@@ -1,0 +1,37 @@
+---
+title: Templates API | Domains | DNSimple API v2 (Beta)
+excerpt: This page documents the DNSimple templates API v2.
+---
+
+# Templates API
+
+* TOC
+{:toc}
+
+
+## Apply a template {#apply}
+
+    POST /:account/domains/:domain/templates/:template
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
+`:template` | `integer` | The template id
+
+### Example
+
+Apply the template with the ID `1` in the domain `example.com`, in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          https://api.dnsimple.com/v2/1010/domains/example.com/templates/1
+
+### Response
+
+Responds with HTTP 204 on success.
+
