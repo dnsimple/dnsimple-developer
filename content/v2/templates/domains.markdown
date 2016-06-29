@@ -1,9 +1,9 @@
 ---
-title: Templates API | Domains | DNSimple API v2 (Beta)
-excerpt: This page documents the DNSimple templates API v2.
+title: Domain templates API | Templates | DNSimple API v2 (Beta)
+excerpt: This page documents the DNSimple domain templates API v2.
 ---
 
-# Templates API
+# Domain templates API
 
 * TOC
 {:toc}
