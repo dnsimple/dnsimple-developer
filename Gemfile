@@ -10,7 +10,6 @@ gem 'pygments.rb'
 gem 'sass'
 gem 'systemu'
 
-
 group :test do
   gem 'minitest'
   gem 'minitest-reporters'
@@ -21,4 +20,3 @@ group :development do
   gem 'guard-nanoc'
   gem 's3_website'
 end
-

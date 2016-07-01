@@ -1,0 +1,3 @@
+2016-06-03 12:00:00:
+  title: Removed support for the Wildcard Account
+  description: Removed support for the _Wildcard Account_. The wildcard account was a special character `_` you can pass in some API requests instead of a real account, and our system tried to detect the account for you. Using a wildcard is currently no longer supported, a real account ID has to be provided.
