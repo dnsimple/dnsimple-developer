@@ -1,3 +1,7 @@
+2016-07-05 07:56:53:
+  title: Return error for already existing zone record
+  description: An attempt to create an already existing zone record will now return a HTTP client error (`400`). In the past, it used to ignore already existing zone records and to always return a successful HTTP status (`201`).
+
 2016-06-03 12:00:00:
   title: Removed support for the Wildcard Account
   description: Removed support for the _Wildcard Account_. The wildcard account was a special character `_` you can pass in some API requests instead of a real account, and our system tried to detect the account for you. Using a wildcard is currently no longer supported, a real account ID has to be provided.
