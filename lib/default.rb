@@ -27,7 +27,7 @@ end
 def api_v2_changelog
   api_v2_changelog_items.map do |item|
     "#{item[:time].to_date}: #{item[:description]}"
-  end.join("\n")
+  end.join("<br/><br/>")
 end
 
 def api_v2_changelog_items
