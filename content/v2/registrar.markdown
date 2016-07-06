@@ -24,7 +24,7 @@ Name | Type | Description
 
 ### Example
 
-Check the domain example.com in the account 1010.
+Check the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -58,7 +58,7 @@ Name | Type | Description
 
 ### Example
 
-Register the domain example.com in the account 1010.
+Register the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -75,6 +75,10 @@ Name | Type | Description
 `privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
+
+<note>
+The `registrant_id` can be obtained via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
+</note>
 
 ##### Example
 
@@ -118,7 +122,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer the domain example.com in the account 1010.
+Transfer the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -192,7 +196,7 @@ Name | Type | Description
 
 ### Example
 
-Renew the domain example.com in the account 1010.
+Renew the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -240,7 +244,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer out the domain example.com in the account 1010.
+Transfer out the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

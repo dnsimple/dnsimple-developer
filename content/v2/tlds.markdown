@@ -47,6 +47,16 @@ List all TLDs.
 <%= pretty_print_fixture("/listTlds/success.http") %>
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`tld` | Sort TLDs by tld
+
+The default sorting policy is by ascending `tld`.
+
 ## Get TLD details {#get}
 
     GET /tlds/:tld

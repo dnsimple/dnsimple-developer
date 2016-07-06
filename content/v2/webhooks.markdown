@@ -136,7 +136,7 @@ The following events are available:
 
     GET /:account/webhooks
 
-List webhooks for the account.
+List webhooks in the account.
 
 ### Parameters
 
@@ -146,7 +146,7 @@ Name | Type | Description
 
 ### Example
 
-List all webhooks for the account 1010.
+List all webhooks in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -159,6 +159,16 @@ Responds with HTTP 200.
 ~~~json
 <%= pretty_print_fixture("/listWebhooks/success.http") %>
 ~~~
+
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort webhooks by ID
+
+The default sorting policy is by ascending `id`.
 
 
 ## Create a webhook {#create}
@@ -173,7 +183,7 @@ Name | Type | Description
 
 ### Example
 
-Create a webhook in the account 1010.
+Create a webhook in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -220,7 +230,7 @@ Name | Type | Description
 
 ### Example
 
-Get the webhook with ID `1` in the account 1010.
+Get the webhook with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -247,7 +257,7 @@ Name | Type | Description
 
 ### Example
 
-Delete the webhook with ID `1` in the account 1010:
+Delete the webhook with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

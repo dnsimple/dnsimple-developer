@@ -9,8 +9,6 @@ API v2 are currently in beta, and they are in active development. As part of the
 
 This page lists all the changes since API v2 were announced in public beta. If you use our official API clients, in most cases the changes are taken care for you.
 
-2016-06-06
-: Renamed Contact#email_address to Contact#email.
+[Subscribe to the changes via our RSS feed.](/v2/feed.xml)
 
-2016-06-03
-: Removed support for the _Wildcard Account_. The wildcard account was a special character `_` you can pass in some API requests instead of a real account, and our system tried to detect the account for you. Using a wildcard is currently no longer supported, a real account ID has to be provided.
+<%= api_v2_changelog %>
