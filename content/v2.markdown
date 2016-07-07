@@ -61,7 +61,7 @@ In case two-factor authentication is enabled but the header is not sent, the app
 curl -H 'Authorization: Bearer OAUTH-TOKEN' https://api.dnsimple.com/v2/whoami
 ~~~
 
-Note that Oauth2 tokens cam be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
+Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
 
 ## Response Codes
 
