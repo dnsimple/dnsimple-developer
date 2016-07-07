@@ -1,3 +1,7 @@
+2016-07-07 08:41:27:
+  title: Renamed `Contact#email_address` to `Contact#email`
+  description: Renamed `Contact#email_address` to `Contact#email`
+
 2016-07-05 07:56:53:
   title: Return error for already existing zone record
   description: An attempt to create an already existing zone record will now return a HTTP client error (`400`). In the past, it used to ignore already existing zone records and to always return a successful HTTP status (`201`).
