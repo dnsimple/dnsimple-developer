@@ -57,6 +57,7 @@ Name | Description
 
 The default sorting policy is by ascending `tld`.
 
+
 ## Get TLD details {#get}
 
     GET /tlds/:tld
@@ -80,6 +81,7 @@ Get the TLD with name `"com"`.
 ~~~json
 <%= pretty_print_fixture("/getTld/success.http") %>
 ~~~
+
 
 ## Get TLD Extended Attributes {#extended-attributes}
 

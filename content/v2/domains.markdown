@@ -64,6 +64,7 @@ Name | Description
 
 The default sorting policy is by ascending `name`.
 
+
 ## Create a domain {#create}
 
     POST /:account/domains

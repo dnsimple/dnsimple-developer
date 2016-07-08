@@ -50,6 +50,7 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
+
 ## Create an email forward {#create}
 
     POST /:account/domains/:domain/email_forwards

@@ -10,7 +10,7 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 
 ## Check domain availability {#check}
-e
+
     GET /:account/registrar/domains/:domain/check
 
 Check if the domain is available for registration or transfer.

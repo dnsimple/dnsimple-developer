@@ -49,6 +49,7 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
+
 ## Create a contact {#create}
 
     POST /:account/contacts
