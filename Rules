@@ -13,7 +13,6 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-
 compile '/assets/css/*/' do
   if item.identifier =~ %r{/_[^/]+/$}
     # don't compile partials
@@ -25,9 +24,6 @@ end
 
 compile '/assets/*/' do
   # don't filter or layout
-end
-
-compile '/CNAME/' do
 end
 
 compile '/sitemap/' do
@@ -74,10 +70,6 @@ end
 
 route '/assets/*/' do
   item.identifier.to_s.chop + '.' + item[:extension]
-end
-
-route '/CNAME/' do
-  '/CNAME'
 end
 
 route '/sitemap/' do
