@@ -21,7 +21,8 @@ def pretty_print_fixture(filename)
   transfer_encoding = response.delete('transfer-encoding')
   response.reading_body(socket, true) {}
 
-  JSON.pretty_generate(JSON.parse(response.read_body))
+  body = response.read_body
+  body ? JSON.pretty_generate(JSON.parse(body)) : nil
 end
 
 def api_v2_changelog
