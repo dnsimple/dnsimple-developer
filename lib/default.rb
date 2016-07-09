@@ -11,8 +11,6 @@ def read_http_fixture(filename)
   File.read(File.join(ROOT, "fixtures", "v2", filename))
 end
 
-alias read_fixture read_http_fixture
-
 def pretty_print_fixture(filename)
   raw_response = read_http_fixture(filename)
 
@@ -34,7 +32,7 @@ end
 def api_v2_changelog_items
   require 'yaml'
 
-  YAML.load(read_fixture('changelog.yml')).map do |time, entry|
+  YAML.load(File.read(ROOT + '/content/v2/_changelog.yml')).map do |time, entry|
     Hash[
       title:       entry.fetch('title'),
       description: entry.fetch('description'),
