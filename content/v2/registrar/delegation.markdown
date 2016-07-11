@@ -106,6 +106,12 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
+### Input
+
+Name | Type | Description
+-----|------|------------
+ | `array` | **Required** A list of name server names as strings.
+
 ### Example
 
 Update name servers for the domain `example.com` in the account `1010`:
@@ -117,27 +123,19 @@ Update name servers for the domain `example.com` in the account `1010`:
           -d '["ns1.example.com","ns2.example.com"]' \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/delegation/vanity
 
-### Input
-
-Name | Type | Description
------|------|------------
- | `array` | **Required** A list of name server names as strings.
-
-##### Example
-
-~~~json
-~~~
-
 ### Response
 
 Responds with HTTP 200 on success, renders the list of name server names.
 
 ~~~json
+<%= pretty_print_fixture("/changeDomainDelegationToVanity/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the delegation fails.
+
+Responds with HTTP 412 if the feature is not enabled for the account.
 
 ## Dedelegate from Vanity Name Servers {#dedelegateFromVanity}
 
@@ -170,3 +168,5 @@ Responds with HTTP 204 on success.
 Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the dedelegation fails.
+
+Responds with HTTP 412 if the feature is not enabled for the account.
