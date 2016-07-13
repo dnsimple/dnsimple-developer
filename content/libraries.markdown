@@ -27,7 +27,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### Ruby
 
-- [Fog](http://fog.io/) - The Ruby cloud services library. Includes DNSimple support.
+- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](http://fog.io/) module for DNSimple.
 
 ### Python
 
