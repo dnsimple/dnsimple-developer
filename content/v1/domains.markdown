@@ -299,7 +299,7 @@ Move a domain from the current DNSimple account to another.
     POST /domains/:domain/push
 
 Once a domain is pushed you will no longer be able to access it through your account.
-You will need to acces it using the new account's credentials.
+You will need to access it using the new account's credentials.
 
 ### Parameters
 
