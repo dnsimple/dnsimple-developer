@@ -5,34 +5,38 @@ excerpt: Tools built around the DNSimple Domain and DNS API.
 
 # Tools
 
+* TOC
+{:toc}
+
+
 ## DNSimple tools
 
-- [DNSimple Slack integration](https://dnsimple.com/slack)
+### [DNSimple Slack integration](https://dnsimple.com/slack)
   
-  With the official DNSimple Stack integration you can buy, connect, and operate your domains directly from your Slack channel.
+With the official DNSimple Stack integration you can buy, connect, and operate your domains directly from your Slack channel.
 
-  <small>
-  [homepage](https://dnsimple.com/slack) &bull;
-  [documentation](https://support.dnsimple.com/articles/slack-integration/) &bull;
-  [announcement](https://blog.dnsimple.com/2016/05/introducing-the-slack-app/)
-  </small>
+<small>
+[homepage](https://dnsimple.com/slack) &bull;
+[documentation](https://support.dnsimple.com/articles/slack-integration/) &bull;
+[announcement](https://blog.dnsimple.com/2016/05/introducing-the-slack-app/)
+</small>
 
-- [Strillone](https://github.com/dnsimple/strillone)
+### [Strillone](https://github.com/dnsimple/strillone)
 
-  Strillone is a service to publish the events generated from a DNSimple account to a messaging service (such as Slack), using the [DNSimple webhooks](https://dnsimple.com/webhooks).
+Strillone is a service to publish the events generated from a DNSimple account to a messaging service (such as Slack), using the [DNSimple webhooks](https://dnsimple.com/webhooks).
 
-  <small>
-  [source code](https://github.com/dnsimple/strillone) &bull;
-  [announcement](https://blog.dnsimple.com/2016/03/dnsimple-strillone/)
-  </small>
+<small>
+[source code](https://github.com/dnsimple/strillone) &bull;
+[announcement](https://blog.dnsimple.com/2016/03/dnsimple-strillone/)
+</small>
 
-- [Chef Cookbook for DNSimple](https://supermarket.chef.io/cookbooks/dnsimple)
+### [Chef Cookbook for DNSimple](https://supermarket.chef.io/cookbooks/dnsimple)
 
-  Provides Chef LWRP for automating DNS configuration with DNSimple.
+Provides Chef LWRP for automating DNS configuration with DNSimple.
 
-  <small>
-  [homepage](https://supermarket.chef.io/cookbooks/dnsimple)
-  </small>
+<small>
+[homepage](https://supermarket.chef.io/cookbooks/dnsimple)
+</small>
 
 
 ## Community-developed tools
