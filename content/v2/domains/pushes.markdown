@@ -1,9 +1,9 @@
 ---
-title: Pushes API | Domains | DNSimple API v2 (Beta)
-excerpt: This page documents the DNSimple pushes API v2.
+title: Push API | Domains | DNSimple API v2 (Beta)
+excerpt: This page documents the DNSimple push API v2.
 ---
 
-# Pushes API
+# Push API
 
 * TOC
 {:toc}
