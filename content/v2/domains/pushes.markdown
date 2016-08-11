@@ -85,6 +85,7 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listPushes/success.http") %>
 ~~~
 
+
 ## Accept a push {#accept}
 
     POST /:account/pushes/:push
@@ -129,7 +130,8 @@ Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
 
-## Reject a push {#accept}
+
+## Reject a push {#reject}
 
     DELETE /:account/pushes/:push
 
