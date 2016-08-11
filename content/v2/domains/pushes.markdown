@@ -112,7 +112,7 @@ Accept a push for the target account `2020`:
 
 Name | Type | Description
 -----|------|------------
-`contact_id` | `integer` | **Required** - A contact that belongs to the target DNSimple account.
+`contact_id` | `integer` | **Required** - A contact that belongs to the target DNSimple account. The contact will be used as new registrant for the domain, if the domain is registered with DNSimple.
 
 ##### Example
 
