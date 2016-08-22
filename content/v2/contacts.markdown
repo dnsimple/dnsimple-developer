@@ -79,6 +79,7 @@ Name | Type | Description
 `first_name`        | `string` | **Required**.
 `last_name`         | `string` | **Required**.
 `address1`          | `string` | **Required**.
+`address2`          | `string` |
 `city`              | `string` | **Required**.
 `state_province`    | `string` | **Required**.
 `postal_code`       | `string` | **Required**.
