@@ -83,7 +83,10 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "from": ".*@a-domain.com",
+  "to": "john.doe@example.com"
+}
 ~~~
 
 ### Response
