@@ -84,8 +84,8 @@ Name | Type | Description
 
 ~~~json
 {
-  "from": ".*@a-domain.com",
-  "to": "john.doe@example.com"
+  "from": "jim@a-domain.com",
+  "to": "jim@another.com"
 }
 ~~~
 
