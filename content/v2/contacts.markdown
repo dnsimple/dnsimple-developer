@@ -93,7 +93,21 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "label": "Default",
+  "first_name": "First",
+  "last_name": "User",
+  "job_title": "CEO",
+  "organization_name": "Awesome Company",
+  "email": "first@example.com",
+  "phone": "+18001234567",
+  "fax": "+18011234567",
+  "address1": "Italian Street, 10",
+  "city": "Roma",
+  "state_province": "RM",
+  "postal_code": "00100",
+  "country": "IT"
+}
 ~~~
 
 ### Response
