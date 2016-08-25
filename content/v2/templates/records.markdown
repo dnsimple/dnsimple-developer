@@ -86,7 +86,13 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "name": "",
+  "type": "MX",
+  "content": "mx.example.com",
+  "ttl": 600,
+  "priority": 10
+}
 ~~~
 
 ### Response
