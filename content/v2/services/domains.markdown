@@ -67,10 +67,6 @@ Name | Type | Description
 
 Responds with HTTP 204 on success.
 
-~~~json
-<%= pretty_print_fixture("/applyService/success.http") %>
-~~~
-
 
 ## Unapply a service {#unapply}
 
@@ -96,8 +92,3 @@ Unapply the service with ID `2` from domain with ID `1`, in the account `1010`:
 ### Response
 
 Responds with HTTP 204 on success.
-
-~~~json
-<%= pretty_print_fixture("/unapplyService/success.http") %>
-~~~
-
