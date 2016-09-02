@@ -15,9 +15,9 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### Official Clients
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)
-- [DNSimple Go client](https://github.com/aetrion/dnsimple-go)
-- [DNSimple Elixir client](https://github.com/aetrion/dnsimple-elixir)
+- [DNSimple Ruby client](https://dnsimple.link/api-client-ruby)
+- [DNSimple Go client](https://dnsimple.link/api-client-go)
+- [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
 
 ## Bash
 
