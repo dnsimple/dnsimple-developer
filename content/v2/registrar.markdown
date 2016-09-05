@@ -136,7 +136,7 @@ Transfer the domain `example.com` in the account `1010`:
 Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`auth_info` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
+`auth_code` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
 `privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
@@ -146,7 +146,7 @@ Name | Type | Description
 ~~~json
 {
   "registrant_id": 1,
-  "auth_info": "xjfjfjvhc293"
+  "auth_code": "xjfjfjvhc293"
 }
 ~~~
 
@@ -155,7 +155,7 @@ Name | Type | Description
 ~~~json
 {
   "registrant_id": 1,
-  "auth_info": "xjfjfjvhc293",
+  "auth_code": "xjfjfjvhc293",
   "extended_attribute": {
     "us_nexus": "C11",
     "us_purpose": "P3"
