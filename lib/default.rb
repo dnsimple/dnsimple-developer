@@ -25,8 +25,8 @@ end
 
 def api_v2_changelog
   api_v2_changelog_items.map do |item|
-    "#{item[:time].to_date}: #{item[:description]}"
-  end.join("<br/><br/>")
+    %(<span><a name="#{format_timestamp(item[:time])}">#{item[:time].to_date}</a>: #{item[:description]}</span>)
+  end.join('<br/><br/>')
 end
 
 def api_v2_changelog_items
@@ -48,11 +48,13 @@ def atom_feed(items)
   xml    = Builder::XmlMarkup.new(target: buffer, indent: 2)
   time   = (items.first && items.first[:time]) || @item[:mtime]
   url    = @item[:url] || @config[:base_url]
+  author = @config[:author_email] || 'support@dnsimple.com (DNSimple)'
 
   # Build feed
   xml.instruct!
-  xml.rss(version: '2.0') do
+  xml.rss(version: '2.0', 'xmlns:atom': 'http://www.w3.org/2005/Atom') do
     xml.channel do
+      xml.tag!          'atom:link', href: 'https://developer.dnsimple.com/v2/feed.xml', rel: 'self', type: 'application/rss+xml'
       xml.title         @item[:title]
       xml.language      'en-us'
       xml.lastBuildDate time.rfc822
@@ -65,13 +67,17 @@ def atom_feed(items)
           xml.title       item[:title]
           xml.description item[:description]
           xml.pubDate     item[:time].rfc822
-          xml.guid        url
+          xml.guid        "#{url}#{format_timestamp(item[:time])}"
           xml.link        url
-          xml.author      @config[:author_email]
+          xml.author      author
         end
       end
     end
   end
 
   buffer
+end
+
+def format_timestamp(time)
+  time.utc.strftime('%Y-%m-%d-%H:%M:%S')
 end

@@ -1,3 +1,7 @@
+2016-09-05 07:51:52:
+  title: Renamed `auth_info` to `auth_code` for Registar API > Transfer a domain
+  description: Renamed `auth_info` to `auth_code` for Registar API > Transfer a domain
+
 2016-07-07 08:41:27:
   title: Renamed `Contact#email_address` to `Contact#email`
   description: Renamed `Contact#email_address` to `Contact#email`
