@@ -14,4 +14,4 @@ X-Request-Id: 60c905bf-8d9e-4da6-a564-af955f974739
 X-Runtime: 0.097922
 Strict-Transport-Security: max-age=31536000
 
-{"data":{"tld":"com","tld_type":1,"whois_privacy":true,"auto_renew_only":false,"idn":true}}
+{"data":{"tld":"com","tld_type":1,"whois_privacy":true,"auto_renew_only":false,"idn":true,,"minimum_registration":1}}
