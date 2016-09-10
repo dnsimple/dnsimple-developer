@@ -178,10 +178,10 @@ The following fields are updateable. You can pass zero of any of them.
 
 Name | Type | Description
 -----|------|------------
-`record.name` | `string` |
-`record.content` | `string` |
-`record.ttl` | `integer` |
-`record.priority` | `integer` |
+`name` | `string` |
+`content` | `string` |
+`ttl` | `integer` |
+`priority` | `integer` |
 
 ##### Example
 
