@@ -91,11 +91,11 @@ Create a record for the zone `example.com` in the account `1010`:
 
 Name | Type | Description
 -----|------|------------
-`record.name` | `string` | **Required**. Use an empty string to create a record for the apex.
-`record.type` | `string` | **Required**.
-`record.content` | `string` | **Required**.
-`record.ttl` | `integer` |
-`record.priority` | `integer` |
+`name` | `string` | **Required**. Use an empty string to create a record for the apex.
+`type` | `string` | **Required**.
+`content` | `string` | **Required**.
+`ttl` | `integer` |
+`priority` | `integer` |
 
 ##### Example
 
