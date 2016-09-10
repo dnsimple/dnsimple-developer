@@ -1,6 +1,6 @@
 ---
 title: Zone Records API | DNSimple API v2 (Beta)
-excerpt: This page documents the DNSimple records API v2.
+excerpt: This page documents the DNSimple zone records API v2.
 ---
 
 # Zone Record API
