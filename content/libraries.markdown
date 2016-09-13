@@ -38,8 +38,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### JavaScript
 
-- [dnsimple-js](https://github.com/aetrion/dnsimple-js) - A jQuery-based DNSimple library.
-- [nodejs-dnsimple](https://www.npmjs.org/package/dnsimple) - A Node.js API client.
+- [nodejs-dnsimple](https://github.com/fvdm/nodejs-dnsimple) - A Node.js API client.
 - [dnsimple-cli](https://www.npmjs.org/package/dnsimple-cli) - A command line tool written in Node.js
 
 ### Golang
