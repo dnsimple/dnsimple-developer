@@ -236,3 +236,9 @@ Content-Length: 28
 
 {"message":"quota exceeded"}
 ~~~
+
+## More Examples
+
+You can learn more about interacting with the API through the [DNSimple API Examples repository](https://github.com/dnsimple/dnsimple-api-examples) on GitHub. This repository holds examples in various programming languages that can help guide you through using the API.
+
+Additionally, you can find [various example web applications in the DNSimple organization on GitHub](https://github.com/dnsimple/?utf8=%E2%9C%93&query=hello) that will guide you through the creation of a basic web application that connects to the DNSimple API, obtains an OAuth token, and lists domains.
