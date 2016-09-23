@@ -19,6 +19,9 @@ Name | Type | Description
 `whois_privacy`         | `bool`    | `true` if the suffix allows WHOIS privacy as a separate component. Some registries may provide WHOIS privacy at registry level, such as the .IO or .UK.
 `auto_renew_only`       | `bool`    | `true` if the suffix requires auto-renewal and can't be renewed manually.
 `idn`                   | `bool`    | `true` if the suffix supports Internationalized Domain Names (IDN).
+`registration_enabled`  | `bool`    | `true` if the suffix allows to register domains with DNSimple.
+`renewal_enabled`       | `bool`    | `true` if the suffix allows to renew a domain.
+`transfer_enabled`      | `bool`    | `true` if the suffix allows to transfer a domain.
 
 ### TLD Types {#tld-types}
 
