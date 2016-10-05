@@ -8,6 +8,28 @@ excerpt: This page documents the DNSimple zone records API v2.
 * TOC
 {:toc}
 
+## Zone Record Regions
+
+<note>
+This Zone Record Regions is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
+</note>
+
+Zone Record Regions lets you select geographical regions where you want a record to appear.
+
+We currently have 5 points of presence:
+
+Code  | Region
+------|-------
+`SV1` | California, US
+`ORD` | Illinois, US
+`IAD` | Virginia, US
+`AMS` | Amsterdam, NL
+`TKO` | Tokyo, JP
+
+When creating/updating a record, you can **optionally** select one or more regions.
+**If you don't select any, the record will appear in all of them (`global`).**
+
+This feature is enabled by default on all Professional and Business plans. [See our pricing and features](https://dnsimple.com/pricing)
 
 ## List records for a zone {#list}
 
@@ -96,6 +118,7 @@ Name | Type | Description
 `content` | `string` | **Required**.
 `ttl` | `integer` |
 `priority` | `integer` |
+`regions` | `array` | Optional set of [regions](#zone-record-regions)
 
 ##### Example
 
@@ -105,7 +128,8 @@ Name | Type | Description
   "type": "MX",
   "content": "mxa.example.com",
   "ttl": 600,
-  "priority": 10
+  "priority": 10,
+  "regions": ["SV1", "IAD"]
 }
 ~~~
 
@@ -136,11 +160,11 @@ Name | Type | Description
 
 ### Example
 
-Get the record `64784` for the zone `example.com`, in the account `1010`:
+Get the record `5` for the zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
 
 ### Response
 
@@ -163,14 +187,14 @@ Name | Type | Description
 
 ### Example
 
-Update the record with ID `64784` for zone `example.com`, in the account `1010`:
+Update the record with ID `5` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
 
 ### Input
 
@@ -182,6 +206,7 @@ Name | Type | Description
 `content` | `string` |
 `ttl` | `integer` |
 `priority` | `integer` |
+`regions` | `array` | Optional set of [regions](#zone-record-regions)
 
 ##### Example
 
@@ -190,6 +215,7 @@ Name | Type | Description
   "content": "mxb.example.com",
   "ttl": 3600,
   "priority": 20
+  "regions": ["global"]
 }
 ~~~
 
@@ -220,13 +246,13 @@ Name | Type | Description
 
 ### Example
 
-Delete the record with ID `64784` for zone `example.com`, in the account `1010`:
+Delete the record with ID `5` for zone `example.com`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/64784
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
 
 ### Response
 
