@@ -29,8 +29,6 @@ Code  | Region
 When creating/updating a record, you can **optionally** select one or more regions.
 **If you don't select any, the record will appear in all of them (`global`).**
 
-This feature is enabled by default on all Professional and Business plans. [See our pricing and features](https://dnsimple.com/pricing)
-
 ## List records for a zone {#list}
 
     GET /:account/zones/:zone/records
