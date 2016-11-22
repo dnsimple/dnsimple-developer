@@ -39,6 +39,58 @@ Responds with HTTP 200 on success, returns the domain availability information.
 <%= pretty_print_fixture("/checkDomain/success.http") %>
 ~~~
 
+## Check domain premium price {#premium-price}
+
+    GET /:account/registrar/domains/:domain/premium_price
+
+Return a premium price for a domain.
+
+**Please note** that a premium price can be different for [registration](#register), [renewal](#renew), [transfer](#transfer).
+By default this endpoint returns the premium price for registration.
+If you need to check a different price, you should specify it with the `action` param.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Input
+
+Name | Type | Description
+-----|------|------------
+`action` | `string` | Optional action between `"registration"`, `"renewal"`, and `"transfer"`. If omitted, it defaults to `"registration"`.
+
+### Examples
+
+Check the premium price for `example.com` domain:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
+
+Check the premium price for `example.com` domain renewal:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain premium price.
+
+~~~json
+<%= pretty_print_fixture("/getDomainPremiumPrice/success.http") %>
+~~~
+
+Responds with HTTP 400, if the domain isn't premium.
+
+~~~json
+<%= pretty_print_fixture("/getDomainPremiumPrice/failure.http") %>
+~~~
 
 ## Register a domain {#register}
 
@@ -75,9 +127,14 @@ Name | Type | Description
 `privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 <note>
-The `registrant_id` can be obtained via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
+The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
+</note>
+
+<note>
+The `premium_price` can be fetched via the [premium price endpoint](#premium-price).
 </note>
 
 ##### Example
@@ -140,6 +197,7 @@ Name | Type | Description
 `privacy` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example
 
@@ -209,6 +267,7 @@ Renew the domain `example.com` in the account `1010`:
 Name | Type | Description
 -----|------|------------
 `period` | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD.
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example with optional period
 
