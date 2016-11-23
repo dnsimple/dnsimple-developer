@@ -40,6 +40,12 @@ Responds with HTTP 200.
 
 ## Add a collaborator {#add}
 
+At the time of the add, a collaborator may or may not have a DNSimple account.
+
+In case the collaborator doesn't have a DNSimple account, the system will invite her/him to register to DNSimple first and then to accept the collaboration invitation.
+
+In the other case, she/he is automatically added to the domain as collaborator. She/he can decide to reject the invitation later.
+
     POST /:account/domains/:domain/collaborators
 
 ### Parameters
@@ -76,8 +82,16 @@ Name | Type | Description
 
 ### Response
 
+When the collaborator already has a DNSimple account:
+
 ~~~json
 <%= pretty_print_fixture("/addCollaborator/success.http") %>
+~~~
+
+When the collaborator doesn't have a DNSimple account:
+
+~~~json
+<%= pretty_print_fixture("/addCollaborator/invite-success.http") %>
 ~~~
 
 Responds with HTTP 201 on success.
