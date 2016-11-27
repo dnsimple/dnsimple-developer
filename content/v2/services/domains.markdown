@@ -31,7 +31,7 @@ List applied services for domain with ID `1` in the account `1010`:
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/appliedServices/success.http") %>
+<%= pretty_print_fixture("/listAppliedServices/success.http") %>
 ~~~
 
 ## Apply a service {#apply}
