@@ -90,10 +90,6 @@ The `registrant_id` can be obtained via the [contacts endpoint](/v2/contacts) an
 
 ### Response
 
-<warning>
-This API method response format will be changed before GA to return a representation of the domain registration.
-</warning>
-
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
@@ -164,10 +160,6 @@ Name | Type | Description
 ~~~
 
 ### Response
-
-<warning>
-This API method response format will be changed before GA to return a representation of the domain transfer.
-</warning>
 
 Responds with HTTP 201 on success, returns the domain.
 
