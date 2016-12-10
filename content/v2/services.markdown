@@ -14,7 +14,7 @@ Name | Description
 -----|------------
 `id` | A unique identifier
 `name` | A human-readable name
-`short_name` | A name that can be used in URLs (always lowercase)
+`sid` | A string identifier that can be used in URLs (always lowercase)
 `description` | A human-readable description of the one-click service
 `setup_description` | Describes setup requirements (optional)
 `requires_setup` | Flag indicating whether setup is required
@@ -59,7 +59,7 @@ For general information about sorting, please refer to the [main guide](/v2/#sor
 Name | Description
 -----|------------
 `id` | Sort services by ID
-`short_name` | Sort services by short name (alphabetical order)
+`sid` | Sort services by string ID (alphabetical order)
 
 The default sorting policy is by ascending `id`.
 

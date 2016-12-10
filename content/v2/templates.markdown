@@ -45,7 +45,7 @@ Name | Description
 -----|------------
 `id` | Sort templates by ID
 `name` | Sort templates by name (alphabetical order)
-`short_name` | Sort templates by short name (alphabetical order)
+`sid` | Sort templates by string ID (alphabetical order)
 
 The default sorting policy is by ascending `id`.
 
@@ -68,7 +68,7 @@ Create a template in the account `1010`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '{"name": "Alpha","short_name": "alpha","description": "This is an Alpha template."}' \
+          -d '{"name": "Alpha","sid": "alpha","description": "This is an Alpha template."}' \
           https://api.dnsimple.com/v2/1010/templates
 
 ### Input
@@ -76,7 +76,7 @@ Create a template in the account `1010`:
 Name | Type | Description
 -----|------|------------
 `name` | `string` | **Required**.
-`short_name` | `string` | **Required**.
+`sid` | `string` | **Required**.
 `description` | `string` | **Required**.
 
 ##### Example
@@ -84,7 +84,7 @@ Name | Type | Description
 ~~~json
 {
   "name": "Alpha",
-  "short_name": "alpha",
+  "sid": "alpha",
   "description": "This is an Alpha template."
 }
 ~~~
