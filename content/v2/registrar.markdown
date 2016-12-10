@@ -39,6 +39,10 @@ Responds with HTTP 200 on success, returns the domain availability information.
 <%= pretty_print_fixture("/checkDomain/success.http") %>
 ~~~
 
+<warning>
+  If the domain is premium (`premium: true`), please [check the premium price](#premium-price) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+</warning>
+
 ## Check domain premium price {#premium-price}
 
     GET /:account/registrar/domains/:domain/premium_price
