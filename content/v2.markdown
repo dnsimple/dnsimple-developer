@@ -119,8 +119,6 @@ All the timestamps and the dates are formatted according the [ISO-8601 standard]
 2016-12-11           # Date
 ~~~
 
-All the timestamps are UTC.
-
 ## Pagination
 
 Any API endpoint that returns a list of items requires pagination. By default we will return 30 records from any listing endpoint.
