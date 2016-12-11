@@ -90,3 +90,30 @@ Responds with HTTP 200, renders the zone.
 <%= pretty_print_fixture("/getZone/success.http") %>
 ~~~
 
+## Get a zone file {#getZoneFile}
+
+    GET /:account/zones/:zone/file
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Get the zone file `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones/example.com/file
+
+### Response
+
+Responds with HTTP 200, renders the zone file.
+
+~~~json
+<%= pretty_print_fixture("/getZoneFile/success.http") %>
+~~~
+
