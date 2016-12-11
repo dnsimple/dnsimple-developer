@@ -98,7 +98,7 @@ Responds with HTTP 400, if the domain isn't premium.
 
 ## Register a domain {#register}
 
-    POST /:account/registrar/domains/:domain/registration
+    POST /:account/registrar/domains/:domain/registrations
 
 Register a domain name with DNSimple.
 
@@ -121,7 +121,7 @@ Register the domain `example.com` in the account `1010`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registration
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registrations
 
 ### Input
 
@@ -162,7 +162,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Transfer a domain {#transfer}
 
-    POST /:account/registrar/domains/:domain/transfer
+    POST /:account/registrar/domains/:domain/transfers
 
 Transfer a domain name from another domain registrar into DNSimple.
 
@@ -186,7 +186,7 @@ Transfer the domain `example.com` in the account `1010`:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfer
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers
 
 ### Input
 
@@ -234,7 +234,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Renew a domain {#renew}
 
-    POST /:account/registrar/domains/:domain/renewal
+    POST /:account/registrar/domains/:domain/renewals
 
 Renew a domain name already registered with DNSimple.
 
@@ -256,7 +256,7 @@ Renew the domain `example.com` in the account `1010`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewal
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewals
 
 ### Input
 
