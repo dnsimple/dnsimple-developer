@@ -1,14 +1,14 @@
 #!/bin/bash
- 
-LOGIN="your@email"
-TOKEN="your-api-token"
-DOMAIN_ID="yourdomain.com"
-RECORD_ID="12345" # Replace with the Record ID
+
+TOKEN="your-oauth-token"  # The API v2 OAuth token
+ACCOUNT_ID="12345"        # Replace with your account ID
+ZONE_ID="yourdomain.com"  # The zone ID is the name of the zone (or domain)
+RECORD_ID="1234567"       # Replace with the Record ID
 IP=`curl -s http://icanhazip.com/`
- 
-curl -H "Accept: application/json" \
+
+curl -H "Authorization: Bearer $TOKEN" \
      -H "Content-Type: application/json" \
-     -H "X-DNSimple-Token: $LOGIN:$TOKEN" \
-     -X "PUT" \
-     -i "https://api.dnsimple.com/v1/domains/$DOMAIN_ID/records/$RECORD_ID" \
-     -d "{\"record\":{\"content\":\"$IP\"}}"
+     -H "Accept: application/json" \
+     -X "PATCH" \
+     -i "https://api.dnsimple.com/v2/$ACCOUNT_ID/zones/$ZONE_ID/records/$RECORD_ID" \
+     -d "{\"content\":\"$IP\"}"

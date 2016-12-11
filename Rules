@@ -13,7 +13,6 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-
 compile '/assets/css/*/' do
   if item.identifier =~ %r{/_[^/]+/$}
     # don't compile partials
@@ -27,15 +26,17 @@ compile '/assets/*/' do
   # don't filter or layout
 end
 
-compile '/CNAME/' do
-end
-
 compile '/sitemap/' do
   filter :erb
 end
 
 compile '/robots/' do
   filter :erb
+end
+
+compile '/v2/feed/' do
+  filter :erb
+  layout 'empty'
 end
 
 compile '*' do
@@ -47,8 +48,11 @@ compile '*' do
     filter :kramdown, toc_levels: [2], enable_coderay: false
     filter :colorize_syntax, default_colorizer: :pygmentsrb
     filter :postprocess
-    if item.identifier =~ /v2/
+    item_identifier = item.identifier.to_s
+    if item_identifier.start_with?("/v2")
       layout 'v2'
+    elsif item_identifier.start_with?("/v1")
+      layout 'v1'
     else
       layout 'default'
     end
@@ -65,11 +69,7 @@ route '/assets/css/*/' do
 end
 
 route '/assets/*/' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
-route '/CNAME/' do
-  '/CNAME'
+  item.identifier.to_s.chop + '.' + item[:extension]
 end
 
 route '/sitemap/' do
@@ -80,15 +80,18 @@ route '/robots/' do
   item.identifier.chop + '.txt'
 end
 
+route '/v2/feed/' do
+  item.identifier.chop + '.xml'
+end
+
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
+    item.identifier.to_s.chop + '.' + item[:extension]
   else
     # Write item with identifier /foo/ to /foo/index.html
     item.identifier + 'index.html'
   end
 end
-
 
 layout '*', :erb

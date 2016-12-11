@@ -1,4 +1,4 @@
-class PostprocessFilter < Nanoc3::Filter
+class PostprocessFilter < Nanoc::Filter
   identifier :postprocess
 
   def run(content, params = {})

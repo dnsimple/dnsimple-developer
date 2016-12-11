@@ -1,5 +1,5 @@
 ---
-title: Zones | DNSimple API v2
+title: Zones API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple zones API v2.
 ---
 
@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple zones API v2.
 
     GET /:account/zones
 
-List zones for the account.
+List zones in the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all zones for the account 1010.
+List all zones in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -37,6 +37,31 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/listZones/success.http") %>
 ~~~
 
+### Filters
+
+Name | Description
+-----|------------
+`:name_like` | Only include zones containing given string
+
+### Example
+
+List all zones in the account `1010` that have name matching `"example"`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones?name_like=example
+
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort zones by ID
+`name` | Sort zones by name (alphabetical order)
+
+The default sorting policy is by ascending `name`.
+
 
 ## Get a zone {#get}
 
@@ -46,12 +71,12 @@ Responds with HTTP 200.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 
 ### Example
 
-Get the zone `example.com` for the account 1010.
+Get the zone `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

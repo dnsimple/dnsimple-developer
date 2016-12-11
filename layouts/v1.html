@@ -1,0 +1,14 @@
+<%= render "header" %>
+
+<div class="container">
+  <div class="row">
+    <aside id="sidebar" class="col-md-3" role="sidebar">
+      <%= render "v1-sidebar" %>
+    </aside>
+    <main id="main" class="col-md-9" role="main">
+      <%= yield %>
+    </main>
+  </div>
+</div>
+
+<%= render "footer" %>

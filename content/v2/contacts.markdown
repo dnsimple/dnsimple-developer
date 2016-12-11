@@ -1,5 +1,5 @@
 ---
-title: Contacts | DNSimple API v2
+title: Contacts API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple contacts API v2.
 ---
 
@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 
     GET /:account/contacts
 
-List contacts for the account.
+List contacts in the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all contacts for the account 1010.
+List all contacts in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -36,6 +36,18 @@ Responds with HTTP 200.
 ~~~json
 <%= pretty_print_fixture("/listContacts/success.http") %>
 ~~~
+
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort contacts by ID
+`label` | Sort contacts by label (alphabetical order)
+`email` | Sort contacts by email (alphabetical order)
+
+The default sorting policy is by ascending `id`.
 
 
 ## Create a contact {#create}
@@ -50,7 +62,7 @@ Name | Type | Description
 
 ### Example
 
-Create a contact in the account 1010.
+Create a contact in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -67,11 +79,12 @@ Name | Type | Description
 `first_name`        | `string` | **Required**.
 `last_name`         | `string` | **Required**.
 `address1`          | `string` | **Required**.
+`address2`          | `string` |
 `city`              | `string` | **Required**.
 `state_province`    | `string` | **Required**.
 `postal_code`       | `string` | **Required**.
 `country`           | `string` | **Required**.
-`email_address`     | `string` | **Required**.
+`email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
 `fax`               | `string` | **Required**.
 `organization_name` | `string` | The company name. If the `organization_name` is specified, then you must also include `job_title`.
@@ -80,7 +93,21 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "label": "Default",
+  "first_name": "First",
+  "last_name": "User",
+  "job_title": "CEO",
+  "organization_name": "Awesome Company",
+  "email": "first@example.com",
+  "phone": "+18001234567",
+  "fax": "+18011234567",
+  "address1": "Italian Street, 10",
+  "city": "Roma",
+  "state_province": "RM",
+  "postal_code": "00100",
+  "country": "IT"
+}
 ~~~
 
 ### Response
@@ -102,16 +129,16 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Get the contact with ID `1`.
+Get the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Response
 
@@ -128,19 +155,19 @@ Get the contact with ID `1`.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Update the contact with ID `1`:
+Update the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
           -d '<json>' \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Input
 
@@ -165,18 +192,18 @@ Responds with HTTP 400 if the validation fails.
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id or wildcard (`_`)
+`:account` | `integer` | The account id
 `:contact` | `integer` | The contact id
 
 ### Example
 
-Delete the contact with ID `1`:
+Delete the contact with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/contacts/1
+          https://api.dnsimple.com/v2/1010/contacts/1
 
 ### Response
 

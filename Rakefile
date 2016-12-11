@@ -4,11 +4,19 @@ require 'rake/testtask'
 require 'fileutils'
 
 
+task :default => [:test, :compile]
+
 desc "Compile the site"
-task :compile do
+task :compile => [:clean] do
   puts "Compiling site"
-  FileUtils.rm_r('output') if File.exist?('output')
-  `nanoc compile`
+  out = `bundle exec nanoc compile`
+
+  if $?.to_i == 0
+    puts  "Compilation succeeded"
+  else
+    abort "Compilation failed: #{$?.to_i}\n" +
+          "#{out}\n"
+  end
 end
 
 desc "Publish to S3"
@@ -18,7 +26,15 @@ task :publish => :compile do
   puts "Published"
 end
 
-task :default => [:test]
+desc "Autocompile and view"
+task :aco do
+  `bundle exec nanoc view`
+end
+
+task :clean do
+  FileUtils.rm_r('output') if File.exist?('output')
+end
+
 Rake::TestTask.new do |t|
   t.libs << "_test"
   t.test_files = FileList["_test/*_test.rb"]

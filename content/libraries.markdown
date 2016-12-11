@@ -1,6 +1,6 @@
 ---
 title: Libraries
-excerpt: Welcome to DNSimple. This page is about libraries for interacting with our API. Hosted DNS has never been this easy.
+excerpt: Here's a list of libraries and API clients for interacting with the DNSimple domain and DNS API.
 ---
 
 # Libraries
@@ -11,11 +11,24 @@ If you've developed a library for the API, [please let us know](https://dnsimple
 
 _Please keep in mind that some of these libraries may be incomplete or oudated._
 
+## API v2 Clients
+
+### Official Clients
+
+- [DNSimple Ruby client](https://dnsimple.link/api-client-ruby)
+- [DNSimple Go client](https://dnsimple.link/api-client-go)
+- [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
+- [DNSimple Node.js client](https://dnsimple.link/api-client-node)
+
+## Bash
+
+- [chorn/dnsimple_cli](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
+
+## API v1 Clients
 
 ### Ruby
 
-- [DNSimple Ruby client](https://github.com/aetrion/dnsimple-ruby)- The official DNSimple Ruby API client.
-- [Fog](http://fog.io/) - The Ruby cloud services library. Includes DNSimple support.
+- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](http://fog.io/) module for DNSimple.
 
 ### Python
 
@@ -25,13 +38,12 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### JavaScript
 
-- [dnsimple-js](https://github.com/aetrion/dnsimple-js) - A jQuery-based DNSimple library.
-- [nodejs-dnsimple](https://www.npmjs.org/package/dnsimple) - A Node.js API client.
+- [nodejs-dnsimple](https://github.com/fvdm/nodejs-dnsimple) - A Node.js API client.
 - [dnsimple-cli](https://www.npmjs.org/package/dnsimple-cli) - A command line tool written in Node.js
 
 ### Golang
 
-- [dnsimple-go](https://github.com/weppos/go-dnsimple) - A Go API client.
+- [dnsimple-go](https://github.com/weppos/go-dnsimple) - A Go API client for API v1.
 - [domasimu](https://github.com/jrwren/domasimu) - A simple domain management command line tool.
 
 ### C♯

@@ -1,5 +1,5 @@
 ---
-title: Registrar | DNSimple API v2
+title: Registrar API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple registry/registrar API v2.
 ---
 
@@ -8,6 +8,93 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 * TOC
 {:toc}
 
+
+## Check domain availability {#check}
+
+    GET /:account/registrar/domains/:domain/check
+
+Check if the domain is available for registration or transfer.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Example
+
+Check the domain `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/check
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain availability information.
+
+~~~json
+<%= pretty_print_fixture("/checkDomain/success.http") %>
+~~~
+
+<warning>
+  If the domain is premium (`premium: true`), please [check the premium price](#premium-price) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+</warning>
+
+## Check domain premium price {#premium-price}
+
+    GET /:account/registrar/domains/:domain/premium_price
+
+Return a premium price for a domain.
+
+**Please note** that a premium price can be different for [registration](#register), [renewal](#renew), [transfer](#transfer).
+By default this endpoint returns the premium price for registration.
+If you need to check a different price, you should specify it with the `action` param.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Input
+
+Name | Type | Description
+-----|------|------------
+`action` | `string` | Optional action between `"registration"`, `"renewal"`, and `"transfer"`. If omitted, it defaults to `"registration"`.
+
+### Examples
+
+Check the premium price for `example.com` domain:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
+
+Check the premium price for `example.com` domain renewal:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X GET \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain premium price.
+
+~~~json
+<%= pretty_print_fixture("/getDomainPremiumPrice/success.http") %>
+~~~
+
+Responds with HTTP 400, if the domain isn't premium.
+
+~~~json
+<%= pretty_print_fixture("/getDomainPremiumPrice/failure.http") %>
+~~~
 
 ## Register a domain {#register}
 
@@ -27,7 +114,7 @@ Name | Type | Description
 
 ### Example
 
-Register the domain example.com in the account 1010.
+Register the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -43,7 +130,16 @@ Name | Type | Description
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
 `private_whois` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
-`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
+
+<note>
+The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
+</note>
+
+<note>
+The `premium_price` can be fetched via the [premium price endpoint](#premium-price).
+</note>
 
 ##### Example
 
@@ -55,14 +151,10 @@ Name | Type | Description
 
 ### Response
 
-<warning>
-This API method response format will be changed before GA to return a representation of the domain registration.
-</warning>
-
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/register/success.http") %>
+<%= pretty_print_fixture("/registerDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -87,7 +179,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer the domain example.com in the account 1010.
+Transfer the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -101,17 +193,18 @@ Transfer the domain example.com in the account 1010.
 Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`auth_info` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
+`auth_code` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
 `private_whois` | `bool` | Set to true to enable the whois privacy service. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
-`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/registrar/tlds/#extended-attributes/).
+`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example
 
 ~~~json
 {
   "registrant_id": 1,
-  "auth_info": "xjfjfjvhc293"
+  "auth_code": "xjfjfjvhc293"
 }
 ~~~
 
@@ -120,7 +213,7 @@ Name | Type | Description
 ~~~json
 {
   "registrant_id": 1,
-  "auth_info": "xjfjfjvhc293",
+  "auth_code": "xjfjfjvhc293",
   "extended_attribute": {
     "us_nexus": "C11",
     "us_purpose": "P3"
@@ -130,14 +223,10 @@ Name | Type | Description
 
 ### Response
 
-<warning>
-This API method response format will be changed before GA to return a representation of the domain transfer.
-</warning>
-
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/transfer/success.http") %>
+<%= pretty_print_fixture("/transferDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -161,7 +250,7 @@ Name | Type | Description
 
 ### Example
 
-Renew the domain example.com in the account 1010.
+Renew the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -174,6 +263,7 @@ Renew the domain example.com in the account 1010.
 Name | Type | Description
 -----|------|------------
 `period` | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD.
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example with optional period
 
@@ -188,7 +278,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/renew/success.http") %>
+<%= pretty_print_fixture("/renewDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -209,7 +299,7 @@ Name | Type | Description
 
 ### Example
 
-Transfer out the domain example.com in the account 1010.
+Transfer out the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \

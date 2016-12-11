@@ -1,5 +1,5 @@
 ---
-title: OAuth | DNSimple API v2
+title: OAuth API | DNSimple API v2 (Beta)
 excerpt: This page documents the OAuth 2 flow you can use to access the DNSimple API.
 ---
 
@@ -36,9 +36,9 @@ The following values should be passed as GET parameters:
 
 `response_type` | **Required**. The grant type requested. We currently only support `code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
+`state`         | **Required**. An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
 `redirect_uri`  | Where to redirect the user after authorization has completed. This must be the exact URI registered or a subdirectory.
 `scope`         | We currently don't use this field.
-`state`         | An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
 
 Because `/oauth/authorize` is a website, there is no direct return value. However, after the user authorizes your app, they will be sent to your redirect URI.
 
@@ -63,6 +63,7 @@ POST https://api.dnsimple.com/v2/oauth/access_token
 
 The following values should be passed as POST parameters:
 
+`grant_type`    | **Required**. The grant type requested. We currently only support `authorization_code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
 `client_secret` | **Required**. The client secret you received from DNSimple when you registered the application.
 `code`          | **Required**. The code acquired in the previous authorization step.

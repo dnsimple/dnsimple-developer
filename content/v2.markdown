@@ -14,23 +14,32 @@ This page provides an overview of the official DNSimple API v2.
 
 ## URL
 
-All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain. [Sandbox accounts](/sandbox/) must use the `api.sandbox.dnsimple.com` domain.
+All API access is over HTTPS, and accessed from the `api.dnsimple.com` domain.
 
 In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.
 
     https://api.dnsimple.com/v2/
 
+## Testing
+
+We maintain a separate environment for testing called [Sandbox accounts](/sandbox/). Sandbox API calls must use the `api.sandbox.dnsimple.com` domain.
+
+<note>
+Please use Sandbox for testing your API integration, **before using production**. Also note we will not refund you charges on your production account as a result of wrong API calls.
+</note>
 
 ## Current Version
 
-The current API version is `v1`. `v2` is in early development.
+The current API version is `v1`. `v2` is in public beta and ready for production usage.
 
 
 ## Authentication
 
-There are three ways to authenticate through DNSimple API: the **HTTP Basic Authentication**, the **OAuth2 token** and the **Domain token**.
+There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
 
-The HTTP Basic Authentication and the OAuth grant access to the entire account or user accounts, whereas the Domain token only grants access to the DNS records of a specific domain zone.
+When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either an user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+
+The HTTP Basic Authentication always authenticate you as an user.
 
 ##### HTTP Basic Authentication
 
@@ -52,15 +61,7 @@ In case two-factor authentication is enabled but the header is not sent, the app
 curl -H 'Authorization: Bearer OAUTH-TOKEN' https://api.dnsimple.com/v2/whoami
 ~~~
 
-Note that Oauth2 tokens cam be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
-
-##### DNSimple Domain Token
-
-~~~
-curl -H 'X-DNSimple-Domain-Token: DOMAIN-TOKEN' https://api.dnsimple.com/v2/_/domains/example.com
-~~~
-
-The [Authentication](/v2/authentication/) page provides more information about how to use them.
+Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
 
 ## Response Codes
 
@@ -150,18 +151,53 @@ For example:
 You may include the following arguments as query parameters when you call an API endpoint that supports pagination:
 
 - `page`: The page to return (default: 1)
-- `per_page`: The number of entries to return per page (default: 30)
+- `per_page`: The number of entries to return per page (default: 30, maximum: 100)
 
 For example:
 
-    https://api.dnsimple.com/v2/_/domains?per_page=100&page=2
+    https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
+## Filtering
+
+Filtering makes it possible to ask only for the exact subset of data that you you're looking for.
+
+With potential hundreds of result entries, it's covenient to apply a filter and receive only the interesting data.
+
+API v2 supports this feature via query string.
+
+### Example
+
+List all domains in the account `1010` that have name matching `"example"`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?name_like=example
+
+Please have a look at the documentation of each endpoint to know about the filters it supports.
+
+## Sorting
+
+API v2 results are implicitly sorted according to policies that vary from endpoint to endpoint.
+
+You can decide your own sorting policy for each single API call via the `sort` parameter.
+
+This parameter accepts a set of comma separated key-value pairs: the name of a field and the order criteria (`asc` for ascending and `desc` for descending).
+
+The order of fields is relevant, as it will determine the priority of the sorting policies.
+
+### Example
+
+List all domains in the account `1010` sorting them by expiration date (asc) and id (desc)
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains?sort=expires_on:asc,id:desc
 
 ## Rate limiting
 
 There is a limit to the number of requests that you can perform per hour.
 
-- For **authenticated requests** you can make **up to 4,000 requests per hour**.
+- For **authenticated requests** you can make **up to 2400 requests per hour**.
 - For **unauthenticated requests**, you can make **up to 30 requests per hour**.
 
 You can see your current rate limit status by checking the HTTP headers of any API request:
@@ -173,8 +209,8 @@ HTTP/1.1 200 OK
 Date: Fri, 11 Dec 2015 11:15:42 GMT
 Status: 200 OK
 Connection: close
-X-RateLimit-Limit: 4000
-X-RateLimit-Remaining: 3999
+X-RateLimit-Limit: 2400
+X-RateLimit-Remaining: 2399
 X-RateLimit-Reset: 1449836141
 ~~~
 
@@ -192,7 +228,7 @@ Once you go over the rate limit you will receive an error response:
 $ curl -H "Authorization: Bearer ACCESS-TOKEN" -I "https://api.dnsimple.com/v2/whoami"
 
 HTTP/1.1 429 Too Many Requests
-X-Ratelimit-Limit: 4000
+X-Ratelimit-Limit: 2400
 X-Ratelimit-Remaining: 0
 X-RateLimit-Reset: 1449836141
 Content-Type: application/json; charset=utf-8
@@ -201,4 +237,8 @@ Content-Length: 28
 {"message":"quota exceeded"}
 ~~~
 
+## More Examples
 
+You can learn more about interacting with the API through the [DNSimple API Examples repository](https://github.com/dnsimple/dnsimple-api-examples) on GitHub. This repository holds examples in various programming languages that can help guide you through using the API.
+
+Additionally, you can find [various example web applications in the DNSimple organization on GitHub](https://github.com/dnsimple/?utf8=%E2%9C%93&query=hello) that will guide you through the creation of a basic web application that connects to the DNSimple API, obtains an OAuth token, and lists domains.

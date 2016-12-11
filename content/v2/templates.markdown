@@ -1,5 +1,5 @@
 ---
-title: Templates | DNSimple API v2
+title: Templates API | DNSimple API v2 (Beta)
 excerpt: This page documents the DNSimple templates API v2.
 ---
 
@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple templates API v2.
 
     GET /:account/templates
 
-List templates for the account.
+List templates in the account.
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Name | Type | Description
 
 ### Example
 
-List all templates for the account 1010.
+List all templates in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
@@ -34,11 +34,20 @@ List all templates for the account 1010.
 Responds with HTTP 200.
 
 ~~~json
-[
-  {},
-  {}
-]
+<%= pretty_print_fixture("/listTemplates/success.http") %>
 ~~~
+
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort templates by ID
+`name` | Sort templates by name (alphabetical order)
+`short_name` | Sort templates by short name (alphabetical order)
+
+The default sorting policy is by ascending `id`.
 
 
 ## Create a template {#create}
@@ -53,13 +62,13 @@ Name | Type | Description
 
 ### Example
 
-Create a template in the account 1010.
+Create a template in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          -d '<json>' \
+          -d '{"name": "Alpha","short_name": "alpha","description": "This is an Alpha template."}' \
           https://api.dnsimple.com/v2/1010/templates
 
 ### Input
@@ -73,7 +82,11 @@ Name | Type | Description
 ##### Example
 
 ~~~json
-{}
+{
+  "name": "Alpha",
+  "short_name": "alpha",
+  "description": "This is an Alpha template."
+}
 ~~~
 
 ### Response
@@ -81,7 +94,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/createTemplate/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -100,22 +113,22 @@ Name | Type | Description
 
 ### Example
 
-Get the template with ID `1`.
+Get the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/template/1
+          https://api.dnsimple.com/v2/1010/template/1
 
-Get the template with short name `example`.
+Get the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/_/template/example
+          https://api.dnsimple.com/v2/1010/template/example
 
 ### Response
 
 ~~~json
-{}
+<%= pretty_print_fixture("/getTemplate/success.http") %>
 ~~~
 
 
@@ -132,23 +145,23 @@ Name | Type | Description
 
 ### Example
 
-Update the template with ID `1`:
+Update the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
-          -d '<json>' \
-          https://api.dnsimple.com/v2/_/templates/1
+          -d '{"name":"Alpha"}' \
+          https://api.dnsimple.com/v2/1010/templates/1
 
-Update the template with short name `example`:
+Update the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X PATCH \
-          -d '<json>' \
-          https://api.dnsimple.com/v2/_/templates/example
+          -d '{"name":"Alpha"}' \
+          https://api.dnsimple.com/v2/1010/templates/example
 
 ### Input
 
@@ -159,7 +172,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~json
-{}
+<%= pretty_print_fixture("/updateTemplate/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -178,21 +191,19 @@ Name | Type | Description
 
 ### Example
 
-Delete the template with ID `1`:
+Delete the template with ID `1` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/templates/1
+          https://api.dnsimple.com/v2/1010/templates/1
 
-Delete the template with short name `example`:
+Delete the template with short name `example` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/_/templates/example
+          https://api.dnsimple.com/v2/1010/templates/example
 
 ### Response
 

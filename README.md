@@ -6,7 +6,7 @@ This is the DNSimple API documentation built with [nanoc](http://nanoc.stoneship
 
 Ruby 2 is required to build the site, all the dependencies are managed using Bundler.
 
-    $ git clone https://github.com/aetrion/developer.dnsimple.com.git dnsimple-developer
+    $ git clone https://github.com/dnsimple/dnsimple-developer.git
     $ cd dnsimple-developer
     $ bundle
 
@@ -25,11 +25,16 @@ For a list of `nanoc` commands type
     [2012-09-26 15:07:52] INFO  ruby 1.9.2 (2012-04-20) [x86_64-darwin12.1.0]
     [2012-09-26 15:07:52] INFO  WEBrick::HTTPServer#start: pid=23121 port=3000
 
+
 ## Deployment
 
-To publish the site to S3, thus allowing HTTPS:
+Each commit to master is [deployed automatically via Travis](https://blog.dnsimple.com/2016/04/publish-static-via-travis-to-cloudfront/).
 
-First, install Java (note on OS X I had to install the full JDK to get the command line `java`). Next, add a .env file with following:
+### Manual deployment
+
+To publish the site manually you will need Java (as the static deployer is written in Scala).
+
+Add a `.env` file with following variables, replacing `ACCESS_ID` and `ACCESS_KEY` with the real values.
 
     S3_ID=ACCESS_ID
     S3_SECRET=ACCESS_KEY
@@ -37,4 +42,3 @@ First, install Java (note on OS X I had to install the full JDK to get the comma
 Finally, run:
 
     $ rake publish
-
