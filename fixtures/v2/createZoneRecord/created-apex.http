@@ -15,4 +15,3 @@ X-Runtime: 0.099095
 Strict-Transport-Security: max-age=31536000
 
 {"data":{"id":1,"zone_id":"example.com","parent_id":null,"name":"","content":"127.0.0.1","ttl":600,"priority":null,"type":"A","system_record":false,"regions":["global"],"created_at":"2016-01-07T17:45:13Z","updated_at":"2016-01-07T17:45:13Z"}}
-
