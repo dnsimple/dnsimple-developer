@@ -13,4 +13,6 @@ The following documentation describes the DNSimple REST API.
 
 ## Current Version
 
-The current version is [API v1](/v1/).
+The current version is [API v2](/v2/).
+
+API v1 is currently in maintenance-only mode. It will be discontinued on October 1st, 2017.

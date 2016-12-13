@@ -155,13 +155,13 @@ h2 {
 }
 
 
-// API Beta warning
-.beta-warning {
+// API deprecated warning
+.deprecated-warning {
   margin-top: 20px;
   margin-bottom: -10px;
-  background: lighten($accent-color, 50%);
-  color: lighten($accent-color, 10%);
-  border-left: 3px solid lighten($accent-color, 10%);
+  background: lighten($warning-color, 50%);
+  color: $warning-color;
+  border-left: 3px solid lighten($warning-color, 10%);
   padding: 10px 0 10px 20px;
 }
 

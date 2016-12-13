@@ -1,13 +1,9 @@
 <%= render "header" %>
 
 <div class="container">
-  <div class="beta-warning">
-    The DNSimple API v2 is currently in public beta. Please note that changes in the API signatures or responses may happen during the beta period.
-  </div>
-
   <div class="row">
     <aside id="sidebar" class="col-md-3" role="sidebar">
-        <%= render "v2-sidebar" %>
+      <%= render "v2-sidebar" %>
     </aside>
     <main id="main" class="col-md-9" role="main">
       <%= yield %>
