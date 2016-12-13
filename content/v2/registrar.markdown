@@ -284,9 +284,9 @@ Responds with HTTP 201 on success, returns the domain.
 Responds with HTTP 400 if the validation fails.
 
 
-## Transfer out a domain {#transfer-out}
+## Authorize a domain transfer out {#transfer-out}
 
-    POST /:account/registrar/domains/:domain/transfer_out
+    POST /:account/registrar/domains/:domain/authorize_transfer_out
 
 Prepare a domain for transferring out. This will unlock a domain and send the authorization code to the domain's administrative contact.
 
@@ -305,7 +305,7 @@ Transfer out the domain `example.com` in the account `1010`:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfer_out
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/authorize_transfer_out
 
 ### Response
 
