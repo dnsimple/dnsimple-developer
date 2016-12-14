@@ -32,8 +32,6 @@ Please use Sandbox for testing your API integration, **before using production**
 
 The current API version is `v2`.
 
-API v1 is currently in maintenance-only mode. It will be discontinued on October 1st, 2017.
-
 ## Authentication
 
 There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.

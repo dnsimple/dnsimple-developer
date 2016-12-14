@@ -28,7 +28,9 @@ In order to maintain compatibility in the future, all requests must specify an A
 
 ## Current Version
 
-The current API version is `v1`.
+The current API version is `v2`.
+
+API v1 is currently in maintenance-only mode. It will be discontinued on October 1st, 2017.
 
 
 ## Requests
