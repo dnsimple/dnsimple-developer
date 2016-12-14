@@ -30,8 +30,9 @@ Please use Sandbox for testing your API integration, **before using production**
 
 ## Current Version
 
-The current API version is `v1`. `v2` is in public beta and ready for production usage.
+The current API version is `v2`.
 
+API v1 is currently in maintenance-only mode. It will be discontinued on October 1st, 2017.
 
 ## Authentication
 
