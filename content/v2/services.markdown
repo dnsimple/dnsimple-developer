@@ -8,7 +8,7 @@ excerpt: This page documents the DNSimple services API v2.
 * TOC
 {:toc}
 
-## Service Attributes #{service-attributes}
+## Service attributes {#service-attributes}
 
 Name | Description
 -----|------------
@@ -23,7 +23,7 @@ Name | Description
 `updated_at` | When the service was last changed in DNSimple
 `settings` | A list of objects describing each setting that requires configuration
 
-### Settings #{service-attributes-settings}
+## Service Setting attributes {#service-setting-attributes}
 
 Name | Description
 -----|------------
@@ -33,6 +33,7 @@ Name | Description
 `description` | Description of the setting
 `example` | An example value
 `password` | Set to true if the value is a password (and thus should be not visible in the field)
+
 
 ## List services {#list}
 

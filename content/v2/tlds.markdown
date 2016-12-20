@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple TLDs API v2.
 {:toc}
 
 
-## TLD attributes
+## TLD attributes {#tld-attributes}
 
 Name | Type | Description
 -----|------|------------
@@ -23,7 +23,7 @@ Name | Type | Description
 `renewal_enabled`       | `bool`    | `true` if DNSimple supports renewals for this TLD.
 `transfer_enabled`      | `bool`    | `true` if DNSimple supports inbound transfers for this TLD.
 
-### TLD Types {#tld-types}
+## TLD Types {#tld-types}
 
 Value | Description
 ------|------------
