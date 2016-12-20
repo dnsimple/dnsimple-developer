@@ -154,7 +154,7 @@ If you use an account token and you want to get the ID programmatically, the sim
 <%= pretty_print_fixture("/whoami/success-account.http") %>
 ~~~
 
-##### Getting the ID programmatically with an Account access token
+##### Getting the ID programmatically with a User access token
 
 If you use an user token and you want to get the ID programmatically, you need to fetch the list of all the accounts associated with the user executing a [`listAccounts`](/v2/accounts/#list-accounts) API call.
 
