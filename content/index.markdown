@@ -21,7 +21,7 @@ The core concepts in DNSimple are:
 
 All data that you have access to in DNSimple is tied back to accounts. When you log into DNSimple, you log in as a user, but users may have access to multiple accounts. For example, you could have an account for your personal domain, and an account for your work domains. Each account has payment details associated with it and each is billed independently based on the current subscription plan.
 
-In most cases you will access the API using an account access token. Details on getting your account token are available in the [authentication section](https://developer.dnsimple.com/v2/#authentication) of the API documentation.
+In most cases you will access the API using an account access token. Details on getting your account token are available in the [authentication section](/v2/#authentication) of the API documentation.
 
 ### Domains and Zones
 
