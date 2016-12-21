@@ -25,13 +25,13 @@ Get details about the current authenticated entity used to access the API.
 
 Responds with HTTP 200. Either user or account may be nil, depending on how you are authenticated.
 
-**Example when authenticated with an Account access token**
+##### Example when authenticated with an Account access token
 
 ~~~json
 <%= pretty_print_fixture("/whoami/success-account.http") %>
 ~~~
 
-**Example when authenticated with an User access token**
+##### Example when authenticated with an User access token
 
 ~~~json
 <%= pretty_print_fixture("/whoami/success-user.http") %>

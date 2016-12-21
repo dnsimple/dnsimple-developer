@@ -20,6 +20,7 @@ In order to maintain compatibility in the future, all requests must specify an A
 
     https://api.dnsimple.com/v2/
 
+
 ## Testing
 
 We maintain a separate environment for testing called [Sandbox accounts](/sandbox/). Sandbox API calls must use the `api.sandbox.dnsimple.com` domain.
@@ -28,17 +29,19 @@ We maintain a separate environment for testing called [Sandbox accounts](/sandbo
 Please use Sandbox for testing your API integration, **before using production**. Also note we will not refund you charges on your production account as a result of wrong API calls.
 </note>
 
+
 ## Current Version
 
 The current API version is `v2`.
+
 
 ## Authentication
 
 There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
 
-When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either an user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either a user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
 
-The HTTP Basic Authentication always authenticate you as an user.
+The HTTP Basic Authentication always authenticate you as a user.
 
 ##### HTTP Basic Authentication
 
@@ -61,6 +64,7 @@ curl -H 'Authorization: Bearer OAUTH-TOKEN' https://api.dnsimple.com/v2/whoami
 ~~~
 
 Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
+
 
 ## Response Codes
 
@@ -85,6 +89,7 @@ DNSimple uses conventional HTTP response codes to indicate success or failure of
 
 - `500`, `502`, `503`, `504 Server errors` - something went wrong on DNSimple's end.
 
+
 ## Responses
 
 All successful responses will be returned as a JSON object with at least one key: `data`.
@@ -101,6 +106,7 @@ The `data` element will contain either a single JSON object or a list of JSON ob
 }
 ~~~
 
+
 ## Errors
 
 Error responses will be returned as a JSON object with at least a `message` key. For example, failure to authenticate would result in a 401 response with a body like this:
@@ -108,6 +114,7 @@ Error responses will be returned as a JSON object with at least a `message` key.
 ~~~json
 {"message":"Authentication failed"}
 ~~~
+
 
 ## Timestamps
 
@@ -117,6 +124,46 @@ All the timestamps and the dates are formatted according the [ISO-8601 standard]
 2016-12-11T17:31:51Z # Timestamp
 2016-12-11           # Date
 ~~~
+
+
+## Account scope
+
+The majority of API methods are designed to be executed within the scope of a specific account. In this documentation, the account parameter is identified by the `:account` string in the API method path:
+
+    # An example of the API method to list the domains
+    # for a specific account
+    GET /:account/domains
+
+The account identifier must be supplied regardless the authentication mechanism, even if you use an account token. Remember that an _account token_ limits the permission to a specific account, whereas an _user token_ allows to access any resource on any account associated with the user.
+
+The account identifier is represented by a numerical account ID. You can obtain the account identifier either programmatically or manually.
+
+##### Getting the ID manually from the URL
+
+URLs in the main DNSimple application are also account scoped, the account ID can be reused in the API calls. To get the account ID, log into DNSimple, click on the account switch on the top-right of any DNSimple page, select the relevant account. Once selected, you will be sent to a page that contains an ID in the URL, for example:
+
+    https://dnsimple.com/a/1234/domains
+
+The digit after the `/a` in the path is the ID of the account. In this specific example, the account identifier is 1234.
+
+##### Getting the ID programmatically with an Account access token
+
+If you use an account token and you want to get the ID programmatically, the simplest way is to perform a [`whoami`](/v2/identity/#whoami) API call. The response will contain the account identifier as part of the `account` payload.
+
+~~~json
+<%= pretty_print_fixture("/whoami/success-account.http") %>
+~~~
+
+##### Getting the ID programmatically with a User access token
+
+If you use an user token and you want to get the ID programmatically, you need to fetch the list of all the accounts associated with the user executing a [`listAccounts`](/v2/accounts/#list-accounts) API call.
+
+~~~json
+<%= pretty_print_fixture("/listAccounts/success-user.http") %>
+~~~
+
+The response contains one or more accounts. Select the relevant account based on a known criteria (e.g. the name or an user input), and get the corresponding ID.
+
 
 ## Pagination
 
@@ -165,6 +212,7 @@ For example:
 
     https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
+
 ## Filtering
 
 Filtering makes it possible to ask only for the exact subset of data that you you're looking for.
@@ -183,6 +231,7 @@ List all domains in the account `1010` that have name matching `"example"`:
 
 Please have a look at the documentation of each endpoint to know about the filters it supports.
 
+
 ## Sorting
 
 API v2 results are implicitly sorted according to policies that vary from endpoint to endpoint.
@@ -200,6 +249,7 @@ List all domains in the account `1010` sorting them by expiration date (asc) and
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           https://api.dnsimple.com/v2/1010/domains?sort=expires_on:asc,id:desc
+
 
 ## Rate limiting
 
@@ -244,6 +294,7 @@ Content-Length: 28
 
 {"message":"quota exceeded"}
 ~~~
+
 
 ## More Examples
 
