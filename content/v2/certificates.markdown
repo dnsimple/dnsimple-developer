@@ -9,11 +9,13 @@ excerpt: This page documents the DNSimple certificates API v2.
 {:toc}
 
 
-## List certificates {#list}
+## List certificates {#listCertificates}
 
-    GET /:account/domains/:domain/certificates
+List the certificates for a domain.
 
-List certificates for the domain in the account.
+~~~
+GET /:account/domains/:domain/certificates
+~~~
 
 ### Parameters
 
@@ -51,9 +53,13 @@ Name | Description
 The default sorting policy is by descending `id`.
 
 
-## Get a certificate {#get}
+## Get a certificate {#getCertificate}
 
-    GET /:account/domains/:domain/certificates/:certificate
+Get information for an existing certificate.
+
+~~~
+GET /:account/domains/:domain/certificates/:certificate
+~~~
 
 ### Parameters
 
@@ -80,9 +86,13 @@ Responds with HTTP 200, renders the certificate.
 ~~~
 
 
-## Download a certificate {#download}
+## Download a certificate {#downloadCertificate}
 
-    GET /:account/domains/:domain/certificates/:certificate/download
+Download an existing PEM-encoded certificate and intermediate certificates.
+
+~~~
+GET /:account/domains/:domain/certificates/:certificate/download
+~~~
 
 ### Parameters
 
@@ -109,9 +119,13 @@ Responds with HTTP 200, renders the certificates.
 ~~~
 
 
-## Get a certificate private key {#get-private-key}
+## Get a certificate private key {#getCertificatePrivateKey}
 
-    GET /:account/domains/:domain/certificates/:certificate/private_key
+Download the PEM-encoded private key for an existing certificate.
+
+~~~
+GET /:account/domains/:domain/certificates/:certificate/private_key
+~~~
 
 ### Parameters
 
@@ -136,3 +150,4 @@ Responds with HTTP 200, renders the certificate private key.
 ~~~json
 <%= pretty_print_fixture("/getCertificatePrivateKey/success.http") %>
 ~~~
+
