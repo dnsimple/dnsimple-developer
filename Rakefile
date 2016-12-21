@@ -26,11 +26,6 @@ task :publish => :compile do
   puts "Published"
 end
 
-desc "Autocompile and view"
-task :aco do
-  `bundle exec nanoc view`
-end
-
 task :clean do
   FileUtils.rm_r('output') if File.exist?('output')
 end
@@ -40,4 +35,3 @@ Rake::TestTask.new do |t|
   t.test_files = FileList["_test/*_test.rb"]
   t.verbose = true
 end
-
