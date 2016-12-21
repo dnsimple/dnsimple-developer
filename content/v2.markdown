@@ -39,9 +39,9 @@ The current API version is `v2`.
 
 There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
 
-When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either an user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either a user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
 
-The HTTP Basic Authentication always authenticate you as an user.
+The HTTP Basic Authentication always authenticate you as a user.
 
 ##### HTTP Basic Authentication
 
