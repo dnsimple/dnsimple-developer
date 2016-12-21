@@ -18,12 +18,13 @@ For a list of `nanoc` commands type
 
 `nanoc` ships with an autocompiler that automatically compiles changed files on every HTTP request.
 
-    $ nanoc aco
+    $ bundle exec nanoc live
 
-    Running on http://0.0.0.0:3000/
-    [2012-09-26 15:07:52] INFO  WEBrick 1.3.1
-    [2012-09-26 15:07:52] INFO  ruby 1.9.2 (2012-04-20) [x86_64-darwin12.1.0]
-    [2012-09-26 15:07:52] INFO  WEBrick::HTTPServer#start: pid=23121 port=3000
+    Loading site… done
+    11:56:37 - INFO - Compilation succeeded.
+    [2016-12-21 11:56:37] INFO  WEBrick 1.3.1
+    [2016-12-21 11:56:37] INFO  ruby 2.3.3 (2016-11-21) [x86_64-darwin16]
+    [2016-12-21 11:56:37] INFO  WEBrick::HTTPServer#start: pid=63695 port=3000
 
 
 ## Deployment
