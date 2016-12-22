@@ -41,7 +41,7 @@ To register domains with your sandbox account you will need an active subscripti
 
 ## Testing Subscriptions
 
-To test mock registration or other subscription-based features you will have to create a test account.
+To test domain registrations or other subscription-based features you will have to subscribe to a plan.
 
 When entering the credit card details:
 
