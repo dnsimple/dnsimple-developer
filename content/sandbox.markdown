@@ -18,7 +18,7 @@ Sandbox data and systems are generally treated like production, however we may n
 
 ## Getting started
 
-The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations.
+The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations. *Every action within the Sandbox will be free of charge*
 
 - Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
 - When asked to choose a plan choose `Skip this step and choose a plan later` at the bottom. If you want to test features that requires a valid subscription please refer to the [Testing Subscriptions](#testing-subscriptions) section.
