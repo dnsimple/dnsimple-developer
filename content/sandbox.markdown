@@ -36,7 +36,7 @@ This site is generally an exact duplicate of the production application, but the
 
 To register domains with your sandbox account you will need an active subscription ([see below](#testing-subscriptions)). You can register every domain you want, as long as it's available because you are still sharing a system with other customers.
 
-*Domains you register within the sandbox will not resolve*
+*Domains you register within the sandbox will not have DNS service*
 
 
 ## Testing Subscriptions
