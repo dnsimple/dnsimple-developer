@@ -27,7 +27,7 @@ In most cases you will access the API using an account access token. Details on 
 
 Accounts hold 0 or more domains. Each domain represents a single domain name as well as details about the domain name, such as whether it is registered with DNSimple or just hosted. For domains that are registered, the domain includes details about its registrant, whois privacy status, expiration date and more. Domains may have collections of other entities associated with them, such as SSL certificates, email forwards, collaborators, etc.
 
-Zones represent the DNS zone for a domain. Each domain MUST have a zone, however zones may also exist without a domain (in the case of a reverse zone, which is used to provide reverse DNS). Zones have 1 or more records. All zones will have a combination of system records, which are records that we automatically create, such as SOA and NS records, as well as custom records, which are records created by users.
+Zones represent the DNS zone for a domain. Each domain MUST have a zone, however zones may also exist without a domain (in the case of a reverse zone, which is used to provide reverse DNS). Zones have 1 or more records. All zones will have a combination of system records, which are records that we automatically create, such as SOA and NS records, as well as custom records, which are records created by users. If you'd like to read more about DNS zones and the records we support, visit the [DNS section](https://support.dnsimple.com/categories/dns/) of the DNSimple support site.
 
 ### SSL Certificates
 
