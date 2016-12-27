@@ -38,6 +38,9 @@ To register domains with your sandbox account you will need an active subscripti
 
 *Domains you register within the sandbox will not have DNS service*
 
+## Testing Certificates
+
+Testing working with certificates is at the moment *not supported* within the sandbox because certificate validation requires actual DNS service.
 
 ## Testing Subscriptions
 
