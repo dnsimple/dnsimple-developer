@@ -58,8 +58,3 @@ When entering the credit card details:
 
 - Use the credit card number `1` to simulate a credit card in good status. All payments and authorizations will succeed.
 - Use the credit card number `3` to simulate a credit card in which all authorizations and payments will fail.
-
-
-## Testing Two Factor Authentication
-
-2FA settings for Sandbox are now shared with production. Therefore, if you want to use (or test) 2FA on Sandbox, simply [enable 2FA on Sandbox](/articles/two-factor-authentication/#enable) and configure the 2FA authenticator application.
