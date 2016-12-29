@@ -10,7 +10,7 @@ excerpt: Welcome to DNSimple. This page explains our sandbox environment. Enjoy 
 
 ---
 
-We maintain an isolated test site at [sandbox.dnsimple.com](https://sandbox.dnsimple.com/). Please feel invited to test your applications that integrate with the DNSimple API here.
+We maintain an isolated test site at [sandbox.dnsimple.com](https://sandbox.dnsimple.com/). We highly recommend testing against our [sandbox environment](https://developer.dnsimple.com/sandbox/) before using our production environment. This will allow you to avoid real purchases, live charges on your credit card, and reduce the chance of your running up against rate limits.
 
 ### Disclaimer
 
@@ -18,7 +18,11 @@ Sandbox data and systems are generally treated like production, however we may n
 
 ## Getting started
 
-The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations. *Every action within the Sandbox will be free of charge*
+The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations. 
+
+<callout>
+Every action within the Sandbox will be free of charge.
+</callout>
 
 - Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
 - When asked to choose a plan choose `Skip this step and choose a plan later` at the bottom. If you want to test features that requires a valid subscription please refer to the [Testing Subscriptions](#testing-subscriptions) section.
@@ -36,11 +40,15 @@ This site is generally an exact duplicate of the production application, but the
 
 To register domains with your sandbox account you will need an active subscription ([see below](#testing-subscriptions)). You can register every domain you want, as long as it's available because you are still sharing a system with other customers.
 
-*Domains you register within the sandbox will not have any DNS service*
+<callout>
+Domains you register within the sandbox will not have any DNS service.
+</callout>
+
 
 ## Testing Certificates
 
 Testing working with certificates is at the moment *not supported* within the sandbox because certificate validation requires actual DNS service.
+
 
 ## Testing Subscriptions
 
@@ -50,6 +58,7 @@ When entering the credit card details:
 
 - Use the credit card number `1` to simulate a credit card in good status. All payments and authorizations will succeed.
 - Use the credit card number `3` to simulate a credit card in which all authorizations and payments will fail.
+
 
 ## Testing Two Factor Authentication
 
