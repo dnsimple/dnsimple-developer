@@ -62,7 +62,4 @@ When entering the credit card details:
 
 ## Testing Two Factor Authentication
 
-To test 2FA integration use the following OTP tokens:
-
-- `0000000` will pass 2FA
-- any other token will fail 2FA
+2FA settings for Sandbox are now shared with production. Therefore, if you want to use (or test) 2FA on Sandbox, simply [enable 2FA on Sandbox](/articles/two-factor-authentication/#enable) and configure the 2FA authenticator application.
