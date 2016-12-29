@@ -1,9 +1,9 @@
 ---
-title: Sandbox
-excerpt: Welcome to DNSimple. This page explains our sandbox environment. Enjoy low cost hosted DNS services, an easy to use web interface, and REST API.
+title: Sandbox Environment
+excerpt: We maintain an isolated test site, we highly recommend testing against our sandbox environment before using our production environment.
 ---
 
-# Sandbox
+# Sandbox Environment
 
 * TOC
 {:toc}
