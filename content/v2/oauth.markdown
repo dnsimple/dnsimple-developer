@@ -67,7 +67,8 @@ The following values should be passed as POST parameters:
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
 `client_secret` | **Required**. The client secret you received from DNSimple when you registered the application.
 `code`          | **Required**. The code acquired in the previous authorization step.
-`redirect_uri`  | Only used to validate that it matches the original `/oauth/authorize`, not used to redirect again.
+`redirect_uri`  | **Required**. Only used to validate that it matches the original `/oauth/authorize`, not used to redirect again.
+`state`         | **Required**. The state content originally passed to `/oauth/authorize`.
 
 You'll receive a JSON response. If the request is successful, the response will include an access token, the token type and the account ID. The token type will always be `bearer`.
 
