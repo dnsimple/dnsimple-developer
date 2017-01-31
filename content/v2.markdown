@@ -35,6 +35,19 @@ Please use Sandbox for testing your API integration, **before using production**
 The current API version is `v2`.
 
 
+## Content Types
+
+Unless otherwise specified in specific API method documentations, API v2 only supports the JSON content type. HTTP requests must be JSON-encoded, and HTTP responses will contain JSON-encoded payloads.
+
+The content type header must be explicitly specified in any HTTP request:
+
+~~~
+curl -u 'EMAIL:PASSWORD' -H 'Content-Type: application/json' https://api.dnsimple.com/v2/whoami
+~~~
+
+To improve readability, the header may be omitted in some examples in this documentation.
+
+
 ## Authentication
 
 There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
