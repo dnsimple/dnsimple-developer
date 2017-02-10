@@ -1,5 +1,5 @@
 ---
-title: Vanity Name Servers API | DNSimple API v2 (Beta)
+title: Vanity Name Servers API | DNSimple API v2
 excerpt: This page documents the DNSimple vanity name servers API v2.
 ---
 

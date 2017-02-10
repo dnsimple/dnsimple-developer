@@ -1,5 +1,5 @@
 ---
-title: Identity API | DNSimple API v2 (Beta)
+title: Identity API | DNSimple API v2
 excerpt: This page documents the DNSimple identity API v2 endpoint.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Zones API | DNSimple API v2 (Beta)
+title: Zones API | DNSimple API v2
 excerpt: This page documents the DNSimple zones API v2.
 ---
 

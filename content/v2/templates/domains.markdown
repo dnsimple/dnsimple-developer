@@ -1,5 +1,5 @@
 ---
-title: Domain templates API | Templates | DNSimple API v2 (Beta)
+title: Domain templates API | Templates | DNSimple API v2
 excerpt: This page documents the DNSimple domain templates API v2.
 ---
 

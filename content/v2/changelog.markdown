@@ -1,5 +1,5 @@
 ---
-title: Changelog | DNSimple API v2 (Beta)
+title: Changelog | DNSimple API v2
 excerpt: History of the changes to the API v2.
 ---
 

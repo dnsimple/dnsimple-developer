@@ -1,5 +1,5 @@
 ---
-title: Domain services API | Services | DNSimple API v2 (Beta)
+title: Domain services API | Services | DNSimple API v2
 excerpt: This page documents the DNSimple domain services API v2.
 ---
 

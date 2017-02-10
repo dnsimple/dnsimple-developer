@@ -1,5 +1,5 @@
 ---
-title: Delegation API | Registrar | DNSimple API v2 (Beta)
+title: Delegation API | Registrar | DNSimple API v2
 excerpt: This page documents the DNSimple domain name servers API v2.
 ---
 

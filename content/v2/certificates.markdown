@@ -1,5 +1,5 @@
 ---
-title: Certificates API | DNSimple API v2 (Beta)
+title: Certificates API | DNSimple API v2
 excerpt: This page documents the DNSimple certificates API v2.
 ---
 

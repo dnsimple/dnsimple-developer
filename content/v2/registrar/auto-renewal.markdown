@@ -1,5 +1,5 @@
 ---
-title: Domain auto-renewal API | Registrar | DNSimple API v2 (Beta)
+title: Domain auto-renewal API | Registrar | DNSimple API v2
 excerpt: This page documents the DNSimple domain registration auto-renewal API v2.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Email forwards API | Domains | DNSimple API v2 (Beta)
+title: Email forwards API | Domains | DNSimple API v2
 excerpt: This page documents the DNSimple email forwards API v2.
 ---
 

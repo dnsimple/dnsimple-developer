@@ -1,5 +1,5 @@
 ---
-title: Accounts API | DNSimple API v2 (Beta)
+title: Accounts API | DNSimple API v2
 excerpt: This page documents the DNSimple accounts API v2 endpoint.
 ---
 

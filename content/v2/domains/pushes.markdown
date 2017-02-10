@@ -1,5 +1,5 @@
 ---
-title: Push API | Domains | DNSimple API v2 (Beta)
+title: Push API | Domains | DNSimple API v2
 excerpt: This page documents the DNSimple push API v2.
 ---
 
