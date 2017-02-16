@@ -20,9 +20,13 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
 - [DNSimple Node.js client](https://dnsimple.link/api-client-node)
 
-## Bash
+### Bash
 
 - [chorn/dnsimple_cli](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
+
+### Examples
+
+- [dnsimple/dnsimple-api-examples](https://github.com/dnsimple/dnsimple-api-examples) - Example scripts and code to demonstrate how to use the DNSimple API v2 with our official clients.
 
 ## API v1 Clients
 
