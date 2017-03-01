@@ -52,7 +52,7 @@ To improve readability, the header may be omitted in some examples in this docum
 
 There two ways to authenticate through DNSimple API: the **HTTP Basic Authentication** and the **OAuth2 token**.
 
-When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either a user token or an account token. The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+When you create an OAuth2 token programmatically, the token is scoped to the specific account granted during the OAuth2 dance. When you create an OAuth2 token from the application, you can create either a user token or an account token.
 
 The HTTP Basic Authentication always authenticate you as a user.
 
@@ -77,6 +77,14 @@ curl -H 'Authorization: Bearer OAUTH-TOKEN' https://api.dnsimple.com/v2/whoami
 ~~~
 
 Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/v2/oauth/) or can be generated from the user/account sections in the DNSimple application.
+
+### Account tokens vs User tokens
+
+API v2 offers 2 types of tokens: account tokens and user tokens.
+
+The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+
+We recommend to use account tokens, unless your application needs multi-account access via single token.
 
 
 ## Response Codes
