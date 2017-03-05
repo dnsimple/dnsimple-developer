@@ -60,6 +60,8 @@ Responds with HTTP 204.
 <%= pretty_print_fixture("/disableDnssec/success.http") %>
 ~~~
 
+Responds with HTTP 428 if DNSSEC is not currently enabled.
+
 
 ## Get DNSSEC {#get}
 
