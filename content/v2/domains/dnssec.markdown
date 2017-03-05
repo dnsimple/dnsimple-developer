@@ -129,6 +129,8 @@ The default sorting policy is by ascending `id`.
 
 ## Create a delegation signer record {#create}
 
+You only need to create a delegation signer record manually if your domain is registered with DNSimple but hosted with another DNS provider that is signing your zone. To enable DNSSEC on a domain that is hosted with DNSimple, use the DNSSEC enable endpoint.
+
     POST /:account/domains/:domain/ds_records
 
 ### Parameters
