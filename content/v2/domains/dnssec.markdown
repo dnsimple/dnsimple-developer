@@ -86,7 +86,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## List delegation signer records {#list}
+## List delegation signer records {#ds-record-list}
 
     GET /:account/domains/:domain/ds_records
 
@@ -127,7 +127,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a delegation signer record {#create}
+## Create a delegation signer record {#ds-record-create}
 
 You only need to create a delegation signer record manually if your domain is registered with DNSimple but hosted with another DNS provider that is signing your zone. To enable DNSSEC on a domain that is hosted with DNSimple, use the DNSSEC enable endpoint.
 
@@ -184,7 +184,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a delegation signer record {#get}
+## Get a delegation signer record {#ds-record-get}
 
     GET /:account/domains/:domain/ds_records/:ds_record_id
 
@@ -213,7 +213,7 @@ Responds with HTTP 200 on success, renders the delegation signer record.
 ~~~
 
 
-## Delete a delegation signer record {#delete}
+## Delete a delegation signer record {#ds-record-delete}
 
     DELETE /:account/domains/:domain/ds_records/:ds_record_id
 
