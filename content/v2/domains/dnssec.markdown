@@ -21,6 +21,13 @@ This article describes a feature in Public Beta.
 
 Enable DNSSEC for the domain in the account. This will sign the zone. If the domain is registered it will also add the DS record to the corresponding registry.
 
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
+
 ### Example
 
 Enable DNSSEC for the domain `example.com` in the account `1010`:
@@ -42,6 +49,13 @@ Responds with HTTP 201.
 ## Disable DNSSEC {#disable}
 
     DELETE /:account/domains/:domain/dnssec
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
@@ -68,6 +82,13 @@ Responds with HTTP 428 if DNSSEC is not currently enabled.
     GET /:account/domains/:domain/dnssec
 
 Get the status of DNSSEC, indicating whether it is currently enabled or disabled.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
 
 ### Example
 
