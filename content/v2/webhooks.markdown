@@ -81,6 +81,8 @@ The following events are available:
 - contact.delete
 - dnssec.create
 - dnssec.delete
+- dnssec.rotation\_start
+- dnssec.rotation\_complete
 - domain.auto\_renewal\_disable
 - domain.auto\_renewal\_enable
 - domain.create
