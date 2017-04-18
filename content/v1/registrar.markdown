@@ -34,7 +34,7 @@ Name | Type | Description
 -----|------|------------
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/v1/extended-attributes/).
+`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/v1/registrar/extended-attributes/).
 
 ##### Example
 
@@ -119,7 +119,7 @@ Name | Type | Description
 -----|------|------------
 `domain.name` | `string` | **Required**.
 `domain.registrant_id` | `integer` | **Required**. The ID of an existing contact in your account.
-`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/extended-attributes/).
+`extended_attribute` | `hash` | **Required** for TLDs that require [extended attributes](/v1/registrar/extended-attributes/).
 `transfer_order.authinfo` | `string` | **Required** for top-level domains that require an authorization code.
 
 ##### Example

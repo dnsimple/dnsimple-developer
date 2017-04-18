@@ -64,6 +64,6 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 ### PowerShell
 
-- [PowerDNSimple](https://github.com/adminian/PowerDNSimple) - A PowerShell module for working with DNSimple API.
+- [PowerDNSimple](https://github.com/jordanknapp/PowerDNSimple) - A PowerShell module for working with DNSimple API.
 
 
