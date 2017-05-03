@@ -15,7 +15,7 @@ Webhooks are used for receiving notifications via an HTTP request whenever an ev
 
 You may register your webhook URLs either through the DNSimple web interface or through the DNSimple API. The URL must use HTTPS and the webhook handler should be able to receive HTTP POST requests.
 
-All webhooks are sent via HTTPS using POST. It MAY occur that some webhook fire more then once. Clients MUST handle webhooks with the same `request_identifier` to not process them twice.
+All webhooks are sent via HTTPS using POST. It MAY occur that some webhook fire more than once. Clients MUST handle webhooks with the same `request_identifier` to not process them twice.
 
 <note>
 Webhooks are only supported in the DNSimple API v2 and higher.
