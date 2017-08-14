@@ -51,6 +51,8 @@ Provides Chef LWRP for automating DNS configuration with DNSimple.
 - [Dynamic IP Updater in Golang](https://github.com/jcarley/go-dns) by [jcarley](https://github.com/jcarley)
 - [DitchDaddy](https://github.com/jm/ditchdaddy) - for batch transferring domains out of GoDaddy by [jm](https://github.com/jm)
 - [Screw You Zerigo](https://gist.github.com/bhauman/8225787) - for moving zones from Zerigo to DNSimple by [bhauman](https://gist.github.com/bhauman)
+- [record_store](https://github.com/Shopify/record_store) - Shopify's tool for controlling your records from a git-repo based workflow
+- [dnscontrol](https://github.com/StackExchange/dnscontrol) - StackExchange's tool to Synchronize your DNS to multiple providers from a simple DSL
 
 
 If you've developed a tool for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
