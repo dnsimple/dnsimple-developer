@@ -1,6 +1,6 @@
 # DNSimple API Documentation
 
-This is the DNSimple API documentation built with [nanoc](http://nanoc.stoneship.org/).
+This is the DNSimple API documentation built with [nanoc](http://nanoc.ws/).
 
 ## Setup
 
