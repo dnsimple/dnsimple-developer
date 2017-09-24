@@ -139,7 +139,7 @@ Error responses will be returned as a JSON object with at least a `message` key.
 
 ## Timestamps
 
-All the timestamps and the dates are formatted according the [ISO-8601 standard](http://www.iso.org/iso/es/home/standards/iso8601.htm).
+All the timestamps and the dates are formatted according the [ISO-8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 
 ~~~
 2016-12-11T17:31:51Z # Timestamp
