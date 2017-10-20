@@ -137,7 +137,7 @@ Responds with HTTP 200, renders the certificate private key.
 <%= pretty_print_fixture("/getCertificatePrivateKey/success.http") %>
 ~~~
 
-## Purchase a Let's Encrypt certificate {#letsencrypt-purchase}
+## Let's Encrypt: Purchase a certificate {#letsencrypt-purchase}
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
@@ -169,11 +169,11 @@ Alternate names require a subscription to Professional or a Business plan.
 
 ### Auto renewal
 
-By default a certificate isn't auto-renewed when in expires.
+By default a certificate isn't auto-renewed when it expires.
 
 If that is your case, you must [manually renew](#letsencrypt-purchase-renewal) the certificate.
 
-Otherwise you can **purchase once** and let the system to renew it automatically.
+Otherwise you can **purchase the certificate once** and then let the system automatically renew it before it expires. You will still have to install the renewed certificate.
 
 ### Parameters
 
@@ -204,7 +204,7 @@ Name | Type | Description
 `alternate_names` | `array<string>` | The certificate _alternate names_. Default: `[]`. Example: `["docs.example.com", "status.example.com"]`
 
 <note>
-The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the contact for this certificate.
+The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
 </note>
 
 ### Response
@@ -213,7 +213,7 @@ The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts) and wi
 <%= pretty_print_fixture("/purchaseLetsencryptCertificate/success.http") %>
 ~~~
 
-## Issue a Let's Encrypt certificate {#letsencrypt-issue}
+## Let's Encrypt: Issue a certificate {#letsencrypt-issue}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
@@ -247,14 +247,14 @@ The certificate will be in state `requesting`, and it can't be [downloaded](#dow
 You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification once the certificate will be issued.
 </note>
 
-## Renew a Let's Encrypt certificate {#letsencrypt-purchase-renewal}
+## Let's Encrypt: Renew a certificate {#letsencrypt-purchase-renewal}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
 Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#letsencrypt-purchase) with DNSimple.
 
 <note>
-You must renew a certificate **only** if it does **NOT** uses the **auto renewal** feature.
+You must renew a certificate **only** if it does **NOT** use the **auto renewal** feature.
 </note>
 
 You can always enable or disable _auto renewal_ when renewing a certificate.
@@ -291,7 +291,7 @@ Name | Type | Description
 <%= pretty_print_fixture("/purchaseRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
-## Issue a Let's Encrypt certificate renewal {#letsencrypt-issue-renewal}
+## Let's Encrypt: Issue a certificate renewal {#letsencrypt-issue-renewal}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 
