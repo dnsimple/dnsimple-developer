@@ -147,7 +147,7 @@ Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DN
 Please note that the domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
 </note>
 
-The certificate is **free of charge**, but some features of the certificate may require to be subscribed to an higher plan.
+The certificate is **free of charge**, but some features of the certificate may require higher tier plans.
 
 ### Certificate name
 
@@ -155,25 +155,25 @@ The default certificate name is `www`, which is valid for the naked domain as we
 The name of the certificate will be `www.example.com`, which is valid both for `https://example.com` and `https://www.example.com`.
 
 You can choose a **custom name** (like `api`), which is valid only for `https://api.example.com`.
-Custom name requires a subscription to Professional or a Business plan.
+Custom names require a subscription to a Professional or Business plan.
 
 ### Alternate names
 
-A certificate can be purchased for multiple subdomains.
-We call them _alternate names_ or [Subject Alternative Name (SAN)](https://support.dnsimple.com/articles/what-is-ssl-san/).
+A certificate can be purchased for multiple subdomains. We call them _alternate names_ or [Subject Alternative Name (SAN)](https://support.dnsimple.com/articles/what-is-ssl-san/).
 
-By default a certificate doesn't have alternate names.
+By default a certificate does not have alternate names.
 
-You can purchase a single certificate for both `https://docs.example.com` and `https://status.example.com`, alongside with `https://example.com`.
-Alternate names require a subscription to Professional or a Business plan.
+You can purchase a single certificate for both `https://docs.example.com` and `https://status.example.com`, alongside  `https://example.com`.
+
+Alternate names require a subscription to a Professional or Business plan.
 
 ### Auto renewal
 
-By default a certificate isn't auto-renewed when it expires.
+By default a certificate is not auto-renewed when it expires.
 
-If that is your case, you must [manually renew](#letsencrypt-purchase-renewal) the certificate.
+Certificates with auto-renewal disabled may be [renewed manually](#letsencrypt-purchase-renewal).
 
-Otherwise you can **purchase the certificate once** and then let the system automatically renew it before it expires. You will still have to install the renewed certificate.
+You may also **purchase the certificate once** and select the auto-renewal option. With auto-renewal enabled, our system automatically renews a certificate before it expires. Notification for renewed certificates are sent via email and a webhook is fired when a new certificate is available. You will still have to install the renewed certificate.
 
 ### Parameters
 
@@ -244,7 +244,7 @@ Issue a Let's Encrypt certificate with ID `200`, for `example.com` in the accoun
 
 <note>
 The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
-You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification once the certificate will be issued.
+You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
 </note>
 
 ## Let's Encrypt: Renew a certificate {#letsencrypt-purchase-renewal}
@@ -327,5 +327,5 @@ Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `20
 
 <note>
 The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
-You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification once the certificate will be issued.
+You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification once the certificate is issued.
 </note>
