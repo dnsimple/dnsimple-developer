@@ -151,8 +151,7 @@ The certificate is **free of charge**, but some features of the certificate may 
 
 ### Certificate name
 
-The default certificate name is `www`, which is valid for the naked domain as well.
-The name of the certificate will be `www.example.com`, which is valid both for `https://example.com` and `https://www.example.com`.
+The default certificate name is `www` and covers both the root domain (e.g. `example.com`) and the `www` subdomain (e.g. `www.example.com`).
 
 You can choose a **custom name** (like `api`), which is valid only for `https://api.example.com`.
 Custom names require a subscription to a Professional or Business plan.
