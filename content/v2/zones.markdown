@@ -117,3 +117,44 @@ Responds with HTTP 200, renders the zone file.
 <%= pretty_print_fixture("/getZoneFile/success.http") %>
 ~~~
 
+
+## Get zone distribution {#get-zone-distribution}
+
+    GET /:account/zones/:zone
+
+Checks if a zone is fully distributed across DNSimple nodes.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Check the zone distribution for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones/example.com/distribution
+
+### Response
+
+Responds with HTTP 200 when the zone is fully distributed.
+
+~~~json
+<%= pretty_print_fixture("/getZoneDistribution/success.http") %>
+~~~
+
+Responds with HTTP 200 when the zone is not distributed.
+
+~~~json
+<%= pretty_print_fixture("/getZoneDistribution/failure.http") %>
+~~~
+
+Responds with HTTP 500 when the server failed to perform the check.
+
+~~~json
+<%= pretty_print_fixture("/getZoneDistribution/error.http") %>
+~~~
