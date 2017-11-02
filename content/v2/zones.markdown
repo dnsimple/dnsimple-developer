@@ -122,7 +122,11 @@ Responds with HTTP 200, renders the zone file.
 
     GET /:account/zones/:zone
 
-Checks if a zone is fully distributed across DNSimple nodes.
+Checks if a zone change is fully distributed to all our nameservers across the globe.
+
+<warning>
+  This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
+</warning>
 
 ### Parameters
 
