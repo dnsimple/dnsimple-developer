@@ -118,7 +118,7 @@ Responds with HTTP 200, renders the zone file.
 ~~~
 
 
-## Get zone distribution {#get-zone-distribution}
+## Get zone distribution {#checkZoneDistribution}
 
     GET /:account/zones/:zone
 
