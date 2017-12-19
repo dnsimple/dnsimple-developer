@@ -137,17 +137,20 @@ Responds with HTTP 200, renders the certificate private key.
 <%= pretty_print_fixture("/getCertificatePrivateKey/success.http") %>
 ~~~
 
+
 ## Let's Encrypt: Purchase a certificate {#purchaseLetsencryptCertificate}
+
+<%= render "v2-beta" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
 Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.
 
-<note>
-Please note that the domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
-</note>
-
 The certificate is **free of charge**, but some features of the certificate may require higher tier plans.
+
+<note>
+The domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
+</note>
 
 ### Certificate name
 
@@ -212,7 +215,10 @@ The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
 <%= pretty_print_fixture("/purchaseLetsencryptCertificate/success.http") %>
 ~~~
 
+
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
+
+<%= render "v2-beta" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
@@ -246,7 +252,10 @@ The certificate will be in state `requesting`, and it can't be [downloaded](#dow
 You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
 </note>
 
+
 ## Let's Encrypt: Renew a certificate {#purchaseRenewalLetsencryptCertificate}
+
+<%= render "v2-beta" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
@@ -290,7 +299,10 @@ Name | Type | Description
 <%= pretty_print_fixture("/purchaseRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
+
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
+
+<%= render "v2-beta" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 
@@ -306,7 +318,7 @@ Name | Type | Description
 `:certificate_renewal` | `integer` | The certificate renewal id
 
 <note>
-The `:certificate_renewal` ID is the one returned by the **[renewal](#purchaseRenewalLetsencryptCertificate)**.
+The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRenewalLetsencryptCertificate).
 </note>
 
 ### Example
@@ -325,6 +337,6 @@ Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `20
 ~~~
 
 <note>
-The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
-You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification once the certificate is issued.
+The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
+You can subscribe to a [webhook](/v2/webhooks) to receive a notification once the certificate is issued.
 </note>
