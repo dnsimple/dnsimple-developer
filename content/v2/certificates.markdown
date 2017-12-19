@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple certificates API v2.
 {:toc}
 
 
-## List certificates {#list}
+## List certificates {#listCertificates}
 
     GET /:account/domains/:domain/certificates
 
@@ -51,7 +51,7 @@ Name | Description
 The default sorting policy is by descending `id`.
 
 
-## Get a certificate {#get}
+## Get a certificate {#getCertificate}
 
     GET /:account/domains/:domain/certificates/:certificate
 
@@ -80,7 +80,7 @@ Responds with HTTP 200, renders the certificate.
 ~~~
 
 
-## Download a certificate {#download}
+## Download a certificate {#downloadCertificate}
 
     GET /:account/domains/:domain/certificates/:certificate/download
 
@@ -109,7 +109,7 @@ Responds with HTTP 200, renders the certificates.
 ~~~
 
 
-## Get a certificate private key {#get-private-key}
+## Get a certificate private key {#getCertificatePrivateKey}
 
     GET /:account/domains/:domain/certificates/:certificate/private_key
 
@@ -137,7 +137,7 @@ Responds with HTTP 200, renders the certificate private key.
 <%= pretty_print_fixture("/getCertificatePrivateKey/success.http") %>
 ~~~
 
-## Let's Encrypt: Purchase a certificate {#letsencrypt-purchase}
+## Let's Encrypt: Purchase a certificate {#purchaseLetsencryptCertificate}
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
@@ -170,7 +170,7 @@ Alternate names require a subscription to a Professional or Business plan.
 
 By default a certificate is not auto-renewed when it expires.
 
-Certificates with auto-renewal disabled may be [renewed manually](#letsencrypt-purchase-renewal).
+Certificates with auto-renewal disabled may be [renewed manually](#purchaseRenewalLetsencryptCertificate).
 
 You may also **purchase the certificate once** and select the auto-renewal option. With auto-renewal enabled, our system automatically renews a certificate before it expires. Notification for renewed certificates are sent via email and a webhook is fired when a new certificate is available. You will still have to install the renewed certificate.
 
@@ -212,11 +212,11 @@ The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
 <%= pretty_print_fixture("/purchaseLetsencryptCertificate/success.http") %>
 ~~~
 
-## Let's Encrypt: Issue a certificate {#letsencrypt-issue}
+## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
-Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#letsencrypt-purchase) with DNSimple.
+Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#purchaseLetsencryptCertificate) with DNSimple.
 
 ### Parameters
 
@@ -246,11 +246,11 @@ The certificate will be in state `requesting`, and it can't be [downloaded](#dow
 You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
 </note>
 
-## Let's Encrypt: Renew a certificate {#letsencrypt-purchase-renewal}
+## Let's Encrypt: Renew a certificate {#purchaseRenewalLetsencryptCertificate}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
-Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#letsencrypt-purchase) with DNSimple.
+Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#purchaseLetsencryptCertificate) with DNSimple.
 
 <note>
 You must renew a certificate **only** if it does **NOT** use the **auto renewal** feature.
@@ -290,11 +290,11 @@ Name | Type | Description
 <%= pretty_print_fixture("/purchaseRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
-## Let's Encrypt: Issue a certificate renewal {#letsencrypt-issue-renewal}
+## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 
-Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [renewed](#letsencrypt-purchase-renewal) with DNSimple.
+Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [renewed](#purchaseRenewalLetsencryptCertificate) with DNSimple.
 
 ### Parameters
 
@@ -306,7 +306,7 @@ Name | Type | Description
 `:certificate_renewal` | `integer` | The certificate renewal id
 
 <note>
-The `:certificate_renewal` ID is the one returned by the **[renewal](#letsencrypt-purchase-renewal)**.
+The `:certificate_renewal` ID is the one returned by the **[renewal](#purchaseRenewalLetsencryptCertificate)**.
 </note>
 
 ### Example
