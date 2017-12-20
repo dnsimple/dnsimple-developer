@@ -13,7 +13,7 @@ excerpt: This page documents the DNSimple certificates API v2.
 
     GET /:account/domains/:domain/certificates
 
-List certificates for the domain in the account.
+List the certificates for a domain in the account.
 
 ### Parameters
 
@@ -55,6 +55,8 @@ The default sorting policy is by descending `id`.
 
     GET /:account/domains/:domain/certificates/:certificate
 
+Get the details of a certificate.
+
 ### Parameters
 
 Name | Type | Description
@@ -84,6 +86,8 @@ Responds with HTTP 200, renders the certificate.
 
     GET /:account/domains/:domain/certificates/:certificate/download
 
+Get the PEM-encoded certificate, along with the root certificate and intermediate chain.
+
 ### Parameters
 
 Name | Type | Description
@@ -112,6 +116,8 @@ Responds with HTTP 200, renders the certificates.
 ## Get a certificate private key {#getCertificatePrivateKey}
 
     GET /:account/domains/:domain/certificates/:certificate/private_key
+
+Get the PEM-encoded certificate private key.
 
 ### Parameters
 
