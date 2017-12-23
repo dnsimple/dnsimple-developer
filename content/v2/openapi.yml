@@ -1,0 +1,4306 @@
+openapi: 3.0.0
+info:
+  title: DNSimple API
+  version: 2.0.0
+  contact:
+    name: DNSimple Support
+    email: support@dnsimple.com
+    url: 'https://dnsimple.com/contact'
+  description: >-
+    [DNSimple](https://dnsimple.com) provides DNS hosting and domain
+    registration that is simple and friendly. We provide an extensive API and an
+    easy-to-use web interface so you can get your domain registered and set up
+    with a minimal amount of effort.
+  termsOfService: 'https://dnsimple.com/terms'
+externalDocs:
+  url: 'https://developer.dnsimple.com'
+security:
+  - basicAuth: []
+  - bearerAuth: []
+  - oauth:
+      - full
+servers:
+  - url: 'https://api.dnsimple.com/v2'
+    description: DNSimple Production API
+    variables: {}
+  - url: 'https://api.sandbox.dnsimple.com/v2'
+    description: DNSimple Sandbox API
+paths:
+  /accounts:
+    get:
+      description: Gets the accounts the current authenticated entity has access to.
+      parameters: []
+      operationId: listAccounts
+      tags:
+        - account
+      responses:
+        '200':
+          description: >-
+            Depending on how you are authenticated you will see all the accounts
+            you have access to or the account you used to authenticate.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+  /whoami:
+    get:
+      description: >-
+        Get details about the current authenticated entity used to access the
+        API.
+      parameters: []
+      operationId: whoami
+      tags:
+        - identity
+      responses:
+        '200':
+          description: Successful response with user or account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      account:
+                        $ref: '#/components/schemas/Account'
+                      user:
+                        $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+        default:
+          $ref: '#/components/responses/Error'
+  '/{account}/domains':
+    summary: Operations on domain collections.
+    get:
+      description: List domains in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/FilterNameLike'
+        - $ref: '#/components/parameters/FilterRegistrantId'
+        - $ref: '#/components/parameters/SortDomains'
+      operationId: listDomains
+      tags:
+        - domains
+      responses:
+        '200':
+          description: The domains in the specified account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Domain'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+    post:
+      description: Add a domain to the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createDomain
+      tags:
+        - domains
+      requestBody:
+        $ref: '#/components/requestBodies/DomainCreate'
+      responses:
+        '201':
+          description: Domain successfully added to the account
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Domain'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/domains/{domain}':
+    get:
+      description: Get a domain in an account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: getDomain
+      tags:
+        - domains
+      responses:
+        '200':
+          description: Successfully retreived domain
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete a domain from an account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: deleteDomain
+      tags:
+        - domains
+      responses:
+        '204':
+          description: The domain was successfully deleted
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/token':
+    post:
+      description: Reset a domain token.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: resetDomainToken
+      tags:
+        - domains
+      responses:
+        '201':
+          description: The token was successfully reset
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/domains/{domain}/collaborators':
+    get:
+      description: List collaborators for a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: listDomainCollaborators
+      tags:
+        - domain collaborators
+      responses:
+        '200':
+          description: Successfully retrieve the collaborator list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Collaborator'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    post:
+      description: >-
+        At the time of the add, a collaborator may or may not have a DNSimple
+        account. In case the collaborator doesn’t have a DNSimple account, the
+        system will invite her/him to register to DNSimple first and then to
+        accept the collaboration invitation. In the other case, she/he is
+        automatically added to the domain as collaborator. She/he can decide to
+        reject the invitation later.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: addDomainCollaborator
+      tags:
+        - domain collaborators
+      requestBody:
+        $ref: '#/components/requestBodies/CollaboratorCreate'
+      responses:
+        '201':
+          description: Successfully added collaborator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collaborator'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/collaborators/{collaborator}':
+    delete:
+      description: Remove a collaborator from the given domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Collaborator'
+      operationId: removeDomainCollaborator
+      tags:
+        - domain collaborators
+      responses:
+        '204':
+          description: Successfully removed collaborator
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/dnssec':
+    get:
+      description: Get DNSSEC status for the domain
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: getDNSSEC
+      tags:
+        - domain dnssec
+      responses:
+        '200':
+          description: Successfully retrieved DNSSEC
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DNSSEC'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    post:
+      description: Enable DNSSEC for the domain
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: enableDNSSEC
+      tags:
+        - domain dnssec
+      responses:
+        '201':
+          description: Successfully enabled DNSSEC
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DNSSEC'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Disable DNSSEC for the domain
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: disableDNSSEC
+      tags:
+        - domain dnssec
+      responses:
+        '204':
+          description: Successfully disabled DNSSEC
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+        '428':
+          description: If DNSSEC is not enabled
+  '/{account}/domains/{domain}/ds_records':
+    get:
+      description: List Delegation Signer records for the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/SortDelegationSignerRecords'
+      operationId: listDelegationSigners
+      tags:
+        - domain dnssec
+      responses:
+        '200':
+          description: Successfully retrieved delegation signer list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DelegationSigner'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    post:
+      description: Add a Delegation Signer record to the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: createDelegationSigner
+      tags:
+        - domain dnssec
+      requestBody:
+        $ref: '#/components/requestBodies/DelegationSignerCreate'
+      responses:
+        '201':
+          description: Successfully added delegation signer record
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DelegationSigner'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/ds_records/{ds}':
+    delete:
+      description: Remove a Delegation Signer record from the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DelegationSigner'
+      operationId: deleteDelegationSigner
+      tags:
+        - domain dnssec
+      responses:
+        '204':
+          description: Successfully removed the delegation signer record.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/email_forwards':
+    get:
+      description: List email forwards for the domain in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/SortEmailForwards'
+      operationId: listEmailForwards
+      tags:
+        - domain emailforwards
+      responses:
+        '200':
+          description: Successfully retrieved email forward list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmailForward'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    post:
+      description: Create a new email forward for the domain
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: createEmailForward
+      tags:
+        - domain emailforwards
+      requestBody:
+        $ref: '#/components/requestBodies/EmailForwardCreate'
+      responses:
+        '201':
+          description: Successfully created new email forward.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EmailForward'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/email_forwards/{emailforward}':
+    get:
+      description: Get a specific email forward for the domain in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/EmailForward'
+      operationId: getEmailForward
+      tags:
+        - domain emailforwards
+      responses:
+        '200':
+          description: Successfully retrieved email forward.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EmailForward'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete the email forward from the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/EmailForward'
+      operationId: deleteEmailForward
+      tags:
+        - domain emailforwards
+      responses:
+        '204':
+          description: Successfully deleted email forward.
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/pushes':
+    post:
+      description: Initiate a push
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: initiatePush
+      tags:
+        - domain pushes
+      requestBody:
+        $ref: '#/components/requestBodies/PushInitiate'
+      responses:
+        '201':
+          description: Successfully initiated the push.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Push'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/pushes':
+    get:
+      description: List pending pushes for the target account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: listPushes
+      tags:
+        - pushes
+      responses:
+        '200':
+          description: Successfully retrieved pushes for the account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Push'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+  '/{account}/pushes/{push}':
+    post:
+      description: Accept a push.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Push'
+      operationId: acceptPush
+      tags:
+        - pushes
+      requestBody:
+        $ref: '#/components/requestBodies/PushAccept'
+      responses:
+        '204':
+          description: Successfully accept a push.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Reject a push.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Push'
+      operationId: rejectPush
+      tags:
+        - pushes
+      responses:
+        '204':
+          description: Successfully reject a push.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/certificates':
+    get:
+      description: List certificates for the domain in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/SortCertificates'
+      operationId: listDomainCertificates
+      tags:
+        - domains certificates
+      responses:
+        '200':
+          description: Successfully retrieve certificates for a domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Certificate'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/certificates/{certificate}':
+    get:
+      description: Get a specific certificate.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Certificate'
+      operationId: getDomainCertificate
+      tags:
+        - domains certificates
+      responses:
+        '200':
+          description: Successfully retrieve a certificate for a domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Certificate'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/certificates/{certificate}/download':
+    get:
+      description: Download a specific certificate.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Certificate'
+      operationId: downloadDomainCertificate
+      tags:
+        - domains certificates
+      responses:
+        '200':
+          description: Successfully retrieve an issued certificate for a domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/CertificateDownload'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/certificates/{certificate}/private_key':
+    get:
+      description: Download a private key for a certificate.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Certificate'
+      operationId: getDomainCertificatePrivateKey
+      tags:
+        - domains certificates
+      responses:
+        '200':
+          description: Successfully retrieve the private key for an issued certificate.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/CertificatePrivateKey'
+        '404':
+          $ref: '#/components/responses/404'
+  /tlds:
+    get:
+      description: List all supported TLDs
+      parameters:
+        - $ref: '#/components/parameters/SortTLDs'
+      operationId: listTlds
+      tags:
+        - tlds
+      responses:
+        '200':
+          description: Successfully retrieve the supported TLDs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TLD'
+  '/tlds/{tld}':
+    get:
+      description: Get a specific TLD details
+      parameters:
+        - $ref: '#/components/parameters/TLD'
+      operationId: getTld
+      tags:
+        - tlds
+      responses:
+        '200':
+          description: Successfully retrieve the supported TLD
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TLD'
+        '404':
+          $ref: '#/components/responses/404'
+  '/tlds/{tld}/extended_attributes':
+    get:
+      description: >-
+        Some TLDs require extended attributes when registering or transferring a
+        domain. This API interface provides information on the extended
+        attributes for any particular TLD. Extended attributes are extra
+        TLD-specific attributes, required by the TLD registry to collect extra
+        information about the registrant or legal agreements.
+      parameters:
+        - $ref: '#/components/parameters/TLD'
+      operationId: getTldExtendedAttributes
+      tags:
+        - tlds
+      responses:
+        '200':
+          description: Successfully retrieve the extended attributes for the TLD
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExtendedAttribute'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/registrar/domains/{domain}/check':
+    get:
+      description: Check if the domain is available for registration or transfer.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: registrarCheckDomain
+      tags:
+        - registrar
+      responses:
+        '200':
+          description: >-
+            The check was successfully executed. Check the result data to
+            determine if it is available for registration. If the domain is
+            premium, please check the premium price before trying to register,
+            renew, transfer.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainCheckResult'
+  '/{account}/registrar/domains/{domain}/premium_price':
+    get:
+      description: >-
+        Return a premium price for a domain. Please note that a premium price
+        can be different for registration, renewal, transfer. By default this
+        endpoint returns the premium price for registration. If you need to
+        check a different price, you should specify it with the action param.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainPremiumPriceAction'
+      operationId: registrarGetPremiumPrice
+      tags:
+        - registrar
+      responses:
+        '200':
+          description: Successfully retrieved the premium price
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainPremiumPrice'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/registrar/domains/{domain}/registrations':
+    post:
+      description: >-
+        Register a domain name with DNSimple. Your account must be active for
+        this command to complete successfully. You will be automatically charged
+        the registration fee upon successful registration, so please be careful
+        with this command.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: domainRegister
+      tags:
+        - registrar
+      requestBody:
+        $ref: '#/components/requestBodies/DomainRegister'
+      responses:
+        '201':
+          description: Domain successfully registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRegistration'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/registrar/domains/{domain}/transfers':
+    post:
+      description: >-
+        Transfer a domain name from another domain registrar into DNSimple. Your
+        account must be active for this command to complete successfully. You
+        will be automatically charged the 1-year transfer fee upon successful
+        transfer, so please be careful with this command. The transfer may take
+        anywhere from a few minutes up to 7 days.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: domainTransfer
+      tags:
+        - registrar
+      requestBody:
+        $ref: '#/components/requestBodies/DomainTransfer'
+      responses:
+        '201':
+          description: Domain transfer created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransfer'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/registrar/domains/{domain}/renew':
+    post:
+      description: >-
+        Renew a domain name already registered with DNSimple. Your account must
+        be active for this command to complete successfully. You will be
+        automatically charged the renewal fee upon successful renewal, so please
+        be careful with this command.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: domainRenew
+      tags:
+        - registrar
+      requestBody:
+        $ref: '#/components/requestBodies/DomainRenew'
+      responses:
+        '201':
+          description: Domain renewal created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRenewal'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/registrar/domains/{domain}/authorize_transfer_out':
+    post:
+      description: >-
+        Prepare a domain for transferring out. This will unlock a domain and
+        send the authorization code to the domain’s administrative contact.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: domainAuthorizeTransferOut
+      tags:
+        - registrar
+      responses:
+        '204':
+          description: Domain prepared for transfer out.
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/registrar/domains/:domain/delegation':
+    get:
+      description: List name servers for the domain in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: listDomainNameServers
+      tags:
+        - registrar delegation
+      responses:
+        '200':
+          description: Successfully retrieve the domain name servers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DomainNameServer'
+                example:
+                  data:
+                    - ns1.dnsimple.com
+                    - ns2.dnsimple.com
+                    - ns3.dnsimple.com
+                    - ns4.dnsimple.com
+        '404':
+          $ref: '#/components/responses/404'
+    put:
+      description: Update name servers for a domain
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: updateDomainNameServers
+      tags:
+        - registrar delegation
+      requestBody:
+        $ref: '#/components/requestBodies/DomainNameServers'
+      responses:
+        '200':
+          description: Successfully updated the domain name servers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DomainNameServer'
+                example:
+                  data:
+                    - ns1.dnsimple.com
+                    - ns2.dnsimple.com
+                    - ns3.dnsimple.com
+                    - ns4.dnsimple.com
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/registrar/domains/{domain}/delegation/vanity':
+    put:
+      description: Delegate a domain to vanity name servers
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: delegateToVanity
+      tags:
+        - registrar delegation
+      requestBody:
+        $ref: '#/components/requestBodies/VanityNameServers'
+      responses:
+        '200':
+          description: Successfully delegated to vanity name servers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NameServer'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412-feature'
+    delete:
+      description: De-delegate a domain from vanity name servers
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: dedelegateFromVanity
+      tags:
+        - registrar delegation
+      responses:
+        '204':
+          description: Successfully de-delegated from vanity name servers.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412-feature'
+  '/{account}/registrar/domains/{domain}/auto_renewal':
+    put:
+      description: Enable auto renewal.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: enableAutoRenewal
+      tags:
+        - registrar autorenew
+      responses:
+        '204':
+          description: Successfully enabled auto-renewal.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Disable auto renewal.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: disableAutoRenewal
+      tags:
+        - registrar autorenew
+      responses:
+        '204':
+          description: Successfully disabled auto-renewal.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/registrar/domains/{domain}/whois_privacy':
+    get:
+      description: Get the WHOIS privacy details for a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: getDomainWhoisPrivacy
+      tags:
+        - registrar privacy
+      responses:
+        '200':
+          description: Successfully retrieved whois privacy details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/WhoisPrivacy'
+        '404':
+          $ref: '#/components/responses/404'
+    put:
+      description: >-
+        Enable whois privacy. Note that if the WHOIS privacy is not purchased
+        for the domain, enabling WHOIS privacy will cause the service to be
+        purchased for a period of 1 year. If WHOIS privacy was previously
+        purchased and disabled, then calling this will enable the WHOIS privacy.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: enableWhoisPrivacy
+      tags:
+        - registrar privacy
+      responses:
+        '200':
+          description: Successfully enabled whois privacy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/WhoisPrivacy'
+        '201':
+          description: Successfully purchased and enabled whois privacy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/WhoisPrivacy'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Disable whois privacy.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: disableWhoisPrivacy
+      tags:
+        - registrar privacy
+      responses:
+        '200':
+          description: Successfully disabled whois privacy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/WhoisPrivacy'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/zones':
+    get:
+      description: List zones in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/FilterNameLike'
+        - $ref: '#/components/parameters/SortZones'
+      operationId: listZones
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully retrieved account zone list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Zone'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+  '/{account}/zones/{zone}':
+    get:
+      description: Get details for a specific zone
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: getZone
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully retrieved zone.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/zones/{zone}/file':
+    get:
+      description: Get details for a zonefile for a specific zone
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: getZoneFile
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully retrieved zone file.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneFile'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/zones/{zone}/records':
+    get:
+      description: List records for a zone
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/FilterNameLike'
+        - $ref: '#/components/parameters/FilterName'
+        - $ref: '#/components/parameters/FilterType'
+        - $ref: '#/components/parameters/SortZoneRecords'
+      operationId: listZoneRecords
+      tags:
+        - zones records
+      responses:
+        '200':
+          description: Successfully retrieved zone records list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ZoneRecord'
+    post:
+      description: Create a zone record
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: createZoneRecord
+      tags:
+        - zones records
+      requestBody:
+        $ref: '#/components/requestBodies/ZoneRecordCreate'
+      responses:
+        '201':
+          description: Successfully created zone record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneRecord'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/zones/{zone}/records/{record}':
+    get:
+      description: Get a specific record in a zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/ZoneRecord'
+      operationId: getZoneRecord
+      tags:
+        - zones records
+      responses:
+        '200':
+          description: Successfully get zone record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneRecord'
+        '404':
+          $ref: '#/components/responses/404'
+    put:
+      description: Update a specific record in a zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/ZoneRecord'
+      operationId: updateZoneRecord
+      tags:
+        - zones records
+      requestBody:
+        $ref: '#/components/requestBodies/ZoneRecordUpdate'
+      responses:
+        '200':
+          description: Successfully updated zone record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneRecord'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete a specific record in a zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/ZoneRecord'
+      operationId: deleteZoneRecord
+      tags:
+        - zones records
+      responses:
+        '204':
+          description: Successfully deleted zone record.
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/contacts':
+    get:
+      description: List contacts in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/SortContacts'
+      operationId: listContacts
+      tags:
+        - contacts
+      responses:
+        '200':
+          description: Successfully retrieved account contact list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Contact'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+    post:
+      description: Create a contact in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createContact
+      tags:
+        - contacts
+      requestBody:
+        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+      responses:
+        '201':
+          description: Successfully created contact.
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/contacts/{contact}':
+    get:
+      description: Get a specific account contact.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Contact'
+      operationId: getContact
+      tags:
+        - contacts
+      responses:
+        '200':
+          description: Successfully retrieve a contact.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Contact'
+        '404':
+          $ref: '#/components/responses/404'
+    put:
+      description: Update a specific contact.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Contact'
+      operationId: updateContact
+      tags:
+        - contacts
+      requestBody:
+        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+      responses:
+        '200':
+          description: Successfully updated contact.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Contact'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete a specific contact.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Contact'
+      operationId: deleteContact
+      tags:
+        - contacts
+      responses:
+        '204':
+          description: Successfully deleted contact.
+        '404':
+          $ref: '#/components/responses/404'
+  /services:
+    get:
+      description: List all services
+      parameters:
+        - $ref: '#/components/parameters/SortServices'
+      operationId: listServices
+      tags:
+        - services
+      responses:
+        '200':
+          description: Successfully retrieved service list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Service'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+  '/services/{service}':
+    get:
+      description: Get details for a specific service
+      parameters:
+        - $ref: '#/components/parameters/Service'
+      operationId: getService
+      tags:
+        - services
+      responses:
+        '200':
+          description: Successfully retrieved service.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Service'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/services':
+    get:
+      description: List applied services.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: listAppliedServices
+      tags:
+        - domains services
+      responses:
+        '200':
+          description: Successfully retrieved list of applied services.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Service'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/services/{service}':
+    post:
+      description: Apply a service to a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Service'
+      operationId: applyDomainService
+      tags:
+        - domains services
+      requestBody:
+        $ref: '#/components/requestBodies/ServiceApply'
+        description: >-
+          Optional hash of settings for some specific services, corresponding to
+          the service fields. For instance, Heroku requires a settings[app]
+          setting.
+      responses:
+        '204':
+          description: Successfully applied a service to a domain.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Unapply a service to a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Service'
+      operationId: unapplyDomainService
+      tags:
+        - domains services
+      responses:
+        '204':
+          description: Successfully unapplied a service to a domain.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/templates':
+    get:
+      description: List templates in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/SortTemplates'
+      operationId: listTemplates
+      tags:
+        - templates
+      responses:
+        '200':
+          description: Successfully retrieved account template list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Template'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+    post:
+      description: Create a template in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createTemplate
+      tags:
+        - templates
+      requestBody:
+        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+      responses:
+        '201':
+          description: Successfully created a template.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Template'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/templates/{template}':
+    get:
+      description: Get a specific template.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+      operationId: getTemplate
+      tags:
+        - templates
+      responses:
+        '200':
+          description: Successfully retrieved a template.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Template'
+        '404':
+          $ref: '#/components/responses/404'
+    patch:
+      description: Update a specific template.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+      operationId: updateTemplate
+      tags:
+        - templates
+      requestBody:
+        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+      responses:
+        '200':
+          description: Successfully updated a template.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Template'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete a template.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+      operationId: deleteTemplate
+      tags:
+        - templates
+      responses:
+        '204':
+          description: Successfully deleted a template
+  '/{account}/templates/{template}/records':
+    get:
+      description: List template records in the template.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+        - $ref: '#/components/parameters/SortTemplateRecords'
+      operationId: listTemplateRecords
+      tags:
+        - templates records
+      responses:
+        '200':
+          description: Successfully retrieved the template records list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TemplateRecord'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+    post:
+      description: Create a template record.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+      operationId: createTemplateRecord
+      tags:
+        - templates records
+      requestBody:
+        $ref: '#/components/requestBodies/TemplateRecordCreateOrUpdate'
+      responses:
+        '201':
+          description: Successfully create a template record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TemplateRecord'
+  '/{account}/templates/{template}/records/{record}':
+    get:
+      description: Get a template record.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+        - $ref: '#/components/parameters/TemplateRecord'
+      operationId: getTemplateRecord
+      tags:
+        - templates records
+      responses:
+        '200':
+          description: Successfully retrieve a template record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TemplateRecord'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Delete a template record.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Template'
+        - $ref: '#/components/parameters/TemplateRecord'
+      operationId: deleteTemplateRecord
+      tags:
+        - templates records
+      responses:
+        '204':
+          description: Successfully deleted a template record.
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/domains/{domain}/templates/{template}':
+    post:
+      description: Apply a template to a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Template'
+      operationId: applyTemplate
+      tags:
+        - domains templates
+      responses:
+        '204':
+          description: Successfully applied a template to the domain.
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/vanity/{domain}':
+    put:
+      description: >-
+        Enable Vanity Name Servers for the domain. This method sets up the
+        appropriate A and AAAA records for the domain to provide vanity name
+        servers, but it does not change the delegation for the domain. To change
+        the delegation for domains to vanity name servers use the endpoints to
+        Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: enableVanityNameServers
+      tags:
+        - vanity name servers
+      responses:
+        '200':
+          description: Successfully enabled vanity name servers on the domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NameServer'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: >-
+        Disable Vanity Name Servers for the domain. This method removes the A
+        and AAAA records required for the domain to provide vanity name servers,
+        but it does not change the delegation for the domain. To change the
+        delegation for domains to vanity name servers use the endpoints to
+        Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: disableVanityNameServers
+      tags:
+        - vanity name servers
+      responses:
+        '204':
+          description: Successfully disabled vanity name servers on the domain.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/webhooks':
+    get:
+      description: List webhooks in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/SortWebhooks'
+      operationId: listWebhooks
+      tags:
+        - webhooks
+      responses:
+        '200':
+          description: Successfully retrieved account webhooks list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Webhook'
+    post:
+      description: Create a webhook
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createWebhook
+      tags:
+        - webhooks
+      responses:
+        '201':
+          description: Successfully created a webhook.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Webhook'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/webhooks/{webhook}':
+    get:
+      description: Get details for a webhook.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Webhook'
+      operationId: getWebhook
+      tags:
+        - webhooks
+      responses:
+        '200':
+          description: Successfully retrieved a webhook.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Webhook'
+    delete:
+      description: Delete a webhook.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Webhook'
+      operationId: deleteWebhook
+      tags:
+        - webhooks
+      responses:
+        '204':
+          description: Successfully deleted a webhook.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  links: {}
+  callbacks:
+    webhook:
+      '$request.body#/url':
+        post:
+          requestBody:
+            description: The webhook payload
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/WebhookPayload'
+          responses:
+            '200':
+              description: Webhook successfully processed
+  parameters:
+    Account:
+      name: account
+      in: path
+      required: true
+      description: The account id
+      schema:
+        type: integer
+    Certificate:
+      name: certificate
+      in: path
+      required: true
+      description: The certificate id
+      schema:
+        type: integer
+    Collaborator:
+      name: collaborator
+      in: path
+      required: true
+      description: The collaborator id
+      schema:
+        type: integer
+    Contact:
+      name: contact
+      in: path
+      required: true
+      description: The contact id
+      schema:
+        type: integer
+    DelegationSigner:
+      name: ds
+      in: path
+      required: true
+      description: The delegation signer record id
+      schema:
+        type: integer
+    Domain:
+      name: domain
+      in: path
+      required: true
+      description: The domain name or id
+      schema:
+        type: string
+    EmailForward:
+      name: emailforward
+      in: path
+      required: true
+      description: The email forward id
+      schema:
+        type: integer
+    Push:
+      name: push
+      in: path
+      required: true
+      description: The push id
+      schema:
+        type: integer
+    Service:
+      name: service
+      in: path
+      required: true
+      description: The service sid or id
+      schema:
+        type: string
+    Template:
+      name: template
+      in: path
+      required: true
+      description: The template id
+      schema:
+        type: integer
+    TemplateRecord:
+      name: record
+      in: path
+      required: true
+      description: The template record id
+      schema:
+        type: integer
+    TLD:
+      name: tld
+      in: path
+      required: true
+      description: The TLD string
+      schema:
+        type: string
+    Webhook:
+      name: webhook
+      in: path
+      required: true
+      description: The webhoook id
+      schema:
+        type: integer
+    Zone:
+      name: zone
+      in: path
+      required: true
+      description: The zone name
+      schema:
+        type: string
+    ZoneRecord:
+      name: record
+      in: path
+      required: true
+      description: The zone record id
+      schema:
+        type: integer
+    DomainPremiumPriceAction:
+      name: action
+      in: query
+      required: false
+      description: >-
+        Optional action between "registration", "renewal", and "transfer". If
+        omitted, it defaults to "registration".
+      schema:
+        type: string
+    FilterName:
+      name: name
+      in: query
+      required: false
+      description: Only include results with a name field exactly matching the given string
+      schema:
+        type: string
+    FilterNameLike:
+      name: name_like
+      in: query
+      required: false
+      description: Only include results with a name field containing the given string
+      schema:
+        type: string
+    FilterRegistrantId:
+      name: registrant_id
+      in: query
+      required: false
+      description: >-
+        Only include results with the registrant_id field matching the given
+        value
+      schema:
+        type: integer
+    FilterType:
+      name: type
+      in: query
+      required: false
+      description: Only include results with a type field exactly matching the given string
+      schema:
+        type: string
+    SortCertificates:
+      description: Sort results. Default sorting is by id.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'common_name:asc'
+          - 'common_name:desc'
+          - 'expires_on:asc'
+          - 'expires_on:desc'
+    SortContacts:
+      description: Sort results. Default sorting is by id ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'label:asc'
+          - 'label:desc'
+          - 'email:asc'
+          - 'email:desc'
+    SortDomains:
+      description: Sort results. Default sorting is ascending by name.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
+          - 'expires_on:asc'
+          - 'expires_on:desc'
+    SortDelegationSignerRecords:
+      description: Sort results. Default sorting is by id.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'created_at:asc'
+          - 'created_at:desc'
+    SortEmailForwards:
+      description: Sort results. Default sorting is by id.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'from:asc'
+          - 'from:desc'
+          - 'to:asc'
+          - 'to:desc'
+    SortServices:
+      description: Sort results. Default sorting is by id ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'sid:asc'
+          - 'sid:desc'
+    SortTemplates:
+      description: Sort results. Default sorting is by id ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
+          - 'sid:asc'
+          - 'sid:desc'
+    SortTemplateRecords:
+      description: Sort results. Default sorting is by id ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
+          - 'content:asc'
+          - 'content:desc'
+          - 'type:asc'
+          - 'type:desc'
+    SortTLDs:
+      description: Sort results. Default sorting is by tld ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'tld:asc'
+          - 'tld:desc'
+    SortWebhooks:
+      description: Sort results. Default sorting is by name ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+    SortZones:
+      description: Sort results. Default sorting is by name ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
+    SortZoneRecords:
+      description: Sort results. Default sorting is by name ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: array
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
+          - 'content:asc'
+          - 'content:desc'
+          - 'type:asc'
+          - 'type:desc'
+  schemas:
+    Date:
+      type: string
+    DatetimeISO8601:
+      type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        per_page:
+          type: integer
+        total_entries:
+          type: integer
+        total_pages:
+          type: integer
+      example:
+        current_page: 1
+        per_page: 30
+        total_entries: 2
+        total_pages: 1
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+        plan_identifier:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        email: example-account@example.com
+        plan_identifier: dnsimple-professional
+        created_at: '2015-09-18T23:04:37Z'
+        updated_at: '2016-06-09T20:03:39Z'
+    AccountInvitation:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        email:
+          type: string
+        token:
+          type: string
+        invitation_sent_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        invitation_accepted_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+          nullable: true
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+    Actor:
+      type: object
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        pretty:
+          type: string
+    BillingSettings:
+      type: object
+    Certificate:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        contact_id:
+          type: integer
+        name:
+          type: string
+        common_name:
+          type: string
+        years:
+          type: integer
+        csr:
+          type: string
+        state:
+          type: string
+          enum:
+            - new
+            - purchased
+            - configured
+            - submitted
+            - issued
+            - rejected
+            - refunded
+            - cancelled
+            - requesting
+            - failed
+        auto_renew:
+          type: boolean
+        alternate_names:
+          type: array
+          items:
+            type: string
+        authority_identifier:
+          type: string
+          enum:
+            - comodo
+            - rapidssl
+            - letsencrypt
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        expires_on:
+          $ref: '#/components/schemas/Date'
+      example:
+        id: 1
+        domain_id: 2
+        name: www
+        common_name: www.weppos.net
+        years: 1
+        csr: |
+          -----BEGIN CERTIFICATE REQUEST-----
+          MIICljCCAX4CAQAwGTEXMBUGA1UEAwwOd3d3LndlcHBvcy5uZXQwggEiMA0GCSqG
+          SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3MJwx9ahBG3kAwRjQdRvYZqtovUaxY6jp
+          hd09975gO+2eYPDbc1yhNftVJ4KBT0zdEqzX0CwIlxE1MsnZ2YOsC7IJO531hMBp
+          dBxM4tSG07xPz70AVUi9rY6YCUoJHmxoFbclpHFbtXZocR393WyzUK8047uM2mlz
+          03AZKcMdyfeuo2/9TcxpTSCkklGqwqS9wtTogckaDHJDoBunAkMioGfOSMe7Yi6E
+          YRtG4yPJYsDaq2yPJWV8+i0PFR1Wi5RCnPt0YdQWstHuZrxABi45+XVkzKtz3TUc
+          YxrvPBucVa6uzd953u8CixNFkiOefvb/dajsv1GIwH6/Cvc1ftz1AgMBAAGgODA2
+          BgkqhkiG9w0BCQ4xKTAnMCUGA1UdEQQeMByCDnd3dy53ZXBwb3MubmV0ggp3ZXBw
+          b3MubmV0MA0GCSqGSIb3DQEBCwUAA4IBAQCDnVBO9RdJX0eFeZzlv5c8yG8duhKP
+          l0Vl+V88fJylb/cbNj9qFPkKTK0vTXmS2XUFBChKPtLucp8+Z754UswX+QCsdc7U
+          TTSG0CkyilcSubdZUERGej1XfrVQhrokk7Fu0Jh3BdT6REP0SIDTpA8ku/aRQiAp
+          p+h19M37S7+w/DMGDAq2LSX8jOpJ1yIokRDyLZpmwyLxutC21DXMGoJ3xZeUFrUT
+          qRNwzkn2dJzgTrPkzhaXalUBqv+nfXHqHaWljZa/O0NVCFrHCdTdd53/6EE2Yabv
+          q5SFTkRCpaxrvM/7a8Tr4ixD1/VKD6rw3+WC00000000000000000000
+          -----END CERTIFICATE REQUEST-----
+        state: issued
+        authority_identifier: letsencrypt
+        created_at: '2016-06-11T18:47:08Z'
+        updated_at: '2016-06-11T18:47:37Z'
+        expires_on: '2016-09-09'
+    CertificateDownload:
+      type: object
+      properties:
+        server:
+          type: string
+        root:
+          type: string
+        chain:
+          type: array
+          items:
+            type: string
+      example:
+        server: |
+          -----BEGIN CERTIFICATE-----
+          MIIE7TCCA9WgAwIBAgITAPpTe4O3vjuQ9L4gLsogi/ukujANBgkqhkiG9w0BAQsF
+          ADAiMSAwHgYDVQQDDBdGYWtlIExFIEludGVybWVkaWF0ZSBYMTAeFw0xNjA2MTEx
+          NzQ4MDBaFw0xNjA5MDkxNzQ4MDBaMBkxFzAVBgNVBAMTDnd3dy53ZXBwb3MubmV0
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtzCcMfWoQRt5AMEY0HUb
+          2GaraL1GsWOo6YXdPfe+YDvtnmDw23NcoTX7VSeCgU9M3RKs19AsCJcRNTLJ2dmD
+          rAuyCTud9YTAaXQcTOLUhtO8T8+9AFVIva2OmAlKCR5saBW3JaRxW7V2aHEd/d1s
+          s1CvNOO7jNppc9NwGSnDHcn3rqNv/U3MaU0gpJJRqsKkvcLU6IHJGgxyQ6AbpwJD
+          IqBnzkjHu2IuhGEbRuMjyWLA2qtsjyVlfPotDxUdVouUQpz7dGHUFrLR7ma8QAYu
+          Ofl1ZMyrc901HGMa7zwbnFWurs3fed7vAosTRZIjnn72/3Wo7L9RiMB+vwr3NX7c
+          9QIDAQABo4ICIzCCAh8wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUF
+          BwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBRh9q/3Zxbk4yA/
+          t7j+8xA+rkiZBTAfBgNVHSMEGDAWgBTAzANGuVggzFxycPPhLssgpvVoOjB4Bggr
+          BgEFBQcBAQRsMGowMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnN0Zy1pbnQteDEu
+          bGV0c2VuY3J5cHQub3JnLzAzBggrBgEFBQcwAoYnaHR0cDovL2NlcnQuc3RnLWlu
+          dC14MS5sZXRzZW5jcnlwdC5vcmcvMCUGA1UdEQQeMByCCndlcHBvcy5uZXSCDnd3
+          dy53ZXBwb3MubmV0MIH+BgNVHSAEgfYwgfMwCAYGZ4EMAQIBMIHmBgsrBgEEAYLf
+          EwEBATCB1jAmBggrBgEFBQcCARYaaHR0cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcw
+          gasGCCsGAQUFBwICMIGeDIGbVGhpcyBDZXJ0aWZpY2F0ZSBtYXkgb25seSBiZSBy
+          ZWxpZWQgdXBvbiBieSBSZWx5aW5nIFBhcnRpZXMgYW5kIG9ubHkgaW4gYWNjb3Jk
+          YW5jZSB3aXRoIHRoZSBDZXJ0aWZpY2F0ZSBQb2xpY3kgZm91bmQgYXQgaHR0cHM6
+          Ly9sZXRzZW5jcnlwdC5vcmcvcmVwb3NpdG9yeS8wDQYJKoZIhvcNAQELBQADggEB
+          AEqMdWrmdIyQxthWsX3iHmM2h/wXwEesD0VIaA+Pq4mjwmKBkoPSmHGQ/O4v8RaK
+          B6gl8v+qmvCwwqC1SkBmm+9C2yt/P6WhAiA/DD+WppYgJWfcz2lEKrgufFlHPukB
+          DzE0mJDuXm09QTApWlaTZWYfWKY50T5uOT/rs+OwGFFCO/8o7v5AZRAHos6uzjvq
+          AtFZj/FEnXXMjSSlQ7YKTXToVpnAYH4e3/UMsi6/O4orkVz82ZfhKwMWHV8dXlRw
+          tQaemFWTjGPgSLXJAtQO30DgNJBHX/fJEaHv6Wy8TF3J0wOGpzGbOwaTX8YAmEzC
+          lzzjs+clg5MN5rd1g4POJtU=
+          -----END CERTIFICATE-----
+        root: null
+        chain:
+          - |-
+            -----BEGIN CERTIFICATE-----
+            MIIEqzCCApOgAwIBAgIRAIvhKg5ZRO08VGQx8JdhT+UwDQYJKoZIhvcNAQELBQAw
+            GjEYMBYGA1UEAwwPRmFrZSBMRSBSb290IFgxMB4XDTE2MDUyMzIyMDc1OVoXDTM2
+            MDUyMzIyMDc1OVowIjEgMB4GA1UEAwwXRmFrZSBMRSBJbnRlcm1lZGlhdGUgWDEw
+            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDtWKySDn7rWZc5ggjz3ZB0
+            8jO4xti3uzINfD5sQ7Lj7hzetUT+wQob+iXSZkhnvx+IvdbXF5/yt8aWPpUKnPym
+            oLxsYiI5gQBLxNDzIec0OIaflWqAr29m7J8+NNtApEN8nZFnf3bhehZW7AxmS1m0
+            ZnSsdHw0Fw+bgixPg2MQ9k9oefFeqa+7Kqdlz5bbrUYV2volxhDFtnI4Mh8BiWCN
+            xDH1Hizq+GKCcHsinDZWurCqder/afJBnQs+SBSL6MVApHt+d35zjBD92fO2Je56
+            dhMfzCgOKXeJ340WhW3TjD1zqLZXeaCyUNRnfOmWZV8nEhtHOFbUCU7r/KkjMZO9
+            AgMBAAGjgeMwgeAwDgYDVR0PAQH/BAQDAgGGMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+            HQYDVR0OBBYEFMDMA0a5WCDMXHJw8+EuyyCm9Wg6MHoGCCsGAQUFBwEBBG4wbDA0
+            BggrBgEFBQcwAYYoaHR0cDovL29jc3Auc3RnLXJvb3QteDEubGV0c2VuY3J5cHQu
+            b3JnLzA0BggrBgEFBQcwAoYoaHR0cDovL2NlcnQuc3RnLXJvb3QteDEubGV0c2Vu
+            Y3J5cHQub3JnLzAfBgNVHSMEGDAWgBTBJnSkikSg5vogKNhcI5pFiBh54DANBgkq
+            hkiG9w0BAQsFAAOCAgEABYSu4Il+fI0MYU42OTmEj+1HqQ5DvyAeyCA6sGuZdwjF
+            UGeVOv3NnLyfofuUOjEbY5irFCDtnv+0ckukUZN9lz4Q2YjWGUpW4TTu3ieTsaC9
+            AFvCSgNHJyWSVtWvB5XDxsqawl1KzHzzwr132bF2rtGtazSqVqK9E07sGHMCf+zp
+            DQVDVVGtqZPHwX3KqUtefE621b8RI6VCl4oD30Olf8pjuzG4JKBFRFclzLRjo/h7
+            IkkfjZ8wDa7faOjVXx6n+eUQ29cIMCzr8/rNWHS9pYGGQKJiY2xmVC9h12H99Xyf
+            zWE9vb5zKP3MVG6neX1hSdo7PEAb9fqRhHkqVsqUvJlIRmvXvVKTwNCP3eCjRCCI
+            PTAvjV+4ni786iXwwFYNz8l3PmPLCyQXWGohnJ8iBm+5nk7O2ynaPVW0U2W+pt2w
+            SVuvdDM5zGv2f9ltNWUiYZHJ1mmO97jSY/6YfdOUH66iRtQtDkHBRdkNBsMbD+Em
+            2TgBldtHNSJBfB3pm9FblgOcJ0FSWcUDWJ7vO0+NTXlgrRofRT6pVywzxVo6dND0
+            WzYlTWeUVsO40xJqhgUQRER9YLOLxJ0O6C8i0xFxAMKOtSdodMB3RIwt7RFQ0uyt
+            n5Z5MqkYhlMI3J1tPRTp1nEt9fyGspBOO05gi148Qasp+3N+svqKomoQglNoAxU=
+            -----END CERTIFICATE-----
+    CertificatePrivateKey:
+      type: object
+      properties:
+        private_key:
+          type: string
+      example:
+        private_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAtzCcMfWoQRt5AMEY0HUb2GaraL1GsWOo6YXdPfe+YDvtnmDw
+          23NcoTX7VSeCgU9M3RKs19AsCJcRNTLJ2dmDrAuyCTud9YTAaXQcTOLUhtO8T8+9
+          AFVIva2OmAlKCR5saBW3JaRxW7V2aHEd/d1ss1CvNOO7jNppc9NwGSnDHcn3rqNv
+          /U3MaU0gpJJRqsKkvcLU6IHJGgxyQ6AbpwJDIqBnzkjHu2IuhGEbRuMjyWLA2qts
+          jyVlfPotDxUdVouUQpz7dGHUFrLR7ma8QAYuOfl1ZMyrc901HGMa7zwbnFWurs3f
+          ed7vAosTRZIjnn72/3Wo7L9RiMB+vwr3NX7c9QIDAQABAoIBAEQx32OlzK34GTKT
+          r7Yicmw7xEGofIGa1Q2h3Lut13whsxKLif5X0rrcyqRnoeibacS+qXXrJolIG4rP
+          Tl8/3wmUDQHs5J+6fJqFM+fXZUCP4AFiFzzhgsPBsVyd0KbWYYrZ0qU7s0ttoRe+
+          TGjuHgIe3ip1QKNtx2Xr50YmytDydknmro79J5Gfrub1l2iA8SDm1eBrQ4SFaNQ2
+          U709pHeSwX8pTihUX2Zy0ifpr0O1wYQjGLneMoG4rrNQJG/z6iUdhYczwwt1kDRQ
+          4WkM2sovFOyxbBfoCQ3Gy/eem7OXfjNKUe47DAVLnPkKbqL/3Lo9FD7kcB8K87Ap
+          r/vYrl0CgYEA413RAk7571w5dM+VftrdbFZ+Yi1OPhUshlPSehavro8kMGDEG5Ts
+          74wEz2X3cfMxauMpMrBk/XnUCZ20AnWQClK73RB5fzPw5XNv473Tt/AFmt7eLOzl
+          OcYrhpEHegtsD/ZaljlGtPqsjQAL9Ijhao03m1cGB1+uxI7FgacdckcCgYEAzkKP
+          6xu9+WqOol73cnlYPS3sSZssyUF+eqWSzq2YJGRmfr1fbdtHqAS1ZbyC5fZVNZYV
+          ml1vfXi2LDcU0qS04JazurVyQr2rJZMTlCWVET1vhik7Y87wgCkLwKpbwamPDmlI
+          9GY+fLNEa4yfAOOpvpTJpenUScxyKWH2cdYFOOMCgYBhrJnvffINC/d64Pp+BpP8
+          yKN+lav5K6t3AWd4H2rVeJS5W7ijiLTIq8QdPNayUyE1o+S8695WrhGTF/aO3+ZD
+          KQufikZHiQ7B43d7xL7BVBF0WK3lateGnEVyh7dIjMOdj92Wj4B6mv2pjQ2VvX/p
+          AEWVLCtg24/+zL64VgxmXQKBgGosyXj1Zu2ldJcQ28AJxup3YVLilkNje4AXC2No
+          6RCSvlAvm5gpcNGE2vvr9lX6YBKdl7FGt8WXBe/sysNEFfgmm45ZKOBCUn+dHk78
+          qaeeQHKHdxMBy7utZWdgSqt+ZS299NgaacA3Z9kVIiSLDS4V2VeW7riujXXP/9TJ
+          nxaRAoGBAMWXOfNVzfTyrKff6gvDWH+hqNICLyzvkEn2utNY9Q6WwqGuY9fvP/4Z
+          Xzc48AOBzUr8OeA4sHKJ79sJirOiWHNfD1swtvyVzsFZb6moiNwD3Ce/FzYCa3lQ
+          U8blTH/uqpR2pSC6whzJ/lnSdqHUqhyp00000000000000000000
+          -----END RSA PRIVATE KEY-----
+    Collaborator:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        domain_name:
+          type: string
+        user_id:
+          type: integer
+        user_email:
+          type: string
+        invitation:
+          type: boolean
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        accepted_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 100
+        domain_id: 1
+        domain_name: example.com
+        user_id: 999
+        user_email: existing-user@example.com
+        invitation: false
+        created_at: '2016-10-07T08:53:41Z'
+        updated_at: '2016-10-07T08:53:41Z'
+        accepted_at: '2016-10-07T08:53:41Z'
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        label:
+          type: string
+        first_name:
+          type: string
+        job_title:
+          type: string
+        organization_name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state_province:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        account_id: 1010
+        label: Default
+        first_name: First
+        last_name: User
+        job_title: CEO
+        organization_name: Awesome Company
+        email: first@example.com
+        phone: '+18001234567'
+        fax: '+18011234567'
+        address1: 'Italian Street, 10'
+        address2: ''
+        city: Roma
+        state_province: RM
+        postal_code: '00100'
+        country: IT
+        created_at: '2013-11-08T17:23:15Z'
+        updated_at: '2015-01-08T21:30:50Z'
+    DelegationSigner:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        algorithm:
+          type: string
+        digest:
+          type: string
+        digest_type:
+          type: string
+        keytag:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 24
+        domain_id: 1010
+        algorithm: 8
+        digest: C1F6E04A5A61FBF65BF9DC8294C363CF11C89E802D926BDAB79C55D27BEFA94F
+        digest_type: 2
+        keytag: 44620
+        created_at: 2017-03-03T13:49:58.000Z
+        updated_at: 2017-03-03T13:49:58.000Z
+    Domain:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        registrant_id:
+          type: integer
+        name:
+          type: string
+        unicode_name:
+          type: string
+        token:
+          type: string
+        state:
+          type: string
+        auto_renew:
+          type: boolean
+        private_whois:
+          type: boolean
+        expires_on:
+          $ref: '#/components/schemas/Date'
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        account_id: 1010
+        registrant_id: null
+        name: example-alpha.com
+        unicode_name: example-alpha.com
+        token: domain-token
+        state: hosted
+        auto_renew: false
+        private_whois: false
+        expires_on: null
+        created_at: '2014-12-06T15:56:55Z'
+        updated_at: '2015-12-09T00:20:56Z'
+    DomainCheckResult:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: The domain name that was checked
+        available:
+          type: boolean
+          description: True if the domain is available to register
+        premium:
+          type: boolean
+          description: >-
+            True if the domain is a premium domain and thus will have a
+            non-standard registration, renewal, and/or transfer fee.
+      example:
+        domain: ruby.codes
+        available: true
+        premium: true
+    DomainNameServer:
+      type: string
+    DomainPremiumPrice:
+      type: object
+      properties:
+        premium_price:
+          type: string
+          description: The price represented as a USD amount with dollars and cents.
+        action:
+          type: string
+          description: >-
+            The action (registration, transfer, renewal) that the price is
+            applied to.
+      example:
+        premium_price: '109.00'
+        action: registration
+    DomainRegistration:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        registrant_id:
+          type: integer
+        period:
+          type: integer
+          minimum: 1
+          maximum: 10
+        state:
+          type: string
+          enum:
+            - new
+            - registering
+            - registered
+            - failed
+        auto_renew:
+          type: boolean
+        whois_privacy:
+          type: boolean
+        premium_price:
+          type: string
+          nullable: true
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 999
+        registrant_id: 2
+        period: 1
+        state: new
+        auto_renew: false
+        whois_privacy: false
+        premium_price: null
+        created_at: '2016-12-09T19:35:31Z'
+        updated_at: '2016-12-09T19:35:31Z'
+    DomainRenewal:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        period:
+          type: integer
+          minimum: 1
+          maximum: 9
+        state:
+          type: string
+          enum:
+            - new
+            - renewing
+            - renewed
+            - failed
+        premium_price:
+          type: string
+          nullable: true
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 999
+        period: 1
+        state: new
+        premium_price: null
+        created_at: '2016-12-09T19:46:45Z'
+        updated_at: '2016-12-09T19:46:45Z'
+    DomainTransfer:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        registrant_id:
+          type: integer
+        state:
+          type: string
+          enum:
+            - new
+            - transferring
+            - transferred
+            - failed
+        auto_renew:
+          type: boolean
+        whois_privacy:
+          type: boolean
+        premium_price:
+          type: string
+          nullable: true
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 999
+        registrant_id: 2
+        state: transferring
+        auto_renew: false
+        whois_privacy: false
+        premium_price: null
+        created_at: '2016-12-09T19:43:41Z'
+        updated_at: '2016-12-09T19:43:43Z'
+    DNSSEC:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        enabled: true
+        created_at: 2017-02-03T17:43:22.000Z
+        updated_at: 2017-02-03T17:43:22.000Z
+    EmailForward:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        from:
+          type: string
+        to:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 2
+        from: john.doe@a-domain.com
+        to: john@example.com
+        created_at: '2016-02-04T14:26:50Z'
+        updated_at: '2016-02-04T14:26:50Z'
+    EventAccountAddUser:
+      type: object
+      description: Payload for account.add_user event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        user:
+          $ref: '#/components/schemas/User'
+    EventAccountBillingSettingsUpdate:
+      type: object
+      description: Payload for account.billing_settings_update event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        billing_settings:
+          $ref: '#/components/schemas/BillingSettings'
+    EventAccountPaymentDetailsUpdate:
+      type: object
+      description: Payload for account.payment_details_update event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+    EventAccountRemoveUser:
+      type: object
+      description: Payload for account.remove_user event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        user:
+          $ref: '#/components/schemas/User'
+    EventAccountUpdate:
+      type: object
+      description: Payload for account.update event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+    EventAccountInvitationAccept:
+      type: object
+      description: Payload for account_invitation.accept event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        account_invitation:
+          $ref: '#/components/schemas/AccountInvitation'
+    EventAccountInvitationCreate:
+      type: object
+      description: Payload for account_invitation.create event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        account_invitation:
+          $ref: '#/components/schemas/AccountInvitation'
+    EventAccountInvitationRemove:
+      type: object
+      description: Payload for account_invitation.remove event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        account_invitation:
+          $ref: '#/components/schemas/AccountInvitation'
+    EventAccountInvitationResend:
+      type: object
+      description: Payload for account_invitation.resend event.
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        account_invitation:
+          $ref: '#/components/schemas/AccountInvitation'
+    EventCertificateAutoRenewalDisable:
+      type: object
+      description: Payload for certificate.auto_renewal_disable
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventCertificateAutoRenewalEnable:
+      type: object
+      description: Payload for certificate.auto_renewal_enable
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventCertificateAutoRenewalFailed:
+      type: object
+      description: Payload for certificate.auto_renewal_failed
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventCertificateIssue:
+      type: object
+      description: Payload for certificate.issue
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventCertificateReissue:
+      type: object
+      description: Payload for certificate.reissue
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventCertificateRemovePrivateKey:
+      type: object
+      description: Payload for certificate.remove_private_key
+      properties:
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+    EventContactCreate:
+      type: object
+      description: Payload for contact.create
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+    EventContactDelete:
+      type: object
+      description: Payload for contact.delete
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+    EventContactUpdate:
+      type: object
+      description: Payload for contact.udpate
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+    EventDNSSECCreate:
+      type: object
+      description: Payload for dnssec.create
+      properties:
+        dnssec:
+          $ref: '#/components/schemas/DNSSEC'
+    EventDNSSECDelete:
+      type: object
+      description: Payload for dnssec.delete
+      properties:
+        dnssec:
+          $ref: '#/components/schemas/DNSSEC'
+    EventDNSSECRotationStart:
+      type: object
+      description: Payload for dnssec.rotation_start
+      properties:
+        delegation_signer_record:
+          $ref: '#/components/schemas/DelegationSigner'
+        dnssec:
+          $ref: '#/components/schemas/DNSSEC'
+    EventDNSSECRotationComplete:
+      type: object
+      description: Payload for dnssec.rotation_complete
+      properties:
+        delegation_signer_record:
+          $ref: '#/components/schemas/DelegationSigner'
+        dnssec:
+          $ref: '#/components/schemas/DNSSEC'
+    EventDomainAutoRenewalDisable:
+      type: object
+      description: Payload for domain.auto_renewal_disable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainAutoRenewalEnable:
+      type: object
+      description: Payload for domain.auto_renewal_enable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainCreate:
+      type: object
+      description: Payload for domain.create
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainDelete:
+      type: object
+      description: Payload for domain.delete
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRegister:
+      type: object
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRenew:
+      type: object
+      description: Payload for domain.renew
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainDelegationChange:
+      type: object
+      description: Payload for domain.delegation_change
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        name_servers:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameServer'
+    EventDomainRegistrantChange:
+      type: object
+      description: Payload for domain.registrant_change
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        registrant:
+          $ref: '#/components/schemas/Contact'
+    EventDomainResolutionDisable:
+      type: object
+      description: Payload for domain.resolution_disable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainResolutionEnable:
+      type: object
+      description: Payload for domain.resolution_enable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainTokenReset:
+      type: object
+      description: Payload for domain.token_reset
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainTransfer:
+      type: object
+      description: Payload for domain.transfer
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventEmailForwardCreate:
+      type: object
+      description: Payload for email_forward.create
+      properties:
+        email_forward:
+          $ref: '#/components/schemas/EmailForward'
+    EventEmailForwardDelete:
+      type: object
+      description: Payload for email_forward.delete
+      properties:
+        email_forward:
+          $ref: '#/components/schemas/EmailForward'
+    EventEmailForwardUpdate:
+      type: object
+      description: Payload for email_forward.update
+      properties:
+        email_forward:
+          $ref: '#/components/schemas/EmailForward'
+    EventInvoiceCollect:
+      type: object
+      description: Payload for invoice.collect
+      properties:
+        invoice:
+          $ref: '#/components/schemas/Invoice'
+    EventNameServerDeregister:
+      type: object
+      description: Payload for name_server.deregister
+      properties:
+        name_server:
+          type: object
+          properties:
+            name:
+              type: string
+    EventNameServerRegister:
+      type: object
+      description: Payload for name_server.register
+      properties:
+        name_server:
+          type: object
+          properties:
+            name:
+              type: string
+    EventOauthApplicationCreate:
+      type: object
+      description: Payload for oauth_application.create
+      properties:
+        oauth_application:
+          $ref: '#/components/schemas/OauthApplication'
+    EventOauthApplicationDelete:
+      type: object
+      description: Payload for oauth_application.delete
+      properties:
+        oauth_application:
+          $ref: '#/components/schemas/OauthApplication'
+    EventOauthApplicationResetClientSecret:
+      type: object
+      description: Payload for oauth_application.reset_client_secret
+      properties:
+        oauth_application:
+          $ref: '#/components/schemas/OauthApplication'
+    EventOauthApplicationRevokeAccessTokens:
+      type: object
+      description: Payload for oauth_application.revoke_access_tokens
+      properties:
+        oauth_application:
+          $ref: '#/components/schemas/OauthApplication'
+    EventOauthApplicationUpdate:
+      type: object
+      description: Payload for oauth_application.update
+      properties:
+        oauth_application:
+          $ref: '#/components/schemas/OauthApplication'
+    EventPushAccept:
+      type: object
+      description: Payload for push.accept
+      properties:
+        push:
+          $ref: '#/components/schemas/Push'
+    EventPushInitiate:
+      type: object
+      description: Payload for push.initiate
+      properties:
+        push:
+          $ref: '#/components/schemas/Push'
+    EventPushReject:
+      type: object
+      description: Payload for push.reject
+      properties:
+        push:
+          $ref: '#/components/schemas/Push'
+    EventRecordCreate:
+      type: object
+      description: Payload for record.create
+      properties:
+        zone_record:
+          $ref: '#/components/schemas/ZoneRecord'
+    EventRecordDelete:
+      type: object
+      description: Payload for record.delete
+      properties:
+        zone_record:
+          $ref: '#/components/schemas/ZoneRecord'
+    EventRecordUpdate:
+      type: object
+      description: Payload for record.update
+      properties:
+        zone_record:
+          $ref: '#/components/schemas/ZoneRecord'
+    EventSecondaryDNSCreate:
+      type: object
+      description: Payload for secondary_dns.create
+      properties:
+        configuration:
+          $ref: '#/components/schemas/SecondaryDNS'
+    EventSecondaryDNSDelete:
+      type: object
+      description: Payload for secondary_dns.delete
+      properties:
+        configuration:
+          $ref: '#/components/schemas/SecondaryDNS'
+    EventSecondaryDNSUpdate:
+      type: object
+      description: Payload for secondary_dns.update
+      properties:
+        configuration:
+          $ref: '#/components/schemas/SecondaryDNS'
+    EventSubscriptionMigrate:
+      type: object
+      description: Payload for subscription.migrate
+      properties:
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+    EventSubscriptionRenew:
+      type: object
+      description: Payload for subscription.renew
+      properties:
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+    EventSubscriptionSubscribe:
+      type: object
+      description: Payload for subscription.subscribe
+      properties:
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+    EventSubscriptionUnsubscribe:
+      type: object
+      description: Payload for subscription.unsubscribe
+      properties:
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+    EventTemplateApply:
+      type: object
+      description: Payload for template.apply
+      properties:
+        template:
+          $ref: '#/components/schemas/Template'
+        zone:
+          $ref: '#/components/schemas/Zone'
+    EventTemplateCreate:
+      type: object
+      description: Payload for template.create
+      properties:
+        template:
+          $ref: '#/components/schemas/Template'
+    EventTemplateDelete:
+      type: object
+      description: Payload for template.delete
+      properties:
+        template:
+          $ref: '#/components/schemas/Template'
+    EventTemplateUpdate:
+      type: object
+      description: Payload for template.update
+      properties:
+        template:
+          $ref: '#/components/schemas/Template'
+    EventTemplateRecordCreate:
+      type: object
+      description: Payload for template_record.create
+      properties:
+        template_record:
+          $ref: '#/components/schemas/TemplateRecord'
+    EventTemplateRecordDelete:
+      type: object
+      description: Payload for template_record.delete
+      properties:
+        template_record:
+          $ref: '#/components/schemas/TemplateRecord'
+    EventVanityDisable:
+      type: object
+      description: Payload for vanity.disable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventVanityEnable:
+      type: object
+      description: Payload for vanity.enable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventWebhookCreate:
+      type: object
+      description: Payload for webhook.create
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Webhook'
+    EventWebhookDelete:
+      type: object
+      description: Payload for webhook.delete
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Webhook'
+    EventWhoisPrivacyDisable:
+      type: object
+      description: Payload for whois_privacy.disable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        whois_privacy:
+          $ref: '#/components/schemas/WhoisPrivacy'
+    EventWhoisPrivacyEnable:
+      type: object
+      description: Payload for whois_privacy.enable
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        whois_privacy:
+          $ref: '#/components/schemas/WhoisPrivacy'
+    EventWhoisPrivacyPurchase:
+      type: object
+      description: Payload for whois_privacy.purchase
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        whois_privacy:
+          $ref: '#/components/schemas/WhoisPrivacy'
+    EventWhoisPrivacyRenew:
+      type: object
+      description: Payload for whois_privacy.renew
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        whois_privacy:
+          $ref: '#/components/schemas/WhoisPrivacy'
+    EventZoneCreate:
+      type: object
+      description: Payload for zone.create
+      properties:
+        zone:
+          $ref: '#/components/schemas/Zone'
+    EventZoneDelete:
+      type: object
+      description: Payload for zone.delete
+      properties:
+        zone:
+          $ref: '#/components/schemas/Zone'
+    ExtendedAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        required:
+          type: boolean
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtendedAttributeOption'
+      example:
+        name: uk_legal_type
+        description: Legal type of registrant contact
+        required: true
+        options:
+          - title: UK Individual
+            value: IND
+            description: UK Individual (our default value)
+          - title: Non-UK Individual (representing self)
+            value: FIND
+            description: Non-UK Individual (representing self)
+    ExtendedAttributeOption:
+      type: object
+      properties:
+        title:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+      example:
+        title: UK Individual
+        value: IND
+        description: UK Individual (our default value)
+    Invoice:
+      type: object
+      properties:
+        id:
+          type: integer
+        invoice_number:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+    NameServer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        ipv4:
+          type: string
+        ipv6:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        name: ns1.example.com
+        ipv4: 127.0.0.1
+        ipv6: '::1'
+        created_at: '2016-07-11T09:40:19Z'
+        updated_at: '2016-07-11T09:40:19Z'
+    OauthApplication:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        homepage_url:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+    Push:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        contact_id:
+          type: integer
+        account_id:
+          type: integer
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        accepted_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+          nullable: true
+      example:
+        id: 1
+        domain_id: 100
+        contact_id: 2
+        account_id: 2020
+        created_at: '2016-08-11T10:16:03Z'
+        updated_at: '2016-08-11T10:16:03Z'
+        accepted_at: null
+    SecondaryDNS:
+      type: object
+      properties:
+        id:
+          type: integer
+        zone_id:
+          type: string
+        name_servers:
+          type: array
+          items:
+            type: string
+        whitelisted_ips:
+          type: array
+          items:
+            type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: A unique identifier
+        name:
+          type: string
+          description: A human-readable name
+        sid:
+          type: string
+          description: A string identifier that can be used in URLs (always lowercase)
+        description:
+          type: string
+          description: A human-readable description of the one-click service
+        setup_description:
+          type: string
+          description: Describes setup requirements (optional)
+        requires_setup:
+          type: boolean
+          description: Flag indicating whether setup is required
+        default_subdomain:
+          type: string
+          description: The default subdomain used when creating DNS records
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+          description: When the service was first added to DNSimple
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+          description: When the service was last changed in DNSimple
+        settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceSetting'
+      example:
+        id: 2
+        name: Service 2
+        sid: service2
+        description: Second service example.
+        setup_description: null
+        requires_setup: true
+        default_subdomain: null
+        created_at: '2014-02-14T19:15:19Z'
+        updated_at: '2016-03-04T09:23:27Z'
+        settings:
+          - name: username
+            label: Service 2 Account Username
+            append: .service2.com
+            description: >-
+              Your Service2 username is used to connect services to your
+              account.
+            example: username
+            password: false
+    ServiceSetting:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The form name for the setting
+        label:
+          type: string
+          description: The human-readable label value
+        append:
+          type: string
+          description: Additional text to append to the input field
+        description:
+          type: string
+          description: Description of the setting
+        example:
+          type: string
+          description: An example value
+        password:
+          type: boolean
+          description: >-
+            Set to true if the value is a password (and thus should be not
+            visible in the field)
+          default: false
+      example:
+        name: username
+        label: Service 2 Account Username
+        append: .service2.com
+        description: Your Service2 username is used to connect services to your account.
+        example: username
+        password: false
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: integer
+        plan_name:
+          type: string
+          enum:
+            - Silver
+            - Gold
+            - Silver v1 Yearly
+            - Bronze Yearly
+            - Gold v1 Yearly
+            - No DNS
+            - Professional Yearly
+            - Platinum Yearly
+            - Personal Yearly
+            - Silver Yearly
+            - Business
+            - Bronze Yearly v1
+            - Bronze
+            - Business Yearly
+            - Personal
+            - Basic Reseller Yearly
+            - Expert Reseller
+            - Expert Reseller Yearly
+            - Silver v1
+            - Master Reseller Yearly
+            - Basic Reseller
+            - Gold Yearly
+            - Bronze v1
+            - Professional
+            - Master Reseller
+            - Gold v1
+            - Platinum
+        state:
+          type: string
+          enum:
+            - new
+            - subscribing
+            - subscribed
+            - unsubscribed
+            - not_subscribed
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+    Template:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        name:
+          type: string
+        sid:
+          type: string
+        description:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        account_id: 1010
+        name: Alpha
+        sid: alpha
+        description: An alpha template.
+        created_at: '2016-03-22T11:08:58Z'
+        updated_at: '2016-03-22T11:08:58Z'
+    TemplateRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+        template_id:
+          type: integer
+        name:
+          type: string
+        content:
+          type: string
+        ttl:
+          $ref: '#/components/schemas/TTL'
+        priority:
+          type: integer
+          nullable: true
+        type:
+          $ref: '#/components/schemas/TemplateRecordType'
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 296
+        template_id: 268
+        name: ''
+        content: 192.168.1.1
+        ttl: 3600
+        priority: null
+        type: A
+        created_at: '2016-04-26T08:23:54Z'
+        updated_at: '2016-04-26T08:23:54Z'
+    TemplateRecordType:
+      type: string
+      description: Supported DNS record types for templates.
+      enum:
+        - A
+        - AAAA
+        - ALIAS
+        - CAA
+        - CNAME
+        - DNSKEY
+        - DS
+        - HINFO
+        - MX
+        - NAPTR
+        - NS
+        - POOL
+        - PTR
+        - SOA
+        - SPF
+        - SRV
+        - SSHFP
+        - TXT
+        - URL
+    TLD:
+      type: object
+      properties:
+        tld:
+          type: string
+          description: >-
+            The registerable suffix. In most cases the suffix matches a TLD, but
+            there are some cases where the suffix is a subzone of the TLD (e.g.
+            com.au).
+        tld_type:
+          type: integer
+          description: The type of TLD.
+          $ref: '#/components/schemas/TLDType'
+        whois_privacy:
+          type: boolean
+          description: >-
+            true if the suffix allows WHOIS privacy as a separate component.
+            Some registries may provide WHOIS privacy at registry level, such as
+            the .IO or .UK.
+        auto_renew_only:
+          type: boolean
+          description: >-
+            true if the suffix requires auto-renewal and can’t be renewed
+            manually.
+        idn:
+          type: boolean
+          description: true if the suffix supports Internationalized Domain Names (IDN).
+        registration_enabled:
+          type: boolean
+          description: true if DNSimple supports registrations for this TLD.
+        renewal_enabled:
+          type: boolean
+          description: true if DNSimple supports renewals for this TLD.
+        transfer_enabled:
+          type: boolean
+          description: true if DNSimple supports inbound transfers for this TLD.
+      example:
+        tld: ac
+        tld_type: 2
+        whois_privacy: false
+        auto_renew_only: true
+        idn: false
+        minimum_registration: 1
+        registration_enabled: true
+        renewal_enabled: true
+        transfer_enabled: false
+    TLDType:
+      type: integer
+      description: >-
+        TLD types are: - 1: gTLD (global TLD) - 2: ccTLD (country-code TLD) - 3:
+        newTLD (new global TLD) 
+    TTL:
+      type: integer
+      minimum: 0
+      default: 3600
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        email: example-user@example.com
+        created_at: '2015-09-18T23:04:37Z'
+        updated_at: '2016-06-09T20:03:39Z'
+    VanityNameServer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        ipv4:
+          type: string
+        ipv6:
+          type: string
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+      example:
+        id: 1
+        url: 'https://webhook.test'
+    WebhookPayload:
+      type: object
+      properties:
+        name:
+          type: string
+          description: >-
+            The name attribute contains a string representing the name of event
+            that occurred. It will always have an object and action separated by
+            a period. It may optionally include a state for objects that go
+            through state changes, for example `domain.registration:started`.
+          enum:
+            - account.add_user
+            - account.billing_settings_update
+            - account.payment_details_update
+            - account.remove_user
+            - account.update
+            - account_invitation.accept
+            - account_invitation.create
+            - account_invitation.remove
+            - account_invitation.resend
+            - certificate.auto_renewal_disable
+            - certificate.auto_renewal_enable
+            - certificate.auto_renewal_failed
+            - certificate.issue
+            - certificate.reissue
+            - certificate.remove_private_key
+            - contact.create
+            - contact.update
+            - contact.delete
+            - dnssec.create
+            - dnssec.delete
+            - dnssec.rotation_start
+            - dnssec.rotation_complete
+            - domain.auto_renewal_disable
+            - domain.auto_renewal_enable
+            - domain.create
+            - domain.delete
+            - 'domain.register:started'
+            - domain.register
+            - domain.renew
+            - domain.delegation_change
+            - domain.registrant_change
+            - domain.resolution_disable
+            - domain.resolution_enable
+            - domain.token_reset
+            - 'domain.transfer:started'
+            - domain.transfer
+            - email_forward.create
+            - email_forward.update
+            - email_forward.delete
+            - name_server.deregister
+            - name_server.register
+            - oauth_application.create
+            - oauth_application.delete
+            - oauth_application.reset_client_secret
+            - oauth_application.revoke_access_tokens
+            - push.accept
+            - push.initiate
+            - push.reject
+            - secondary_dns.create
+            - secondary_dns.delete
+            - secondary_dns.update
+            - subscription.migrate
+            - subscription.subscribe
+            - subscription.unsubscribe
+            - template.create
+            - template.delete
+            - template.update
+            - template_record.create
+            - template_record.delete
+            - vanity.disable
+            - vanity.enable
+            - webhook.create
+            - webhook.delete
+            - whois_privacy.disable
+            - whois_privacy.enable
+            - whois_privacy.purchase
+            - whois_privacy.renew
+            - zone.create
+            - zone.delete
+            - zone_record.create
+            - zone_record.delete
+            - zone_record.update
+        api_version:
+          type: string
+          description: >-
+            The api_version is the API version used to serialize the data in the
+            payload. For version 2 of the API, this is the string v2. For
+            example, you can expect a domain object to be serialized using the
+            same domain attributes described in the corresponding API page.
+          enum:
+            - v2
+        request_identifier:
+          type: string
+          description: >-
+            The request_identifier attribute is a UUID that provides a way to
+            identify this request. You may use this UUID to ensure a webhook is
+            processed once and only once by keeping a persistent history of the
+            identifiers sent and never handling a webhook which was already
+            processed.
+        data:
+          oneOf:
+            - $ref: '#/components/schemas/EventAccountAddUser'
+            - $ref: '#/components/schemas/EventAccountBillingSettingsUpdate'
+            - $ref: '#/components/schemas/EventAccountPaymentDetailsUpdate'
+            - $ref: '#/components/schemas/EventAccountRemoveUser'
+            - $ref: '#/components/schemas/EventAccountUpdate'
+            - $ref: '#/components/schemas/EventAccountInvitationAccept'
+            - $ref: '#/components/schemas/EventAccountInvitationCreate'
+            - $ref: '#/components/schemas/EventAccountInvitationRemove'
+            - $ref: '#/components/schemas/EventAccountInvitationResend'
+            - $ref: '#/components/schemas/EventCertificateIssue'
+            - $ref: '#/components/schemas/EventCertificateReissue'
+            - $ref: '#/components/schemas/EventCertificateRemovePrivateKey'
+            - $ref: '#/components/schemas/EventContactCreate'
+            - $ref: '#/components/schemas/EventContactDelete'
+            - $ref: '#/components/schemas/EventContactUpdate'
+            - $ref: '#/components/schemas/EventDNSSECCreate'
+            - $ref: '#/components/schemas/EventDNSSECDelete'
+            - $ref: '#/components/schemas/EventDNSSECRotationStart'
+            - $ref: '#/components/schemas/EventDNSSECRotationComplete'
+            - $ref: '#/components/schemas/EventDomainAutoRenewalDisable'
+            - $ref: '#/components/schemas/EventDomainAutoRenewalEnable'
+            - $ref: '#/components/schemas/EventDomainCreate'
+            - $ref: '#/components/schemas/EventDomainDelete'
+            - $ref: '#/components/schemas/EventDomainRegister'
+            - $ref: '#/components/schemas/EventDomainRenew'
+            - $ref: '#/components/schemas/EventDomainDelegationChange'
+            - $ref: '#/components/schemas/EventDomainRegistrantChange'
+            - $ref: '#/components/schemas/EventDomainResolutionDisable'
+            - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainTransfer'
+            - $ref: '#/components/schemas/EventEmailForwardCreate'
+            - $ref: '#/components/schemas/EventEmailForwardDelete'
+            - $ref: '#/components/schemas/EventEmailForwardUpdate'
+            - $ref: '#/components/schemas/EventInvoiceCollect'
+            - $ref: '#/components/schemas/EventOauthApplicationCreate'
+            - $ref: '#/components/schemas/EventOauthApplicationDelete'
+            - $ref: '#/components/schemas/EventOauthApplicationResetClientSecret'
+            - $ref: '#/components/schemas/EventOauthApplicationRevokeAccessTokens'
+            - $ref: '#/components/schemas/EventPushAccept'
+            - $ref: '#/components/schemas/EventPushInitiate'
+            - $ref: '#/components/schemas/EventPushReject'
+            - $ref: '#/components/schemas/EventRecordCreate'
+            - $ref: '#/components/schemas/EventRecordDelete'
+            - $ref: '#/components/schemas/EventRecordUpdate'
+            - $ref: '#/components/schemas/EventSecondaryDNSCreate'
+            - $ref: '#/components/schemas/EventSecondaryDNSDelete'
+            - $ref: '#/components/schemas/EventSecondaryDNSUpdate'
+            - $ref: '#/components/schemas/EventSubscriptionMigrate'
+            - $ref: '#/components/schemas/EventSubscriptionRenew'
+            - $ref: '#/components/schemas/EventSubscriptionSubscribe'
+            - $ref: '#/components/schemas/EventSubscriptionUnsubscribe'
+            - $ref: '#/components/schemas/EventTemplateApply'
+            - $ref: '#/components/schemas/EventTemplateCreate'
+            - $ref: '#/components/schemas/EventTemplateDelete'
+            - $ref: '#/components/schemas/EventTemplateUpdate'
+            - $ref: '#/components/schemas/EventTemplateRecordCreate'
+            - $ref: '#/components/schemas/EventTemplateRecordDelete'
+            - $ref: '#/components/schemas/EventVanityDisable'
+            - $ref: '#/components/schemas/EventVanityEnable'
+            - $ref: '#/components/schemas/EventWebhookCreate'
+            - $ref: '#/components/schemas/EventWebhookDelete'
+            - $ref: '#/components/schemas/EventWhoisPrivacyDisable'
+            - $ref: '#/components/schemas/EventWhoisPrivacyEnable'
+            - $ref: '#/components/schemas/EventWhoisPrivacyPurchase'
+            - $ref: '#/components/schemas/EventWhoisPrivacyRenew'
+            - $ref: '#/components/schemas/EventZoneCreate'
+            - $ref: '#/components/schemas/EventZoneDelete'
+          description: >-
+            The data attribute contains any data for the object or objects
+            related to the event. Each object in the data object will be keyed
+            on an object type name.
+        account:
+          $ref: '#/components/schemas/Account'
+          description: >-
+            The account is an object describing which account the event occurred
+            in. It is a lightweight representation of the account and includes
+            the id, a unique identifier and a display text representation.
+        actor:
+          $ref: '#/components/schemas/Actor'
+          description: >-
+            The actor is an object describing the entity that triggered the
+            event. This may be a user if the event was triggered due to activity
+            via the UI or API, or it may be a system entity if the activity
+            occurred as part of an asynchronous process. The actor object has
+            three attributes: id, which is a unique identifier for the actor,
+            entity which describes what type the actor is, and pretty, which is
+            a printable representation of the actor for use in display.
+      example:
+        name: object.action
+        api_version: v2
+        request_identifier: fca1f30a-4219-4278-9272-c00e5cc2eb5c
+        data: {}
+        account: {}
+        actor: {}
+    WhoisPrivacy:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        expires_on:
+          $ref: '#/components/schemas/Date'
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 2
+        expires_on: '2017-02-13'
+        enabled: true
+        created_at: '2016-02-13T14:34:50Z'
+        updated_at: '2016-02-13T14:34:52Z'
+    Zone:
+      type: object
+      description: Represents a DNS zone.
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        name:
+          type: string
+        reverse:
+          type: boolean
+          description: 'Returns true for a reverse zone, false for a forward zone.'
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        account_id: 1010
+        name: example-alpha.com
+        reverse: false
+        created_at: '2015-04-23T07:40:03Z'
+        updated_at: '2015-04-23T07:40:03Z'
+    ZoneFile:
+      type: object
+      description: A DNS zone file.
+      properties:
+        zone:
+          type: string
+      example:
+        zone: >
+          $ORIGIN example.com.
+
+          $TTL 1h
+
+          example.com. 3600 IN SOA ns1.dnsimple.com. admin.dnsimple.com.
+          1453132552 86400 7200 604800 300
+
+          example.com. 3600 IN NS ns1.dnsimple.com.
+
+          example.com. 3600 IN NS ns2.dnsimple.com.
+
+          example.com. 3600 IN NS ns3.dnsimple.com.
+
+          example.com. 3600 IN NS ns4.dnsimple.com.
+    ZoneRecord:
+      type: object
+      description: A single DNS record in a zone.
+      properties:
+        id:
+          type: integer
+        zone_id:
+          type: string
+        parent_id:
+          type: integer
+        name:
+          type: string
+        content:
+          type: string
+        ttl:
+          $ref: '#/components/schemas/TTL'
+        priority:
+          type: integer
+          default: 0
+        type:
+          $ref: '#/components/schemas/ZoneRecordType'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZoneRecordRegion'
+        system_record:
+          type: boolean
+          description: >-
+            Returns true if a record is a system generated record and thus is
+            not modifiable.
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        zone_id: example.com
+        parent_id: null
+        name: ''
+        content: ns1.dnsimple.com admin.dnsimple.com 1458642070 86400 7200 604800 300
+        ttl: 3600
+        priority: null
+        type: SOA
+        regions:
+          - global
+        system_record: true
+        created_at: '2016-03-22T10:20:53Z'
+        updated_at: '2016-10-05T09:26:38Z'
+    ZoneRecordRegion:
+      type: string
+      enum:
+        - SV1
+        - ORD
+        - IAD
+        - AMS
+        - TKO
+    ZoneRecordType:
+      type: string
+      description: >-
+        Supported DNS record types at DNSimple. Note that some record types may
+        only be available on specific plans.
+      enum:
+        - A
+        - AAAA
+        - ALIAS
+        - CAA
+        - CNAME
+        - DNSKEY
+        - DS
+        - HINFO
+        - MX
+        - NAPTR
+        - NS
+        - POOL
+        - PTR
+        - SOA
+        - SPF
+        - SRV
+        - SSHFP
+        - TXT
+        - URL
+  responses:
+    '400':
+      description: A required parameter is missing or the request is invalid.
+    '401':
+      description: The authentication credentials are invalid.
+    '402':
+      description: Your account is not subscribed or not in good standing.
+    '404':
+      description: The requested resource doesn't exist.
+    '412':
+      description: A precondition failed while trying to access a resource.
+    '429':
+      description: >-
+        You exceeded the allowed number of requests per hour and your request
+        has temporarily been throttled.
+      headers:
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    412-feature:
+      description: Feature is not available on your plan.
+    Error:
+      description: An error occurred
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  requestBodies:
+    CollaboratorCreate:
+      description: Collaborator attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+          example:
+            email: john.doe@example.com
+    ContactCreateOrUpdate:
+      description: Contact create attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              label:
+                type: string
+                default: ''
+              first_name:
+                type: string
+              last_name:
+                type: string
+              address1:
+                type: string
+              address2:
+                type: string
+                nullable: true
+              city:
+                type: string
+              state_province:
+                type: string
+              postal_code:
+                type: string
+              country:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              fax:
+                type: string
+                nullable: true
+              organization_name:
+                type: string
+                description: >-
+                  The company name. If the organization_name is specified, then
+                  you must also include job_title.
+              job_title:
+                type: string
+                description: >-
+                  The contact's job title. Required if the organization_name is
+                  specified.
+            example:
+              label: Default
+              first_name: First
+              last_name: User
+              job_title: CEO
+              organization_name: Awesome Company
+              email: first@example.com
+              phone: '+18001234567'
+              fax: '+18011234567'
+              address1: 'Italian Street, 10'
+              city: Roma
+              state_province: RM
+              postal_code: '00100'
+              country: IT
+    DelegationSignerCreate:
+      description: Delegation signer attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              digest:
+                type: string
+    DomainCreate:
+      description: Domain attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+          example:
+            name: example.com
+    DomainNameServers:
+      description: A collection of domain name servers
+      required: true
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ns1.dnsimple.com
+              - ns2.dnsimple.com
+              - ns3.dnsimple.com
+              - ns4.dnsimple.com
+    DomainRegister:
+      description: Domain registration attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              registrant_id:
+                type: integer
+                description: The ID of an existing contact in your account.
+              whois_privacy:
+                type: boolean
+                description: >-
+                  Set to true will attempt to purchase/enable the whois privacy
+                  as part of the registration. An extra cost may apply. Default:
+                  false.
+              auto_renew:
+                type: boolean
+                description: >-
+                  Set to true to enable the auto-renewal of the domain. Default:
+                  true.
+              extended_attributes:
+                type: object
+                description: Required for TLDs that require extended attributes.
+              premium_price:
+                type: string
+                description: >-
+                  Required as confirmation of the price, only if the domain is
+                  premium.
+            example:
+              registrant_id: 1
+    DomainRenew:
+      description: Domain renewal attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              period:
+                type: integer
+              preimum_price:
+                type: string
+                description: >-
+                  Required as confirmation of the price, only if the domain is
+                  premium.
+            example:
+              period: 2
+    DomainTransfer:
+      description: Domain transfer attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              registrant_id:
+                type: integer
+                description: The ID of an existing contact in your account.
+              auth_code:
+                type: string
+                description: >-
+                  Required for TLDS that require authorization-based transfer
+                  (the vast majority of TLDs).
+              whois_privacy:
+                type: boolean
+                description: >-
+                  Set to true will attempt to purchase/enable the whois privacy
+                  as part of the transfer. An extra cost may apply. Default:
+                  false.
+    EmailForwardCreate:
+      description: Email forward attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              from:
+                type: string
+              to:
+                type: string
+            example:
+              from: john.doe
+              to: john@example.com
+    PushInitiate:
+      description: Push attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              new_account_email:
+                type: string
+            example:
+              new_account_email: admin@example.com
+    PushAccept:
+      description: Attributes required to accept a push
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              contact_id:
+                type: integer
+            example:
+              contact_id: 2
+    ServiceApply:
+      description: Settings for a service that is applied to a domain.
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            example:
+              app: my-app-name
+    TemplateCreateOrUpdate:
+      description: Attributes for creating a template.
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              sid:
+                type: string
+              description:
+                type: string
+            example:
+              name: Alpha
+              sid: alpha
+              description: This is an Alpha template.
+    TemplateRecordCreateOrUpdate:
+      description: Attributes for creating a template record
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            example:
+              name: ''
+              type: MX
+              content: mx.example.com
+              ttl: 600
+              priority: 10
+    VanityNameServers:
+      description: A collection of vanity name servers
+      required: true
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ns1.example.com
+              - ns2.example.com
+              - ns3.example.com
+              - ns4.example.com
+    ZoneRecordCreate:
+      description: Zone record attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                $ref: '#/components/schemas/ZoneRecordType'
+              content:
+                type: string
+              ttl:
+                $ref: '#/components/schemas/TTL'
+              priority:
+                type: integer
+              regions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZoneRecordRegion'
+            example:
+              name: ''
+              type: MX
+              content: mxa.example.com
+              ttl: 600
+              priority: 10
+              regions:
+                - SV1
+                - IAD
+    ZoneRecordUpdate:
+      description: Zone record update attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              content:
+                type: string
+              ttl:
+                $ref: '#/components/schemas/TTL'
+              priority:
+                type: integer
+              regions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZoneRecordRegion'
+            example:
+              content: mxb.example.com
+              ttl: '3600,'
+              priority: 20
+              regions:
+                - global
+  headers:
+    X-RateLimit-Limit:
+      description: The maximum number of requests you can perform per hour.
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of requests remaining in the current rate limit window.
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: The time at which the current rate limit window in Unix time format.
+      schema:
+        type: integer
