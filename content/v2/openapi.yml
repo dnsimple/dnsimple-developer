@@ -841,7 +841,7 @@ paths:
           description: Domain prepared for transfer out.
         '400':
           $ref: '#/components/responses/400'
-  '/{account}/registrar/domains/:domain/delegation':
+  '/{account}/registrar/domains/{domain}/delegation':
     get:
       description: List name servers for the domain in the account.
       parameters:
