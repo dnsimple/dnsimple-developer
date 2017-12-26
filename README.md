@@ -14,6 +14,8 @@ For a list of `nanoc` commands type
 
     $ nanoc --help
 
+To build the openapi.json file, run `rake compile` before starting nanoc.
+
 ## Development
 
 `nanoc` ships with an autocompiler that automatically compiles changed files on every HTTP request.
@@ -25,7 +27,6 @@ For a list of `nanoc` commands type
     [2016-12-21 11:56:37] INFO  WEBrick 1.3.1
     [2016-12-21 11:56:37] INFO  ruby 2.3.3 (2016-11-21) [x86_64-darwin16]
     [2016-12-21 11:56:37] INFO  WEBrick::HTTPServer#start: pid=63695 port=3000
-
 
 ## Deployment
 
