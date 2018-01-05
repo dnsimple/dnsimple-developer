@@ -2548,9 +2548,6 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
-        premium_price:
-          type: string
-          nullable: true
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2563,7 +2560,6 @@ components:
         state: new
         auto_renew: false
         whois_privacy: false
-        premium_price: null
         created_at: '2016-12-09T19:35:31Z'
         updated_at: '2016-12-09T19:35:31Z'
     DomainRenewal:
@@ -2584,9 +2580,6 @@ components:
             - renewing
             - renewed
             - failed
-        premium_price:
-          type: string
-          nullable: true
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2596,7 +2589,6 @@ components:
         domain_id: 999
         period: 1
         state: new
-        premium_price: null
         created_at: '2016-12-09T19:46:45Z'
         updated_at: '2016-12-09T19:46:45Z'
     DomainTransfer:
@@ -2619,9 +2611,6 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
-        premium_price:
-          type: string
-          nullable: true
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2633,7 +2622,6 @@ components:
         state: transferring
         auto_renew: false
         whois_privacy: false
-        premium_price: null
         created_at: '2016-12-09T19:43:41Z'
         updated_at: '2016-12-09T19:43:43Z'
     DNSSEC:
@@ -4112,7 +4100,7 @@ components:
             properties:
               period:
                 type: integer
-              preimum_price:
+              premium_price:
                 type: string
                 description: >-
                   Required as confirmation of the price, only if the domain is
@@ -4141,6 +4129,19 @@ components:
                   Set to true will attempt to purchase/enable the whois privacy
                   as part of the transfer. An extra cost may apply. Default:
                   false.
+              auto_renew:
+                type: boolean
+                description: >-
+                  Set to true to enable the auto-renewal of the domain. Default:
+                  true.
+              extended_attributes:
+                type: object
+                description: Required for TLDs that require extended attributes.
+              premium_price:
+                type: string
+                description: >-
+                  Required as confirmation of the price, only if the domain is
+                  premium.
     EmailForwardCreate:
       description: Email forward attributes
       required: true
