@@ -9,11 +9,13 @@ excerpt: This page documents the DNSimple accounts API v2 endpoint.
 {:toc}
 
 
-## List accounts
+## List accounts {#listAccounts}
 
-    GET /accounts
+Gets the accounts associated with the current credentials.
 
-Gets the accounts the current authenticated entity has access to.
+~~~
+GET /accounts
+~~~
 
 ### Example
 
