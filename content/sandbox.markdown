@@ -26,6 +26,7 @@ Every action within the Sandbox will be free of charge.
 
 - Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
 - When asked to choose a plan choose `Skip this step and choose a plan later` at the bottom. If you want to test features that requires a valid subscription please refer to the [Testing Subscriptions](#testing-subscriptions) section.
+- If you choose a plan to test with domains use the same way of providing credit card details as described in the [Testing Subscriptions](#testing-subscriptions) section.
 
 ### URL
 
