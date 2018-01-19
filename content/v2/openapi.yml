@@ -672,7 +672,7 @@ paths:
       tags:
         - domains certificates
       responses:
-        '200':
+        '202':
           description: Successfully requested the issuance of the certificate.
           content:
             application/json:
@@ -727,7 +727,7 @@ paths:
       tags:
         - domains certificates
       responses:
-        '200':
+        '202':
           description: Successfully requested the issuance of the certificate renewal.
           content:
             application/json:
@@ -3335,7 +3335,7 @@ components:
             - cancelled
             - requesting
             - failed
-        auto_renewal:
+        auto_renew:
           type: boolean
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
@@ -3364,7 +3364,7 @@ components:
             - renewing
             - renewed
             - failed
-        auto_renewal:
+        auto_renew:
           type: boolean
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
