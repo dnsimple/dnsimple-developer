@@ -20,6 +20,10 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
 - [DNSimple Node.js client](https://dnsimple.link/api-client-node)
 
+### Ruby
+
+- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](http://fog.io/) module for DNSimple.
+
 ### Python
 
 - [Lexicon](https://github.com/AnalogJ/lexicon) - Manipulate DNS records across various DNS providers in a standardized way.
@@ -33,10 +37,6 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [dnsimple/dnsimple-api-examples](https://github.com/dnsimple/dnsimple-api-examples) - Example scripts and code to demonstrate how to use the DNSimple API v2 with our official clients.
 
 ## API v1 Clients
-
-### Ruby
-
-- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](http://fog.io/) module for DNSimple.
 
 ### Python
 
