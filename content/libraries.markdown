@@ -20,6 +20,10 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
 - [DNSimple Node.js client](https://dnsimple.link/api-client-node)
 
+### Python
+
+- [Lexicon](https://github.com/AnalogJ/lexicon) - Manipulate DNS records across various DNS providers in a standardized way.
+
 ### Bash
 
 - [chorn/dnsimple_cli](https://github.com/chorn/dnsimple_cli) - A cli for the DNSimple v2 API.
@@ -38,7 +42,6 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 
 - [Apache libcloud](https://libcloud.apache.org/) - Python library for interacting with many of the popular cloud service providers using a unified API.
 - [dnsimple-python](https://github.com/mikemaccana/dnsimple-python) - A Python API client.
-- [Lexicon](https://github.com/AnalogJ/lexicon) - Manipulate DNS records across various DNS providers in a standardized way.
 
 ### JavaScript
 
