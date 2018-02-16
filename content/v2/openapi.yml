@@ -17,8 +17,6 @@ externalDocs:
 security:
   - basicAuth: []
   - bearerAuth: []
-  - oauth:
-      - full
 servers:
   - url: 'https://api.dnsimple.com/v2'
     description: DNSimple Production API
@@ -1857,6 +1855,9 @@ paths:
           description: Successfully deleted a webhook.
 components:
   securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
     bearerAuth:
       type: http
       scheme: bearer
