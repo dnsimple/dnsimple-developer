@@ -24,7 +24,8 @@ servers:
     description: DNSimple Production API
     variables: {}
   - url: 'https://api.sandbox.dnsimple.com/v2'
-    description: DNSimple Sandbox API
+    description: >-
+      DNSimple Sandbox API. For more information on the purpose and use of the Sandbox API, see our [testing documentation](https://developer.dnsimple.com/v2/#testing)
 paths:
   /accounts:
     get:
