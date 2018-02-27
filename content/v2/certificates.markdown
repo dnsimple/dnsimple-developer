@@ -146,7 +146,7 @@ Responds with HTTP 200, renders the certificate private key.
 
 ## Let's Encrypt: Purchase a certificate {#purchaseLetsencryptCertificate}
 
-<%= render "v2-beta" %>
+<%= render "v2-preview" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
@@ -224,7 +224,7 @@ The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
 
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
-<%= render "v2-beta" %>
+<%= render "v2-preview" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
@@ -261,7 +261,7 @@ You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification whe
 
 ## Let's Encrypt: Renew a certificate {#purchaseRenewalLetsencryptCertificate}
 
-<%= render "v2-beta" %>
+<%= render "v2-preview" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
@@ -308,7 +308,7 @@ Name | Type | Description
 
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
 
-<%= render "v2-beta" %>
+<%= render "v2-preview" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 
