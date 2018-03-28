@@ -48,9 +48,9 @@ There are three ways to authenticate through DNSimple API. Two of them are globa
 
 There are two authentication methods available: the **HTTP Basic Authentication** and the **API token**.
 
-<info>
+<note>
 The API token is the recommended authentication mechanism.
-</info>
+</note>
 
 ##### HTTP Basic Authentication
 

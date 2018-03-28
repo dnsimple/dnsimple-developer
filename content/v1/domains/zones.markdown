@@ -113,9 +113,9 @@ Responds with HTTP 400 if the validation fails.
 
 Get the domain as a [zone file](https://www.ietf.org/rfc/rfc1035.txt) content.
 
-<note>
+<callout>
 This API endpoint responds also to the MIME type `plain/text`.
-</note>
+</callout>
 
 ### Parameters
 
