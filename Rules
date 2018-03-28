@@ -51,8 +51,6 @@ compile '*' do
     item_identifier = item.identifier.to_s
     if item_identifier.start_with?("/v2")
       layout 'v2'
-    elsif item_identifier.start_with?("/v1")
-      layout 'v1'
     else
       layout 'default'
     end
