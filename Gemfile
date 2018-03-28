@@ -6,7 +6,7 @@ gem 'builder'
 gem 'kramdown'
 gem 'mime-types'
 gem 'nokogiri'
-gem 'pygments.rb'
+gem 'rouge'
 gem 'sass'
 gem 'systemu'
 

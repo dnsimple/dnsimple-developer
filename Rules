@@ -46,7 +46,7 @@ compile '*' do
     filter :erb
     filter :preprocess
     filter :kramdown, toc_levels: [2], enable_coderay: false
-    filter :colorize_syntax, default_colorizer: :pygmentsrb
+    filter :colorize_syntax, default_colorizer: :rouge
     filter :postprocess
     item_identifier = item.identifier.to_s
     if item_identifier.start_with?("/v2")
