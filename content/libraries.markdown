@@ -27,6 +27,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 ### Python
 
 - [Lexicon](https://github.com/AnalogJ/lexicon) - Manipulate DNS records across various DNS providers in a standardized way.
+- [dnsimple-python](https://github.com/onlyhavecans/dnsimple-python) - A Python API client.
 
 ### Bash
 
@@ -41,7 +42,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 ### Python
 
 - [Apache libcloud](https://libcloud.apache.org/) - Python library for interacting with many of the popular cloud service providers using a unified API.
-- [dnsimple-python](https://github.com/mikemaccana/dnsimple-python) - A Python API client.
+- [vigetlabs/dnsimple](https://github.com/vigetlabs/dnsimple) - Python module for interacting with DNSimple service.
 
 ### JavaScript
 
