@@ -1,6 +1,0 @@
----
-:title: DNSimple API v2 Changelog
-:description: Changes for DNSimple API v2
-:url: https://developer.dnsimple.com/v2/changelog/
----
-<%= atom_feed(api_v2_changelog_items) %>
