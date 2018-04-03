@@ -12,7 +12,7 @@ excerpt: Tools built around the DNSimple Domain and DNS API.
 ## DNSimple tools
 
 ### [DNSimple Slack integration](https://dnsimple.com/slack)
-  
+
 With the official DNSimple Stack integration you can buy, connect, and operate your domains directly from your Slack channel.
 
 <small>
