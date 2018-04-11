@@ -212,5 +212,5 @@ Responds with HTTP 204 on success.
 Responds with HTTP 400 if the contact cannot be deleted because it's currently used by a domain or a certificate.
 
 ~~~json
-<%= pretty_print_fixture("/deleteContact/failure.http") %>
+<%= pretty_print_fixture("/deleteContact/error-contact-in-use.http") %>
 ~~~
