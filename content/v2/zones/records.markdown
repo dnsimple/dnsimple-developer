@@ -268,7 +268,7 @@ Name | Type | Description
 
 Delete the record with ID `5` for zone `example.com`, in the account `1010`:
 
-~~~
+~~~shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \

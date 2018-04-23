@@ -32,17 +32,21 @@ Value | Description
 `3`   | `newTLD` (new global TLD)
 
 
-## List TLDs {#list}
+## List TLDs {#listTlds}
 
-    GET /tlds
+~~~
+GET /tlds
+~~~
 
 ### Example
 
 List all TLDs.
 
-    curl -H 'Authorization: Bearer <token>' \
-         -H 'Accept: application/json' \
-         https://api.dnsimple.com/v2/tlds
+~~~shell
+curl -H 'Authorization: Bearer <token>' \
+        -H 'Accept: application/json' \
+        https://api.dnsimple.com/v2/tlds
+~~~
 
 ### Response
 
@@ -61,9 +65,11 @@ Name | Description
 The default sorting policy is by ascending `tld`.
 
 
-## Get TLD details {#get}
+## Get TLD details {#getTld}
 
-    GET /tlds/:tld
+~~~
+GET /tlds/:tld
+~~~
 
 ### Parameters
 
@@ -75,9 +81,11 @@ Name | Type | Description
 
 Get the TLD with name `"com"`.
 
-    curl -H 'Authorization: Bearer <token>' \
-         -H 'Accept: application/json' \
-         https://api.dnsimple.com/v2/tlds/com
+~~~shell
+curl -H 'Authorization: Bearer <token>' \
+        -H 'Accept: application/json' \
+        https://api.dnsimple.com/v2/tlds/com
+~~~
 
 ### Response
 
@@ -86,9 +94,11 @@ Get the TLD with name `"com"`.
 ~~~
 
 
-## Get TLD Extended Attributes {#extended-attributes}
+## Get TLD Extended Attributes {#getTldExtendedAttributes}
 
-    GET /tlds/:tld/extended_attributes
+~~~
+GET /tlds/:tld/extended_attributes
+~~~
 
 Some TLDs require extended attributes when registering or transferring a domain.
 This API interface provides information on the extended attributes for any particular TLD.
@@ -105,9 +115,11 @@ Name | Type | Description
 
 Get extended attributes for TLD with name `"com"`.
 
-    curl -H 'Authorization: Bearer <token>' \
-         -H 'Accept: application/json' \
-         https://api.dnsimple.com/v2/tlds/com/extended_attributes
+~~~shell
+curl -H 'Authorization: Bearer <token>' \
+        -H 'Accept: application/json' \
+        https://api.dnsimple.com/v2/tlds/com/extended_attributes
+~~~
 
 ### Response
 
