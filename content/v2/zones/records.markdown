@@ -29,9 +29,12 @@ Code  | Region
 When creating/updating a record, you can **optionally** select one or more regions.
 **If you don't select any, the record will appear in all of them (`global`).**
 
-## List records for a zone {#list}
 
-    GET /:account/zones/:zone/records
+## List records for a zone {#listZoneRecords}
+
+~~~
+GET /:account/zones/:zone/records
+~~~
 
 ### Parameters
 
@@ -44,9 +47,11 @@ Name | Type | Description
 
 List records for the zone `example.com` in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records
+~~~
 
 ### Response
 
@@ -68,9 +73,11 @@ Name | Description
 
 List records for the zone `example.com` with TXT zone records, in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
+~~~
 
 ### Sorting
 
@@ -85,9 +92,12 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
-## Create a zone record {#create}
 
-    POST /:account/zones/:zone/records
+## Create a zone record {#createZoneRecord}
+
+~~~
+POST /:account/zones/:zone/records
+~~~
 
 ### Parameters
 
@@ -100,12 +110,14 @@ Name | Type | Description
 
 Create a record for the zone `example.com` in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '<json>' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '<json>' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records
+~~~
 
 ### Input
 
@@ -144,9 +156,11 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a zone record {#get}
+## Get a zone record {#getZoneRecord}
 
-    GET /:account/zones/:zone/records/:record
+~~~
+GET /:account/zones/:zone/records/:record
+~~~
 
 ### Parameters
 
@@ -160,9 +174,11 @@ Name | Type | Description
 
 Get the record `5` for the zone `example.com`, in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~
 
 ### Response
 
@@ -171,9 +187,11 @@ Get the record `5` for the zone `example.com`, in the account `1010`:
 ~~~
 
 
-## Update a zone record {#update}
+## Update a zone record {#updateZoneRecord}
 
-    PATCH /:account/zones/:zone/records/:record
+~~~
+PATCH /:account/zones/:zone/records/:record
+~~~
 
 ### Parameters
 
@@ -187,12 +205,14 @@ Name | Type | Description
 
 Update the record with ID `5` for zone `example.com`, in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X PATCH \
-          -d '<json>' \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X PATCH \
+      -d '<json>' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~
 
 ### Input
 
@@ -230,9 +250,11 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Delete a zone record {#delete}
+## Delete a zone record {#deleteZoneRecord}
 
-    DELETE /:account/zones/:zone/records/:record
+~~~
+DELETE /:account/zones/:zone/records/:record
+~~~
 
 ### Parameters
 
@@ -246,11 +268,13 @@ Name | Type | Description
 
 Delete the record with ID `5` for zone `example.com`, in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X DELETE \
-          https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~
 
 ### Response
 
