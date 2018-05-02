@@ -118,7 +118,7 @@ Responds with HTTP 200, renders the zone file.
 ~~~
 
 
-## Get zone distribution {#checkZoneDistribution}
+## Check zone distribution {#checkZoneDistribution}
 
 <%= render "v2-preview" %>
 
@@ -150,17 +150,17 @@ Check the zone distribution for `example.com` in the account `1010`:
 Responds with HTTP 200 when the zone is fully distributed.
 
 ~~~json
-<%= pretty_print_fixture("/getZoneDistribution/success.http") %>
+<%= pretty_print_fixture("/checkZoneDistribution/success.http") %>
 ~~~
 
 Responds with HTTP 200 when the zone is not distributed.
 
 ~~~json
-<%= pretty_print_fixture("/getZoneDistribution/failure.http") %>
+<%= pretty_print_fixture("/checkZoneDistribution/failure.http") %>
 ~~~
 
 Responds with HTTP 504 when the server failed to perform the check.
 
 ~~~json
-<%= pretty_print_fixture("/getZoneDistribution/error.http") %>
+<%= pretty_print_fixture("/checkZoneDistribution/error.http") %>
 ~~~
