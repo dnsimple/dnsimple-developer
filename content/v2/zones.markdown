@@ -117,3 +117,50 @@ Responds with HTTP 200, renders the zone file.
 <%= pretty_print_fixture("/getZoneFile/success.http") %>
 ~~~
 
+
+## Check zone distribution {#checkZoneDistribution}
+
+<%= render "v2-preview" %>
+
+    GET /:account/zones/:zone
+
+Checks if a zone change is fully distributed to all our nameservers across the globe.
+
+<note>
+  This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Check the zone distribution for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones/example.com/distribution
+
+### Response
+
+Responds with HTTP 200 when the zone is fully distributed.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneDistribution/success.http") %>
+~~~
+
+Responds with HTTP 200 when the zone is not distributed.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneDistribution/failure.http") %>
+~~~
+
+Responds with HTTP 504 when the server failed to perform the check.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneDistribution/error.http") %>
+~~~
