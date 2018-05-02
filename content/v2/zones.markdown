@@ -120,13 +120,11 @@ Responds with HTTP 200, renders the zone file.
 
 ## Get zone distribution {#checkZoneDistribution}
 
+<%= render "v2-preview" %>
+
     GET /:account/zones/:zone
 
 Checks if a zone change is fully distributed to all our nameservers across the globe.
-
-<note>
-  This section describes a feature in Public Beta.
-</note>
 
 <note>
   This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
