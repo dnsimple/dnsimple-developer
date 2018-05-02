@@ -133,13 +133,13 @@ Name | Type | Description
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
-<note>
+<callout>
 The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
-</note>
+</callout>
 
-<note>
+<callout>
 The `premium_price` can be fetched via the [premium price endpoint](#premium-price).
-</note>
+</callout>
 
 ##### Example
 

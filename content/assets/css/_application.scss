@@ -27,59 +27,79 @@ h2 {
 .marker {
   margin: 20px 0;
   padding: 15px;
+  padding-left: 60px;
+  position: relative;
+  border-radius: 4px;
 }
 
 .marker :first-child {
   margin-top: 0;
 }
 
-.marker p:last-child {
+.marker :last-child {
   margin-bottom: 0;
 }
 
-.marker-info, .marker-note {
+.marker-callout {
+  background: lighten($callout-color, 32%);
+  color: darken($callout-color, 15%);
+
+  &:before {
+    position: absolute;
+    top: .7em;
+    left: 1em;
+    content: "\f129";
+    font-family: FontAwesome;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: darken($callout-color, 15%);
+  }
+}
+
+.marker-note {
   background: lighten($accent-color, 50%);
   color: lighten($accent-color, 10%);
-  border-left: 3px solid lighten($accent-color, 10%);
-  p {
-    &:first-child {
-      &:before {
-        margin-right: 10px;
-        content: "\f05a";
-        font-family: FontAwesome;
-      }
-    }
+
+  &:before {
+    position: absolute;
+    top: .7em;
+    left: 1em;
+    content: "\f0a1";
+    font-family: FontAwesome;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: darken($accent-color, 15%);
   }
 }
 
 .marker-warning {
   background: lighten($warning-color, 32%);
   color: darken($warning-color, 15%);
-  border-left: 3px solid darken($warning-color, 15%);
-  p {
-    &:first-child {
-      &:before {
-        margin-right: 10px;
-        content: "\f071";
-        font-family: FontAwesome;
-      }
-    }
+
+  &:before {
+    position: absolute;
+    top: .7em;
+    left: 1em;
+    margin-right: 10px;
+    content: "\f071";
+    font-family: FontAwesome;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: darken($warning-color, 15%);
   }
 }
 
-.marker-danger {
-  background: lighten($accent-color, 32%);
-  color: darken($accent-color, 15%);
-  border-left: 3px solid darken($accent-color, 15%);
-  p {
-    &:first-child {
-      &:before {
-        margin-right: 10px;
-        content: "\f1e2";
-        font-family: FontAwesome;
-      }
-    }
-  }
+p + .marker {
+  margin-top: 0px;
 }
 
 

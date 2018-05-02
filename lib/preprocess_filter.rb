@@ -1,7 +1,7 @@
 class PreprocessFilter < Nanoc::Filter
   identifier :preprocess
 
-  REGEXP_MARKERS = /<(warning|note|info)>(.*?)<\/\1>/m
+  REGEXP_MARKERS = /<(warning|note|callout)>(.*?)<\/\1>/m
 
   def run(content, params = {})
     content = content.dup

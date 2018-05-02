@@ -2,12 +2,17 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rake/testtask'
 require 'fileutils'
+require 'yaml'
+require 'json'
 
 
 task :default => [:test, :compile]
 
+desc "Compile the project"
+task :compile => [:clean, :compile_nanoc, :compile_openapi]
+
 desc "Compile the site"
-task :compile => [:clean] do
+task :compile_nanoc do
   puts "Compiling site"
   Bundler.with_clean_env do
     out = sh(*%w(bundle exec nanoc compile))
@@ -19,6 +24,14 @@ task :compile => [:clean] do
     abort "Compilation failed: #{$?.to_i}\n" +
           "#{out}\n"
   end
+end
+
+desc "Compile the Openapi definition files"
+task :compile_openapi do
+  data = File.read("content/v2/openapi.yml")
+  
+  File.write("output/v2/openapi.yml", data)
+  File.write("output/v2/openapi.json", JSON.dump(YAML.load(data)))
 end
 
 desc "Publish to S3"
