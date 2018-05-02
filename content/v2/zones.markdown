@@ -124,9 +124,13 @@ Responds with HTTP 200, renders the zone file.
 
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
-<warning>
+<note>
+  This section describes a feature in Public Beta.
+</note>
+
+<note>
   This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
-</warning>
+</note>
 
 ### Parameters
 
@@ -157,7 +161,7 @@ Responds with HTTP 200 when the zone is not distributed.
 <%= pretty_print_fixture("/getZoneDistribution/failure.http") %>
 ~~~
 
-Responds with HTTP 500 when the server failed to perform the check.
+Responds with HTTP 504 when the server failed to perform the check.
 
 ~~~json
 <%= pretty_print_fixture("/getZoneDistribution/error.http") %>
