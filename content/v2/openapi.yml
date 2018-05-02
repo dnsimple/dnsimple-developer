@@ -23,7 +23,9 @@ servers:
     variables: {}
   - url: 'https://api.sandbox.dnsimple.com/v2'
     description: >-
-      DNSimple Sandbox API. For more information on the purpose and use of the Sandbox API, see our [testing documentation](https://developer.dnsimple.com/v2/#testing)
+      DNSimple Sandbox API. For more information on the purpose and use of the
+      Sandbox API, see our [testing
+      documentation](https://developer.dnsimple.com/v2/#testing)
 paths:
   /accounts:
     get:
@@ -1229,6 +1231,38 @@ paths:
                     $ref: '#/components/schemas/ZoneFile'
         '404':
           $ref: '#/components/responses/404'
+  '/{account}/zones/{zone}/distribution':
+    get:
+      description: >-
+        Checks if a zone change is fully distributed to all our nameservers
+        across the globe.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: checkZoneDistribution
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully checked zone distribution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneDistribution'
+        '404':
+          $ref: '#/components/responses/404'
+        '504':
+          description: Failed to check zone distribution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneDistribution'
   '/{account}/zones/{zone}/records':
     get:
       description: List records for a zone
@@ -4015,6 +4049,15 @@ components:
           example.com. 3600 IN NS ns3.dnsimple.com.
 
           example.com. 3600 IN NS ns4.dnsimple.com.
+    ZoneDistribution:
+      type: object
+      description: Zone distribution check
+      properties:
+        distributed:
+          type: boolean
+          description: 'Returns true if the zone is fully distributed, false if not.'
+      example:
+        distributed: true
     ZoneRecord:
       type: object
       description: A single DNS record in a zone.
