@@ -4,7 +4,7 @@ TOKEN="your-oauth-token"  # The API v2 OAuth token
 ACCOUNT_ID="12345"        # Replace with your account ID
 ZONE_ID="yourdomain.com"  # The zone ID is the name of the zone (or domain)
 RECORD_ID="1234567"       # Replace with the Record ID
-IP=`curl -s http://icanhazip.com/`
+IP=`curl --ipv4 -s http://icanhazip.com/`
 
 curl -H "Authorization: Bearer $TOKEN" \
      -H "Content-Type: application/json" \
