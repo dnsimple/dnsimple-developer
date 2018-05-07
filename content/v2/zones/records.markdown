@@ -279,3 +279,51 @@ curl  -H 'Authorization: Bearer <token>' \
 ### Response
 
 Responds with HTTP 204 on success.
+
+## Check zone record distribution {#checkZoneRecordDistribution}
+
+<%= render "v2-preview" %>
+
+    GET /:account/zones/:zone/records/:record/distribution
+
+Checks if a zone change is fully distributed to all our nameservers across the globe.
+
+<note>
+  This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+`:record` | `integer` | The record id
+
+### Example
+
+Check the zone record distribution for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones/example.com/records/5/distribution
+
+### Response
+
+Responds with HTTP 200 when the zone record is fully distributed.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneRecordDistribution/success.http") %>
+~~~
+
+Responds with HTTP 200 when the zone record is not distributed.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneRecordDistribution/failure.http") %>
+~~~
+
+Responds with HTTP 504 when the server failed to perform the check.
+
+~~~json
+<%= pretty_print_fixture("/checkZoneRecordDistribution/error.http") %>
+~~~
