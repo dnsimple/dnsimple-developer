@@ -289,7 +289,7 @@ Responds with HTTP 204 on success.
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
 <note>
-  This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
+  This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
 </note>
 
 ### Parameters
