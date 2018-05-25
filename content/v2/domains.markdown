@@ -185,38 +185,12 @@ Delete the domain `example.com` in the account `1010`:
 Responds with HTTP 204 on success.
 
 
-## Reset a domain token {#reset-token}
+## Reset a domain token {#resetDomainToken}
 
-    POST /:account/domains/:domain/token
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:domain` | `string`, `integer` | The domain name or id
-
-### Example
-
-Reset the token for the domain `example.com` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '{}' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/token
-
-### Input
-
-Empty.
-
-### Response
-
-Responds with HTTP 201 on success.
-
-~~~json
-<%= pretty_print_fixture("/resetDomainToken/success.http") %>
+~~~
+POST /:account/domains/:domain/token
 ~~~
 
-Responds with HTTP 400 if bad request.
+<warning>
+This method has been removed. The domain token is no longer supported in API v2.
+</warning>

@@ -154,20 +154,6 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
-  '/{account}/domains/{domain}/token':
-    post:
-      description: Reset a domain token.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: resetDomainToken
-      tags:
-        - domains
-      responses:
-        '201':
-          description: The token was successfully reset
-        '400':
-          $ref: '#/components/responses/400'
   '/{account}/domains/{domain}/collaborators':
     get:
       description: List collaborators for a domain.
