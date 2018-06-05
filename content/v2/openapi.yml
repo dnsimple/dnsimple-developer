@@ -2518,7 +2518,7 @@ components:
         state_province: RM
         postal_code: "00100"
         country: IT
-        phone: "+1.8001234567
+        phone: "+1.8001234567"
         fax: "+1.8011234567"
         email: first@example.com
         created_at: "2013-11-08T17:23:15Z"
