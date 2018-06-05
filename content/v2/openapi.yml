@@ -2476,15 +2476,11 @@ components:
           type: string
         first_name:
           type: string
-        job_title:
+        last_name:
           type: string
         organization_name:
           type: string
-        email:
-          type: string
-        phone:
-          type: string
-        fax:
+        job_title:
           type: string
         address1:
           type: string
@@ -2498,6 +2494,12 @@ components:
           type: string
         country:
           type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        email:
+          type: string
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2508,19 +2510,19 @@ components:
         label: Default
         first_name: First
         last_name: User
-        job_title: CEO
         organization_name: Awesome Company
-        email: first@example.com
-        phone: '+18001234567'
-        fax: '+18011234567'
-        address1: 'Italian Street, 10'
-        address2: ''
+        job_title: CEO
+        address1: "Italian Street, 10"
+        address2: ""
         city: Roma
         state_province: RM
-        postal_code: '00100'
+        postal_code: "00100"
         country: IT
-        created_at: '2013-11-08T17:23:15Z'
-        updated_at: '2015-01-08T21:30:50Z'
+        phone: "+1.8001234567
+        fax: "+1.8011234567"
+        email: first@example.com
+        created_at: "2013-11-08T17:23:15Z"
+        updated_at: "2015-01-08T21:30:50Z"
     DelegationSigner:
       type: object
       properties:
