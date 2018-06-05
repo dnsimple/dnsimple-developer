@@ -13,21 +13,24 @@ excerpt: This page documents the DNSimple contacts API v2.
 
 Name | Type | Description
 -----|------|------------
-`id`                | `integer` |
-`label`             | `string`  |
-`first_name`        | `string`  |
-`last_name`         | `string`  |
-`organization_name` | `string`  |
-`job_title`         | `string`  |
-`address1`          | `string`  |
-`address2`          | `string`  |
-`city`              | `string`  |
-`state_province`    | `string`  |
-`postal_code`       | `string`  |
-`country`           | `string`  | The ISO Alpha-2 country code.
-`phone`             | `string`  |
-`fax`               | `string`  |
-`email`             | `string`  |
+`id`                | `integer`  |
+`contact_id`        | `integer`  |
+`label`             | `string`   |
+`first_name`        | `string`   |
+`last_name`         | `string`   |
+`organization_name` | `string`   |
+`job_title`         | `string`   |
+`address1`          | `string`   |
+`address2`          | `string`   |
+`city`              | `string`   |
+`state_province`    | `string`   |
+`postal_code`       | `string`   |
+`country`           | `string`   | The ISO Alpha-2 country code.
+`phone`             | `string`   |
+`fax`               | `string`   |
+`email`             | `string`   |
+`created_at`        | `datetime` |
+`updated_at`        | `datetime` |
 
 
 ## List contacts {#list}
