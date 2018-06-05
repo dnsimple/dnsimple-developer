@@ -9,6 +9,27 @@ excerpt: This page documents the DNSimple contacts API v2.
 {:toc}
 
 
+## Contact attributes {#contact-attributes}
+
+Name | Type | Description
+-----|------|------------
+`id`                | `integer` |
+`label`             | `string`  |
+`first_name`        | `string`  |
+`last_name`         | `string`  |
+`organization_name` | `string`  |
+`job_title`         | `string`  |
+`address1`          | `string`  |
+`address2`          | `string`  |
+`city`              | `string`  |
+`state_province`    | `string`  |
+`postal_code`       | `string`  |
+`country`           | `string`  | The ISO Alpha-2 country code.
+`phone`             | `string`  |
+`fax`               | `string`  |
+`email`             | `string`  |
+
+
 ## List contacts {#list}
 
     GET /:account/contacts
@@ -78,6 +99,8 @@ Name | Type | Description
 `label`             | `string` |
 `first_name`        | `string` | **Required**.
 `last_name`         | `string` | **Required**.
+`organization_name` | `string` | The company name. If the `organization_name` is specified, then you must also include `job_title`.
+`job_title`         | `string` |
 `address1`          | `string` | **Required**.
 `address2`          | `string` |
 `city`              | `string` | **Required**.
@@ -87,8 +110,6 @@ Name | Type | Description
 `email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
 `fax`               | `string` | **Required**.
-`organization_name` | `string` | The company name. If the `organization_name` is specified, then you must also include `job_title`.
-`job_title`         | `string` |
 
 ##### Example
 
