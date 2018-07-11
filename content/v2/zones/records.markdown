@@ -16,7 +16,7 @@ This Zone Record Regions is a feature that is only available to the following [n
 
 Zone Record Regions lets you select geographical regions where you want a record to appear.
 
-We currently have 5 points of presence:
+We currently have 6 points of presence:
 
 Code  | Region
 ------|-------
@@ -25,6 +25,7 @@ Code  | Region
 `IAD` | Virginia, US
 `AMS` | Amsterdam, NL
 `TKO` | Tokyo, JP
+`SYD` | Sydney, AU
 
 When creating/updating a record, you can **optionally** select one or more regions.
 **If you don't select any, the record will appear in all of them (`global`).**
