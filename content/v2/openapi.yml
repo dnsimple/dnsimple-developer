@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: DNSimple API
   version: 2.0.0
@@ -1500,10 +1500,6 @@ paths:
         - domains services
       requestBody:
         $ref: '#/components/requestBodies/ServiceApply'
-        description: >-
-          Optional hash of settings for some specific services, corresponding to
-          the service fields. For instance, Heroku requires a settings[app]
-          setting.
       responses:
         '204':
           description: Successfully applied a service to a domain.
@@ -4354,7 +4350,10 @@ components:
             example:
               contact_id: 2
     ServiceApply:
-      description: Settings for a service that is applied to a domain.
+      description: >-
+          Optional hash of settings for some specific services, corresponding to
+          the service fields. For instance, Heroku requires a settings[app]
+          setting.
       required: false
       content:
         application/json:
