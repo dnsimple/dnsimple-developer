@@ -700,6 +700,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Certificate'
         - name: renewalId
           in: path
           required: true
@@ -3852,6 +3853,9 @@ components:
             - $ref: '#/components/schemas/EventAccountInvitationCreate'
             - $ref: '#/components/schemas/EventAccountInvitationRemove'
             - $ref: '#/components/schemas/EventAccountInvitationResend'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalDisable'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalEnable'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalFailed'
             - $ref: '#/components/schemas/EventCertificateIssue'
             - $ref: '#/components/schemas/EventCertificateReissue'
             - $ref: '#/components/schemas/EventCertificateRemovePrivateKey'
@@ -3872,13 +3876,17 @@ components:
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainTokenReset'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
             - $ref: '#/components/schemas/EventInvoiceCollect'
+            - $ref: '#/components/schemas/EventNameServerDeregister'
+            - $ref: '#/components/schemas/EventNameServerRegister'
             - $ref: '#/components/schemas/EventOauthApplicationCreate'
             - $ref: '#/components/schemas/EventOauthApplicationDelete'
+            - $ref: '#/components/schemas/EventOauthApplicationUpdate'
             - $ref: '#/components/schemas/EventOauthApplicationResetClientSecret'
             - $ref: '#/components/schemas/EventOauthApplicationRevokeAccessTokens'
             - $ref: '#/components/schemas/EventPushAccept'
