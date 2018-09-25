@@ -1847,7 +1847,7 @@ components:
   links: {}
   callbacks:
     webhook:
-      '$request.body#/url':
+      '$webhookUrl':
         post:
           requestBody:
             description: The webhook payload
