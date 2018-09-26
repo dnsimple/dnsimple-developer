@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: DNSimple API
   version: 2.0.0
@@ -156,20 +156,6 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
-  '/{account}/domains/{domain}/token':
-    post:
-      description: Reset a domain token.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: resetDomainToken
-      tags:
-        - domains
-      responses:
-        '201':
-          description: The token was successfully reset
-        '400':
-          $ref: '#/components/responses/400'
   '/{account}/domains/{domain}/collaborators':
     get:
       description: List collaborators for a domain.
@@ -716,6 +702,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Certificate'
         - name: renewalId
           in: path
           required: true
@@ -1573,10 +1560,6 @@ paths:
         - domains services
       requestBody:
         $ref: '#/components/requestBodies/ServiceApply'
-        description: >-
-          Optional hash of settings for some specific services, corresponding to
-          the service fields. For instance, Heroku requires a settings[app]
-          setting.
       responses:
         '204':
           description: Successfully applied a service to a domain.
@@ -1924,7 +1907,7 @@ components:
   links: {}
   callbacks:
     webhook:
-      '$request.body#/url':
+      '$webhookUrl':
         post:
           requestBody:
             description: The webhook payload
@@ -2550,15 +2533,11 @@ components:
           type: string
         first_name:
           type: string
-        job_title:
+        last_name:
           type: string
         organization_name:
           type: string
-        email:
-          type: string
-        phone:
-          type: string
-        fax:
+        job_title:
           type: string
         address1:
           type: string
@@ -2572,6 +2551,12 @@ components:
           type: string
         country:
           type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        email:
+          type: string
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2582,19 +2567,19 @@ components:
         label: Default
         first_name: First
         last_name: User
-        job_title: CEO
         organization_name: Awesome Company
-        email: first@example.com
-        phone: '+18001234567'
-        fax: '+18011234567'
-        address1: 'Italian Street, 10'
-        address2: ''
+        job_title: CEO
+        address1: "Italian Street, 10"
+        address2: ""
         city: Roma
         state_province: RM
-        postal_code: '00100'
+        postal_code: "00100"
         country: IT
-        created_at: '2013-11-08T17:23:15Z'
-        updated_at: '2015-01-08T21:30:50Z'
+        phone: "+1.8001234567"
+        fax: "+1.8011234567"
+        email: first@example.com
+        created_at: "2013-11-08T17:23:15Z"
+        updated_at: "2015-01-08T21:30:50Z"
     DelegationSigner:
       type: object
       properties:
@@ -3924,6 +3909,9 @@ components:
             - $ref: '#/components/schemas/EventAccountInvitationCreate'
             - $ref: '#/components/schemas/EventAccountInvitationRemove'
             - $ref: '#/components/schemas/EventAccountInvitationResend'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalDisable'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalEnable'
+            - $ref: '#/components/schemas/EventCertificateAutoRenewalFailed'
             - $ref: '#/components/schemas/EventCertificateIssue'
             - $ref: '#/components/schemas/EventCertificateReissue'
             - $ref: '#/components/schemas/EventCertificateRemovePrivateKey'
@@ -3944,13 +3932,17 @@ components:
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainTokenReset'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
             - $ref: '#/components/schemas/EventInvoiceCollect'
+            - $ref: '#/components/schemas/EventNameServerDeregister'
+            - $ref: '#/components/schemas/EventNameServerRegister'
             - $ref: '#/components/schemas/EventOauthApplicationCreate'
             - $ref: '#/components/schemas/EventOauthApplicationDelete'
+            - $ref: '#/components/schemas/EventOauthApplicationUpdate'
             - $ref: '#/components/schemas/EventOauthApplicationResetClientSecret'
             - $ref: '#/components/schemas/EventOauthApplicationRevokeAccessTokens'
             - $ref: '#/components/schemas/EventPushAccept'
@@ -4427,7 +4419,10 @@ components:
             example:
               contact_id: 2
     ServiceApply:
-      description: Settings for a service that is applied to a domain.
+      description: >-
+          Optional hash of settings for some specific services, corresponding to
+          the service fields. For instance, Heroku requires a settings[app]
+          setting.
       required: false
       content:
         application/json:
