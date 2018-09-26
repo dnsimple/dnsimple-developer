@@ -1398,14 +1398,7 @@ paths:
           '404':
             $ref: '#/components/responses/404'
           '504':
-            description: Failed to check zone record distribution.
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    data:
-                      $ref: '#/components/schemas/ZoneDistribution'
+            $ref: '#/components/schemas/Error'
   '/{account}/contacts':
     get:
       description: List contacts in the account.
