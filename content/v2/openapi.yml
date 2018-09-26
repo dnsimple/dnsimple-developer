@@ -1360,32 +1360,32 @@ paths:
           description: Successfully deleted zone record.
         '404':
           $ref: '#/components/responses/404'
-    '/{account}/zones/{zone}/records/{record}/distribution':
-      get:
-        description: >-
-          Checks if a zone record is fully distributed to all our nameservers
-          across the globe.
-        parameters:
-          - $ref: '#/components/parameters/Account'
-          - $ref: '#/components/parameters/Zone'
-          - $ref: '#/components/parameters/ZoneRecord'
-        operationId: checkZoneRecordDistribution
-        tags:
-          - zones records
-        responses:
-          '200':
-            description: Successfully checked zone record distribution.
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    data:
-                      $ref: '#/components/schemas/ZoneDistribution'
-          '404':
-            $ref: '#/components/responses/404'
-          '504':
-            $ref: '#/components/schemas/Error'
+  '/{account}/zones/{zone}/records/{record}/distribution':
+    get:
+      description: >-
+        Checks if a zone record is fully distributed to all our nameservers
+        across the globe.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/ZoneRecord'
+      operationId: checkZoneRecordDistribution
+      tags:
+        - zones records
+      responses:
+        '200':
+          description: Successfully checked zone record distribution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ZoneDistribution'
+        '404':
+          $ref: '#/components/responses/404'
+        '504':
+          $ref: '#/components/schemas/Error'
   '/{account}/contacts':
     get:
       description: List contacts in the account.
