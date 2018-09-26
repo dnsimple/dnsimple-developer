@@ -1242,14 +1242,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
         '504':
-          description: Failed to check zone distribution.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/ZoneDistribution'
+          $ref: '#/components/schemas/Error'
   '/{account}/zones/{zone}/records':
     get:
       description: List records for a zone
