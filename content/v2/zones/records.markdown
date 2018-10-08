@@ -44,24 +44,6 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 
-### Example
-
-List records for the zone `example.com` in the account `1010`:
-
-~~~shell
-curl  -H 'Authorization: Bearer <token>' \
-      -H 'Accept: application/json' \
-      https://api.dnsimple.com/v2/1010/zones/example.com/records
-~~~
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/listZoneRecords/success.http") %>
-~~~
-
 ### Filters
 
 Name | Description
@@ -69,16 +51,6 @@ Name | Description
 `:name_like` | Only include records containing given string
 `:name` | Only include records with name equal to given string
 `:type` | Only include records with record type equal to given string
-
-### Example
-
-List records for the zone `example.com` with TXT zone records, in the account `1010`:
-
-~~~shell
-curl  -H 'Authorization: Bearer <token>' \
-      -H 'Accept: application/json' \
-      https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
-~~~
 
 ### Sorting
 
@@ -92,6 +64,32 @@ Name | Description
 `type` | Sort records by type
 
 The default sorting policy is by ascending `id`.
+
+### Examples
+
+List records for the zone `example.com` in the account `1010`:
+
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records
+~~~
+
+List records for the zone `example.com` with TXT zone records, in the account `1010`:
+
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
+~~~
+
+### Response
+
+Responds with HTTP 200.
+
+~~~json
+<%= pretty_print_fixture("/listZoneRecords/success.http") %>
+~~~
 
 
 ## Create a zone record {#createZoneRecord}
