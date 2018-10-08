@@ -9,9 +9,11 @@ excerpt: This page documents the DNSimple domains API v2.
 {:toc}
 
 
-## List domains {#list}
+## List domains {#listDomains}
 
-    GET /:account/domains
+~~~
+GET /:account/domains
+~~~
 
 List domains in the account.
 
@@ -21,36 +23,12 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 
-### Example
-
-List all domains in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/listDomains/success.http") %>
-~~~
-
 ### Filters
 
 Name | Description
 -----|------------
 `:name_like` | Only include domains containing given string
 `:registrant_id` | Only include domains containing given registrant ID
-
-### Example
-
-List all domains in the account `1010` that have name matching `"example"`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains?name_like=example
 
 ### Sorting
 
@@ -63,6 +41,32 @@ Name | Description
 `expires_on` | Sort domains by expiration date
 
 The default sorting policy is by ascending `name`.
+
+### Examples
+
+List all domains in the account `1010`:
+
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+        -H 'Accept: application/json' \
+        https://api.dnsimple.com/v2/1010/domains
+
+List all domains in the account `1010` that have name matching `"example"`:
+~~~
+
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+        -H 'Accept: application/json' \
+        https://api.dnsimple.com/v2/1010/domains?name_like=example
+~~~
+
+### Response
+
+Responds with HTTP 200.
+
+~~~json
+<%= pretty_print_fixture("/listDomains/success.http") %>
+~~~
 
 
 ## Create a domain {#create}

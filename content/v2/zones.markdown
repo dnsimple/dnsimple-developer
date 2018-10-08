@@ -9,9 +9,11 @@ excerpt: This page documents the DNSimple zones API v2.
 {:toc}
 
 
-## List zones {#list}
+## List zones {#listZones}
 
-    GET /:account/zones
+~~~
+GET /:account/zones
+~~~
 
 List zones in the account.
 
@@ -21,35 +23,11 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 
-### Example
-
-List all zones in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/listZones/success.http") %>
-~~~
-
 ### Filters
 
 Name | Description
 -----|------------
 `:name_like` | Only include zones containing given string
-
-### Example
-
-List all zones in the account `1010` that have name matching `"example"`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/zones?name_like=example
 
 ### Sorting
 
@@ -61,6 +39,28 @@ Name | Description
 `name` | Sort zones by name (alphabetical order)
 
 The default sorting policy is by ascending `name`.
+
+### Examples
+
+List all zones in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones
+
+List all zones in the account `1010` that have name matching `"example"`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/zones?name_like=example
+
+### Response
+
+Responds with HTTP 200.
+
+~~~json
+<%= pretty_print_fixture("/listZones/success.http") %>
+~~~
 
 
 ## Get a zone {#get}
