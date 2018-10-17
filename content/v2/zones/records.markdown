@@ -281,8 +281,6 @@ Responds with HTTP 204 on success.
 
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
-<%= render "v2-preview" %>
-
     GET /:account/zones/:zone/records/:record/distribution
 
 Checks if a zone change is fully distributed to all our nameservers across the globe.
