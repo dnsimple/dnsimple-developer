@@ -56,5 +56,5 @@ To test domain registrations or other subscription-based features you will have 
 
 When entering the credit card details:
 
-- Use the credit card number `1` to simulate a credit card in good status. All payments and authorizations will succeed.
-- Use the credit card number `3` to simulate a credit card in which all authorizations and payments will fail.
+- Use the credit card number `4242 4242 4242 4242` to simulate a credit card in good status. All payments and authorizations will succeed.
+- Use the credit card number `4000 0000 0000 0341` to simulate a credit card in which all authorizations and payments will fail.
