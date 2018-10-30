@@ -18,7 +18,7 @@ Sandbox data and systems are generally treated like production, however we may n
 
 ## Getting started
 
-The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations.
+The DNSimple Sandbox is independent from the DNSimple production site, you have to create another account and register some domains to test your integrations.
 
 <callout>
 Every action within the Sandbox will be free of charge.
