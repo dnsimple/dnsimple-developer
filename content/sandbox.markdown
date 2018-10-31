@@ -18,7 +18,7 @@ Sandbox data and systems are generally treated like production, however we may n
 
 ## Getting started
 
-The DNSimple sandbox is a independent system, you have to create another account and register some domains to test your integrations. 
+The DNSimple Sandbox is independent from the DNSimple production site, you have to create another account and register some domains to test your integrations.
 
 <callout>
 Every action within the Sandbox will be free of charge.
@@ -54,7 +54,9 @@ Testing working with certificates is at the moment *not supported* within the sa
 
 To test domain registrations or other subscription-based features you will have to subscribe to a plan.
 
-When entering the credit card details:
+We use Stripe as our payment gateway, so [their testing documentation](https://stripe.com/docs/testing) may be relevant depending on your use case.
 
-- Use the credit card number `1` to simulate a credit card in good status. All payments and authorizations will succeed.
-- Use the credit card number `3` to simulate a credit card in which all authorizations and payments will fail.
+You can use any of [the documented cards](https://stripe.com/docs/testing#cards) to make payments to succeed or fail at your convenience. Here are the 2 credit card numbers that we most frequently use:
+
+- `4242 4242 4242 4242`: Use this credit card number to **make all payments and authorizations succeed**.
+- `4000 0000 0000 0341`: Use this credit card number to **make all payments and authorizations fail**.
