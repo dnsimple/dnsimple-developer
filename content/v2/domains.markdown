@@ -117,16 +117,20 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a domain {#get}
+## Get a domain {#getDomain}
 
-    GET /:account/domains/:domain
+Retrieves the details of an existing domain.
+
+```
+GET /:account/domains/:domain
+```
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id
-`:domain` | `string`, `integer` | The domain name or id
+`:account` | `integer` | The account ID
+`:domain` | `string`, `integer` | The domain name or ID
 
 ### Example
 
