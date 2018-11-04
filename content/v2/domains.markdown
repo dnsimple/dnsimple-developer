@@ -11,17 +11,17 @@ excerpt: This page documents the DNSimple domains API v2.
 
 ## List domains {#listDomains}
 
+List the domains in the account.
+
 ~~~
 GET /:account/domains
 ~~~
-
-List domains in the account.
 
 ### Parameters
 
 Name | Type | Description
 -----|------|------------
-`:account` | `integer` | The account id
+`:account` | `integer` | The account ID
 
 ### Filters
 
@@ -121,9 +121,9 @@ Responds with HTTP 400 if the validation fails.
 
 Retrieves the details of an existing domain.
 
-```
+~~~
 GET /:account/domains/:domain
-```
+~~~
 
 ### Parameters
 
