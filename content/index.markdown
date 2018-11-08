@@ -42,5 +42,3 @@ Accounts hold 0 or more contacts. Contacts are used when registering domains as 
 The DNSimple API is a REST web service API that provides access to domains, zones, records, SSL certificates and other entities in DNSimple accounts.
 
 The current version is [API v2](/v2/).
-
-API v1 is currently in maintenance-only mode. It will be [shut down on May 31st, 2018](https://blog.dnsimple.com/2018/03/api-v1-shutdown-notice/).
