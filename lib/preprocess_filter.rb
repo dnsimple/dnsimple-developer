@@ -1,7 +1,7 @@
 class PreprocessFilter < Nanoc::Filter
   identifier :preprocess
 
-  REGEXP_MARKERS = /<(warning|note|callout)>(.*?)<\/\1>/m
+  REGEXP_MARKERS = /<(tip|info|note|warning)>(.*?)<\/\1>/m
 
   def run(content, params = {})
     content = content.dup
@@ -9,7 +9,7 @@ class PreprocessFilter < Nanoc::Filter
     content
   end
 
-private
+  private
 
   def format_markers(content)
     content.gsub!(REGEXP_MARKERS) { %(<div class="marker marker-#{$1}" markdown="1">#{$2}</div>) }

@@ -9,7 +9,7 @@
 // Reset Bootstrap style on <code> inside table.
 .table td code {
   padding: 0;
-  color: #333333;
+  color: #333;
   background-color: transparent;
   border: none;
 }
@@ -30,7 +30,24 @@ h2 {
   padding-left: 60px;
   position: relative;
   border-radius: 4px;
-}
+  border: 1px solid;
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  h4 {
+    color: #000;
+  }
+
+  &:before {
+    position: absolute;
+    top: .7em;
+    left: 1em;
+    font-family: FontAwesome;
+    font-size: 18px;
+  }}
 
 .marker :first-child {
   margin-top: 0;
@@ -40,61 +57,40 @@ h2 {
   margin-bottom: 0;
 }
 
-.marker-callout {
-  background: lighten($callout-color, 32%);
-  color: darken($callout-color, 15%);
+.marker-tip {
+  background: #f3f9f4;
+  border-color: #91c89c;
 
   &:before {
-    position: absolute;
-    top: .7em;
-    left: 1em;
-    content: "\f129";
-    font-family: FontAwesome;
-    font-size: 20px;
+    content: "\f00c";
   }
+}
 
-  a {
-    text-decoration: underline;
-    color: darken($callout-color, 15%);
+.marker-info {
+  background: #fcfcfd;
+  border-color: #aab8c6;
+
+  &:before {
+    content: "\f05a";
   }
 }
 
 .marker-note {
-  background: lighten($accent-color, 50%);
-  color: lighten($accent-color, 10%);
+  background: #fffdf6;
+  border-color: #ffeaae;
 
   &:before {
-    position: absolute;
-    top: .7em;
-    left: 1em;
-    content: "\f0a1";
-    font-family: FontAwesome;
-    font-size: 20px;
-  }
-
-  a {
-    text-decoration: underline;
-    color: darken($accent-color, 15%);
+    content: "\f071";
   }
 }
 
 .marker-warning {
-  background: lighten($warning-color, 32%);
-  color: darken($warning-color, 15%);
+  background: #fff8f7;
+  border-color: #d04437;
 
   &:before {
-    position: absolute;
-    top: .7em;
-    left: 1em;
-    margin-right: 10px;
-    content: "\f071";
-    font-family: FontAwesome;
-    font-size: 20px;
-  }
-
-  a {
-    text-decoration: underline;
-    color: darken($warning-color, 15%);
+    content: "\f06a";
+    color: #d04437;
   }
 }
 
@@ -173,15 +169,3 @@ p + .marker {
   color: $accent-color;
   border-left: 5px solid $accent-color;
 }
-
-
-// API deprecated warning
-.deprecated-warning {
-  margin-top: 20px;
-  margin-bottom: -10px;
-  background: lighten($warning-color, 50%);
-  color: $warning-color;
-  border-left: 3px solid lighten($warning-color, 10%);
-  padding: 10px 0 10px 20px;
-}
-

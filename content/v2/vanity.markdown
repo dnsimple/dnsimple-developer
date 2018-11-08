@@ -8,9 +8,11 @@ excerpt: This page documents the DNSimple vanity name servers API v2.
 * TOC
 {:toc}
 
-<note>
-The **vanity name servers** feature is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
-</note>
+
+<info>
+The vanity name servers is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Business.
+If the feature is not enabled, you will receive an HTTP 412 response code.
+</info>
 
 
 ## Enable {#enable}

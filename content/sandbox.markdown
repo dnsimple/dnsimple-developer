@@ -20,9 +20,9 @@ Sandbox data and systems are generally treated like production, however we may n
 
 The DNSimple Sandbox is independent from the DNSimple production site, you have to create another account and register some domains to test your integrations.
 
-<callout>
+<info>
 Every action within the Sandbox will be free of charge.
-</callout>
+</info>
 
 - Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
 - When asked to choose a plan choose `Skip this step and choose a plan later` at the bottom. If you want to test features that requires a valid subscription, including registering test domains, please refer to the [Testing Subscriptions](#testing-subscriptions) section.
@@ -40,9 +40,9 @@ This site is generally an exact duplicate of the production application, but the
 
 To register domains with your sandbox account you will need an active subscription ([see below](#testing-subscriptions)). You can register every domain you want, as long as it's available because you are still sharing a system with other customers.
 
-<callout>
+<note>
 Domains you register within the sandbox will not have any DNS service.
-</callout>
+</note>
 
 
 ## Testing Certificates

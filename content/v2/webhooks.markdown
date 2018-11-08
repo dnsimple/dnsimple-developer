@@ -17,9 +17,6 @@ You may register your webhook URLs either through the DNSimple web interface or 
 
 All webhooks are sent via HTTPS using POST. It MAY occur that some webhook fire more than once. Clients MUST handle webhooks with the same `request_identifier` to not process them twice.
 
-<note>
-Webhooks are only supported in the DNSimple API v2 and higher.
-</note>
 
 ### Webhook Payload
 

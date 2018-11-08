@@ -199,6 +199,6 @@ Responds with HTTP 204 on success.
 POST /:account/domains/:domain/token
 ~~~
 
-<warning>
+<note>
 This method has been removed. The domain token is no longer supported in API v2.
-</warning>
+</note>

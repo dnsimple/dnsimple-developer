@@ -18,9 +18,9 @@ Developers need to register their application before getting started. A register
 
 This is a description of the OAuth 2 flow for authorizing users from 3rd party web sites. The OAuth 2 specification is described in the [RFC 6749](http://tools.ietf.org/html/rfc6749#section-4).
 
-<callout>
+<info>
 The API currently supports only the OAuth 2 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) flow. Therefore, [the only supported value for the `response_type` is `code`](http://tools.ietf.org/html/rfc6749#section-3.1.1).
-</callout>
+</info>
 
 ### Step 1 - Authorization
 
@@ -92,6 +92,6 @@ Replace `ACCESS_TOKEN` with the real token you received in the previous step. He
 $ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoami
 ~~~
 
-<note>
+<info>
 If you are using the [sandbox environment](/sandbox/) replace `dnsimple.com` with `sandbox.dnsimple.com`.
-</note>
+</info>

@@ -8,11 +8,13 @@ excerpt: This page documents the DNSimple zone records API v2.
 * TOC
 {:toc}
 
+
 ## Zone Record Regions
 
-<note>
-This Zone Record Regions is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
-</note>
+<info>
+The Zone record regions is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
+If the feature is not enabled, you will receive an HTTP 412 response code.
+</info>
 
 Zone Record Regions lets you select geographical regions where you want a record to appear.
 
@@ -286,7 +288,7 @@ Responds with HTTP 204 on success.
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
 <note>
-  This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
+This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
 </note>
 
 ### Parameters

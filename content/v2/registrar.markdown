@@ -39,9 +39,9 @@ Responds with HTTP 200 on success, returns the domain availability information.
 <%= pretty_print_fixture("/checkDomain/success.http") %>
 ~~~
 
-<warning>
-  If the domain is premium (`premium: true`), please [check the premium price](#premium-price) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
-</warning>
+<note>
+If the domain is premium (`premium: true`), please [check the premium price](#premium-price) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+</note>
 
 ## Check domain premium price {#premium-price}
 
@@ -133,13 +133,13 @@ Name | Type | Description
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#extended-attributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
-<callout>
+<info>
 The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
-</callout>
+</info>
 
-<callout>
+<info>
 The `premium_price` can be fetched via the [premium price endpoint](#premium-price).
-</callout>
+</info>
 
 ##### Example
 

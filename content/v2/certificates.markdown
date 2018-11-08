@@ -211,9 +211,9 @@ Name | Type | Description
 `name` | `string` | The certificate name. Default: `"www"`.
 `alternate_names` | `array<string>` | The certificate _alternate names_. Default: `[]`. Example: `["docs.example.com", "status.example.com"]`
 
-<callout>
+<info>
 The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
-</callout>
+</info>
 
 ### Response
 
@@ -253,10 +253,10 @@ Issue a Let's Encrypt certificate with ID `200`, for `example.com` in the accoun
 <%= pretty_print_fixture("/issueLetsencryptCertificate/success.http") %>
 ~~~
 
-<callout>
+<tip>
 The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
 You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
-</callout>
+</tip>
 
 
 ## Let's Encrypt: Renew a certificate {#purchaseRenewalLetsencryptCertificate}
@@ -323,9 +323,9 @@ Name | Type | Description
 `:certificate` | `integer` | The certificate id
 `:certificate_renewal` | `integer` | The certificate renewal id
 
-<callout>
+<info>
 The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRenewalLetsencryptCertificate).
-</callout>
+</info>
 
 ### Example
 
@@ -342,7 +342,7 @@ Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `20
 <%= pretty_print_fixture("/issueRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
-<callout>
+<tip>
 The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
 You can subscribe to a [webhook](/v2/webhooks) to receive a notification once the certificate is issued.
-</callout>
+</tip>

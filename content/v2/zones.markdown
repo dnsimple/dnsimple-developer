@@ -125,7 +125,7 @@ Responds with HTTP 200, renders the zone file.
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
 <note>
-  This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
+This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
 </note>
 
 ### Parameters

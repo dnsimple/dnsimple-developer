@@ -5,15 +5,15 @@ excerpt: This page documents the DNSimple DNSSEC API v2.
 
 # DNSSEC API
 
-<note>
-This article describes a feature in Public Beta.
-</note>
-
 ### Table of Contents {#toc}
 
 * TOC
 {:toc}
 
+
+<info>
+This article describes a feature in Public Beta.
+</info>
 
 ## Enable DNSSEC {#enable}
 

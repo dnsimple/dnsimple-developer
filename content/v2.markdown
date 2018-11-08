@@ -27,9 +27,9 @@ In order to maintain compatibility in the future, all requests must specify an A
 
 We maintain a separate environment for testing called [Sandbox accounts](/sandbox/). Sandbox API calls must use the `api.sandbox.dnsimple.com` domain.
 
-<note>
+<warning>
 Please use Sandbox for testing your API integration, **before using production**. Also note we will not refund you charges on your production account as a result of wrong API calls.
-</note>
+</warning>
 
 
 ## Current Version
