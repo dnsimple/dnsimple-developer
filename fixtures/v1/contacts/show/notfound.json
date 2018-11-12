@@ -1,4 +1,0 @@
-{
-  "message": "Couldn't find Contact with id=1 [WHERE \"contacts\".\"user_id\" = 19]",
-  "error": "Couldn't find Contact with id=1 [WHERE \"contacts\".\"user_id\" = 19]"
-}
