@@ -51,7 +51,7 @@ curl -H 'Authorization: Bearer <token>' \
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/listTlds/success.http") %>
+<%= pretty_print_fixture("/api/listTlds/success.http") %>
 ~~~
 
 ### Sorting
@@ -90,7 +90,7 @@ curl -H 'Authorization: Bearer <token>' \
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getTld/success.http") %>
+<%= pretty_print_fixture("/api/getTld/success.http") %>
 ~~~
 
 
@@ -124,5 +124,5 @@ curl -H 'Authorization: Bearer <token>' \
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getTldExtendedAttributes/success.http") %>
+<%= pretty_print_fixture("/api/getTldExtendedAttributes/success.http") %>
 ~~~

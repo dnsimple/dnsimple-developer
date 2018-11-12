@@ -90,7 +90,7 @@ curl  -H 'Authorization: Bearer <token>' \
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listZoneRecords/success.http") %>
+<%= pretty_print_fixture("/api/listZoneRecords/success.http") %>
 ~~~
 
 
@@ -149,7 +149,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-<%= pretty_print_fixture("/createZoneRecord/created.http") %>
+<%= pretty_print_fixture("/api/createZoneRecord/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -184,7 +184,7 @@ curl  -H 'Authorization: Bearer <token>' \
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getZoneRecord/success.http") %>
+<%= pretty_print_fixture("/api/getZoneRecord/success.http") %>
 ~~~
 
 
@@ -243,7 +243,7 @@ Name | Type | Description
 Responds with HTTP 200 on success.
 
 ~~~json
-<%= pretty_print_fixture("/updateZoneRecord/success.http") %>
+<%= pretty_print_fixture("/api/updateZoneRecord/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -312,17 +312,17 @@ Check the zone record distribution for `example.com` in the account `1010`:
 Responds with HTTP 200 when the zone record is fully distributed.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneRecordDistribution/success.http") %>
+<%= pretty_print_fixture("/api/checkZoneRecordDistribution/success.http") %>
 ~~~
 
 Responds with HTTP 200 when the zone record is not distributed.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneRecordDistribution/failure.http") %>
+<%= pretty_print_fixture("/api/checkZoneRecordDistribution/failure.http") %>
 ~~~
 
 Responds with HTTP 504 when the server failed to perform the check.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneRecordDistribution/error.http") %>
+<%= pretty_print_fixture("/api/checkZoneRecordDistribution/error.http") %>
 ~~~

@@ -34,7 +34,7 @@ List all templates in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listTemplates/success.http") %>
+<%= pretty_print_fixture("/api/listTemplates/success.http") %>
 ~~~
 
 ### Sorting
@@ -94,7 +94,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-<%= pretty_print_fixture("/createTemplate/created.http") %>
+<%= pretty_print_fixture("/api/createTemplate/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -128,7 +128,7 @@ Get the template with short name `example` in the account `1010`:
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getTemplate/success.http") %>
+<%= pretty_print_fixture("/api/getTemplate/success.http") %>
 ~~~
 
 
@@ -172,7 +172,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~json
-<%= pretty_print_fixture("/updateTemplate/success.http") %>
+<%= pretty_print_fixture("/api/updateTemplate/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.

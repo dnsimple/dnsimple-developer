@@ -50,7 +50,7 @@ List all services.
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/listServices/success.http") %>
+<%= pretty_print_fixture("/api/listServices/success.http") %>
 ~~~
 
 ### Sorting
@@ -86,5 +86,5 @@ Get the service with ID `1`.
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getService/success.http") %>
+<%= pretty_print_fixture("/api/getService/success.http") %>
 ~~~

@@ -36,7 +36,7 @@ Check the domain `example.com` in the account `1010`:
 Responds with HTTP 200 on success, returns the domain availability information.
 
 ~~~json
-<%= pretty_print_fixture("/checkDomain/success.http") %>
+<%= pretty_print_fixture("/api/checkDomain/success.http") %>
 ~~~
 
 <note>
@@ -87,13 +87,13 @@ Check the premium price for `example.com` domain renewal:
 Responds with HTTP 200 on success, returns the domain premium price.
 
 ~~~json
-<%= pretty_print_fixture("/getDomainPremiumPrice/success.http") %>
+<%= pretty_print_fixture("/api/getDomainPremiumPrice/success.http") %>
 ~~~
 
 Responds with HTTP 400, if the domain isn't premium.
 
 ~~~json
-<%= pretty_print_fixture("/getDomainPremiumPrice/failure.http") %>
+<%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
 ~~~
 
 ## Register a domain {#register}
@@ -154,7 +154,7 @@ The `premium_price` can be fetched via the [premium price endpoint](#premium-pri
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/registerDomain/success.http") %>
+<%= pretty_print_fixture("/api/registerDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -226,7 +226,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/transferDomain/success.http") %>
+<%= pretty_print_fixture("/api/transferDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -278,7 +278,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, returns the domain.
 
 ~~~json
-<%= pretty_print_fixture("/renewDomain/success.http") %>
+<%= pretty_print_fixture("/api/renewDomain/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.

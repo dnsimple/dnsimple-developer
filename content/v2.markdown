@@ -174,7 +174,7 @@ The digit after the `/a` in the path is the ID of the account. In this specific 
 If you use an account token and you want to get the ID programmatically, the simplest way is to perform a [`whoami`](/v2/identity/#whoami) API call. The response will contain the account identifier as part of the `account` payload.
 
 ~~~json
-<%= pretty_print_fixture("/whoami/success-account.http") %>
+<%= pretty_print_fixture("/api/whoami/success-account.http") %>
 ~~~
 
 ##### Getting the ID programmatically with a User access token
@@ -182,7 +182,7 @@ If you use an account token and you want to get the ID programmatically, the sim
 If you use an user token and you want to get the ID programmatically, you need to fetch the list of all the accounts associated with the user executing a [`listAccounts`](/v2/accounts/#list-accounts) API call.
 
 ~~~json
-<%= pretty_print_fixture("/listAccounts/success-user.http") %>
+<%= pretty_print_fixture("/api/listAccounts/success-user.http") %>
 ~~~
 
 The response contains one or more accounts. Select the relevant account based on a known criteria (e.g. the name or an user input), and get the corresponding ID.

@@ -65,7 +65,7 @@ curl  -H 'Authorization: Bearer <token>' \
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listDomains/success.http") %>
+<%= pretty_print_fixture("/api/listDomains/success.http") %>
 ~~~
 
 
@@ -109,7 +109,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, renders the domain.
 
 ~~~json
-<%= pretty_print_fixture("/createDomain/created.http") %>
+<%= pretty_print_fixture("/api/createDomain/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -151,7 +151,7 @@ Get the domain `example.com` in the account `1010`:
 Responds with HTTP 200, renders the domain.
 
 ~~~json
-<%= pretty_print_fixture("/getDomain/success.http") %>
+<%= pretty_print_fixture("/api/getDomain/success.http") %>
 ~~~
 
 
