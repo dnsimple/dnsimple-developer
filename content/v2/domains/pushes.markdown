@@ -50,7 +50,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, renders the push.
 
 ~~~json
-<%= pretty_print_fixture("/initiatePush/success.http") %>
+<%= pretty_print_fixture("/api/initiatePush/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -82,7 +82,7 @@ List all the pending pushes for the target account `2020`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listPushes/success.http") %>
+<%= pretty_print_fixture("/api/listPushes/success.http") %>
 ~~~
 
 

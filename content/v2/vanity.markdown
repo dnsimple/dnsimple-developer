@@ -43,7 +43,7 @@ Enable Vanity Name Servers for the domain `example.com` in the account `1010`:
 Responds with HTTP 200 on success.
 
 ~~~json
-<%= pretty_print_fixture("/enableVanityNameServers/success.http") %>
+<%= pretty_print_fixture("/api/enableVanityNameServers/success.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.

@@ -42,7 +42,7 @@ Enable DNSSEC for the domain `example.com` in the account `1010`:
 Responds with HTTP 201.
 
 ~~~json
-<%= pretty_print_fixture("/enableDnssec/success.http") %>
+<%= pretty_print_fixture("/api/enableDnssec/success.http") %>
 ~~~
 
 
@@ -71,7 +71,7 @@ Disable DNSSEC for the domain `example.com` in the account `1010`:
 Responds with HTTP 204.
 
 ~~~json
-<%= pretty_print_fixture("/disableDnssec/success.http") %>
+<%= pretty_print_fixture("/api/disableDnssec/success.http") %>
 ~~~
 
 Responds with HTTP 428 if DNSSEC is not currently enabled.
@@ -103,7 +103,7 @@ Get the DNSSEC status for the domain `example.com` in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/getDnssec/success.http") %>
+<%= pretty_print_fixture("/api/getDnssec/success.http") %>
 ~~~
 
 
@@ -133,7 +133,7 @@ List all delegation signer records for the domain `example.com` in the account `
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listDelegationSignerRecords/success.http") %>
+<%= pretty_print_fixture("/api/listDelegationSignerRecords/success.http") %>
 ~~~
 
 ### Sorting
@@ -199,7 +199,7 @@ For additional information, please see [https://tools.ietf.org/html/rfc4034](htt
 Responds with HTTP 201 on success, renders the delegation signer record.
 
 ~~~json
-<%= pretty_print_fixture("/createDelegationSignerRecord/created.http") %>
+<%= pretty_print_fixture("/api/createDelegationSignerRecord/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -232,7 +232,7 @@ Get the delegation signer record `1` under the domain `example.com` in the accou
 Responds with HTTP 200 on success, renders the delegation signer record.
 
 ~~~json
-<%= pretty_print_fixture("/getDelegationSignerRecord/success.http") %>
+<%= pretty_print_fixture("/api/getDelegationSignerRecord/success.http") %>
 ~~~
 
 

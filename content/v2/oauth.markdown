@@ -75,7 +75,7 @@ You'll receive a JSON response. If the request is successful, the response will 
 ##### Example Response
 
 ~~~json
-<%= pretty_print_fixture("/oauthAccessToken/success.http") %>
+<%= pretty_print_fixture("/api/oauthAccessToken/success.http") %>
 ~~~
 
 ### Step 3 - API authentication

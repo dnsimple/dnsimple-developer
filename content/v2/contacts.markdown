@@ -62,7 +62,7 @@ curl  -H 'Authorization: Bearer <token>' \
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listContacts/success.http") %>
+<%= pretty_print_fixture("/api/listContacts/success.http") %>
 ~~~
 
 ### Sorting
@@ -147,7 +147,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-<%= pretty_print_fixture("/createContact/created.http") %>
+<%= pretty_print_fixture("/api/createContact/created.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -179,7 +179,7 @@ curl  -H 'Authorization: Bearer <token>' \
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getContact/success.http") %>
+<%= pretty_print_fixture("/api/getContact/success.http") %>
 ~~~
 
 
@@ -218,7 +218,7 @@ See [create](#create).
 Responds with HTTP 200 on success.
 
 ~~~json
-<%= pretty_print_fixture("/updateContact/success.http") %>
+<%= pretty_print_fixture("/api/updateContact/success.http") %>
 ~~~
 
 Responds with HTTP 400 if the validation fails.
@@ -256,5 +256,5 @@ Responds with HTTP 204 on success.
 Responds with HTTP 400 if the contact cannot be deleted because it's currently used by a domain or a certificate.
 
 ~~~json
-<%= pretty_print_fixture("/deleteContact/error-contact-in-use.http") %>
+<%= pretty_print_fixture("/api/deleteContact/error-contact-in-use.http") %>
 ~~~

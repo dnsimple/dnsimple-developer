@@ -28,11 +28,11 @@ Responds with HTTP 200. Either user or account may be nil, depending on how you 
 ##### Example when authenticated with an Account access token
 
 ~~~json
-<%= pretty_print_fixture("/whoami/success-account.http") %>
+<%= pretty_print_fixture("/api/whoami/success-account.http") %>
 ~~~
 
 ##### Example when authenticated with an User access token
 
 ~~~json
-<%= pretty_print_fixture("/whoami/success-user.http") %>
+<%= pretty_print_fixture("/api/whoami/success-user.http") %>
 ~~~

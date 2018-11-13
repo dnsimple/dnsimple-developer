@@ -59,7 +59,7 @@ List all zones in the account `1010` that have name matching `"example"`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listZones/success.http") %>
+<%= pretty_print_fixture("/api/listZones/success.http") %>
 ~~~
 
 
@@ -87,7 +87,7 @@ Get the zone `example.com` in the account `1010`:
 Responds with HTTP 200, renders the zone.
 
 ~~~json
-<%= pretty_print_fixture("/getZone/success.http") %>
+<%= pretty_print_fixture("/api/getZone/success.http") %>
 ~~~
 
 ## Get a zone file {#getZoneFile}
@@ -114,7 +114,7 @@ Get the zone file `example.com` in the account `1010`:
 Responds with HTTP 200, renders the zone file.
 
 ~~~json
-<%= pretty_print_fixture("/getZoneFile/success.http") %>
+<%= pretty_print_fixture("/api/getZoneFile/success.http") %>
 ~~~
 
 
@@ -148,17 +148,17 @@ Check the zone distribution for `example.com` in the account `1010`:
 Responds with HTTP 200 when the zone is fully distributed.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneDistribution/success.http") %>
+<%= pretty_print_fixture("/api/checkZoneDistribution/success.http") %>
 ~~~
 
 Responds with HTTP 200 when the zone is not distributed.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneDistribution/failure.http") %>
+<%= pretty_print_fixture("/api/checkZoneDistribution/failure.http") %>
 ~~~
 
 Responds with HTTP 504 when the server failed to perform the check.
 
 ~~~json
-<%= pretty_print_fixture("/checkZoneDistribution/error.http") %>
+<%= pretty_print_fixture("/api/checkZoneDistribution/error.http") %>
 ~~~

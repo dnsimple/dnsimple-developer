@@ -35,7 +35,7 @@ List all certificates for the domain `example.com` in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listCertificates/success.http") %>
+<%= pretty_print_fixture("/api/listCertificates/success.http") %>
 ~~~
 
 ### Sorting
@@ -78,7 +78,7 @@ Get the certificate with the ID `1` in the domain `example.com`, in the account 
 Responds with HTTP 200, renders the certificate.
 
 ~~~json
-<%= pretty_print_fixture("/getCertificate/success.http") %>
+<%= pretty_print_fixture("/api/getCertificate/success.http") %>
 ~~~
 
 
@@ -109,7 +109,7 @@ Download the certificate with the ID `1` in the domain `example.com`, in the acc
 Responds with HTTP 200, renders the certificates.
 
 ~~~json
-<%= pretty_print_fixture("/downloadCertificate/success.http") %>
+<%= pretty_print_fixture("/api/downloadCertificate/success.http") %>
 ~~~
 
 
@@ -140,7 +140,7 @@ Download the certificate with the ID `1` in the domain `example.com`, in the acc
 Responds with HTTP 200, renders the certificate private key.
 
 ~~~json
-<%= pretty_print_fixture("/getCertificatePrivateKey/success.http") %>
+<%= pretty_print_fixture("/api/getCertificatePrivateKey/success.http") %>
 ~~~
 
 
@@ -218,7 +218,7 @@ The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/purchaseLetsencryptCertificate/success.http") %>
+<%= pretty_print_fixture("/api/purchaseLetsencryptCertificate/success.http") %>
 ~~~
 
 
@@ -250,7 +250,7 @@ Issue a Let's Encrypt certificate with ID `200`, for `example.com` in the accoun
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/issueLetsencryptCertificate/success.http") %>
+<%= pretty_print_fixture("/api/issueLetsencryptCertificate/success.http") %>
 ~~~
 
 <tip>
@@ -302,7 +302,7 @@ Name | Type | Description
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/purchaseRenewalLetsencryptCertificate/success.http") %>
+<%= pretty_print_fixture("/api/purchaseRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
 
@@ -339,7 +339,7 @@ Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `20
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/issueRenewalLetsencryptCertificate/success.http") %>
+<%= pretty_print_fixture("/api/issueRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
 <tip>

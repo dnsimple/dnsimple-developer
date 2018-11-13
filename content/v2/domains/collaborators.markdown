@@ -34,7 +34,7 @@ List all collaborators for the domain `example.com` in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listCollaborators/success.http") %>
+<%= pretty_print_fixture("/api/listCollaborators/success.http") %>
 ~~~
 
 
@@ -85,13 +85,13 @@ Name | Type | Description
 When the collaborator already has a DNSimple account:
 
 ~~~json
-<%= pretty_print_fixture("/addCollaborator/success.http") %>
+<%= pretty_print_fixture("/api/addCollaborator/success.http") %>
 ~~~
 
 When the collaborator doesn't have a DNSimple account:
 
 ~~~json
-<%= pretty_print_fixture("/addCollaborator/invite-success.http") %>
+<%= pretty_print_fixture("/api/addCollaborator/invite-success.http") %>
 ~~~
 
 Responds with HTTP 201 on success.

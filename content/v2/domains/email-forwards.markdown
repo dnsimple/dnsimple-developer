@@ -35,7 +35,7 @@ List all email forwards for the domain `example.com` in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listEmailForwards/success.http") %>
+<%= pretty_print_fixture("/api/listEmailForwards/success.http") %>
 ~~~
 
 ### Sorting
@@ -94,7 +94,7 @@ Name | Type | Description
 Responds with HTTP 201 on success, renders the email forward.
 
 ~~~json
-<%= pretty_print_fixture("/createEmailForward/created.http") %>
+<%= pretty_print_fixture("/api/createEmailForward/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -127,7 +127,7 @@ Get the email forward with the ID `1` in the domain `example.com`, in the accoun
 Responds with HTTP 200, renders the email forward.
 
 ~~~json
-<%= pretty_print_fixture("/getEmailForward/success.http") %>
+<%= pretty_print_fixture("/api/getEmailForward/success.http") %>
 ~~~
 
 

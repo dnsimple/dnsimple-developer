@@ -33,7 +33,7 @@ List records for the template `alpha` in the account `1010`:
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/listTemplateRecords/success.http") %>
+<%= pretty_print_fixture("/api/listTemplateRecords/success.http") %>
 ~~~
 
 ### Sorting
@@ -99,7 +99,7 @@ Name | Type | Description
 Responds with HTTP 201 on success.
 
 ~~~json
-<%= pretty_print_fixture("/createTemplateRecord/created.http") %>
+<%= pretty_print_fixture("/api/createTemplateRecord/created.http") %>
 ~~~
 
 Responds with HTTP 400 if bad request.
@@ -130,7 +130,7 @@ Get the record `301` for the template `alpha` in the account `1010`:
 ### Response
 
 ~~~json
-<%= pretty_print_fixture("/getTemplateRecord/success.http") %>
+<%= pretty_print_fixture("/api/getTemplateRecord/success.http") %>
 ~~~
 
 

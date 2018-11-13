@@ -28,11 +28,11 @@ Responds with HTTP 200. Depending on how you are authenticated you will see all 
 ##### Example when authenticated with an Account access token
 
 ~~~json
-<%= pretty_print_fixture("/listAccounts/success-account.http") %>
+<%= pretty_print_fixture("/api/listAccounts/success-account.http") %>
 ~~~
 
 ##### Example when authenticated with an User access token
 
 ~~~json
-<%= pretty_print_fixture("/listAccounts/success-user.http") %>
+<%= pretty_print_fixture("/api/listAccounts/success-user.http") %>
 ~~~
