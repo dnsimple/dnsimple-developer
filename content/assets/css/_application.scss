@@ -25,59 +25,42 @@ h2 {
 // ---------------
 
 .marker {
-  margin: 20px 0;
-  padding: 15px;
-  padding-left: 60px;
-  position: relative;
-  border-radius: 4px;
-  border: 1px solid;
-
-  a {
-    text-decoration: underline;
-    color: #000;
-  }
-
+  color: $gray-700;
+  background: $gray-200;
+  padding: 1rem 1rem 0.2rem 2rem;
+  border-radius: 0px;
+  box-shadow: -6px 0 0 0 $gray-600;
+  margin: 0 2rem 1rem 0.5rem;
   h4 {
-    color: #000;
+    margin-top: 0px;
   }
 
   &:before {
-    position: absolute;
-    top: .7em;
-    left: 1em;
+    display: block;
+    float: left;
+    margin-left: -1rem;
+    padding-top: 0.1rem;
+    font-size: 16px;
     font-family: FontAwesome;
-    font-size: 18px;
-  }}
-
-.marker :first-child {
-  margin-top: 0;
+    line-height: 140%;
+    color: $gray-600;
+  }
 }
 
-.marker :last-child {
-  margin-bottom: 0;
+.marker-info:before {
+  content: "\f05a";
 }
 
 .marker-tip {
-  background: #f3f9f4;
-  border-color: #91c89c;
+  box-shadow: -6px 0 0 0 $green;
 
   &:before {
     content: "\f00c";
   }
 }
 
-.marker-info {
-  background: #fcfcfd;
-  border-color: #aab8c6;
-
-  &:before {
-    content: "\f05a";
-  }
-}
-
 .marker-note {
-  background: #fffdf6;
-  border-color: #ffeaae;
+  box-shadow: -6px 0 0 0 $yellow;
 
   &:before {
     content: "\f071";
@@ -85,17 +68,12 @@ h2 {
 }
 
 .marker-warning {
-  background: #fff8f7;
-  border-color: #d04437;
+  box-shadow: -6px 0 0 0 $orange;
 
   &:before {
     content: "\f06a";
-    color: #d04437;
+    color: $orange;
   }
-}
-
-p + .marker {
-  margin-top: 0px;
 }
 
 

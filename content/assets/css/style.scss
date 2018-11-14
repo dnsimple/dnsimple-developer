@@ -2,9 +2,9 @@
 // Style manifest
 // --------------------------------------------------
 
+@import "application";
 @import "mixins";
-@import "colors";
-@import "typography";
 @import "syntax";
 @import "template";
-@import "application";
+@import "typography";
+@import "variables";
