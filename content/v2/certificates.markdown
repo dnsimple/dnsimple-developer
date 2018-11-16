@@ -175,6 +175,12 @@ You can purchase a single certificate for both `https://docs.example.com` and `h
 
 Alternate names require a subscription to a Professional or Business plan.
 
+### Wildcard certificates
+
+To request a wildcard certificate that is valid for all subdomains of a given domain, use `*` (e.g. `*.example.com`).
+
+Wildcard certificates require a subscription to a Professional or Business plan.
+
 ### Auto renewal
 
 By default a certificate is not auto-renewed when it expires.
