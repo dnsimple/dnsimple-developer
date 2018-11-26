@@ -180,7 +180,7 @@ Alternate names require a subscription to a Professional or Business plan.
 To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
 
 <info>
-Let's Encryot wildcard certificates is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional or Business.
+Let's Encrypt wildcard certificates is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional or Business.
 If the feature is not enabled, you will receive an HTTP 412 response code.
 </info>
 
