@@ -177,7 +177,7 @@ Alternate names require a subscription to a Professional or Business plan.
 
 ### Wildcard certificates
 
-To request a wildcard certificate that's valid for all subdomains of a given domain, use `*` (e.g. `*.example.com`).
+To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
 
 Wildcard certificates require a subscription to a Professional or Business plan.
 
