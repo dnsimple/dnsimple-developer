@@ -134,7 +134,7 @@ Renew whois privacy for the domain `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200 if WHOIS privacy is disabled.
+Responds with HTTP 200 if WHOIS privacy is renewed.
 
 ~~~json
 <%= pretty_print_fixture("/api/renewWhoisPrivacy/success.http") %>
