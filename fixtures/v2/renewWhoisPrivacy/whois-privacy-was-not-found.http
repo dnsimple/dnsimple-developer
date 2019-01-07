@@ -1,17 +1,17 @@
-HTTP/2 500 
+HTTP/2 400 
 server: nginx
-date: Fri, 21 Dec 2018 14:03:36 GMT
+date: Mon, 07 Jan 2019 13:58:34 GMT
 content-type: application/json; charset=utf-8
 x-ratelimit-limit: 2400
 x-ratelimit-remaining: 2399
-x-ratelimit-reset: 1545404616
+x-ratelimit-reset: 1546873114
 cache-control: no-cache
-x-request-id: 5b9d34e2-9f16-4f17-b96b-724e08bbf36d
-x-runtime: 0.084859
+x-request-id: 5a43c5f0-4900-4563-ae9d-bd4a996312fa
+x-runtime: 0.066139
 x-frame-options: DENY
 x-content-type-options: nosniff
 x-xss-protection: 1; mode=block
 x-download-options: noopen
 x-permitted-cross-domain-policies: none
 
-{"message":"Internal Server Error"}
+{"message":"WHOIS privacy not found for example-20190104-1.com","errors":{}}
