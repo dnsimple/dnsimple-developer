@@ -1,4 +1,4 @@
-HTTP/2 400 
+HTTP/1.1 400 
 server: nginx
 date: Mon, 07 Jan 2019 13:58:34 GMT
 content-type: application/json; charset=utf-8
@@ -14,4 +14,4 @@ x-xss-protection: 1; mode=block
 x-download-options: noopen
 x-permitted-cross-domain-policies: none
 
-{"message":"WHOIS privacy not found for example-20190104-1.com","errors":{}}
+{"message":"WHOIS privacy not found for example.com","errors":{}}

@@ -1,4 +1,4 @@
-HTTP/2 200 
+HTTP/1.1 200 
 server: nginx
 date: Fri, 21 Dec 2018 14:10:06 GMT
 content-type: application/json; charset=utf-8
