@@ -129,7 +129,7 @@ Renew whois privacy for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          -X DELETE \
+          -X POST \
           https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy/renewals
 
 ### Response
