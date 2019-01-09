@@ -152,7 +152,7 @@ Responds with HTTP 200, renders the certificate private key.
 
 Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.
 
-The certificate is **free of charge**, but some features of the certificate may require higher tier plans.
+The certificate itself is **free**, but some features of the certificate may require higher tier plans.
 
 <note>
 The domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
@@ -169,19 +169,28 @@ Custom names require a subscription to a Professional or Business plan.
 
 A certificate can be purchased for multiple subdomains. We call them _alternate names_ or [Subject Alternative Name (SAN)](https://support.dnsimple.com/articles/what-is-ssl-san/).
 
-By default a certificate does not have alternate names.
+By default, a certificate doesn't have alternate names.
 
 You can purchase a single certificate for both `https://docs.example.com` and `https://status.example.com`, alongside  `https://example.com`.
 
 Alternate names require a subscription to a Professional or Business plan.
 
+### Wildcard certificates
+
+To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
+
+<info>
+Let's Encrypt wildcard certificates is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional or Business.
+If the feature is not enabled, you will receive an HTTP 412 response code.
+</info>
+
 ### Auto renewal
 
-By default a certificate is not auto-renewed when it expires.
+By default, a certificate isn't auto-renewed when it expires.
 
 Certificates with auto-renewal disabled may be [renewed manually](#purchaseRenewalLetsencryptCertificate).
 
-You may also **purchase the certificate once** and select the auto-renewal option. With auto-renewal enabled, our system automatically renews a certificate before it expires. Notification for renewed certificates are sent via email and a webhook is fired when a new certificate is available. You will still have to install the renewed certificate.
+You may also **purchase the certificate once** and select the auto-renewal option. With auto-renewal enabled, our system automatically renews a certificate before it expires. Notifications for renewed certificates are sent via email, and a webhook is fired when a new certificate is available. You'll still have to install the renewed certificate.
 
 ### Parameters
 
@@ -344,5 +353,5 @@ Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `20
 
 <tip>
 The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
-You can subscribe to a [webhook](/v2/webhooks) to receive a notification once the certificate is issued.
+You can subscribe to a [webhook](/v2/webhooks) to be notified once the certificate is issued.
 </tip>
