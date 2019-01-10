@@ -143,5 +143,5 @@ Responds with HTTP 201 if WHOIS privacy is renewed.
 Response with HTTP 400, if WHOIS privacy was never purchased for the domain, or if there is another purchase order in progress:
 
 ~~~json
-<%= pretty_print_fixture("/api/renewWhoisPrivacy/whois-privacy-was-not-found.http") %>
+<%= pretty_print_fixture("/api/renewWhoisPrivacy/whois-privacy-not-found.http") %>
 ~~~
