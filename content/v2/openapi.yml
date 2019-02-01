@@ -1152,6 +1152,32 @@ paths:
                     $ref: '#/components/schemas/WhoisPrivacy'
         '404':
           $ref: '#/components/responses/404'
+  '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
+    post:
+      description: >-
+        Renew whois privacy. Note that if the WHOIS privacy was never purchased
+        for the domain or if there is another renewal order in progress,
+        renewing WHOIS privacy will return an error.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: renewWhoisPrivacy
+      tags:
+        - registrar privacy
+      responses:
+        '201':
+          description: Successfully renew whois privacy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/WhoisPrivacyRenewal'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/zones':
     get:
       description: List zones in the account.
@@ -4014,6 +4040,34 @@ components:
         enabled: true
         created_at: '2016-02-13T14:34:50Z'
         updated_at: '2016-02-13T14:34:52Z'
+    WhoisPrivacyRenewal:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        whois_privacy_id:
+          type: integer
+        state:
+          type: string
+        enabled:
+          type: boolean
+        expires_on:
+          $ref: '#/components/schemas/Date'
+        created_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DatetimeISO8601'
+      example:
+        id: 1
+        domain_id: 100
+        whois_privacy_id: 999
+        state: 'new'
+        enabled: true
+        expires_on: '2020-01-10'
+        created_at: '2019-01-10T12:12:48Z'
+        updated_at: '2019-01-10T12:12:48Z'
     Zone:
       type: object
       description: Represents a DNS zone.
