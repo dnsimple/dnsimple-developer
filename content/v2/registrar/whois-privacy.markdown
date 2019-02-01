@@ -114,6 +114,8 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 
 ## Renew whois privacy {#renew}
 
+<%= render "v2-preview" %>
+
       POST /:account/registrar/domains/:domain/whois_privacy/renewals
 
 ### Parameters
