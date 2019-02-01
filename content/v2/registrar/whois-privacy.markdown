@@ -111,3 +111,39 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 ~~~json
 <%= pretty_print_fixture("/api/disableWhoisPrivacy/success.http") %>
 ~~~
+
+## Renew whois privacy {#renew}
+
+<%= render "v2-preview" %>
+
+      POST /:account/registrar/domains/:domain/whois_privacy/renewals
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string`, `integer` | The domain name or id
+
+### Example
+
+Renew whois privacy for the domain `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X POST \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy/renewals
+
+### Response
+
+Responds with HTTP 201 if WHOIS privacy is renewed.
+
+~~~json
+<%= pretty_print_fixture("/api/renewWhoisPrivacy/success.http") %>
+~~~
+
+Response with HTTP 400, if WHOIS privacy was never purchased for the domain, or if there is another purchase order in progress:
+
+~~~json
+<%= pretty_print_fixture("/api/renewWhoisPrivacy/whois-privacy-not-found.http") %>
+~~~
