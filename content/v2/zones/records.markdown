@@ -9,10 +9,10 @@ excerpt: This page documents the DNSimple zone records API v2.
 {:toc}
 
 
-## Zone Record Regions
+## Record Regions {#ZoneRecordRegions}
 
 <info>
-The Zone record regions is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
+The zone record **regions** is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
 If the feature is not enabled, you will receive an HTTP 412 response code.
 </info>
 
