@@ -42,37 +42,35 @@ h2 {
     margin-left: -1.5rem;
     padding-top: 0.1rem;
     font-size: 16px;
-    font-family: FontAwesome;
     line-height: 140%;
     color: $gray-600;
   }
 }
 
-.marker-info:before {
-  content: "\f05a";
+.marker-info {
+  &:before {
+    @include font-awesome("\f05a");
+  }
 }
 
 .marker-tip {
   box-shadow: -6px 0 0 0 $green;
-
   &:before {
-    content: "\f00c";
+    @include font-awesome("\f00c");
   }
 }
 
 .marker-note {
   box-shadow: -6px 0 0 0 $yellow;
-
   &:before {
-    content: "\f071";
+    @include font-awesome("\f071");
   }
 }
 
 .marker-warning {
   box-shadow: -6px 0 0 0 $orange;
-
   &:before {
-    content: "\f06a";
+    @include font-awesome("\f06a");
     color: $orange;
   }
 }
@@ -92,8 +90,7 @@ h2 {
 #toc {
   &:before {
     margin-right: 10px;
-    content: "\f02e";
-    font-family: FontAwesome;
+    @include font-awesome("\f02e");
   }
 }
 
