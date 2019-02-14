@@ -55,8 +55,7 @@ h5 {
   color: $gray-500;
   &:before {
     margin-right: 10px;
-    content: "\f08e";
-    font-family: FontAwesome;
+    @include font-awesome("\f35d");
   }
 }
 
