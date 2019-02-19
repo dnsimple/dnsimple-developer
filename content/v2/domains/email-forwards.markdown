@@ -77,8 +77,8 @@ Create an email forward under the domain `example.com` in the account `1010`:
 
 Name | Type | Description
 -----|------|------------
-`from` | `string` | **Required**.
-`to` | `email` | **Required**.
+`from` | `string` | **Required**. The email address the emails are sent to.
+`to` | `string` | **Required**. The email address the email address the emails are forwarded to.
 
 ##### Example
 
