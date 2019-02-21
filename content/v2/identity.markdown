@@ -9,17 +9,21 @@ excerpt: This page documents the DNSimple identity API v2 endpoint.
 {:toc}
 
 
-## Whoami
+## Whoami {#whoami}
 
-    GET /whoami
+Retrieves the details about the current authenticated entity used to access the API.
 
-Get details about the current authenticated entity used to access the API.
+~~~
+GET /whoami
+~~~
 
 ### Example
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/whoami
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/whoami
+~~~
 
 ### Response
 
