@@ -195,10 +195,6 @@ Responds with HTTP 204 on success.
 
 ## Reset a domain token {#resetDomainToken}
 
-~~~
-POST /:account/domains/:domain/token
-~~~
-
 <note>
 This method has been removed. The domain token is no longer supported in API v2.
 </note>
