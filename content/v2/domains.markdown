@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple domains API v2.
 
 ## List domains {#listDomains}
 
-List the domains in the account.
+Lists the domains in the account.
 
 ~~~
 GET /:account/domains
@@ -50,9 +50,9 @@ List all domains in the account `1010`:
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1010/domains
+~~~
 
 List all domains in the account `1010` that have name matching `"example"`:
-~~~
 
 ~~~shell
 curl  -H 'Authorization: Bearer <token>' \
@@ -69,9 +69,13 @@ Responds with HTTP 200.
 ~~~
 
 
-## Create a domain {#create}
+## Create a domain {#createDomain}
 
-    POST /:account/domains
+Adds a domain to the account.
+
+~~~
+POST /:account/domains
+~~~
 
 ### Parameters
 
@@ -83,12 +87,14 @@ Name | Type | Description
 
 Create a domain in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '<json>' \
-          https://api.dnsimple.com/v2/1010/domains
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '<json>' \
+      https://api.dnsimple.com/v2/1010/domains
+~~~
 
 ### Input
 
@@ -155,13 +161,15 @@ Responds with HTTP 200, renders the domain.
 ~~~
 
 
-## Delete a domain {#delete}
+## Delete a domain {#deleteDomain}
 
-    DELETE /:account/domains/:domain
+Permanently deletes a domain from the account. It cannot be undone.
 
-Delete the domain in the account.
+~~~
+DELETE /:account/domains/:domain
+~~~
 
-For domains which are registered with DNSimple, this *will not delete the domain from the registry* or perform a refund.
+For domains which are registered with DNSimple, this *will not delete the domain from the registry*, nor perform a refund.
 
 ### Parameters
 

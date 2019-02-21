@@ -51,8 +51,7 @@ paths:
   /whoami:
     get:
       description: >-
-        Get details about the current authenticated entity used to access the
-        API.
+        Retrieves the details about the current authenticated entity used to access the API.
       parameters: []
       operationId: whoami
       tags:
@@ -81,7 +80,7 @@ paths:
   '/{account}/domains':
     summary: Operations on domain collections.
     get:
-      description: List domains in the account.
+      description: Lists the domains in the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/FilterNameLike'
@@ -105,7 +104,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
     post:
-      description: Add a domain to the account.
+      description: Adds a domain to the account.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createDomain
@@ -127,7 +126,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/domains/{domain}':
     get:
-      description: Get a domain in an account.
+      description: Retrieves the details of an existing domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -136,7 +135,7 @@ paths:
         - domains
       responses:
         '200':
-          description: Successfully retreived domain
+          description: Successfully retrieved domain
         '400':
           $ref: '#/components/responses/400'
         '404':
@@ -167,7 +166,7 @@ paths:
         - domain collaborators
       responses:
         '200':
-          description: Successfully retrieve the collaborator list
+          description: Successfully retrieved the collaborator list.
           content:
             application/json:
               schema:
@@ -534,7 +533,7 @@ paths:
         - domains certificates
       responses:
         '200':
-          description: Successfully retrieve certificates for a domain.
+          description: Successfully retrieved certificates for a domain.
           content:
             application/json:
               schema:
@@ -560,7 +559,7 @@ paths:
         - domains certificates
       responses:
         '200':
-          description: Successfully retrieve a certificate for a domain.
+          description: Successfully retrieved a certificate for a domain.
           content:
             application/json:
               schema:
@@ -584,7 +583,7 @@ paths:
         - domains certificates
       responses:
         '200':
-          description: Successfully retrieve an issued certificate for a domain.
+          description: Successfully retrieved the certificate.
           content:
             application/json:
               schema:
@@ -606,7 +605,7 @@ paths:
         - domains certificates
       responses:
         '200':
-          description: Successfully retrieve the private key for an issued certificate.
+          description: Successfully retrieved the private key for an issued certificate.
           content:
             application/json:
               schema:
@@ -736,7 +735,7 @@ paths:
         - tlds
       responses:
         '200':
-          description: Successfully retrieve the supported TLDs
+          description: Successfully retrieved the TLDs.
           content:
             application/json:
               schema:
@@ -756,7 +755,7 @@ paths:
         - tlds
       responses:
         '200':
-          description: Successfully retrieve the supported TLD
+          description: Successfully retrieved the TLD details.
           content:
             application/json:
               schema:
@@ -781,7 +780,7 @@ paths:
         - tlds
       responses:
         '200':
-          description: Successfully retrieve the extended attributes for the TLD
+          description: Successfully retrieved the extended attributes for the TLD.
           content:
             application/json:
               schema:
@@ -951,7 +950,7 @@ paths:
         - registrar delegation
       responses:
         '200':
-          description: Successfully retrieve the domain name servers.
+          description: Successfully retrieved the domain name servers.
           content:
             application/json:
               schema:
@@ -1453,7 +1452,7 @@ paths:
         - contacts
       responses:
         '200':
-          description: Successfully retrieve a contact.
+          description: Successfully retrieved the contact.
           content:
             application/json:
               schema:
@@ -1756,7 +1755,7 @@ paths:
         - templates records
       responses:
         '200':
-          description: Successfully retrieve a template record.
+          description: Successfully retrieved a template record.
           content:
             application/json:
               schema:
