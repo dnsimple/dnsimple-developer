@@ -794,11 +794,11 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/check':
     get:
-      description: Check if the domain is available for registration or transfer.
+      description: Checks a domain name for availability.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: registrarCheckDomain
+      operationId: checkDomain
       tags:
         - registrar
       responses:

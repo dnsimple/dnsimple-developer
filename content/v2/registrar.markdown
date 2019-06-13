@@ -9,11 +9,13 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 {:toc}
 
 
-## Check domain availability {#check}
+## Check domain {#checkDomain}
 
-    GET /:account/registrar/domains/:domain/check
+Checks a domain name for availability.
 
-Check if the domain is available for registration or transfer.
+~~~
+GET /:account/registrar/domains/:domain/check
+~~~
 
 ### Parameters
 
