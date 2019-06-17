@@ -109,6 +109,7 @@ The following events are available:
 - secondary\_dns.delete
 - secondary\_dns.update
 - subscription.migrate
+- subscription.renew
 - subscription.subscribe
 - subscription.unsubscribe
 - template.create
