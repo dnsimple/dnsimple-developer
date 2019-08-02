@@ -2088,7 +2088,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2103,7 +2103,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2118,7 +2118,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2133,7 +2133,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2146,7 +2146,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2161,7 +2161,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2174,7 +2174,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2189,7 +2189,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2206,7 +2206,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'tld:asc'
           - 'tld:desc'
@@ -2217,7 +2217,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2228,7 +2228,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
@@ -2241,7 +2241,7 @@ components:
       in: query
       required: false
       schema:
-        type: array
+        type: string
         enum:
           - 'id:asc'
           - 'id:desc'
