@@ -4124,6 +4124,12 @@ components:
           type: string
         parent_id:
           type: integer
+          description: >-
+            If present represents the zone record this record relates to.
+            The parent record is the master record, when the parent is updated
+            or deleted the related record is also updated or deleted.
+            An examle of child record is the TXT descriptive record created
+            for an ALIAS record.
         name:
           type: string
         content:
