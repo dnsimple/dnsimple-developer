@@ -199,10 +199,3 @@ Delete the domain `example.com` in the account `1010`:
 ### Response
 
 Responds with HTTP 204 on success.
-
-
-## Reset a domain token {#resetDomainToken}
-
-<note>
-This method has been removed. The domain token is no longer supported in API v2.
-</note>
