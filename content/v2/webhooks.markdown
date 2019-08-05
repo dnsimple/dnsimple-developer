@@ -91,7 +91,6 @@ The following events are available:
 - domain.registrant\_change
 - domain.resolution\_disable
 - domain.resolution\_enable
-- domain.token\_reset
 - domain.transfer:started
 - domain.transfer
 - email\_forward.create

@@ -3052,12 +3052,6 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventDomainTokenReset:
-      type: object
-      description: Payload for domain.token_reset
-      properties:
-        domain:
-          $ref: '#/components/schemas/Domain'
     EventDomainTransfer:
       type: object
       description: Payload for domain.transfer
@@ -3860,7 +3854,6 @@ components:
             - domain.registrant_change
             - domain.resolution_disable
             - domain.resolution_enable
-            - domain.token_reset
             - 'domain.transfer:started'
             - domain.transfer
             - email_forward.create
@@ -3950,7 +3943,6 @@ components:
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
-            - $ref: '#/components/schemas/EventDomainTokenReset'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
