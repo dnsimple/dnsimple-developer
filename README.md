@@ -51,6 +51,6 @@ S3_SECRET=ACCESS_KEY
 
 Finally, run:
 
-```console
+```shell
 rake publish
 ```
