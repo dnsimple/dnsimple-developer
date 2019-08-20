@@ -1,6 +1,7 @@
 language: ruby
 
-sudo: false
+jdk: openjdk8
+
 cache:
 - bundler
 
