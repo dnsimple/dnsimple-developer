@@ -11,26 +11,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 
 ## Contact attributes {#contact-attributes}
 
-Name | Type | Description
------|------|------------
-`id`                | `integer`  |
-`contact_id`        | `integer`  |
-`label`             | `string`   |
-`first_name`        | `string`   |
-`last_name`         | `string`   |
-`organization_name` | `string`   |
-`job_title`         | `string`   |
-`address1`          | `string`   |
-`address2`          | `string`   |
-`city`              | `string`   |
-`state_province`    | `string`   |
-`postal_code`       | `string`   |
-`country`           | `string`   | The ISO Alpha-2 country code.
-`phone`             | `string`   |
-`fax`               | `string`   |
-`email`             | `string`   |
-`created_at`        | `datetime` |
-`updated_at`        | `datetime` |
+Please refer to the definition of the `Contact` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List contacts {#list}
