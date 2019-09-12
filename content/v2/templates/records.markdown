@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple Template Records API v2.
 {:toc}
 
 
+## Template Record attributes {#template-record-attributes}
+
+Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List records for a template {#list}
 
     GET /:account/templates/:template/records

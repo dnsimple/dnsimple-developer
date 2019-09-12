@@ -8,31 +8,15 @@ excerpt: This page documents the DNSimple services API v2.
 * TOC
 {:toc}
 
+
 ## Service attributes {#service-attributes}
 
-Name | Description
------|------------
-`id` | A unique identifier
-`name` | A human-readable name
-`sid` | A string identifier that can be used in URLs (always lowercase)
-`description` | A human-readable description of the one-click service
-`setup_description` | Describes setup requirements (optional)
-`requires_setup` | Flag indicating whether setup is required
-`default_subdomain` | The default subdomain used when creating DNS records
-`created_at` | When the service was first added to DNSimple
-`updated_at` | When the service was last changed in DNSimple
-`settings` | A list of objects describing each setting that requires configuration
+Please refer to the definition of the `Service` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
 
 ## Service Setting attributes {#service-setting-attributes}
 
-Name | Description
------|------------
-`name` | The form name for the setting
-`label` | The human-readable label value
-`append` | Additional text to append to the input field
-`description` | Description of the setting
-`example` | An example value
-`password` | Set to true if the value is a password (and thus should be not visible in the field)
+Please refer to the definition of the `ServiceSetting` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List services {#list}

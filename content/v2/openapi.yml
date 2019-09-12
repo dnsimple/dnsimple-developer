@@ -2567,6 +2567,7 @@ components:
           type: string
         postal_code:
           type: string
+          description: 'The ISO Alpha-2 country code.'
         country:
           type: string
         phone:
@@ -3524,7 +3525,7 @@ components:
           description: A human-readable description of the one-click service
         setup_description:
           type: string
-          description: Describes setup requirements (optional)
+          description: Describes setup requirements
         requires_setup:
           type: boolean
           description: Flag indicating whether setup is required
@@ -3555,9 +3556,7 @@ components:
           - name: username
             label: Service 2 Account Username
             append: .service2.com
-            description: >-
-              Your Service2 username is used to connect services to your
-              account.
+            description: Your Service2 username is used to connect services to your account.
             example: username
             password: false
     ServiceSetting:
@@ -3580,9 +3579,7 @@ components:
           description: An example value
         password:
           type: boolean
-          description: >-
-            Set to true if the value is a password (and thus should be not
-            visible in the field)
+          description: true if the value is a password (and thus should not be visible in the field)
           default: false
       example:
         name: username
@@ -3728,32 +3725,25 @@ components:
             there are some cases where the suffix is a subzone of the TLD (e.g.
             com.au).
         tld_type:
-          type: integer
-          description: The type of TLD.
           $ref: '#/components/schemas/TLDType'
         whois_privacy:
           type: boolean
-          description: >-
-            true if the suffix allows WHOIS privacy as a separate component.
-            Some registries may provide WHOIS privacy at registry level, such as
-            the .IO or .UK.
+          description: true if the suffix allows WHOIS privacy as a separate component. Some registries may provide WHOIS privacy at registry level by limiting the visibility of certain attributes in the WHOIS response.
         auto_renew_only:
           type: boolean
-          description: >-
-            true if the suffix requires auto-renewal and can’t be renewed
-            manually.
+          description: true if the suffix requires auto-renewal and can't be renewed manually
         idn:
           type: boolean
-          description: true if the suffix supports Internationalized Domain Names (IDN).
+          description: true if the suffix supports Internationalized Domain Names (IDN)
         registration_enabled:
           type: boolean
-          description: true if DNSimple supports registrations for this TLD.
+          description: true if DNSimple supports registrations for this TLD
         renewal_enabled:
           type: boolean
-          description: true if DNSimple supports renewals for this TLD.
+          description: true if DNSimple supports renewals for this TLD
         transfer_enabled:
           type: boolean
-          description: true if DNSimple supports inbound transfers for this TLD.
+          description: true if DNSimple supports inbound transfers for this TLD
       example:
         tld: ac
         tld_type: 2
@@ -3767,8 +3757,14 @@ components:
     TLDType:
       type: integer
       description: >-
-        TLD types are: - 1: gTLD (global TLD) - 2: ccTLD (country-code TLD) - 3:
-        newTLD (new global TLD) 
+        TLD types are:
+        * 1 - gTLD (global TLD)
+        * 2 - ccTLD (country-code TLD)
+        * 3 - newTLD (new global TLD)
+      enum:
+        - 1
+        - 2
+        - 3
     TTL:
       type: integer
       minimum: 0

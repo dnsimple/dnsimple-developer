@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple accounts API v2 endpoint.
 {:toc}
 
 
+## Account attributes {#account-attributes}
+
+Please refer to the definition of the `Account` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List accounts
 
     GET /accounts

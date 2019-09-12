@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple domains API v2.
 {:toc}
 
 
+## Domain attributes {#domain-attributes}
+
+Please refer to the definition of the `Domain` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List domains {#listDomains}
 
 Lists the domains in the account.

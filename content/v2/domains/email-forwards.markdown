@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple email forwards API v2.
 {:toc}
 
 
+## Email Forward attributes {#email-forward-attributes}
+
+Please refer to the definition of the `EmailForward` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List email forwards {#list}
 
     GET /:account/domains/:domain/email_forwards

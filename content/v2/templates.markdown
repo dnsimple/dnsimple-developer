@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple templates API v2.
 {:toc}
 
 
+## Template attributes {#template-attributes}
+
+Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List templates {#list}
 
     GET /:account/templates

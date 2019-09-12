@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple zone records API v2.
 {:toc}
 
 
+## Zone record attributes {#zone-record-attributes}
+
+Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## Record Regions {#ZoneRecordRegions}
 
 <info>

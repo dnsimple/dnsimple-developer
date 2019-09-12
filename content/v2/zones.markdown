@@ -9,6 +9,11 @@ excerpt: This page documents the DNSimple zones API v2.
 {:toc}
 
 
+## Contact attributes {#zones-attributes}
+
+Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml).
+
+
 ## List zones {#listZones}
 
 ~~~
