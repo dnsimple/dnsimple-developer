@@ -15,9 +15,9 @@ Some DNS providers offer a proprietary tool to accomplish this and others even s
 #!/bin/bash
 
 TOKEN="your-oauth-token"  # The API v2 OAuth token
-ACCOUNT\_ID="12345"        # Replace with your account ID
-ZONE\_ID="yourdomain.com"  # The zone ID is the name of the zone (or domain)
-RECORD\_ID="1234567"       # Replace with the Record ID
+ACCOUNT_ID="12345"        # Replace with your account ID
+ZONE_ID="yourdomain.com"  # The zone ID is the name of the zone (or domain)
+RECORD_ID="1234567"       # Replace with the Record ID
 IP=`curl --ipv4 -s http://icanhazip.com/`
 
 curl -H "Authorization: Bearer $TOKEN" \
