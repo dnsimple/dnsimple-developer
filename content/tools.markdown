@@ -56,4 +56,4 @@ Provides Chef LWRP for automating DNS configuration with DNSimple.
 
 
 If you've developed a tool for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
-Also, make sure to [check out the libraries](http://developer.dnsimple.com/libraries) you can use to build your own tools around our API.
+Also, make sure to [check out the libraries](https://developer.dnsimple.com/libraries) you can use to build your own tools around our API.
