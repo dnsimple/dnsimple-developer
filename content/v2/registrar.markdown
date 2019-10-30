@@ -28,10 +28,12 @@ Name | Type | Description
 
 Check the domain `example.com` in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -X GET \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/check
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -X GET \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/check
+~~~
 
 ### Response
 
@@ -42,18 +44,19 @@ Responds with HTTP 200 on success, returns the domain availability information.
 ~~~
 
 <note>
-If the domain is premium (`premium: true`), please [check the premium price](#premium-price) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+If the domain is premium (`premium: true`), please [check the premium price](#getDomainPremiumPrice) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
 </note>
 
-## Check domain premium price {#premium-price}
+## Check domain premium price {#getDomainPremiumPrice}
 
-    GET /:account/registrar/domains/:domain/premium_price
+Get the premium price for a domain.
 
-Return a premium price for a domain.
+~~~
+GET /:account/registrar/domains/:domain/premium_price
+~~~
 
 **Please note** that a premium price can be different for [registration](#register), [renewal](#renew), [transfer](#transfer).
-By default this endpoint returns the premium price for registration.
-If you need to check a different price, you should specify it with the `action` param.
+By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the `action` param.
 
 ### Parameters
 
@@ -72,17 +75,21 @@ Name | Type | Description
 
 Check the premium price for `example.com` domain:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -X GET \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -X GET \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
+~~~shell
 
 Check the premium price for `example.com` domain renewal:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -X GET \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -X GET \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
+~~~shell
 
 ### Response
 
@@ -140,7 +147,7 @@ The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and
 </info>
 
 <info>
-The `premium_price` can be fetched via the [premium price endpoint](#premium-price).
+The `premium_price` can be fetched via the [premium price endpoint](#getDomainPremiumPrice).
 </info>
 
 ##### Example

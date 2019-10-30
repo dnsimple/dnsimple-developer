@@ -818,15 +818,13 @@ paths:
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
       description: >-
-        Return a premium price for a domain. Please note that a premium price
-        can be different for registration, renewal, transfer. By default this
-        endpoint returns the premium price for registration. If you need to
-        check a different price, you should specify it with the action param.
+        Get the premium price for a domain.
+        Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/DomainPremiumPriceAction'
-      operationId: registrarGetPremiumPrice
+      operationId: getDomainPremiumPrice
       tags:
         - registrar
       responses:
