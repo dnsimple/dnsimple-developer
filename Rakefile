@@ -32,7 +32,7 @@ end
 desc "Compile the Openapi definition files"
 task :compile_openapi do
   data = File.read("content/v2/openapi.yml")
-  
+
   File.write("output/v2/openapi.yml", data)
   File.write("output/v2/openapi.json", JSON.dump(YAML.load(data)))
 end
@@ -40,8 +40,16 @@ end
 desc "Publish to S3"
 task :publish => :compile do
   puts "Publishing to S3"
-  puts `s3_website push`
-  puts "Published"
+
+  publishing_result = `s3_website push`
+
+  puts publishing_result
+
+  if publishing_result.include?("[info] Successfully pushed the website to")
+    puts "Publishing succeeded"
+  else
+    abort "ERROR: Publishing failed"
+  end
 end
 
 task :clean do
