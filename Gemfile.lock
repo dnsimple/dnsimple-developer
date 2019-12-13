@@ -14,7 +14,7 @@ GEM
     aws-sdk-resources (2.11.166)
       aws-sdk-core (= 2.11.166)
     aws-sigv4 (1.0.3)
-    builder (3.2.3)
+    builder (3.2.4)
     coderay (1.1.2)
     colored (1.2)
     concurrent-ruby (1.1.3)
