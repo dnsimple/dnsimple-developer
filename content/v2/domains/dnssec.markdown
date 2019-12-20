@@ -68,13 +68,7 @@ Disable DNSSEC for the domain `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 204.
-
-~~~json
-<%= pretty_print_fixture("/api/disableDnssec/success.http") %>
-~~~
-
-Responds with HTTP 428 if DNSSEC is not currently enabled.
+Responds with HTTP 204 (No content). Or HTTP 428 if DNSSEC is not currently enabled.
 
 
 ## Get DNSSEC {#get}
