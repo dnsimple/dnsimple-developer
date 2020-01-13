@@ -130,6 +130,9 @@ The following events are available:
 - zone\_record.delete
 - zone\_record.update
 
+### Event payloads
+
+We maintain a repository of example payloads that you can use [here](https://github.com/dnsimple/dnsimple-developer/tree/master/fixtures/v2/webhooks).
 
 ## List webhooks {#list}
 
