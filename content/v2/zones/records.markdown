@@ -129,7 +129,7 @@ curl  -H 'Authorization: Bearer <token>' \
 
 Name | Type | Description
 -----|------|------------
-`name` | `string` | **Required**. Use an empty string to create a record for the apex.
+`name` | `string` | **Required**. The record name, without the domain. The domain will be automatically appended. Use an empty string to create a record for the apex.
 `type` | `string` | **Required**.
 `content` | `string` | **Required**.
 `ttl` | `integer` |
@@ -226,7 +226,7 @@ The following fields are updateable. You can pass zero of any of them.
 
 Name | Type | Description
 -----|------|------------
-`name` | `string` |
+`name` | `string` |  The record name, without the domain. The domain will be automatically appended. Use an empty string to create a record for the apex.
 `content` | `string` |
 `ttl` | `integer` |
 `priority` | `integer` |
