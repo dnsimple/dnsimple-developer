@@ -44,35 +44,33 @@ cloudfront_distribution_config:
 # concurrency_level: 5
 
 redirects:
-  138: /
-  authentication: /v2/#authentication
-  certificates: /v1/certificates/
+  authentication: /v2/oauth/
+  certificates: /v2/certificates/
   contacts: /v2/contacts/
   domains/autorenewal: /v2/registrar/auto-renewal/
-  domains/forwards: /v1/domains/forwards/
-  domains/privacy: /v1/domains/privacy/
+  domains/forwards: /v2/domains/
+  domains/privacy: /v2/domains/
   domains/records: /v2/zones/records/
   domains/registry: /v2/domains/
-  domains/sharing: /v1/domains/sharing/
+  domains/sharing: /v2/domains/
   domains/zones: /v2/zones/
-  domains: /v1/domains/
-  nameservers/vanity-nameservers: /v1/nameservers/vanity-nameservers/
-  nameservers: /v1/nameservers/
-  OptionsNote: /
+  domains: /v2/domains/
+  nameservers/vanity-nameservers: /v2/vanity/
+  nameservers: /v2/vanity/
   overview: /
   planned-changes: /
-  registrar/autorenewal: /v2/registrar/auto-renewal/
-  registrar/extended-attributes: /v1/registrar/extended-attributes/
-  registrar/prices: /v1/registrar/prices/
+  registrar/autorenewal: /v2/registrar/
+  registrar/extended-attributes: /v2/registrar/
+  registrar/prices: /v2/registrar/
   registrar: /v2/registrar/
   Requirements: /
-  services/domains: /v1/services/domains/
-  services: /v1/services/
-  subscriptions: /v1/subscriptions/
-  templates/domains: /v1/templates/domains/
-  templates/records: /v1/templates/records/
-  templates: /v1/templates/
-  users: /v1/users/
+  services/domains: /v2/services/
+  services: /v2/services/
+  subscriptions: /
+  templates/domains: /v2/templates/
+  templates/records: /v2/templates/
+  templates: /v2/templates/
+  users: /v2/oauth/
   v1/certificates: /v2/certificates/
   v1/contacts: /v2/contacts/
   v1/domains/forwards: /v2/domains/email-forwards/
@@ -80,7 +78,7 @@ redirects:
   v1/domains/sharing: /v2/domains/
   v1/domains/zones: /v2/zones/
   v1/domains: /v2/domains/
-  v1/nameservers/vanity-nameservers: https://support.dnsimple.com/articles/vanity-nameservers/
+  v1/nameservers/vanity-nameservers: /v2/vanity/
   v1/nameservers: /v2/
   v1/planned-changes: /
   v1/registrar/auto-renewal: /v2/registrar/auto-renewal/
@@ -100,7 +98,7 @@ redirects:
   v2/domains/certificates: /v2/domains/
   v2/domains/templates: /v2/domains/
   v2/pushes: /v2/domains/pushes/
-  v2/whoami: /v2/
+  v2/whoami: /v2/identity/
 
 # routing_rules:
 #   - condition:
