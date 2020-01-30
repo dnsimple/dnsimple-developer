@@ -82,7 +82,7 @@ redirects:
   v1/domains: /v2/domains/
   v1/nameservers/vanity-nameservers: https://support.dnsimple.com/articles/vanity-nameservers/
   v1/nameservers: /v2/
-  v1/planned-changes index.html: /
+  v1/planned-changes: /
   v1/registrar/auto-renewal: /v2/registrar/auto-renewal/
   v1/registrar/extended-attributes: /v2/registrar/
   v1/registrar/prices: /v2/registrar/
