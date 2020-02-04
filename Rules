@@ -48,7 +48,6 @@ compile '*' do
     filter :kramdown, toc_levels: [2], enable_coderay: false
     filter :colorize_syntax, default_colorizer: :rouge
     filter :postprocess
-    filter :redirect, item: item
     item_identifier = item.identifier.to_s
     if item_identifier.start_with?("/v2")
       layout 'v2'
