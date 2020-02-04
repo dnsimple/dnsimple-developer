@@ -1,16 +1,20 @@
-class Redirects
-  def self.generate(pages)
-    pages.each do |page|
-      args = page.strip.split(/\s+/)
-      create_redirect *args
+class Redirector
+  def initialize(redirects = [])
+    @redirects = redirects
+  end
+
+  def generate(base = 'output')
+    @redirects.each do |redirect|
+      redirect = redirect.is_a?(Array) ? redirect : redirect.strip.split(/\s+/)
+      create_redirect redirect[0], redirect[1], base
     end
   end
 
   private
 
-  def self.create_redirect(src, dest)
-    content = template dest
-    dir = File.join(File.dirname(__FILE__), '..', 'output', src)
+  def create_redirect(src, dest, base)
+    content = Redirector.template dest
+    dir = File.join(File.dirname(__FILE__), '..', base, src)
     redirect_path = File.join(dir, 'index.html')
     printf "Creating redirect from #{src} to #{dest}\n"
     FileUtils.mkdir_p dir unless File.exist? dir
@@ -35,5 +39,4 @@ class Redirects
 </html>
 EOF
   end
-
 end

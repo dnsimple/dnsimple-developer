@@ -4,7 +4,7 @@ require 'rake/testtask'
 require 'fileutils'
 require 'yaml'
 require 'json'
-require './lib/redirects.rb'
+require './lib/redirector.rb'
 
 task :default => [:test, :compile]
 
@@ -21,7 +21,7 @@ task :compile_nanoc do
   end
 
   FileUtils.cp_r 'dist', 'output'
-  Redirects.generate File.readlines('_redirects')
+  Redirector.new(File.readlines('_redirects')).generate('output')
 
   if $?.to_i == 0
     puts  "Compilation succeeded"
