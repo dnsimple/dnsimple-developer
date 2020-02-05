@@ -1,6 +1,6 @@
 s3_id: <%= ENV['S3_ID'] %>
 s3_secret: <%= ENV['S3_SECRET'] %>
-s3_bucket: developer.dnsimple.com
+s3_bucket: developer.dnsimple.com 
 cloudfront_distribution_id: E3LNNGWSVTJ7BP
 
 # Below are examples of all the available configurations.
@@ -19,7 +19,7 @@ site: output
 # gzip_zopfli: true
 
 # See http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region for valid endpoints
-s3_endpoint: us-west-2
+s3_endpoint: us-west-2 
 
 # ignore_on_server: that_folder_of_stuff_i_dont_keep_locally
 
@@ -44,61 +44,30 @@ cloudfront_distribution_config:
 # concurrency_level: 5
 
 redirects:
-  authentication: /v2/oauth/
-  certificates: /v2/certificates/
-  contacts: /v2/contacts/
-  domains/autorenewal: /v2/registrar/auto-renewal/
-  domains/forwards: /v2/domains/
-  domains/privacy: /v2/domains/
-  domains/records: /v2/zones/records/
-  domains/registry: /v2/domains/
-  domains/sharing: /v2/domains/
-  domains/zones: /v2/zones/
-  domains: /v2/domains/
-  nameservers/vanity-nameservers: /v2/vanity/
-  nameservers: /v2/vanity/
-  overview: /
-  planned-changes: /
-  registrar/autorenewal: /v2/registrar/
-  registrar/extended-attributes: /v2/registrar/
-  registrar/prices: /v2/registrar/
-  registrar: /v2/registrar/
-  Requirements: /
-  services/domains: /v2/services/
-  services: /v2/services/
-  subscriptions: /
-  templates/domains: /v2/templates/
-  templates/records: /v2/templates/
-  templates: /v2/templates/
-  users: /v2/oauth/
-  v1/certificates: /v2/certificates/
-  v1/contacts: /v2/contacts/
-  v1/domains/forwards: /v2/domains/email-forwards/
-  v1/domains/records: /v2/zones/records/
-  v1/domains/sharing: /v2/domains/
-  v1/domains/zones: /v2/zones/
-  v1/domains: /v2/domains/
-  v1/nameservers/vanity-nameservers: /v2/vanity/
-  v1/nameservers: /v2/
-  v1/planned-changes: /
-  v1/registrar/auto-renewal: /v2/registrar/auto-renewal/
-  v1/registrar/extended-attributes: /v2/registrar/
-  v1/registrar/prices: /v2/registrar/
-  v1/registrar/privacy: /v2/registrar/whois-privacy/
-  v1/registrar: /v2/registrar/
-  v1/services/domains: /v2/services/domains/
-  v1/services: /v2/services/
-  v1/subscriptions: /v2/
-  v1/templates/domains: /v2/templates/domains/
-  v1/templates/records: /v2/templates/records/
-  v1/templates: /v2/templates/
-  v1/users: https://support.dnsimple.com/articles/account-users/
-  v1: /v2/
-  v2/changelog: /v2/
-  v2/domains/certificates: /v2/domains/
-  v2/domains/templates: /v2/domains/
-  v2/pushes: /v2/domains/pushes/
-  v2/whoami: /v2/identity/
+  authentication/index.html: /v1/authentication/
+  certificates/index.html: /v1/certificates/
+  contacts/index.html: /v1/contacts/
+  domains/autorenewal/index.html: /v1/domains/autorenewal/
+  domains/forwards/index.html: /v1/domains/forwards/
+  domains/privacy/index.html: /v1/domains/privacy/
+  domains/records/index.html: /v1/domains/records/
+  domains/sharing/index.html: /v1/domains/sharing/
+  domains/zones/index.html: /v1/domains/zones/
+  domains/index.html: /v1/domains/
+  nameservers/vanity-nameservers/index.html: /v1/nameservers/vanity-nameservers/
+  nameservers/index.html: /v1/nameservers/
+  overview/index.html: /v1/
+  planned-changes/index.html: /v1/planned-changes/index.html
+  registrar/extended-attributes/index.html: /v1/registrar/extended-attributes/
+  registrar/prices/index.html: /v1/registrar/prices/
+  registrar/index.html: /v1/registrar/
+  services/domains/index.html: /v1/services/domains/
+  services/index.html: /v1/services/
+  subscriptions/index.html: /v1/subscriptions/
+  templates/domains/index.html: /v1/templates/domains/
+  templates/records/index.html: /v1/templates/records/
+  templates/index.html: /v1/templates/
+  users/index.html: /v1/users/
 
 # routing_rules:
 #   - condition:
