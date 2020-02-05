@@ -39,16 +39,17 @@ end
 
 desc "Publish to S3"
 task :publish => :compile do
+  require 'open3'
+
   puts "Publishing to S3"
 
-  publishing_result = `s3_website push`
+  stdout, stderr, status = Open3.capture3("s3_website push")
 
-  puts publishing_result
-
-  if publishing_result.include?("[info] Successfully pushed the website to")
+  if status.success? && res.include?("Successfully pushed the website to")
     puts "Publishing succeeded"
   else
-    abort "ERROR: Publishing failed"
+    abort "ERROR: Publishing failed" \
+          "\n" + stdout + stderr
   end
 end
 
