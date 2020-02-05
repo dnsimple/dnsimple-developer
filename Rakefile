@@ -45,7 +45,7 @@ task :publish => :compile do
 
   stdout, stderr, status = Open3.capture3("s3_website push")
 
-  if status.success? && res.include?("Successfully pushed the website to")
+  if status.success? && stdout.include?("Successfully pushed the website to")
     puts "Publishing succeeded"
   else
     abort "ERROR: Publishing failed" \
