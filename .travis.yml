@@ -7,7 +7,7 @@ cache:
 
 script:
   - bundle exec rake test
-  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bundle exec rake publish
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" ]; then bundle exec rake publish; fi
 
 notifications:
   slack:
