@@ -5,7 +5,6 @@ require 'fileutils'
 require 'yaml'
 require 'json'
 
-
 task :default => [:test, :compile]
 
 desc "Compile the project"
