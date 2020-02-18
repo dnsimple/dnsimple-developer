@@ -14,18 +14,15 @@ task :compile => [:clean, :compile_nanoc, :compile_openapi]
 desc "Compile the site"
 task :compile_nanoc do
   puts "Compiling site"
-  Bundler.with_clean_env do
-    yarn = sh(*%w(yarn))
-    build = sh(*%w(yarn build))
-    compile = sh(*%w(bundle exec nanoc compile))
-  end
+
+  stdout = sh("yarn && yarn build && bundle exec nanoc compile")
 
   FileUtils.cp_r 'dist', 'output'
 
   if $?.to_i == 0
     puts  "Compilation succeeded"
   else
-    abort "Compilation failed: #{$?.to_i}\n #{yarn}\n #{build}\n #{compile}\n"
+    abort "Compilation failed: #{$?.to_i}\n" + stdout
   end
 end
 
