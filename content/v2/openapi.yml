@@ -6,11 +6,7 @@ info:
     name: DNSimple Support
     email: support@dnsimple.com
     url: 'https://dnsimple.com/contact'
-  description: >-
-    [DNSimple](https://dnsimple.com) provides DNS hosting and domain
-    registration that is simple and friendly. We provide an extensive API and an
-    easy-to-use web interface so you can get your domain registered and set up
-    with a minimal amount of effort.
+  description: '[DNSimple](https://dnsimple.com) provides DNS hosting and domain registration that is simple and friendly. We provide an extensive API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.'
   termsOfService: 'https://dnsimple.com/terms'
 externalDocs:
   url: 'https://developer.dnsimple.com'
@@ -22,10 +18,7 @@ servers:
     description: DNSimple Production API
     variables: {}
   - url: 'https://api.sandbox.dnsimple.com/v2'
-    description: >-
-      DNSimple Sandbox API. For more information on the purpose and use of the
-      Sandbox API, see our [testing
-      documentation](https://developer.dnsimple.com/v2/#testing)
+    description: 'DNSimple Sandbox API. For more information on the purpose and use of the Sandbox API, see our [testing documentation](https://developer.dnsimple.com/v2/#testing)'
 paths:
   /accounts:
     get:
@@ -36,9 +29,7 @@ paths:
         - account
       responses:
         '200':
-          description: >-
-            Depending on how you are authenticated you will see all the accounts
-            you have access to or the account you used to authenticate.
+          description: Depending on how you are authenticated you will see all the accounts you have access to or the account you used to authenticate.
           content:
             application/json:
               schema:
@@ -50,8 +41,7 @@ paths:
                       $ref: '#/components/schemas/Account'
   /whoami:
     get:
-      description: >-
-        Retrieves the details about the current authenticated entity used to access the API.
+      description: Retrieves the details about the current authenticated entity used to access the API.
       parameters: []
       operationId: whoami
       tags:
@@ -183,13 +173,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     post:
-      description: >-
-        At the time of the add, a collaborator may or may not have a DNSimple
-        account. In case the collaborator doesn’t have a DNSimple account, the
-        system will invite her/him to register to DNSimple first and then to
-        accept the collaboration invitation. In the other case, she/he is
-        automatically added to the domain as collaborator. She/he can decide to
-        reject the invitation later.
+      description: 'At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn’t have a DNSimple account, the system will invite her/him to register to DNSimple first and then to accept the collaboration invitation. In the other case, she/he is automatically added to the domain as collaborator. She/he can decide to reject the invitation later.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -571,9 +555,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/certificates/{certificate}/download':
     get:
-      description: >-
-        Get the PEM-encoded certificate, along with the root certificate and
-        intermediate chain.
+      description: 'Get the PEM-encoded certificate, along with the root certificate and intermediate chain.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -617,9 +599,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
     post:
-      description: >-
-        Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate
-        with DNSimple.
+      description: "Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -640,18 +620,14 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{purchaseId}/issue':
     post:
-      description: >-
-        Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate
-        purchased with DNSimple.
+      description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - name: purchaseId
           in: path
           required: true
-          description: >-
-            The certificate purchase order id received by
-            `purchaseLetsencryptCertificate`.
+          description: The certificate purchase order id received by `purchaseLetsencryptCertificate`.
           schema:
             type: integer
       operationId: issueLetsencryptCertificate
@@ -671,9 +647,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals':
     post:
-      description: >-
-        Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate
-        purchased with DNSimple.
+      description: "Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -695,9 +669,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals/{renewalId}/issue':
     post:
-      description: >-
-        Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate
-        renewed with DNSimple.
+      description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate renewed with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -705,9 +677,7 @@ paths:
         - name: renewalId
           in: path
           required: true
-          description: >-
-            The certificate renewal order id received by
-            `purchaseRenewalLetsencryptCertificate`.
+          description: The certificate renewal order id received by `purchaseRenewalLetsencryptCertificate`.
           schema:
             type: integer
       operationId: issueRenewalLetsencryptCertificate
@@ -767,12 +737,7 @@ paths:
           $ref: '#/components/responses/404'
   '/tlds/{tld}/extended_attributes':
     get:
-      description: >-
-        Some TLDs require extended attributes when registering or transferring a
-        domain. This API interface provides information on the extended
-        attributes for any particular TLD. Extended attributes are extra
-        TLD-specific attributes, required by the TLD registry to collect extra
-        information about the registrant or legal agreements.
+      description: 'Some TLDs require extended attributes when registering or transferring a domain. This API interface provides information on the extended attributes for any particular TLD. Extended attributes are extra TLD-specific attributes, required by the TLD registry to collect extra information about the registrant or legal agreements.'
       parameters:
         - $ref: '#/components/parameters/TLD'
       operationId: getTldExtendedAttributes
@@ -803,11 +768,7 @@ paths:
         - registrar
       responses:
         '200':
-          description: >-
-            The check was successfully executed. Check the result data to
-            determine if it is available for registration. If the domain is
-            premium, please check the premium price before trying to register,
-            renew, transfer.
+          description: 'The check was successfully executed. Check the result data to determine if it is available for registration. If the domain is premium, please check the premium price before trying to register, renew, transfer.'
           content:
             application/json:
               schema:
@@ -817,9 +778,7 @@ paths:
                     $ref: '#/components/schemas/DomainCheckResult'
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
-      description: >-
-        Get the premium price for a domain.
-        Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.
+      description: 'Get the premium price for a domain. Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -841,11 +800,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/registrar/domains/{domain}/registrations':
     post:
-      description: >-
-        Register a domain name with DNSimple. Your account must be active for
-        this command to complete successfully. You will be automatically charged
-        the registration fee upon successful registration, so please be careful
-        with this command.
+      description: 'Register a domain name with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -868,12 +823,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/registrar/domains/{domain}/transfers':
     post:
-      description: >-
-        Transfer a domain name from another domain registrar into DNSimple. Your
-        account must be active for this command to complete successfully. You
-        will be automatically charged the 1-year transfer fee upon successful
-        transfer, so please be careful with this command. The transfer may take
-        anywhere from a few minutes up to 7 days.
+      description: 'Transfer a domain name from another domain registrar into DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -896,11 +846,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/registrar/domains/{domain}/renew':
     post:
-      description: >-
-        Renew a domain name already registered with DNSimple. Your account must
-        be active for this command to complete successfully. You will be
-        automatically charged the renewal fee upon successful renewal, so please
-        be careful with this command.
+      description: 'Renew a domain name already registered with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -923,9 +869,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
     post:
-      description: >-
-        Prepare a domain for transferring out. This will unlock a domain and
-        send the authorization code to the domain’s administrative contact.
+      description: Prepare a domain for transferring out. This will unlock a domain and send the authorization code to the domain’s administrative contact.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1097,11 +1041,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     put:
-      description: >-
-        Enable whois privacy. Note that if the WHOIS privacy is not purchased
-        for the domain, enabling WHOIS privacy will cause the service to be
-        purchased for a period of 1 year. If WHOIS privacy was previously
-        purchased and disabled, then calling this will enable the WHOIS privacy.
+      description: 'Enable whois privacy. Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS privacy will cause the service to be purchased for a period of 1 year. If WHOIS privacy was previously purchased and disabled, then calling this will enable the WHOIS privacy.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1151,10 +1091,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
     post:
-      description: >-
-        Renew whois privacy. Note that if the WHOIS privacy was never purchased
-        for the domain or if there is another renewal order in progress,
-        renewing WHOIS privacy will return an error.
+      description: 'Renew whois privacy. Note that if the WHOIS privacy was never purchased for the domain or if there is another renewal order in progress, renewing WHOIS privacy will return an error.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1243,9 +1180,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/zones/{zone}/distribution':
     get:
-      description: >-
-        Checks if a zone change is fully distributed to all our nameservers
-        across the globe.
+      description: Checks if a zone change is fully distributed to all our nameservers across the globe.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1378,9 +1313,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/zones/{zone}/records/{record}/distribution':
     get:
-      description: >-
-        Checks if a zone record is fully distributed to all our nameservers
-        across the globe.
+      description: Checks if a zone record is fully distributed to all our nameservers across the globe.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1794,12 +1727,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/vanity/{domain}':
     put:
-      description: >-
-        Enable Vanity Name Servers for the domain. This method sets up the
-        appropriate A and AAAA records for the domain to provide vanity name
-        servers, but it does not change the delegation for the domain. To change
-        the delegation for domains to vanity name servers use the endpoints to
-        Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
+      description: 'Enable Vanity Name Servers for the domain. This method sets up the appropriate A and AAAA records for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1823,12 +1751,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     delete:
-      description: >-
-        Disable Vanity Name Servers for the domain. This method removes the A
-        and AAAA records required for the domain to provide vanity name servers,
-        but it does not change the delegation for the domain. To change the
-        delegation for domains to vanity name servers use the endpoints to
-        Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
+      description: 'Disable Vanity Name Servers for the domain. This method removes the A and AAAA records required for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1923,7 +1846,7 @@ components:
   links: {}
   callbacks:
     webhook:
-      '$webhookUrl':
+      $webhookUrl:
         post:
           requestBody:
             description: The webhook payload
@@ -2044,9 +1967,7 @@ components:
       name: action
       in: query
       required: false
-      description: >-
-        Optional action between "registration", "renewal", and "transfer". If
-        omitted, it defaults to "registration".
+      description: 'Optional action between "registration", "renewal", and "transfer". If omitted, it defaults to "registration".'
       schema:
         type: string
     FilterName:
@@ -2067,9 +1988,7 @@ components:
       name: registrant_id
       in: query
       required: false
-      description: >-
-        Only include results with the registrant_id field matching the given
-        value
+      description: Only include results with the registrant_id field matching the given value
       schema:
         type: integer
     FilterType:
@@ -2565,7 +2484,7 @@ components:
           type: string
         postal_code:
           type: string
-          description: 'The ISO Alpha-2 country code.'
+          description: The ISO Alpha-2 country code.
         country:
           type: string
         phone:
@@ -2586,17 +2505,17 @@ components:
         last_name: User
         organization_name: Awesome Company
         job_title: CEO
-        address1: "Italian Street, 10"
-        address2: ""
+        address1: 'Italian Street, 10'
+        address2: ''
         city: Roma
         state_province: RM
-        postal_code: "00100"
+        postal_code: '00100'
         country: IT
-        phone: "+1.8001234567"
-        fax: "+1.8011234567"
+        phone: '+1.8001234567'
+        fax: '+1.8011234567'
         email: first@example.com
-        created_at: "2013-11-08T17:23:15Z"
-        updated_at: "2015-01-08T21:30:50Z"
+        created_at: '2013-11-08T17:23:15Z'
+        updated_at: '2015-01-08T21:30:50Z'
     DelegationSigner:
       type: object
       properties:
@@ -2623,8 +2542,8 @@ components:
         digest: C1F6E04A5A61FBF65BF9DC8294C363CF11C89E802D926BDAB79C55D27BEFA94F
         digest_type: 2
         keytag: 44620
-        created_at: 2017-03-03T13:49:58.000Z
-        updated_at: 2017-03-03T13:49:58.000Z
+        created_at: '2017-03-03T13:49:58.000Z'
+        updated_at: '2017-03-03T13:49:58.000Z'
     Domain:
       type: object
       properties:
@@ -2680,9 +2599,7 @@ components:
           description: True if the domain is available to register
         premium:
           type: boolean
-          description: >-
-            True if the domain is a premium domain and thus will have a
-            non-standard registration, renewal, and/or transfer fee.
+          description: 'True if the domain is a premium domain and thus will have a non-standard registration, renewal, and/or transfer fee.'
       example:
         domain: ruby.codes
         available: true
@@ -2697,9 +2614,7 @@ components:
           description: The price represented as a USD amount with dollars and cents.
         action:
           type: string
-          description: >-
-            The action (registration, transfer, renewal) that the price is
-            applied to.
+          description: 'The action (registration, transfer, renewal) that the price is applied to.'
       example:
         premium_price: '109.00'
         action: registration
@@ -2814,8 +2729,8 @@ components:
           $ref: '#/components/schemas/DatetimeISO8601'
       example:
         enabled: true
-        created_at: 2017-02-03T17:43:22.000Z
-        updated_at: 2017-02-03T17:43:22.000Z
+        created_at: '2017-02-03T17:43:22.000Z'
+        updated_at: '2017-02-03T17:43:22.000Z'
     EmailForward:
       type: object
       properties:
@@ -3722,10 +3637,7 @@ components:
       properties:
         tld:
           type: string
-          description: >-
-            The registerable suffix. In most cases the suffix matches a TLD, but
-            there are some cases where the suffix is a subzone of the TLD (e.g.
-            com.au).
+          description: 'The registerable suffix. In most cases the suffix matches a TLD, but there are some cases where the suffix is a subzone of the TLD (e.g. com.au).'
         tld_type:
           $ref: '#/components/schemas/TLDType'
         whois_privacy:
@@ -3733,7 +3645,7 @@ components:
           description: true if the suffix allows WHOIS privacy as a separate component. Some registries may provide WHOIS privacy at registry level by limiting the visibility of certain attributes in the WHOIS response.
         auto_renew_only:
           type: boolean
-          description: true if the suffix requires auto-renewal and can't be renewed manually
+          description: "true if the suffix requires auto-renewal and can't be renewed manually"
         idn:
           type: boolean
           description: true if the suffix supports Internationalized Domain Names (IDN)
@@ -3758,11 +3670,7 @@ components:
         transfer_enabled: false
     TLDType:
       type: integer
-      description: >-
-        TLD types are:
-        * 1 - gTLD (global TLD)
-        * 2 - ccTLD (country-code TLD)
-        * 3 - newTLD (new global TLD)
+      description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
       enum:
         - 1
         - 2
@@ -3813,11 +3721,7 @@ components:
       properties:
         name:
           type: string
-          description: >-
-            The name attribute contains a string representing the name of event
-            that occurred. It will always have an object and action separated by
-            a period. It may optionally include a state for objects that go
-            through state changes, for example `domain.registration:started`.
+          description: 'The name attribute contains a string representing the name of event that occurred. It will always have an object and action separated by a period. It may optionally include a state for objects that go through state changes, for example `domain.registration:started`.'
           enum:
             - account.add_user
             - account.billing_settings_update
@@ -3892,21 +3796,12 @@ components:
             - zone_record.update
         api_version:
           type: string
-          description: >-
-            The api_version is the API version used to serialize the data in the
-            payload. For version 2 of the API, this is the string v2. For
-            example, you can expect a domain object to be serialized using the
-            same domain attributes described in the corresponding API page.
+          description: 'The api_version is the API version used to serialize the data in the payload. For version 2 of the API, this is the string v2. For example, you can expect a domain object to be serialized using the same domain attributes described in the corresponding API page.'
           enum:
             - v2
         request_identifier:
           type: string
-          description: >-
-            The request_identifier attribute is a UUID that provides a way to
-            identify this request. You may use this UUID to ensure a webhook is
-            processed once and only once by keeping a persistent history of the
-            identifiers sent and never handling a webhook which was already
-            processed.
+          description: The request_identifier attribute is a UUID that provides a way to identify this request. You may use this UUID to ensure a webhook is processed once and only once by keeping a persistent history of the identifiers sent and never handling a webhook which was already processed.
         data:
           oneOf:
             - $ref: '#/components/schemas/EventAccountAddUser'
@@ -3982,26 +3877,13 @@ components:
             - $ref: '#/components/schemas/EventWhoisPrivacyRenew'
             - $ref: '#/components/schemas/EventZoneCreate'
             - $ref: '#/components/schemas/EventZoneDelete'
-          description: >-
-            The data attribute contains any data for the object or objects
-            related to the event. Each object in the data object will be keyed
-            on an object type name.
+          description: The data attribute contains any data for the object or objects related to the event. Each object in the data object will be keyed on an object type name.
         account:
           $ref: '#/components/schemas/Account'
-          description: >-
-            The account is an object describing which account the event occurred
-            in. It is a lightweight representation of the account and includes
-            the id, a unique identifier and a display text representation.
+          description: 'The account is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the id, a unique identifier and a display text representation.'
         actor:
           $ref: '#/components/schemas/Actor'
-          description: >-
-            The actor is an object describing the entity that triggered the
-            event. This may be a user if the event was triggered due to activity
-            via the UI or API, or it may be a system entity if the activity
-            occurred as part of an asynchronous process. The actor object has
-            three attributes: id, which is a unique identifier for the actor,
-            entity which describes what type the actor is, and pretty, which is
-            a printable representation of the actor for use in display.
+          description: 'The actor is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process. The actor object has three attributes: id, which is a unique identifier for the actor, entity which describes what type the actor is, and pretty, which is a printable representation of the actor for use in display.'
       example:
         name: object.action
         api_version: v2
@@ -4052,7 +3934,7 @@ components:
         id: 1
         domain_id: 100
         whois_privacy_id: 999
-        state: 'new'
+        state: new
         enabled: true
         expires_on: '2020-01-10'
         created_at: '2019-01-10T12:12:48Z'
@@ -4088,20 +3970,13 @@ components:
         zone:
           type: string
       example:
-        zone: >
+        zone: |
           $ORIGIN example.com.
-
           $TTL 1h
-
-          example.com. 3600 IN SOA ns1.dnsimple.com. admin.dnsimple.com.
-          1453132552 86400 7200 604800 300
-
+          example.com. 3600 IN SOA ns1.dnsimple.com. admin.dnsimple.com. 1453132552 86400 7200 604800 300
           example.com. 3600 IN NS ns1.dnsimple.com.
-
           example.com. 3600 IN NS ns2.dnsimple.com.
-
           example.com. 3600 IN NS ns3.dnsimple.com.
-
           example.com. 3600 IN NS ns4.dnsimple.com.
     ZoneDistribution:
       type: object
@@ -4122,12 +3997,7 @@ components:
           type: string
         parent_id:
           type: integer
-          description: >-
-            If present represents the zone record this record relates to.
-            The parent record is the master record, when the parent is updated
-            or deleted the related record is also updated or deleted.
-            An examle of child record is the TXT descriptive record created
-            for an ALIAS record.
+          description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
         name:
           type: string
         content:
@@ -4145,9 +4015,7 @@ components:
             $ref: '#/components/schemas/ZoneRecordRegion'
         system_record:
           type: boolean
-          description: >-
-            Returns true if a record is a system generated record and thus is
-            not modifiable.
+          description: Returns true if a record is a system generated record and thus is not modifiable.
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -4176,9 +4044,7 @@ components:
         - TKO
     ZoneRecordType:
       type: string
-      description: >-
-        Supported DNS record types at DNSimple. Note that some record types may
-        only be available on specific plans.
+      description: Supported DNS record types at DNSimple. Note that some record types may only be available on specific plans.
       enum:
         - A
         - AAAA
@@ -4207,13 +4073,11 @@ components:
     '402':
       description: Your account is not subscribed or not in good standing.
     '404':
-      description: The requested resource doesn't exist.
+      description: "The requested resource doesn't exist."
     '412':
       description: A precondition failed while trying to access a resource.
     '429':
-      description: >-
-        You exceeded the allowed number of requests per hour and your request
-        has temporarily been throttled.
+      description: You exceeded the allowed number of requests per hour and your request has temporarily been throttled.
       headers:
         X-RateLimit-Limit:
           $ref: '#/components/headers/X-RateLimit-Limit'
@@ -4279,14 +4143,10 @@ components:
                 nullable: true
               organization_name:
                 type: string
-                description: >-
-                  The company name. If the organization_name is specified, then
-                  you must also include job_title.
+                description: 'The company name. If the organization_name is specified, then you must also include job_title.'
               job_title:
                 type: string
-                description: >-
-                  The contact's job title. Required if the organization_name is
-                  specified.
+                description: "The contact's job title. Required if the organization_name is specified."
             example:
               label: Default
               first_name: First
@@ -4350,23 +4210,16 @@ components:
                 description: The ID of an existing contact in your account.
               whois_privacy:
                 type: boolean
-                description: >-
-                  Set to true will attempt to purchase/enable the whois privacy
-                  as part of the registration. An extra cost may apply. Default:
-                  false.
+                description: 'Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: false.'
               auto_renew:
                 type: boolean
-                description: >-
-                  Set to true to enable the auto-renewal of the domain. Default:
-                  true.
+                description: 'Set to true to enable the auto-renewal of the domain. Default: true.'
               extended_attributes:
                 type: object
                 description: Required for TLDs that require extended attributes.
               premium_price:
                 type: string
-                description: >-
-                  Required as confirmation of the price, only if the domain is
-                  premium.
+                description: 'Required as confirmation of the price, only if the domain is premium.'
             example:
               registrant_id: 1
     DomainRenew:
@@ -4381,9 +4234,7 @@ components:
                 type: integer
               premium_price:
                 type: string
-                description: >-
-                  Required as confirmation of the price, only if the domain is
-                  premium.
+                description: 'Required as confirmation of the price, only if the domain is premium.'
             example:
               period: 2
     DomainTransfer:
@@ -4399,28 +4250,19 @@ components:
                 description: The ID of an existing contact in your account.
               auth_code:
                 type: string
-                description: >-
-                  Required for TLDS that require authorization-based transfer
-                  (the vast majority of TLDs).
+                description: Required for TLDS that require authorization-based transfer (the vast majority of TLDs).
               whois_privacy:
                 type: boolean
-                description: >-
-                  Set to true will attempt to purchase/enable the whois privacy
-                  as part of the transfer. An extra cost may apply. Default:
-                  false.
+                description: 'Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: false.'
               auto_renew:
                 type: boolean
-                description: >-
-                  Set to true to enable the auto-renewal of the domain. Default:
-                  true.
+                description: 'Set to true to enable the auto-renewal of the domain. Default: true.'
               extended_attributes:
                 type: object
                 description: Required for TLDs that require extended attributes.
               premium_price:
                 type: string
-                description: >-
-                  Required as confirmation of the price, only if the domain is
-                  premium.
+                description: 'Required as confirmation of the price, only if the domain is premium.'
     EmailForwardCreate:
       description: Email forward attributes
       required: true
@@ -4461,10 +4303,7 @@ components:
             example:
               contact_id: 2
     ServiceApply:
-      description: >-
-          Optional hash of settings for some specific services, corresponding to
-          the service fields. For instance, Heroku requires a settings[app]
-          setting.
+      description: 'Optional hash of settings for some specific services, corresponding to the service fields. For instance, Heroku requires a settings[app] setting.'
       required: false
       content:
         application/json:
