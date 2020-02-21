@@ -2642,6 +2642,10 @@ components:
           type: string
         state:
           type: string
+          enum:
+            - hosted
+            - registered
+            - expired
         auto_renew:
           type: boolean
         private_whois:
