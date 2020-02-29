@@ -2326,7 +2326,9 @@ components:
         server:
           type: string
         root:
-          type: string
+          type:
+            - string
+            - 'null'
         chain:
           type: array
           items:
