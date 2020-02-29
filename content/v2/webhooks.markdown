@@ -134,7 +134,8 @@ The following events are available:
 
 We maintain a [repository of example payloads](https://github.com/dnsimple/dnsimple-developer/tree/master/fixtures/v2/webhooks) that you can use to design and test your integrations.
 
-## List webhooks {#list}
+
+## List webhooks {#listWebhooks}
 
     GET /:account/webhooks
 
@@ -173,7 +174,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a webhook {#create}
+## Create a webhook {#createWebhook}
 
     POST /:account/webhooks
 
@@ -219,7 +220,7 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a webhook {#get}
+## Get a webhook {#getWebhook}
 
     GET /:account/webhooks/:webhook
 
@@ -246,7 +247,7 @@ Get the webhook with ID `1` in the account `1010`:
 ~~~
 
 
-## Delete a webhook {#delete}
+## Delete a webhook {#deleteWebhook}
 
     DELETE /:account/webhooks/:webhook
 

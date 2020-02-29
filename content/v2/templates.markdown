@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple templates API v2.
 Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List templates {#list}
+## List templates {#listTemplates}
 
     GET /:account/templates
 
@@ -55,7 +55,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a template {#create}
+## Create a template {#createTemplate}
 
     POST /:account/templates
 
@@ -105,7 +105,7 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a template {#get}
+## Get a template {#getTemplate}
 
     GET /:account/templates/:template
 
@@ -137,7 +137,7 @@ Get the template with short name `example` in the account `1010`:
 ~~~
 
 
-## Update a template {#update}
+## Update a template {#updateTemplate}
 
     PATCH /:account/templates/:template
 
@@ -183,7 +183,7 @@ Responds with HTTP 200 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Delete a template {#delete}
+## Delete a template {#deleteTemplate}
 
     DELETE /:account/templates/:template
 

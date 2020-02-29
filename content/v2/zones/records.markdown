@@ -286,6 +286,7 @@ curl  -H 'Authorization: Bearer <token>' \
 
 Responds with HTTP 204 on success.
 
+
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
     GET /:account/zones/:zone/records/:record/distribution

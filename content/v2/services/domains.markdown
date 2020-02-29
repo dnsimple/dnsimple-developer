@@ -9,9 +9,13 @@ excerpt: This page documents the DNSimple domain services API v2.
 {:toc}
 
 
-## List applied services {#applied}
+## List applied services {#listDomainAppliedServices}
 
-    GET /:account/domains/:domain/services
+List services applied to a domain.
+
+~~~
+GET /:account/domains/:domain/services
+~~~
 
 ### Parameters
 
@@ -34,9 +38,13 @@ List applied services for domain with ID `1` in the account `1010`:
 <%= pretty_print_fixture("/api/appliedServices/success.http") %>
 ~~~
 
-## Apply a service {#apply}
+## Apply a service {#applyServiceToDomain}
 
-    POST /:account/domains/:domain/services/:service
+Apply a service to a domain.
+
+~~~
+POST /:account/domains/:domain/services/:service
+~~~
 
 ### Parameters
 
@@ -68,9 +76,13 @@ Name | Type | Description
 Responds with HTTP 204 on success.
 
 
-## Unapply a service {#unapply}
+## Unapply a service {#unapplyServiceFromDomain}
 
-    DELETE /:account/domains/:domain/services/:service
+Unapply a service from a domain.
+
+~~~
+DELETE /:account/domains/:domain/services/:service
+~~~
 
 ### Parameters
 

@@ -105,7 +105,7 @@ Responds with HTTP 400, if the domain isn't premium.
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
 ~~~
 
-## Register a domain {#register}
+## Register a domain {#registerDomain}
 
     POST /:account/registrar/domains/:domain/registrations
 
@@ -169,7 +169,7 @@ Responds with HTTP 201 on success, returns the domain.
 Responds with HTTP 400 if the validation fails.
 
 
-## Transfer a domain {#transfer}
+## Transfer a domain {#transferDomain}
 
     POST /:account/registrar/domains/:domain/transfers
 
@@ -241,7 +241,7 @@ Responds with HTTP 201 on success, returns the domain.
 Responds with HTTP 400 if the validation fails.
 
 
-## Renew a domain {#renew}
+## Renew a domain {#renewDomain}
 
     POST /:account/registrar/domains/:domain/renewals
 
@@ -293,7 +293,7 @@ Responds with HTTP 201 on success, returns the domain.
 Responds with HTTP 400 if the validation fails.
 
 
-## Authorize a domain transfer out {#transfer-out}
+## Authorize a domain transfer out {#authorizeDomainTransferOut}
 
     POST /:account/registrar/domains/:domain/authorize_transfer_out
 

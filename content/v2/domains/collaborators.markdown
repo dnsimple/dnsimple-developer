@@ -8,7 +8,7 @@ excerpt: This page documents the DNSimple collaborators API v2.
 * TOC
 {:toc}
 
-## List collaborators {#list}
+## List collaborators {#listDomainCollaborators}
 
     GET /:account/domains/:domain/collaborators
 
@@ -38,7 +38,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## Add a collaborator {#add}
+## Add a collaborator {#addDomainCollaborator}
 
 At the time of the add, a collaborator may or may not have a DNSimple account.
 
@@ -101,7 +101,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Remove a collaborator {#remove}
+## Remove a collaborator {#removeDomainCollaborator}
 
     DELETE /:account/domains/:domain/collaborators/:collaborator
 

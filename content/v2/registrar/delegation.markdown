@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 Retrieve and manage delegation for a domain in DNSimple.
 
 
-## List name servers for a domain {#list}
+## List name servers for a domain {#getDomainDelegation}
 
     GET /:account/registrar/domains/:domain/delegation
 
@@ -41,7 +41,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## Update name servers for a domain {#update}
+## Update name servers for a domain {#changeDomainDelegation}
 
     PUT /:account/registrar/domains/:domain/delegation
 
@@ -91,7 +91,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the delegation fails.
 
 
-## Delegate to Vanity Name Servers {#delegateToVanity}
+## Delegate to Vanity Name Servers {#changeDomainDelegationToVanity}
 
 <note>
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
@@ -137,7 +137,7 @@ Responds with HTTP 400 if the delegation fails.
 
 Responds with HTTP 412 if the feature is not enabled for the account.
 
-## Dedelegate from Vanity Name Servers {#dedelegateFromVanity}
+## Dedelegate from Vanity Name Servers {#changeDomainDelegationFromVanity}
 
 <note>
 This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.

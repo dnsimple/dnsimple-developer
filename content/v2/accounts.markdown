@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple accounts API v2 endpoint.
 Please refer to the definition of the `Account` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List accounts
+## List accounts {#listAccounts}
 
     GET /accounts
 

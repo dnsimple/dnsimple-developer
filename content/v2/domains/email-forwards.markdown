@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple email forwards API v2.
 Please refer to the definition of the `EmailForward` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List email forwards {#list}
+## List email forwards {#listEmailForwards}
 
     GET /:account/domains/:domain/email_forwards
 
@@ -56,7 +56,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create an email forward {#create}
+## Create an email forward {#createEmailForward}
 
     POST /:account/domains/:domain/email_forwards
 
@@ -107,7 +107,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get an email forward {#get}
+## Get an email forward {#getEmailForward}
 
     GET /:account/domains/:domain/email_forward/:email_forward
 
@@ -136,7 +136,7 @@ Responds with HTTP 200, renders the email forward.
 ~~~
 
 
-## Delete an email forward {#delete}
+## Delete an email forward {#deleteEmailForward}
 
     DELETE /domains/:domain/email_forwards/:email_forward
 

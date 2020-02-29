@@ -9,9 +9,11 @@ excerpt: This page documents the DNSimple domain templates API v2.
 {:toc}
 
 
-## Apply a template {#apply}
+## Apply a template {#applyTemplateToDomain}
 
-    POST /:account/domains/:domain/templates/:template
+~~~
+POST /:account/domains/:domain/templates/:template
+~~~
 
 ### Parameters
 

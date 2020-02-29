@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 Please refer to the definition of the `Contact` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List contacts {#list}
+## List contacts {#listContacts}
 
 ~~~
 GET /:account/contacts
@@ -59,7 +59,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a contact {#create}
+## Create a contact {#createContact}
 
 ~~~
 POST /:account/contacts
@@ -134,7 +134,7 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a contact {#get}
+## Get a contact {#getContact}
 
 ~~~
 GET /:account/contacts/:contact
@@ -164,7 +164,7 @@ curl  -H 'Authorization: Bearer <token>' \
 ~~~
 
 
-## Update a contact {#update}
+## Update a contact {#updateContact}
 
 ~~~
 PATCH /:account/contacts/:contact
@@ -205,7 +205,7 @@ Responds with HTTP 200 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Delete a contact {#delete}
+## Delete a contact {#deleteContact}
 
 ~~~
 DELETE /:account/contacts/:contact

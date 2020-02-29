@@ -68,7 +68,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## Get a zone {#get}
+## Get a zone {#getZone}
 
     GET /:account/zones/:zone
 

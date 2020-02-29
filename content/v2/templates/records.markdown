@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple Template Records API v2.
 Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List records for a template {#list}
+## List records for a template {#listTemplateRecords}
 
     GET /:account/templates/:template/records
 
@@ -55,7 +55,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a template record {#create}
+## Create a template record {#createTemplateRecord}
 
     POST /:account/templates/:template/records
 
@@ -112,7 +112,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a template record {#get}
+## Get a template record {#getTemplateRecord}
 
     GET /:account/templates/:template/records/:record
 
@@ -139,7 +139,7 @@ Get the record `301` for the template `alpha` in the account `1010`:
 ~~~
 
 
-## Delete a template record {#delete}
+## Delete a template record {#deleteTemplateRecord}
 
     DELETE /:account/zone/:zone/records/:record
 

@@ -19,7 +19,7 @@ Please refer to the definition of the `Service` data type in [our OpenAPI docume
 Please refer to the definition of the `ServiceSetting` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
-## List services {#list}
+## List services {#listServices}
 
     GET /services
 
@@ -49,7 +49,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Get a service {#get}
+## Get a service {#getService}
 
     GET /services/:service
 

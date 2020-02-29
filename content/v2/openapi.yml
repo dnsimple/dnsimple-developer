@@ -195,7 +195,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/collaborators/{collaborator}':
     delete:
-      description: Remove a collaborator from the given domain.
+      description: Remove a collaborator from the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -216,7 +216,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: getDNSSEC
+      operationId: getDomainDnssec
       tags:
         - domain dnssec
       responses:
@@ -235,7 +235,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: enableDNSSEC
+      operationId: enableDomainDnssec
       tags:
         - domain dnssec
       responses:
@@ -254,7 +254,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: disableDNSSEC
+      operationId: disableDomainDnssec
       tags:
         - domain dnssec
       responses:
@@ -273,7 +273,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/SortDelegationSignerRecords'
-      operationId: listDelegationSigners
+      operationId: listDomainDelegationSignerRecords
       tags:
         - domain dnssec
       responses:
@@ -299,7 +299,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: createDelegationSigner
+      operationId: createDomainDelegationSignerRecord
       tags:
         - domain dnssec
       requestBody:
@@ -427,11 +427,11 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/pushes':
     post:
-      description: Initiate a push
+      description: Initiates a pust of a domain to another account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: initiatePush
+      operationId: initiateDomainPush
       tags:
         - domain pushes
       requestBody:
@@ -452,7 +452,7 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/pushes':
     get:
-      description: List pending pushes for the target account.
+      description: List pending pushes for the account.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: listPushes
@@ -512,7 +512,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/SortCertificates'
-      operationId: listDomainCertificates
+      operationId: listCertificates
       tags:
         - domains certificates
       responses:
@@ -538,7 +538,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Certificate'
-      operationId: getDomainCertificate
+      operationId: getCertificate
       tags:
         - domains certificates
       responses:
@@ -560,7 +560,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Certificate'
-      operationId: downloadDomainCertificate
+      operationId: downloadCertificate
       tags:
         - domains certificates
       responses:
@@ -582,7 +582,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Certificate'
-      operationId: getDomainCertificatePrivateKey
+      operationId: getCertificatePrivateKey
       tags:
         - domains certificates
       responses:
@@ -804,7 +804,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: domainRegister
+      operationId: registerDomain
       tags:
         - registrar
       requestBody:
@@ -827,7 +827,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: domainTransfer
+      operationId: transferDomain
       tags:
         - registrar
       requestBody:
@@ -873,7 +873,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: domainAuthorizeTransferOut
+      operationId: authorizeDomainTransferOut
       tags:
         - registrar
       responses:
@@ -887,7 +887,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: listDomainNameServers
+      operationId: getDomainDelegation
       tags:
         - registrar delegation
       responses:
@@ -915,7 +915,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: updateDomainNameServers
+      operationId: changeDomainDelegation
       tags:
         - registrar delegation
       requestBody:
@@ -948,7 +948,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: delegateToVanity
+      operationId: changeDomainDelegationToVanity
       tags:
         - registrar delegation
       requestBody:
@@ -976,7 +976,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: dedelegateFromVanity
+      operationId: changeDomainDelegationFromVanity
       tags:
         - registrar delegation
       responses:
@@ -994,7 +994,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: enableAutoRenewal
+      operationId: enableDomainAutoRenewal
       tags:
         - registrar autorenew
       responses:
@@ -1009,7 +1009,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: disableAutoRenewal
+      operationId: disableDomainAutoRenewal
       tags:
         - registrar autorenew
       responses:
@@ -1025,7 +1025,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: getDomainWhoisPrivacy
+      operationId: getWhoisPrivacy
       tags:
         - registrar privacy
       responses:
@@ -1474,11 +1474,11 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/services':
     get:
-      description: List applied services.
+      description: List services applied to a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: listAppliedServices
+      operationId: listDomainAppliedServices
       tags:
         - domains services
       responses:
@@ -1504,7 +1504,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Service'
-      operationId: applyDomainService
+      operationId: applyServiceToDomain
       tags:
         - domains services
       requestBody:
@@ -1517,12 +1517,12 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     delete:
-      description: Unapply a service to a domain.
+      description: Unapply a service from a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Service'
-      operationId: unapplyDomainService
+      operationId: unapplyServiceFromDomain
       tags:
         - domains services
       responses:
@@ -1578,7 +1578,7 @@ paths:
           $ref: '#/components/responses/400'
   '/{account}/templates/{template}':
     get:
-      description: Get a specific template.
+      description: Get a template.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1598,7 +1598,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     patch:
-      description: Update a specific template.
+      description: Update a template.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1717,7 +1717,7 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Template'
-      operationId: applyTemplate
+      operationId: applyTemplateToDomain
       tags:
         - domains templates
       responses:

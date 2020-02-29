@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple domain registration auto-renewal API v
 {:toc}
 
 
-## Enable domain auto-renewal {#enable}
+## Enable domain auto-renewal {#enableDomainAutoRenewal}
 
     PUT /:account/registrar/domains/:domain/auto_renewal
 
@@ -35,7 +35,7 @@ Enable auto-renewal for the domain `example.com` in the account `1010`:
 Responds with HTTP 204 on success.
 
 
-## Disable domain auto-renewal {#disable}
+## Disable domain auto-renewal {#disableDomainAutoRenewal}
 
     DELETE /:account/registrar/domains/:domain/auto_renewal
 

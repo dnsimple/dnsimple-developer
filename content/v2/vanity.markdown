@@ -15,7 +15,7 @@ If the feature is not enabled, you will receive an HTTP 412 response code.
 </info>
 
 
-## Enable {#enable}
+## Enable {#enableVanityNameServers}
 
     PUT /:account/vanity/:domain
 
@@ -49,7 +49,7 @@ Responds with HTTP 200 on success.
 Responds with HTTP 400 if bad request.
 
 
-## Disable {#disable}
+## Disable {#disableVanityNameServers}
 
     DELETE /:account/vanity/:domain
 

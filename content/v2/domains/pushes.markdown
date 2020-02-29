@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple push API v2.
 {:toc}
 
 
-## Initiate a push {#initiate}
+## Initiate a push {#initiateDomainPush}
 
     POST /:account/domains/:domain/pushes
 
@@ -57,7 +57,7 @@ Responds with HTTP 400 if bad request.
 
 Responds with HTTP 400 if the validation fails.
 
-## List pushes {#list}
+## List pushes {#listPushes}
 
     GET /:account/pushes
 
@@ -86,7 +86,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## Accept a push {#accept}
+## Accept a push {#acceptPush}
 
     POST /:account/pushes/:push
 
@@ -131,7 +131,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Reject a push {#reject}
+## Reject a push {#rejectPush}
 
     DELETE /:account/pushes/:push
 

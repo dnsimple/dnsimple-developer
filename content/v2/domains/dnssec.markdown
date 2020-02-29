@@ -15,7 +15,7 @@ excerpt: This page documents the DNSimple DNSSEC API v2.
 This article describes a feature in Public Beta.
 </info>
 
-## Enable DNSSEC {#enable}
+## Enable DNSSEC {#enableDomainDnssec}
 
     POST /:account/domains/:domain/dnssec
 
@@ -101,7 +101,7 @@ Responds with HTTP 200.
 ~~~
 
 
-## List delegation signer records {#ds-record-list}
+## List delegation signer records {#listDomainDelegationSignerRecords}
 
     GET /:account/domains/:domain/ds_records
 
@@ -142,7 +142,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Create a delegation signer record {#ds-record-create}
+## Create a delegation signer record {#createDomainDelegationSignerRecord}
 
 You only need to create a delegation signer record manually if your domain is registered with DNSimple but hosted with another DNS provider that is signing your zone. To enable DNSSEC on a domain that is hosted with DNSimple, use the DNSSEC enable endpoint.
 
@@ -201,7 +201,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a delegation signer record {#ds-record-get}
+## Get a delegation signer record {#getDomainDelegationSignerRecord}
 
     GET /:account/domains/:domain/ds_records/:ds_record_id
 
@@ -230,7 +230,7 @@ Responds with HTTP 200 on success, renders the delegation signer record.
 ~~~
 
 
-## Delete a delegation signer record {#ds-record-delete}
+## Delete a delegation signer record {#deleteDomainDelegationSignerRecord}
 
     DELETE /:account/domains/:domain/ds_records/:ds_record_id
 
