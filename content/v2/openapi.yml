@@ -1272,7 +1272,7 @@ paths:
                     $ref: '#/components/schemas/ZoneRecord'
         '404':
           $ref: '#/components/responses/404'
-    put:
+    patch:
       description: Update a specific record in a zone.
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -1393,7 +1393,7 @@ paths:
                     $ref: '#/components/schemas/Contact'
         '404':
           $ref: '#/components/responses/404'
-    put:
+    patch:
       description: Update a specific contact.
       parameters:
         - $ref: '#/components/parameters/Account'
