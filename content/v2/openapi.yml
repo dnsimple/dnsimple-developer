@@ -2577,7 +2577,6 @@ components:
         registrant_id: null
         name: example-alpha.com
         unicode_name: example-alpha.com
-        token: domain-token
         state: hosted
         auto_renew: false
         private_whois: false
@@ -2596,8 +2595,6 @@ components:
         name:
           type: string
         unicode_name:
-          type: string
-        token:
           type: string
         state:
           type: string
