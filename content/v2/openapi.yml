@@ -268,7 +268,7 @@ paths:
           description: If DNSSEC is not enabled
   '/{account}/domains/{domain}/ds_records':
     get:
-      description: List Delegation Signer records for the domain.
+      description: Lists the Delegation Signer records for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -295,7 +295,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     post:
-      description: Add a Delegation Signer record to the domain.
+      description: Adds a Delegation Signer record to the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -319,13 +319,36 @@ paths:
         '404':
           $ref: '#/components/responses/404'
   '/{account}/domains/{domain}/ds_records/{ds}':
-    delete:
-      description: Remove a Delegation Signer record from the domain.
+    get:
+      description: Retrieves the details of a Delegation Signer record for a domain.
+      operationId: getDomainDelegationSignerRecord
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/DelegationSigner'
-      operationId: deleteDelegationSigner
+      tags:
+        - domain dnssec
+      responses:
+        '200':
+          description: Successfully retrieved Delegation Signer record
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DelegationSigner'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Removes a Delegation Signer record from the domain.
+      operationId: deleteDomainDelegationSignerRecord
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DelegationSigner'
       tags:
         - domain dnssec
       responses:
