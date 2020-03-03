@@ -4,26 +4,17 @@ This is the DNSimple API documentation built with [nanoc](http://nanoc.ws/).
 
 ## Setup
 
-Ruby 2 is required to build the site, all the dependencies are managed using Bundler, and yarn.
+1. Clone this repository
+2. Run `asdf install`
+3. Run `bundle install`
+4. Run `yarn`
+5. Start your local instance with `yarn live`
 
-```shell
-git clone https://github.com/dnsimple/dnsimple-developer.git
-cd dnsimple-developer
-bundle
-yarn
-```
-
-For a list of `nanoc` commands type
-
-```shell
-nanoc --help
-```
-
-To build the openapi.json file, run `rake compile` before starting nanoc.
+To build the openapi.json file, run `rake compile` before starting `yarn live`
 
 ## Development
 
-Use `yarn live` to concurrently compile JS and CSS dependencies along with running `nanoc live`.
+Use `yarn live` to concurrently compile JS and CSS dependencies.
 An autocompiler automatically compiles changed files on every HTTP request.
 
 ```shell
