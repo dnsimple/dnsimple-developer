@@ -15,7 +15,9 @@ desc "Compile the site"
 task :compile_nanoc do
   puts "Compiling site"
 
-  stdout = sh("yarn && yarn build && bundle exec nanoc compile")
+  stdout = Bundler.with_clean_env do
+    sh("yarn && yarn build && bundle exec nanoc compile")
+  end
 
   FileUtils.cp_r 'dist', 'output'
 
