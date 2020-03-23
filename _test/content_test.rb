@@ -16,7 +16,7 @@ describe "Content" do
     regexp   = /[#{BannedCharacters.join}]/
     affected = []
 
-    Dir["content/*"].each do |path| 
+    Dir["content/**/*.markdown"].each do |path|
       next unless File.file?(path)
       File.readlines(path).each do |line|
         affected << [path, line] if regexp.match(line)
