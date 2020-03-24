@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "copy-webpack-plugin": "^5.0.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
