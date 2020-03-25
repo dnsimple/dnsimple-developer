@@ -220,7 +220,7 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a webhook {#getWebhook}
+## Retrieve a webhook {#getWebhook}
 
     GET /:account/webhooks/:webhook
 

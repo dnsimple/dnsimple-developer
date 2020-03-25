@@ -56,7 +56,7 @@ Name | Description
 The default sorting policy is by descending `id`.
 
 
-## Get a certificate {#getCertificate}
+## Retrieve a certificate {#getCertificate}
 
     GET /:account/domains/:domain/certificates/:certificate
 
@@ -118,7 +118,7 @@ Responds with HTTP 200, renders the certificates.
 ~~~
 
 
-## Get a certificate private key {#getCertificatePrivateKey}
+## Retrieve a certificate private key {#getCertificatePrivateKey}
 
     GET /:account/domains/:domain/certificates/:certificate/private_key
 
@@ -149,7 +149,7 @@ Responds with HTTP 200, renders the certificate private key.
 ~~~
 
 
-## Let's Encrypt: Purchase a certificate {#purchaseLetsencryptCertificate}
+## Let's Encrypt: Order a certificate {#purchaseLetsencryptCertificate}
 
 <%= render "v2-preview" %>
 
@@ -273,7 +273,7 @@ You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification whe
 </tip>
 
 
-## Let's Encrypt: Renew a certificate {#purchaseRenewalLetsencryptCertificate}
+## Let's Encrypt: Order a certificate renewal {#purchaseRenewalLetsencryptCertificate}
 
 <%= render "v2-preview" %>
 

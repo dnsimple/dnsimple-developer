@@ -40,7 +40,7 @@ List applied services for domain with ID `1` in the account `1010`:
 
 ## Apply a service {#applyServiceToDomain}
 
-Apply a service to a domain.
+Applies a service to a domain.
 
 ~~~
 POST /:account/domains/:domain/services/:service
@@ -58,12 +58,14 @@ Name | Type | Description
 
 Apply a service with ID `2` to domain with ID `1`, in the account `1010`:
 
-    curl -H 'Authorization: Bearer <token>' \
-         -H 'Accept: application/json' \
-         -H 'Content-Type: application/json' \
-         -X POST \
-         -d '<json>' \
-         https://api.dnsimple.com/v2/1010/domains/1/services/2
+~~~
+curl -H 'Authorization: Bearer <token>' \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -X POST \
+     -d '<json>' \
+     https://api.dnsimple.com/v2/1010/domains/1/services/2
+~~~
 
 ### Input
 
@@ -78,7 +80,7 @@ Responds with HTTP 204 on success.
 
 ## Unapply a service {#unapplyServiceFromDomain}
 
-Unapply a service from a domain.
+Unapplies a service from a domain.
 
 ~~~
 DELETE /:account/domains/:domain/services/:service
@@ -96,10 +98,12 @@ Name | Type | Description
 
 Unapply the service with ID `2` from domain with ID `1`, in the account `1010`:
 
-    curl -H 'X-DNSimple-Token: <email>:<token>' \
-         -H 'Accept: application/json' \
-         -X DELETE \
-         https://api.dnsimple.com/v2/1010/domains/1/services/2
+~~~
+curl -H 'X-DNSimple-Token: <email>:<token>' \
+     -H 'Accept: application/json' \
+     -X DELETE \
+     https://api.dnsimple.com/v2/1010/domains/1/services/2
+~~~
 
 ### Response
 

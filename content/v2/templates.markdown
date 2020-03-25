@@ -105,7 +105,7 @@ Responds with HTTP 201 on success.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a template {#getTemplate}
+## Retrieve a template {#getTemplate}
 
     GET /:account/templates/:template
 

@@ -22,7 +22,7 @@ servers:
 paths:
   /accounts:
     get:
-      description: Gets the accounts the current authenticated entity has access to.
+      description: Lists the accounts the current authenticated entity has access to.
       parameters: []
       operationId: listAccounts
       tags:
@@ -39,6 +39,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Account'
+      summary: List accounts
   /whoami:
     get:
       description: Retrieves the details about the current authenticated entity used to access the API.
@@ -67,8 +68,8 @@ paths:
           $ref: '#/components/responses/429'
         default:
           $ref: '#/components/responses/Error'
+      summary: Whoami
   '/{account}/domains':
-    summary: Operations on domain collections.
     get:
       description: Lists the domains in the account.
       parameters:
@@ -81,7 +82,7 @@ paths:
         - domains
       responses:
         '200':
-          description: The domains in the specified account.
+          description: Domain listing.
           content:
             application/json:
               schema:
@@ -93,8 +94,10 @@ paths:
                       $ref: '#/components/schemas/Domain'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List domains
     post:
-      description: Adds a domain to the account.
+      summary: Create a domain
+      description: Creates a domain and the corresponding zone into the account.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createDomain
@@ -104,7 +107,7 @@ paths:
         $ref: '#/components/requestBodies/DomainCreate'
       responses:
         '201':
-          description: Domain successfully added to the account
+          description: Domain created.
           content:
             application/json:
               schema:
@@ -125,13 +128,14 @@ paths:
         - domains
       responses:
         '200':
-          description: Successfully retrieved domain
+          description: Domain retrieved.
         '400':
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a domain
     delete:
-      description: Delete a domain from an account.
+      description: Deletes a domain from an account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -140,14 +144,16 @@ paths:
         - domains
       responses:
         '204':
-          description: The domain was successfully deleted
+          description: Domain deleted.
         '400':
           $ref: '#/components/responses/400'
         '404':
+          description: Domain not found.
           $ref: '#/components/responses/404'
+      summary: Delete a domain
   '/{account}/domains/{domain}/collaborators':
     get:
-      description: List collaborators for a domain.
+      description: Lists collaborators for a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -172,8 +178,12 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: List collaborators
     post:
-      description: 'At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn’t have a DNSimple account, the system will invite her/him to register to DNSimple first and then to accept the collaboration invitation. In the other case, she/he is automatically added to the domain as collaborator. She/he can decide to reject the invitation later.'
+      description: |-
+        Adds a collaborator to a domain.
+
+        At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn’t have a DNSimple account, the system will invite her/him to register to DNSimple first and then to accept the collaboration invitation. In the other case, she/he is automatically added to the domain as collaborator. She/he can decide to reject the invitation later.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -193,9 +203,10 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Add a collaborator
   '/{account}/domains/{domain}/collaborators/{collaborator}':
     delete:
-      description: Remove a collaborator from the domain.
+      description: Removes a collaborator from the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -210,6 +221,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Remove a collaborator
   '/{account}/domains/{domain}/dnssec':
     get:
       description: Get DNSSEC status for the domain
@@ -230,6 +242,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve DNSSEC status
     post:
       description: Enable DNSSEC for the domain
       parameters:
@@ -249,6 +262,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Enable DNSSEC
     delete:
       description: Disable DNSSEC for the domain
       parameters:
@@ -266,6 +280,7 @@ paths:
           $ref: '#/components/responses/404'
         '428':
           description: If DNSSEC is not enabled
+      summary: Disable DNSSEC
   '/{account}/domains/{domain}/ds_records':
     get:
       description: Lists the Delegation Signer records for the domain.
@@ -294,6 +309,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: List delegation signer records
     post:
       description: Adds a Delegation Signer record to the domain.
       parameters:
@@ -318,6 +334,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Create a delegation signer record
   '/{account}/domains/{domain}/ds_records/{ds}':
     get:
       description: Retrieves the details of a Delegation Signer record for a domain.
@@ -342,6 +359,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a delegation signer record
     delete:
       description: Removes a Delegation Signer record from the domain.
       operationId: deleteDomainDelegationSignerRecord
@@ -358,6 +376,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Delete a delegation signer record
   '/{account}/domains/{domain}/email_forwards':
     get:
       description: List email forwards for the domain in the account.
@@ -386,6 +405,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: List email forwards
     post:
       description: Create a new email forward for the domain
       parameters:
@@ -410,6 +430,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Create an email forward
   '/{account}/domains/{domain}/email_forwards/{emailforward}':
     get:
       description: Get a specific email forward for the domain in the account.
@@ -434,6 +455,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve an email forward
     delete:
       description: Delete the email forward from the domain.
       parameters:
@@ -448,6 +470,7 @@ paths:
           description: Successfully deleted email forward.
         '404':
           $ref: '#/components/responses/404'
+      summary: Delete an email forward
   '/{account}/domains/{domain}/pushes':
     post:
       description: Initiates a pust of a domain to another account.
@@ -473,6 +496,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Initiate a push
   '/{account}/pushes':
     get:
       description: List pending pushes for the account.
@@ -495,6 +519,7 @@ paths:
                       $ref: '#/components/schemas/Push'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List pushes
   '/{account}/pushes/{push}':
     post:
       description: Accept a push.
@@ -513,6 +538,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Accept a push
     delete:
       description: Reject a push.
       parameters:
@@ -528,6 +554,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Reject a push
   '/{account}/domains/{domain}/certificates':
     get:
       description: List the certificates for a domain in the account.
@@ -554,6 +581,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
         '404':
           $ref: '#/components/responses/404'
+      summary: List certificates
   '/{account}/domains/{domain}/certificates/{certificate}':
     get:
       description: Get the details of a certificate.
@@ -576,6 +604,7 @@ paths:
                     $ref: '#/components/schemas/Certificate'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a certificate
   '/{account}/domains/{domain}/certificates/{certificate}/download':
     get:
       description: 'Get the PEM-encoded certificate, along with the root certificate and intermediate chain.'
@@ -598,6 +627,7 @@ paths:
                     $ref: '#/components/schemas/CertificateDownload'
         '404':
           $ref: '#/components/responses/404'
+      summary: Download a certificate
   '/{account}/domains/{domain}/certificates/{certificate}/private_key':
     get:
       description: Get the PEM-encoded certificate private key.
@@ -620,6 +650,7 @@ paths:
                     $ref: '#/components/schemas/CertificatePrivateKey'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a certificate private key
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
     post:
       description: "Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple."
@@ -641,6 +672,7 @@ paths:
                     $ref: '#/components/schemas/LetsencryptCertificatePurchase'
         '404':
           $ref: '#/components/responses/404'
+      summary: "Let's Encrypt: Order a certificate"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{purchaseId}/issue':
     post:
       description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
@@ -668,6 +700,7 @@ paths:
                     $ref: '#/components/schemas/Certificate'
         '404':
           $ref: '#/components/responses/404'
+      summary: "Let's Encrypt: Issue a certificate"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals':
     post:
       description: "Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
@@ -690,6 +723,7 @@ paths:
                     $ref: '#/components/schemas/LetsencryptCertificateRenewal'
         '404':
           $ref: '#/components/responses/404'
+      summary: "Let's Encrypt: Order a certificate renewal"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals/{renewalId}/issue':
     post:
       description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate renewed with DNSimple."
@@ -718,9 +752,10 @@ paths:
                     $ref: '#/components/schemas/Certificate'
         '404':
           $ref: '#/components/responses/404'
+      summary: "Let's Encrypt: Issue a certificate renewal"
   /tlds:
     get:
-      description: List all supported TLDs
+      description: Returns the list of TLDs supported for registration or transfer.
       parameters:
         - $ref: '#/components/parameters/SortTLDs'
       operationId: listTlds
@@ -738,9 +773,10 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/TLD'
+      summary: List TLDs
   '/tlds/{tld}':
     get:
-      description: Get a specific TLD details
+      description: Retrieves the details of a supported TLD.
       parameters:
         - $ref: '#/components/parameters/TLD'
       operationId: getTld
@@ -758,6 +794,7 @@ paths:
                     $ref: '#/components/schemas/TLD'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve the TLD
   '/tlds/{tld}/extended_attributes':
     get:
       description: 'Some TLDs require extended attributes when registering or transferring a domain. This API interface provides information on the extended attributes for any particular TLD. Extended attributes are extra TLD-specific attributes, required by the TLD registry to collect extra information about the registrant or legal agreements.'
@@ -780,6 +817,7 @@ paths:
                       $ref: '#/components/schemas/ExtendedAttribute'
         '404':
           $ref: '#/components/responses/404'
+      summary: Lists the TLD extended attributes
   '/{account}/registrar/domains/{domain}/check':
     get:
       description: Checks a domain name for availability.
@@ -799,6 +837,7 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainCheckResult'
+      summary: Check domain
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
       description: 'Get the premium price for a domain. Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.'
@@ -821,6 +860,7 @@ paths:
                     $ref: '#/components/schemas/DomainPremiumPrice'
         '400':
           $ref: '#/components/responses/400'
+      summary: Check domain premium price
   '/{account}/registrar/domains/{domain}/registrations':
     post:
       description: 'Register a domain name with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.'
@@ -844,6 +884,7 @@ paths:
                     $ref: '#/components/schemas/DomainRegistration'
         '400':
           $ref: '#/components/responses/400'
+      summary: Register a domain
   '/{account}/registrar/domains/{domain}/transfers':
     post:
       description: 'Transfer a domain name from another domain registrar into DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.'
@@ -867,6 +908,7 @@ paths:
                     $ref: '#/components/schemas/DomainTransfer'
         '400':
           $ref: '#/components/responses/400'
+      summary: Transfer a domain
   '/{account}/registrar/domains/{domain}/renew':
     post:
       description: 'Renew a domain name already registered with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.'
@@ -890,6 +932,7 @@ paths:
                     $ref: '#/components/schemas/DomainRenewal'
         '400':
           $ref: '#/components/responses/400'
+      summary: Renew a domain
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
     post:
       description: Prepare a domain for transferring out. This will unlock a domain and send the authorization code to the domain’s administrative contact.
@@ -904,6 +947,7 @@ paths:
           description: Domain prepared for transfer out.
         '400':
           $ref: '#/components/responses/400'
+      summary: Authorize a domain transfer out
   '/{account}/registrar/domains/{domain}/delegation':
     get:
       description: List name servers for the domain in the account.
@@ -933,6 +977,7 @@ paths:
                     - ns4.dnsimple.com
         '404':
           $ref: '#/components/responses/404'
+      summary: List domain name servers
     put:
       description: Update name servers for a domain
       parameters:
@@ -965,6 +1010,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Change domain name servers
   '/{account}/registrar/domains/{domain}/delegation/vanity':
     put:
       description: Delegate a domain to vanity name servers
@@ -994,6 +1040,7 @@ paths:
           $ref: '#/components/responses/404'
         '412':
           $ref: '#/components/responses/412-feature'
+      summary: Delegate to vanity name servers
     delete:
       description: De-delegate a domain from vanity name servers
       parameters:
@@ -1011,9 +1058,10 @@ paths:
           $ref: '#/components/responses/404'
         '412':
           $ref: '#/components/responses/412-feature'
+      summary: Dedelegate from vanity name servers
   '/{account}/registrar/domains/{domain}/auto_renewal':
     put:
-      description: Enable auto renewal.
+      description: Enables auto renewal for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1027,8 +1075,9 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Enable domain auto-renewal
     delete:
-      description: Disable auto renewal.
+      description: Disables auto renewal for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1042,6 +1091,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Disable domain auto-renewal
   '/{account}/registrar/domains/{domain}/whois_privacy':
     get:
       description: Get the WHOIS privacy details for a domain.
@@ -1063,6 +1113,7 @@ paths:
                     $ref: '#/components/schemas/WhoisPrivacy'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve the domain WHOIS privacy
     put:
       description: 'Enable whois privacy. Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS privacy will cause the service to be purchased for a period of 1 year. If WHOIS privacy was previously purchased and disabled, then calling this will enable the WHOIS privacy.'
       parameters:
@@ -1092,6 +1143,7 @@ paths:
                     $ref: '#/components/schemas/WhoisPrivacy'
         '404':
           $ref: '#/components/responses/404'
+      summary: Enable WHOIS privacy
     delete:
       description: Disable whois privacy.
       parameters:
@@ -1112,6 +1164,7 @@ paths:
                     $ref: '#/components/schemas/WhoisPrivacy'
         '404':
           $ref: '#/components/responses/404'
+      summary: Disable WHOIS privacy
   '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
     post:
       description: 'Renew whois privacy. Note that if the WHOIS privacy was never purchased for the domain or if there is another renewal order in progress, renewing WHOIS privacy will return an error.'
@@ -1135,9 +1188,10 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Renew WHOIS privacy
   '/{account}/zones':
     get:
-      description: List zones in the account.
+      description: Lists the zones in the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/FilterNameLike'
@@ -1159,6 +1213,7 @@ paths:
                       $ref: '#/components/schemas/Zone'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List zones
   '/{account}/zones/{zone}':
     get:
       description: Get details for a specific zone
@@ -1180,6 +1235,7 @@ paths:
                     $ref: '#/components/schemas/Zone'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a zone
   '/{account}/zones/{zone}/file':
     get:
       description: Get details for a zonefile for a specific zone
@@ -1201,6 +1257,7 @@ paths:
                     $ref: '#/components/schemas/ZoneFile'
         '404':
           $ref: '#/components/responses/404'
+      summary: Download a zone file
   '/{account}/zones/{zone}/distribution':
     get:
       description: Checks if a zone change is fully distributed to all our nameservers across the globe.
@@ -1224,6 +1281,7 @@ paths:
           $ref: '#/components/responses/404'
         '504':
           $ref: '#/components/schemas/Error'
+      summary: Check zone distribution
   '/{account}/zones/{zone}/records':
     get:
       description: List records for a zone
@@ -1249,6 +1307,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ZoneRecord'
+      summary: List zone records
     post:
       description: Create a zone record
       parameters:
@@ -1273,6 +1332,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Create a zone record
   '/{account}/zones/{zone}/records/{record}':
     get:
       description: Get a specific record in a zone.
@@ -1295,6 +1355,7 @@ paths:
                     $ref: '#/components/schemas/ZoneRecord'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a zone record
     patch:
       description: Update a specific record in a zone.
       parameters:
@@ -1320,6 +1381,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Update a zone record
     delete:
       description: Delete a specific record in a zone.
       parameters:
@@ -1334,6 +1396,7 @@ paths:
           description: Successfully deleted zone record.
         '404':
           $ref: '#/components/responses/404'
+      summary: Delete a zone record
   '/{account}/zones/{zone}/records/{record}/distribution':
     get:
       description: Checks if a zone record is fully distributed to all our nameservers across the globe.
@@ -1358,6 +1421,7 @@ paths:
           $ref: '#/components/responses/404'
         '504':
           $ref: '#/components/schemas/Error'
+      summary: Check zone record distribution
   '/{account}/contacts':
     get:
       description: List contacts in the account.
@@ -1381,6 +1445,7 @@ paths:
                       $ref: '#/components/schemas/Contact'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List contacts
     post:
       description: Create a contact in the account.
       parameters:
@@ -1395,6 +1460,7 @@ paths:
           description: Successfully created contact.
         '400':
           $ref: '#/components/responses/400'
+      summary: Create a contact
   '/{account}/contacts/{contact}':
     get:
       description: Get a specific account contact.
@@ -1416,6 +1482,7 @@ paths:
                     $ref: '#/components/schemas/Contact'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a contact
     patch:
       description: Update a specific contact.
       parameters:
@@ -1440,6 +1507,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Update a contact
     delete:
       description: Delete a specific contact.
       parameters:
@@ -1453,6 +1521,7 @@ paths:
           description: Successfully deleted contact.
         '404':
           $ref: '#/components/responses/404'
+      summary: Delete a contact
   /services:
     get:
       description: List all services
@@ -1475,6 +1544,7 @@ paths:
                       $ref: '#/components/schemas/Service'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List services
   '/services/{service}':
     get:
       description: Get details for a specific service
@@ -1495,6 +1565,7 @@ paths:
                     $ref: '#/components/schemas/Service'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a service
   '/{account}/domains/{domain}/services':
     get:
       description: List services applied to a domain.
@@ -1520,9 +1591,10 @@ paths:
                     $ref: '#/components/schemas/Pagination'
         '404':
           $ref: '#/components/responses/404'
+      summary: List applied services
   '/{account}/domains/{domain}/services/{service}':
     post:
-      description: Apply a service to a domain.
+      description: Applies a service to a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1539,8 +1611,9 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Apply a service
     delete:
-      description: Unapply a service from a domain.
+      description: Unapplies a service from a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1555,6 +1628,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Unapply a service
   '/{account}/templates':
     get:
       description: List templates in the account.
@@ -1578,6 +1652,7 @@ paths:
                       $ref: '#/components/schemas/Template'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List templates
     post:
       description: Create a template in the account.
       parameters:
@@ -1599,6 +1674,7 @@ paths:
                     $ref: '#/components/schemas/Template'
         '400':
           $ref: '#/components/responses/400'
+      summary: Create a template
   '/{account}/templates/{template}':
     get:
       description: Get a template.
@@ -1620,6 +1696,7 @@ paths:
                     $ref: '#/components/schemas/Template'
         '404':
           $ref: '#/components/responses/404'
+      summary: Retrieve a template
     patch:
       description: Update a template.
       parameters:
@@ -1642,6 +1719,7 @@ paths:
                     $ref: '#/components/schemas/Template'
         '404':
           $ref: '#/components/responses/404'
+      summary: Update a template
     delete:
       description: Delete a template.
       parameters:
@@ -1653,6 +1731,7 @@ paths:
       responses:
         '204':
           description: Successfully deleted a template
+      summary: Delete a template
   '/{account}/templates/{template}/records':
     get:
       description: List template records in the template.
@@ -1677,6 +1756,7 @@ paths:
                       $ref: '#/components/schemas/TemplateRecord'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
+      summary: List template records
     post:
       description: Create a template record.
       parameters:
@@ -1697,6 +1777,7 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/TemplateRecord'
+      summary: Create a template record
   '/{account}/templates/{template}/records/{record}':
     get:
       description: Get a template record.
@@ -1719,6 +1800,7 @@ paths:
                     $ref: '#/components/schemas/TemplateRecord'
         '404':
           $ref: '#/components/responses/404'
+      summary: Get a template record
     delete:
       description: Delete a template record.
       parameters:
@@ -1733,9 +1815,10 @@ paths:
           description: Successfully deleted a template record.
         '404':
           $ref: '#/components/responses/404'
+      summary: Delete a template record
   '/{account}/domains/{domain}/templates/{template}':
     post:
-      description: Apply a template to a domain.
+      description: Applies a template to a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1748,6 +1831,7 @@ paths:
           description: Successfully applied a template to the domain.
         '404':
           $ref: '#/components/responses/404'
+      summary: Apply a template
   '/{account}/vanity/{domain}':
     put:
       description: 'Enable Vanity Name Servers for the domain. This method sets up the appropriate A and AAAA records for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
@@ -1773,6 +1857,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Enable vanity name servers
     delete:
       description: 'Disable Vanity Name Servers for the domain. This method removes the A and AAAA records required for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
       parameters:
@@ -1788,6 +1873,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Disable vanity name servers
   '/{account}/webhooks':
     get:
       description: List webhooks in the account.
@@ -1809,6 +1895,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Webhook'
+      summary: List webhooks
     post:
       description: Create a webhook
       parameters:
@@ -1828,6 +1915,7 @@ paths:
                     $ref: '#/components/schemas/Webhook'
         '400':
           $ref: '#/components/responses/400'
+      summary: Create a webhook
   '/{account}/webhooks/{webhook}':
     get:
       description: Get details for a webhook.
@@ -1847,6 +1935,7 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Webhook'
+      summary: Retrieve a webhook
     delete:
       description: Delete a webhook.
       parameters:
@@ -1858,6 +1947,7 @@ paths:
       responses:
         '204':
           description: Successfully deleted a webhook.
+      summary: Delete a webhook
 components:
   securitySchemes:
     basicAuth:

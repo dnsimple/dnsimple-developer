@@ -24,6 +24,8 @@ Value | Description
 
 ## List TLDs {#listTlds}
 
+Returns the list of TLDs supported for registration or transfer.
+
 ~~~
 GET /tlds
 ~~~
@@ -55,7 +57,9 @@ Name | Description
 The default sorting policy is by ascending `tld`.
 
 
-## Get TLD details {#getTld}
+## Retrieve the TLD {#getTld}
+
+Retrieves the details of a supported TLD.
 
 ~~~
 GET /tlds/:tld
@@ -84,7 +88,7 @@ curl -H 'Authorization: Bearer <token>' \
 ~~~
 
 
-## Get TLD Extended Attributes {#getTldExtendedAttributes}
+## Lists the TLD Extended Attributes {#getTldExtendedAttributes}
 
 ~~~
 GET /tlds/:tld/extended_attributes

@@ -46,7 +46,7 @@ Responds with HTTP 201.
 ~~~
 
 
-## Disable DNSSEC {#disable}
+## Disable DNSSEC {#disableDomainDnssec}
 
     DELETE /:account/domains/:domain/dnssec
 
@@ -71,7 +71,7 @@ Disable DNSSEC for the domain `example.com` in the account `1010`:
 Responds with HTTP 204 (No content). Or HTTP 428 if DNSSEC is not currently enabled.
 
 
-## Get DNSSEC {#get}
+## Retrieve DNSSEC status {#getDomainDnssec}
 
     GET /:account/domains/:domain/dnssec
 
@@ -201,7 +201,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a delegation signer record {#getDomainDelegationSignerRecord}
+## Retrieve a delegation signer record {#getDomainDelegationSignerRecord}
 
     GET /:account/domains/:domain/ds_records/:ds_record_id
 
@@ -230,7 +230,7 @@ Responds with HTTP 200 on success, renders the delegation signer record.
 ~~~
 
 
-## Delete a delegation signer record {#deleteDomainDelegationSignerRecord}
+## Delete a Delegation Signer record {#deleteDomainDelegationSignerRecord}
 
     DELETE /:account/domains/:domain/ds_records/:ds_record_id
 

@@ -107,7 +107,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get an email forward {#getEmailForward}
+## Retrieve an email forward {#getEmailForward}
 
     GET /:account/domains/:domain/email_forward/:email_forward
 

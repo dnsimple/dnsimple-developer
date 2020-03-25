@@ -128,7 +128,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a domain {#getDomain}
+## Retrieve a domain {#getDomain}
 
 Retrieves the details of an existing domain.
 

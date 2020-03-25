@@ -11,6 +11,8 @@ excerpt: This page documents the DNSimple domain templates API v2.
 
 ## Apply a template {#applyTemplateToDomain}
 
+Applies a template to a domain.
+
 ~~~
 POST /:account/domains/:domain/templates/:template
 ~~~
@@ -27,11 +29,13 @@ Name | Type | Description
 
 Apply the template with the ID `1` in the domain `example.com`, in the account `1010`:
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          https://api.dnsimple.com/v2/1010/domains/example.com/templates/1
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://api.dnsimple.com/v2/1010/domains/example.com/templates/1
+~~~
 
 ### Response
 

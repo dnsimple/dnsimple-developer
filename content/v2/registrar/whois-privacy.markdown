@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple WHOIS privacy API v2.
 Enable and disable WHOIS privacy on registered domains.
 
 
-## Get WHOIS privacy for a domain {#getWhoisPrivacy}
+## Retrieve the domain WHOIS privacy {#getWhoisPrivacy}
 
     GET /:account/registrar/domains/:domain/whois_privacy
 
@@ -42,7 +42,7 @@ Responds with HTTP 200 if WHOIS privacy is purchased for the domain.
 
 Responds with HTTP 404 if WHOIS privacy is not purchased.
 
-## Enable whois privacy {#enableWhoisPrivacy}
+## Enable WHOIS privacy {#enableWhoisPrivacy}
 
       PUT /:account/registrar/domains/:domain/whois_privacy
 
@@ -78,7 +78,7 @@ Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased
 <%= pretty_print_fixture("/api/enableWhoisPrivacy/success.http") %>
 ~~~
 
-## Disable whois privacy {#disableWhoisPrivacy}
+## Disable WHOIS privacy {#disableWhoisPrivacy}
 
       DELETE /:account/registrar/domains/:domain/whois_privacy
 
@@ -112,7 +112,7 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 <%= pretty_print_fixture("/api/disableWhoisPrivacy/success.http") %>
 ~~~
 
-## Renew whois privacy {#renewWhoisPrivacy}
+## Renew WHOIS privacy {#renewWhoisPrivacy}
 
 ~~~
 POST /:account/registrar/domains/:domain/whois_privacy/renewals

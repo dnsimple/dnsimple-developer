@@ -38,7 +38,7 @@ When creating/updating a record, you can **optionally** select one or more regio
 **If you don't select any, the record will appear in all of them (`global`).**
 
 
-## List records for a zone {#listZoneRecords}
+## List zone records {#listZoneRecords}
 
 ~~~
 GET /:account/zones/:zone/records
@@ -162,7 +162,7 @@ Responds with HTTP 400 if bad request.
 Responds with HTTP 400 if the validation fails.
 
 
-## Get a zone record {#getZoneRecord}
+## Retrieve a zone record {#getZoneRecord}
 
 ~~~
 GET /:account/zones/:zone/records/:record
@@ -289,9 +289,11 @@ Responds with HTTP 204 on success.
 
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
-    GET /:account/zones/:zone/records/:record/distribution
-
 Checks if a zone change is fully distributed to all our nameservers across the globe.
+
+~~~
+GET /:account/zones/:zone/records/:record/distribution
+~~~
 
 <note>
 This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.

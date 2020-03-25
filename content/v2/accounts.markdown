@@ -16,15 +16,19 @@ Please refer to the definition of the `Account` data type in [our OpenAPI docume
 
 ## List accounts {#listAccounts}
 
-    GET /accounts
+Lists the accounts the current authenticated entity has access to.
 
-Gets the accounts the current authenticated entity has access to.
+~~~
+GET /accounts
+~~~
 
 ### Example
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/accounts
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/accounts
+~~~
 
 ### Response
 

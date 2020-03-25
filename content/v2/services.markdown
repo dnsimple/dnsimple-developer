@@ -49,7 +49,7 @@ Name | Description
 The default sorting policy is by ascending `id`.
 
 
-## Get a service {#getService}
+## Retrieve a service {#getService}
 
     GET /services/:service
 

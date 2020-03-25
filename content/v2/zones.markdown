@@ -9,18 +9,18 @@ excerpt: This page documents the DNSimple zones API v2.
 {:toc}
 
 
-## Contact attributes {#zones-attributes}
+## Zone attributes {#zones-attributes}
 
 Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List zones {#listZones}
 
+Lists the zones in the account.
+
 ~~~
 GET /:account/zones
 ~~~
-
-List zones in the account.
 
 ### Parameters
 
@@ -68,9 +68,11 @@ Responds with HTTP 200.
 ~~~
 
 
-## Get a zone {#getZone}
+## Retrieve a zone {#getZone}
 
-    GET /:account/zones/:zone
+~~~
+GET /:account/zones/:zone
+~~~
 
 ### Parameters
 
@@ -95,7 +97,8 @@ Responds with HTTP 200, renders the zone.
 <%= pretty_print_fixture("/api/getZone/success.http") %>
 ~~~
 
-## Get a zone file {#getZoneFile}
+
+## Download a zone file {#getZoneFile}
 
     GET /:account/zones/:zone/file
 

@@ -11,7 +11,11 @@ excerpt: This page documents the DNSimple domain registration auto-renewal API v
 
 ## Enable domain auto-renewal {#enableDomainAutoRenewal}
 
-    PUT /:account/registrar/domains/:domain/auto_renewal
+Enables auto renewal for the domain.
+
+~~~
+PUT /:account/registrar/domains/:domain/auto_renewal
+~~~
 
 ### Parameters
 
@@ -37,7 +41,11 @@ Responds with HTTP 204 on success.
 
 ## Disable domain auto-renewal {#disableDomainAutoRenewal}
 
-    DELETE /:account/registrar/domains/:domain/auto_renewal
+Disables auto renewal for the domain.
+
+~~~
+DELETE /:account/registrar/domains/:domain/auto_renewal
+~~~
 
 ### Parameters
 
