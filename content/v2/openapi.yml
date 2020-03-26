@@ -1267,7 +1267,11 @@ paths:
         '404':
           $ref: '#/components/responses/404'
         '504':
-          $ref: '#/components/schemas/Error'
+          description: The server failed to perform the check.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       summary: Check zone distribution
   '/{account}/zones/{zone}/records':
     get:
@@ -1407,7 +1411,11 @@ paths:
         '404':
           $ref: '#/components/responses/404'
         '504':
-          $ref: '#/components/schemas/Error'
+          description: The server failed to perform the check.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       summary: Check zone record distribution
   '/{account}/contacts':
     get:
