@@ -4150,6 +4150,7 @@ components:
     ZoneRecordRegion:
       type: string
       enum:
+        - global
         - SV1
         - ORD
         - IAD
@@ -4522,7 +4523,7 @@ components:
                   $ref: '#/components/schemas/ZoneRecordRegion'
             example:
               content: mxb.example.com
-              ttl: '3600,'
+              ttl: 3600
               priority: 20
               regions:
                 - global
