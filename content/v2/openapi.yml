@@ -2313,6 +2313,19 @@ components:
         plan_identifier: dnsimple-professional
         created_at: '2015-09-18T23:04:37Z'
         updated_at: '2016-06-09T20:03:39Z'
+    WebhookAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+        display:
+          type: string
+        identifier:
+          type: string
+      example:
+        id: 1
+        display: Personal
+        identifier: example@example.com
     AccountInvitation:
       type: object
       properties:
@@ -3980,18 +3993,26 @@ components:
         account:
           description: 'The account is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the id, a unique identifier and a display text representation.'
           allOf:
-            - $ref: '#/components/schemas/Account'
+            - $ref: '#/components/schemas/WebhookAccount'
         actor:
           description: 'The actor is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process. The actor object has three attributes: id, which is a unique identifier for the actor, entity which describes what type the actor is, and pretty, which is a printable representation of the actor for use in display.'
           allOf:
             - $ref: '#/components/schemas/Actor'
       example:
-        name: object.action
+        name: domain.create
         api_version: v2
         request_identifier: fca1f30a-4219-4278-9272-c00e5cc2eb5c
         data: {}
         account: {}
         actor: {}
+        account:
+          id: 123
+          display: "Personal"
+          identifier: "example@example.com"
+        actor:
+          id: 1120
+          entity: "user"
+          pretty: "example@example.com"
     WhoisPrivacy:
       type: object
       properties:
