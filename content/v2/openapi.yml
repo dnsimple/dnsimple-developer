@@ -968,12 +968,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/DomainNameServer'
-                example:
-                  data:
-                    - ns1.dnsimple.com
-                    - ns2.dnsimple.com
-                    - ns3.dnsimple.com
-                    - ns4.dnsimple.com
         '404':
           $ref: '#/components/responses/404'
       summary: List domain name servers
@@ -999,12 +993,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/DomainNameServer'
-                example:
-                  data:
-                    - ns1.dnsimple.com
-                    - ns2.dnsimple.com
-                    - ns3.dnsimple.com
-                    - ns4.dnsimple.com
         '400':
           $ref: '#/components/responses/400'
         '404':
