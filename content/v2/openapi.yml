@@ -1910,7 +1910,34 @@ paths:
                     $ref: '#/components/schemas/Webhook'
         '400':
           $ref: '#/components/responses/400'
+      callbacks:
+        webhook:
+          '{$request.body#/url}':
+            post:
+              operationId: receiveWebhook
+              summary: 'Receive webhook notification'
+              requestBody:
+                required: true
+                description: Webhook payload
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/WebhookPayload'
+              responses:
+                '200':
+                  description: Webhook successfully processed
       summary: Create a webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+              required:
+                - url
   '/{account}/webhooks/{webhook}':
     get:
       description: Get details for a webhook.
@@ -1951,20 +1978,6 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-  links: {}
-  callbacks:
-    webhook:
-      $webhookUrl:
-        post:
-          requestBody:
-            description: The webhook payload
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/WebhookPayload'
-          responses:
-            '200':
-              description: Webhook successfully processed
   parameters:
     Account:
       name: account
@@ -3837,6 +3850,7 @@ components:
           type: integer
         url:
           type: string
+          format: uri
       example:
         id: 1
         url: 'https://webhook.test'
