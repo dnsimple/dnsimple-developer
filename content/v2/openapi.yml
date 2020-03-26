@@ -1851,7 +1851,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/NameServer'
+                      $ref: '#/components/schemas/VanityNameServer'
         '400':
           $ref: '#/components/responses/400'
         '404':
