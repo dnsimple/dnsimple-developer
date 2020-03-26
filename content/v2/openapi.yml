@@ -2340,8 +2340,9 @@ components:
         invitation_sent_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         invitation_accepted_at:
-          $ref: '#/components/schemas/DatetimeISO8601'
           nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/DatetimeISO8601'
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         updated_at:
@@ -2439,9 +2440,8 @@ components:
         server:
           type: string
         root:
-          type:
-            - string
-            - 'null'
+          nullable: true
+          type: string
         chain:
           type: array
           items:
@@ -2679,9 +2679,8 @@ components:
         account_id:
           type: integer
         registrant_id:
-          type:
-            - integer
-            - 'null'
+          nullable: true
+          type: integer
         name:
           type: string
         unicode_name:
@@ -3510,8 +3509,9 @@ components:
         updated_at:
           $ref: '#/components/schemas/DatetimeISO8601'
         accepted_at:
-          $ref: '#/components/schemas/DatetimeISO8601'
           nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/DatetimeISO8601'
       example:
         id: 1
         domain_id: 100
@@ -4118,6 +4118,7 @@ components:
         zone_id:
           type: string
         parent_id:
+          nullable: true
           type: integer
           description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
         name:
