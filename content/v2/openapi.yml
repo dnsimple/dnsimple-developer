@@ -80,13 +80,12 @@ paths:
       operationId: listDomains
       tags:
         - domains
+      summary: List domains
       responses:
         '200':
-          description: Domain listing.
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   data:
                     type: array
@@ -94,7 +93,8 @@ paths:
                       $ref: '#/components/schemas/Domain'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-      summary: List domains
+                type: object
+          description: Domain listing.
     post:
       summary: Create a domain
       description: Creates a domain and the corresponding zone into the account.
@@ -4002,9 +4002,19 @@ components:
         name: domain.create
         api_version: v2
         request_identifier: fca1f30a-4219-4278-9272-c00e5cc2eb5c
-        data: {}
-        account: {}
-        actor: {}
+        data:
+          domain:
+            id: 1
+            account_id: 1010
+            registrant_id: null
+            name: example-alpha.com
+            unicode_name: example-alpha.com
+            state: hosted
+            auto_renew: false
+            private_whois: false
+            expires_on: null
+            created_at: '2014-12-06T15:56:55Z'
+            updated_at: '2015-12-09T00:20:56Z'     
         account:
           id: 123
           display: "Personal"
