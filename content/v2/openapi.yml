@@ -148,7 +148,6 @@ paths:
         '400':
           $ref: '#/components/responses/400'
         '404':
-          description: Domain not found.
           $ref: '#/components/responses/404'
       summary: Delete a domain
   '/{account}/domains/{domain}/collaborators':
@@ -3565,10 +3564,8 @@ components:
           description: The default subdomain used when creating DNS records
         created_at:
           $ref: '#/components/schemas/DatetimeISO8601'
-          description: When the service was first added to DNSimple
         updated_at:
           $ref: '#/components/schemas/DatetimeISO8601'
-          description: When the service was last changed in DNSimple
         settings:
           type: array
           items:
@@ -3993,11 +3990,13 @@ components:
             - $ref: '#/components/schemas/EventZoneDelete'
           description: The data attribute contains any data for the object or objects related to the event. Each object in the data object will be keyed on an object type name.
         account:
-          $ref: '#/components/schemas/Account'
           description: 'The account is an object describing which account the event occurred in. It is a lightweight representation of the account and includes the id, a unique identifier and a display text representation.'
+          allOf:
+            - $ref: '#/components/schemas/Account'
         actor:
-          $ref: '#/components/schemas/Actor'
           description: 'The actor is an object describing the entity that triggered the event. This may be a user if the event was triggered due to activity via the UI or API, or it may be a system entity if the activity occurred as part of an asynchronous process. The actor object has three attributes: id, which is a unique identifier for the actor, entity which describes what type the actor is, and pretty, which is a printable representation of the actor for use in display.'
+          allOf:
+            - $ref: '#/components/schemas/Actor'
       example:
         name: object.action
         api_version: v2
