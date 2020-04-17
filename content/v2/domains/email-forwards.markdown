@@ -109,7 +109,7 @@ Responds with HTTP 400 if the validation fails.
 
 ## Retrieve an email forward {#getEmailForward}
 
-    GET /:account/domains/:domain/email_forward/:email_forward
+    GET /:account/domains/:domain/email_forwards/:email_forward
 
 ### Parameters
 
@@ -138,7 +138,7 @@ Responds with HTTP 200, renders the email forward.
 
 ## Delete an email forward {#deleteEmailForward}
 
-    DELETE /domains/:domain/email_forwards/:email_forward
+    DELETE /:account/domains/:domain/email_forwards/:email_forward
 
 Delete the email forward from the domain.
 
