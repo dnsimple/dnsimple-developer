@@ -29,7 +29,7 @@ Initiate a push from the source account `1010` for the `example.com` domain:
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/domains/example.com
+          https://api.dnsimple.com/v2/1010/domains/example.com/pushes
 
 ### Input
 
