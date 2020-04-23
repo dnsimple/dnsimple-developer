@@ -908,7 +908,7 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Transfer a domain
-  '/{account}/registrar/domains/{domain}/renew':
+  '/{account}/registrar/domains/{domain}/renewals':
     post:
       description: 'Renew a domain name already registered with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.'
       parameters:
