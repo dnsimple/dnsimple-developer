@@ -908,6 +908,30 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Transfer a domain
+  '/{account}/registrar/domains/{domain}/transfers/{transfer}':
+    get:
+      description: Retrieves the details of an existing domain transfer.
+      summary: Retrieves a domain transfer
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainTransfer'
+      operationId: getDomainTransfer
+      tags:
+        - registrar
+        - transfer
+      responses:
+        '200':
+          description: Domain transfer details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransfer'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/renewals':
     post:
       description: 'Renew a domain name already registered with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.'
@@ -2021,6 +2045,13 @@ components:
       description: The domain name or id
       schema:
         type: string
+    DomainTransfer:
+      name: domaintransfer
+      in: path
+      required: true
+      description: The Domain Transfer record id
+      schema:
+        type: integer
     EmailForward:
       name: emailforward
       in: path
