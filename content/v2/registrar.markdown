@@ -254,7 +254,7 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 `:domain` | `string` | The domain name
-`:domain_transfer` | `id` | The domain transfer id
+`:domain_transfer` | `integer` | The domain transfer id
 
 ### Example
 
