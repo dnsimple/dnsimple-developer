@@ -240,6 +240,39 @@ Responds with HTTP 201 on success, returns the domain.
 
 Responds with HTTP 400 if the validation fails.
 
+## Retrieve a Domain Transfer {#getDomainTransfer}
+
+    GET /:account/registrar/domains/:domain/transfers/:domain_transfer
+
+Retrieves the details of an existing domain transfer.
+
+Your account must be active for this command to complete successfully.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_transfer` | `id` | The domain transfer id
+
+### Example
+
+Get the domain transfer with ID `1` in the account `1010`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/1
+~~~
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain transfer.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainTransfer/success.http") %>
+~~~
 
 ## Renew a domain {#renewDomain}
 
