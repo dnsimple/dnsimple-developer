@@ -2049,7 +2049,7 @@ components:
       name: domaintransfer
       in: path
       required: true
-      description: The Domain Transfer record id
+      description: The domain transfer id
       schema:
         type: integer
     EmailForward:
