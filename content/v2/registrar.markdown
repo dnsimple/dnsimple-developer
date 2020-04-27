@@ -242,11 +242,11 @@ Responds with HTTP 400 if the validation fails.
 
 ## Retrieve a Domain Transfer {#getDomainTransfer}
 
-    GET /:account/registrar/domains/:domain/transfers/:domain_transfer
+~~~
+GET /:account/registrar/domains/:domain/transfers/:domain_transfer
+~~~
 
 Retrieves the details of an existing domain transfer.
-
-Your account must be active for this command to complete successfully.
 
 ### Parameters
 
