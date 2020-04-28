@@ -59,9 +59,9 @@ The `actor` is an object describing the entity that triggered the event. This ma
 
 ### Responding to Webhooks
 
-To confirm receipt of a webhook, your server must respond with an HTTP 200 response. Any other response will be considered an error and will cause the deliviery to be retried.
+To confirm receipt of a webhook, your server must respond with an HTTP 200 response. Any other response will be considered an error and will cause the deliviery to be re-tried.
 
-_Note: The number of retries is limited, we will stop the delivery attempts after a while._
+_Note: The number of re-tries is limited. We will stop delivery attempts after a while._
 
 ### Event List
 
