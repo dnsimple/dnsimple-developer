@@ -908,6 +908,29 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Transfer a domain
+    delete:
+      description: Cancel an in progress domain transfer.
+      summary: Cancel a domain transfer.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainTransfer'
+      operationId: cancelDomainTransfer
+      tags:
+        - registrar
+        - transfer
+      responses:
+        '202':
+          description: Successfully requested the cancellation of a domain transfer.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransfer'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/transfers/{transfer}':
     get:
       description: Retrieves the details of an existing domain transfer.
