@@ -1,4 +1,3 @@
-// Usage: TOKEN=token go run cmd/auth/auth.go
 package main
 
 import (
