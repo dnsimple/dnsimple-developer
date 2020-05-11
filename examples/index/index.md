@@ -1,0 +1,9 @@
+- client-new
+- client-baseurl
+- client-useragent
+- client-authentication
+- scenario-auth
+- errors-httpconn
+- errors-badauth
+- errors-request
+- errors-validation
