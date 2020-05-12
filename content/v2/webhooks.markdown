@@ -68,8 +68,10 @@ The following events are available:
 - account.update
 - account.billing\_settings\_update
 - account.payment\_details\_update
-- account.add\_user
-- account.remove\_user
+- account.user\_invite
+- account.user\_invitation\_accept
+- account.user\_invitation\_revoke
+- account.user\_remove
 - certificate.issue
 - certificate.reissue
 - certificate.remove\_private\_key
