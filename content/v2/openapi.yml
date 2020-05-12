@@ -2900,6 +2900,8 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
+        status_description:
+          type: string
         created_at:
           $ref: '#/components/schemas/DateTimeISO8601'
         updated_at:
