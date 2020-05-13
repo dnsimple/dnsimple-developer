@@ -1254,7 +1254,7 @@ paths:
       summary: Download a zone file
   '/{account}/zones/{zone}/distribution':
     get:
-      description: Checks if a zone change is fully distributed to all our nameservers across the globe.
+      description: Checks if a zone change is fully distributed to all our name servers across the globe.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1397,7 +1397,7 @@ paths:
       summary: Delete a zone record
   '/{account}/zones/{zone}/records/{record}/distribution':
     get:
-      description: Checks if a zone record is fully distributed to all our nameservers across the globe.
+      description: Checks if a zone record is fully distributed to all our name servers across the globe.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
