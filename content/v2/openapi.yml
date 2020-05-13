@@ -129,6 +129,13 @@ paths:
       responses:
         '200':
           description: Domain retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Domain'          
         '400':
           $ref: '#/components/responses/400'
         '404':
