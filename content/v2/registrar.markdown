@@ -240,13 +240,14 @@ Responds with HTTP 201 on success, returns the domain.
 
 Responds with HTTP 400 if the validation fails.
 
+
 ## Retrieve a Domain Transfer {#getDomainTransfer}
+
+Retrieves the details of an existing domain transfer.
 
 ~~~
 GET /:account/registrar/domains/:domain/transfers/:domain_transfer
 ~~~
-
-Retrieves the details of an existing domain transfer.
 
 ### Parameters
 
@@ -274,13 +275,14 @@ Responds with HTTP 200 on success, returns the domain transfer.
 <%= pretty_print_fixture("/api/getDomainTransfer/success.http") %>
 ~~~
 
+
 ## Cancel a Domain Transfer {#cancelDomainTransfer}
+
+Cancels an in progress domain transfer.
 
 ~~~
 DELETE /:account/registrar/domains/:domain/transfers/:domain_transfer
 ~~~
-
-Cancel an in progress domain transfer.
 
 ### Parameters
 
@@ -308,6 +310,7 @@ Responds with HTTP 202 on success, returns the domain transfer.
 ~~~json
 <%= pretty_print_fixture("/api/cancelDomainTransfer/success.http") %>
 ~~~
+
 
 ## Renew a domain {#renewDomain}
 
