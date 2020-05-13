@@ -897,7 +897,7 @@ paths:
         $ref: '#/components/requestBodies/DomainTransfer'
       responses:
         '201':
-          description: Domain transfer created
+          description: Domain transfer created.
           content:
             application/json:
               schema:
@@ -933,8 +933,8 @@ paths:
         '404':
           $ref: '#/components/responses/404'
     delete:
-      description: Cancel an in progress domain transfer.
-      summary: Cancel a domain transfer.
+      description: Cancels an in progress domain transfer.
+      summary: Cancel a domain transfer
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -945,7 +945,7 @@ paths:
         - transfer
       responses:
         '202':
-          description: Successfully requested the cancellation of a domain transfer.
+          description: Domain transfer cancellation accepted and queued for processing.
           content:
             application/json:
               schema:
