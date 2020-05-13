@@ -241,6 +241,77 @@ Responds with HTTP 201 on success, returns the domain.
 Responds with HTTP 400 if the validation fails.
 
 
+## Retrieve a Domain Transfer {#getDomainTransfer}
+
+Retrieves the details of an existing domain transfer.
+
+~~~
+GET /:account/registrar/domains/:domain/transfers/:domain_transfer
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_transfer` | `integer` | The domain transfer id
+
+### Example
+
+Get the domain transfer with ID `1` in the account `1010`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/1
+~~~
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain transfer.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainTransfer/success.http") %>
+~~~
+
+
+## Cancel a Domain Transfer {#cancelDomainTransfer}
+
+Cancels an in progress domain transfer.
+
+~~~
+DELETE /:account/registrar/domains/:domain/transfers/:domain_transfer
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_transfer` | `integer` | The domain transfer id
+
+### Example
+
+Cancel the in progress domain transfer with ID `1` in the account `1010`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -X DELETE \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/1
+~~~
+
+### Response
+
+Responds with HTTP 202 on success, returns the domain transfer.
+
+~~~json
+<%= pretty_print_fixture("/api/cancelDomainTransfer/success.http") %>
+~~~
+
+
 ## Renew a domain {#renewDomain}
 
     POST /:account/registrar/domains/:domain/renewals
