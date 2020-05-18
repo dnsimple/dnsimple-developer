@@ -1,19 +1,21 @@
-HTTP/2 200 
-server: nginx
-date: Mon, 18 May 2020 14:10:58 GMT
-content-type: application/json; charset=utf-8
-x-ratelimit-limit: 2400
-x-ratelimit-remaining: 2386
-x-ratelimit-reset: 1589813835
-etag: W/"aff08d0d50a84631ff9e0a27853b6f11"
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 2904ae28-a562-41a1-8858-db0676f12081
-x-runtime: 0.082581
-x-frame-options: DENY
-x-content-type-options: nosniff
-x-xss-protection: 1; mode=block
-x-download-options: noopen
-x-permitted-cross-domain-policies: none
-strict-transport-security: max-age=31536000
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 18 May 2020 17:03:54 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-RateLimit-Limit: 2400
+X-RateLimit-Remaining: 2396
+X-RateLimit-Reset: 1589824450
+ETag: W/"9f81d47057f629dd921ccabff433ccac"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 7af4e96b-471d-4619-a0b6-b5d0d7261e75
+X-Runtime: 0.060273
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Strict-Transport-Security: max-age=31536000
 
-{"data":{"id":357,"domain_id":180716,"registrant_id":2459,"state":"cancelled","auto_renew":false,"whois_privacy":false,"premium_price":null,"status_description":"Canceled by customer","created_at":"2020-05-18T14:01:39Z","updated_at":"2020-05-18T14:10:01Z"}}
+{"data":{"id":358,"domain_id":180716,"registrant_id":2459,"state":"cancelled","auto_renew":false,"whois_privacy":false,"premium_price":null,"status_description":"Canceled by customer","created_at":"2020-05-18T16:54:15Z","updated_at":"2020-05-18T17:00:02Z"}}
