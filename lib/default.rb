@@ -4,7 +4,6 @@ require 'json'
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::XMLSitemap
 
-
 ROOT = File.expand_path("../../", __FILE__)
 
 def read_http_fixture(filename)

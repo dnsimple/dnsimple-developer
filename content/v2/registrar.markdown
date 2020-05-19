@@ -259,12 +259,12 @@ Name | Type | Description
 
 ### Example
 
-Get the domain transfer with ID `1` in the account `1010`:
+Get the domain transfer with ID `358` in the account `1010`:
 
 ~~~
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/1
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/358
 ~~~
 
 ### Response
@@ -294,13 +294,13 @@ Name | Type | Description
 
 ### Example
 
-Cancel the in progress domain transfer with ID `1` in the account `1010`:
+Cancel the in progress domain transfer with ID `358` in the account `1010`:
 
 ~~~
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X DELETE \
-      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/1
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/358
 ~~~
 
 ### Response
