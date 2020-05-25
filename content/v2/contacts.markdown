@@ -101,7 +101,7 @@ Name | Type | Description
 `country`           | `string` | **Required**.
 `email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
-`fax`               | `string` | **Required**.
+`fax`               | `string` |
 
 ##### Example
 
