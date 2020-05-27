@@ -2,7 +2,7 @@ HTTP/1.1 201 Created
 Server: nginx
 Date: Thu, 04 Feb 2016 14:26:51 GMT
 Content-Type: application/json; charset=utf-8
-Transfer-Encoding: chunked
+Transfer-Encoding: identity
 Connection: keep-alive
 Status: 201 Created
 X-RateLimit-Limit: 4000

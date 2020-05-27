@@ -2,7 +2,7 @@ HTTP/1.1 200 OK
 Server: nginx
 Date: Wed, 20 Jul 2016 09:04:24 GMT
 Content-Type: application/json; charset=utf-8
-Transfer-Encoding: chunked
+Transfer-Encoding: identity
 Connection: keep-alive
 X-RateLimit-Limit: 2400
 X-RateLimit-Remaining: 2398
