@@ -2223,8 +2223,8 @@ components:
           - 'id:desc'
           - 'name:asc'
           - 'name:desc'
-          - 'expires_at:asc'
-          - 'expires_at:desc'
+          - 'expiration:asc'
+          - 'expiration:desc'
     SortDelegationSignerRecords:
       description: Sort results. Default sorting is by id.
       name: sort
