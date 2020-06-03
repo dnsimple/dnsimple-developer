@@ -4215,37 +4215,6 @@ components:
     ZoneRecord:
       type: object
       description: A single DNS record in a zone.
-      properties:
-        id:
-          type: integer
-        zone_id:
-          type: string
-        parent_id:
-          nullable: true
-          type: integer
-          description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
-        name:
-          type: string
-        content:
-          type: string
-        ttl:
-          $ref: '#/components/schemas/TTL'
-        priority:
-          type: integer
-          default: 0
-        type:
-          $ref: '#/components/schemas/ZoneRecordType'
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ZoneRecordRegion'
-        system_record:
-          type: boolean
-          description: Returns true if a record is a system generated record and thus is not modifiable.
-        created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
-        updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
       example:
         id: 1
         zone_id: example.com
@@ -4260,6 +4229,40 @@ components:
         system_record: true
         created_at: '2016-03-22T10:20:53Z'
         updated_at: '2016-10-05T09:26:38Z'
+      properties:
+        id:
+          type: integer
+        zone_id:
+          type: string
+        parent_id:
+          type:
+            - integer
+            - 'null'
+          description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
+        name:
+          type: string
+        content:
+          type: string
+        ttl:
+          $ref: '#/components/schemas/TTL'
+        priority:
+          type:
+            - integer
+            - 'null'
+          default: 0
+        type:
+          $ref: '#/components/schemas/ZoneRecordType'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZoneRecordRegion'
+        system_record:
+          type: boolean
+          description: Returns true if a record is a system generated record and thus is not modifiable.
+        created_at:
+          $ref: '#/components/schemas/DateTimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DateTimeISO8601'
     ZoneRecordRegion:
       type: string
       enum:
