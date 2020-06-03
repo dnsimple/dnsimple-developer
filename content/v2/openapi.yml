@@ -135,7 +135,7 @@ paths:
                 type: object
                 properties:
                   data:
-                    $ref: '#/components/schemas/Domain'          
+                    $ref: '#/components/schemas/Domain'
         '400':
           $ref: '#/components/responses/400'
         '404':
@@ -1257,7 +1257,7 @@ paths:
       summary: List zones
   '/{account}/zones/{zone}':
     get:
-      description: Get details for a specific zone
+      description: Retrieves the details of an existing zone.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1279,7 +1279,7 @@ paths:
       summary: Retrieve a zone
   '/{account}/zones/{zone}/file':
     get:
-      description: Get details for a zonefile for a specific zone
+      description: Download the zonefile for an existing zone.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1301,7 +1301,7 @@ paths:
       summary: Download a zone file
   '/{account}/zones/{zone}/distribution':
     get:
-      description: Checks if a zone change is fully distributed to all our name servers across the globe.
+      description: Checks if a zone is fully distributed to all our name servers across the globe.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1329,7 +1329,7 @@ paths:
       summary: Check zone distribution
   '/{account}/zones/{zone}/records':
     get:
-      description: List records for a zone
+      description: Lists the records for a zone.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1354,7 +1354,7 @@ paths:
                       $ref: '#/components/schemas/ZoneRecord'
       summary: List zone records
     post:
-      description: Create a zone record
+      description: Creates a new zone record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1380,7 +1380,7 @@ paths:
       summary: Create a zone record
   '/{account}/zones/{zone}/records/{record}':
     get:
-      description: Get a specific record in a zone.
+      description: Retrieves the details of an existing zone record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1402,7 +1402,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve a zone record
     patch:
-      description: Update a specific record in a zone.
+      description: Updates the zone record details.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1428,7 +1428,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Update a zone record
     delete:
-      description: Delete a specific record in a zone.
+      description: Permanently deletes a zone record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1496,7 +1496,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
       summary: List contacts
     post:
-      description: Create a contact in the account.
+      description: Creates a contact.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createContact
@@ -1512,7 +1512,7 @@ paths:
       summary: Create a contact
   '/{account}/contacts/{contact}':
     get:
-      description: Get a specific account contact.
+      description: Retrieves the details of an existing contact.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Contact'
@@ -1533,7 +1533,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve a contact
     patch:
-      description: Update a specific contact.
+      description: Updates the contact details.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Contact'
@@ -1558,7 +1558,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Update a contact
     delete:
-      description: Delete a specific contact.
+      description: Permanently deletes a contact.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Contact'
@@ -1680,7 +1680,7 @@ paths:
       summary: Unapply a service
   '/{account}/templates':
     get:
-      description: List templates in the account.
+      description: Lists the templates in the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/SortTemplates'
@@ -1703,7 +1703,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
       summary: List templates
     post:
-      description: Create a template in the account.
+      description: Creates a template.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createTemplate
@@ -1726,7 +1726,7 @@ paths:
       summary: Create a template
   '/{account}/templates/{template}':
     get:
-      description: Get a template.
+      description: Retrieves the details of an existing template.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1747,7 +1747,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve a template
     patch:
-      description: Update a template.
+      description: Updates the template details.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1770,7 +1770,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Update a template
     delete:
-      description: Delete a template.
+      description: Permanently deletes a template.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1783,7 +1783,7 @@ paths:
       summary: Delete a template
   '/{account}/templates/{template}/records':
     get:
-      description: List template records in the template.
+      description: Lists the records for a template.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1807,7 +1807,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
       summary: List template records
     post:
-      description: Create a template record.
+      description: Creates a new template record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1829,7 +1829,7 @@ paths:
       summary: Create a template record
   '/{account}/templates/{template}/records/{record}':
     get:
-      description: Get a template record.
+      description: Retrieves the details of an existing template record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1849,9 +1849,9 @@ paths:
                     $ref: '#/components/schemas/TemplateRecord'
         '404':
           $ref: '#/components/responses/404'
-      summary: Get a template record
+      summary: Retrieve a template record
     delete:
-      description: Delete a template record.
+      description: Permanently deletes a template record.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Template'
@@ -1969,7 +1969,7 @@ paths:
           '{$request.body#/url}':
             post:
               operationId: receiveWebhook
-              summary: 'Receive webhook notification'
+              summary: Receive webhook notification
               requestBody:
                 required: true
                 description: Webhook payload
