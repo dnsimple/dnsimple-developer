@@ -43,7 +43,7 @@ Name | Description
 -----|------------
 `id` | Sort domains by ID
 `name` | Sort domains by name (alphabetical order)
-`expires_at` | Sort domains by expiration date
+`expiration` | Sort domains by expiration date
 
 The default sorting policy is by ascending `name`.
 
