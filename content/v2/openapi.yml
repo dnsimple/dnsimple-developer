@@ -855,7 +855,10 @@ paths:
       summary: Check domain
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
-      description: 'Get the premium price for a domain. Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.'
+      description: |-
+        Retrieves the premium price for a premium domain.
+
+        Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -875,10 +878,13 @@ paths:
                     $ref: '#/components/schemas/DomainPremiumPrice'
         '400':
           $ref: '#/components/responses/400'
-      summary: Check domain premium price
+      summary: Get domain premium price
   '/{account}/registrar/domains/{domain}/registrations':
     post:
-      description: 'Register a domain name with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.'
+      description: |-
+        Registers a domain name.
+
+        Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -902,7 +908,10 @@ paths:
       summary: Register a domain
   '/{account}/registrar/domains/{domain}/transfers':
     post:
-      description: 'Transfer a domain name from another domain registrar into DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.'
+      description: |-
+        Transfers a domain name from another registrar.
+
+        Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -973,7 +982,10 @@ paths:
           $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/renewals':
     post:
-      description: 'Renew a domain name already registered with DNSimple. Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.'
+      description: |-
+        Explicitly renews a domain, if the registry supports this function.
+
+        Your account must be active for this command to complete successfully. You will be automatically charged the renewal fee upon successful renewal, so please be careful with this command.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -997,7 +1009,10 @@ paths:
       summary: Renew a domain
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
     post:
-      description: Prepare a domain for transferring out. This will unlock a domain and send the authorization code to the domain’s administrative contact.
+      description: |-
+        Prepares a domain for transferring out.
+
+        This will unlock a domain and send the authorization code to the domain's administrative contact.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
