@@ -142,7 +142,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve a domain
     delete:
-      description: Deletes a domain from an account.
+      description: Permanently deletes a domain from the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -159,7 +159,7 @@ paths:
       summary: Delete a domain
   '/{account}/domains/{domain}/collaborators':
     get:
-      description: Lists collaborators for a domain.
+      description: Lists collaborators for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -187,9 +187,9 @@ paths:
       summary: List collaborators
     post:
       description: |-
-        Adds a collaborator to a domain.
+        Adds a collaborator to the domain.
 
-        At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn’t have a DNSimple account, the system will invite her/him to register to DNSimple first and then to accept the collaboration invitation. In the other case, she/he is automatically added to the domain as collaborator. She/he can decide to reject the invitation later.
+        At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn't have a DNSimple account, the system will invite them to register to DNSimple first and then to accept the collaboration invitation. In the other case, they are automatically added to the domain as collaborator. They can decide to reject the invitation later.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -230,7 +230,7 @@ paths:
       summary: Remove a collaborator
   '/{account}/domains/{domain}/dnssec':
     get:
-      description: Get DNSSEC status for the domain
+      description: Gets the DNSSEC status for an existing domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -248,9 +248,12 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
-      summary: Retrieve DNSSEC status
+      summary: DNSSEC status
     post:
-      description: Enable DNSSEC for the domain
+      description: |-
+        Enables DNSSEC for the domain.
+
+        It will enable signing of the zone. If the domain is registered with DNSimple, it will also add the DS record to the corresponding registry.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -270,7 +273,10 @@ paths:
           $ref: '#/components/responses/404'
       summary: Enable DNSSEC
     delete:
-      description: Disable DNSSEC for the domain
+      description: |-
+        Disables DNSSEC for the domain.
+
+        It will disable signing of the zone. If the domain is registered with DNSimple, it will also remove the DS record at the registry corresponding to the disabled DNSSEC signing.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -289,7 +295,7 @@ paths:
       summary: Disable DNSSEC
   '/{account}/domains/{domain}/ds_records':
     get:
-      description: Lists the Delegation Signer records for the domain.
+      description: Lists the DS records for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -317,7 +323,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: List delegation signer records
     post:
-      description: Adds a Delegation Signer record to the domain.
+      description: Adds a DS record to the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -343,7 +349,7 @@ paths:
       summary: Create a delegation signer record
   '/{account}/domains/{domain}/ds_records/{ds}':
     get:
-      description: Retrieves the details of a Delegation Signer record for a domain.
+      description: Retrieves the details of an existing DS record.
       operationId: getDomainDelegationSignerRecord
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -367,7 +373,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve a delegation signer record
     delete:
-      description: Removes a Delegation Signer record from the domain.
+      description: Removes a DS record from the domain.
       operationId: deleteDomainDelegationSignerRecord
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -385,7 +391,7 @@ paths:
       summary: Delete a delegation signer record
   '/{account}/domains/{domain}/email_forwards':
     get:
-      description: List email forwards for the domain in the account.
+      description: Lists email forwards for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -413,7 +419,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: List email forwards
     post:
-      description: Create a new email forward for the domain
+      description: Creates a new email forward for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -439,7 +445,7 @@ paths:
       summary: Create an email forward
   '/{account}/domains/{domain}/email_forwards/{emailforward}':
     get:
-      description: Get a specific email forward for the domain in the account.
+      description: Retrieves the details of an existing email forward.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -463,7 +469,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Retrieve an email forward
     delete:
-      description: Delete the email forward from the domain.
+      description: Permanently deletes an email forward.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -479,7 +485,7 @@ paths:
       summary: Delete an email forward
   '/{account}/domains/{domain}/pushes':
     post:
-      description: Initiates a pust of a domain to another account.
+      description: Initiates a pust of a domain to another DNSimple account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -505,7 +511,7 @@ paths:
       summary: Initiate a push
   '/{account}/pushes':
     get:
-      description: List pending pushes for the account.
+      description: List pending pushes for the target account.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: listPushes
@@ -528,7 +534,7 @@ paths:
       summary: List pushes
   '/{account}/pushes/{push}':
     post:
-      description: Accept a push.
+      description: Accepts a push to the target account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Push'
@@ -546,7 +552,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Accept a push
     delete:
-      description: Reject a push.
+      description: Rejects a push to the target account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Push'
@@ -563,7 +569,7 @@ paths:
       summary: Reject a push
   '/{account}/domains/{domain}/certificates':
     get:
-      description: List the certificates for a domain in the account.
+      description: Lists the certificates for a domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -590,7 +596,7 @@ paths:
       summary: List certificates
   '/{account}/domains/{domain}/certificates/{certificate}':
     get:
-      description: Get the details of a certificate.
+      description: Retrieves the details of an existing certificate.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -613,7 +619,7 @@ paths:
       summary: Retrieve a certificate
   '/{account}/domains/{domain}/certificates/{certificate}/download':
     get:
-      description: 'Get the PEM-encoded certificate, along with the root certificate and intermediate chain.'
+      description: 'Gets the PEM-encoded certificate, along with the root certificate and intermediate chain.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -636,7 +642,7 @@ paths:
       summary: Download a certificate
   '/{account}/domains/{domain}/certificates/{certificate}/private_key':
     get:
-      description: Get the PEM-encoded certificate private key.
+      description: Gets the PEM-encoded certificate private key.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -659,7 +665,7 @@ paths:
       summary: Retrieve a certificate private key
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
     post:
-      description: "Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple."
+      description: "Orders a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -681,7 +687,7 @@ paths:
       summary: "Let's Encrypt: Order a certificate"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{purchaseId}/issue':
     post:
-      description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
+      description: "Issues a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate ordered with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -709,7 +715,7 @@ paths:
       summary: "Let's Encrypt: Issue a certificate"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals':
     post:
-      description: "Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate purchased with DNSimple."
+      description: "Renews a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate ordered with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -732,7 +738,7 @@ paths:
       summary: "Let's Encrypt: Order a certificate renewal"
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals/{renewalId}/issue':
     post:
-      description: "Issue a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate renewed with DNSimple."
+      description: "Issues a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate renewal ordered with DNSimple."
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -761,7 +767,7 @@ paths:
       summary: "Let's Encrypt: Issue a certificate renewal"
   /tlds:
     get:
-      description: Returns the list of TLDs supported for registration or transfer.
+      description: ListsTLDs supported for registration or transfer.
       parameters:
         - $ref: '#/components/parameters/SortTLDs'
       operationId: listTlds
@@ -782,7 +788,7 @@ paths:
       summary: List TLDs
   '/tlds/{tld}':
     get:
-      description: Retrieves the details of a supported TLD.
+      description: Retrieves the details of a TLD.
       parameters:
         - $ref: '#/components/parameters/TLD'
       operationId: getTld
@@ -803,7 +809,10 @@ paths:
       summary: Retrieve the TLD
   '/tlds/{tld}/extended_attributes':
     get:
-      description: 'Some TLDs require extended attributes when registering or transferring a domain. This API interface provides information on the extended attributes for any particular TLD. Extended attributes are extra TLD-specific attributes, required by the TLD registry to collect extra information about the registrant or legal agreements.'
+      description: |-
+        Lists a TLD extended attributes.
+
+        Some TLDs require extended attributes when registering or transferring a domain. This API interface provides information on the extended attributes for any particular TLD. Extended attributes are extra TLD-specific attributes, required by the TLD registry to collect extra information about the registrant or legal agreements.
       parameters:
         - $ref: '#/components/parameters/TLD'
       operationId: getTldExtendedAttributes
@@ -823,7 +832,7 @@ paths:
                       $ref: '#/components/schemas/ExtendedAttribute'
         '404':
           $ref: '#/components/responses/404'
-      summary: Lists the TLD extended attributes
+      summary: List TLD extended attributes
   '/{account}/registrar/domains/{domain}/check':
     get:
       description: Checks a domain name for availability.
@@ -1003,7 +1012,7 @@ paths:
       summary: Authorize a domain transfer out
   '/{account}/registrar/domains/{domain}/delegation':
     get:
-      description: List name servers for the domain in the account.
+      description: Lists the name servers for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1026,7 +1035,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: List domain name servers
     put:
-      description: Update name servers for a domain
+      description: Changes the domain name servers.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1054,7 +1063,7 @@ paths:
       summary: Change domain name servers
   '/{account}/registrar/domains/{domain}/delegation/vanity':
     put:
-      description: Delegate a domain to vanity name servers
+      description: Delegate a domain to vanity name servers.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1083,7 +1092,7 @@ paths:
           $ref: '#/components/responses/412-feature'
       summary: Delegate to vanity name servers
     delete:
-      description: De-delegate a domain from vanity name servers
+      description: De-delegate a domain from vanity name servers.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1099,7 +1108,7 @@ paths:
           $ref: '#/components/responses/404'
         '412':
           $ref: '#/components/responses/412-feature'
-      summary: Dedelegate from vanity name servers
+      summary: De-delegate from vanity name servers
   '/{account}/registrar/domains/{domain}/auto_renewal':
     put:
       description: Enables auto renewal for the domain.
@@ -1135,7 +1144,7 @@ paths:
       summary: Disable domain auto-renewal
   '/{account}/registrar/domains/{domain}/whois_privacy':
     get:
-      description: Get the WHOIS privacy details for a domain.
+      description: Gets the whois privacy status for an existing domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1154,9 +1163,12 @@ paths:
                     $ref: '#/components/schemas/WhoisPrivacy'
         '404':
           $ref: '#/components/responses/404'
-      summary: Retrieve the domain WHOIS privacy
+      summary: WHOIS privacy status
     put:
-      description: 'Enable whois privacy. Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS privacy will cause the service to be purchased for a period of 1 year. If WHOIS privacy was previously purchased and disabled, then calling this will enable the WHOIS privacy.'
+      description: |-
+        Enables the WHOIS privacy for the domain.
+
+        Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS privacy will cause the service to be purchased for a period of 1 year. If WHOIS privacy was previously purchased and disabled, then calling this will enable the WHOIS privacy.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1186,7 +1198,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Enable WHOIS privacy
     delete:
-      description: Disable whois privacy.
+      description: Disables the WHOIS privacy for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1208,7 +1220,10 @@ paths:
       summary: Disable WHOIS privacy
   '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
     post:
-      description: 'Renew whois privacy. Note that if the WHOIS privacy was never purchased for the domain or if there is another renewal order in progress, renewing WHOIS privacy will return an error.'
+      description: |-
+        Renews the WHOIS privacy for the domain.
+
+        Note that if the WHOIS privacy was never purchased for the domain or if there is another renewal order in progress, renewing WHOIS privacy will return an error.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1558,7 +1573,7 @@ paths:
           $ref: '#/components/responses/404'
       summary: Update a contact
     delete:
-      description: Permanently deletes a contact.
+      description: Permanently deletes a contact from the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Contact'
@@ -1573,7 +1588,7 @@ paths:
       summary: Delete a contact
   /services:
     get:
-      description: List all services
+      description: List all available one-click services.
       parameters:
         - $ref: '#/components/parameters/SortServices'
       operationId: listServices
@@ -1596,7 +1611,7 @@ paths:
       summary: List services
   '/services/{service}':
     get:
-      description: Get details for a specific service
+      description: Retrieves the details of a one-click service.
       parameters:
         - $ref: '#/components/parameters/Service'
       operationId: getService
@@ -1883,7 +1898,10 @@ paths:
       summary: Apply a template
   '/{account}/vanity/{domain}':
     put:
-      description: 'Enable Vanity Name Servers for the domain. This method sets up the appropriate A and AAAA records for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
+      description: |-
+        Enables Vanity Name Servers for the domain.
+
+        This method sets up the appropriate A and AAAA records for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1908,7 +1926,10 @@ paths:
           $ref: '#/components/responses/404'
       summary: Enable vanity name servers
     delete:
-      description: 'Disable Vanity Name Servers for the domain. This method removes the A and AAAA records required for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.'
+      description: |-
+        Disables Vanity Name Servers for the domain.
+
+        This method removes the A and AAAA records required for the domain to provide vanity name servers, but it does not change the delegation for the domain. To change the delegation for domains to vanity name servers use the endpoints to Delegate to Vanity Name Servers or Dedelegate from Vanity Name Servers.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1925,7 +1946,7 @@ paths:
       summary: Disable vanity name servers
   '/{account}/webhooks':
     get:
-      description: List webhooks in the account.
+      description: List the webhooks in the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/SortWebhooks'
@@ -1946,7 +1967,7 @@ paths:
                       $ref: '#/components/schemas/Webhook'
       summary: List webhooks
     post:
-      description: Create a webhook
+      description: Registers a webhook endpoint.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createWebhook
@@ -1994,7 +2015,7 @@ paths:
                 - url
   '/{account}/webhooks/{webhook}':
     get:
-      description: Get details for a webhook.
+      description: Retrieves the details of a registered webhook.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Webhook'
@@ -2013,7 +2034,7 @@ paths:
                     $ref: '#/components/schemas/Webhook'
       summary: Retrieve a webhook
     delete:
-      description: Delete a webhook.
+      description: De-registers a webhook endpoint.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Webhook'
