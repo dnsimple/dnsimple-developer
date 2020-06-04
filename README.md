@@ -54,3 +54,4 @@ rake publish
 - Run `bin/download_fixture.sh YOUR_TOKEN HTTP_METHOD URL > fixtures/v2/api/OPERATION/meaningful_name.http`
 
   Example: `bin/download_fixture.sh 0123456789abcdefghijklmnopqrstuv GET https://api.sandbox.dnsimple.com/v2/tlds > fixtures/v2/api/listTlds/success.http`
+           `bin/download_fixture.sh 0123456789abcdefghijklmnopqrstuv POST https://api.sandbox.dnsimple.com/v2/registrar/domains/example-delta.com/registrations "{\"registrant_id\":2715}" > fixtures/v2/api/registerDomain/success.http
