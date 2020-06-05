@@ -2259,8 +2259,8 @@ components:
           - 'id:desc'
           - 'name:asc'
           - 'name:desc'
-          - 'expires_on:asc'
-          - 'expires_on:desc'
+          - 'expiration:asc'
+          - 'expiration:desc'
     SortDelegationSignerRecords:
       description: Sort results. Default sorting is by id.
       name: sort
@@ -2790,7 +2790,7 @@ components:
         state: hosted
         auto_renew: false
         private_whois: false
-        expires_on: null
+        expires_at: null
         created_at: '2014-12-06T15:56:55Z'
         updated_at: '2015-12-09T00:20:56Z'
       properties:
@@ -2815,10 +2815,10 @@ components:
           type: boolean
         private_whois:
           type: boolean
-        expires_on:
+        expires_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/DateISO8601'
+            - $ref: '#/components/schemas/DateTimeISO8601'
         created_at:
           $ref: '#/components/schemas/DateTimeISO8601'
         updated_at:
@@ -4141,7 +4141,7 @@ components:
             state: hosted
             auto_renew: false
             private_whois: false
-            expires_on: null
+            expires_at: null
             created_at: '2014-12-06T15:56:55Z'
             updated_at: '2015-12-09T00:20:56Z'
         account:

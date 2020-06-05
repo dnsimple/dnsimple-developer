@@ -43,26 +43,26 @@ Name | Description
 -----|------------
 `id` | Sort domains by ID
 `name` | Sort domains by name (alphabetical order)
-`expires_on` | Sort domains by expiration date
+`expiration` | Sort domains by expiration date
 
 The default sorting policy is by ascending `name`.
 
 ### Examples
 
-List all domains in the account `1010`:
+List all domains in the account `1385`:
 
 ~~~shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
-        https://api.dnsimple.com/v2/1010/domains
+        https://api.dnsimple.com/v2/1385/domains
 ~~~
 
-List all domains in the account `1010` that have name matching `"example"`:
+List all domains in the account `1385` that have name matching `"example"`:
 
 ~~~shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
-        https://api.dnsimple.com/v2/1010/domains?name_like=example
+        https://api.dnsimple.com/v2/1385/domains?name_like=example
 ~~~
 
 ### Response
@@ -90,7 +90,7 @@ Name | Type | Description
 
 ### Example
 
-Create a domain in the account `1010`:
+Create a domain in the account `1385`:
 
 ~~~
 curl  -H 'Authorization: Bearer <token>' \
@@ -98,7 +98,7 @@ curl  -H 'Authorization: Bearer <token>' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '<json>' \
-      https://api.dnsimple.com/v2/1010/domains
+      https://api.dnsimple.com/v2/1385/domains
 ~~~
 
 ### Input
@@ -111,7 +111,7 @@ Name | Type | Description
 
 ~~~json
 {
-  "name": "example.com"
+  "name": "example-beta.com"
 }
 ~~~
 
@@ -145,17 +145,17 @@ Name | Type | Description
 
 ### Example
 
-Get the domain with ID `1` in the account `1010`:
+Get the domain with ID `181984` in the account `1385`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/1
+          https://api.dnsimple.com/v2/1385/domains/181984
 
-Get the domain `example.com` in the account `1010`:
+Get the domain `example-alpha.com` in the account `1385`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/example.com
+          https://api.dnsimple.com/v2/1385/domains/example-alpha.com
 
 ### Response
 
