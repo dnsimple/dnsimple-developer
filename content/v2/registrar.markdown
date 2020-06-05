@@ -80,7 +80,7 @@ curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
-~~~shell
+~~~
 
 Check the premium price for `example.com` domain renewal:
 
@@ -89,7 +89,7 @@ curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
-~~~shell
+~~~
 
 ### Response
 
