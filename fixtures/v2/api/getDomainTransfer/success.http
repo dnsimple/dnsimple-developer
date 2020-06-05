@@ -1,16 +1,16 @@
 HTTP/1.1 200 OK
 Server: nginx
-Date: Fri, 05 Jun 2020 18:09:11 GMT
+Date: Fri, 05 Jun 2020 18:23:53 GMT
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: identity
 Connection: keep-alive
 X-RateLimit-Limit: 2400
-X-RateLimit-Remaining: 2395
+X-RateLimit-Remaining: 2392
 X-RateLimit-Reset: 1591384034
-ETag: W/"b65e21f810d2ee2a192d01a56d985b8f"
+ETag: W/"80c5827934c13b1ca87a587d96e7d1e8"
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: ca7ebbcd-abc5-457d-80ef-c2537e26c90c
-X-Runtime: 0.134029
+X-Request-Id: 9f4959ee-06a9-488c-906e-27a570cafbbf
+X-Runtime: 0.078429
 X-Frame-Options: DENY
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -18,4 +18,4 @@ X-Download-Options: noopen
 X-Permitted-Cross-Domain-Policies: none
 Strict-Transport-Security: max-age=31536000
 
-{"data":{"id":361,"domain_id":182245,"registrant_id":2715,"state":"transferring","auto_renew":false,"whois_privacy":false,"status_description":null,"created_at":"2020-06-05T18:08:00Z","updated_at":"2020-06-05T18:08:04Z"}}
+{"data":{"id":361,"domain_id":182245,"registrant_id":2715,"state":"cancelled","auto_renew":false,"whois_privacy":false,"status_description":"Canceled by customer","created_at":"2020-06-05T18:08:00Z","updated_at":"2020-06-05T18:10:01Z"}}
