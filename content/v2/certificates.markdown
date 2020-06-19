@@ -29,11 +29,11 @@ Name | Type | Description
 
 ### Example
 
-List all certificates for the domain `example.com` in the account `1010`:
+List all certificates for the domain `dnsimple.us` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates
+          https://api.dnsimple.com/v2/1010/domains/dnsimple.us/certificates
 
 ### Response
 
@@ -51,7 +51,7 @@ Name | Description
 -----|------------
 `id` | Sort by ID
 `common_name` | Sort by common name
-`expires_on` | Sort by expiration date
+`expiration` | Sort by expiration date
 
 The default sorting policy is by descending `id`.
 
@@ -72,11 +72,11 @@ Name | Type | Description
 
 ### Example
 
-Get the certificate with the ID `1` in the domain `example.com`, in the account `1010`:
+Get the certificate with the ID `101967` in the domain `bingo.pizza`, in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/1
+          https://api.dnsimple.com/v2/1010/domains/bingo.pizza/certificates/101967
 
 ### Response
 
@@ -206,14 +206,14 @@ Name | Type | Description
 
 ### Example
 
-Purchase a Let's Encrypt certificate for `example.com` in the account `1010`:
+Purchase a Let's Encrypt certificate for `bingo.pizza` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/letsencrypt
+          https://api.dnsimple.com/v2/1010/domains/bingo.pizza/certificates/letsencrypt
 
 
 ### Input
@@ -254,12 +254,12 @@ Name | Type | Description
 
 ### Example
 
-Issue a Let's Encrypt certificate with ID `200`, for `example.com` in the account `1010`:
+Issue a Let's Encrypt certificate with ID `101967`, for `bingo.pizza` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X POST \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/letsencrypt/200/issue
+          https://api.dnsimple.com/v2/1010/domains/bingo.pizza/certificates/letsencrypt/101967/issue
 
 ### Response
 
@@ -297,14 +297,14 @@ Name | Type | Description
 
 ### Example
 
-Renew a Let's Encrypt certificate with ID `200` for `example.com` in the account `1010`:
+Renew a Let's Encrypt certificate with ID `101967` for `bingo.pizza` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -X POST \
           -d '<json>' \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/letsencrypt/200/renewals
+          https://api.dnsimple.com/v2/1010/domains/bingo.pizza/certificates/letsencrypt/101967/renewals
 
 
 ### Input
@@ -343,12 +343,12 @@ The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRene
 
 ### Example
 
-Issue a Let's Encrypt certificate renewal with ID `999`, for the certificate `200`, for `example.com` in the account `1010`:
+Issue a Let's Encrypt certificate renewal with ID `65082`, for the certificate `101967`, for `bingo.pizza` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X POST \
-          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/letsencrypt/200/renewals/999/issue
+          https://api.dnsimple.com/v2/1010/domains/example.com/certificates/letsencrypt/101967/renewals/65082/issue
 
 ### Response
 
