@@ -2,8 +2,12 @@
 - client-baseurl
 - client-useragent
 - client-authentication
+- client-rate-limits
 - scenario-auth
 - errors-httpconn
 - errors-badauth
 - errors-request
 - errors-validation
+- scenario-register-domain
+- scenario-manage-zone-records
+- scenario-configure-domain
