@@ -141,7 +141,7 @@ Get the record `301` for the template `alpha` in the account `1010`:
 
 ## Delete a template record {#deleteTemplateRecord}
 
-    DELETE /:account/zone/:zone/records/:record
+    DELETE /:account/templates/:template/records/:record
 
 ### Parameters
 
