@@ -19,6 +19,8 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [DNSimple Go client](https://dnsimple.link/api-client-go)
 - [DNSimple Elixir client](https://dnsimple.link/api-client-elixir)
 - [DNSimple Node.js client](https://dnsimple.link/api-client-node)
+- [DNSimple Java client](https://dnsimple.link/api-client-java)
+- [DNSimple C# Client](http://dnsimple.link/api-client-csharp)
 
 ### Ruby
 
