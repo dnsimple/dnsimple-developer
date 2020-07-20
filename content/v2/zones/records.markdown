@@ -222,7 +222,7 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Input
 
-The following fields are updateable. You can pass zero of any of them.
+The following fields are updateable. You can pass zero or any of them.
 
 Name | Type | Description
 -----|------|------------
