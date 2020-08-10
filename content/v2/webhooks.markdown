@@ -96,6 +96,7 @@ The following events are available:
 - domain.transfer:started
 - domain.transfer
 - email\_forward.create
+- email\_forward.update
 - email\_forward.delete
 - name\_server.deregister
 - name\_server.register
