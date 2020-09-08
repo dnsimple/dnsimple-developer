@@ -6,7 +6,7 @@ before_install:
 - rvm reload
 - rvm install 2.5.3
 - "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
-- gem install bundler --version $BUNDLER_VERSION
+- gem install bundler --version 1.17.3
 
 rvm:
   - 2.5.3
