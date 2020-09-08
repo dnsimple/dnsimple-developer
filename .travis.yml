@@ -5,8 +5,8 @@ before_install:
 - \curl -sSL https://get.rvm.io | bash -s 1.29.7
 - rvm reload
 - rvm install 2.5.3
-- gem uninstall -i /home/travis/.rvm/gems/ruby-2.5.3 bundler -x
-- gem install bundler -v 1.17.3
+- "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
+- gem install bundler --version $BUNDLER_VERSION
 
 rvm:
   - 2.5.3
