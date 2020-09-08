@@ -7,7 +7,7 @@ excerpt: Set up Dynamic DNS with DDNS.horse or a simple shell script using our R
 
 While many production environments are able to obtain static IP addresses, you may want to provide access to a device with a dynamic IP address. Dynamic DNS services provide the ability to update the DNS record for a given device automatically.
 
-The script below may be customized and run on a schedule from a tool like cron. Alternatively, take a look at [DDNS.horse](https://ddns.horse/), an external DDNS service built by one of the DNSimple team members that works directly with DNSimple using OAuth and the DNSimple API.
+The script below can be customized and run on a schedule from a tool, like cron. Alternatively, take a look at [DDNS.horse](https://ddns.horse/), an external DDNS service built by one of the DNSimple team members. It works directly with DNSimple using OAuth and the DNSimple API.
 
 ## Dynamic DNS Shell Script
 
