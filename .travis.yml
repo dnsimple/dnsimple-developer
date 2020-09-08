@@ -1,5 +1,13 @@
 language: ruby
 
+before_install:
+- rvm implode --force
+- \curl -sSL https://get.rvm.io | bash -s 1.29.7
+- rvm reload
+- rvm install 2.5.3
+- "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
+- gem install bundler --version 1.17.3
+
 rvm:
   - 2.5.3
 
@@ -15,4 +23,3 @@ script:
 notifications:
   slack:
     secure: "K85xR9b1VQMK2c3KpXjho4WBz1fTIUSfsmLCMFRkYY8ykOoH7fjBLRJRQtAOMfjUNfjDt+VMwFTky0F8lMmZRMnBBYZ8mTzhmKjJY0ToWLiDIJm48ncPleJRzMR0ku9xU7x1DHB6QEMu6DFXkgoe4/b0VOsFwYzQGmelfZNhD6U="
-
