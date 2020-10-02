@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-free": "^5.15.0",
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^5.0.3",
     "webpack": "^4.44.2",
