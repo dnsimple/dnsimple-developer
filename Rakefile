@@ -4,7 +4,7 @@ require 'rake/testtask'
 require 'fileutils'
 require 'yaml'
 require 'json'
-
+require 'open3'
 
 task :default => [:test, :compile]
 
@@ -15,17 +15,16 @@ desc "Compile the site"
 task :compile_nanoc do
   puts "Compiling site"
 
-  stdout = Bundler.with_clean_env do
-    sh("yarn && yarn build && bundle exec nanoc compile")
+  stdout, stderr, status = Bundler.with_clean_env do
+    Open3.capture3("yarn && yarn build && bundle exec nanoc compile")
+  end
+  if status.success?
+    puts  "Compilation succeeded"
+  else
+    abort "ERROR: Compilation failed (#{$?.to_i}\n#{stdout}\n#{stderr}"
   end
 
   FileUtils.cp_r 'dist', 'output'
-
-  if $?.to_i == 0
-    puts  "Compilation succeeded"
-  else
-    abort "Compilation failed: #{$?.to_i}\n" + stdout
-  end
 end
 
 desc "Compile the Openapi definition files"
@@ -38,22 +37,19 @@ end
 
 desc "Publish to S3"
 task :publish => :compile do
-  require 'open3'
-
   puts "Publishing to S3"
 
   stdout, stderr, status = Open3.capture3("s3_website push")
-
   if status.success? && stdout.include?("Successfully pushed the website to")
     puts "Publishing succeeded"
   else
-    abort "ERROR: Publishing failed" \
-          "\n" + stdout + stderr
+    abort "ERROR: Publishing failed\n#{stdout}\n#{stderr}"
   end
 end
 
 task :clean do
   FileUtils.rm_r('output') if File.exist?('output')
+  FileUtils.rm_r('dist') if File.exist?('dist')
 end
 
 Rake::TestTask.new do |t|
