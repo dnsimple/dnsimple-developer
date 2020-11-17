@@ -61,8 +61,15 @@ task :run do
   sh("yarn live")
 end
 
-Rake::TestTask.new do |t|
-  t.libs << "_test"
-  t.test_files = FileList["_test/*_test.rb"]
-  t.verbose = true
+namespace :test do
+  Rake::TestTask.new(:ruby) do |t|
+    t.libs << "_test"
+    t.test_files = FileList["_test/*_test.rb"]
+    t.verbose = true
+  end
+
+  task :all => [:ruby]
 end
+
+task :test => [:compile, "test:all"]
+
