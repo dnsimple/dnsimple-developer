@@ -1,31 +1,21 @@
 # DNSimple API Documentation
 
-This is the DNSimple API documentation built with [nanoc](http://nanoc.ws/).
+This is the [DNSimple API documentation](https://developer.dnsimple.com/) built with [nanoc](https://nanoc.ws/).
 
 ## Setup
 
 1. Clone this repository
-2. Run `asdf install`
-3. Run `bundle install`
-4. Run `yarn`
-5. Start your local instance with `yarn live`
+1. Run `asdf install`
+1. Run `bundle install`
+1. Start your local instance with `rake run`
 
-To build the openapi.json file, run `rake compile` before starting `yarn live`
+The site will be visible at [localhost:3000](http://localhost:3000).
+
 
 ## Development
 
-Use `yarn live` to concurrently compile JS and CSS dependencies.
-An autocompiler automatically compiles changed files on every HTTP request.
+Use `rake run` to start the site. The server will automatically re-compiles changed files.
 
-```shell
-yarn live
-
-Loading site… done
-11:56:37 - INFO - Compilation succeeded.
-[2016-12-21 11:56:37] INFO  WEBrick 1.3.1
-[2016-12-21 11:56:37] INFO  ruby 2.3.3 (2016-11-21) [x86_64-darwin16]
-[2016-12-21 11:56:37] INFO  WEBrick::HTTPServer#start: pid=63695 port=3000
-```
 
 ## Deployment
 
@@ -47,6 +37,7 @@ Finally, run:
 ```shell
 rake publish
 ```
+
 
 ## Creating new fixtures
 

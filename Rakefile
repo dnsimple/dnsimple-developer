@@ -6,12 +6,21 @@ require 'yaml'
 require 'json'
 require 'open3'
 
-task :default => [:test, :compile]
+PUBLISH_DIRECTORY = "output"
+BUILD_YARN_DIRECTORY = "dist"
 
-desc "Compile the project"
-task :compile => [:clean, :compile_nanoc, :compile_openapi]
+task default: [:test]
 
 desc "Compile the site"
+task compile: [:clean, :compile_nanoc, :compile_openapi]
+
+desc "Remove the compilation artifacts"
+task :clean do
+  FileUtils.rm_r(PUBLISH_DIRECTORY) if File.exist?(PUBLISH_DIRECTORY)
+  FileUtils.rm_r(BUILD_YARN_DIRECTORY) if File.exist?(BUILD_YARN_DIRECTORY)
+end
+
+desc "Compile the static site"
 task :compile_nanoc do
   puts "Compiling site"
 
@@ -24,7 +33,7 @@ task :compile_nanoc do
     abort "ERROR: Compilation failed (#{$?.to_i}\n#{stdout}\n#{stderr}"
   end
 
-  FileUtils.cp_r 'dist', 'output'
+  FileUtils.cp_r BUILD_YARN_DIRECTORY, PUBLISH_DIRECTORY
 end
 
 desc "Compile the Openapi definition files"
@@ -47,9 +56,9 @@ task :publish => :compile do
   end
 end
 
-task :clean do
-  FileUtils.rm_r('output') if File.exist?('output')
-  FileUtils.rm_r('dist') if File.exist?('dist')
+desc "Run the site"
+task :run do
+  sh("yarn live")
 end
 
 Rake::TestTask.new do |t|
