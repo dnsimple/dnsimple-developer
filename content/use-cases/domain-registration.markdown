@@ -5,7 +5,7 @@ excerpt: Register a domain on behalf of your users. Gather and send contact info
 
 # Registering a domain
 
-Register a domain on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress, so you can keep your users in the know.
+Register domains on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress so you can keep your users in the know.
 
 ### How it works at a high level
 
@@ -27,10 +27,10 @@ For this tutorial, you'll need the following dependencies:
 * [DNSimple Ruby Client](https://dnsimple.link/api-client-ruby)
 * [Public suffix parser](https://github.com/weppos/publicsuffix-ruby) for ruby
 * DNSimple [API Access Token](https://support.dnsimple.com/articles/api-access-token/)
-* Your DNSimple account number, you can find it in the URL when visiting a domain or when the API Access Token was issued
+* Your DNSimple account number – you can find it in the URL when visiting a domain, or when the API Access Token was issued.
 
 
-## Configure the API client
+## Configuring the API client
 
 You'll need to interact with the API extensively, so it's a good idea to create an adapter to encapsulate the interaction between your system and our API.
 
@@ -81,11 +81,11 @@ end
 ~~~
 
 
-## Check the domain's availability
+## Checking the domain's availability
 
 When a user wants to register a domain, the first step is to check if the domain is available for registration.
 
-To do this let's add a method to your adapter that wraps around the API's `check_domain` call.
+To do this, add a method to your adapter that wraps around the API's `check_domain` call.
 
 ~~~ruby
     def check_domain(domain)
@@ -102,9 +102,9 @@ domain = DnsimpleAdapter.check_domain(domain_name)
 raise 'Domain is not available' unless domain.available
 ~~~
 
-If the requested domain is not available, we raise an error as a way to stop the execution of our code. However, it's a good idea to inform your customers that the domain is taken and they should explore other options.
+If the requested domain is not available, we raise an error as a way to stop the execution of our code. However, it's a good idea to inform your customers that the domain is taken, and they should explore other options.
 
-## Gather extended attributes for the domain
+## Gathering extended attributes for the domain
 
 Some ccTLDs, like **.FR**, **.ASIA**, **.EU**, etc. require additional information to register the domain.
 
@@ -186,9 +186,9 @@ For example **.EU** will return:
     { 'title' => 'Swedish', 'value' => 'se', 'description' => nil }] }
 ~~~
 
-Now that you know how to handle extended attributes, it's a good time to present them to your customer. Make sure to validate the presence of any required attributes. This is important, because without them, domain registration isn't possible.
+Now that you know how to handle extended attributes, it's a good time to present them to your customer. Make sure to validate the presence of any required attributes. This is important because domain registration isn't possible without them.
 
-## Create a contact for your user
+## Creating a contact for your user
 
 For a domain to be registered it needs to have an associated contact in our system. You'll probably want to provide your customer's contact details instead of your own, so the contact will need to be created in our system.
 
@@ -198,7 +198,7 @@ For a domain to be registered it needs to have an associated contact in our syst
     end
 ~~~
 
-To create the contact you can call the `create_contact` method with your customer's details.
+To create the contact, you can call the `create_contact` method with your customer's details.
 
 ~~~ruby
 customer_contact_details = {
@@ -220,9 +220,9 @@ You can see all available contact fields [here](v2/contacts/#createContact).
 
 Now that you have a contact available for your customer, it's a good idea to store the `contact.id` in your system for easy programmatic access, since you'll need it later.
 
-## Register a webhook
+## Registering a webhook
 
-Before we proceed to register a domain, it's a good idea to make sure you have a webhook registered and listening to events, in order to synch your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks can help you notify your customer when the registration is complete.
+Before we proceed to registering the domain, make sure you have a webhook registered and listening to events, in order to synch your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks can help you notify your customer when the registration is complete.
 
 ~~~ruby
     def register_webhook(url)
@@ -230,7 +230,7 @@ Before we proceed to register a domain, it's a good idea to make sure you have a
     end
 ~~~
 
-You will likely only ever need to register a single webhook for your system. For this tutorial, we can use a third-party service [RequestBin](https://requestbin.com/) to provide us with a visualisation of the events we would expect to receive from our system. You can also use secure local proxy tunnelling such as [Ngrok](https://ngrok.com/download) while developing and testing your webhook integration.
+You will likely only ever need to register a single webhook for your system. For this tutorial, we can use a third-party service [RequestBin](https://requestbin.com/) to provide us with a visualisation of the events we would expect to receive from our system. You can also use secure local proxy tunneling, like [Ngrok](https://ngrok.com/download), while developing and testing your webhook integration.
 
 ~~~ruby
 url = '<url of HTTP event source>'
@@ -239,9 +239,9 @@ DnsimpleAdapter.register_webhook(url)
 
 ## Registering the domain
 
-Now that we've prepared all required components, we can proceed to register a domain.
+Now that we've prepared all the required components, we can register the domain.
 
-* Domain name that is available for registration.
+* Domain name that's available for registration.
 * The TLD's extended attributes – if applicable.
 * Customer contact in our system.
 * Registered webhook for us to receive updates on account activity and resource states (Optional).
@@ -263,7 +263,7 @@ We can create a method in our adapter to allow us to register domains via the AP
     end
 ~~~
 
-Using all the previously obtained informatio,  we can register a user's chosen domain. 
+We can register a user's chosen domain using all the previously-obtained information. 
 
 ~~~ruby
 domain_name = 'makeideashappen.com'
@@ -271,9 +271,9 @@ domain_registration = DnsimpleAdapter.register_domain(domain_name, contanct.id)
 ~~~
 
 We didn't include any extended attributes, because there are none for **.COM**.
-The [domain registation](v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
+The [domain registration](v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
 
-The webhook you registered would receive updates on the domain's registration status. It can take some time before the domain is registered, and it's a good way to keep your system synched. The two events you'll be interested in when registering a domain are [**domain.register:started**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/status-started.http) and [**domain.register**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/example.http).
+The webhook you registered would receive updates on the domain's registration status. It can take some time before the domain is registered, and it's a good way to keep your system synced. The two events you'll be interested in when registering a domain are [**domain.register:started**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/status-started.http) and [**domain.register**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/example.http).
 
 
 Here's the complete adapter after all the additions we made throughout the tutorial:
