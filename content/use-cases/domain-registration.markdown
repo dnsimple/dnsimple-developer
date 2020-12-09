@@ -1,28 +1,28 @@
 ---
 title: Registering a domain
-excerpt: Register a domain on behalf of your users. Gathering and sending the contact information required by the register. Creating the purchase order and tracking its progress, so you can keep your users in the know.
+excerpt: Register a domain on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress, so you can keep your users in the know.
 ---
 
 # Registering a domain
 
-Register a domain on behalf of your users. Gathering and sending the contact information required by the register. Creating the purchase order and tracking its progress, so you can keep your users in the know.
+Register a domain on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress, so you can keep your users in the know.
 
-### Here's how it works at a high level
+### How it works at a high level
 
 1. The user requests for a domain to be registered.
 2. Your application checks the availability of the domain.
-3. You constructs and gather the contact details required for the registration of the domain.
-4. Registration order is created for the domain and key information is persisted in your application.
+3. You construct and gather the contact details required for domain registration.
+4. A registration order is created for the domain, and key information is persisted in your application.
 5. Notify your customer when the domain is registered and online.
 
 
 ---
 
-_The code provided is written in Ruby and is modelled as a service that can be adopted as a stand-alone script, into Rails or Sinatra_
+_The code provided is written in Ruby and is modelled as a service that can be adopted as a stand-alone script into Rails or Sinatra_
 
 ## Prerequisites
 
-For this tutorial the following dependencies are required:
+For this tutorial, you'll need the following dependencies:
 
 * [DNSimple Ruby Client](https://dnsimple.link/api-client-ruby)
 * [Public suffix parser](https://github.com/weppos/publicsuffix-ruby) for ruby
@@ -32,7 +32,7 @@ For this tutorial the following dependencies are required:
 
 ## Configure the API client
 
-As you will need to interact with the API extensively it is a good idea to create an adapter, to encapsulate the interaction between your system and our API.
+You'll need to interact with the API extensively, so it's a good idea to create an adapter to encapsulate the interaction between your system and our API.
 
 ~~~ruby
 require 'dnsimple'
@@ -81,9 +81,9 @@ end
 ~~~
 
 
-## Check domain's availability
+## Check the domain's availability
 
-When a user wants to register a domain the first step is to check if the domain is available for registration.
+When a user wants to register a domain, the first step is to check if the domain is available for registration.
 
 To do this let's add a method to your adapter that wraps around the API's `check_domain` call.
 
@@ -93,7 +93,7 @@ To do this let's add a method to your adapter that wraps around the API's `check
     end
 ~~~
 
-Now we can check if the domain is avialable by making a request and examening the [response](/v2/registrar/#checkDomain):
+Now we can check if the domain is avialable by making a request and examining the [response](/v2/registrar/#checkDomain):
 
 ~~~ruby
 domain_name = "makeideashappen.com"
@@ -102,11 +102,11 @@ domain = DnsimpleAdapter.check_domain(domain_name)
 raise 'Domain is not available' unless domain.available
 ~~~
 
-In case the requested domain is not available we raise an error, as a way to stop the execution of our code, however, you may want to handle it more gracefully, informing your customers that the domain is taken and they should explore other options.
+If the requested domain is not available, we raise an error as a way to stop the execution of our code. However, it's a good idea to inform your customers that the domain is taken and they should explore other options.
 
 ## Gather extended attributes for the domain
 
-Some ccTLDs such as **.FR**, **.ASIA**, **.EU**, etc. have additional information that needs to be provided to register a domain.
+Some ccTLDs, like **.FR**, **.ASIA**, **.EU**, etc. require additional information to register the domain.
 
 To do this, we can add a method to our adapter that makes a call and gets the extended attributes for a TLD.
 
@@ -116,7 +116,7 @@ To do this, we can add a method to our adapter that makes a call and gets the ex
     end
 ~~~
 
-As this endpoint requires only the TLD be provided, you need to extract it from your customer's input, and to help us there are some great libraries that you should aim to use instead of rolling out your own custom implementation.
+This endpoint requires only the TLD be provided, so you need to extract it from your customer's input. There are some helpful libraries you can use instead of rolling out your own custom implementation.
 
 ~~~ruby
 require 'public_suffix'
@@ -127,7 +127,7 @@ domain_name.tld # => 'eu'
 extended_attributes = DnsimpleAdapter.tld_extended_attributes(domain_name.tld)
 ~~~
 
-In case `extended_attributes` is an empty array, there are no extended attributes to presented to the user. However, if there are attributes they will have the following structure:
+In case `extended_attributes` is an empty array, there are no extended attributes to presented to the user. However, if there are attributes, they will have the following structure:
 
 ~~~ruby
 {
@@ -146,7 +146,7 @@ In case `extended_attributes` is an empty array, there are no extended attribute
 ~~~
 
 * `required` indicates if the field MUST be filled in or it can be left blank.
-* `options` in case it is a blank array `[]` it means the value must be provided by the user.
+* `options` if it's a blank array `[]` it means the value must be provided by the user.
 
 For example **.EU** will return:
 
