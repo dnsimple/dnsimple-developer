@@ -5,7 +5,7 @@ excerpt: Use cases built with the DNSimple Domain and DNS API.
 
 # Use Cases
 
-Use DNSimple products to solve the management of registering and setting up DNS. Empowering your users bu giving them the tools to register, connect and operate customized domains wihtin your products and services.
+Use DNSimple's domain management tools to register and set up DNS. Empower your users by giving them the tools to register, connect, and operate customized domains wihtin your products and services.
 
 
 * TOC
@@ -15,4 +15,4 @@ Use DNSimple products to solve the management of registering and setting up DNS.
 
 ## [Registering a domain](/use-cases/domain-registration)
 
-Register a domain on behalf of your users. Gathering and sending the contact information required by the register. Creating the purchase order and tracking its progress, so you can keep your users in the know.
+Register a domain on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress, so you can keep your users in the know.
