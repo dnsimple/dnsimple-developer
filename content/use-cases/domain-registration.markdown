@@ -1,18 +1,18 @@
 ---
 title: Registering a domain
-excerpt: Register a domain on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress, so you can keep your users in the know.
+excerpt: Register a domain on behalf of your users. Gather and send contact information required by the registry. Create purchase orders and track their progress, so you can keep your users in the know.
 ---
 
 # Registering a domain
 
-Register domains on behalf of your users. Gather and send contact information required by the register. Create purchase orders and track their progress so you can keep your users in the know.
+Register domains on behalf of your users. Gather and send contact information required by the registry. Create purchase orders and track their progress so you can keep your users in the know.
 
 ### How it works at a high level
 
-1. The user requests for a domain to be registered.
-2. Your application checks the availability of the domain.
+1. The user requests a domain registration.
+2. Your application checks the domain's availability.
 3. You construct and gather the contact details required for domain registration.
-4. A registration order is created for the domain, and key information is persisted in your application.
+4. A registration order is created for the domain. Key information is persisted in your application.
 5. Notify your customer when the domain is registered and online.
 
 
@@ -127,7 +127,7 @@ domain_name.tld # => 'eu'
 extended_attributes = DnsimpleAdapter.tld_extended_attributes(domain_name.tld)
 ~~~
 
-In case `extended_attributes` is an empty array, there are no extended attributes to presented to the user. However, if there are attributes, they will have the following structure:
+If `extended_attributes` is an empty array, there are no extended attributes to present to the user. However, if there are attributes, they will have the following structure:
 
 ~~~ruby
 {
@@ -146,7 +146,7 @@ In case `extended_attributes` is an empty array, there are no extended attribute
 ~~~
 
 * `required` indicates if the field MUST be filled in or it can be left blank.
-* `options` if it's a blank array `[]` it means the value must be provided by the user.
+* `options` if it's a blank array `[]`, it means the value must be provided by the user.
 
 For example **.EU** will return:
 
@@ -190,7 +190,7 @@ Now that you know how to handle extended attributes, it's a good time to present
 
 ## Creating a contact for your user
 
-For a domain to be registered it needs to have an associated contact in our system. You'll probably want to provide your customer's contact details instead of your own, so the contact will need to be created in our system.
+For a domain to be registered, it needs to have an associated contact in our system. You'll probably want to provide your customer's contact details instead of your own, so the contact will need to be created in our system.
 
 ~~~ruby
     def create_contact(contact_details)
@@ -218,11 +218,11 @@ contact = DnsimpleAdapter.create_contact(customer_contact_details)
 
 You can see all available contact fields [here](v2/contacts/#createContact).
 
-Now that you have a contact available for your customer, it's a good idea to store the `contact.id` in your system for easy programmatic access, since you'll need it later.
+Now that you have a contact available for your customer, store the `contact.id` in your system for easy programmatic access, since you'll need it later.
 
 ## Registering a webhook
 
-Before we proceed to registering the domain, make sure you have a webhook registered and listening to events, to synchronize your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks can help you notify your customer when the registration is complete.
+Before we proceed to registering the domain, make sure you have a webhook registered and listening to events to synchronize your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks help you notify your customer when the registration is complete.
 
 ~~~ruby
     def register_webhook(url)
@@ -273,7 +273,7 @@ domain_registration = DnsimpleAdapter.register_domain(domain_name, contanct.id)
 We didn't include any extended attributes, because there are none for **.COM**.
 The [domain registration](v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
 
-The webhook you registered would receive updates on the domain's registration status. It can take some time before the domain is registered, and it's a good way to keep your system synced. The two events you'll be interested in when registering a domain are [**domain.register:started**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/status-started.http) and [**domain.register**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/example.http).
+The webhook you registered will receive updates on the domain's registration status. It can take some time before the domain is registered, and it's a good way to keep your system synced. The two events you'll be interested in when registering a domain are [**domain.register:started**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/status-started.http) and [**domain.register**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/example.http).
 
 
 Here's the complete adapter after all the additions we made throughout the tutorial:
