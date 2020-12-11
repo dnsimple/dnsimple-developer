@@ -222,7 +222,7 @@ Now that you have a contact available for your customer, it's a good idea to sto
 
 ## Registering a webhook
 
-Before we proceed to registering the domain, make sure you have a webhook registered and listening to events, in order to synch your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks can help you notify your customer when the registration is complete.
+Before we proceed to registering the domain, make sure you have a webhook registered and listening to events, to synchronize your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks can help you notify your customer when the registration is complete.
 
 ~~~ruby
     def register_webhook(url)
