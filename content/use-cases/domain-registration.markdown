@@ -145,8 +145,8 @@ If `extended_attributes` is an empty array, there are no extended attributes to 
 }
 ~~~
 
-* `required` indicates if the field MUST be filled in or it can be left blank.
-* `options` if it's a blank array `[]`, it means the value must be provided by the user.
+* `required` indicates if the field MUST be filled in or if it can be left blank.
+* `options` if it's a blank array `[]`, it means the user must provide the value.
 
 For example **.EU** will return:
 
