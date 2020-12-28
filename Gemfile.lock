@@ -30,7 +30,7 @@ GEM
     deep_merge (1.0.1)
     diff-lcs (1.4.4)
     dotenv (1.0.2)
-    ffi (1.12.2)
+    ffi (1.14.2)
     formatador (0.2.5)
     guard (2.16.1)
       formatador (>= 0.2.4)
