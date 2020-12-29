@@ -57,8 +57,10 @@ task :publish => :compile do
 end
 
 desc "Run the site"
-task :run do
-  sh("yarn live")
+task run: [:compile] do
+  Bundler.with_clean_env do
+    sh("bundle exec nanoc live")
+  end
 end
 
 namespace :test do
