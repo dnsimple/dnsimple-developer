@@ -27,7 +27,7 @@ h2 {
 .marker {
   color: $gray-700;
   background: $gray-200;
-  padding: 1rem 1rem 0.2rem 2.5rem;
+  padding: 16px 10px 16px 40px;
   border-radius: 0px;
   box-shadow: -6px 0 0 0 $gray-600;
   margin: 0 2rem 1rem 0.5rem;
@@ -36,11 +36,16 @@ h2 {
     margin-top: 0px;
   }
 
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &:before {
     display: block;
     float: left;
-    margin-left: -1.5rem;
-    padding-top: 0.1rem;
+    margin-left: -25px;
     font-size: 16px;
     line-height: 140%;
     color: $gray-600;
