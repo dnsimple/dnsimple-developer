@@ -18,7 +18,7 @@ The use-case covered in this tutorial is to register domains on behalf of your u
 
 ---
 
-_The code in this tutorial is written in Ruby. The code can be adapted as part of a stand-alone script. Alternatively, it can be used as part of popular frameworks such as Sinatra, Ruby on Rails, Hanami and etc._
+_The tutorial is written in Ruby. The code provided can be part of a stand-alone script. Alternatively, popular frameworks such as Sinatra, Ruby on Rails, Hanami, etc. can integrate the code as a service._
 
 ## Prerequisites
 
