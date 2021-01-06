@@ -1,11 +1,11 @@
 ---
 title: Registering a domain
-excerpt: Register a domain on behalf of your users. Gather and send contact information required by the registry. Create purchase orders and track their progress, so you can keep your users in the know.
+excerpt: The use-case covered in this tutorial is to register domains on behalf of your users (or organization). As part of the tutorial, we cover how to gather contact information required for the domain registration. And how to create a purchase order with the collected contact information and track the domain registration progress, allowing you to keep your users in the know.
 ---
 
 # Registering a domain
 
-Register domains on behalf of your users. Gather and send contact information required by the registry. Create purchase orders and track their progress so you can keep your users in the know.
+The use-case covered in this tutorial is to register domains on behalf of your users (or organization). As part of the tutorial, we cover how to gather contact information required for the domain registration. And how to create a purchase order with the collected contact information and track the domain registration progress, allowing you to keep your users in the know.
 
 ### How it works at a high level
 
@@ -18,7 +18,7 @@ Register domains on behalf of your users. Gather and send contact information re
 
 ---
 
-_The code provided is written in Ruby and is modelled as a service that can be adopted as a stand-alone script into Rails or Sinatra_
+_The code in this tutorial is written in Ruby. The code can be adapted as part of a stand-alone script. Alternatively, it can be used as part of popular frameworks such as Sinatra, Ruby on Rails, Hanami and etc._
 
 ## Prerequisites
 
@@ -263,7 +263,7 @@ We can create a method in our adapter to allow us to register domains via the AP
     end
 ~~~
 
-We can register a user's chosen domain using all the previously-obtained information. 
+We can register a user's chosen domain using all the previously-obtained information.
 
 ~~~ruby
 domain_name = 'makeideashappen.com'
