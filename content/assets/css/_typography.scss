@@ -14,6 +14,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
+  background: #fff;
 }
 
 h1, h2, h3 {
@@ -30,13 +31,13 @@ h1 {
 
 h2 {
   font-size: 1.4em;
-  margin: 20px 0 10px 0;
+  margin: 25px 0 10px 0;
 }
 
 h3 {
   font-size: 1em;
   font-weight: bold;
-  margin-bottom: $base-unit/1.5;
+  margin: 18px 0 4px 0;
   i {
     margin-right: $base-unit/4;
   }
@@ -46,7 +47,6 @@ h5 {
   font-weight: bold;
   font-size: 15px;
 }
-
 
 p, pre, table {
   margin: 0 0 $base-unit/1.5 0;
@@ -66,7 +66,7 @@ hr {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
+  color: inherit;
   background: #f9f2f4;
   border-radius: 4px;
 }
