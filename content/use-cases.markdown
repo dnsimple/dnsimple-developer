@@ -15,4 +15,4 @@ Use DNSimple's domain management tools to register and set up DNS. Empower your 
 
 ## [Registering a domain](/use-cases/domain-registration)
 
-Register a domain on behalf of your users. Gather and send contact information required by the registry. Create purchase orders and track their progress, so you can keep your users in the know.
+In this tutorial, we'll cover how to register domains on behalf of your users (or organization). We'll discuss how to gather contact information required for domain registration, create a purchase order with the collected contact information, and track the domain registration progress – allowing you to keep your users in the know.
