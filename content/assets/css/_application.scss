@@ -2,24 +2,12 @@
 // Application Template
 // --------------------------------------------------
 
-.container {
-  max-width: 970px !important;
-}
-
-// Reset Bootstrap style on <code> inside table.
 .table td code {
   padding: 0;
   color: #333;
   background-color: transparent;
   border: none;
 }
-
-// Increase bottom margin. It looks better.
-h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 
 // Markers
 // ---------------
@@ -136,9 +124,13 @@ h2 {
   padding-left: 15px;
   border-left: 5px solid #eeeeee;
   color: #333;
+  text-decoration: none;
 }
 .nav-list ul li a {
-  padding-left: 30px;
+  padding-left: 25px;
+  &:before {
+    content: "▸ ";
+  }
 }
 .nav-list li {
   padding: 0;
