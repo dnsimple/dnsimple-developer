@@ -12,9 +12,8 @@ before_install:
 cache:
   - bundler
 
-script:
-  - bundle exec rake test
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" ]; then bundle exec rake publish; fi
+after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bundle exec rake publish
 
 notifications:
   slack:
