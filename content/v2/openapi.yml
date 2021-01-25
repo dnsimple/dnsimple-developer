@@ -3669,36 +3669,6 @@ components:
           $ref: '#/components/schemas/DateTimeISO8601'
     Service:
       type: object
-      properties:
-        id:
-          type: integer
-          description: A unique identifier
-        name:
-          type: string
-          description: A human-readable name
-        sid:
-          type: string
-          description: A string identifier that can be used in URLs (always lowercase)
-        description:
-          type: string
-          description: A human-readable description of the one-click service
-        setup_description:
-          type: string
-          description: Describes setup requirements
-        requires_setup:
-          type: boolean
-          description: Flag indicating whether setup is required
-        default_subdomain:
-          type: string
-          description: The default subdomain used when creating DNS records
-        created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
-        updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
-        settings:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceSetting'
       example:
         id: 2
         name: Service 2
@@ -3716,6 +3686,40 @@ components:
             description: Your Service2 username is used to connect services to your account.
             example: username
             password: false
+      properties:
+        id:
+          type: integer
+          description: A unique identifier
+        name:
+          type: string
+          description: A human-readable name
+        sid:
+          type: string
+          description: A string identifier that can be used in URLs (always lowercase)
+        description:
+          type: string
+          description: A human-readable description of the one-click service
+        setup_description:
+          type:
+            - string
+            - 'null'
+          description: Describes setup requirements
+        requires_setup:
+          type: boolean
+          description: Flag indicating whether setup is required
+        default_subdomain:
+          type:
+            - string
+            - 'null'
+          description: The default subdomain used when creating DNS records
+        created_at:
+          $ref: '#/components/schemas/DateTimeISO8601'
+        updated_at:
+          $ref: '#/components/schemas/DateTimeISO8601'
+        settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceSetting'
     ServiceSetting:
       type: object
       properties:
