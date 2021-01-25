@@ -933,7 +933,7 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Transfer a domain
-  '/{account}/registrar/domains/{domain}/transfers/{transfer}':
+  '/{account}/registrar/domains/{domain}/transfers/{domaintransfer}':
     get:
       description: Retrieves the details of an existing domain transfer.
       summary: Retrieve a domain transfer
