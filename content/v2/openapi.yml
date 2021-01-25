@@ -19,6 +19,27 @@ servers:
     variables: {}
   - url: 'https://api.sandbox.dnsimple.com/v2'
     description: 'DNSimple Sandbox API. For more information on the purpose and use of the Sandbox API, see our [testing documentation](https://developer.dnsimple.com/v2/#testing)'
+tags:
+  - name: accounts
+  - name: contacts
+  - name: domains
+  - name: domain certificates
+  - name: domain collaborators
+  - name: domain dnssec
+  - name: domain emailforwards
+  - name: domain pushes
+  - name: domain services
+  - name: registrar
+  - name: registrar delegation
+  - name: registrar transfer
+  - name: registrar renewal
+  - name: registrar privacy
+  - name: identity
+  - name: tlds
+  - name: vanity name servers
+  - name: templates
+  - name: webhooks
+  - name: zones
 paths:
   /accounts:
     get:
@@ -26,7 +47,7 @@ paths:
       parameters: []
       operationId: listAccounts
       tags:
-        - account
+        - accounts
       responses:
         '200':
           description: Depending on how you are authenticated you will see all the accounts you have access to or the account you used to authenticate.
@@ -516,7 +537,7 @@ paths:
         - $ref: '#/components/parameters/Account'
       operationId: listPushes
       tags:
-        - pushes
+        - domain pushes
       responses:
         '200':
           description: Successfully retrieved pushes for the account.
@@ -540,7 +561,7 @@ paths:
         - $ref: '#/components/parameters/Push'
       operationId: acceptPush
       tags:
-        - pushes
+        - domain pushes
       requestBody:
         $ref: '#/components/requestBodies/PushAccept'
       responses:
@@ -558,7 +579,7 @@ paths:
         - $ref: '#/components/parameters/Push'
       operationId: rejectPush
       tags:
-        - pushes
+        - domain pushes
       responses:
         '204':
           description: Successfully reject a push.
@@ -576,7 +597,7 @@ paths:
         - $ref: '#/components/parameters/SortCertificates'
       operationId: listCertificates
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '200':
           description: Successfully retrieved certificates for a domain.
@@ -603,7 +624,7 @@ paths:
         - $ref: '#/components/parameters/Certificate'
       operationId: getCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '200':
           description: Successfully retrieved a certificate for a domain.
@@ -626,7 +647,7 @@ paths:
         - $ref: '#/components/parameters/Certificate'
       operationId: downloadCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '200':
           description: Successfully retrieved the certificate.
@@ -649,7 +670,7 @@ paths:
         - $ref: '#/components/parameters/Certificate'
       operationId: getCertificatePrivateKey
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '200':
           description: Successfully retrieved the private key for an issued certificate.
@@ -665,13 +686,13 @@ paths:
       summary: Retrieve a certificate private key
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
     post:
-      description: "Orders a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple."
+      description: 'Orders a [Let''s Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
       operationId: purchaseLetsencryptCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '201':
           description: Successfully created the certificate purchase order.
@@ -699,7 +720,7 @@ paths:
             type: integer
       operationId: issueLetsencryptCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '202':
           description: Successfully requested the issuance of the certificate.
@@ -722,7 +743,7 @@ paths:
         - $ref: '#/components/parameters/Certificate'
       operationId: purchaseRenewalLetsencryptCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '201':
           description: Successfully created the certificate renewal order.
@@ -751,7 +772,7 @@ paths:
             type: integer
       operationId: issueRenewalLetsencryptCertificate
       tags:
-        - domains certificates
+        - domain certificates
       responses:
         '202':
           description: Successfully requested the issuance of the certificate renewal.
@@ -944,7 +965,7 @@ paths:
       operationId: getDomainTransfer
       tags:
         - registrar
-        - transfer
+        - registrar transfer
       responses:
         '200':
           description: Domain transfer details.
@@ -967,7 +988,7 @@ paths:
       operationId: cancelDomainTransfer
       tags:
         - registrar
-        - transfer
+        - registrar transfer
       responses:
         '202':
           description: Domain transfer cancellation accepted and queued for processing.
@@ -992,6 +1013,7 @@ paths:
       operationId: domainRenew
       tags:
         - registrar
+        - registrar renewal
       requestBody:
         $ref: '#/components/requestBodies/DomainRenew'
       responses:
@@ -1132,7 +1154,8 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: enableDomainAutoRenewal
       tags:
-        - registrar autorenew
+        - registrar
+        - registrar renewal
       responses:
         '204':
           description: Successfully enabled auto-renewal.
@@ -1148,7 +1171,8 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: disableDomainAutoRenewal
       tags:
-        - registrar autorenew
+        - registrar
+        - registrar renewal
       responses:
         '204':
           description: Successfully disabled auto-renewal.
@@ -1165,6 +1189,7 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: getWhoisPrivacy
       tags:
+        - registrar
         - registrar privacy
       responses:
         '200':
@@ -1369,7 +1394,7 @@ paths:
         - $ref: '#/components/parameters/SortZoneRecords'
       operationId: listZoneRecords
       tags:
-        - zones records
+        - zones
       responses:
         '200':
           description: Successfully retrieved zone records list.
@@ -1390,7 +1415,7 @@ paths:
         - $ref: '#/components/parameters/Zone'
       operationId: createZoneRecord
       tags:
-        - zones records
+        - zones
       requestBody:
         $ref: '#/components/requestBodies/ZoneRecordCreate'
       responses:
@@ -1417,7 +1442,7 @@ paths:
         - $ref: '#/components/parameters/ZoneRecord'
       operationId: getZoneRecord
       tags:
-        - zones records
+        - zones
       responses:
         '200':
           description: Successfully get zone record.
@@ -1439,7 +1464,7 @@ paths:
         - $ref: '#/components/parameters/ZoneRecord'
       operationId: updateZoneRecord
       tags:
-        - zones records
+        - zones
       requestBody:
         $ref: '#/components/requestBodies/ZoneRecordUpdate'
       responses:
@@ -1465,7 +1490,7 @@ paths:
         - $ref: '#/components/parameters/ZoneRecord'
       operationId: deleteZoneRecord
       tags:
-        - zones records
+        - zones
       responses:
         '204':
           description: Successfully deleted zone record.
@@ -1481,7 +1506,7 @@ paths:
         - $ref: '#/components/parameters/ZoneRecord'
       operationId: checkZoneRecordDistribution
       tags:
-        - zones records
+        - zones
       responses:
         '200':
           description: Successfully checked zone record distribution.
@@ -1608,7 +1633,7 @@ paths:
         - $ref: '#/components/parameters/SortServices'
       operationId: listServices
       tags:
-        - services
+        - domain services
       responses:
         '200':
           description: Successfully retrieved service list.
@@ -1631,7 +1656,7 @@ paths:
         - $ref: '#/components/parameters/Service'
       operationId: getService
       tags:
-        - services
+        - domain services
       responses:
         '200':
           description: Successfully retrieved service.
@@ -1653,7 +1678,7 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: listDomainAppliedServices
       tags:
-        - domains services
+        - domain services
       responses:
         '200':
           description: Successfully retrieved list of applied services.
@@ -1680,7 +1705,7 @@ paths:
         - $ref: '#/components/parameters/Service'
       operationId: applyServiceToDomain
       tags:
-        - domains services
+        - domain services
       requestBody:
         $ref: '#/components/requestBodies/ServiceApply'
       responses:
@@ -1699,7 +1724,7 @@ paths:
         - $ref: '#/components/parameters/Service'
       operationId: unapplyServiceFromDomain
       tags:
-        - domains services
+        - domain services
       responses:
         '204':
           description: Successfully unapplied a service to a domain.
@@ -1820,7 +1845,7 @@ paths:
         - $ref: '#/components/parameters/SortTemplateRecords'
       operationId: listTemplateRecords
       tags:
-        - templates records
+        - templates
       responses:
         '200':
           description: Successfully retrieved the template records list.
@@ -1843,7 +1868,7 @@ paths:
         - $ref: '#/components/parameters/Template'
       operationId: createTemplateRecord
       tags:
-        - templates records
+        - templates
       requestBody:
         $ref: '#/components/requestBodies/TemplateRecordCreateOrUpdate'
       responses:
@@ -1866,7 +1891,7 @@ paths:
         - $ref: '#/components/parameters/TemplateRecord'
       operationId: getTemplateRecord
       tags:
-        - templates records
+        - templates
       responses:
         '200':
           description: Successfully retrieved a template record.
@@ -1888,7 +1913,7 @@ paths:
         - $ref: '#/components/parameters/TemplateRecord'
       operationId: deleteTemplateRecord
       tags:
-        - templates records
+        - templates
       responses:
         '204':
           description: Successfully deleted a template record.
@@ -1904,7 +1929,7 @@ paths:
         - $ref: '#/components/parameters/Template'
       operationId: applyTemplateToDomain
       tags:
-        - domains templates
+        - templates
       responses:
         '204':
           description: Successfully applied a template to the domain.
