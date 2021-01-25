@@ -2387,24 +2387,28 @@ components:
           - 'type:asc'
           - 'type:desc'
   schemas:
-    DateISO8601:
+    Date:
       type: string
       format: date
       example: '2010-01-01'
-    DateTimeISO8601:
+      description: A date value formatted as ISO 8601.
+    DateTime:
       type: string
       format: date-time
       example: '2010-01-01T01:00:00Z'
-    NullableDateISO8601:
+      description: A date-time value formatted as ISO 8601.
+    NullableDate:
       type:
         - string
         - 'null'
       format: date
-    NullableDateTimeISO8601:
+      description: A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.
+    NullableDateTime:
       type:
         - string
         - 'null'
       format: date-time
+      description: A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.
     Error:
       type: object
       properties:
@@ -2436,9 +2440,9 @@ components:
         plan_identifier:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         email: example-account@example.com
@@ -2470,15 +2474,15 @@ components:
         token:
           type: string
         invitation_sent_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         invitation_accepted_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/DateTimeISO8601'
+            - $ref: '#/components/schemas/DateTime'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     Actor:
       type: object
       properties:
@@ -2533,11 +2537,11 @@ components:
             - rapidssl
             - letsencrypt
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         expires_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 2
@@ -2689,11 +2693,11 @@ components:
         invitation:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         accepted_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 100
         domain_id: 1
@@ -2741,9 +2745,9 @@ components:
         email:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         account_id: 1010
@@ -2788,9 +2792,9 @@ components:
         keytag:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     Domain:
       type: object
       example:
@@ -2830,11 +2834,11 @@ components:
         expires_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/NullableDateTimeISO8601'
+            - $ref: '#/components/schemas/NullableDateTime'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     DomainCheckResult:
       type: object
       properties:
@@ -2891,9 +2895,9 @@ components:
         whois_privacy:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 999
@@ -2924,9 +2928,9 @@ components:
             - renewed
             - failed
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 999
@@ -2958,9 +2962,9 @@ components:
         status_description:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 999
@@ -2976,9 +2980,9 @@ components:
         enabled:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         enabled: true
         created_at: '2017-02-03T17:43:22.000Z'
@@ -2995,9 +2999,9 @@ components:
         to:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 2
@@ -3529,9 +3533,9 @@ components:
         invoice_number:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     LetsencryptCertificatePurchase:
       type: object
       properties:
@@ -3555,9 +3559,9 @@ components:
         auto_renew:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         certificate_id: 1
@@ -3585,9 +3589,9 @@ components:
         auto_renew:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 999
         old_certificate_id: 200
@@ -3608,9 +3612,9 @@ components:
         ipv6:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         name: ns1.example.com
@@ -3630,9 +3634,9 @@ components:
         homepage_url:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     Push:
       type: object
       properties:
@@ -3645,13 +3649,13 @@ components:
         account_id:
           type: integer
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         accepted_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/NullableDateTimeISO8601'
+            - $ref: '#/components/schemas/NullableDateTime'
       example:
         id: 1
         domain_id: 100
@@ -3676,9 +3680,9 @@ components:
           items:
             type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     Service:
       type: object
       example:
@@ -3725,9 +3729,9 @@ components:
             - 'null'
           description: The default subdomain used when creating DNS records
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         settings:
           type: array
           items:
@@ -3805,9 +3809,9 @@ components:
             - unsubscribed
             - not_subscribed
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     Template:
       type: object
       properties:
@@ -3822,9 +3826,9 @@ components:
         description:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         account_id: 1010
@@ -3852,9 +3856,9 @@ components:
         type:
           $ref: '#/components/schemas/TemplateRecordType'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 296
         template_id: 268
@@ -3943,9 +3947,9 @@ components:
         email:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         email: example-user@example.com
@@ -4176,11 +4180,11 @@ components:
         domain_id:
           type: integer
         expires_on:
-          $ref: '#/components/schemas/DateISO8601'
+          $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 2
@@ -4202,11 +4206,11 @@ components:
         enabled:
           type: boolean
         expires_on:
-          $ref: '#/components/schemas/DateISO8601'
+          $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         domain_id: 100
@@ -4230,9 +4234,9 @@ components:
           type: boolean
           description: 'Returns true for a reverse zone, false for a forward zone.'
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         account_id: 1010
@@ -4312,9 +4316,9 @@ components:
           type: boolean
           description: Returns true if a record is a system generated record and thus is not modifiable.
         created_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
         updated_at:
-          $ref: '#/components/schemas/DateTimeISO8601'
+          $ref: '#/components/schemas/DateTime'
     ZoneRecordRegion:
       type: string
       enum:
