@@ -2402,13 +2402,13 @@ components:
         - string
         - 'null'
       format: date
-      description: A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.
+      description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     NullableDateTime:
       type:
         - string
         - 'null'
       format: date-time
-      description: A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.
+      description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
       type: object
       properties:
