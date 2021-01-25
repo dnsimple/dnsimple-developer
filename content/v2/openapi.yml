@@ -2390,8 +2390,20 @@ components:
     DateISO8601:
       type: string
       format: date
+      example: '2010-01-01'
     DateTimeISO8601:
       type: string
+      format: date-time
+      example: '2010-01-01T01:00:00Z'
+    NullableDateISO8601:
+      type:
+        - string
+        - 'null'
+      format: date
+    NullableDateTimeISO8601:
+      type:
+        - string
+        - 'null'
       format: date-time
     Error:
       type: object
@@ -2818,7 +2830,7 @@ components:
         expires_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/DateTimeISO8601'
+            - $ref: '#/components/schemas/NullableDateTimeISO8601'
         created_at:
           $ref: '#/components/schemas/DateTimeISO8601'
         updated_at:
@@ -3639,7 +3651,7 @@ components:
         accepted_at:
           nullable: true
           anyOf:
-            - $ref: '#/components/schemas/DateTimeISO8601'
+            - $ref: '#/components/schemas/NullableDateTimeISO8601'
       example:
         id: 1
         domain_id: 100
