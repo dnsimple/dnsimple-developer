@@ -1408,7 +1408,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Create a zone record
-  '/{account}/zones/{zone}/records/{record}':
+  '/{account}/zones/{zone}/records/{zonerecord}':
     get:
       description: Retrieves the details of an existing zone record.
       parameters:
@@ -1472,7 +1472,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a zone record
-  '/{account}/zones/{zone}/records/{record}/distribution':
+  '/{account}/zones/{zone}/records/{zonerecord}/distribution':
     get:
       description: Checks if a zone record is fully distributed to all our name servers across the globe.
       parameters:
@@ -1857,7 +1857,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/TemplateRecord'
       summary: Create a template record
-  '/{account}/templates/{template}/records/{record}':
+  '/{account}/templates/{template}/records/{templaterecord}':
     get:
       description: Retrieves the details of an existing template record.
       parameters:
@@ -2147,7 +2147,7 @@ components:
       schema:
         type: integer
     TemplateRecord:
-      name: record
+      name: templaterecord
       in: path
       required: true
       description: The template record id
@@ -2175,7 +2175,7 @@ components:
       schema:
         type: string
     ZoneRecord:
-      name: record
+      name: zonerecord
       in: path
       required: true
       description: The zone record id
