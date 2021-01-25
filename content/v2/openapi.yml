@@ -4089,7 +4089,7 @@ components:
           type: string
           description: The request_identifier attribute is a UUID that provides a way to identify this request. You may use this UUID to ensure a webhook is processed once and only once by keeping a persistent history of the identifiers sent and never handling a webhook which was already processed.
         data:
-          oneOf:
+          anyOf:
             - $ref: '#/components/schemas/EventAccountAddUser'
             - $ref: '#/components/schemas/EventAccountBillingSettingsUpdate'
             - $ref: '#/components/schemas/EventAccountPaymentDetailsUpdate'
