@@ -82,15 +82,15 @@ Create an email forward under the domain `example.com` in the account `1010`:
 
 Name | Type | Description
 -----|------|------------
-`from` | `string` | **Required**. The email address the emails are sent to.
-`to` | `string` | **Required**. The email address the email address the emails are forwarded to.
+`alias_name` | `string` | **Required**. The receiving email recipient, the name part only without the domain. The domain is automatically appended.
+`destination_email` | `string` | **Required**. The email recipient the messages are delivered to.
 
 ##### Example
 
 ~~~json
 {
-  "from": "jim@a-domain.com",
-  "to": "jim@another.com"
+  "alias_name": "john.doe",
+  "destination_email": "john@another.com"
 }
 ~~~
 
