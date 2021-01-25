@@ -2989,26 +2989,38 @@ components:
         updated_at: '2017-02-03T17:43:22.000Z'
     EmailForward:
       type: object
+      example:
+        id: 1
+        domain_id: 2
+        alias_email: john.doe@a-domain.com
+        destination_email: john@example.com
+        created_at: '2016-02-04T14:26:50Z'
+        updated_at: '2016-02-04T14:26:50Z'
       properties:
         id:
           type: integer
         domain_id:
           type: integer
+        alias_email:
+          type: string
+          format: email
+          description: The receiving email recipient.
+        destination_email:
+          type: string
+          format: email
+          description: The email recipient the messages are delivered to.
         from:
           type: string
+          deprecated: true
+          description: Deprecated in favor of alias_email.
         to:
           type: string
+          deprecated: true
+          description: Deprecated in favor of destination_email.
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
           $ref: '#/components/schemas/DateTime'
-      example:
-        id: 1
-        domain_id: 2
-        from: john.doe@a-domain.com
-        to: john@example.com
-        created_at: '2016-02-04T14:26:50Z'
-        updated_at: '2016-02-04T14:26:50Z'
     EventAccountAddUser:
       type: object
       description: Payload for account.add_user event.
@@ -4557,10 +4569,13 @@ components:
           schema:
             type: object
             properties:
-              from:
+              alias_name:
                 type: string
-              to:
+                description: The receiving email recipient, the name part only without the domain. The domain is automatically appended.
+              destination_email:
                 type: string
+                format: email
+                description: The email recipient the messages are delivered to.
             example:
               from: john.doe
               to: john@example.com
