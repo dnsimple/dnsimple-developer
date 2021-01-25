@@ -3885,7 +3885,7 @@ components:
           description: true if the suffix allows WHOIS privacy as a separate component. Some registries may provide WHOIS privacy at registry level by limiting the visibility of certain attributes in the WHOIS response.
         auto_renew_only:
           type: boolean
-          description: "true if the suffix requires auto-renewal and can't be renewed manually"
+          description: true if the suffix requires auto-renewal and can't be renewed manually
         idn:
           type: boolean
           description: true if the suffix supports Internationalized Domain Names (IDN)
@@ -4339,7 +4339,7 @@ components:
     '402':
       description: Your account is not subscribed or not in good standing.
     '404':
-      description: "The requested resource doesn't exist."
+      description: The requested resource doesn't exist.
     '412':
       description: A precondition failed while trying to access a resource.
     '429':
@@ -4412,7 +4412,7 @@ components:
                 description: 'The company name. If the organization_name is specified, then you must also include job_title.'
               job_title:
                 type: string
-                description: "The contact's job title. Required if the organization_name is specified."
+                description: The contact's job title. Required if the organization_name is specified.
             example:
               label: Default
               first_name: First
