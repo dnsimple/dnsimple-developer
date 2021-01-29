@@ -1,8 +1,8 @@
-.sass-cache
-output
-tmp
-crash.log
-.env
-s3_website.jar
-dist
-node_modules
+/.sass-cache
+/output
+/tmp
+/node_modules
+/dist
+
+/.env
+/crash.log
