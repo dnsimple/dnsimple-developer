@@ -9,7 +9,7 @@ require 'open3'
 PUBLISH_DIRECTORY = "output"
 BUILD_YARN_DIRECTORY = "dist"
 
-task default: [:test]
+task default: [:test, :compile]
 
 desc "Compile the site"
 task compile: [:clean, :compile_nanoc, :compile_openapi]
@@ -24,7 +24,7 @@ desc "Compile the static site"
 task :compile_nanoc do
   puts "Compiling site"
 
-  stdout, stderr, status = Bundler.with_clean_env do
+  stdout, stderr, status = Bundler.with_unbundled_env do
     Open3.capture3("yarn && yarn build && bundle exec nanoc compile")
   end
   if status.success?
