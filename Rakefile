@@ -14,12 +14,6 @@ task default: [:test]
 desc "Compile the site"
 task compile: [:clean, :compile_nanoc, :compile_openapi]
 
-desc "Remove the compilation artifacts"
-task :clean do
-  FileUtils.rm_r(PUBLISH_DIRECTORY) if File.exist?(PUBLISH_DIRECTORY)
-  FileUtils.rm_r(BUILD_YARN_DIRECTORY) if File.exist?(BUILD_YARN_DIRECTORY)
-end
-
 desc "Compile the static site"
 task :compile_nanoc do
   puts "Compiling site"
@@ -42,6 +36,17 @@ task :compile_openapi do
 
   File.write("output/v2/openapi.yml", data)
   File.write("output/v2/openapi.json", JSON.dump(YAML.load(data)))
+end
+
+desc "Remove the compilation artifacts"
+task :clean do
+  FileUtils.rm_r(PUBLISH_DIRECTORY) if File.exist?(PUBLISH_DIRECTORY)
+  FileUtils.rm_r(BUILD_YARN_DIRECTORY) if File.exist?(BUILD_YARN_DIRECTORY)
+end
+
+desc "Publish"
+task publish: [:test] do
+  puts "Published"
 end
 
 desc "Run the site"
