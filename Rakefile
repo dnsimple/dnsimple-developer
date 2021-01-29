@@ -9,7 +9,7 @@ require 'open3'
 PUBLISH_DIRECTORY = "output"
 BUILD_YARN_DIRECTORY = "dist"
 
-task default: [:test, :compile]
+task default: [:test]
 
 desc "Compile the site"
 task compile: [:clean, :compile_nanoc, :compile_openapi]
@@ -44,21 +44,9 @@ task :compile_openapi do
   File.write("output/v2/openapi.json", JSON.dump(YAML.load(data)))
 end
 
-desc "Publish to S3"
-task :publish => :compile do
-  puts "Publishing to S3"
-
-  stdout, stderr, status = Open3.capture3("s3_website push")
-  if status.success? && stdout.include?("Successfully pushed the website to")
-    puts "Publishing succeeded"
-  else
-    abort "ERROR: Publishing failed\n#{stdout}\n#{stderr}"
-  end
-end
-
 desc "Run the site"
 task run: [:compile] do
-  Bundler.with_clean_env do
+  Bundler.with_unbundled_env do
     sh("bundle exec nanoc live")
   end
 end
