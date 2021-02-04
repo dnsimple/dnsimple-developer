@@ -63,8 +63,8 @@ namespace :test do
     t.verbose = true
   end
 
-  task :all => [:ruby]
+  task all: [:ruby]
 end
 
-task :test => [:compile, "test:all"]
+task test: [:compile, "test:all"]
 
