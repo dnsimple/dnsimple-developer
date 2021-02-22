@@ -37,6 +37,7 @@ The following values should be passed as GET parameters:
 `response_type` | **Required**. The grant type requested. We currently only support `code`.
 `client_id`     | **Required**. The client ID you received from DNSimple when you registered the application.
 `state`         | **Required**. An unguessable random string. It is used to protect against cross-site request forgery attacks and it will be passed back to your redirect URI.
+`account_id`    | Automatically select a preferred DNSimple account ID when the user arrives at `/oauth/authorize`. If the account is already authorized, the user will be redirected to your `redirect_uri` as a successful request.
 `redirect_uri`  | Where to redirect the user after authorization has completed. This must be the exact URI registered or a subdirectory.
 `scope`         | We currently don't use this field.
 
