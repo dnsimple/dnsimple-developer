@@ -1,24 +1,23 @@
 # DNSimple API Documentation
 
-This is the [DNSimple API documentation](https://developer.dnsimple.com/) built with [nanoc](https://nanoc.ws/).
+This is the [DNSimple API documentation](https://developer.dnsimple.com/).
 
-## Setup
+## Usage
 
-1. Clone this repository
-1. Run `asdf install`
-1. Run `bundle install`
-1. Start your local instance with `rake run`
+This website is built with [nanoc](https://nanoc.ws/). If you want to learn how to run the site locally, or how to contribute, please visit the [CONTRIBUTING](CONTRIBUTING.md) file.
 
-The site will be visible at [localhost:3000](http://localhost:3000).
+## Structure
 
+These are the most important folders and files to keep in mind while working on this repo:
 
-## Development
+- `content`: this folder contains the markdown files that generate the site
+- `content/v2/openapi.yml`: the API definition described using the OpenAPI specification (see below)
+- `examples`: this folder contains the API response fixtures generated from real API calls you can use to test your integrations
 
-Use `rake run` to start the site. The server will automatically re-compiles changed files.
+## OpenAPI definition
 
+The API behavior is described using the [OpenAPI](https://www.openapis.org/) specification. The definition file is located at [content/v2/openapi.yml](content/v2/openapi.yml).
 
-## Deployment
+The OpenAPI description is the main source of truth, and must be kept up to date with the other changes in the site. At the time being, the site and the OpenAPI must be kept in sync manually. That means any change in the markdown documentation files needs to be reflected in the OpenAPI file.
 
-Each commit to main is deployed automatically via Netlify.
-
-
+The markdown documentation is a subset of the OpenAPI description. There may be information that - for the sake of brevity - are omitted in the markdown files, and sometimes delegated to the OpenAPI description.

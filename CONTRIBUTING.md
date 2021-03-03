@@ -1,3 +1,22 @@
+# Contributing
+
+## Setup
+
+1. Clone this repository
+1. Run `asdf install`
+1. Run `bundle install`
+1. Start your local instance with `rake run`
+
+The site will be visible at [localhost:3000](http://localhost:3000).
+
+## Development
+
+Use `rake run` to start the site. The server will automatically re-compiles changed files.
+
+## Deployment
+
+The `main` branch is deployed automatically via Netlify.
+
 ## Creating new fixtures
 
 - Use the sandbox API. Avoid using the production API as much as possible.
