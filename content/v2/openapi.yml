@@ -4645,12 +4645,15 @@ components:
           schema:
             type: object
             properties:
-              name:
-                type: string
               sid:
+                type: string
+              name:
                 type: string
               description:
                 type: string
+            required:
+              - sid
+              - name
             example:
               name: Alpha
               sid: alpha

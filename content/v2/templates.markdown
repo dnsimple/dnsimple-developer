@@ -82,7 +82,7 @@ Name | Type | Description
 -----|------|------------
 `name` | `string` | **Required**.
 `sid` | `string` | **Required**.
-`description` | `string` | **Required**.
+`description` | `string` |
 
 ##### Example
 
