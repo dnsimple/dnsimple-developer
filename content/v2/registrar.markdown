@@ -19,10 +19,10 @@ GET /:account/registrar/domains/:domain/check
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Example
 
@@ -60,16 +60,16 @@ By default this endpoint returns the premium price for registration. If you need
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Input
 
-| Name     | Type     | Description                                                                                                           |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | Optional action between `"registration"`, `"renewal"`, and `"transfer"`. If omitted, it defaults to `"registration"`. |
+Name | Type | Description
+-----|------|------------
+`action` | `string` | Optional action between `"registration"`, `"renewal"`, and `"transfer"`. If omitted, it defaults to `"registration"`.
 
 ### Examples
 
@@ -164,10 +164,10 @@ You will be automatically charged the registration fee upon successful registrat
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Example
 
@@ -182,13 +182,13 @@ Register the domain `example.com` in the account `1010`:
 
 ### Input
 
-| Name                  | Type      | Description                                                                                                                           |
-| --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `registrant_id`       | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.                                      |
-| `whois_privacy`       | `bool`    | Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: `false`. |
-| `auto_renew`          | `bool`    | Set to true to enable the auto-renewal of the domain. Default: `true`.                                                                |
-| `extended_attributes` | `hash`    | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).                                         |
-| `premium_price`       | `string`  | **Required** as confirmation of the price, only if the domain is premium.                                                             |
+Name | Type | Description
+-----|------|------------
+`registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
+`whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: `false`.
+`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
+`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 <info>
 The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
@@ -229,10 +229,10 @@ The transfer may take anywhere from a few minutes up to 7 days.
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Example
 
@@ -247,14 +247,14 @@ Transfer the domain `example.com` in the account `1010`:
 
 ### Input
 
-| Name                  | Type      | Description                                                                                                                       |
-| --------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `registrant_id`       | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.                                  |
-| `auth_code`           | `string`  | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).                                      |
-| `whois_privacy`       | `bool`    | Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: `false`. |
-| `auto_renew`          | `bool`    | Set to true to enable the auto-renewal of the domain. Default: `true`.                                                            |
-| `extended_attributes` | `hash`    | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).                                     |
-| `premium_price`       | `string`  | **Required** as confirmation of the price, only if the domain is premium.                                                         |
+Name | Type | Description
+-----|------|------------
+`registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
+`auth_code` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
+`whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: `false`.
+`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
+`extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example
 
@@ -299,11 +299,11 @@ GET /:account/registrar/domains/:domain/transfers/:domain_transfer
 
 ### Parameters
 
-| Name               | Type      | Description            |
-| ------------------ | --------- | ---------------------- |
-| `:account`         | `integer` | The account id         |
-| `:domain`          | `string`  | The domain name        |
-| `:domain_transfer` | `integer` | The domain transfer id |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_transfer` | `integer` | The domain transfer id
 
 ### Example
 
@@ -334,11 +334,11 @@ DELETE /:account/registrar/domains/:domain/transfers/:domain_transfer
 
 ### Parameters
 
-| Name               | Type      | Description            |
-| ------------------ | --------- | ---------------------- |
-| `:account`         | `integer` | The account id         |
-| `:domain`          | `string`  | The domain name        |
-| `:domain_transfer` | `integer` | The domain transfer id |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_transfer` | `integer` | The domain transfer id
 
 ### Example
 
@@ -371,10 +371,10 @@ You will be automatically charged the renewal fee upon successful renewal, so pl
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Example
 
@@ -388,10 +388,10 @@ Renew the domain `example.com` in the account `1010`:
 
 ### Input
 
-| Name            | Type      | Description                                                                                 |
-| --------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `period`        | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD. |
-| `premium_price` | `string`  | **Required** as confirmation of the price, only if the domain is premium.                   |
+Name | Type | Description
+-----|------|------------
+`period` | `integer` | The number of years. Unless specified it will default to whatever value is set for the TLD.
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 ##### Example with optional period
 
@@ -420,10 +420,10 @@ Prepare a domain for transferring out. This will unlock a domain and send the au
 
 ### Parameters
 
-| Name       | Type      | Description     |
-| ---------- | --------- | --------------- |
-| `:account` | `integer` | The account id  |
-| `:domain`  | `string`  | The domain name |
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
 
 ### Example
 
