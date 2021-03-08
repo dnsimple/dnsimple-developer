@@ -900,6 +900,27 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Get domain premium price
+  '/{account}/registrar/domains/{domain}/prices':
+    get:
+      description: Retrieves the domain price for registration, renewal, and transfer.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: getDomainPrices
+      tags:
+        - registrar
+      responses:
+        '200':
+          description: Successfully retrieved the domain pricing data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainPrices'
+        '400':
+          $ref: '#/components/responses/400'
   '/{account}/registrar/domains/{domain}/registrations':
     post:
       description: |-
@@ -2894,6 +2915,33 @@ components:
       example:
         premium_price: '109.00'
         action: registration
+    DomainPrices:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: The domain name that was checked.
+        premium:
+          type: boolean
+          description: 'True if the domain is a premium domain and thus will have a non-standard registration, renewal, and/or transfer fee.'
+        registration_price:
+          type: number
+          format: float
+          description: The domain registration price represented as a USD amount with dollars and cents.
+        renewal_price:
+          type: number
+          format: float
+          description: The domain renewal price represented as a USD amount with dollars and cents.
+        transfer_price:
+          type: number
+          format: float
+          description: The domain transfer price represented as a USD amount with dollars and cents.
+      example:
+        domain: ruby.codes
+        premium: false
+        registration_price: 12.0
+        renewal_price: 15.0
+        transfer_price: 15.0
     DomainRegistration:
       type: object
       properties:
