@@ -105,6 +105,54 @@ Responds with HTTP 400, if the domain isn't premium.
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
 ~~~
 
+## Retrieve domain price for registration, renewal, and transfer {#getDomainPrices}
+
+Get a domain's price for registration, renewal, and transfer.
+
+<info>
+The described API endpoint is in Public Beta, and can change without prior notice.
+</info>
+
+~~~
+GET /:account/registrar/domains/:domain/prices
+~~~
+
+### Parameters
+
+| Name       | Type      | Description     |
+| ---------- | --------- | --------------- |
+| `:account` | `integer` | The account id  |
+| `:domain`  | `string`  | The domain name |
+
+### Examples
+
+Check the registration, renewal, and transfer price for `example.com` domain:
+
+~~~shell
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      -X GET \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/prices
+~~~
+
+### Response
+
+Responds with HTTP 200 on success, returns the domain pricing for registration, renewal, and transfer if the domain is premium.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainPrices/success.http") %>
+~~~
+
+<note>
+If the domain is premium (`premium: true`), please [check the premium price](#getDomainPremiumPrice) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+</note>
+
+Responds with HTTP 400, if the domain TLD is not supported.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainPrices/failure.http") %>
+~~~
+
 ## Register a domain {#registerDomain}
 
     POST /:account/registrar/domains/:domain/registrations
