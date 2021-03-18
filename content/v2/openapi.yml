@@ -1306,6 +1306,178 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Renew WHOIS privacy
+  '/{account}/secondary_dns/primaries':
+    get:
+      summary: List primary servers
+      description: List the primary servers in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/SortPrimaryServers'
+      operationId: listPrimaryServers
+      tags:
+        - secondary dns
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PrimaryServer'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                type: object
+          description: Primary Server listing.
+    post:
+      summary: Create a primary server
+      description: Creates a primary server into the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createPrimaryServer
+      tags:
+        - secondary dns
+      requestBody:
+        $ref: '#/components/requestBodies/PrimaryServerCreate'
+      responses:
+        '201':
+          description: Primary Server created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PrimaryServer'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/secondary_dns/primaries/{primaryserver}':
+    get:
+      description: Retrieves the details of an existing primary server.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/PrimaryServer'
+      operationId: getPrimaryServer
+      tags:
+        - secondary dns
+      responses:
+        '200':
+          description: Primary Server retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PrimaryServer'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Retrieve a primary server
+    delete:
+      description: Permanently deletes a primary server.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/PrimaryServer'
+      operationId: removePrimaryServer
+      tags:
+        - secondary dns
+      responses:
+        '204':
+          description: Successfully deleted primary server.
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Delete a primary server
+
+  '/{account}/secondary_dns/primaries/{primaryserver}/link':
+    put:
+      description: Link the primary server to a secondary zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/PrimaryServer'
+      operationId: linkPrimaryServer
+      tags:
+        - secondary dns
+      responses:
+        '200':
+          description: Primary Server linked.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PrimaryServer'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Link a primary server to a secondary zone
+
+  '/{account}/secondary_dns/primaries/{primaryserver}/unlink':
+    put:
+      description: Unlink the primary server from a secondary zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/PrimaryServer'
+      operationId: unlinkPrimaryServer
+      tags:
+        - secondary dns
+      responses:
+        '200':
+          description: Primary Server unlinked.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PrimaryServer'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Unlink a primary server from a secondary zone
+  '/{account}/secondary_dns/zones':
+    post:
+      summary: Create a secondary zone
+      description: Creates a secondary zone into the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createSecondaryZone
+      tags:
+        - secondary dns
+      requestBody:
+        $ref: '#/components/requestBodies/SecondaryZoneCreate'
+      responses:
+        '201':
+          description: Secondary Zone created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '400':
+          $ref: '#/components/responses/400'
+  '/{account}/secondary_dns/zones/{zone}':
+    delete:
+      description: Permanently deletes a secondary zone.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: removeSecondaryZone
+      tags:
+        - secondary dns
+      responses:
+        '204':
+          description: Successfully deleted secondary zone.
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Delete a secondary zone
   '/{account}/zones':
     get:
       description: Lists the zones in the account.
@@ -2171,6 +2343,13 @@ components:
       description: The email forward id
       schema:
         type: integer
+    PrimaryServer:
+      name: primaryserver
+      in: path
+      required: true
+      description: The primary server id
+      schema:
+        type: integer
     Push:
       name: push
       in: path
@@ -2335,6 +2514,19 @@ components:
           - 'from:desc'
           - 'to:asc'
           - 'to:desc'
+    SortPrimaryServers:
+      description: Sort results. Default sorting is ascending by id.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'id:asc'
+          - 'id:desc'
+          - 'name:asc'
+          - 'name:desc'
     SortServices:
       description: Sort results. Default sorting is by id ascending.
       name: sort
@@ -3722,6 +3914,36 @@ components:
           $ref: '#/components/schemas/DateTime'
         updated_at:
           $ref: '#/components/schemas/DateTime'
+    PrimaryServer:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        name:
+          type: string
+        ip:
+          type: string
+        port:
+          type: integer
+        linked_secondary_zones:
+          type: array
+          items:
+            type: string
+        created_at:
+          $ref: '#/components/schemas/DateTime'
+        updated_at:
+          $ref: '#/components/schemas/DateTime'
+      example:
+        id: 1
+        account_id: 2020
+        name: 'Primary Server'
+        ip: '1.1.1.1'
+        port: 4567
+        linked_secondary_zones: ['example.com']
+        created_at: '2016-08-11T10:16:03Z'
+        updated_at: '2016-08-11T10:16:03Z'
     Push:
       type: object
       properties:
@@ -4318,6 +4540,12 @@ components:
         reverse:
           type: boolean
           description: 'Returns true for a reverse zone, false for a forward zone.'
+        secondary:
+          type: boolean
+          description: 'Returns true for a secondary zone, false for a primary zone.'
+        last_transferred_at:
+          $ref: '#/components/schemas/DateTime'
+          description: 'Returns the date the zone was last transferred. Used if it is a secondary zone.'
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
@@ -4327,6 +4555,8 @@ components:
         account_id: 1010
         name: example-alpha.com
         reverse: false
+        secondary: false
+        last_transfferd_at: null
         created_at: '2015-04-23T07:40:03Z'
         updated_at: '2015-04-23T07:40:03Z'
     ZoneFile:
@@ -4676,6 +4906,35 @@ components:
                 type: integer
             example:
               contact_id: 2
+    PrimaryServerCreate:
+      description: Primary Server attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              ip:
+                type: string
+              port:
+                type: string
+            required:
+              - name
+              - ip
+    SecondaryZoneCreate:
+      description: Secondary Zone attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+            required:
+              - name
     ServiceApply:
       description: 'Optional hash of settings for some specific services, corresponding to the service fields. For instance, Heroku requires a settings[app] setting.'
       required: false
