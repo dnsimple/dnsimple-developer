@@ -8,6 +8,9 @@ excerpt: This page documents the DNSimple secondary DNS API v2.
 * TOC
 {:toc}
 
+<note>
+  <h4> This endpoint is currently in Private Beta. During the Private Beta period changes may occur at any time.</h4>
+</note>
 
 ## Primary Server attributes {#primary-server-attributes}
 
