@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "concurrently": "^4.1.0",
+    "concurrently": "^6.0.0",
     "copy-webpack-plugin": "^5.0.3",
     "eslint": "^7.18.0",
     "eslint-config-standard": "^16.0.2",
@@ -13,11 +13,16 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
     "tachyons": "^4.12.0",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "live": "concurrently 'bundle exec nanoc live' 'bundle exec rake compile'",
     "build": "./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
   }
 }
