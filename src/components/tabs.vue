@@ -19,9 +19,6 @@
       height: String,
       names: Array
     },
-    mounted: function() {
-      console.log("in tabs");
-    },
     data () {
       return {
         tabIndex: 0
