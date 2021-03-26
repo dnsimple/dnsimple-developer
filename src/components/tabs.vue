@@ -1,14 +1,12 @@
 <template>
   <div class="tabs" v-bind:style="{ width: width, height: height }" >
     <div class="tabs-top">
-      <div class="tab" v-for="tab in tabs" v-bind:key="'tab-top-' + tab" v-bind:class="{ tabActive: currentTab === tab }" @click="currentTab = tab">
-        {{tab}}
-      </div>
+      <div class="tab" v-bind:class="{ tabActive: tabIndex==`${index}` }" v-for="(name, index) in names" @click="tabIndex=`${index}`">{{name}}</div>
       <div class="tab-buffer"></div>
     </div>
     <div class="tab-content">
-      <div v-for="tab in tabs" v-bind:key="'tab-content-' + tab" v-if="currentTab === tab">
-        <slot :name="tab" />
+      <div v-for="(name, index) in names" :key="`tab${index}`" v-if="tabIndex==`${index}`">
+        <slot :name="`tab${index}`" ></slot>
       </div>
     </div>
   </div>
@@ -18,15 +16,13 @@
   export default {
     props: {
       width: String,
-      height: String
+      height: String,
+      names: Array
     },
     data () {
-      const tabs = Object.keys(this.$slots)
-
       return {
-        tabs: tabs,
-        currentTab: tabs[0]
+        tabIndex: 0
       }
-    }
+    },
   }
 </script>
