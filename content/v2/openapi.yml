@@ -4541,7 +4541,9 @@ components:
           type: boolean
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
-          $ref: '#/components/schemas/DateTime'
+          type: string
+          format: date-time
+          example: '2010-01-01T01:00:00Z'
           description: 'Returns the date the zone was last transferred. Used if it is a secondary zone.'
         created_at:
           $ref: '#/components/schemas/DateTime'
