@@ -16,3 +16,7 @@ Use DNSimple's domain management tools to register and set up DNS. Empower your 
 ## [Registering a domain](/use-cases/domain-registration)
 
 In this tutorial, we'll cover how to register domains on behalf of your users (or organization). We'll discuss how to gather contact information required for domain registration, create a purchase order with the collected contact information, and track the domain registration progress – allowing you to keep your users in the know.
+
+## [Issuing certificates](/use-cases/issue-certificates)
+
+In this tutorial, we'll cover how to issue a LetsEncrypt certificate for a domain you manage. We'll discuss how to request the certificate, and use webhooks to track when the certificate has been issued and is ready for installation.
