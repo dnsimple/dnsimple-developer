@@ -37,6 +37,7 @@ tags:
   - name: identity
   - name: tlds
   - name: vanity name servers
+  - name: secondary dns
   - name: templates
   - name: webhooks
   - name: zones
