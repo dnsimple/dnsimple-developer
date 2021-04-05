@@ -691,6 +691,35 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
+        - in: query
+          schema:
+            type: integer
+          name: contact_id
+          required: true
+          description: The ID of an existing contact in your account.
+        - in: query
+          schema:
+            type: boolean
+            default: false
+          name: auto_renew
+          description: Set to true to enable the auto-renewal of the certificate.
+        - in: query
+          schema:
+            type: string
+          name: name
+          description: The certificate name.
+        - in: query
+          schema:
+            type: array
+            default: []
+            items:
+              type: string
+          name: alternate_names
+          description: The certificate _alternate names_
+          examples:
+            multipleSAN:
+              summary: Multiple SAN
+              value: ["docs.example.com", "status.example.com"]
       operationId: purchaseLetsencryptCertificate
       tags:
         - domain certificates
