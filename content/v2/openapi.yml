@@ -122,6 +122,13 @@ paths:
       description: Creates a domain and the corresponding zone into the account.
       parameters:
         - $ref: '#/components/parameters/Account'
+        - in: query
+          schema:
+            type: string
+          name: name
+          required: true
+          description: The domain's name to be added.
+          example: example.com
       operationId: createDomain
       tags:
         - domains
