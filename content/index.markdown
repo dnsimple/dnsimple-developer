@@ -2,6 +2,44 @@
 title: DNSimple Developer
 ---
 
+<div class="component pt5" markdown="1">
+# Here's the tutorial
+
+Here's our hello world tutorial
+
+  <tabs>
+    <template v-slot:ruby>
+~~~ruby
+require 'dnsimple'
+
+class DnsimpleAdapter
+  SANDBOX_ENDPOINT = 'https://api.sandbox.dnsimple.com'.freeze
+end
+~~~
+    </template>
+
+    <template v-slot:python>
+**Some Python code will be written!**
+
+_(Eventually)_
+    </template>
+  </tabs>
+
+# More explanations
+
+  <tabs>
+    <template v-slot:go>
+*Go content*
+    </template>
+    <template v-slot:foo>
+_foo content_
+    </template>
+  </tabs>
+
+</div>
+
+<script src="/dist/main.js"></script>
+
 # DNSimple Developer Documentation
 
 Welcome to the official [DNSimple](https://dnsimple.com/) Developer documentation.

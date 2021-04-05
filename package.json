@@ -23,6 +23,8 @@
     "build": "./node_modules/.bin/webpack"
   },
   "dependencies": {
+    "highlightjs": "^9.16.2",
+    "marked": "^2.0.1",
     "vue": "^2.6.12"
   }
 }
