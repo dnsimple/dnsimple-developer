@@ -771,6 +771,12 @@ paths:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
         - $ref: '#/components/parameters/Certificate'
+        - in: query
+          schema:
+            type: boolean
+            default: false
+          name: auto_renew
+          description: Set to true to enable the auto-renewal of the certificate.
       operationId: purchaseRenewalLetsencryptCertificate
       tags:
         - domain certificates
