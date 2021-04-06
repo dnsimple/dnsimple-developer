@@ -24,15 +24,11 @@
       }
     },
     mounted () {
-      this.tabs = Object.entries(this.$slots).map(slot => {
-        return slot[0]; // returns the slot name, for instance, "ruby" for v-slot:ruby
-      });
-      const options = {
+      this.tabs = Object.keys(this.$slots);
+      const codeHighlightOptions = {
         highlight: (code) => hljs.highlightAuto(code).value,
       };
-      this.contents = Object.entries(this.$slots).map(slot => {
-        return marked(slot[1][0].text, options); // returns the content for the slot converted to markdown
-      });
+      this.contents = Object.values(this.$slots).map(content => marked(content[0].text, codeHighlightOptions));
       this.currentTab = this.tabs[0];
     },
   }
