@@ -5,7 +5,7 @@ excerpt: Use cases built with the DNSimple Domain and DNS API.
 
 # Use Cases
 
-Use DNSimple's domain management tools to register and set up DNS. Empower your users by giving them the tools to register, connect, and operate customized domains wihtin your products and services.
+Use DNSimple's domain management tools to register and set up DNS. Empower your users by giving them the tools to register, connect, and operate customized domains within your products and services.
 
 
 * TOC
@@ -19,4 +19,4 @@ In this tutorial, we'll cover how to register domains on behalf of your users (o
 
 ## [Issuing certificates](/use-cases/issue-certificates)
 
-In this tutorial, we'll cover how to issue a LetsEncrypt certificate for a domain you manage. We'll discuss how to request the certificate, and use webhooks to track when the certificate has been issued and is ready for installation.
+In this tutorial, we'll discuss how to issue a LetsEncrypt certificate for your domain. We'll go over requesting the certificate and using webhooks to track when the certificate has been issued and is ready for installation.
