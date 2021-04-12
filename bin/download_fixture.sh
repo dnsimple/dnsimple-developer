@@ -10,4 +10,4 @@ curl -s \
   -H 'Accept: application/json' \
   -X $2 \
   $3 -d $body |
-  sed 's/^Transfer-Encoding: chunked/Transfer-Encoding: identity/'
+  sed '/Transfer-Encoding/d'
