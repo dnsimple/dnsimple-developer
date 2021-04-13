@@ -109,9 +109,7 @@ Responds with HTTP 400, if the domain isn't premium.
 
 Get a domain's price for registration, renewal, and transfer.
 
-<info>
-The described API endpoint is in Public Beta, and can change without prior notice.
-</info>
+<%= render "v2-preview" %>
 
 ~~~
 GET /:account/registrar/domains/:domain/prices
