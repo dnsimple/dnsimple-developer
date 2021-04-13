@@ -903,6 +903,7 @@ paths:
   '/{account}/registrar/domains/{domain}/prices':
     get:
       description: Retrieves the domain price for registration, renewal, and transfer.
+      summary: Get prices for a domain
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
