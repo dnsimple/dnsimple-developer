@@ -105,13 +105,11 @@ Responds with HTTP 400, if the domain isn't premium.
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
 ~~~
 
-## Retrieve domain price for registration, renewal, and transfer {#getDomainPrices}
+## Retrieve domain prices {#getDomainPrices}
 
 Get a domain's price for registration, renewal, and transfer.
 
-<info>
-The described API endpoint is in Public Beta, and can change without prior notice.
-</info>
+<%= render "v2-preview" %>
 
 ~~~
 GET /:account/registrar/domains/:domain/prices
@@ -142,10 +140,6 @@ Responds with HTTP 200 on success, returns the domain pricing for registration, 
 ~~~json
 <%= pretty_print_fixture("/api/getDomainPrices/success.http") %>
 ~~~
-
-<note>
-If the domain is premium (`premium: true`), please [check the premium price](#getDomainPremiumPrice) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
-</note>
 
 Responds with HTTP 400, if the domain TLD is not supported.
 
