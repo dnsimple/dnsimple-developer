@@ -141,10 +141,6 @@ Responds with HTTP 200 on success, returns the domain pricing for registration, 
 <%= pretty_print_fixture("/api/getDomainPrices/success.http") %>
 ~~~
 
-<note>
-If the domain is premium (`premium: true`), please [check the premium price](#getDomainPremiumPrice) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
-</note>
-
 Responds with HTTP 400, if the domain TLD is not supported.
 
 ~~~json
