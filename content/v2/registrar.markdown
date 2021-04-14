@@ -105,7 +105,7 @@ Responds with HTTP 400, if the domain isn't premium.
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
 ~~~
 
-## Retrieve domain price for registration, renewal, and transfer {#getDomainPrices}
+## Retrieve domain prices {#getDomainPrices}
 
 Get a domain's price for registration, renewal, and transfer.
 

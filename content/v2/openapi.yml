@@ -902,7 +902,7 @@ paths:
       summary: Get domain premium price
   '/{account}/registrar/domains/{domain}/prices':
     get:
-      description: Retrieves the domain price for registration, renewal, and transfer.
+      description: Retrieve domain prices.
       summary: Get prices for a domain
       parameters:
         - $ref: '#/components/parameters/Account'
