@@ -84,7 +84,7 @@ As you can see in our sample application we expose an endpoint `http://localhost
 
 * `auto_renewal` - If a certificate should be auto-renewed by DNSimple.
 
-You can find more about the specific parameters on the certificate resource API page [/v2/certificates](https://developer.dnsimple.com/v2/certificates/#purchaseLetsencryptCertificate).
+You can find more about the specific parameters on the certificate resource API page [/v2/certificates](/v2/certificates/#purchaseLetsencryptCertificate).
 
 ## Handling Certificate Issue event
 
