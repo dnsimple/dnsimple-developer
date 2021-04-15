@@ -31,7 +31,7 @@ For this tutorial, you'll need the following dependencies:
 For this tutorial, you'll be working with the following tools:
 
 * [Sinatra framework](http://sinatrarb.com/) - We'll use Sinatra to structure the application
-* [Certificate resource](https://developer.dnsimple.com/v2/certificates/) - We'll use the DNSimple API to make the certificate requests
+* [Certificate resource](/v2/certificates/) - We'll use the DNSimple API to make the certificate requests
 
 ## Configure your DNSimple Application
 
