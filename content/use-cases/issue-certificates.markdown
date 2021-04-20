@@ -1,52 +1,52 @@
 ---
-title: Issuing certificates
+title: Issuing Certificates
 excerpt: In this tutorial, we'll cover how to issue a certificate with LetsEncrypt for a domain you manage.
 ---
 
-# Issuing certificates
+# Issuing Certificates
 
-In this tutorial, we'll cover how to issue a certificate with LetsEncrypt for a domain you manage. We'll discuss how to request a certificate, and use webhooks to track when the certificate has been issued and ready for installation.
+In this tutorial, we'll cover how to issue a certificate with LetsEncrypt for a domain you manage. We'll discuss how to request a certificate, and using webhooks to track when the certificate has been issued and is ready for installation.
 
-### How it works at a high level
+### How it works - overview 
 
 1. A customer registers a domain with your service, or brings their domain and points it to your [vanity name servers](https://blog.dnsimple.com/2020/08/vanity-name-servers/).
-2. Your application requests to issue a certificate for your customer's domain so that you can provide a secure connection to your service.
-3. Webhook is fired to notify of the certificate being issued and ready for installation.
+2. Your application requests to issue a certificate for your customer's domain, so you can provide a secure connection to your service.
+3. A webhook is fired to notify you that the certificate has been issued and is ready for installation.
 4. Your application downloads the private key and certificates for use in third-party integrations to install the certificate in your servers.
 
 
 ---
 
-_The tutorial is written in Ruby. The code provided is part of a Sinatra application. Alternatively, other popular frameworks such Ruby on Rails, Hanami, etc. can integrate the code._
+_The tutorial is written in Ruby. The code provided is part of a Sinatra application. Other popular frameworks such Ruby on Rails, Hanami, etc. can also integrate the code._
 
 ## Prerequisites
 
 For this tutorial, you'll need the following dependencies:
 
-* DNSimple [API Access Token](https://support.dnsimple.com/articles/api-access-token/)
-* At least one domain in your account that is delegated to DNSimple
+* DNSimple [API Access Token](https://support.dnsimple.com/articles/api-access-token/).
+* At least one domain in your account that is delegated to DNSimple.
 
 ## Tools
 
 For this tutorial, you'll be working with the following tools:
 
-* [Sinatra framework](http://sinatrarb.com/) - We'll use Sinatra to structure the application
-* [Certificate resource](/v2/certificates/) - We'll use the DNSimple API to make the certificate requests
+* [Sinatra framework](http://sinatrarb.com/) - We'll use Sinatra to structure the application.
+* [Certificate resource](/v2/certificates/) - We'll use the DNSimple API to make the certificate requests.
 
 ## Configure your DNSimple Application
 
-1. Download the code from [our GitHub repository](https://github.com/dnsimple/dnsimple-api-examples/tree/main/ruby/use_cases/issue_certificates)
-2. Follow the instructions in the README on GitHub
+1. Download the code from [our GitHub repository](https://github.com/dnsimple/dnsimple-api-examples/tree/main/ruby/use_cases/issue_certificates).
+2. Follow the instructions in the README on GitHub.
 
 <note>
 Certificate issue requests are only supported in Production.
 </note>
 
-On startup, the application should have registered a webhook endpoint. Please check that is the case before proceeding. You can do so by using the UI or making the following call in a pry session `echo 'App::DnsimpleAdapter.all_webhooks.map(&:url)' | bundle exec pry`.
+On startup, the application should have registered a webhook endpoint. Use the UI, or make the following call in a pry session `echo 'App::DnsimpleAdapter.all_webhooks.map(&:url)' | bundle exec pry`, to check that this is the case before proceeding.
 
 ## Handling the certificate issue request
 
-When your customer registers a domain through your service, or they delegate it for you to manage. As part of your provisioning process, you can request a certificate to be issued for the newly added domain. The request is made up of two separate API calls, first one is to "purchase" the certificate and immediately after followed by an issue request.
+When your customer registers a domain through your service, or delegates it for you to manage, as part of your provisioning process, you can request a certificate to be issued for the newly added domain. The request is made up of two separate API calls. The first one is to "purchase" the certificate. It's immediately followed by an issue request.
 
 [lib/app/dnsimple.rb](https://github.com/dnsimple/dnsimple-api-examples/blob/main/ruby/use_cases/issue_certificates/lib/app/dnsimple.rb#L16)
 
@@ -74,7 +74,7 @@ When your customer registers a domain through your service, or they delegate it 
     end
 ~~~
 
-As you can see in our sample application we expose an endpoint `http://localhost:4567/dnsimple/issue_certificate` that takes the following parameters:
+In our sample application, we expose an endpoint `http://localhost:4567/dnsimple/issue_certificate` that takes the following parameters:
 
 * `domain` - The Domain name in your account for which you want to issue a certificate e.g. `pizza.company`
 
@@ -84,12 +84,12 @@ As you can see in our sample application we expose an endpoint `http://localhost
 
 * `auto_renewal` - If a certificate should be auto-renewed by DNSimple.
 
-You can find more about the specific parameters on the certificate resource API page [/v2/certificates](/v2/certificates/#purchaseLetsencryptCertificate).
+You can learn more about the specific parameters on the certificate resource API page [/v2/certificates](/v2/certificates/#purchaseLetsencryptCertificate).
 
-## Handling Certificate Issue event
+## Handling a certificate issue event
 
-As the certificate issue process is asynchronous and can take a while until the certificate is processed by LetsEncrypt, DNSimple sends out an event `certificate.issue` when processing is complete.
-The event contains useful information such as the certificate ID which can be used to retrieve and install it.
+The certificate issue process is asynchronous. It can take a while for the certificate to be processed by LetsEncrypt. DNSimple sends out an event `certificate.issue` when processing is complete.
+The event contains useful information, like the certificate ID, which can be used to retrieve and install it.
 
 [lib/app/handlers/certificate_issue_event_handler.rb](https://github.com/dnsimple/dnsimple-api-examples/blob/main/ruby/use_cases/issue_certificates/lib/app/handlers/certificate_issue_event_handler.rb#L8)
 
@@ -110,5 +110,5 @@ The event contains useful information such as the certificate ID which can be us
 ~~~
 
 <note>
-Webhooks come with no order guarantee and at least once delivery guarantee, which means that a webhook can be sent multiple times. That is why you can use the `request_identifier` which is present in every event to keep track of which events have already been processed. It is also recommended to only use the underlying resource ID provided in the webhook event data to retrieve the resource, to protect yourself from forged events.
+Webhooks come with no order guarantee, and are guaranteed to be delivered at least once. This means a given webhook can be sent multiple times. You can use the `request_identifier`, which is present in every event, to keep track of which events have already been processed. We also recommend only using the underlying resource ID provided in the webhook event data to retrieve the resource; this adds protection from forged events.
 </note>
