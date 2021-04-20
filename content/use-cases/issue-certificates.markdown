@@ -33,7 +33,7 @@ For this tutorial, you'll be working with the following tools:
 * [Sinatra framework](http://sinatrarb.com/) - We'll use Sinatra to structure the application.
 * [Certificate resource](/v2/certificates/) - We'll use the DNSimple API to make the certificate requests.
 
-## Configure your DNSimple Application
+## Configure your DNSimple Application 
 
 1. Download the code from [our GitHub repository](https://github.com/dnsimple/dnsimple-api-examples/tree/main/ruby/use_cases/issue_certificates).
 2. Follow the instructions in the README on GitHub.
@@ -76,7 +76,7 @@ When your customer registers a domain through your service, or delegates it for 
 
 In our sample application, we expose an endpoint `http://localhost:4567/dnsimple/issue_certificate` that takes the following parameters:
 
-* `domain` - The Domain name in your account for which you want to issue a certificate e.g. `pizza.company`
+* `domain` - The Domain name in your account for which you want to issue a certificate - e.g. `pizza.company`
 
 * `name` - Certificate name, where `*` can be used for wildcard certificates.
 
