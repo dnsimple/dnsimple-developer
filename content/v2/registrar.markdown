@@ -49,6 +49,10 @@ If the domain is premium (`premium: true`), please [check the premium price](#ge
 
 ## Check domain premium price {#getDomainPremiumPrice}
 
+<note>
+Deprecated in favor of [getDomainPrices](#getDomainPrices).
+</note>
+
 Get the premium price for a domain.
 
 ~~~
