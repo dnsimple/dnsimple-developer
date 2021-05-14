@@ -98,7 +98,7 @@ Name | Type | Description
 `city`              | `string` | **Required**.
 `state_province`    | `string` | **Required**.
 `postal_code`       | `string` | **Required**.
-`country`           | `string` | **Required**.
+`country`           | `string` | ISO 3166 **Required**.
 `email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
 `fax`               | `string` |
