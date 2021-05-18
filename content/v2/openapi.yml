@@ -876,7 +876,10 @@ paths:
       summary: Check domain
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
+      deprecated: true
       description: |-
+        Deprecated in favor of getDomainPrices.
+
         Retrieves the premium price for a premium domain.
 
         Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.

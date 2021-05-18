@@ -44,10 +44,14 @@ Responds with HTTP 200 on success, returns the domain availability information.
 ~~~
 
 <note>
-If the domain is premium (`premium: true`), please [check the premium price](#getDomainPremiumPrice) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
+If the domain is premium (`premium: true`), please [check the premium price](#getDomainPrices) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
 </note>
 
 ## Check domain premium price {#getDomainPremiumPrice}
+
+<note>
+Deprecated in favor of [getDomainPrices](#getDomainPrices).
+</note>
 
 Get the premium price for a domain.
 
@@ -189,7 +193,7 @@ The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and
 </info>
 
 <info>
-The `premium_price` can be fetched via the [premium price endpoint](#getDomainPremiumPrice).
+The `premium_price` can be fetched via the [prices endpoint](#getDomainPrices).
 </info>
 
 ##### Example
