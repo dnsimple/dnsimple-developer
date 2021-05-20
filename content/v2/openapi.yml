@@ -1467,21 +1467,6 @@ paths:
                     $ref: '#/components/schemas/Zone'
         '400':
           $ref: '#/components/responses/400'
-  '/{account}/secondary_dns/zones/{zone}':
-    delete:
-      description: Permanently deletes a secondary zone.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Zone'
-      operationId: removeSecondaryZone
-      tags:
-        - secondary dns
-      responses:
-        '204':
-          description: Successfully deleted secondary zone.
-        '404':
-          $ref: '#/components/responses/404'
-      summary: Delete a secondary zone
   '/{account}/zones':
     get:
       description: Lists the zones in the account.

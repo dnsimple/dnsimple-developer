@@ -25,9 +25,9 @@ List primary servers for in the account.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
 
 ### Example
 
@@ -49,10 +49,10 @@ Responds with HTTP 200.
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
 
-Name | Description
------|------------
-`id` | Sort primary servers by ID
-`name` | Sort primary serves by name (alphabetical order)
+| Name   | Description                                      |
+| ------ | ------------------------------------------------ |
+| `id`   | Sort primary servers by ID                       |
+| `name` | Sort primary serves by name (alphabetical order) |
 
 The default sorting policy is by ascending `id`.
 
@@ -63,9 +63,9 @@ The default sorting policy is by ascending `id`.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
 
 ### Example
 
@@ -80,11 +80,11 @@ Create a primary server in the account `1010`:
 
 ### Input
 
-Name | Type | Description
------|------|------------
-`name` | `string` | **Required**. The name of the primary server.
-`ip` | `string` | **Required**. The IP of the primary server.
-`port` | `integer` | The port of the primary server.
+| Name   | Type      | Description                                   |
+| ------ | --------- | --------------------------------------------- |
+| `name` | `string`  | **Required**. The name of the primary server. |
+| `ip`   | `string`  | **Required**. The IP of the primary server.   |
+| `port` | `integer` | The port of the primary server.               |
 
 ##### Example
 
@@ -115,10 +115,10 @@ Responds with HTTP 400 if the validation fails.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:primary_server` | `integer` | The primary server id
+| Name              | Type      | Description           |
+| ----------------- | --------- | --------------------- |
+| `:account`        | `integer` | The account id        |
+| `:primary_server` | `integer` | The primary server id |
 
 ### Example
 
@@ -145,10 +145,10 @@ Delete the primary server from the account.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:primary_server` | `integer` | The primary server id
+| Name              | Type      | Description           |
+| ----------------- | --------- | --------------------- |
+| `:account`        | `integer` | The account id        |
+| `:primary_server` | `integer` | The primary server id |
 
 ### Example
 
@@ -172,10 +172,10 @@ Responds with HTTP 404 if primary server is not found.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:primary_server` | `integer` | The primary server id
+| Name              | Type      | Description           |
+| ----------------- | --------- | --------------------- |
+| `:account`        | `integer` | The account id        |
+| `:primary_server` | `integer` | The primary server id |
 
 ### Example
 
@@ -190,9 +190,9 @@ Link the primary server `1` to a secondary zone `example.com` in the account `10
 
 ### Input
 
-Name | Type | Description
------|------|------------
-`zone` | `string` | **Required**. The zone name to link with. Should be a secondary zone.
+| Name   | Type     | Description                                                           |
+| ------ | -------- | --------------------------------------------------------------------- |
+| `zone` | `string` | **Required**. The zone name to link with. Should be a secondary zone. |
 
 ##### Example
 
@@ -223,10 +223,10 @@ Responds with HTTP 404 if the zone or the primary server is not found.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:primary_server` | `integer` | The primary server id
+| Name              | Type      | Description           |
+| ----------------- | --------- | --------------------- |
+| `:account`        | `integer` | The account id        |
+| `:primary_server` | `integer` | The primary server id |
 
 ### Example
 
@@ -241,9 +241,9 @@ Unlink the primary server `1` from a secondary zone `example.com` in the account
 
 ### Input
 
-Name | Type | Description
------|------|------------
-`zone` | `string` | **Required**. The zone name to unlink from. Should be a secondary zone.
+| Name   | Type     | Description                                                             |
+| ------ | -------- | ----------------------------------------------------------------------- |
+| `zone` | `string` | **Required**. The zone name to unlink from. Should be a secondary zone. |
 
 ##### Example
 
@@ -273,9 +273,9 @@ Responds with HTTP 404 if the zone or the primary server is not found.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
 
 ### Example
 
@@ -290,9 +290,9 @@ Create a secondary zone in the account `1010`:
 
 ### Input
 
-Name | Type | Description
------|------|------------
-`name` | `string` | **Required**. The name of the secondary zone.
+| Name   | Type     | Description                                   |
+| ------ | -------- | --------------------------------------------- |
+| `name` | `string` | **Required**. The name of the secondary zone. |
 
 ##### Example
 
@@ -316,29 +316,4 @@ Responds with HTTP 400 if the validation fails.
 
 ## Delete secondary zone {#removeSecondaryZone}
 
-    DELETE /:account/secondary_dns/zones/:zone
-
-Delete the primary server from the account.
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `integer` | The zone id or name
-
-### Example
-
-Delete the secondary zone `secondaryexample.com` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X DELETE \
-          https://api.dnsimple.com/v2/1010/secondary_dns/zones/secondaryexample.com
-
-### Response
-
-Responds with HTTP 204 on success.
-
-Responds with HTTP 404 if zone is not found.
+Please refer to the [`Domain` deletion endpoint](/v2/domains/#deleteDomain)
