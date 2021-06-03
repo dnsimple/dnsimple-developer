@@ -98,7 +98,7 @@ Name | Type | Description
 `city`              | `string` | **Required**.
 `state_province`    | `string` | **Required**.
 `postal_code`       | `string` | **Required**.
-`country`           | `string` | ISO 3166 **Required**.
+`country`           | `string` | **Required**. The ISO 3166-1 alpha-2 country code, upper case (eg. DE).
 `email`             | `string` | **Required**.
 `phone`             | `string` | **Required**.
 `fax`               | `string` |
