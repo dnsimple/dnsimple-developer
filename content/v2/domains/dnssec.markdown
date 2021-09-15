@@ -171,9 +171,10 @@ Create a delegation signer record under the domain `example.com` in the account 
 Name | Type | Description
 -----|------|------------
 `algorithm` | `string` | **Required**  DNSSEC algorithms defined in http://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml - pass the Number value as a string (i.e. "8").
-`digest` | `string` | **Required**  The hexidecimal representation of the digest of the corresponding DNSKEY record.
-`digest_type` | `string` | **Required**  DNSSEC digest types defined in http://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml - pass the Number value as string (i.e. "2").
-`keytag` | `string` | **Required**  A keytag that references the corresponding DNSKEY record.
+`digest` | `string` | The hexidecimal representation of the digest of the corresponding DNSKEY record.
+`digest_type` | `string` | DNSSEC digest types defined in http://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml - pass the Number value as string (i.e. "2").
+`keytag` | `string` | A keytag that references the corresponding DNSKEY record.
+`public_key` | `string` | A public key that references the corresponding DNSKEY record.
 
 For additional information, please see [https://tools.ietf.org/html/rfc4034](https://tools.ietf.org/html/rfc4034).
 
@@ -184,7 +185,8 @@ For additional information, please see [https://tools.ietf.org/html/rfc4034](htt
   "algorithm": "13",
   "digest": "684a1f049d7d082b7f98691657da5a65764913df7f065f6f8c36edf62d66ca03",
   "digest_type": "2",
-  "keytag": "2371"
+  "keytag": "2371",
+  "public_key": null
 }
 ~~~
 
