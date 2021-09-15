@@ -3003,6 +3003,7 @@ components:
         digest: C1F6E04A5A61FBF65BF9DC8294C363CF11C89E802D926BDAB79C55D27BEFA94F
         digest_type: '2'
         keytag: '44620'
+        public_key: null
         created_at: '2017-03-03T13:49:58.000Z'
         updated_at: '2017-03-03T13:49:58.000Z'
       properties:
@@ -3017,6 +3018,8 @@ components:
         digest_type:
           type: string
         keytag:
+          type: string
+        public_key:
           type: string
         created_at:
           $ref: '#/components/schemas/DateTime'
@@ -4214,6 +4217,12 @@ components:
         transfer_enabled:
           type: boolean
           description: true if DNSimple supports inbound transfers for this TLD
+        dnssec_interface_type:
+          type: string
+          description: type of data interface required for DNSSEC
+          enum:
+            - ds
+            - key
       example:
         tld: ac
         tld_type: 2
@@ -4224,6 +4233,7 @@ components:
         registration_enabled: true
         renewal_enabled: true
         transfer_enabled: false
+        dnssec_interface_type: 'ds'
     TLDType:
       type: integer
       description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
