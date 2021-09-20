@@ -171,9 +171,10 @@ Create a delegation signer record under the domain `example.com` in the account 
 Name | Type | Description
 -----|------|------------
 `algorithm` | `string` | **Required**  DNSSEC algorithms defined in http://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml - pass the Number value as a string (i.e. "8").
-`digest` | `string` | **Required**  The hexidecimal representation of the digest of the corresponding DNSKEY record.
-`digest_type` | `string` | **Required**  DNSSEC digest types defined in http://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml - pass the Number value as string (i.e. "2").
-`keytag` | `string` | **Required**  A keytag that references the corresponding DNSKEY record.
+`digest` | `string` | **Required if TLD requires DS data** The hexidecimal representation of the digest of the corresponding DNSKEY record.
+`digest_type` | `string` | **Required if TLD requires DS data** DNSSEC digest types defined in http://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml - pass the Number value as string (i.e. "2").
+`keytag` | `string` | **Required if TLD requires DS data** A keytag that references the corresponding DNSKEY record.
+`public_key` | `string` | **Required if TLD requires KEY data** A public key that references the corresponding DNSKEY record.
 
 For additional information, please see [https://tools.ietf.org/html/rfc4034](https://tools.ietf.org/html/rfc4034).
 
