@@ -84,7 +84,9 @@ Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/
 
 API v2 offers 2 types of tokens: account tokens and user tokens.
 
-The user token gives you access to any resource associated to any account the user has access to. Conversely, an account token gives you access only to the resources connected to that account.
+The user token gives you access to any resource associated to any account the user has access to. If you have been granted specific domain permissions using [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/), your access will be limited by your given role.
+
+Conversely, an account token gives you access only to the resources connected to that account.
 
 We recommend to use account tokens, unless your application needs multi-account access via single token.
 
