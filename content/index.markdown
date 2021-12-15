@@ -23,7 +23,7 @@ All data that you have access to in DNSimple is tied back to accounts. When you 
 
 In most cases, you will access the API using an account access token. Details on getting your account token are available in the [authentication section](/v2/#authentication) of the API documentation.
 
-In the case that you are using a user access token, then you will have the same level of access as defined by your role for the given account (see [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/)). Thus, a Zone Operator will have access to a zone and its records, but not other parts of the domain. Likewise, a Domain Manager will only be able to see the domains that they are permitted to see.
+If you are using a user access token, you will have the same level of access as defined by your role for the given account (see [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/)). A Zone Operator will have access to a zone and its records, but not other parts of the domain. Likewise, a Domain Manager will only be able to see the domains they are permitted to see.
 
 ### Domains and Zones
 
