@@ -23,6 +23,7 @@ _Please keep in mind that some of these libraries may be incomplete or oudated._
 - [DNSimple C# client](https://dnsimple.link/api-client-csharp)
 - [DNSimple PHP client](https://dnsimple.link/api-client-php) - development release
 - [DNSimple Python client](https://dnsimple.link/api-client-python) - development release
+- [DNSimple Rust client](https://dnsimple.link/api-client-rust) - development release
 
 ### Ruby
 
