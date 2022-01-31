@@ -38,6 +38,16 @@ Provides Chef LWRP for automating DNS configuration with DNSimple.
 [homepage](https://supermarket.chef.io/cookbooks/dnsimple)
 </small>
 
+### [DNSimple Terraform Provider]()
+
+With the official DNSimple Terraform provider you can manage your DNS like your other cloud services.
+
+<small>
+[documentation](https://support.dnsimple.com/articles/terraform-provider/) &bull;
+[source code](https://github.com/dnsimple/terraform-provider-dnsimple) &bull;
+[announcement](https://blog.dnsimple.com/2021/12/introducing-dnsimple-terraform-provider/)
+</small>
+
 
 ## Community-developed tools
 
