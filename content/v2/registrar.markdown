@@ -184,7 +184,7 @@ Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
 `whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: `false`.
-`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
+`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `false`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
@@ -250,7 +250,7 @@ Name | Type | Description
 `registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
 `auth_code` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
 `whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: `false`.
-`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `true`.
+`auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `false`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 

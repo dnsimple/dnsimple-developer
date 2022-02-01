@@ -4813,7 +4813,7 @@ components:
                 description: 'Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: false.'
               auto_renew:
                 type: boolean
-                description: 'Set to true to enable the auto-renewal of the domain. Default: true.'
+                description: 'Set to true to enable the auto-renewal of the domain. Default: false.'
               extended_attributes:
                 type: object
                 description: Required for TLDs that require extended attributes.
@@ -4856,7 +4856,7 @@ components:
                 description: 'Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: false.'
               auto_renew:
                 type: boolean
-                description: 'Set to true to enable the auto-renewal of the domain. Default: true.'
+                description: 'Set to true to enable the auto-renewal of the domain. Default: false.'
               extended_attributes:
                 type: object
                 description: Required for TLDs that require extended attributes.
