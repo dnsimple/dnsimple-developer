@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^2.0.1",
+    "marked": "^4.0.10",
     "vue": "^2.6.12"
   }
 }

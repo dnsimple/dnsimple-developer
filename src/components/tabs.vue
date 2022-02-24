@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import marked from 'marked/marked.min.js';
+  import { marked } from 'marked';
   import hljs from 'highlightjs/highlight.pack.min.js';
 
   export default {
