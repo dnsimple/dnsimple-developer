@@ -104,7 +104,7 @@ The following events are available:
 - oauth\_application.delete
 - oauth\_application.reset\_client\_secret
 - oauth\_application.revoke\_access\_tokens
-- platform_status.create
+- platform\_status.create
 - push.accept
 - push.initiate
 - push.reject
