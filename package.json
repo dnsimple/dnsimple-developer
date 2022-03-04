@@ -26,5 +26,9 @@
     "highlightjs": "^9.16.2",
     "marked": "^4.0.10",
     "vue": "^2.6.12"
+  },
+  "resolutions": {
+    "ansi-regex": "5.0.1",
+    "glob-parent": "^5.1.2"
   }
 }
