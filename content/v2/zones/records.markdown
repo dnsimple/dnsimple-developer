@@ -23,7 +23,7 @@ If the feature is not enabled, you will receive an HTTP 412 response code.
 
 Zone Record Regions lets you select geographical regions where you want a record to appear.
 
-We currently have 6 points of presence:
+We currently have 8 points of presence:
 
 Code  | Region
 ------|-------
@@ -33,6 +33,8 @@ Code  | Region
 `AMS` | Amsterdam, NL
 `TKO` | Tokyo, JP
 `SYD` | Sydney, AU
+`CDG` | Paris, FR
+`FRA` | Frankfurt, DE
 
 When creating/updating a record, you can **optionally** select one or more regions.
 **If you don't select any, the record will appear in all of them (`global`).**
