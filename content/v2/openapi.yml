@@ -4642,6 +4642,9 @@ components:
         - IAD
         - AMS
         - TKO
+        - SYD
+        - CDG
+        - FRA
     ZoneRecordType:
       type: string
       description: Supported DNS record types at DNSimple. Note that some record types may only be available on specific plans.
