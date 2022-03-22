@@ -138,6 +138,19 @@ The following events are available:
 
 We maintain a [repository of example payloads](https://github.com/dnsimple/dnsimple-developer/tree/master/fixtures/v2/webhooks) that you can use to design and test your integrations.
 
+## Delivery attempts and retries {#deliveryAttemptsAndRetries}
+
+Understand the retry logic when webhook events are not acknowledged.
+
+### Retry logic
+
+Across all environments, DNSimple attempts to deliver an event to your webhooks for up to 2 hours with exponential backoff. The delivery mechanism allows for up to 10 attempts within the allotted time.
+
+If your webhook endpoint has been disabled no further retry attempts are made for that webhook endpoint. However, if the endpoint is re-enabled before the next retry attempt DNSimple will continue to process the event delivery via the normal retry flow.
+
+### Disable logic
+
+If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts DNSimple will automatically disable the webhook endpoint.
 
 ## List webhooks {#listWebhooks}
 
