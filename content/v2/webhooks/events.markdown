@@ -156,3 +156,11 @@ If your webhook endpoint has been disabled no further retry attempts are made fo
 ### Suppression logic
 
 If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts DNSimple will automatically suppress the webhook endpoint.
+
+<note>
+If you think your webhook has been disabled after you stop receiving events. There are two options to remove re-enable the webhook.
+
+1. You can delete and then re-create the webhook in your account.
+
+2. Reach out to [DNSimple support](https://dnsimple.com/contact).
+</note>
