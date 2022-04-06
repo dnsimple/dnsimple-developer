@@ -1,22 +1,25 @@
 ---
-title: Webhooks | DNSimple API v2
-excerpt: This page documents the DNSimple webhooks API v2.
+title: Webhooks and Events | DNSimple API v2
+excerpt: This page documents the OAuth 2 flow you can use to access the DNSimple API.
 ---
 
-# Webhooks API
+# Webhooks and Events
 
 * TOC
 {:toc}
 
+---
 
 ## Overview
 
 Webhooks are used for receiving notifications via an HTTP request whenever an event occurs in your DNSimple account.
 
-You may register your webhook URLs either through the DNSimple web interface or through the DNSimple API. The URL must use HTTPS and the webhook handler should be able to receive HTTP POST requests.
+You can register your webhook URLs either through the DNSimple web interface or through the DNSimple API, using the [Webhook API endpoints](/v2/webhooks/).
 
 All webhooks are sent via HTTPS using POST. It MAY occur that some webhook fire more than once. Clients MUST handle webhooks with the same `request_identifier` to not process them twice.
 
+
+## Webhooks
 
 ### Webhook Payload
 
@@ -35,11 +38,11 @@ Webhook data is sent as a JSON object in a POST request to URLs you define. All 
 
 The `name` attribute contains a string representing the name of event that occurred. It will always have an `object` and `action` separated by a period. It may optionally include a state for objects that go through state changes, for example `domain.registration:started`.
 
-The `api_version` is the API version used to serialize the data in the payload. For version 2 of the API, this is the string `v2`. For example, you can expect a domain object to be serialized using the same [domain attributes](https://developer.dnsimple.com/v2/domains/#domain-attributes) described in the corresponding API page.
+The `api_version` is the API version used to serialize the data in the payload. For version 2 of the API, this is the string `v2`. For example, you can expect a domain object to be serialized using the same [domain attributes](/v2/domains/#domain-attributes) described in the corresponding API page.
 
 The `request_identifier` attribute is a UUID that provides a way to identify this request. You may use this UUID to ensure a webhook is processed once and only once by keeping a persistent history of the identifiers sent and never handling a webhook which was already processed.
 
-The `data` attribute contains any data for the object or objects related to the event. Each object in the `data` object will be keyed on an object type name. For example:
+The `data` attribute contains any data for the object or objects related to the **Event** (see below). Each object in the `data` object will be keyed on an object type name. For example:
 
 ~~~json
 {
@@ -60,6 +63,8 @@ The `actor` is an object describing the entity that triggered the event. This ma
 ### Responding to Webhooks
 
 To confirm receipt of a webhook, your server must respond with an HTTP 200 response. Any other response will be considered an error and will cause the delivery to be re-tried.
+
+## Events
 
 ### Event List
 
@@ -138,139 +143,24 @@ The following events are available:
 
 We maintain a [repository of example payloads](https://github.com/dnsimple/dnsimple-developer/tree/master/fixtures/v2/webhooks) that you can use to design and test your integrations.
 
+## Delivery attempts and retries {#deliveryAttemptsAndRetries}
 
-## List webhooks {#listWebhooks}
+Understand the retry logic when webhook events are not acknowledged.
 
-    GET /:account/webhooks
+### Retry logic
 
-List webhooks in the account.
+Across all environments, DNSimple attempts to deliver an event to your webhooks for up to 2 hours with exponential backoff. The delivery mechanism allows for up to 10 attempts within the allotted time.
 
-### Parameters
+If your webhook endpoint has been disabled no further retry attempts are made for that webhook endpoint. However, if the endpoint is re-enabled before the next retry attempt DNSimple will continue to process the event delivery via the normal retry flow.
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
+### Suppression logic
 
-### Example
+If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts DNSimple will automatically suppress the webhook endpoint.
 
-List all webhooks in the account `1010`:
+<note>
+If you think your webhook has been disabled after you stop receiving events. There are two options to remove re-enable the webhook.
 
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/webhooks
+1. You can delete and then re-create the webhook in your account.
 
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/api/listWebhooks/success.http") %>
-~~~
-
-### Sorting
-
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`id` | Sort webhooks by ID
-
-The default sorting policy is by ascending `id`.
-
-
-## Create a webhook {#createWebhook}
-
-    POST /:account/webhooks
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-
-### Example
-
-Create a webhook in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -X POST \
-          -d '{"url":"https://test.host/handler"}' \
-          https://api.dnsimple.com/v2/1010/webhooks
-
-### Input
-
-Name | Type | Description
------|------|------------
-`url` | `string` | **Required**.
-
-##### Example
-
-~~~json
-{
-  "url": "https://test.host/handler"
-}
-~~~
-
-### Response
-
-Responds with HTTP 201 on success.
-
-~~~json
-<%= pretty_print_fixture("/api/createWebhook/created.http") %>
-~~~
-
-Responds with HTTP 400 if the validation fails.
-
-
-## Retrieve a webhook {#getWebhook}
-
-    GET /:account/webhooks/:webhook
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:webhook` | `integer`, `string` | The webhook id
-
-### Example
-
-Get the webhook with ID `1` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/webhooks/1
-
-
-### Response
-
-~~~json
-<%= pretty_print_fixture("/api/getWebhook/success.http") %>
-~~~
-
-
-## Delete a webhook {#deleteWebhook}
-
-    DELETE /:account/webhooks/:webhook
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:webhook` | `integer`, `string` | The webhook id
-
-### Example
-
-Delete the webhook with ID `1` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -X DELETE \
-          https://api.dnsimple.com/v2/1010/webhooks/1
-
-### Response
-
-Responds with HTTP 204 on success.
+2. Reach out to [DNSimple support](https://dnsimple.com/contact).
+</note>

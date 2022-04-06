@@ -28,6 +28,7 @@ task :compile_nanoc do
   end
 
   FileUtils.cp_r BUILD_YARN_DIRECTORY, PUBLISH_DIRECTORY
+  FileUtils.cp_r '_redirects', PUBLISH_DIRECTORY
 end
 
 desc "Compile the Openapi definition files"
