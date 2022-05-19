@@ -220,14 +220,9 @@ Purchase a Let's Encrypt certificate for `bingo.pizza` in the account `1010`:
 
 Name | Type | Description
 -----|------|------------
-`contact_id` | `integer` | **Required**. The ID of an existing contact in your account.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the certificate. Default: `false`.
 `name` | `string` | The certificate name. Default: `"www"`.
 `alternate_names` | `array<string>` | The certificate _alternate names_. Default: `[]`. Example: `["docs.example.com", "status.example.com"]`
-
-<info>
-The `contact_id` can be fetched via the [contacts endpoint](/v2/contacts).
-</info>
 
 ### Response
 
