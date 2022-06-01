@@ -2730,6 +2730,7 @@ components:
           type: integer
         contact_id:
           type: integer
+          deprecated: true
         name:
           type: string
         common_name:
