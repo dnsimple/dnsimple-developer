@@ -4281,9 +4281,12 @@ components:
         url:
           type: string
           format: uri
+        suppressed_at:
+          $ref: '#/components/schemas/DateTime'
       example:
         id: 1
         url: 'https://webhook.test'
+        suppressed_at: '2022-06-07T17:45:13Z'
     WebhookPayload:
       type: object
       properties:
