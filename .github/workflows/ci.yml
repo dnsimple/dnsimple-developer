@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ $default-branch ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "16.15.0"
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_JOBS: 3
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+  slack-workflow-status:
+    if: always()
+    name: Post Workflow Status To Slack
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Workflow Notification
+        uses: Gamesight/slack-workflow-status@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL_DEVELOPMENT }}
