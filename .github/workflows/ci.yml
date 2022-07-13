@@ -3,15 +3,12 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  NODE_VERSION: "16.15.0"
 
 jobs:
   test:
@@ -29,8 +26,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.tool-versions'
           cache: yarn
+      - name: Install JS Deps
+        run: yarn install --frozen-lockfile
+      - name: Run Tests
+        run: bundle exec rake
+
 
   slack-workflow-status:
     if: always()
