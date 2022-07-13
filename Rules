@@ -13,6 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+postprocess do
+  create_search_index
+end
+
 compile '/assets/css/*/' do
   if item.identifier =~ %r{/_[^/]+/$}
     # don't compile partials
