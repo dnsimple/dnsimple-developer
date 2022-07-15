@@ -88,14 +88,10 @@ input {
   border: 1px solid var(--surface2);
 }
 
-.header-logo {
+.logo {
   path {
     fill: var(--element1);
   }
-}
-
-.header-logo-dev {
-  fill: var(--primary);
 }
 
 .cta-button {
