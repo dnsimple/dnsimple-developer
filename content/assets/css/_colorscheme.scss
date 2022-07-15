@@ -116,6 +116,13 @@ input {
   }
 }
 
+.marker-warning {
+  box-shadow: -6px 0 0 0 var(--orange);
+  &:before {
+    color: var(--orange);
+  }
+}
+
 .marker-tip {
   box-shadow: -6px 0 0 0 var(--green);
   &:before {
@@ -143,4 +150,12 @@ input {
 
 .table td code {
   color: var(--element2);
+}
+
+.moon-button {
+  fill: hsl(var(--color),calc(var(--l) - 30%));
+}
+
+.sun-button {
+  fill: hsl(var(--color),calc(var(--l) + 30%));
 }
