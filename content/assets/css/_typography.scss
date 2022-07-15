@@ -20,21 +20,25 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.5rem;
+  font-weight: bold;
   line-height: 1.3;
-  margin-top: $base-unit;
-  margin-bottom: $base-unit/1.5;
+  margin: 0;
+  padding: 24px 0 24px 0;
 }
 
 h2 {
-  font-size: 1.4em;
-  margin: 25px 0 10px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 18px 0 8px 0;
 }
 
 h3 {
   font-size: 1em;
   font-weight: bold;
-  margin: 18px 0 4px 0;
+  margin: 0;
+  padding: 12px 0 8px 0;
   i {
     margin-right: $base-unit/4;
   }

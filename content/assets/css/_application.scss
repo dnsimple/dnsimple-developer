@@ -71,19 +71,21 @@
   max-width: 100%;
 }
 
-#toc {
-  &:before {
-    margin-right: 10px;
-    @include font-awesome("\f02e");
+#markdown-toc {
+  padding-left: 1.5rem;
+  box-shadow: -6px 0 0 0 var(--surface1);
+  &::before {
+    content: "On this page";
+    margin-left: -1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
   }
 }
 
 // Sidebar
 // -------------------------
 
-#sidebar {
-  margin-top: 20px;
-}
 .sidebar-title {
   margin-top: 25px;
   margin-bottom: 15px;
