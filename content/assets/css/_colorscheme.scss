@@ -78,7 +78,7 @@ code {
 }
 
 pre {
-  background-color: var(--surface2);
+  background-color: var(--surface1);
   border: 1px solid var(--surface2);
 }
 
@@ -108,7 +108,7 @@ input {
 }
 
 .marker {
-  background: var(--surface2);
+  background: var(--surface1);
   color: var(--element1);
   box-shadow: -6px 0 0 0 var(--element2);
 }
@@ -131,12 +131,6 @@ input {
   box-shadow: -6px 0 0 0 var(--gray);
   &:before {
     color: var(--gray);
-  }
-}
-
-.marker-warning {
-  &:before {
-    @include font-awesome("\f071");
   }
 }
 

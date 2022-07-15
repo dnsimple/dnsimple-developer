@@ -4,4 +4,5 @@ code {
   .cm, .c, .cp, .c1 { color: var(--gray); } // Comments
   .k, .o, .kc, .kd, .kp, .kr { font-weight: bold } // keywords
   .err, .gr { color: var(--orange) } // Errors
+  .nc { color: var(--blue); } // class names
 }
