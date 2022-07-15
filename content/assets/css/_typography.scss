@@ -7,7 +7,7 @@ $font-family: -apple-system, BlinkMacSystemFont,
                'segoe ui', arial,
                sans-serif;
 
-$font-monospace: Menlo,Monaco,Consolas,"Courier New",monospace;
+$font-monospace: Menlo,Consolas,Monaco,"Courier New",monospace;
 
 body {
   font-family: $font-family;
@@ -81,5 +81,6 @@ pre {
   code {
     padding: 0;
     background: transparent;
+    font-family: $font-monospace;
   }
 }
