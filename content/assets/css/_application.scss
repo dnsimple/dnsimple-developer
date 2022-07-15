@@ -4,7 +4,6 @@
 
 .table td code {
   padding: 0;
-  color: #333;
   background-color: transparent;
   border: none;
 }
@@ -13,12 +12,9 @@
 // ---------------
 
 .marker {
-  color: $gray-700;
-  background: $gray-200;
   padding: 16px 10px 16px 40px;
   border-radius: 0px;
-  box-shadow: -6px 0 0 0 $gray-600;
-  margin: 0 2rem 1rem 0.5rem;
+  margin: 0 0 1rem 0.5rem;
 
   h4 {
     margin-top: 0px;
@@ -36,35 +32,30 @@
     margin-left: -25px;
     font-size: 16px;
     line-height: 140%;
-    color: $gray-600;
   }
 }
 
 .marker-info {
   &:before {
-    @include font-awesome("\f05a");
+    @include font-awesome("\f129");
   }
 }
 
 .marker-tip {
-  box-shadow: -6px 0 0 0 $green;
   &:before {
-    @include font-awesome("\f00c");
+    @include font-awesome("\f075");
   }
 }
 
 .marker-note {
-  box-shadow: -6px 0 0 0 $yellow;
   &:before {
-    @include font-awesome("\f071");
+    @include font-awesome("\f303");
   }
 }
 
 .marker-warning {
-  box-shadow: -6px 0 0 0 $orange;
   &:before {
-    @include font-awesome("\f06a");
-    color: $orange;
+    @include font-awesome("\f071");
   }
 }
 
@@ -122,8 +113,6 @@
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
-  border-left: 5px solid #eeeeee;
-  color: #333;
   text-decoration: none;
 }
 .nav-list ul li a {
@@ -136,9 +125,4 @@
   padding: 0;
   margin-right: 0;
   margin-left: 0
-}
-.nav-list li a:hover,
-.nav-list li.active a {
-  color: $accent-color;
-  border-left: 5px solid $accent-color;
 }
