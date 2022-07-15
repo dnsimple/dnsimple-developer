@@ -2,10 +2,28 @@
 // Application Template
 // --------------------------------------------------
 
-.table td code {
-  padding: 0;
-  background-color: transparent;
-  border: none;
+.table {
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid var(--surface2);
+  th {
+    padding: 4px 8px;
+    background: var(--surface2);
+    text-align: left;
+  }
+  tr {
+    &:nth-child(even) {
+      background: var(--surface1);
+    }
+  }
+  td {
+    padding: 4px 8px;
+    code {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+  }
 }
 
 // Markers
