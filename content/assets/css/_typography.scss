@@ -7,37 +7,38 @@ $font-family: -apple-system, BlinkMacSystemFont,
                'segoe ui', arial,
                sans-serif;
 
-$font-monospace: Menlo,Monaco,Consolas,"Courier New",monospace;
+$font-monospace: Menlo,Consolas,Monaco,"Courier New",monospace;
 
 body {
   font-family: $font-family;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
-  background: #fff;
 }
 
 h1, h2, h3 {
-  color: #000;
   font-weight: normal;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.5rem;
+  font-weight: bold;
   line-height: 1.3;
-  margin-top: $base-unit;
-  margin-bottom: $base-unit/1.5;
+  margin: 0;
+  padding: 24px 0 24px 0;
 }
 
 h2 {
-  font-size: 1.4em;
-  margin: 25px 0 10px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 18px 0 8px 0;
 }
 
 h3 {
   font-size: 1em;
   font-weight: bold;
-  margin: 18px 0 4px 0;
+  margin: 0;
+  padding: 12px 0 8px 0;
   i {
     margin-right: $base-unit/4;
   }
@@ -53,21 +54,18 @@ p, pre, table {
 }
 
 a {
-  color: $accent-color;
   transition: all 0.2s ease;
 }
 
 hr {
   margin: 20px 0;
   border: 0;
-  border-top: 1px solid #eee;
 }
 
 code {
   padding: 2px 4px;
   font-size: 90%;
   color: inherit;
-  background: #f9f2f4;
   border-radius: 4px;
 }
 
@@ -77,13 +75,12 @@ pre {
   padding: 10px;
   font-size: 100%;
   font-family: $font-monospace;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
   word-break: break-all;
   word-wrap: break-word;
   border-radius: 4px;
   code {
     padding: 0;
     background: transparent;
+    font-family: $font-monospace;
   }
 }

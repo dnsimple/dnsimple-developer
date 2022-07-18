@@ -1,0 +1,161 @@
+/* Any element with the class "light--hidden" will be hidden when the site is set to Light Mode */
+:root[color-mode="light"] .light--hidden {
+  display: none;
+}
+
+/* Any element with the class "dark--hidden" will be hidden when the site is set to Dark Mode */
+:root[color-mode="dark"] .dark--hidden {
+  display: none;
+}
+
+/* Light Mode */
+:root[color-mode="light"] {
+  --color:0, 0%; // HSL hue, saturation
+  --l:100%;      // HSL lightness
+
+  --background: hsl(var(--color),var(--l));
+  --surface1: hsl(var(--color),calc(var(--l) - 5%));
+  --surface2: hsl(var(--color),calc(var(--l) - 10%));
+  --element1: hsl(var(--color),calc(var(--l) - 75%));
+  --element2: hsl(var(--color),calc(var(--l) - 80%));
+  --elementInverse: var(--background);
+  --primary: hsl(2, 100%, 74%);
+  --secondary: hsl(220, 100%, 50%);
+  --tertiary:  hsl(200, 50%, 60%);;
+  --blue:  hsl(215, 100%, 50%);;
+  --green:  hsl(100, 100%, 30%);;
+  --gray:  hsl(50, 0%, 50%);;
+  --orange:  hsl(30, 100%, 50%);;
+}
+
+/* Dark Mode */
+:root[color-mode="dark"] {
+  --color:247, 31%; // HSL hue, saturation
+  --l:10%;          // HSL lightness
+
+  --background: hsl(var(--color),var(--l));
+  --surface1: hsl(var(--color),calc(var(--l) + 5%));
+  --surface2: hsl(var(--color),calc(var(--l) + 10%));
+  --element1: hsl(var(--color),calc(var(--l) + 75%));
+  --element2: hsl(var(--color),calc(var(--l) + 80%));
+  --elementInverse: var(--background);
+  --primary: hsl(2, 100%, 74%);
+  --secondary: hsl(200, 100%, 50%);
+  --tertiary:  hsl(200, 50%, 60%);;
+  --blue:  hsl(215, 100%, 60%);;
+  --green:  hsl(100, 100%, 40%);;
+  --gray:  hsl(50, 0%, 70%);;
+  --orange:  hsl(30, 100%, 60%);;
+}
+
+body {
+  background: var(--background);
+  color: var(--element1);
+}
+
+header {
+  background: var(--surface1);
+}
+
+footer {
+  background: var(--surface1);
+}
+
+h1, h2, h3 {
+  color: var(--element2);
+}
+
+a {
+  color: var(--secondary);
+}
+
+hr {
+  border-top: 1px solid var(--surface2);
+}
+
+code {
+  background: var(--surface2);
+}
+
+pre {
+  background-color: var(--surface1);
+  border: 1px solid var(--surface2);
+}
+
+input {
+  background: var(--elementInverse);
+  color: var(--element1);
+  border: 1px solid var(--surface2);
+}
+
+.logo {
+  path {
+    fill: var(--element1);
+  }
+}
+
+.cta-button {
+  background: var(--primary);
+  color: var(--elementInverse);
+}
+
+.surface1 {
+  background: var(--surface1);
+}
+
+.marker {
+  background: var(--surface1);
+  color: var(--element1);
+  box-shadow: -6px 0 0 0 var(--element2);
+}
+
+.marker-info {
+  box-shadow: -6px 0 0 0 var(--blue);
+  &:before {
+    color: var(--blue);
+  }
+}
+
+.marker-warning {
+  box-shadow: -6px 0 0 0 var(--orange);
+  &:before {
+    color: var(--orange);
+  }
+}
+
+.marker-tip {
+  box-shadow: -6px 0 0 0 var(--green);
+  &:before {
+    color: var(--green);
+  }
+}
+
+.marker-note {
+  box-shadow: -6px 0 0 0 var(--gray);
+  &:before {
+    color: var(--gray);
+  }
+}
+
+.nav-list li a {
+  border-left: 5px solid var(--surface2);
+  color: var(--element2);
+}
+
+.nav-list li a:hover,
+.nav-list li.active a {
+  color: var(--primary);
+  border-left: 5px solid var(--primary);
+}
+
+.table td code {
+  color: var(--element2);
+}
+
+.moon-button {
+  fill: hsl(var(--color),calc(var(--l) - 30%));
+}
+
+.sun-button {
+  fill: hsl(var(--color),calc(var(--l) + 30%));
+}
