@@ -49,7 +49,7 @@ Responds with HTTP 201.
 
     DELETE /:account/domains/:domain/dnssec
 
-Disable DNSSEC for the domain in the account. If the domain is registered, it will remove the DS record from the corresponding registry. If the domain is hosted, you are responsible to remove the DS record at your domain's registrar. We will continue to serve the signed zone until we detect the DS record has been removed (up to 14 days).
+Disable DNSSEC for the domain in the account. If the domain is registered, it will remove the DS record from the corresponding registry. If your domain is hosted, you should remove the DS record from the domain's registrar *before* using this endpoint. Failure to remove the DS record within 48 hours of disabling DNSSEC will result in DNSSEC validation failures and will stop your domain from resolving with all DNSSEC-aware resolvers.
 
 ### Parameters
 
