@@ -5,6 +5,8 @@ excerpt: This page documents the DNSimple secondary DNS API v2.
 
 # Secondary DNS API
 
+### Table of Contents {#toc}
+
 * TOC
 {:toc}
 
