@@ -69,7 +69,7 @@ Name | Type | Description
 -----|------|------------
 `resource` | `string` | **Required**, such as `domain:123` or `record:123` or `platform_connection:123`
 `state` | `string` | The state represented in the status. Available states are: `ok`, `error`, `warning`, `unknown`
-`context` | `string` | TBD
+`context` | `string` | defaults to `default`
 `url` | `string` | A URL to link the status to
 `title` | `string` | A short title to display to the user
 `message` | `string` | A longer message to display to the user
@@ -78,12 +78,12 @@ Name | Type | Description
 
 ~~~json
 {
-  "resource": "",
-  "state": "OK",
-  "context": "",
+  "resource": "domain:123",
+  "state": "ok",
+  "context": "page-a",
   "url": "https://yourapp.com/some/path",
-  "title": "",
-  "message": ""
+  "title": "System OK",
+  "message": "All systems are reporting OK."
 }
 ~~~
 

@@ -41,8 +41,8 @@ Name | Type | Description
 
 ~~~json
 {
-  "resource": "",
-  "title": ""
+  "resource": "domain:123",
+  "title": "Connection to MyApp"
 }
 ~~~
 

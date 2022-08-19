@@ -78,9 +78,9 @@ Name | Type | Description
 
 ~~~json
 {
-  "resource": "",
-  "key": "",
-  "value": ""
+  "resource": "domain:123",
+  "key": "App Name",
+  "value": "flying-cheeto-kite-surf"
 }
 ~~~
 

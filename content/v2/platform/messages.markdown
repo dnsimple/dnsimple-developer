@@ -77,11 +77,11 @@ Name | Type | Description
 
 ~~~json
 {
-  "resource": "",
+  "resource": "domain:123",
   "url": "https://yourapp.com/some/path",
-  "title": "",
-  "message": "",
-  "expires\_at": "" 
+  "title": "Domain configured",
+  "message": "Your domain is now configured for MyApp",
+  "expires\_at": "2022-01-18 18:40:52 UTC" 
 }
 ~~~
 
@@ -120,11 +120,11 @@ Name | Type | Description
 
 ~~~json
 {
-  "resource": "",
+  "resource": "domain:123",
   "url": "https://yourapp.com/some/path",
-  "title": "",
-  "message": "",
-  "expires\_at": "" 
+  "title": "Domain updated",
+  "message": "Your domain is now updated",
+  "expires\_at": "2022-01-19 18:40:52 UTC" 
 }
 ~~~
 
