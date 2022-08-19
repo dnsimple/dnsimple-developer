@@ -3,6 +3,8 @@ title: Metadata API | DNSimple API v2
 excerpt: This page documents the DNSimple Platform Metadata API.
 ---
 
+# Metadata API
+
 * TOC
 {:toc}
 

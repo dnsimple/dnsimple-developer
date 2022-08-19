@@ -3,6 +3,8 @@ title: Connections API | DNSimple API v2
 excerpt: This page documents the DNSimple Platform Connections API.
 ---
 
+# Connections API
+
 * TOC
 {:toc}
 

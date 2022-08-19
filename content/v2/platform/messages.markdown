@@ -3,6 +3,8 @@ title: Messages API | DNSimple API v2
 excerpt: This page documents the DNSimple Platform Messages API.
 ---
 
+# Messages API
+
 * TOC
 {:toc}
 

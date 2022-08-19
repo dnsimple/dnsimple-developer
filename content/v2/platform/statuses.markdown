@@ -3,6 +3,8 @@ title: Statuses API | DNSimple API v2
 excerpt: This page documents the DNSimple Platform Statuses API.
 ---
 
+# Statuses API
+
 * TOC
 {:toc}
 
