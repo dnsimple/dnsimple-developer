@@ -67,8 +67,8 @@ Name | Type | Description
 
 Name | Type | Description
 -----|------|------------
-`resource` | `string` | **Required** TBD
-`state` | `string` | The state represented in the status. Available states are: TBD
+`resource` | `string` | **Required**, such as `domain:123` or `record:123` or `platform_connection:123`
+`state` | `string` | The state represented in the status. Available states are: `ok`, `error`, `warning`, `unknown`
 `context` | `string` | TBD
 `url` | `string` | A URL to link the status to
 `title` | `string` | A short title to display to the user

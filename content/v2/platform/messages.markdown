@@ -67,7 +67,7 @@ Name | Type | Description
 
 Name | Type | Description
 -----|------|------------
-`resource` | `string` | **Required** TBD
+`resource` | `string` | **Required**, such as `domain:123` or `record:123` or `platform_connection:123`
 `url` | `string` | A URL to link the status to
 `title` | `string` | A short title to display to the user
 `message` | `string` | A longer message to display to the user
@@ -110,7 +110,7 @@ Name | Type | Description
 
 Name | Type | Description
 -----|------|------------
-`resource` | `string` | **Required** TBD
+`resource` | `string` | **Required**, such as `domain:123` or `record:123`
 `url` | `string` | A URL to link the status to
 `title` | `string` | A short title to display to the user
 `message` | `string` | A longer message to display to the user

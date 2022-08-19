@@ -34,7 +34,7 @@ Name | Type | Description
 
 Name | Type | Description
 -----|------|------------
-`resource` | `string` | **Required** The resource identifier this connection applies to
+`resource` | `string` | **Required** The resource identifier this connection applies to, such as `domain:123` or `record:123`
 `title` | `string` | A title for the connection to display to users
 
 ##### Example

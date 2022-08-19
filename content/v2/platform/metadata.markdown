@@ -70,7 +70,7 @@ Name | Type | Description
 
 Name | Type | Description
 -----|------|------------
-`resource` | `string` | **Required** TBD
+`resource` | `string` | **Required**, such as `domain:123` or `record:123` or `platform_connection:123`
 `key` | `string` | A key for the entry
 `value` | `string` | A value for the entry
 
