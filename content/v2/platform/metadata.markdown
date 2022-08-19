@@ -16,7 +16,7 @@ excerpt: This page documents the DNSimple Platform Metadata API.
 
 The Metadata API provides a key/value store that is attached to a specific resource (such as a domain, DNS record, etc) in a DNSimple account. A metadata value with a key that already exists will replace the previous value for that same key on a given resource.
 
-## Metadata attributes {#metadata-attributes}
+## Metadata attributes
 
 ## List Metadata
 

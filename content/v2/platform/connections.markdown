@@ -12,7 +12,7 @@ excerpt: This page documents the DNSimple Platform Connections API.
   The Connections API is part of the Platform API and is currently in Private Beta. During the Private Beta period changes may occur at any time.
 </note>
 
-## Connection attributes {#connection-attributes}
+## Connection attributes
 
 ## Create Connection
 

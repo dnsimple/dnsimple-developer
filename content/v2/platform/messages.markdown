@@ -16,7 +16,7 @@ excerpt: This page documents the DNSimple Platform Messages API.
 
 Messages contain information that add-ons want displayed to users of a DNSimple account for a particular resource, such as a domain or DNS record. Messages can be updated and deleted and can be set to expire after a period of time.
 
-## Message attributes {#message-attributes}
+## Message attributes
 
 ## List Messages
 

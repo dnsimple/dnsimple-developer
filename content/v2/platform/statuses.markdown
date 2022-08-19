@@ -16,7 +16,7 @@ excerpt: This page documents the DNSimple Platform Statuses API.
 
 Statuses are used to indicate the latest known status of some resource in relation to an add-on. Statuses have a fixed set of states and are not time-specific. Statuses have a context value and a status with the same context for a given resource will replace a previous status with that context for that resource.
 
-## Status attributes {#status-attributes}
+## Status attributes
 
 ## List Statuses
 
@@ -91,7 +91,7 @@ Name | Type | Description
 
 Responds with HTTP 201, renders the status.
 
-## List Resource Status History 
+## List Resource Status History
 
 List statuses for a specific resource in chronological order.
 
