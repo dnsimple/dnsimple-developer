@@ -10,7 +10,6 @@ excerpt: This page documents the DNSimple DNSSEC API v2.
 * TOC
 {:toc}
 
-
 <info>
 This article describes a feature in Public Beta.
 </info>
@@ -19,7 +18,7 @@ This article describes a feature in Public Beta.
 
     POST /:account/domains/:domain/dnssec
 
-Enable DNSSEC for the domain in the account. This will sign the zone. If the domain is registered it will also add the DS record to the corresponding registry.
+Enable DNSSEC for the domain in the account. This will start signing the zone. When the signed zone is served by all name servers, it will add the DS record to the corresponding registry if the domain is registered via DNSimple. For hosted domains, you will need to add the DS record at the domain's registrar manually.
 
 ### Parameters
 
@@ -49,6 +48,8 @@ Responds with HTTP 201.
 ## Disable DNSSEC {#disableDomainDnssec}
 
     DELETE /:account/domains/:domain/dnssec
+
+Disable DNSSEC for the domain in the account. If the domain is registered, it will remove the DS record from the corresponding registry. If your domain is hosted, you should remove the DS record from the domain's registrar *before* using this endpoint. Failure to remove the DS record within 48 hours of disabling DNSSEC will result in DNSSEC validation failures and will stop your domain from resolving with all DNSSEC-aware resolvers.
 
 ### Parameters
 
