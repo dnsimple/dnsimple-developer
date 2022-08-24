@@ -18,6 +18,20 @@ The Metadata API provides a key/value store that is attached to a specific resou
 
 ## Metadata attributes
 
+~~~json
+{
+  "id": 103,
+  "owner_type": "OauthApplication",
+  "owner_id": 1,
+  "account_id": 1,
+  "resource": "platform_connection:172",
+  "key": "App Name",
+  "value": "my-app",
+  "created_at": "Wed, 29 Jun 2010 12:45:05.037840000 UTC +00:00",
+  "updated_at": "Wed, 29 Jun 2010 12:45:05.037840000 UTC +00:00"
+}
+~~~
+
 ## List Metadata
 
 List metadata entries in the account for the specified resource.

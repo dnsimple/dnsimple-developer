@@ -14,6 +14,18 @@ excerpt: This page documents the DNSimple Platform Connections API.
 
 ## Connection attributes
 
+~~~json
+{
+  "id": 172,
+  "account_id": 1,
+  "addon_id": 1,
+  "resource": "domain:123",
+  "created_at": "Wed, 29 Jun 2010 12:45:03.217725000 UTC +00:00",
+  "updated_at": "Wed, 29 Jun 2010 12:45:03.217725000 UTC +00:00",
+  "title": "Connection to MyApp"
+}
+~~~
+
 ## Create Connection
 
 Create a connection in the account.

@@ -18,6 +18,23 @@ Statuses are used to indicate the latest known status of some resource in relati
 
 ## Status attributes
 
+~~~json
+{
+  "id": 164,
+  "owner_type": "OauthApplication",
+  "owner_id": 1,
+  "account_id": 1,
+  "state": "ok",
+  "context": "default",
+  "title": "Connection established",
+  "message": "Your connection has been established.",
+  "url": null,
+  "created_at": "Wed, 29 Jun 2010 12:45:04.967902000 UTC +00:00",
+  "updated_at": "Wed, 29 Jun 2010 12:45:04.967902000 UTC +00:00",
+  "resource": "platform_connection:172"
+}
+~~~
+
 ## List Statuses
 
 List statuses in the account.

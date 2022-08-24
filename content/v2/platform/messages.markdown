@@ -18,6 +18,22 @@ Messages contain information that add-ons want displayed to users of a DNSimple 
 
 ## Message attributes
 
+~~~json
+{
+  "id": 158,
+  "owner_type": "OauthApplication",
+  "owner_id": 1,
+  "account_id": 1,
+  "resource": "platform_connection:172",
+  "title": "Connection established",
+  "message": "Your connection has been established.",
+  "url": null,
+  "expires_at": null,
+  "created_at": "Wed, 29 Jun 2010 12:45:05.015709000 UTC +00:00",
+  "updated_at": "Wed, 29 Jun 2010 12:45:05.015709000 UTC +00:00"
+}
+~~~
+
 ## List Messages
 
 List messages in the account.
