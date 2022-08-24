@@ -88,6 +88,10 @@ Name | Type | Description
 
 Responds with HTTP 201, renders the metadata entry.
 
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.
+
 ## Destroy Metadata
 
 Destroy a metadata entry in the account for the specified resource. **This cannot be undone.**

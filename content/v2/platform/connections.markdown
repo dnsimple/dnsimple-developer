@@ -50,6 +50,10 @@ Name | Type | Description
 
 Responds with HTTP 201, renders the connection.
 
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.
+
 ## Destroy Connection
 
 Destroy a connection in the account.
@@ -68,3 +72,7 @@ Name | Type | Description
 ### Response
 
 Responds with HTTP 204 on success.
+
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.

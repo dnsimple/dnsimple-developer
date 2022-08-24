@@ -89,6 +89,10 @@ Name | Type | Description
 
 Responds with HTTP 201, renders the message.
 
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.
+
 ## Update Message
 
 Update a message in the account.
@@ -132,6 +136,9 @@ Name | Type | Description
 
 Responds with HTTP 200, renders the message.
 
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.
 
 ## Destroy Message
 
@@ -151,3 +158,7 @@ Name | Type | Description
 ### Response
 
 Responds with HTTP 204 on success.
+
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.

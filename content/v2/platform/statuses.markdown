@@ -91,6 +91,10 @@ Name | Type | Description
 
 Responds with HTTP 201, renders the status.
 
+Responds with HTTP 400 if the validation fails.
+
+Responds with HTTP 404 if the resource doesn't exist.
+
 ## List Resource Status History
 
 List statuses for a specific resource in chronological order.
