@@ -134,10 +134,71 @@ The `data` element will contain either a single JSON object or a list of JSON ob
 
 ## Errors
 
-Error responses will be returned as a JSON object with at least a `message` key. For example, failure to authenticate would result in a 401 response with a body like this:
+All responses with an 4xx and 5xx response code will have a JSON object as body, with at least a `message` key. Depending on the error type, the response may include an `errors` key with more details about why the respones was unsuccessful and what .
+
+Here are some examples of response bodies for response codes:
+
+### 400 - Bad Request
+~~~json
+{
+  "message": "The contact cannot be deleted: contact is in use",
+  "errors": {}
+}
+~~~
 
 ~~~json
-{"message":"Authentication failed"}
+{
+  "message": "We were unable to authorize the payment for this purchase on your card. Payment gateway returned error code: card_declined (generic_decline).",
+  "errors": {}
+}
+~~~
+
+~~~json
+{
+  "message": "Validation failed",
+  "errors": {
+    "ttl": ["is not a number"],
+    "content": ["can't be blank"],
+    "record_type": ["unsupported"]
+  }
+}
+~~~
+
+~~~json
+{
+  "message": "Validation failed",
+  "errors": {
+    "address1": ["can't be blank"],
+    "city": ["can't be blank"],
+    "country": ["is the wrong length (should be 2 characters)","is not a valid country"],
+    "email": ["can't be blank","is an invalid email address"],
+    "first_name": ["can't be blank"],
+    "last_name": ["can't be blank"],
+    "postal_code": ["can't be blank"],
+    "state_province": ["can't be blank"],
+    "phone": ["is probably not a phone number"]
+  }
+}
+~~~
+
+### 401 - Unauthorized
+~~~json
+{"message": "Authentication failed"}
+~~~
+
+### 402 - Payment required
+~~~json
+{"message": "This action cannot be completed because you have purchase invoices that need to be paid for: 12345-1010. Please retry the payment following these instructions https://support.dnsimple.com/articles/account-invoice-history/#retrying."}
+~~~
+
+### 404 - Not found
+~~~json
+{"message": "Not Found"}
+~~~
+
+### 429 - Too Many Requests
+~~~json
+{"message": "quota exceeded"}
 ~~~
 
 
