@@ -104,11 +104,11 @@ DNSimple uses conventional HTTP response codes to indicate success or failure of
 
 ### Error
 
-- `400 Bad Request` - A required parameter or the request is invalid.
-- `401 Unauthorized` - The authentication credentials are invalid.
+- `400 Bad Request` - The request is invalid or there is an issue with the request payload. See [Errors](#errors).
+- `401 Unauthorized` - The authentication credentials are invalid. See [Authentication](#authentication).
 - `402 Payment Required` - Your account is not subscribed or not in good standing.
-- `404 Not Found` - The requested resource doesn't exist.
-- `429 Too Many Requests` - You exceeded the allowed number of requests per hour and your request has temporarily been throttled.
+- `404 Not Found` - The requested resource doesn't exist or the authenticated account doesn't have permissions to access the resource.
+- `429 Too Many Requests` - You exceeded the allowed number of requests per hour and your request has temporarily been throttled. See [Rate limitting](#rate-limiting).
 
 ### Kaboom!
 
