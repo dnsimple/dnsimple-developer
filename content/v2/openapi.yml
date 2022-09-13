@@ -4675,6 +4675,61 @@ components:
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    field:
+                      type: integer
+                    errors:
+                      type: array
+                      items:
+                        type: string
+          examples:
+            example-1:
+              value:
+                message: string
+                errors:
+                  property1:
+                    field: string
+                    errors:
+                      - string
+                  property2:
+                    field: string
+                    errors:
+                      - string
+            example-2:
+              value:
+                message: Validation failed
+                errors:
+                  address1:
+                    - can't be blank
+                  city:
+                    - can't be blank
+                  country:
+                    - can't be blank
+                  email:
+                    - can't be blank
+                    - is an invalid email address
+                  first_name:
+                    - can't be blank
+                  last_name:
+                    - can't be blank
+                  phone:
+                    - can't be blank
+                    - is probably not a phone number
+                  postal_code:
+                    - can't be blank
+                  state_province:
+                    - can't be blank
     '401':
       description: The authentication credentials are invalid.
     '402':
