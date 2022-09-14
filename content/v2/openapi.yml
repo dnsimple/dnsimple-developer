@@ -4758,6 +4758,17 @@ components:
                 message: 'This action cannot be completed because you have purchase invoices that need to be paid for: 12345-1010. Please retry the payment following these instructions https://support.dnsimple.com/articles/account-invoice-history/#retrying.'
     '404':
       description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: Not Found
     '412':
       description: A precondition failed while trying to access a resource.
     '429':
