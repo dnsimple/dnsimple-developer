@@ -4732,6 +4732,17 @@ components:
                     - can't be blank
     '401':
       description: The authentication credentials are invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: Authentication failed
     '402':
       description: Your account is not subscribed or not in good standing.
     '404':
