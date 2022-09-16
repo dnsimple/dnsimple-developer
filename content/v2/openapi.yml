@@ -4675,12 +4675,100 @@ components:
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    field:
+                      type: integer
+                    errors:
+                      type: array
+                      items:
+                        type: string
+          examples:
+            example-1:
+              value:
+                message: string
+                errors:
+                  property1:
+                    field: string
+                    errors:
+                      - string
+                  property2:
+                    field: string
+                    errors:
+                      - string
+            example-2:
+              value:
+                message: Validation failed
+                errors:
+                  address1:
+                    - can't be blank
+                  city:
+                    - can't be blank
+                  country:
+                    - can't be blank
+                  email:
+                    - can't be blank
+                    - is an invalid email address
+                  first_name:
+                    - can't be blank
+                  last_name:
+                    - can't be blank
+                  phone:
+                    - can't be blank
+                    - is probably not a phone number
+                  postal_code:
+                    - can't be blank
+                  state_province:
+                    - can't be blank
     '401':
       description: The authentication credentials are invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: Authentication failed
     '402':
       description: Your account is not subscribed or not in good standing.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: 'This action cannot be completed because you have purchase invoices that need to be paid for: 12345-1010. Please retry the payment following these instructions https://support.dnsimple.com/articles/account-invoice-history/#retrying.'
     '404':
       description: The requested resource doesn't exist.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: Not Found
     '412':
       description: A precondition failed while trying to access a resource.
     '429':
@@ -4692,6 +4780,17 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining'
         X-RateLimit-Reset:
           $ref: '#/components/headers/X-RateLimit-Reset'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            example-1:
+              value:
+                message: quota exceeded
     412-feature:
       description: Feature is not available on your plan.
     Error:
