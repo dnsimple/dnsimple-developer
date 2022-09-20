@@ -134,11 +134,14 @@ The `data` element will contain either a single JSON object or a list of JSON ob
 
 ## Errors
 
-All responses with an 4xx and 5xx response code will have a JSON object as body, with at least a `message` key. Depending on the error type, the response may include an `errors` key with more details about why the respones was unsuccessful and what .
+All responses with an 4xx and 5xx response code will have a JSON object as body, with at least a `message` key.
 
 Here are some examples of response bodies for response codes:
 
 ### 400 - Bad Request
+
+Depending on the error, the response may include an `errors` key with more details about why the request was unsuccessful and what specific data is invalid.
+
 ~~~json
 {
   "message": "The contact cannot be deleted: contact is in use",
