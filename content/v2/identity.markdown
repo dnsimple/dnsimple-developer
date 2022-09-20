@@ -40,3 +40,7 @@ Responds with HTTP 200. Either user or account may be nil, depending on how you 
 ~~~json
 <%= pretty_print_fixture("/api/whoami/success-user.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
