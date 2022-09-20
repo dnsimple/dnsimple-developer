@@ -27,6 +27,18 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort email forwards by ID
+`from` | Sort email forwards by sender (alphabetical order)
+`to` | Sort email forwards by recipient (alphabetical order)
+
+The default sorting policy is by ascending `id`.
+
 ### Example
 
 List all email forwards for the domain `example.com` in the account `1010`:
@@ -43,18 +55,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/listEmailForwards/success.http") %>
 ~~~
 
-### Sorting
+### Errors
 
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`id` | Sort email forwards by ID
-`from` | Sort email forwards by sender (alphabetical order)
-`to` | Sort email forwards by recipient (alphabetical order)
-
-The default sorting policy is by ascending `id`.
-
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create an email forward {#createEmailForward}
 
@@ -102,10 +105,11 @@ Responds with HTTP 201 on success, renders the email forward.
 <%= pretty_print_fixture("/api/createEmailForward/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the email forward cannot be created.
 
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Retrieve an email forward {#getEmailForward}
 
@@ -134,6 +138,10 @@ Responds with HTTP 200, renders the email forward.
 ~~~json
 <%= pretty_print_fixture("/api/getEmailForward/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Delete an email forward {#deleteEmailForward}
@@ -164,3 +172,8 @@ Delete the email forward with ID `1` under the domain `example.com`, in the acco
 
 Responds with HTTP 204 on success.
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the email forward cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
