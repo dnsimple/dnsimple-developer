@@ -73,6 +73,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/listDomains/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create a domain {#createDomain}
 
@@ -123,9 +126,13 @@ Responds with HTTP 201 on success, renders the domain.
 <%= pretty_print_fixture("/api/createDomain/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the registration attempt is invalid.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
 
 ## Retrieve a domain {#getDomain}
@@ -164,6 +171,10 @@ Responds with HTTP 200, renders the domain.
 ~~~json
 <%= pretty_print_fixture("/api/getDomain/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Delete a domain {#deleteDomain}
@@ -204,3 +215,9 @@ Delete the domain `example.com` in the account `1010`:
 ### Response
 
 Responds with HTTP 204 on success.
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
