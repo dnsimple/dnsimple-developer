@@ -45,3 +45,7 @@ Responds with HTTP 200. Depending on how you are authenticated you will see all 
 ~~~json
 <%= pretty_print_fixture("/api/listAccounts/success-user.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
