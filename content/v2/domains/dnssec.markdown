@@ -44,6 +44,11 @@ Responds with HTTP 201.
 <%= pretty_print_fixture("/api/enableDnssec/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if DNSSEC cannot be enabled for the domain.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Disable DNSSEC {#disableDomainDnssec}
 
@@ -71,6 +76,11 @@ Disable DNSSEC for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 204 (No content). Or HTTP 428 if DNSSEC is not currently enabled.
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if DNSSEC cannot be disabled for the domain.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Retrieve DNSSEC status {#getDomainDnssec}
 
@@ -101,6 +111,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/getDnssec/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## List delegation signer records {#listDomainDelegationSignerRecords}
 
@@ -114,6 +127,17 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
+
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort delegation signer records by ID
+`created_at` | Sort delegation signer records by creation date
+
+The default sorting policy is by ascending `id`.
 
 ### Example
 
@@ -131,17 +155,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/listDelegationSignerRecords/success.http") %>
 ~~~
 
-### Sorting
+### Errors
 
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`id` | Sort delegation signer records by ID
-`created_at` | Sort delegation signer records by creation date
-
-The default sorting policy is by ascending `id`.
-
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create a delegation signer record {#createDomainDelegationSignerRecord}
 
@@ -198,10 +214,11 @@ Responds with HTTP 201 on success, renders the delegation signer record.
 <%= pretty_print_fixture("/api/createDelegationSignerRecord/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the delegation signer record cannot be created.
 
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Retrieve a delegation signer record {#getDomainDelegationSignerRecord}
 
@@ -231,6 +248,9 @@ Responds with HTTP 200 on success, renders the delegation signer record.
 <%= pretty_print_fixture("/api/getDelegationSignerRecord/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a Delegation Signer record {#deleteDomainDelegationSignerRecord}
 
@@ -255,3 +275,9 @@ Get the delegation signer record `1` under the domain `example.com` in the accou
 ### Response
 
 Responds with HTTP 204 on success.
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the delegation signer record cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
