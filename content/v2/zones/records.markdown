@@ -94,12 +94,15 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
-Responds with HTTP 200.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/listZoneRecords/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create a zone record {#createZoneRecord}
 
@@ -159,9 +162,11 @@ Responds with HTTP 201 on success.
 <%= pretty_print_fixture("/api/createZoneRecord/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the record cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a zone record {#getZoneRecord}
@@ -190,10 +195,15 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getZoneRecord/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Update a zone record {#updateZoneRecord}
 
@@ -253,10 +263,11 @@ Responds with HTTP 200 on success.
 <%= pretty_print_fixture("/api/updateZoneRecord/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the record cannot be updated.
 
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a zone record {#deleteZoneRecord}
 
@@ -288,6 +299,11 @@ curl  -H 'Authorization: Bearer <token>' \
 
 Responds with HTTP 204 on success.
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the record cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
@@ -331,7 +347,11 @@ Responds with HTTP 200 when the zone record is not distributed.
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/failure.http") %>
 ~~~
 
-Responds with HTTP 504 when the server failed to perform the check.
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 504](/v2#gateway-timeout) when the server failed to perform the check.
 
 ~~~json
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/error.http") %>
