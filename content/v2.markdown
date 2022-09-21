@@ -234,6 +234,10 @@ Depending on the error, the response may include an `errors` key with more detai
 {"message": "quota exceeded"}
 ~~~
 
+### 504 - Gateway Timeout
+~~~json
+{"message": "Could not query zone, connection timed out"}
+~~~
 
 ## Timestamps
 
