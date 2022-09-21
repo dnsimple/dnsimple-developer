@@ -143,6 +143,10 @@ Here are some examples of response bodies for response codes:
 Depending on the error, the response may include an `errors` key with more details about why the request was unsuccessful and what specific data is invalid.
 
 ~~~json
+{ "message": "TLD .PINEAPPLE is not supported" }
+~~~
+
+~~~json
 {
   "message": "The contact cannot be deleted: contact is in use",
   "errors": {}
