@@ -53,9 +53,11 @@ Responds with HTTP 201 on success, renders the push.
 <%= pretty_print_fixture("/api/initiatePush/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the push cannot be initiated.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## List pushes {#listPushes}
 
@@ -85,6 +87,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/listPushes/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Accept a push {#acceptPush}
 
@@ -126,9 +131,11 @@ Name | Type | Description
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the push cannot be accepted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Reject a push {#rejectPush}
@@ -156,6 +163,6 @@ Reject a push for the target account `2020`:
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
