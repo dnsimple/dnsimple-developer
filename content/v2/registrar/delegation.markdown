@@ -40,6 +40,9 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/getDomainDelegation/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Change domain name servers {#changeDomainDelegation}
 
@@ -80,15 +83,17 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 200 on success, renders the list of name server names.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/changeDomainDelegation/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the delegation fails.
+Responds with [HTTP 400](/v2#bad-request) if the name servers cannot be changed.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Delegate to vanity name servers {#changeDomainDelegationToVanity}
@@ -131,11 +136,13 @@ Responds with HTTP 200 on success, renders the list of name server names.
 <%= pretty_print_fixture("/api/changeDomainDelegationToVanity/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the delegation fails.
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be delegated to the vanity name servers.
 
-Responds with HTTP 412 if the feature is not enabled for the account.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account doesn't have access to the vanity name servers feature.
 
 ## Dedelegate from vanity name servers {#changeDomainDelegationFromVanity}
 
@@ -165,8 +172,10 @@ Update name servers for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the dedelegation fails.
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be dedelegated from the vanity name servers.
 
-Responds with HTTP 412 if the feature is not enabled for the account.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account doesn't have access to the vanity name servers feature.
