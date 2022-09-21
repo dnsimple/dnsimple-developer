@@ -199,6 +199,32 @@ Depending on the error, the response may include an `errors` key with more detai
 {"message": "Not Found"}
 ~~~
 
+### 412 - Precondition Failed
+~~~json
+{"message": "Let's Encrypt feature is not enabled for the account email@example.com"}
+~~~
+
+~~~json
+{"message": "The certificate requires the custom-name feature that is not available on the current plan for the account email@example.com"}
+~~~
+
+~~~json
+{"message": "The certificate requires the SAN feature that is not available on the current plan for the account email@example.com"}
+~~~
+
+~~~json
+{"message": "The certificate requires the wildcard feature that is not available on the current plan for the account email@example.com"}
+~~~
+
+### 428 - Precondition Required
+~~~json
+{"message": "Certificate not issued"}
+~~~
+
+~~~json
+{"message": "Private key not present"}
+~~~
+
 ### 429 - Too Many Requests
 ~~~json
 {"message": "quota exceeded"}
