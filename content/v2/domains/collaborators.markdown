@@ -37,6 +37,10 @@ Responds with HTTP 200.
 <%= pretty_print_fixture("/api/listCollaborators/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
 
 ## Add a collaborator {#addDomainCollaborator}
 
@@ -96,9 +100,11 @@ When the collaborator doesn't have a DNSimple account:
 
 Responds with HTTP 201 on success.
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the collaborator cannot be added.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Remove a collaborator {#removeDomainCollaborator}
@@ -126,6 +132,8 @@ Remove a collaborator `100` from the domain `example.com` in the account `1010`:
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the collaborator cannot be removed
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

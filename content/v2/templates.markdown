@@ -26,22 +26,6 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 
-### Example
-
-List all templates in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/templates
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/api/listTemplates/success.http") %>
-~~~
-
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
@@ -53,6 +37,26 @@ Name | Description
 `sid` | Sort templates by string ID (alphabetical order)
 
 The default sorting policy is by ascending `id`.
+
+### Example
+
+List all templates in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/templates
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/listTemplates/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Create a template {#createTemplate}
@@ -102,7 +106,11 @@ Responds with HTTP 201 on success.
 <%= pretty_print_fixture("/api/createTemplate/created.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the template cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a template {#getTemplate}
@@ -132,10 +140,15 @@ Get the template with short name `example` in the account `1010`:
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getTemplate/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Update a template {#updateTemplate}
 
@@ -180,8 +193,11 @@ Responds with HTTP 200 on success.
 <%= pretty_print_fixture("/api/updateTemplate/success.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
 
+Responds with [HTTP 400](/v2#bad-request) if the template cannot be updated.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a template {#deleteTemplate}
 
@@ -213,3 +229,9 @@ Delete the template with short name `example` in the account `1010`:
 ### Response
 
 Responds with HTTP 204 on success.
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the template cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

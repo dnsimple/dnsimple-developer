@@ -41,3 +41,8 @@ curl  -H 'Authorization: Bearer <token>' \
 
 Responds with HTTP 204 on success.
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the template cannot be applied to the domain.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

@@ -34,13 +34,11 @@ Get the WHOIS privacy for the domain `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200 if WHOIS privacy is purchased for the domain.
+Responds with HTTP 200 on success
 
 ~~~json
 <%= pretty_print_fixture("/api/getWhoisPrivacy/success.http") %>
 ~~~
-
-Responds with HTTP 404 if WHOIS privacy is not purchased.
 
 ## Enable WHOIS privacy {#enableWhoisPrivacy}
 
@@ -78,6 +76,14 @@ Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased
 <%= pretty_print_fixture("/api/enableWhoisPrivacy/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the whois privacy cannot be enabled.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+
 ## Disable WHOIS privacy {#disableWhoisPrivacy}
 
       DELETE /:account/registrar/domains/:domain/whois_privacy
@@ -112,6 +118,12 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 <%= pretty_print_fixture("/api/disableWhoisPrivacy/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the whois privacy cannot be disabled.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
 ## Renew WHOIS privacy {#renewWhoisPrivacy}
 
 ~~~
@@ -142,8 +154,8 @@ Responds with HTTP 201 if WHOIS privacy is renewed.
 <%= pretty_print_fixture("/api/renewWhoisPrivacy/success.http") %>
 ~~~
 
-Response with HTTP 400, if WHOIS privacy was never purchased for the domain, or if there is another purchase order in progress:
+### Errors
 
-~~~json
-<%= pretty_print_fixture("/api/renewWhoisPrivacy/whois-privacy-not-found.http") %>
-~~~
+Responds with [HTTP 400](/v2#bad-request) if the whois privacy cannot be renewed.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

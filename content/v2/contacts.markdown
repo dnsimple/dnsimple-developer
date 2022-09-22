@@ -28,6 +28,18 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort contacts by ID
+`label` | Sort contacts by label (alphabetical order)
+`email` | Sort contacts by email (alphabetical order)
+
+The default sorting policy is by ascending `id`.
+
 ### Example
 
 List all contacts in the account `1010`:
@@ -40,23 +52,15 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
-Responds with HTTP 200.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/listContacts/success.http") %>
 ~~~
 
-### Sorting
+### Errors
 
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`id` | Sort contacts by ID
-`label` | Sort contacts by label (alphabetical order)
-`email` | Sort contacts by email (alphabetical order)
-
-The default sorting policy is by ascending `id`.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Create a contact {#createContact}
@@ -131,7 +135,11 @@ Responds with HTTP 201 on success.
 <%= pretty_print_fixture("/api/createContact/created.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the contact cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a contact {#getContact}
@@ -159,10 +167,15 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getContact/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Update a contact {#updateContact}
 
@@ -202,8 +215,11 @@ Responds with HTTP 200 on success.
 <%= pretty_print_fixture("/api/updateContact/success.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
 
+Responds with [HTTP 400](/v2#bad-request) if the contact cannot be updated.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a contact {#deleteContact}
 
@@ -234,8 +250,12 @@ curl  -H 'Authorization: Bearer <token>' \
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if the contact cannot be deleted because it's currently used by a domain or a certificate.
-
 ~~~json
 <%= pretty_print_fixture("/api/deleteContact/error-contact-in-use.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the contact cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

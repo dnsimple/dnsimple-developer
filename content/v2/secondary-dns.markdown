@@ -31,22 +31,6 @@ List primary servers for in the account.
 | ---------- | --------- | -------------- |
 | `:account` | `integer` | The account id |
 
-### Example
-
-List all primary servers in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/secondary_dns/primaries
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/api/listPrimaryServers/success.http") %>
-~~~
-
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
@@ -57,6 +41,26 @@ For general information about sorting, please refer to the [main guide](/v2/#sor
 | `name` | Sort primary serves by name (alphabetical order) |
 
 The default sorting policy is by ascending `id`.
+
+### Example
+
+List all primary servers in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/secondary_dns/primaries
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/listPrimaryServers/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Create a primary server {#createPrimaryServer}
@@ -106,9 +110,11 @@ Responds with HTTP 201 on success, renders the primary server.
 <%= pretty_print_fixture("/api/createPrimaryServer/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a Primary Server {#getPrimaryServer}
@@ -132,12 +138,15 @@ Get the primary server with the ID `1` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200, renders the primary server.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/getPrimaryServer/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete primary server {#removePrimaryServer}
 
@@ -166,7 +175,9 @@ Delete the primary server with ID `1` in the account `1010`:
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 404 if primary server is not found.
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Link a primary server to a secondary zone {#linkPrimaryServer}
 
@@ -206,17 +217,17 @@ Link the primary server `1` to a secondary zone `example.com` in the account `10
 
 ### Response
 
-Responds with HTTP 200 on success, renders the primary server. The linked zone will be present in the `linked_secondary_zones` attribute.
+Responds with HTTP 200 on success. The linked zone will be present in the `linked_secondary_zones` attribute.
 
 ~~~json
 <%= pretty_print_fixture("/api/linkPrimaryServer/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be linked to the secondary zone.
 
-Responds with HTTP 404 if the zone or the primary server is not found.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Unlink a primary server from a secondary zone {#unlinkPrimaryServer}
@@ -257,17 +268,17 @@ Unlink the primary server `1` from a secondary zone `example.com` in the account
 
 ### Response
 
-Responds with HTTP 200 on success, renders the primary server.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/unlinkPrimaryServer/success.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be unlinked from the secondary zone.
 
-Responds with HTTP 404 if the zone or the primary server is not found.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create a secondary zone {#createSecondaryZone}
 
@@ -306,15 +317,17 @@ Create a secondary zone in the account `1010`:
 
 ### Response
 
-Responds with HTTP 201 on success, renders the secondary zone. The attribute `secondary` will be true.
+Responds with HTTP 201 on success. The attribute `secondary` will be true.
 
 ~~~json
 <%= pretty_print_fixture("/api/createSecondaryZone/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the secondary zone cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete secondary zone {#removeSecondaryZone}
 

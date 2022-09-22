@@ -27,22 +27,6 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:domain` | `string`, `integer` | The domain name or id
 
-### Example
-
-List all certificates for the domain `dnsimple.us` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/domains/dnsimple.us/certificates
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/api/listCertificates/success.http") %>
-~~~
-
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
@@ -54,6 +38,26 @@ Name | Description
 `expiration` | Sort by expiration date
 
 The default sorting policy is by descending `id`.
+
+### Example
+
+List all certificates for the domain `dnsimple.us` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/domains/dnsimple.us/certificates
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/listCertificates/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a certificate {#getCertificate}
@@ -80,11 +84,15 @@ Get the certificate with the ID `101967` in the domain `bingo.pizza`, in the acc
 
 ### Response
 
-Responds with HTTP 200, renders the certificate.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/getCertificate/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Download a certificate {#downloadCertificate}
@@ -111,11 +119,17 @@ Download the certificate with the ID `1` in the domain `example.com`, in the acc
 
 ### Response
 
-Responds with HTTP 200, renders the certificates.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/downloadCertificate/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 428](/v2#precondition-required) if the certificate cannot be downloaded.
 
 
 ## Retrieve a certificate private key {#getCertificatePrivateKey}
@@ -147,6 +161,12 @@ Responds with HTTP 200, renders the certificate private key.
 ~~~json
 <%= pretty_print_fixture("/api/getCertificatePrivateKey/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 428](/v2#precondition-required) if the private key cannot be downloaded.
 
 
 ## Let's Encrypt: Order a certificate {#purchaseLetsencryptCertificate}
@@ -226,10 +246,19 @@ Name | Type | Description
 
 ### Response
 
+Responds with HTTP 201 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/purchaseLetsencryptCertificate/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be ordered.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account cannot order this certificate type.
 
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
@@ -258,6 +287,8 @@ Issue a Let's Encrypt certificate with ID `101967`, for `bingo.pizza` in the acc
 
 ### Response
 
+Responds with HTTP 202 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/issueLetsencryptCertificate/success.http") %>
 ~~~
@@ -266,6 +297,14 @@ Issue a Let's Encrypt certificate with ID `101967`, for `bingo.pizza` in the acc
 The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
 You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
 </tip>
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be issued.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account cannot issue this certificate type.
 
 
 ## Let's Encrypt: Order a certificate renewal {#purchaseRenewalLetsencryptCertificate}
@@ -310,9 +349,19 @@ Name | Type | Description
 
 ### Response
 
+Responds with HTTP 201 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/purchaseRenewalLetsencryptCertificate/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the certificate renewal cannot be ordered.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account cannot renew this certificate type.
 
 
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
@@ -347,6 +396,8 @@ Issue a Let's Encrypt certificate renewal with ID `65082`, for the certificate `
 
 ### Response
 
+Responds with HTTP 202 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/issueRenewalLetsencryptCertificate/success.http") %>
 ~~~
@@ -355,3 +406,11 @@ Issue a Let's Encrypt certificate renewal with ID `65082`, for the certificate `
 The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
 You can subscribe to a [webhook](/v2/webhooks) to be notified once the certificate is issued.
 </tip>
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the certificate renewal cannot be issued.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 412](/v2#precondition-failed) if the account cannot issue this certificate type.

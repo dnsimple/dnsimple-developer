@@ -47,6 +47,12 @@ Responds with HTTP 200 on success, returns the domain availability information.
 If the domain is premium (`premium: true`), please [check the premium price](#getDomainPrices) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
 </note>
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the domain availability canont be checked.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
 ## Check domain premium price {#getDomainPremiumPrice}
 
 <note>
@@ -147,9 +153,11 @@ Responds with HTTP 200 on success, returns the domain pricing for registration, 
 
 Responds with HTTP 400, if the domain TLD is not supported.
 
-~~~json
-<%= pretty_print_fixture("/api/getDomainPrices/failure.http") %>
-~~~
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the TLD is not supported or the price canont be checked.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Register a domain {#registerDomain}
 
@@ -206,14 +214,21 @@ The `premium_price` can be fetched via the [prices endpoint](#getDomainPrices).
 
 ### Response
 
-Responds with HTTP 201 on success, returns the domain.
+Responds with HTTP 201 when registration was processed and completed.
+
+Responds with HTTP 202 when registration was processed but is pending completion.
 
 ~~~json
 <%= pretty_print_fixture("/api/registerDomain/success.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
 
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be registrered.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
 ## Transfer a domain {#transferDomain}
 
@@ -278,13 +293,19 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success, returns the domain.
+Responds with HTTP 201 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/transferDomain/success.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the domain transfer cannot be initiated.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
 
 ## Retrieve a Domain Transfer {#getDomainTransfer}
@@ -315,12 +336,15 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
-Responds with HTTP 200 on success, returns the domain transfer.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/getDomainTransfer/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Cancel a Domain Transfer {#cancelDomainTransfer}
 
@@ -351,12 +375,17 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
-Responds with HTTP 202 on success, returns the domain transfer.
+Responds with HTTP 202 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/cancelDomainTransfer/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the transfer cannot be canceled.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Renew a domain {#renewDomain}
 
@@ -401,14 +430,19 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success, returns the domain.
+Responds with HTTP 201 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/renewDomain/success.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
 
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be renewed.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
 ## Authorize a domain transfer out {#authorizeDomainTransferOut}
 
@@ -437,4 +471,8 @@ Transfer out the domain `example.com` in the account `1010`:
 
 Responds with HTTP 204 on success.
 
-Responds with HTTP 400 if the validation fails.
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the transfer out cannot be authorized.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

@@ -30,6 +30,16 @@ Returns the list of TLDs supported for registration or transfer.
 GET /tlds
 ~~~
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`tld` | Sort TLDs by tld
+
+The default sorting policy is by ascending `tld`.
+
 ### Example
 
 List all TLDs.
@@ -46,15 +56,9 @@ curl -H 'Authorization: Bearer <token>' \
 <%= pretty_print_fixture("/api/listTlds/success.http") %>
 ~~~
 
-### Sorting
+### Errors
 
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`tld` | Sort TLDs by tld
-
-The default sorting policy is by ascending `tld`.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve the TLD {#getTld}
@@ -87,6 +91,9 @@ curl -H 'Authorization: Bearer <token>' \
 <%= pretty_print_fixture("/api/getTld/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Lists the TLD Extended Attributes {#getTldExtendedAttributes}
 
@@ -120,3 +127,7 @@ curl -H 'Authorization: Bearer <token>' \
 ~~~json
 <%= pretty_print_fixture("/api/getTldExtendedAttributes/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.

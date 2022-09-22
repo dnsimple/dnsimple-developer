@@ -61,12 +61,15 @@ List all zones in the account `1010` that have name matching `"example"`:
 
 ### Response
 
-Responds with HTTP 200.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/listZones/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Retrieve a zone {#getZone}
 
@@ -91,12 +94,15 @@ Get the zone `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200, renders the zone.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/getZone/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Download a zone file {#getZoneFile}
 
@@ -119,12 +125,15 @@ Get the zone file `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200, renders the zone file.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/getZoneFile/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Check zone distribution {#checkZoneDistribution}
 
@@ -165,7 +174,11 @@ Responds with HTTP 200 when the zone is not distributed.
 <%= pretty_print_fixture("/api/checkZoneDistribution/failure.http") %>
 ~~~
 
-Responds with HTTP 504 when the server failed to perform the check.
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
+Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform the check.
 
 ~~~json
 <%= pretty_print_fixture("/api/checkZoneDistribution/error.http") %>
