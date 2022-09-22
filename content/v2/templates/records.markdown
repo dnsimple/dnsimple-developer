@@ -25,22 +25,6 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:template` | `integer` or `string` | The template id or short name
 
-### Example
-
-List records for the template `alpha` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/templates/alpha/records
-
-### Response
-
-Responds with HTTP 200.
-
-~~~json
-<%= pretty_print_fixture("/api/listTemplateRecords/success.http") %>
-~~~
-
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
@@ -54,6 +38,25 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
+### Example
+
+List records for the template `alpha` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          https://api.dnsimple.com/v2/1010/templates/alpha/records
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/listTemplateRecords/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Create a template record {#createTemplateRecord}
 
@@ -107,9 +110,11 @@ Responds with HTTP 201 on success.
 <%= pretty_print_fixture("/api/createTemplateRecord/created.http") %>
 ~~~
 
-Responds with HTTP 400 if bad request.
+### Errors
 
-Responds with HTTP 400 if the validation fails.
+Responds with [HTTP 400](/v2#bad-request) if the template record cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Get a template record {#getTemplateRecord}
@@ -134,10 +139,15 @@ Get the record `301` for the template `alpha` in the account `1010`:
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getTemplateRecord/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a template record {#deleteTemplateRecord}
 
@@ -165,3 +175,8 @@ Delete the record with ID `301` for template `alpha` in the account `1010`:
 
 Responds with HTTP 204 on success.
 
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the template record cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
