@@ -23,20 +23,6 @@ Please refer to the definition of the `ServiceSetting` data type in [our OpenAPI
 
     GET /services
 
-### Example
-
-List all services.
-
-    curl -H 'Authorization: Bearer <token>' \
-         -H 'Accept: application/json' \
-         https://api.dnsimple.com/v2/services
-
-### Response
-
-~~~json
-<%= pretty_print_fixture("/api/listServices/success.http") %>
-~~~
-
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
@@ -48,6 +34,25 @@ Name | Description
 
 The default sorting policy is by ascending `id`.
 
+### Example
+
+List all services.
+
+    curl -H 'Authorization: Bearer <token>' \
+         -H 'Accept: application/json' \
+         https://api.dnsimple.com/v2/services
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/listServices/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Retrieve a service {#getService}
 
@@ -69,6 +74,12 @@ Get the service with ID `1`.
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getService/success.http") %>
 ~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
