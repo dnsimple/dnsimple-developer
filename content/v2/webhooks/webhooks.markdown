@@ -25,6 +25,16 @@ Name | Type | Description
 -----|------|------------
 `:account` | `integer` | The account id
 
+### Sorting
+
+For general information about sorting, please refer to the [main guide](/v2/#sorting).
+
+Name | Description
+-----|------------
+`id` | Sort webhooks by ID
+
+The default sorting policy is by ascending `id`.
+
 ### Example
 
 List all webhooks in the account `1010`:
@@ -35,21 +45,15 @@ List all webhooks in the account `1010`:
 
 ### Response
 
-Responds with HTTP 200.
+Responds with HTTP 200 on success.
 
 ~~~json
 <%= pretty_print_fixture("/api/listWebhooks/success.http") %>
 ~~~
 
-### Sorting
+### Errors
 
-For general information about sorting, please refer to the [main guide](/v2/#sorting).
-
-Name | Description
------|------------
-`id` | Sort webhooks by ID
-
-The default sorting policy is by ascending `id`.
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Create a webhook {#createWebhook}
@@ -95,7 +99,11 @@ Responds with HTTP 201 on success.
 <%= pretty_print_fixture("/api/createWebhook/created.http") %>
 ~~~
 
-Responds with HTTP 400 if the validation fails.
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the webhook cannot be created.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a webhook {#getWebhook}
@@ -120,10 +128,15 @@ Get the webhook with ID `1` in the account `1010`:
 
 ### Response
 
+Responds with HTTP 200 on success.
+
 ~~~json
 <%= pretty_print_fixture("/api/getWebhook/success.http") %>
 ~~~
 
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Delete a webhook {#deleteWebhook}
 
@@ -148,3 +161,9 @@ Delete the webhook with ID `1` in the account `1010`:
 ### Response
 
 Responds with HTTP 204 on success.
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the webhook cannot be deleted.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
