@@ -67,6 +67,9 @@ h1, h2, h3 {
 
 a {
   color: var(--secondary);
+  p {
+    color: var(--element1);
+  }
 }
 
 hr {
@@ -158,4 +161,29 @@ input {
 
 .sun-button {
   fill: hsl(var(--color),calc(var(--l) + 30%));
+}
+
+.card {
+  background: var(--surface1);
+}
+
+.button {
+  background: var(--element1);
+  color: var(--elementInverse);
+}
+
+.divider {
+  border-color: var(--surface2);
+}
+
+[color-mode="dark"] {
+  .linux-foundation-logo {
+    content: url("/assets/images/vendors/linux-foundation-white.png");
+  }
+}
+
+[color-mode="light"] {
+  .linux-foundation-logo {
+    content: url("/assets/images/vendors/linux-foundation-color.png");
+  }
 }
