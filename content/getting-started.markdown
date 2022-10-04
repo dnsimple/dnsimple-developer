@@ -1,5 +1,5 @@
 ---
-title: DNSimple Developer
+title: Getting started with the DNSimple API
 ---
 
 # DNSimple Developer Documentation
