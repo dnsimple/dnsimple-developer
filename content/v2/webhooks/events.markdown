@@ -18,7 +18,6 @@ You can register your webhook URLs either through the DNSimple web interface or 
 
 All webhooks are sent via HTTPS using POST. It MAY occur that some webhook fire more than once. Clients MUST handle webhooks with the same `request_identifier` to not process them twice.
 
-
 ## Webhooks
 
 ### Webhook Payload
@@ -70,74 +69,74 @@ To confirm receipt of a webhook, your server must respond with an HTTP 200 respo
 
 The following events are available:
 
-- account.update
-- account.billing\_settings\_update
-- account.payment\_details\_update
-- account.user\_invite
-- account.user\_invitation\_accept
-- account.user\_invitation\_revoke
-- account.user\_remove
-- certificate.issue
-- certificate.reissue
-- certificate.remove\_private\_key
-- contact.create
-- contact.update
-- contact.delete
-- dnssec.create
-- dnssec.delete
-- dnssec.rotation\_start
-- dnssec.rotation\_complete
-- domain.auto\_renewal\_disable
-- domain.auto\_renewal\_enable
-- domain.create
-- domain.delete
-- domain.register:started
-- domain.register
-- domain.renew
-- domain.delegation\_change
-- domain.registrant\_change
-- domain.resolution\_disable
-- domain.resolution\_enable
-- domain.transfer:started
-- domain.transfer
-- email\_forward.create
-- email\_forward.update
-- email\_forward.delete
-- name\_server.deregister
-- name\_server.register
-- oauth\_application.create
-- oauth\_application.delete
-- oauth\_application.reset\_client\_secret
-- oauth\_application.revoke\_access\_tokens
-- platform\_status.create
-- push.accept
-- push.initiate
-- push.reject
-- secondary\_dns.create
-- secondary\_dns.delete
-- secondary\_dns.update
-- subscription.migrate
-- subscription.renew
-- subscription.subscribe
-- subscription.unsubscribe
-- template.create
-- template.delete
-- template.update
-- template\_record.create
-- template\_record.delete
-- vanity.disable
-- vanity.enable
-- webhook.create
-- webhook.delete
-- whois\_privacy.disable
-- whois\_privacy.enable
-- whois\_privacy.purchase
-- whois\_privacy.renew
-- zone.create
-- zone.delete
-- zone\_record.create
-- zone\_record.delete
-- zone\_record.update
+* account.update
+* account.billing\_settings\_update
+* account.payment\_details\_update
+* account.user\_invite
+* account.user\_invitation\_accept
+* account.user\_invitation\_revoke
+* account.user\_remove
+* certificate.issue
+* certificate.reissue
+* certificate.remove\_private\_key
+* contact.create
+* contact.update
+* contact.delete
+* dnssec.create
+* dnssec.delete
+* dnssec.rotation\_start
+* dnssec.rotation\_complete
+* domain.auto\_renewal\_disable
+* domain.auto\_renewal\_enable
+* domain.create
+* domain.delete
+* domain.register:started
+* domain.register
+* domain.renew
+* domain.delegation\_change
+* domain.registrant\_change
+* domain.resolution\_disable
+* domain.resolution\_enable
+* domain.transfer:started
+* domain.transfer
+* email\_forward.create
+* email\_forward.update
+* email\_forward.delete
+* name\_server.deregister
+* name\_server.register
+* oauth\_application.create
+* oauth\_application.delete
+* oauth\_application.reset\_client\_secret
+* oauth\_application.revoke\_access\_tokens
+* platform\_status.create
+* push.accept
+* push.initiate
+* push.reject
+* secondary\_dns.create
+* secondary\_dns.delete
+* secondary\_dns.update
+* subscription.migrate
+* subscription.renew
+* subscription.subscribe
+* subscription.unsubscribe
+* template.create
+* template.delete
+* template.update
+* template\_record.create
+* template\_record.delete
+* vanity.disable
+* vanity.enable
+* webhook.create
+* webhook.delete
+* whois\_privacy.disable
+* whois\_privacy.enable
+* whois\_privacy.purchase
+* whois\_privacy.renew
+* zone.create
+* zone.delete
+* zone\_record.create
+* zone\_record.delete
+* zone\_record.update
 
 ### Event payloads
 
@@ -158,9 +157,6 @@ If your webhook endpoint has been disabled no further retry attempts are made fo
 If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts DNSimple will automatically suppress the webhook endpoint.
 
 <note>
-If you think your webhook has been disabled after you stop receiving events. There are two options to remove re-enable the webhook.
-
-1. You can delete and then re-create the webhook in your account.
-
-2. Reach out to [DNSimple support](https://dnsimple.com/contact).
+You can view the health of your webhook and remove suppressions from your account page.
+Please see the [support page on webhooks](https://support.dnsimple.com/articles/webhooks/) for more information.
 </note>
