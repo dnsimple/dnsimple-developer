@@ -150,11 +150,11 @@ Understand the retry logic when webhook events are not acknowledged.
 
 Across all environments, DNSimple attempts to deliver an event to your webhooks for up to 2 hours with exponential backoff. The delivery mechanism allows for up to 10 attempts within the allotted time.
 
-If your webhook endpoint has been disabled no further retry attempts are made for that webhook endpoint. However, if the endpoint is re-enabled before the next retry attempt DNSimple will continue to process the event delivery via the normal retry flow.
+If your webhook endpoint has been disabled, no further retry attempts are made for that webhook endpoint. However, if the endpoint is re-enabled before the next retry attempt, DNSimple will continue to process the event delivery via the normal retry flow.
 
 ### Suppression logic
 
-If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts DNSimple will automatically suppress the webhook endpoint.
+If your webhook endpoint has been misconfigured and has not responded with a 200 HTTP status code consistently for up to 15 attempts, DNSimple will automatically suppress the webhook endpoint.
 
 <note>
 You can view the health of your webhook and remove suppressions from your account page.
