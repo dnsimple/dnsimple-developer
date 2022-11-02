@@ -686,7 +686,7 @@ paths:
       summary: Retrieve a certificate private key
   '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
     post:
-      description: 'Orders a [Let''s Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.'
+      description: 'Orders a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
