@@ -1564,6 +1564,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       summary: Check zone distribution
+  '/{account}/zones/{zone}/ns_records':
+    put:
+      description: Updates the zone name servers based on the provided name server set IDs.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+        - $ref: '#/components/parameters/NsSetIds'
+        - $ref: '#/components/parameters/NsNames'
+      operationId: updateZoneNsRecords
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully updated the zone name servers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ZoneRecord'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Update zone name servers
   '/{account}/zones/{zone}/records':
     get:
       description: Lists the records for a zone.
@@ -2332,6 +2358,26 @@ components:
       description: The email forward id
       schema:
         type: integer
+    NsSetIds:
+      name: ns_set_ids
+      style: form
+      in: query
+      required: true
+      description: The NS set ids
+      schema:
+        type: array
+        items:
+          type: integer
+    NsNames:
+      name: ns_names
+      style: form
+      in: query
+      required: true
+      description: The NS record names
+      schema:
+        type: array
+        items:
+          type: string
     PrimaryServer:
       name: primaryserver
       in: path
