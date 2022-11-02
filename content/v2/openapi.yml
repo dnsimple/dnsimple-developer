@@ -1566,7 +1566,7 @@ paths:
       summary: Check zone distribution
   '/{account}/zones/{zone}/ns_records':
     put:
-      description: Updates the zone name servers based on the provided name server set IDs.
+      description: Updates the zone's NS records
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
