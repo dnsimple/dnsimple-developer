@@ -1570,8 +1570,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
-        - $ref: '#/components/parameters/NsSetIds'
-        - $ref: '#/components/parameters/NsNames'
+      requestBody:
+        $ref: '#/components/requestBodies/ZoneNsRecordsUpdate'
       operationId: updateZoneNsRecords
       tags:
         - zones
@@ -2358,26 +2358,6 @@ components:
       description: The email forward id
       schema:
         type: integer
-    NsSetIds:
-      name: ns_set_ids
-      style: form
-      in: query
-      required: true
-      description: The NS set ids
-      schema:
-        type: array
-        items:
-          type: integer
-    NsNames:
-      name: ns_names
-      style: form
-      in: query
-      required: true
-      description: The NS record names
-      schema:
-        type: array
-        items:
-          type: string
     PrimaryServer:
       name: primaryserver
       in: path
@@ -4949,6 +4929,29 @@ components:
               - ns2.dnsimple.com
               - ns3.dnsimple.com
               - ns4.dnsimple.com
+    ZoneNsRecordsUpdate:
+      description: Zone name server attributes
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ns_names:
+                type: array
+                items:
+                  type: string
+                example:
+                  - ns1.dnsimple.com
+                  - ns2.dnsimple.com
+                  - ns3.dnsimple.com
+                  - ns4.dnsimple.com
+              ns_set_ids:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
     DomainRegister:
       description: Domain registration attributes
       required: true
