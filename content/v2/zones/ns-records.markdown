@@ -15,11 +15,10 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
 ## Update zone NS records {#updateZoneNsRecords}
 
-Update the NS records for a zone in DNSimple.
 
     PUT /:account/zones/:zone/ns_records
 
-List name servers for the domain in the account.
+Update the NS records for a zone in the account.
 
 ### Parameters
 
