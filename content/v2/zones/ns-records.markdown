@@ -54,7 +54,7 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 200, including the zone's NS records as defined in our OpenAPIv3 specifications ([YAML](openapi.yml), [JSON]).
+Responds with HTTP 200, including the zone's NS records as defined in [our OpenAPI documentation](/v2/openapi.yml).
 
 ~~~json
 <%= pretty_print_fixture("/api/updateZoneNsRecords/success.http") %>
