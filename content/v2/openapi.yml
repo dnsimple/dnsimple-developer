@@ -1564,6 +1564,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       summary: Check zone distribution
+  '/{account}/zones/{zone}/ns_records':
+    put:
+      description: Updates the zone's NS records
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      requestBody:
+        $ref: '#/components/requestBodies/ZoneNsRecordsUpdate'
+      operationId: updateZoneNsRecords
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully updated the zone name servers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ZoneRecord'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Update a zone's NS records
   '/{account}/zones/{zone}/records':
     get:
       description: Lists the records for a zone.
@@ -4903,6 +4929,29 @@ components:
               - ns2.dnsimple.com
               - ns3.dnsimple.com
               - ns4.dnsimple.com
+    ZoneNsRecordsUpdate:
+      description: Zone name server attributes
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ns_names:
+                type: array
+                items:
+                  type: string
+                example:
+                  - ns1.dnsimple.com
+                  - ns2.dnsimple.com
+                  - ns3.dnsimple.com
+                  - ns4.dnsimple.com
+              ns_set_ids:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
     DomainRegister:
       description: Domain registration attributes
       required: true
