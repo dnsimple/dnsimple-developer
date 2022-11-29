@@ -18,7 +18,7 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
     PUT /:account/zones/:zone/ns_records
 
-Update the NS records for a zone in the account.
+Update the NS records for a zone in a hosted domain in the account. If vanity name servers are enabled for the domain, please include them in the NS records for the vanity name server configuration to stay effective.
 
 ### Parameters
 
