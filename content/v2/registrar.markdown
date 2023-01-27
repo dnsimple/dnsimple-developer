@@ -230,6 +230,44 @@ Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication iss
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
+## Retrieve a Domain Registration {#getDomainRegistration}
+
+Retrieves the details of an existing domain registration.
+
+~~~
+GET /:account/registrar/domains/:domain/registrations/:domain_registration
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_registration` | `integer` | The domain registration id
+
+### Example
+
+Get the domain registration with ID `361` in the account `1010`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registrations/361
+~~~
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainRegistration/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
 ## Transfer a domain {#transferDomain}
 
     POST /:account/registrar/domains/:domain/transfers
