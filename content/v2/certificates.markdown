@@ -188,7 +188,7 @@ The domain must be [delegated](https://support.dnsimple.com/articles/pointing-do
 The default certificate name is `www` and covers both the root domain (e.g. `example.com`) and the `www` subdomain (e.g. `www.example.com`).
 
 You can choose a **custom name** (like `api`), which is valid only for `https://api.example.com`.
-Custom names require a subscription to a Professional or Business plan.
+Custom names require a subscription to a Professional or Enterprise plan.
 
 ### Alternate names
 
@@ -198,14 +198,14 @@ By default, a certificate doesn't have alternate names.
 
 You can purchase a single certificate for both `https://docs.example.com` and `https://status.example.com`, alongside  `https://example.com`.
 
-Alternate names require a subscription to a Professional or Business plan.
+Alternate names require a subscription to a Professional or Enterprise plan.
 
 ### Wildcard certificates
 
 To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
 
 <info>
-Let's Encrypt wildcard certificates is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional or Business.
+Let's Encrypt wildcard certificates is a feature that is only available to the Professional or Enterprise plans.
 If the feature is not enabled, you will receive an HTTP 412 response code.
 </info>
 
