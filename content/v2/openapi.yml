@@ -1078,6 +1078,30 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Renew a domain
+  '/{account}/registrar/domains/{domain}/renewals/{domainrenewal}':
+    get:
+      description: Retrieves the details of an existing domain renewal.
+      summary: Retrieve a domain renewal
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainRenewal'
+      operationId: getDomainRenewal
+      tags:
+        - registrar
+        - registrar renewal
+      responses:
+        '200':
+          description: Domain renewal details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRenewal'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
     post:
       description: |-
