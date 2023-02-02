@@ -217,6 +217,10 @@ Certificates with auto-renewal disabled may be [renewed manually](#purchaseRenew
 
 You may also **purchase the certificate once** and select the auto-renewal option. With auto-renewal enabled, our system automatically renews a certificate before it expires. Notifications for renewed certificates are sent via email, and a webhook is fired when a new certificate is available. You'll still have to install the renewed certificate.
 
+### Signature algorithm
+
+By default, a certificate uses `ECDSA` signature algorithm, but `RSA` can be used as well if your specific scenario required it.
+
 ### Parameters
 
 Name | Type | Description
@@ -243,6 +247,7 @@ Name | Type | Description
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the certificate. Default: `false`.
 `name` | `string` | The certificate name. Default: `"www"`.
 `alternate_names` | `array<string>` | The certificate _alternate names_. Default: `[]`. Example: `["docs.example.com", "status.example.com"]`
+`signature_algorithm` | `string` | Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`, defaults to `ECDSA`. 
 
 ### Response
 
@@ -321,6 +326,10 @@ You must renew a certificate **only** if it does **NOT** use the **auto renewal*
 
 You can always enable or disable _auto renewal_ when renewing a certificate.
 
+### Signature algorithm
+
+By default, a certificate uses `ECDSA` signature algorithm, but `RSA` can be used as well if your specific scenario required it.
+
 ### Parameters
 
 Name | Type | Description
@@ -346,6 +355,7 @@ Renew a Let's Encrypt certificate with ID `101967` for `bingo.pizza` in the acco
 Name | Type | Description
 -----|------|------------
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the certificate. Default: `false`.
+`signature_algorithm` | `string` | Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`, defaults to `ECDSA`.
 
 ### Response
 
