@@ -219,7 +219,7 @@ You may also **purchase the certificate once** and select the auto-renewal optio
 
 ### Signature algorithm
 
-By default, a certificate will be signed using `ECC` keys, but `RSA` can be used as well if your specific scenario required it.
+By default, a certificate uses `ECDSA` signature algorithm, but `RSA` can be used as well if your specific scenario required it.
 
 ### Parameters
 
@@ -328,7 +328,7 @@ You can always enable or disable _auto renewal_ when renewing a certificate.
 
 ### Signature algorithm
 
-By default, a certificate will be signed using `ECC` keys, but `RSA` can be used as well if your specific scenario required it.
+By default, a certificate uses `ECDSA` signature algorithm, but `RSA` can be used as well if your specific scenario required it.
 
 ### Parameters
 
