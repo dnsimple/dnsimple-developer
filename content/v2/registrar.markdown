@@ -468,7 +468,9 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success.
+Responds with HTTP 201 when renewal was processed and completed.
+
+Responds with HTTP 202 when renewal was processed but is pending completion.
 
 ~~~json
 <%= pretty_print_fixture("/api/renewDomain/success.http") %>
