@@ -17,7 +17,7 @@ Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI doc
 ## Record Regions {#ZoneRecordRegions}
 
 <info>
-The zone record **regions** is a feature that is only available to the following [new plans](https://support.dnsimple.com/articles/new-plans/#newer-plans-some): Professional and Business.
+The zone record **regions** is a feature that is only available to the Professional and Enterprise plans.
 If the feature is not enabled, you will receive an HTTP 412 response code.
 </info>
 
