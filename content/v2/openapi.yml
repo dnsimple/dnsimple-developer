@@ -33,6 +33,7 @@ tags:
   - name: registrar delegation
   - name: registrar transfer
   - name: registrar renewal
+  - name: registrar registration
   - name: registrar privacy
   - name: identity
   - name: tlds
