@@ -248,7 +248,7 @@ Name | Type | Description
 
 ### Example
 
-Get the domain registration with ID `361` in the account `1010`:
+Get the domain registration with ID `361` in the account `1010` for the domain `example.com`:
 
 ~~~
 curl  -H 'Authorization: Bearer <token>' \
