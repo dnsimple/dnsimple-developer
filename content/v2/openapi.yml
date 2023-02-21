@@ -691,6 +691,36 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                auto_renew:
+                  description: 'Enable the auto-renewal of the certificate'
+                  type: boolean
+                  required: false
+                  default: false
+                name:
+                  description: 'The certificate name'
+                  type: string
+                  required: false
+                  default: 'www'
+                alternate_names:
+                  description: 'The certificate alternate names'
+                  type: array
+                  items:
+                    type: string
+                  required: false
+                  default: []
+                  example: ['docs.example.com', 'status.example.com']
+                signature_algorithm:
+                  description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
+                  type: string
+                  required: false
+                  default: 'ECDSA'
       operationId: purchaseLetsencryptCertificate
       tags:
         - domain certificates
@@ -745,6 +775,23 @@ paths:
       operationId: purchaseRenewalLetsencryptCertificate
       tags:
         - domain certificates
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                auto_renew:
+                  description: 'Enable the auto-renewal of the certificate'
+                  type: boolean
+                  required: false
+                  default: false
+                signature_algorithm:
+                  description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
+                  type: string
+                  required: false
+                  default: 'ECDSA'
       responses:
         '201':
           description: Successfully created the certificate renewal order.
