@@ -33,6 +33,7 @@ tags:
   - name: registrar delegation
   - name: registrar transfer
   - name: registrar renewal
+  - name: registrar registration
   - name: registrar privacy
   - name: identity
   - name: tlds
@@ -999,6 +1000,30 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Register a domain
+  '/{account}/registrar/domains/{domain}/registrations/{domainregistration}':
+    get:
+      description: Retrieves the details of an existing domain registration.
+      summary: Retrieve a domain registration
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainRegistration'
+      operationId: getDomainRegistration
+      tags:
+        - registrar
+        - registrar registration
+      responses:
+        '200':
+          description: Domain registration details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRegistration'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/transfers':
     post:
       description: |-
@@ -1101,6 +1126,30 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Renew a domain
+  '/{account}/registrar/domains/{domain}/renewals/{domainrenewal}':
+    get:
+      description: Retrieves the details of an existing domain renewal.
+      summary: Retrieve a domain renewal
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainRenewal'
+      operationId: getDomainRenewal
+      tags:
+        - registrar
+        - registrar renewal
+      responses:
+        '200':
+          description: Domain renewal details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRenewal'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
     post:
       description: |-

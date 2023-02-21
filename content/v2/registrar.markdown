@@ -230,6 +230,44 @@ Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication iss
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
+## Retrieve a Domain Registration {#getDomainRegistration}
+
+Retrieves the details of an existing domain registration.
+
+~~~
+GET /:account/registrar/domains/:domain/registrations/:domain_registration
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_registration` | `integer` | The domain registration id
+
+### Example
+
+Get the domain registration with ID `361` in the account `1010` for the domain `example.com`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registrations/361
+~~~
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainRegistration/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+
 ## Transfer a domain {#transferDomain}
 
     POST /:account/registrar/domains/:domain/transfers
@@ -293,7 +331,9 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success.
+Responds with HTTP 201 when transfer was processed and completed.
+
+Responds with HTTP 202 when transfer was processed but is pending completion.
 
 ~~~json
 <%= pretty_print_fixture("/api/transferDomain/success.http") %>
@@ -430,7 +470,9 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 201 on success.
+Responds with HTTP 201 when renewal was processed and completed.
+
+Responds with HTTP 202 when renewal was processed but is pending completion.
 
 ~~~json
 <%= pretty_print_fixture("/api/renewDomain/success.http") %>
@@ -443,6 +485,44 @@ Responds with [HTTP 400](/v2#bad-request) if the domain cannot be renewed.
 Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+
+## Retrieve a Domain Renewal {#getDomainRenewal}
+
+Retrieves the details of an existing domain renewal.
+
+~~~
+GET /:account/registrar/domains/:domain/renewals/:domain_renewal
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_renewal` | `integer` | The domain renewal id
+
+### Example
+
+Get the domain renewal with ID `1` in the account `1010` for the domain `example.com`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewals/1
+~~~
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainRenewal/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
 ## Authorize a domain transfer out {#authorizeDomainTransferOut}
 
