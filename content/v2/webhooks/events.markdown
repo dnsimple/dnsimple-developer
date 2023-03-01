@@ -92,13 +92,17 @@ The following events are available:
 * domain.delete
 * domain.register:started
 * domain.register
+* domain.register:cancelled
+* domain.renew:started
 * domain.renew
+* domain.renew:cancelled
 * domain.delegation\_change
 * domain.registrant\_change
 * domain.resolution\_disable
 * domain.resolution\_enable
 * domain.transfer:started
 * domain.transfer
+* domain.transfer:cancelled
 * email\_forward.create
 * email\_forward.update
 * email\_forward.delete

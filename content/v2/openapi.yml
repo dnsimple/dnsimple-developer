@@ -697,7 +697,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: 
+              properties:
                 auto_renew:
                   description: 'Enable the auto-renewal of the certificate'
                   type: boolean
@@ -3575,14 +3575,42 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
+    EventDomainRegisterStarted:
+      type: object
+      description: Payload for domain.register:started
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
     EventDomainRegister:
       type: object
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
+    EventDomainRegisterCancelled:
+      type: object
+      description: Payload for domain.register:cancelled
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRenewStarted:
+      type: object
+      description: Payload for domain.renew:started
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
     EventDomainRenew:
       type: object
       description: Payload for domain.renew
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRenewCancelled:
+      type: object
+      description: Payload for domain.renew:cancelled
       properties:
         auto:
           type: boolean
@@ -3618,9 +3646,21 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
+    EventDomainTransferStarted:
+      type: object
+      description: Payload for domain.transfer:started
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
     EventDomainTransfer:
       type: object
       description: Payload for domain.transfer
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainTransferCancelled:
+      type: object
+      description: Payload for domain.transfer:cancelled
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4444,13 +4484,17 @@ components:
             - domain.delete
             - 'domain.register:started'
             - domain.register
+            - 'domain.register:cancelled'
+            - 'domain.renew:started'
             - domain.renew
+            - 'domain.renew:cancelled'
             - domain.delegation_change
             - domain.registrant_change
             - domain.resolution_disable
             - domain.resolution_enable
             - 'domain.transfer:started'
             - domain.transfer
+            - 'domain.transfer:cancelled'
             - email_forward.create
             - email_forward.update
             - email_forward.delete
@@ -4523,13 +4567,19 @@ components:
             - $ref: '#/components/schemas/EventDomainAutoRenewalEnable'
             - $ref: '#/components/schemas/EventDomainCreate'
             - $ref: '#/components/schemas/EventDomainDelete'
+            - $ref: '#/components/schemas/EventDomainRegisterStarted'
             - $ref: '#/components/schemas/EventDomainRegister'
+            - $ref: '#/components/schemas/EventDomainRegisterCancelled'
+            - $ref: '#/components/schemas/EventDomainRenewStarted'
             - $ref: '#/components/schemas/EventDomainRenew'
+            - $ref: '#/components/schemas/EventDomainRenewCancelled'
             - $ref: '#/components/schemas/EventDomainDelegationChange'
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainTransferStarted'
             - $ref: '#/components/schemas/EventDomainTransfer'
+            - $ref: '#/components/schemas/EventDomainTransferCancelled'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
