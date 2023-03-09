@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "@redocly/cli": "^1.0.0-beta.123",
     "concurrently": "^6.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^7.18.0",
@@ -20,7 +21,8 @@
   },
   "scripts": {
     "live": "concurrently 'bundle exec nanoc live' 'bundle exec rake compile'",
-    "build": "./node_modules/.bin/webpack"
+    "build": "./node_modules/.bin/webpack",
+    "openapi-lint": "redocly lint content/v2/openapi.yml"
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
