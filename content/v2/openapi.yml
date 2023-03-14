@@ -22,23 +22,24 @@ servers:
 tags:
   - name: accounts
   - name: contacts
-  - name: domains
   - name: domain certificates
   - name: domain collaborators
   - name: domain dnssec
   - name: domain emailforwards
   - name: domain pushes
   - name: domain services
+  - name: domains
+  - name: identity
   - name: registrar
   - name: registrar delegation
-  - name: registrar transfer
-  - name: registrar renewal
-  - name: registrar registration
   - name: registrar privacy
-  - name: identity
+  - name: registrar registration
+  - name: registrar renewal
+  - name: registrar transfer
+  - name: secondary dns
+  - name: templates
   - name: tlds
   - name: vanity name servers
-  - name: templates
   - name: webhooks
   - name: zones
 paths:
@@ -226,7 +227,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Collaborator'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Collaborator'
         '400':
           $ref: '#/components/responses/400'
         '404':
@@ -265,7 +269,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DNSSEC'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DNSSEC'
         '400':
           $ref: '#/components/responses/400'
         '404':
@@ -288,7 +295,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DNSSEC'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DNSSEC'
         '400':
           $ref: '#/components/responses/400'
         '404':
@@ -685,7 +695,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Retrieve a certificate private key
-  '/{account}/domains/{domain}/certificates/certificates/letsencrypt':
+  '/{account}/domains/{domain}/certificates/letsencrypt':
     post:
       description: 'Orders a [Let''s Encrypt](https://dnsimple.com/letsencrypt) certificate with DNSimple.'
       parameters:
@@ -701,25 +711,21 @@ paths:
                 auto_renew:
                   description: 'Enable the auto-renewal of the certificate'
                   type: boolean
-                  required: false
                   default: false
                 name:
                   description: 'The certificate name'
                   type: string
-                  required: false
                   default: 'www'
                 alternate_names:
                   description: 'The certificate alternate names'
                   type: array
                   items:
                     type: string
-                  required: false
                   default: []
                   example: ['docs.example.com', 'status.example.com']
                 signature_algorithm:
                   description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
                   type: string
-                  required: false
                   default: 'ECDSA'
       operationId: purchaseLetsencryptCertificate
       tags:
@@ -737,7 +743,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: "Let's Encrypt: Order a certificate"
-  '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{purchaseId}/issue':
+  '/{account}/domains/{domain}/certificates/letsencrypt/{purchaseId}/issue':
     post:
       description: "Issues a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate ordered with DNSimple."
       parameters:
@@ -765,7 +771,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: "Let's Encrypt: Issue a certificate"
-  '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals':
+  '/{account}/domains/{domain}/certificates/letsencrypt/{certificate}/renewals':
     post:
       description: "Renews a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate ordered with DNSimple."
       parameters:
@@ -785,12 +791,10 @@ paths:
                 auto_renew:
                   description: 'Enable the auto-renewal of the certificate'
                   type: boolean
-                  required: false
                   default: false
                 signature_algorithm:
                   description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
                   type: string
-                  required: false
                   default: 'ECDSA'
       responses:
         '201':
@@ -805,7 +809,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: "Let's Encrypt: Order a certificate renewal"
-  '/{account}/domains/{domain}/certificates/certificates/letsencrypt/{certificate}/renewals/{renewalId}/issue':
+  '/{account}/domains/{domain}/certificates/letsencrypt/{certificate}/renewals/{renewalId}/issue':
     post:
       description: "Issues a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate renewal ordered with DNSimple."
       parameters:
@@ -836,7 +840,7 @@ paths:
       summary: "Let's Encrypt: Issue a certificate renewal"
   /tlds:
     get:
-      description: ListsTLDs supported for registration or transfer.
+      description: Lists TLDs supported for registration or transfer.
       parameters:
         - $ref: '#/components/parameters/SortTLDs'
       operationId: listTlds
@@ -854,6 +858,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/TLD'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
       summary: List TLDs
   '/tlds/{tld}':
     get:
@@ -1711,6 +1717,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ZoneRecord'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
       summary: List zone records
     post:
       description: Creates a new zone record.
@@ -1866,6 +1874,13 @@ paths:
       responses:
         '201':
           description: Successfully created contact.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Contact'
         '400':
           $ref: '#/components/responses/400'
       summary: Create a contact
@@ -2493,9 +2508,11 @@ components:
       name: template
       in: path
       required: true
-      description: The template id
+      description: The template id or short name
       schema:
-        type: integer
+        anyOf:
+          - integer
+          - string
     TemplateRecord:
       name: templaterecord
       in: path
@@ -2761,15 +2778,13 @@ components:
       example: '2010-01-01T01:00:00Z'
       description: A date-time value formatted as ISO 8601.
     NullableDate:
-      type:
-        - string
-        - 'null'
+      type: string
+      nullable: true
       format: date
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     NullableDateTime:
-      type:
-        - string
-        - 'null'
+      type: string
+      nullable: true
       format: date-time
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
@@ -2906,6 +2921,8 @@ components:
           $ref: '#/components/schemas/DateTime'
         expires_at:
           $ref: '#/components/schemas/DateTime'
+        expires_on:
+          $ref: '#/components/schemas/Date'
       example:
         id: 1
         domain_id: 2
@@ -3199,9 +3216,9 @@ components:
         private_whois:
           type: boolean
         expires_at:
-          nullable: true
-          anyOf:
-            - $ref: '#/components/schemas/NullableDateTime'
+          $ref: '#/components/schemas/NullableDateTime'
+        expires_on:
+          $ref: '#/components/schemas/Date'
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
@@ -4129,9 +4146,7 @@ components:
         updated_at:
           $ref: '#/components/schemas/DateTime'
         accepted_at:
-          nullable: true
-          anyOf:
-            - $ref: '#/components/schemas/NullableDateTime'
+          $ref: '#/components/schemas/NullableDateTime'
       example:
         id: 1
         domain_id: 100
@@ -4192,17 +4207,15 @@ components:
           type: string
           description: A human-readable description of the one-click service
         setup_description:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: Describes setup requirements
         requires_setup:
           type: boolean
           description: Flag indicating whether setup is required
         default_subdomain:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The default subdomain used when creating DNS records
         created_at:
           $ref: '#/components/schemas/DateTime'
@@ -4385,6 +4398,8 @@ components:
         idn:
           type: boolean
           description: true if the suffix supports Internationalized Domain Names (IDN)
+        minimum_registration:
+          type: integer
         registration_enabled:
           type: boolean
           description: true if DNSimple supports registrations for this TLD
@@ -4449,6 +4464,10 @@ components:
           type: string
         ipv6:
           type: string
+        created_at:
+          $ref: '#/components/schemas/DateTime'
+        updated_at:
+          $ref: '#/components/schemas/DateTime'
     Webhook:
       type: object
       properties:
@@ -4675,6 +4694,8 @@ components:
           type: integer
         domain_id:
           type: integer
+        enabled:
+          type: boolean
         expires_on:
           $ref: '#/components/schemas/Date'
         created_at:
@@ -4795,9 +4816,8 @@ components:
         zone_id:
           type: string
         parent_id:
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
           description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
         name:
           type: string
@@ -4806,9 +4826,8 @@ components:
         ttl:
           $ref: '#/components/schemas/TTL'
         priority:
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
           default: 0
         type:
           $ref: '#/components/schemas/ZoneRecordType'
@@ -5061,7 +5080,15 @@ components:
           schema:
             type: object
             properties:
+              algorithm:
+                type: string
               digest:
+                type: string
+              digest_type:
+                type: string
+              keytag:
+                type: string
+              public_key:
                 type: string
     DomainCreate:
       description: Domain attributes
