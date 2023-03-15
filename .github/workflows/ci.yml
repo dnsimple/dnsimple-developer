@@ -11,6 +11,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint_openapi:
+    name: Lint OpenAPI Spec
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.tool-versions'
+          cache: yarn
+      - name: Install JS Deps
+        run: yarn install --frozen-lockfile
+      - name: Run linter
+        run: yarn openapi-lint
+
   test:
     name: Test
     runs-on: ubuntu-latest

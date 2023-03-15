@@ -1,0 +1,109 @@
+# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
+# See https://redoc.ly/docs/cli/ for more information.
+content/v2/openapi.yml:
+  info-license:
+    - '#/info'
+  tag-description:
+    - '#/tags/0/description'
+    - '#/tags/1/description'
+    - '#/tags/2/description'
+    - '#/tags/3/description'
+    - '#/tags/4/description'
+    - '#/tags/5/description'
+    - '#/tags/6/description'
+    - '#/tags/7/description'
+    - '#/tags/8/description'
+    - '#/tags/9/description'
+    - '#/tags/10/description'
+    - '#/tags/11/description'
+    - '#/tags/12/description'
+    - '#/tags/13/description'
+    - '#/tags/14/description'
+    - '#/tags/15/description'
+    - '#/tags/16/description'
+    - '#/tags/17/description'
+    - '#/tags/18/description'
+    - '#/tags/19/description'
+    - '#/tags/20/description'
+  no-ambiguous-paths:
+    - '#/paths/~1tlds~1{tld}'
+    - '#/paths/~1{account}~1zones'
+    - '#/paths/~1{account}~1contacts'
+    - '#/paths/~1services~1{service}'
+    - '#/paths/~1{account}~1templates'
+    - '#/paths/~1{account}~1webhooks'
+  operation-4xx-response:
+    - '#/paths/~1accounts/get/responses'
+    - '#/paths/~1{account}~1domains/get/responses'
+    - '#/paths/~1{account}~1pushes/get/responses'
+    - '#/paths/~1tlds/get/responses'
+    - '#/paths/~1{account}~1registrar~1domains~1{domain}~1check/get/responses'
+    - '#/paths/~1{account}~1secondary_dns~1primaries/get/responses'
+    - '#/paths/~1{account}~1zones/get/responses'
+    - '#/paths/~1{account}~1zones~1{zone}~1records/get/responses'
+    - '#/paths/~1{account}~1contacts/get/responses'
+    - '#/paths/~1services/get/responses'
+    - '#/paths/~1{account}~1templates/get/responses'
+    - '#/paths/~1{account}~1templates~1{template}/delete/responses'
+    - '#/paths/~1{account}~1templates~1{template}~1records/get/responses'
+    - '#/paths/~1{account}~1templates~1{template}~1records/post/responses'
+    - '#/paths/~1{account}~1webhooks/get/responses'
+    - >-
+      #/paths/~1{account}~1webhooks/post/callbacks/webhook/{$request.body#~1url}/post/responses
+    - '#/paths/~1{account}~1webhooks~1{webhook}/get/responses'
+    - '#/paths/~1{account}~1webhooks~1{webhook}/delete/responses'
+  spec:
+    - '#/components/schemas/Domain/properties/expires_at/nullable'
+    - '#/components/schemas/NullableDateTime/type'
+    - '#/components/schemas/Push/properties/accepted_at/nullable'
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/auto_renew/required
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/name/required
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/alternate_names/required
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/signature_algorithm/required
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt~1{certificate}~1renewals/post/requestBody/content/application~1json/schema/properties/auto_renew/required
+    - >-
+      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt~1{certificate}~1renewals/post/requestBody/content/application~1json/schema/properties/signature_algorithm/required
+    - '#/components/schemas/ZoneRecord/properties/parent_id/type'
+    - '#/components/schemas/ZoneRecord/properties/priority/type'
+    - '#/components/schemas/Service/properties/setup_description/type'
+    - '#/components/schemas/Service/properties/default_subdomain/type'
+    - >-
+      #/components/schemas/AccountInvitation/properties/invitation_accepted_at/nullable
+    - '#/components/schemas/NullableDate/type'
+  no-invalid-media-type-examples:
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-1/value/errors/property1/field
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-1/value/errors/property2/field
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/address1
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/city
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/country
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/email
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/first_name
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/last_name
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/phone
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/postal_code
+    - >-
+      #/components/responses/400/content/application~1json/examples/example-2/value/errors/state_province
+  path-parameters-defined:
+    - >-
+      #/paths/~1{account}~1registrar~1domains~1{domain}~1registrations~1{domainregistration}/get/parameters
+    - >-
+      #/paths/~1{account}~1registrar~1domains~1{domain}~1renewals~1{domainrenewal}/get/parameters
+  no-unused-components:
+    - '#/components/schemas/NullableDate'
+    - '#/components/responses/402'
+    - '#/components/responses/412'
