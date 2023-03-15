@@ -25,6 +25,7 @@ content/v2/openapi.yml:
     - '#/tags/18/description'
     - '#/tags/19/description'
     - '#/tags/20/description'
+    - '#/tags/21/description'
   no-ambiguous-paths:
     - '#/paths/~1tlds~1{tld}'
     - '#/paths/~1{account}~1zones'
@@ -52,29 +53,6 @@ content/v2/openapi.yml:
       #/paths/~1{account}~1webhooks/post/callbacks/webhook/{$request.body#~1url}/post/responses
     - '#/paths/~1{account}~1webhooks~1{webhook}/get/responses'
     - '#/paths/~1{account}~1webhooks~1{webhook}/delete/responses'
-  spec:
-    - '#/components/schemas/Domain/properties/expires_at/nullable'
-    - '#/components/schemas/NullableDateTime/type'
-    - '#/components/schemas/Push/properties/accepted_at/nullable'
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/auto_renew/required
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/name/required
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/alternate_names/required
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt/post/requestBody/content/application~1json/schema/properties/signature_algorithm/required
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt~1{certificate}~1renewals/post/requestBody/content/application~1json/schema/properties/auto_renew/required
-    - >-
-      #/paths/~1{account}~1domains~1{domain}~1certificates~1certificates~1letsencrypt~1{certificate}~1renewals/post/requestBody/content/application~1json/schema/properties/signature_algorithm/required
-    - '#/components/schemas/ZoneRecord/properties/parent_id/type'
-    - '#/components/schemas/ZoneRecord/properties/priority/type'
-    - '#/components/schemas/Service/properties/setup_description/type'
-    - '#/components/schemas/Service/properties/default_subdomain/type'
-    - >-
-      #/components/schemas/AccountInvitation/properties/invitation_accepted_at/nullable
-    - '#/components/schemas/NullableDate/type'
   no-invalid-media-type-examples:
     - >-
       #/components/responses/400/content/application~1json/examples/example-1/value/errors/property1/field
@@ -98,11 +76,11 @@ content/v2/openapi.yml:
       #/components/responses/400/content/application~1json/examples/example-2/value/errors/postal_code
     - >-
       #/components/responses/400/content/application~1json/examples/example-2/value/errors/state_province
-  path-parameters-defined:
+  spec:
+    - '#/components/parameters/Template/schema/anyOf/0'
+    - '#/components/parameters/Template/schema/anyOf/1'
     - >-
-      #/paths/~1{account}~1registrar~1domains~1{domain}~1registrations~1{domainregistration}/get/parameters
-    - >-
-      #/paths/~1{account}~1registrar~1domains~1{domain}~1renewals~1{domainrenewal}/get/parameters
+      #/components/schemas/AccountInvitation/properties/invitation_accepted_at/nullable
   no-unused-components:
     - '#/components/schemas/NullableDate'
     - '#/components/responses/402'
