@@ -21,7 +21,7 @@
   },
   "scripts": {
     "live": "concurrently 'bundle exec nanoc live' 'bundle exec rake compile'",
-    "build": "./node_modules/.bin/webpack",
+    "build": "npx webpack",
     "openapi-lint": "redocly lint content/v2/openapi.yml"
   },
   "dependencies": {
