@@ -29,7 +29,7 @@ Every action within the Sandbox will be free of charge.
 
 ### URL
 
-The API hostname is `api.sandbox.dnsimple.com`. This hostname follows the same [URL and version](/overview/#url) conventions of the production environment.
+The API hostname is `api.sandbox.dnsimple.com`. This hostname follows the same [URL and version](/v2/#url) conventions of the production environment.
 
 ### Sandboxing 3rd parties
 
