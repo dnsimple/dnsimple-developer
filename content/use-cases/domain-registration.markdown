@@ -1,6 +1,6 @@
 ---
 title: Registering a domain
-excerpt: In this tutorial, we'll cover how to register domains on behalf of your users (or organization). 
+excerpt: In this tutorial, we'll cover how to register domains on behalf of your users (or organization).
 ---
 
 # Registering a domain
@@ -216,7 +216,7 @@ customer_contact_details = {
 contact = DnsimpleAdapter.create_contact(customer_contact_details)
 ~~~
 
-You can see all available contact fields [here](v2/contacts/#createContact).
+You can see all available contact fields [here](/v2/contacts/#createContact).
 
 Now that you have a contact available for your customer, store the `contact.id` in your system for easy programmatic access, since you'll need it later.
 
@@ -271,7 +271,7 @@ domain_registration = DnsimpleAdapter.register_domain(domain_name, contanct.id)
 ~~~
 
 We didn't include any extended attributes, because there are none for **.COM**.
-The [domain registration](v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
+The [domain registration](/v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
 
 The webhook you registered will receive updates on the domain's registration status. It can take some time before the domain is registered, and it's a good way to keep your system synced. The two events you'll be interested in when registering a domain are [**domain.register:started**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/status-started.http) and [**domain.register**](https://github.com/dnsimple/dnsimple-developer/blob/master/fixtures/v2/webhooks/domain.register/example.http).
 
