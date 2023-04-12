@@ -28,4 +28,4 @@ curl -H "Authorization: Bearer $TOKEN" \
      -d "{\"content\":\"$IP\"}"
 ~~~
 
-Download the shell script: [ddns.sh](ddns.sh)
+Download the shell script: [ddns.sh](/ddns/ddns.sh)
