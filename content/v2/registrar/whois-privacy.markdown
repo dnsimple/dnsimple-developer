@@ -17,6 +17,12 @@ Enable and disable WHOIS privacy on registered domains.
 
 Get the WHOIS privacy details for a domain.
 
+<warning>
+**The deprecation period for this endpoint began on 01 May 2023.**
+
+Now you can enable WHOIS Privacy protection for any of your domains any time, as long as the domain is registered with us and the TLD (Top Level Domain) supports the WHOIS Privacy service, the WHOIS Privacy service will stay enabled until it is disabled.
+</warning>
+
 ### Parameters
 
 Name | Type | Description
@@ -44,11 +50,7 @@ Responds with HTTP 200 on success
 
       PUT /:account/registrar/domains/:domain/whois_privacy
 
-Note that if the WHOIS privacy is not purchased for the domain, enabling WHOIS
-privacy will cause the service to be purchased for a period of 1 year.
-
-If WHOIS privacy was previously purchased and disabled, then calling this will
-enable the WHOIS privacy.
+Enable the WHOIS privacy service.
 
 ### Parameters
 
@@ -68,9 +70,9 @@ Enable WHOIS privacy for the domain `example.com` in the account `1010`:
 
 ### Response
 
-Responds with HTTP 201 if WHOIS privacy is purchased and enabled.
+Responds with HTTP 200 if WHOIS privacy is enabled.
 
-Responds with HTTP 200 if WHOIS privacy is only enabled because it was purchased previously.
+Responds with HTTP 201 if WHOIS privacy is only enabled because it was purchased previously. Response available only on legacy domains.
 
 ~~~json
 <%= pretty_print_fixture("/api/enableWhoisPrivacy/success.http") %>
@@ -82,17 +84,13 @@ Responds with [HTTP 400](/v2#bad-request) if the whois privacy cannot be enabled
 
 Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments. Response available only on legacy domains.
 
 ## Disable WHOIS privacy {#disableWhoisPrivacy}
 
       DELETE /:account/registrar/domains/:domain/whois_privacy
 
-Note that if the WHOIS privacy is not purchased for the domain, this method will
-do nothing.
-
-If WHOIS privacy was previously purchased and enabled, then calling this will
-disable the WHOIS privacy.
+Disable the WHOIS privacy service.
 
 ### Parameters
 
@@ -129,6 +127,12 @@ Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication iss
 ~~~
 POST /:account/registrar/domains/:domain/whois_privacy/renewals
 ~~~
+
+<warning>
+**The deprecation period for this endpoint began on 01 May 2023.**
+
+Now you can enable WHOIS Privacy protection for any of your domains any time, as long as the domain is registered with us and the TLD (Top Level Domain) supports the WHOIS Privacy service, the WHOIS Privacy service will stay enabled until it is disabled.
+</warning>
 
 ### Parameters
 
