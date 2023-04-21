@@ -10,6 +10,10 @@ excerpt: This page documents the DNSimple WHOIS privacy API v2.
 
 Enable and disable WHOIS privacy on registered domains.
 
+<info>
+Now you can enable WHOIS Privacy protection for any of your domains any time, as long as the domain is registered with us and the TLD (Top Level Domain) supports the WHOIS Privacy service, the WHOIS Privacy service will stay enabled until it is disabled.
+</info>
+
 
 ## Retrieve the domain WHOIS privacy {#getWhoisPrivacy}
 
@@ -20,7 +24,7 @@ Get the WHOIS privacy details for a domain.
 <warning>
 **The deprecation period for this endpoint began on 01 May 2023.**
 
-Now you can enable WHOIS Privacy protection for any of your domains any time, as long as the domain is registered with us and the TLD (Top Level Domain) supports the WHOIS Privacy service, the WHOIS Privacy service will stay enabled until it is disabled.
+You can retrieve a domain WHOIS privacy state through [retrieve domain](/v2/domains/#getDomain)
 </warning>
 
 ### Parameters
@@ -131,7 +135,7 @@ POST /:account/registrar/domains/:domain/whois_privacy/renewals
 <warning>
 **The deprecation period for this endpoint began on 01 May 2023.**
 
-Now you can enable WHOIS Privacy protection for any of your domains any time, as long as the domain is registered with us and the TLD (Top Level Domain) supports the WHOIS Privacy service, the WHOIS Privacy service will stay enabled until it is disabled.
+It is no longer required to renew the WHOIS privacy service, now the WHOIS Privacy service will stay enabled until it is disabled.
 </warning>
 
 ### Parameters
