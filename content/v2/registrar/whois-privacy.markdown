@@ -3,7 +3,7 @@ title: Whois privacy API | DNSimple API v2
 excerpt: This page documents the DNSimple WHOIS privacy API v2.
 ---
 
-# Whois privacy API
+# WHOIS privacy API
 
 * TOC
 {:toc}
@@ -22,7 +22,7 @@ Now you can enable WHOIS Privacy protection for any of your domains any time, as
 Get the WHOIS privacy details for a domain.
 
 <warning>
-**The deprecation period for this endpoint began on 01 May 2023.**
+**The deprecation period for this endpoint began 01 May 2023.**
 
 You can retrieve a domain WHOIS privacy state through [retrieve domain](/v2/domains/#getDomain)
 </warning>
@@ -36,7 +36,7 @@ Name | Type | Description
 
 ### Example
 
-Get the WHOIS privacy for the domain `example.com` in the account `1010`:
+Get WHOIS privacy for the domain `example.com` in the account `1010`:
 
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
