@@ -1,6 +1,6 @@
 [build]
   publish = "output"
-  command = "rake publish"
+  command = "NANOC_ENV=production rake publish"
 
 [[headers]]
   for = "/*"
