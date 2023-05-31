@@ -103,7 +103,7 @@ GEM
     psych (4.0.6)
       stringio
     public_suffix (5.0.1)
-    puma (6.2.2)
+    puma (6.3.0)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (3.0.7)
@@ -148,7 +148,7 @@ DEPENDENCIES
   minitest-reporters
   nanoc (~> 4.12)
   nokogiri
-  puma (~> 6.2)
+  puma (~> 6.3)
   rake
   rouge
   sass

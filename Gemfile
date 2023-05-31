@@ -23,4 +23,4 @@ group :nanoc do
   gem 'guard-nanoc'
 end
 
-gem "puma", "~> 6.2"
+gem "puma", "~> 6.3"
