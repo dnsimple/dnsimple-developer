@@ -1838,6 +1838,49 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       summary: Check zone record distribution
+  '/{account}/zones/{zone}/resolution':
+    put:
+      description: Enables DNS resolution on the zone
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: enableZoneResolution
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully enabled DNS resolution on the zone.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Enable a zone's DNS resolution
+    delete:
+      description: Disables DNS resolution on the zone
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: disableZoneResolution
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully disabled DNS resolution on the zone.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Disable a zone's DNS resolution
   '/{account}/contacts':
     get:
       description: List contacts in the account.
