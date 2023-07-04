@@ -1871,7 +1871,7 @@ paths:
         - zones
       responses:
         '200':
-          description: Successfully enabled DNS resolution on the zone.
+          description: Successful activation of DNS services on the zone.
           content:
             application/json:
               schema:
