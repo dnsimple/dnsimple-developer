@@ -124,7 +124,7 @@ paths:
         Creates a domain and the corresponding zone into the account.
 
         When creating a domain using Solo or Teams subscription, the resolution
-        for the zone will be **automatically enabled and this will be charged** on your
+        for the zone will be automatically enabled and this will be charged on your
         following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -1558,7 +1558,7 @@ paths:
         Creates a secondary zone into the account.
 
         When creating a secondary zone using Solo or Teams subscription, the resolution
-        for the zone will be **automatically enabled and this will be charged** on your
+        for the zone will be automatically enabled and this will be charged on your
         following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -1853,7 +1853,7 @@ paths:
       description: |-
         Enables DNS resolution for the zone.
 
-        Under Solo and Teams plans, **active zones are charged when renewing your subscription** to
+        Under Solo and Teams plans, active zones are charged when renewing your subscription to
         DNSimple
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -1878,7 +1878,7 @@ paths:
       description: |-
         Disables DNS resolution for the zone.
 
-        Under Solo and Teams plans, **active zones are charged when renewing your subscription** to
+        Under Solo and Teams plans, active zones are charged when renewing your subscription to
         DNSimple
       parameters:
         - $ref: '#/components/parameters/Account'
