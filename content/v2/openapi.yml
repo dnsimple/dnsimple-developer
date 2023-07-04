@@ -120,7 +120,12 @@ paths:
           description: Domain listing.
     post:
       summary: Create a domain
-      description: Creates a domain and the corresponding zone into the account.
+      description: |-
+        Creates a domain and the corresponding zone into the account.
+
+        When creating a domain using Solo or Teams subscription, the resolution
+        for the zone will be **automatically enabled and this will be charged** on your
+        following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createDomain
@@ -1840,9 +1845,11 @@ paths:
       summary: Check zone record distribution
   '/{account}/zones/{zone}/resolution':
     put:
-      description: When creating a zone under Solo and Teams plan using the API it will be
-        activated automatically. This endpoint allows to activate the DNS resolution for the
-        zone programatically.
+      description: |-
+        Enables DNS resolution for the zone.
+
+        Under Solo and Teams plans, **active zones are charged when renewing your subscription** to
+        DNSimple
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1863,9 +1870,11 @@ paths:
           $ref: '#/components/responses/404'
       summary: Enable a zone's DNS resolution
     delete:
-      description: When creating a zone under Solo and Teams plan using the API it will be
-        activated automatically. This endpoint allows to deactivate the DNS resolution for the
-        zone programatically.
+      description: |-
+        Disables DNS resolution for the zone.
+
+        Under Solo and Teams plans, **active zones are charged when renewing your subscription** to
+        DNSimple
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
