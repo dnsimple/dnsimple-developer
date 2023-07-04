@@ -1840,7 +1840,9 @@ paths:
       summary: Check zone record distribution
   '/{account}/zones/{zone}/resolution':
     put:
-      description: Enables DNS resolution on the zone
+      description: When creating a zone under Solo and Teams plan using the API it will be
+        activated automatically. This endpoint allows to activate the DNS resolution for the
+        zone programatically.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
@@ -1861,7 +1863,9 @@ paths:
           $ref: '#/components/responses/404'
       summary: Enable a zone's DNS resolution
     delete:
-      description: Disables DNS resolution on the zone
+      description: When creating a zone under Solo and Teams plan using the API it will be
+        activated automatically. This endpoint allows to deactivate the DNS resolution for the
+        zone programatically.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
