@@ -1884,7 +1884,7 @@ paths:
       summary: Enable a zone's DNS resolution
     delete:
       description: |-
-        Disables DNS resolution for the zone.
+        Deactivates DNS services for the zone.
 
         Under Solo and Teams plans, active zones are charged when renewing your subscription to
         DNSimple
