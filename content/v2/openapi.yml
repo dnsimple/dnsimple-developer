@@ -18,7 +18,7 @@ servers:
     description: DNSimple Production API
     variables: {}
   - url: 'https://api.sandbox.dnsimple.com/v2'
-    description: 'DNSimple Sandbox API.'
+    description: 'DNSimple Sandbox API used for testing'
 tags:
   - name: accounts
   - name: contacts
