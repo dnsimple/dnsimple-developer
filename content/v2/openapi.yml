@@ -2510,9 +2510,7 @@ components:
       required: true
       description: The template id or short name
       schema:
-        anyOf:
-          - integer
-          - string
+        type: string
     TemplateRecord:
       name: templaterecord
       in: path
