@@ -17,6 +17,8 @@ postprocess do
   create_search_index
 end
 
+passthrough '/swagger-ui/*'
+
 compile '/assets/css/*/' do
   if item.identifier =~ %r{/_[^/]+/$}
     # don't compile partials
@@ -38,14 +40,9 @@ compile '/robots/' do
   filter :erb
 end
 
-compile '/v2/feed/' do
-  filter :erb
-  layout 'empty'
-end
-
 compile '*' do
   if item.binary?
-    # don’t filter binary items
+    # don't filter binary items
   else
     filter :erb
     filter :preprocess
@@ -75,10 +72,6 @@ end
 
 route '/robots/' do
   item.identifier.chop + '.txt'
-end
-
-route '/v2/feed/' do
-  item.identifier.chop + '.xml'
 end
 
 route '*' do

@@ -61,6 +61,12 @@ data_sources:
     # it will become “/about.html/” instead.
     allow_periods_in_identifiers: false
 
+  - type: filesystem
+    encoding: utf-8
+    items_root: /swagger-ui
+    content_dir: 'swagger-ui'
+    layouts_dir: null
+
 # Configuration for the “watch” command, which watches a site for changes and
 # recompiles if necessary.
 watcher:
