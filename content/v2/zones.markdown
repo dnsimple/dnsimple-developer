@@ -184,7 +184,7 @@ Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform
 <%= pretty_print_fixture("/api/checkZoneDistribution/error.http") %>
 ~~~
 
-## Activate DNS services for the zone {#activateZoneResolution}
+## Activate DNS services for the zone {#activateZoneService}
 
     PUT /:account/zones/:zone/resolution
 
@@ -222,7 +222,7 @@ Responds with HTTP 200 when the zone was successfully activated.
 
 Responds with [HTTP 404](/v2#not-found) in case of case of the resource does not exist.
 
-## Deactivate DNS services for the zone {#activateZoneResolution}
+## Deactivate DNS services for the zone {#deactivateZoneService}
 
     DELETE /:account/zones/:zone/resolution
 
