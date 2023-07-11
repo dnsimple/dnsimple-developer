@@ -183,3 +183,79 @@ Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform
 ~~~json
 <%= pretty_print_fixture("/api/checkZoneDistribution/error.http") %>
 ~~~
+
+## Activate DNS services for the zone {#activateZoneResolution}
+
+    PUT /:account/zones/:zone/resolution
+
+Activates DNS services for the zone.
+
+<note>
+Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Activate DNS services for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X PUT \
+          https://api.dnsimple.com/v2/1010/zones/example.com/resolution
+
+### Response
+
+Responds with HTTP 200 when the zone was successfully activated.
+
+~~~json
+<%= pretty_print_fixture("/api/getZone/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 404](/v2#not-found) in case of case of the resource does not exist.
+
+## Deactivate DNS services for the zone {#activateZoneResolution}
+
+    DELETE /:account/zones/:zone/resolution
+
+Deactivates DNS services for the zone.
+
+<note>
+Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Activate DNS services for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X DELETE \
+          https://api.dnsimple.com/v2/1010/zones/example.com/resolution
+
+### Response
+
+Responds with HTTP 200 when the zone was successfully deactivated.
+
+~~~json
+<%= pretty_print_fixture("/api/getZone/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 404](/v2#not-found) in case of case of the resource does not exist.
