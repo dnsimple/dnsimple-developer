@@ -75,7 +75,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Create a domain {#createDomain}
 
@@ -136,7 +136,7 @@ Responds with HTTP 201 on success, renders the domain.
 
 Responds with [HTTP 400](/v2#bad-request) if the registration attempt is invalid.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
@@ -180,7 +180,7 @@ Responds with HTTP 200, renders the domain.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 
 ## Delete a domain {#deleteDomain}
@@ -226,4 +226,4 @@ Responds with HTTP 204 on success.
 
 Responds with [HTTP 400](/v2#bad-request) if the domain cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
