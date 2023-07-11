@@ -83,7 +83,7 @@ Adds a domain to the account.
 
 <note>
 When creating a domain using Solo or Teams subscription, the resolution
-for the zone will be automatically enabled and this will be charged on your
+for the zone will be automatically enabled. This will be charged on your
 following subscription renewal invoices.
 </note>
 
@@ -191,7 +191,7 @@ Permanently deletes a domain from the account. It cannot be undone.
 DELETE /:account/domains/:domain
 ~~~
 
-For domains which are registered with DNSimple, this *will not delete the domain from the registry*, nor perform a refund.
+For domains registered with DNSimple, this *will not delete the domain from the registry* or perform a refund.
 
 ### Parameters
 
