@@ -1866,7 +1866,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
-      operationId: activatezoneResolution
+      operationId: activateZoneService
       tags:
         - zones
       responses:
@@ -1891,7 +1891,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
-      operationId: deactivateZoneResolution
+      operationId: deactivateZoneService
       tags:
         - zones
       responses:
