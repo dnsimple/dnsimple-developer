@@ -51,7 +51,7 @@ If the domain is premium (`premium: true`), please [check the premium price](#ge
 
 Responds with [HTTP 400](/v2#bad-request) if the domain availability canont be checked.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Check domain premium price {#getDomainPremiumPrice}
 
@@ -157,7 +157,7 @@ Responds with HTTP 400, if the domain TLD is not supported.
 
 Responds with [HTTP 400](/v2#bad-request) if the TLD is not supported or the price canont be checked.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Register a domain {#registerDomain}
 
@@ -232,7 +232,7 @@ Responds with HTTP 202 when registration was processed but is pending completion
 
 Responds with [HTTP 400](/v2#bad-request) if the domain cannot be registrered.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
@@ -272,7 +272,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Transfer a domain {#transferDomain}
 
@@ -355,7 +355,7 @@ Responds with HTTP 202 when transfer was processed but is pending completion.
 
 Responds with [HTTP 400](/v2#bad-request) if the domain transfer cannot be initiated.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
@@ -396,7 +396,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Cancel a Domain Transfer {#cancelDomainTransfer}
 
@@ -437,7 +437,7 @@ Responds with HTTP 202 on success.
 
 Responds with [HTTP 400](/v2#bad-request) if the transfer cannot be canceled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Renew a domain {#renewDomain}
 
@@ -494,7 +494,7 @@ Responds with HTTP 202 when renewal was processed but is pending completion.
 
 Responds with [HTTP 400](/v2#bad-request) if the domain cannot be renewed.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
@@ -534,7 +534,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Authorize a domain transfer out {#authorizeDomainTransferOut}
 
@@ -567,4 +567,4 @@ Responds with HTTP 204 on success.
 
 Responds with [HTTP 400](/v2#bad-request) if the transfer out cannot be authorized.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
