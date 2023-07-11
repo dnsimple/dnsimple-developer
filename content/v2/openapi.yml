@@ -1866,7 +1866,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
-      operationId: enableZoneResolution
+      operationId: activatezoneResolution
       tags:
         - zones
       responses:
@@ -1881,7 +1881,7 @@ paths:
                     $ref: '#/components/schemas/Zone'
         '404':
           $ref: '#/components/responses/404'
-      summary: Enable a zone's DNS resolution
+      summary: Activate a zone DNS service
     delete:
       description: |-
         Deactivates DNS services for the zone.
@@ -1891,12 +1891,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Zone'
-      operationId: disableZoneResolution
+      operationId: deactivateZoneResolution
       tags:
         - zones
       responses:
         '200':
-          description: Successfully disabled DNS resolution on the zone.
+          description: Successfully deactivate DNS resolution on the zone.
           content:
             application/json:
               schema:
@@ -1906,7 +1906,7 @@ paths:
                     $ref: '#/components/schemas/Zone'
         '404':
           $ref: '#/components/responses/404'
-      summary: Disable a zone's DNS resolution
+      summary: Deactivate a zone DNS service
   '/{account}/contacts':
     get:
       description: List contacts in the account.
