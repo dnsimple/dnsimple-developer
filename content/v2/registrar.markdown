@@ -168,9 +168,11 @@ Register a domain name with DNSimple.
 Your account must be active for this command to complete successfully.
 You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
 
+<note>
 When registering a domain using Solo or Teams subscription, the resolution
 for the zone will be automatically enabled and this will be charged on your
 following subscription renewal invoices.
+</note>
 
 ### Parameters
 
@@ -282,9 +284,11 @@ Your account must be active for this command to complete successfully.
 You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command.
 The transfer may take anywhere from a few minutes up to 7 days.
 
+<note>
 When transfering a domain using Solo or Teams subscription, the resolution
 for the zone will be automatically enabled and this will be charged on your
 following subscription renewal invoices.
+</note>
 
 ### Parameters
 
