@@ -170,7 +170,7 @@ You will be automatically charged the registration fee upon successful registrat
 
 <note>
 When registering a domain using Solo or Teams subscription, the resolution
-for the zone will be automatically enabled and this will be charged on your
+for the zone will be automatically enabled. This will be charged on your
 following subscription renewal invoices.
 </note>
 
@@ -286,7 +286,7 @@ The transfer may take anywhere from a few minutes up to 7 days.
 
 <note>
 When transfering a domain using Solo or Teams subscription, the resolution
-for the zone will be automatically enabled and this will be charged on your
+for the zone will be automatically enabled. This will be charged on your
 following subscription renewal invoices.
 </note>
 
