@@ -284,6 +284,10 @@ Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication iss
 
     POST /:account/secondary_dns/zones
 
+When creating a secondary zone using Solo or Teams subscription, the resolution
+for the zone will be automatically enabled and this will be charged on your
+following subscription renewal invoices.
+
 ### Parameters
 
 | Name       | Type      | Description    |

@@ -81,6 +81,10 @@ Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication iss
 
 Adds a domain to the account.
 
+When creating a domain using Solo or Teams subscription, the resolution
+for the zone will be automatically enabled and this will be charged on your
+following subscription renewal invoices.
+
 ~~~
 POST /:account/domains
 ~~~
