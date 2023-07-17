@@ -49,7 +49,7 @@ If the domain is premium (`premium: true`), please [check the premium price](#ge
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the domain availability canont be checked.
+Responds with [HTTP 400](/v2#bad-request) if the domain availability cannot be checked.
 
 Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
@@ -155,7 +155,7 @@ Responds with HTTP 400, if the domain TLD is not supported.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the TLD is not supported or the price canont be checked.
+Responds with [HTTP 400](/v2#bad-request) if the TLD is not supported or the price cannot be checked.
 
 Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
 
