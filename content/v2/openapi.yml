@@ -2024,7 +2024,7 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Check a contact change
-  '/{account}/registrant_changes/{registrant_change}':
+  '/{account}/registrant_changes/{registrantchange}':
     get:
       description: Retrieves the details of an existing contact change.
       parameters:
@@ -4317,11 +4317,11 @@ components:
             - cancelled
             - completed
         extended_attributes:
-          type: '#/components/schemas/ExtendedAttributes'
+          $ref: '#/components/schemas/ExtendedAttributes'
         registry_owner_change:
           type: boolean
         lock_lifted_by:
-          type: '#/components/schemas/Date'
+          $ref: '#/components/schemas/Date'
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
