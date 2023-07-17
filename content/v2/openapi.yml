@@ -1909,6 +1909,43 @@ paths:
       summary: Retrieve a contact
     patch:
       description: Updates the contact details.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Contact'
+      operationId: updateContact
+      tags:
+        - contacts
+      requestBody:
+        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+      responses:
+        '200':
+          description: Successfully updated contact.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Contact'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Update a contact
+    delete:
+      description: Permanently deletes a contact from the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Contact'
+      operationId: deleteContact
+      tags:
+        - contacts
+      responses:
+        '204':
+          description: Successfully deleted contact.
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Delete a contact
   '/{account}/registrant_changes':
     get:
       description: List contact changes in the account.
