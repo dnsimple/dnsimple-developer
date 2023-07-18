@@ -75,11 +75,17 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Create a domain {#createDomain}
 
 Adds a domain to the account.
+
+<note>
+When creating a domain using Solo or Teams subscription, the DNS services
+for the zone will be automatically enabled. This will be charged on your
+following subscription renewal invoices.
+</note>
 
 ~~~
 POST /:account/domains
@@ -130,7 +136,7 @@ Responds with HTTP 201 on success, renders the domain.
 
 Responds with [HTTP 400](/v2#bad-request) if the registration attempt is invalid.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
@@ -174,7 +180,7 @@ Responds with HTTP 200, renders the domain.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 
 ## Delete a domain {#deleteDomain}
@@ -185,7 +191,7 @@ Permanently deletes a domain from the account. It cannot be undone.
 DELETE /:account/domains/:domain
 ~~~
 
-For domains which are registered with DNSimple, this *will not delete the domain from the registry*, nor perform a refund.
+For domains registered with DNSimple, this *will not delete the domain from the registry* or perform a refund.
 
 ### Parameters
 
@@ -220,4 +226,4 @@ Responds with HTTP 204 on success.
 
 Responds with [HTTP 400](/v2#bad-request) if the domain cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.

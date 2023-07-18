@@ -60,7 +60,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 
 ## Create a primary server {#createPrimaryServer}
@@ -114,7 +114,7 @@ Responds with HTTP 201 on success, renders the primary server.
 
 Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 
 ## Retrieve a Primary Server {#getPrimaryServer}
@@ -146,7 +146,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Delete primary server {#removePrimaryServer}
 
@@ -177,7 +177,7 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Link a primary server to a secondary zone {#linkPrimaryServer}
 
@@ -227,7 +227,7 @@ Responds with HTTP 200 on success. The linked zone will be present in the `linke
 
 Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be linked to the secondary zone.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 
 ## Unlink a primary server from a secondary zone {#unlinkPrimaryServer}
@@ -278,11 +278,17 @@ Responds with HTTP 200 on success.
 
 Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be unlinked from the secondary zone.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Create a secondary zone {#createSecondaryZone}
 
     POST /:account/secondary_dns/zones
+
+<note>
+When creating a secondary zone using Solo or Teams subscription, the DNS services
+for the zone will be automatically enabled. This will be charged on your
+following subscription renewal invoices.
+</note>
 
 ### Parameters
 
@@ -327,7 +333,7 @@ Responds with HTTP 201 on success. The attribute `secondary` will be true.
 
 Responds with [HTTP 400](/v2#bad-request) if the secondary zone cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Delete secondary zone {#removeSecondaryZone}
 

@@ -69,7 +69,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Retrieve a zone {#getZone}
 
@@ -102,7 +102,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Download a zone file {#getZoneFile}
 
@@ -133,7 +133,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ## Check zone distribution {#checkZoneDistribution}
 
@@ -176,10 +176,86 @@ Responds with HTTP 200 when the zone is not distributed.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform the check.
 
 ~~~json
 <%= pretty_print_fixture("/api/checkZoneDistribution/error.http") %>
 ~~~
+
+## Activate DNS services for the zone {#activateZoneService}
+
+    PUT /:account/zones/:zone/activation
+
+Activates DNS services for the zone.
+
+<note>
+Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Activate DNS services for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X PUT \
+          https://api.dnsimple.com/v2/1010/zones/example.com/activation
+
+### Response
+
+Responds with HTTP 200 when the zone was successfully activated.
+
+~~~json
+<%= pretty_print_fixture("/api/getZone/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
+
+## Deactivate DNS services for the zone {#deactivateZoneService}
+
+    DELETE /:account/zones/:zone/activation
+
+Deactivates DNS services for the zone.
+
+<note>
+Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
+</note>
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:zone` | `string` | The zone name
+
+### Example
+
+Activate DNS services for `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -X DELETE \
+          https://api.dnsimple.com/v2/1010/zones/example.com/activation
+
+### Response
+
+Responds with HTTP 200 when the zone has been successfully deactivated.
+
+~~~json
+<%= pretty_print_fixture("/api/getZone/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
