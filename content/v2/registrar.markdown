@@ -169,7 +169,7 @@ Your account must be active for this command to complete successfully.
 You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
 
 <note>
-When registering a domain using Solo or Teams subscription, the resolution
+When registering a domain using Solo or Teams subscription, the DNS services
 for the zone will be automatically enabled. This will be charged on your
 following subscription renewal invoices.
 </note>
@@ -285,7 +285,7 @@ You will be automatically charged the 1-year transfer fee upon successful transf
 The transfer may take anywhere from a few minutes up to 7 days.
 
 <note>
-When transfering a domain using Solo or Teams subscription, the resolution
+When transfering a domain using Solo or Teams subscription, the DNS services
 for the zone will be automatically enabled. This will be charged on your
 following subscription renewal invoices.
 </note>
