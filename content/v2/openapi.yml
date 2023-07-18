@@ -123,7 +123,7 @@ paths:
       description: |-
         Creates a domain and the corresponding zone into the account.
 
-        When creating a domain using Solo or Teams subscription, the resolution
+        When creating a domain using Solo or Teams subscription, the DNS services
         for the zone will be automatically enabled and this will be charged on your
         following subscription renewal invoices.
       parameters:
@@ -991,7 +991,7 @@ paths:
 
         Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
 
-        When registering a domain using Solo or Teams subscription, the resolution
+        When registering a domain using Solo or Teams subscription, the DNS services
         for the zone will be automatically enabled and this will be charged on your
         following subscription renewal invoices.
       parameters:
@@ -1046,7 +1046,7 @@ paths:
 
         Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.
 
-        When transfering a domain using Solo or Teams subscription, the resolution
+        When transfering a domain using Solo or Teams subscription, the DNS service
         for the zone will be automatically enabled and this will be charged on your
         following subscription renewal invoices.
       parameters:
@@ -1565,9 +1565,9 @@ paths:
       description: |-
         Creates a secondary zone into the account.
 
-        When creating a secondary zone using Solo or Teams subscription, the resolution
-        for the zone will be automatically enabled and this will be charged on your
-        following subscription renewal invoices.
+        When creating a secondary zone using Solo or Teams subscription, the DNS
+        services for the zone will be automatically enabled and this will be charged
+        on your following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createSecondaryZone
@@ -1856,7 +1856,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       summary: Check zone record distribution
-  '/{account}/zones/{zone}/resolution':
+  '/{account}/zones/{zone}/activation':
     put:
       description: |-
         Activate DNS services for the zone.
@@ -1896,7 +1896,7 @@ paths:
         - zones
       responses:
         '200':
-          description: Successfully deactivate DNS resolution on the zone.
+          description: Successfully deactivate DNS services on the zone.
           content:
             application/json:
               schema:
