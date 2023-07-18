@@ -186,6 +186,8 @@ Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform
 
 ## Activate DNS services for the zone {#activateZoneService}
 
+<%= render "v2-preview" %>
+
     PUT /:account/zones/:zone/activation
 
 Activates DNS services for the zone.
@@ -223,6 +225,8 @@ Responds with HTTP 200 when the zone was successfully activated.
 Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
 
 ## Deactivate DNS services for the zone {#deactivateZoneService}
+
+<%= render "v2-preview" %>
 
     DELETE /:account/zones/:zone/activation
 
