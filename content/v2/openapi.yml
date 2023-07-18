@@ -120,7 +120,12 @@ paths:
           description: Domain listing.
     post:
       summary: Create a domain
-      description: Creates a domain and the corresponding zone into the account.
+      description: |-
+        Creates a domain and the corresponding zone into the account.
+
+        When creating a domain using Solo or Teams subscription, the resolution
+        for the zone will be automatically enabled and this will be charged on your
+        following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createDomain
@@ -985,6 +990,10 @@ paths:
         Registers a domain name.
 
         Your account must be active for this command to complete successfully. You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
+
+        When registering a domain using Solo or Teams subscription, the resolution
+        for the zone will be automatically enabled and this will be charged on your
+        following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1036,6 +1045,10 @@ paths:
         Transfers a domain name from another registrar.
 
         Your account must be active for this command to complete successfully. You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command. The transfer may take anywhere from a few minutes up to 7 days.
+
+        When transfering a domain using Solo or Teams subscription, the resolution
+        for the zone will be automatically enabled and this will be charged on your
+        following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1549,7 +1562,12 @@ paths:
   '/{account}/secondary_dns/zones':
     post:
       summary: Create a secondary zone
-      description: Creates a secondary zone into the account.
+      description: |-
+        Creates a secondary zone into the account.
+
+        When creating a secondary zone using Solo or Teams subscription, the resolution
+        for the zone will be automatically enabled and this will be charged on your
+        following subscription renewal invoices.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createSecondaryZone
@@ -1838,6 +1856,57 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       summary: Check zone record distribution
+  '/{account}/zones/{zone}/resolution':
+    put:
+      description: |-
+        Activate DNS services for the zone.
+
+        Under Solo and Teams plans, active zones are charged when renewing your subscription to
+        DNSimple
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: activateZoneService
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successful activation of DNS services on the zone.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Activate a zone DNS service
+    delete:
+      description: |-
+        Deactivates DNS services for the zone.
+
+        Under Solo and Teams plans, active zones are charged when renewing your subscription to
+        DNSimple
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: deactivateZoneService
+      tags:
+        - zones
+      responses:
+        '200':
+          description: Successfully deactivate DNS resolution on the zone.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Zone'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Deactivate a zone DNS service
   '/{account}/contacts':
     get:
       description: List contacts in the account.
