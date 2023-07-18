@@ -30,6 +30,7 @@ tags:
   - name: domain services
   - name: domains
   - name: identity
+  - name: registrant changes
   - name: registrar
   - name: registrar delegation
   - name: registrar privacy
@@ -2014,6 +2015,124 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a contact
+  '/{account}/registrant_changes':
+    get:
+      description: List contact changes in the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/SortRegistrantChanges'
+      operationId: listRegistrantChanges
+      tags:
+        - registrant changes
+      responses:
+        '200':
+          description: Successfully retrieved account contact change list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RegistrantChange'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+      summary: List contact changes
+    post:
+      description: Creates a contact change.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: createRegistrantChange
+      tags:
+        - registrant changes
+      requestBody:
+        $ref: '#/components/requestBodies/RegistrantChangeCreate'
+      responses:
+        '201':
+          description: Successfully changed the contact.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RegistrantChange'
+        '202':
+          description: The contact change is created and pending completion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RegistrantChange'
+        '400':
+          $ref: '#/components/responses/400'
+      summary: Create a contact change
+  '/{account}/registrant_changes/check':
+    post:
+      description: Retrieves the requirements of a contact change.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+      operationId: checkRegistrantChange
+      tags:
+        - registrant changes
+      requestBody:
+        $ref: '#/components/requestBodies/RegistrantChangeCheck'
+      responses:
+        '200':
+          description: Successfully returned the contact change requirements.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RegistrantChangeCheck'
+        '400':
+          $ref: '#/components/responses/400'
+      summary: Check a contact change requirements
+  '/{account}/registrant_changes/{registrantchange}':
+    get:
+      description: Retrieves the details of an existing contact change.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/RegistrantChange'
+      operationId: getRegistrantChange
+      tags:
+        - registrant changes
+      responses:
+        '200':
+          description: Successfully retrieved the contact change.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RegistrantChange'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Retrieve a contact change
+    delete:
+      description: Cancel an ongoing contact change from the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/RegistrantChange'
+      operationId: deleteRegistrantChange
+      tags:
+        - registrant changes
+      responses:
+        '200':
+          description: Successfully cancelled contact change.
+        '201':
+          description: The contact change is cancelling.
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Cancel a contact change
   /services:
     get:
       description: List all available one-click services.
@@ -2566,6 +2685,13 @@ components:
       description: The push id
       schema:
         type: integer
+    RegistrantChange:
+      name: registrantchange
+      in: path
+      required: true
+      description: The registrant change id
+      schema:
+        type: integer
     Service:
       name: service
       in: path
@@ -2736,6 +2862,17 @@ components:
           - 'id:desc'
           - 'name:asc'
           - 'name:desc'
+    SortRegistrantChanges:
+      description: Sort results. Default sorting is by id.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'id:asc'
+          - 'id:desc'
     SortServices:
       description: Sort results. Default sorting is by id ascending.
       name: sort
@@ -4042,6 +4179,13 @@ components:
           - title: Non-UK Individual (representing self)
             value: FIND
             description: Non-UK Individual (representing self)
+    TradeExtendedAttributes:
+      type: object
+      additionalProperties:
+        type: string
+      example:
+        x-fi-registrant-idnumber: "1234"
+        x-cat-accept-highly-regulated-tac: "1"
     ExtendedAttributeOption:
       type: object
       properties:
@@ -4222,6 +4366,64 @@ components:
         created_at: '2016-08-11T10:16:03Z'
         updated_at: '2016-08-11T10:16:03Z'
         accepted_at: null
+    RegistrantChange:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        contact_id:
+          type: integer
+        domain_id:
+          type: integer
+        state:
+          type: string
+          enum:
+            - new
+            - pending
+            - cancelling
+            - cancelled
+            - completed
+        extended_attributes:
+          $ref: '#/components/schemas/TradeExtendedAttributes'
+        registry_owner_change:
+          type: boolean
+        lock_lifted_by:
+          $ref: '#/components/schemas/Date'
+        created_at:
+          $ref: '#/components/schemas/DateTime'
+        updated_at:
+          $ref: '#/components/schemas/DateTime'
+      example:
+        id: 1
+        account_id: 1010
+        contact_id: 2
+        domain_id: 2
+        state: completed
+        extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+        registry_owner_change: false
+        lock_lifted_by: '2013-12-08'
+        created_at: '2013-11-08T17:23:15Z'
+        updated_at: '2015-01-08T21:30:50Z'
+    RegistrantChangeCheck:
+      type: object
+      properties:
+        contact_id:
+          type: integer
+        domain_id:
+          type: integer
+        extended_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtendedAttribute'
+        registry_owner_change:
+          type: boolean
+      example:
+        contact_id: 2
+        domain_id: 2
+        extended_attributes: [{ "name":"x-fi-registrant-birth-date" ,"title":"The registrant's birth date", "description":"Format is: YYYY-MM-DD.","required":false,"options":[] }]
+        registry_owner_change: false
     SecondaryDNS:
       type: object
       properties:
@@ -5331,6 +5533,47 @@ components:
             required:
               - name
               - ip
+    RegistrantChangeCreate:
+      description: Contact change attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              domain_id:
+                oneOf:
+                  - type: string
+                  - type: integer
+              contact_id:
+                oneOf:
+                  - type: string
+                  - type: integer
+              extended_attributes:
+                $ref: '#/components/schemas/TradeExtendedAttributes'
+            example:
+              domain_id: "20333"
+              contact_id: "2"
+              extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+    RegistrantChangeCheck:
+      description: Contact change attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              domain_id:
+                oneOf:
+                  - type: string
+                  - type: integer
+              contact_id:
+                oneOf:
+                  - type: string
+                  - type: integer
+            example:
+              domain_id: "20333"
+              contact_id: "2"
     SecondaryZoneCreate:
       description: Secondary Zone attributes
       required: true
