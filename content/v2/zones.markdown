@@ -186,7 +186,7 @@ Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform
 
 ## Activate DNS services for the zone {#activateZoneService}
 
-    PUT /:account/zones/:zone/resolution
+    PUT /:account/zones/:zone/activation
 
 Activates DNS services for the zone.
 
@@ -208,7 +208,7 @@ Activate DNS services for `example.com` in the account `1010`:
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X PUT \
-          https://api.dnsimple.com/v2/1010/zones/example.com/resolution
+          https://api.dnsimple.com/v2/1010/zones/example.com/activation
 
 ### Response
 
@@ -224,7 +224,7 @@ Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
 
 ## Deactivate DNS services for the zone {#deactivateZoneService}
 
-    DELETE /:account/zones/:zone/resolution
+    DELETE /:account/zones/:zone/activation
 
 Deactivates DNS services for the zone.
 
@@ -246,7 +246,7 @@ Activate DNS services for `example.com` in the account `1010`:
     curl  -H 'Authorization: Bearer <token>' \
           -H 'Accept: application/json' \
           -X DELETE \
-          https://api.dnsimple.com/v2/1010/zones/example.com/resolution
+          https://api.dnsimple.com/v2/1010/zones/example.com/activation
 
 ### Response
 
