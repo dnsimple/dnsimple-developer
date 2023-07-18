@@ -2013,7 +2013,7 @@ paths:
         $ref: '#/components/requestBodies/RegistrantChangeCheck'
       responses:
         '200':
-          description: Successfully changed the contact.
+          description: Successfully returned the contact change requirements.
           content:
             application/json:
               schema:
@@ -2023,7 +2023,7 @@ paths:
                     $ref: '#/components/schemas/RegistrantChangeCheck'
         '400':
           $ref: '#/components/responses/400'
-      summary: Check a contact change
+      summary: Check a contact change requirements
   '/{account}/registrant_changes/{registrantchange}':
     get:
       description: Retrieves the details of an existing contact change.
@@ -4110,12 +4110,12 @@ components:
           - title: Non-UK Individual (representing self)
             value: FIND
             description: Non-UK Individual (representing self)
-    ExtendedAttributes:
+    TradeExtendedAttributes:
       type: object
       additionalProperties:
         type: string
       example:
-        x-fi-registrant-idnumber: "111222333"
+        x-fi-registrant-idnumber: "1234"
         x-cat-accept-highly-regulated-tac: "1"
     ExtendedAttributeOption:
       type: object
@@ -4317,7 +4317,7 @@ components:
             - cancelled
             - completed
         extended_attributes:
-          $ref: '#/components/schemas/ExtendedAttributes'
+          $ref: '#/components/schemas/TradeExtendedAttributes'
         registry_owner_change:
           type: boolean
         lock_lifted_by:
@@ -5473,11 +5473,15 @@ components:
             type: object
             properties:
               domain_id:
-                type: string
+                oneOf:
+                  - type: string
+                  - type: integer
               contact_id:
-                type: string
+                oneOf:
+                  - type: string
+                  - type: integer
               extended_attributes:
-                $ref: '#/components/schemas/ExtendedAttributes'
+                $ref: '#/components/schemas/TradeExtendedAttributes'
             example:
               domain_id: "20333"
               contact_id: "2"
@@ -5491,9 +5495,13 @@ components:
             type: object
             properties:
               domain_id:
-                type: string
+                oneOf:
+                  - type: string
+                  - type: integer
               contact_id:
-                type: string
+                oneOf:
+                  - type: string
+                  - type: integer
             example:
               domain_id: "20333"
               contact_id: "2"
