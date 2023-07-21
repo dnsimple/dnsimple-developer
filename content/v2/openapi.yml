@@ -3861,9 +3861,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NameServer'
+    EventDomainRegistrantStarted:
+      type: object
+      description: Payload for domain.registrant_change:started
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        registrant:
+          $ref: '#/components/schemas/Contact'
     EventDomainRegistrantChange:
       type: object
       description: Payload for domain.registrant_change
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        registrant:
+          $ref: '#/components/schemas/Contact'
+    EventDomainRegistrantChangeCancelled:
+      type: object
+      description: Payload for domain.registrant_change:cancelled
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4791,7 +4807,9 @@ components:
             - domain.renew
             - 'domain.renew:cancelled'
             - domain.delegation_change
+            - 'domain.registrant_change:started'
             - domain.registrant_change
+            - 'domain.registrant_change:cancelled'
             - domain.resolution_disable
             - domain.resolution_enable
             - 'domain.transfer:started'
@@ -4876,7 +4894,9 @@ components:
             - $ref: '#/components/schemas/EventDomainRenew'
             - $ref: '#/components/schemas/EventDomainRenewCancelled'
             - $ref: '#/components/schemas/EventDomainDelegationChange'
+            - $ref: '#/components/schemas/EventDomainRegistrantChangeStarted'
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
+            - $ref: '#/components/schemas/EventDomainRegistrantChangeCancelled'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
             - $ref: '#/components/schemas/EventDomainTransferStarted'
