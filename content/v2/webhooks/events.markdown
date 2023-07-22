@@ -97,7 +97,9 @@ The following events are available:
 * domain.renew
 * domain.renew:cancelled
 * domain.delegation\_change
+* domain.registrant\_change:started
 * domain.registrant\_change
+* domain.registrant\_change:cancelled
 * domain.resolution\_disable
 * domain.resolution\_enable
 * domain.transfer:started
