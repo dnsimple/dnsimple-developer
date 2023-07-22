@@ -3861,7 +3861,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NameServer'
-    EventDomainRegistrantStarted:
+    EventDomainRegistrantChangeStarted:
       type: object
       description: Payload for domain.registrant_change:started
       properties:
