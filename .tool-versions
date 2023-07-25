@@ -1,3 +1,3 @@
 # Update also: .ruby-version & .node-version for netlify w/o trailing newline
 ruby 3.2.2
-nodejs 18.13.0
+nodejs 18.17.0
