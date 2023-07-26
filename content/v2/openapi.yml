@@ -2015,7 +2015,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a contact
-  '/{account}/registrant_changes':
+  '/{account}/registrar/registrant_changes':
     get:
       description: List contact changes in the account.
       parameters:
@@ -2070,7 +2070,7 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Create a contact change
-  '/{account}/registrant_changes/check':
+  '/{account}/registrar/registrant_changes/check':
     post:
       description: Retrieves the requirements of a contact change.
       parameters:
@@ -2093,7 +2093,7 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Check a contact change requirements
-  '/{account}/registrant_changes/{registrantchange}':
+  '/{account}/registrar/registrant_changes/{registrantchange}':
     get:
       description: Retrieves the details of an existing contact change.
       parameters:
