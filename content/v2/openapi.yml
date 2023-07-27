@@ -5571,10 +5571,17 @@ components:
                   - type: integer
               extended_attributes:
                 $ref: '#/components/schemas/TradeExtendedAttributes'
-            example:
-              domain_id: "20333"
-              contact_id: "2"
-              extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+            examples:
+              using_domain_id:
+                domain_id: "20333"
+                contact_id: "2"
+                extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+                summary: Using the domain ID as the domain identifier
+              using_domain_name:
+                domain_id: "dnsimple.com"
+                contact_id: "2"
+                extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+                summary: Using the domain name as the domain identifier
     RegistrantChangeCheck:
       description: Contact change attributes
       required: true
@@ -5591,9 +5598,15 @@ components:
                 oneOf:
                   - type: string
                   - type: integer
-            example:
-              domain_id: "20333"
-              contact_id: "2"
+            examples:
+              using_domain_id:
+                domain_id: "20333"
+                contact_id: "2"
+                summary: Using the domain ID as the domain identifier
+              using_domain_name:
+                domain_id: "dnsimple.com"
+                contact_id: "2"
+                summary: Using the domain name as the domain identifier
     SecondaryZoneCreate:
       description: Secondary Zone attributes
       required: true
