@@ -2017,7 +2017,7 @@ paths:
       summary: Delete a contact
   '/{account}/registrar/registrant_changes':
     get:
-      description: List contact changes in the account.
+      description: List registrant changes in the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/SortRegistrantChanges'
@@ -2026,7 +2026,7 @@ paths:
         - registrant changes
       responses:
         '200':
-          description: Successfully retrieved account contact change list.
+          description: Successfully retrieved registrant change list.
           content:
             application/json:
               schema:
@@ -2038,9 +2038,9 @@ paths:
                       $ref: '#/components/schemas/RegistrantChange'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-      summary: List contact changes
+      summary: List registrant changes
     post:
-      description: Creates a contact change.
+      description: Start registrant change.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: createRegistrantChange
@@ -2059,7 +2059,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
         '202':
-          description: The contact change is created and pending completion.
+          description: The contact change has started and pending completion.
           content:
             application/json:
               schema:
@@ -2069,10 +2069,10 @@ paths:
                     $ref: '#/components/schemas/RegistrantChange'
         '400':
           $ref: '#/components/responses/400'
-      summary: Create a contact change
+      summary: Start registrant chnange
   '/{account}/registrar/registrant_changes/check':
     post:
-      description: Retrieves the requirements of a contact change.
+      description: Retrieves the requirements of a registrant change.
       parameters:
         - $ref: '#/components/parameters/Account'
       operationId: checkRegistrantChange
@@ -2082,7 +2082,7 @@ paths:
         $ref: '#/components/requestBodies/RegistrantChangeCheck'
       responses:
         '200':
-          description: Successfully returned the contact change requirements.
+          description: Successfully returned the registrant change requirements.
           content:
             application/json:
               schema:
@@ -2092,10 +2092,10 @@ paths:
                     $ref: '#/components/schemas/RegistrantChangeCheck'
         '400':
           $ref: '#/components/responses/400'
-      summary: Check a contact change requirements
+      summary: Check registrant change requirements
   '/{account}/registrar/registrant_changes/{registrantchange}':
     get:
-      description: Retrieves the details of an existing contact change.
+      description: Retrieves the details of an existing registrant change.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/RegistrantChange'
@@ -2104,7 +2104,7 @@ paths:
         - registrant changes
       responses:
         '200':
-          description: Successfully retrieved the contact change.
+          description: Successfully retrieved the registrant change.
           content:
             application/json:
               schema:
@@ -2114,9 +2114,9 @@ paths:
                     $ref: '#/components/schemas/RegistrantChange'
         '404':
           $ref: '#/components/responses/404'
-      summary: Retrieve a contact change
+      summary: Retrieve a registrant change
     delete:
-      description: Cancel an ongoing contact change from the account.
+      description: Cancel an ongoing registrant change from the account.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/RegistrantChange'
@@ -2125,14 +2125,14 @@ paths:
         - registrant changes
       responses:
         '200':
-          description: Successfully cancelled contact change.
+          description: Successfully cancelled registrant change.
         '201':
-          description: The contact change is cancelling.
+          description: The registrant change is cancelling.
         '400':
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
-      summary: Cancel a contact change
+      summary: Cancel a registrant change
   /services:
     get:
       description: List all available one-click services.
