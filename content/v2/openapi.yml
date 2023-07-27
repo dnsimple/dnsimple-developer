@@ -2788,15 +2788,21 @@ components:
       description: Only include results with a state field exactly matching the given string
       schema:
         type: string
+        enum:
+          - 'new'
+          - 'pending'
+          - 'completed'
+          - 'cancelling'
+          - 'cancelled'
     FilterDomainId:
-      name: domain
+      name: domain_id
       in: query
       required: false
       description: Only include results with a domain_id field exactly matching the given string
       schema:
         type: string
     FilterContactId:
-      name: contact
+      name: contact_id
       in: query
       required: false
       description: Only include results with a contact_id field exactly matching the given string
