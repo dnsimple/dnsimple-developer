@@ -48,6 +48,16 @@ With the official DNSimple Terraform provider you can manage your DNS like your 
 [announcement](https://blog.dnsimple.com/2021/12/introducing-dnsimple-terraform-provider/)
 </small>
 
+### [DNSimple CoreDNS Plugin](https://support.dnsimple.com/articles/integrated-dns-provider-coredns/)
+
+Manage zones for on-premise and self-hosted CoreDNS instances with DNSimple.
+
+<small>
+[documentation](https://support.dnsimple.com/articles/integrated-dns-provider-coredns/) &bull;
+[source code](https://github.com/dnsimple/coredns-dnsimple) &bull;
+[announcement](https://blog.dnsimple.com/2023/07/coredns-integrated-provider/)
+</small>
+
 
 ## Community-developed tools
 
