@@ -4437,7 +4437,7 @@ components:
           $ref: '#/components/schemas/TradeExtendedAttributes'
         registry_owner_change:
           type: boolean
-        lock_lifted_by:
+        irt_lock_lifted_by:
           $ref: '#/components/schemas/Date'
         created_at:
           $ref: '#/components/schemas/DateTime'
@@ -4451,7 +4451,7 @@ components:
         state: completed
         extended_attributes: { "x-fi-registrant-idnumber":"1234" }
         registry_owner_change: false
-        lock_lifted_by: '2013-12-08'
+        irt_lock_lifted_by: '2013-12-08'
         created_at: '2013-11-08T17:23:15Z'
         updated_at: '2015-01-08T21:30:50Z'
     RegistrantChangeCheck:
