@@ -140,6 +140,7 @@ Name | Type | Description
 `ttl` | `integer` |
 `priority` | `integer` |
 `regions` | `array` | Optional set of [regions](#zone-record-regions)
+`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be created in. If not specified, the record will be created in all integrated zones that support the record type. Pass in an empty array to indicate that the record shold not be created in any integrated zones.
 
 ##### Example
 
@@ -243,6 +244,7 @@ Name | Type | Description
 `ttl` | `integer` |
 `priority` | `integer` |
 `regions` | `array` | Optional set of [regions](#zone-record-regions)
+`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be updated in. If not specified, the record update will be applied to all integrated zones that support the record type. Pass in an empty array to indicate that the record update should not be applied to any integrated zones.
 
 ##### Example
 
@@ -282,6 +284,7 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
+`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be deleted in. If not specified, the record deletion will be applied to all integrated zones that support the record type. Pass in an empty array to indicate that the record deletion should not be applied to any integrated zones.
 
 ### Example
 

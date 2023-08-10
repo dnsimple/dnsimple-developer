@@ -1822,6 +1822,8 @@ paths:
       operationId: deleteZoneRecord
       tags:
         - zones
+      requestBody:
+        $ref: '#/components/requestBodies/ZoneRecordDelete'
       responses:
         '204':
           description: Successfully deleted zone record.
@@ -5717,6 +5719,13 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/ZoneRecordRegion'
+              integrated_zones:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
             example:
               name: ''
               type: MX
@@ -5746,12 +5755,38 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/ZoneRecordRegion'
+              integrated_zones:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
             example:
               content: mxb.example.com
               ttl: 3600
               priority: 20
               regions:
                 - global
+    ZoneRecordDelete:
+      description: Zone record delete attributes
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              integrated_zones:
+                type: array
+                items:
+                  type: integer
+                example:
+                  - 1
+                  - 2
+            example:
+              integrated_zones:
+                - 1
+                - 2
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
