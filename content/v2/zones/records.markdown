@@ -303,7 +303,7 @@ The following fields are updateable. You can pass zero or any of them.
 
 Name | Type | Description
 -----|------|------------
-`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be updated in. If not specified, the record update will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record update should not be applied to any integrated zones.
+`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be deleted in. If not specified, the record deletion will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record deletion should not be applied to any integrated zones.
 
 ##### Example
 
