@@ -151,7 +151,8 @@ Name | Type | Description
   "content": "mxa.example.com",
   "ttl": 600,
   "priority": 10,
-  "regions": ["SV1", "IAD"]
+  "regions": ["SV1", "IAD"],
+  "integrated_zones": [1, 2]
 }
 ~~~
 
@@ -253,7 +254,8 @@ Name | Type | Description
   "content": "mxb.example.com",
   "ttl": 3600,
   "priority": 20,
-  "regions": ["global"]
+  "regions": ["global"],
+  "integrated_zones": [1, 2]
 }
 ~~~
 
