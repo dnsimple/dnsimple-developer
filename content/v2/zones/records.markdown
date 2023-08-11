@@ -252,7 +252,7 @@ Name | Type | Description
 {
   "content": "mxb.example.com",
   "ttl": 3600,
-  "priority": 20
+  "priority": 20,
   "regions": ["global"]
 }
 ~~~
@@ -284,7 +284,6 @@ Name | Type | Description
 `:account` | `integer` | The account id
 `:zone` | `string` | The zone name
 `:record` | `integer` | The record id
-`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be deleted in. If not specified, the record deletion will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record deletion should not be applied to any integrated zones.
 
 ### Example
 
@@ -296,6 +295,22 @@ curl  -H 'Authorization: Bearer <token>' \
       -H 'Content-Type: application/json' \
       -X DELETE \
       https://api.dnsimple.com/v2/1010/zones/example.com/records/5
+~~~
+
+### Input
+
+The following fields are updateable. You can pass zero or any of them.
+
+Name | Type | Description
+-----|------|------------
+`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be updated in. If not specified, the record update will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record update should not be applied to any integrated zones.
+
+##### Example
+
+~~~json
+{
+  "integrated_zones": [1, 2]
+}
 ~~~
 
 ### Response
