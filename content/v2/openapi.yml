@@ -1287,6 +1287,75 @@ paths:
         '412':
           $ref: '#/components/responses/412-feature'
       summary: De-delegate from vanity name servers
+  '/{account}/registrar/domains/{domain}/transfer_lock':
+    get:
+      description: Gets the transfer lock status for a domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: getDomainTransferLock
+      tags:
+        - registrar
+        - registrar transfer
+      responses:
+        '200':
+          description: Successfully retrieved transfer lock details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransferLock'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Domain transfer lock status
+    post:
+      description: Locks the domain to prevent unauthorized transfers.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: enableDomainTransferLock
+      tags:
+        - registrar
+        - registrar transfer
+      responses:
+        '201':
+          description: Successfully locked the domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransferLock'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+    delete:
+      description: Unlocks the domain to allow domain transfers.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: disableDomainTransferLock
+      tags:
+        - registrar
+        - registrar transfer
+      responses:
+        '200':
+          description: Successfully unlocked the domain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainTransferLock'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/auto_renewal':
     put:
       description: Enables auto renewal for the domain.
@@ -3623,6 +3692,13 @@ components:
         whois_privacy: false
         created_at: '2016-12-09T19:43:41Z'
         updated_at: '2016-12-09T19:43:43Z'
+    DomainTransferLock:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      example:
+        enabled: true
     DNSSEC:
       type: object
       properties:
@@ -3931,6 +4007,12 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
+    EventDomainLock:
+      type: object
+      description: Payload for domain.lock
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
     EventDomainTransferStarted:
       type: object
       description: Payload for domain.transfer:started
@@ -3946,6 +4028,12 @@ components:
     EventDomainTransferCancelled:
       type: object
       description: Payload for domain.transfer:cancelled
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainUnlock:
+      type: object
+      description: Payload for domain.unlock
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4933,9 +5021,11 @@ components:
             - $ref: '#/components/schemas/EventDomainRegistrantChangeCancelled'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainLock'
             - $ref: '#/components/schemas/EventDomainTransferStarted'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventDomainTransferCancelled'
+            - $ref: '#/components/schemas/EventDomainUnlock'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
