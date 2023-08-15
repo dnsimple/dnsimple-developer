@@ -8,6 +8,9 @@ excerpt: This page documents the DNSimple domain transfer lock API v2.
 * TOC
 {:toc}
 
+<note>
+  This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
+</note>
 
 ## Enable domain transfer lock {#enableDomainTransferLock}
 
