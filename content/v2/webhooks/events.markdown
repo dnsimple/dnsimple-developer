@@ -90,6 +90,7 @@ The following events are available:
 * domain.auto\_renewal\_enable
 * domain.create
 * domain.delete
+* domain.lock
 * domain.register:started
 * domain.register
 * domain.register:cancelled
@@ -105,6 +106,7 @@ The following events are available:
 * domain.transfer:started
 * domain.transfer
 * domain.transfer:cancelled
+* domain.unlock
 * email\_forward.create
 * email\_forward.update
 * email\_forward.delete
