@@ -1026,7 +1026,6 @@ paths:
         - $ref: '#/components/parameters/DomainRegistration'
       operationId: getDomainRegistration
       tags:
-        - registrar
         - registrar registration
       responses:
         '200':
@@ -1081,7 +1080,6 @@ paths:
         - $ref: '#/components/parameters/DomainTransfer'
       operationId: getDomainTransfer
       tags:
-        - registrar
         - registrar transfer
       responses:
         '200':
@@ -1104,7 +1102,6 @@ paths:
         - $ref: '#/components/parameters/DomainTransfer'
       operationId: cancelDomainTransfer
       tags:
-        - registrar
         - registrar transfer
       responses:
         '202':
@@ -1129,7 +1126,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: domainRenew
       tags:
-        - registrar
         - registrar renewal
       requestBody:
         $ref: '#/components/requestBodies/DomainRenew'
@@ -1156,7 +1152,6 @@ paths:
         - $ref: '#/components/parameters/DomainRenewal'
       operationId: getDomainRenewal
       tags:
-        - registrar
         - registrar renewal
       responses:
         '200':
@@ -1295,7 +1290,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: enableDomainAutoRenewal
       tags:
-        - registrar
         - registrar renewal
       responses:
         '204':
@@ -1312,7 +1306,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: disableDomainAutoRenewal
       tags:
-        - registrar
         - registrar renewal
       responses:
         '204':
@@ -1330,7 +1323,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: getWhoisPrivacy
       tags:
-        - registrar
         - registrar privacy
       responses:
         '200':
@@ -3092,9 +3084,7 @@ components:
         invitation_sent_at:
           $ref: '#/components/schemas/DateTime'
         invitation_accepted_at:
-          nullable: true
-          anyOf:
-            - $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/NullableDateTime'
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
