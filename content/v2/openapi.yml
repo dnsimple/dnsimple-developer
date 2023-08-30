@@ -1295,7 +1295,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: getDomainTransferLock
       tags:
-        - registrar
         - registrar transfer
       responses:
         '200':
@@ -1317,7 +1316,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: enableDomainTransferLock
       tags:
-        - registrar
         - registrar transfer
       responses:
         '201':
@@ -1340,7 +1338,6 @@ paths:
         - $ref: '#/components/parameters/Domain'
       operationId: disableDomainTransferLock
       tags:
-        - registrar
         - registrar transfer
       responses:
         '200':
