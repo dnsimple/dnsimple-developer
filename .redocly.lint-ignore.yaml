@@ -88,6 +88,3 @@ content/v2/openapi.yml:
     - '#/components/schemas/NullableDate'
     - '#/components/responses/402'
     - '#/components/responses/412'
-  operation-summary:
-    - '#/paths/~1{account}~1registrar~1domains~1{domain}~1transfer_lock/post/summary'
-    - '#/paths/~1{account}~1registrar~1domains~1{domain}~1transfer_lock/delete/summary'

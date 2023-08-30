@@ -1331,6 +1331,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Enable domain transfer lock
     delete:
       description: Unlocks the domain to allow domain transfers.
       parameters:
@@ -1353,6 +1354,7 @@ paths:
           $ref: '#/components/responses/400'
         '404':
           $ref: '#/components/responses/404'
+      summary: Disable domain transfer lock
   '/{account}/registrar/domains/{domain}/auto_renewal':
     put:
       description: Enables auto renewal for the domain.
