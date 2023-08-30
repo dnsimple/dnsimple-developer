@@ -2123,10 +2123,17 @@ paths:
       tags:
         - registrant changes
       responses:
-        '200':
+        '204':
           description: Successfully cancelled registrant change.
-        '201':
+        '202':
           description: The registrant change is cancelling.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RegistrantChange'
         '400':
           $ref: '#/components/responses/400'
         '404':
