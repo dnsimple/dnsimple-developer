@@ -33,8 +33,7 @@ jobs:
     env:
       BUNDLE_JOBS: 3
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
