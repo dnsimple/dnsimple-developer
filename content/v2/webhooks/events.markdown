@@ -105,8 +105,8 @@ The following events are available:
 * domain.transfer
 * domain.transfer:cancelled
 * domain.transfer:started
-* domain.transfer\_lock\_disabled
-* domain.transfer\_lock\_enabled
+* domain.transfer\_lock\_disable
+* domain.transfer\_lock\_enable
 * email\_forward.create
 * email\_forward.delete
 * email\_forward.update

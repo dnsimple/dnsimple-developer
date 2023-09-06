@@ -4024,15 +4024,15 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventTransferLockDisabled:
+    EventDomainTransferLockDisable:
       type: object
-      description: Payload for domain.transfer_lock_disabled
+      description: Payload for domain.transfer_lock_disable
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventTransferLockEnabled:
+    EventDomainTransferLockEnable:
       type: object
-      description: Payload for domain.transfer_lock_enabled
+      description: Payload for domain.transfer_lock_enable
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -5020,11 +5020,11 @@ components:
             - $ref: '#/components/schemas/EventDomainRegistrantChangeCancelled'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
-            - $ref: '#/components/schemas/EventDomainLock'
-            - $ref: '#/components/schemas/EventDomainTransferStarted'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventDomainTransferCancelled'
-            - $ref: '#/components/schemas/EventDomainUnlock'
+            - $ref: '#/components/schemas/EventDomainTransferLockDisable'
+            - $ref: '#/components/schemas/EventDomainTransferLockEnable'
+            - $ref: '#/components/schemas/EventDomainTransferStarted'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
