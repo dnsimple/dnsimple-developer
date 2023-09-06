@@ -4006,12 +4006,6 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventDomainLock:
-      type: object
-      description: Payload for domain.transfer_lock_enabled
-      properties:
-        domain:
-          $ref: '#/components/schemas/Domain'
     EventDomainTransferStarted:
       type: object
       description: Payload for domain.transfer:started
@@ -4030,9 +4024,15 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventDomainUnlock:
+    EventTransferLockDisabled:
       type: object
       description: Payload for domain.transfer_lock_disabled
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventTransferLockEnabled:
+      type: object
+      description: Payload for domain.transfer_lock_enabled
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
