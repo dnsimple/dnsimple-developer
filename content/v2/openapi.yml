@@ -4008,7 +4008,7 @@ components:
           $ref: '#/components/schemas/Domain'
     EventDomainLock:
       type: object
-      description: Payload for domain.lock
+      description: Payload for domain.transfer_lock_enabled
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4032,7 +4032,7 @@ components:
           $ref: '#/components/schemas/Domain'
     EventDomainUnlock:
       type: object
-      description: Payload for domain.unlock
+      description: Payload for domain.transfer_lock_disabled
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
