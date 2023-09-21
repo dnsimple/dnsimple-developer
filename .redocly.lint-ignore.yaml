@@ -26,6 +26,7 @@ content/v2/openapi.yml:
     - '#/tags/19/description'
     - '#/tags/20/description'
     - '#/tags/21/description'
+    - '#/tags/22/description'
   no-ambiguous-paths:
     - '#/paths/~1tlds~1{tld}'
     - '#/paths/~1{account}~1zones'
