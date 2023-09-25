@@ -140,7 +140,7 @@ Name | Type | Description
 `ttl` | `integer` |
 `priority` | `integer` |
 `regions` | `array` | Optional set of [regions](#zone-record-regions)
-`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be created in. If not specified, the record will be created in all integrated zones that support the record type. Use an empty array to indicate that the record should not be created in any integrated zones.
+`integrated_zones` | `array` | Optional set of IDs identifying the zones where the record should be created. If not specified, the record creation will be applied to the DNSimple zone and all integrated zones that support the record type. If specified, "dnsimple" must be included to create the record in the DNSimple zone.
 
 ##### Example
 
@@ -152,7 +152,7 @@ Name | Type | Description
   "ttl": 600,
   "priority": 10,
   "regions": ["SV1", "IAD"],
-  "integrated_zones": [1, 2]
+  "integrated_zones": [1, 2, "dnsimple"]
 }
 ~~~
 
@@ -245,7 +245,7 @@ Name | Type | Description
 `ttl` | `integer` |
 `priority` | `integer` |
 `regions` | `array` | Optional set of [regions](#zone-record-regions)
-`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be updated in. If not specified, the record update will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record update should not be applied to any integrated zones.
+`integrated_zones` | `array` | Optional set of IDs identifying the zones where the record should be updated. If not specified, the record update will be applied to the DNSimple zone and all integrated zones that support the record type. If specified, "dnsimple" must be included to update the record in the DNSimple zone.
 
 ##### Example
 
@@ -305,13 +305,13 @@ The following fields are updateable. You can pass zero or any of them.
 
 Name | Type | Description
 -----|------|------------
-`integrated_zones` | `array` | Optional set of IDs identifying the integrated zones linked to this DNSimple zone that the record should also be deleted in. If not specified, the record deletion will be applied to all integrated zones that support the record type. Use an empty array to indicate that the record deletion should not be applied to any integrated zones.
+`integrated_zones` | `array` | Optional set of IDs identifying the zones where the record should be deleted. If not specified, the record deletion will be applied to the DNSimple zone and all integrated zones that support the record type. If specified, "dnsimple" must be included to delete the record from the DNSimple zone.
 
 ##### Example
 
 ~~~json
 {
-  "integrated_zones": [1, 2]
+  "integrated_zones": [1, 2, "dnsimple"]
 }
 ~~~
 
