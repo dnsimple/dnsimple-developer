@@ -255,7 +255,7 @@ Name | Type | Description
   "ttl": 3600,
   "priority": 20,
   "regions": ["global"],
-  "integrated_zones": [1, 2]
+  "integrated_zones": [1, 2, "dnsimple"]
 }
 ~~~
 
