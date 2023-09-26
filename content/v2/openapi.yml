@@ -3608,6 +3608,8 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
+        linked_provider:
+          type: string
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
