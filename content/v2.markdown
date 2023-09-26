@@ -82,14 +82,17 @@ Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/
 
 ### Account tokens vs User tokens
 
-API v2 offers 2 types of tokens: account tokens and user tokens.
+API v2 offers 2 types of [tokens](https://support.dnsimple.com/articles/api-access-token): account tokens and user tokens.
 
 The user token gives you access to any resource associated to any account the user has access to. If you have been granted specific domain permissions using [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/), your access will be limited by your given role.
 
-Conversely, an account token gives you access only to the resources connected to that account. [Scoped account access tokens](https://support.dnsimple.com/articles/api-access-token#scoped-access-tokens), which allow granular permissions to specific resources (e.g. domains, certificates or zones) are also [available for certain plans](https://dnsimple.com/pricing).
+Conversely, an account token gives you access only to the resources connected to that account.
 
 We recommend to use account tokens, unless your application needs multi-account access via single token.
 
+## Authorization
+
+[Scoped account access tokens](https://support.dnsimple.com/articles/api-access-token#scoped-access-tokens), which allow granular permissions to specific resources (e.g. domains, certificates or zones) are [available for certain plans](https://dnsimple.com/pricing). When calling an API endpoint with a scoped access token, an authorization check will be performed to verify whether the access token is authorized to access the specified resource(s).
 
 ## Response Codes
 
@@ -107,6 +110,7 @@ DNSimple uses conventional HTTP response codes to indicate success or failure of
 - `400 Bad Request` - The request is invalid or there is an issue with the request payload. See [Errors](#errors).
 - `401 Unauthorized` - The authentication credentials are invalid. See [Authentication](#authentication).
 - `402 Payment Required` - Your account is not subscribed or not in good standing.
+- `403 Permission Denied` - The authentication credentials are invalid. See [Authorization](#authorization).
 - `404 Not Found` - The requested resource doesn't exist or the authenticated account doesn't have permissions to access the resource.
 - `429 Too Many Requests` - You exceeded the allowed number of requests per hour and your request has temporarily been throttled. See [Rate limitting](#rate-limiting).
 
@@ -196,6 +200,11 @@ Depending on the error, the response may include an `errors` key with more detai
 ### 402 - Payment required
 ~~~json
 {"message": "This action cannot be completed because you have purchase invoices that need to be paid for: 12345-1010. Please retry the payment following these instructions https://support.dnsimple.com/articles/account-invoice-history/#retrying."}
+~~~
+
+### 403 - Permission Denied
+~~~json
+{"message": "Permission Denied"}
 ~~~
 
 ### 404 - Not found
