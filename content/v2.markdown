@@ -86,7 +86,7 @@ API v2 offers 2 types of tokens: account tokens and user tokens.
 
 The user token gives you access to any resource associated to any account the user has access to. If you have been granted specific domain permissions using [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/), your access will be limited by your given role.
 
-Conversely, an account token gives you access only to the resources connected to that account.
+Conversely, an account token gives you access only to the resources connected to that account. [Scoped account access tokens](https://support.dnsimple.com/articles/api-access-token#scoped-access-tokens), which allow granular permissions to specific resources (e.g. domains, certificates or zones) are also [available for certain plans](https://dnsimple.com/pricing).
 
 We recommend to use account tokens, unless your application needs multi-account access via single token.
 
