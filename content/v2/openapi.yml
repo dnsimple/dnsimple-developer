@@ -5571,6 +5571,9 @@ components:
               premium_price:
                 type: string
                 description: 'Required as confirmation of the price, only if the domain is premium.'
+              linked_provider:
+                type: string
+                description: 'The nickname of a linked provider to register the domain through. If left blank, registration will go through DNSimple.'
             example:
               registrant_id: 1
     DomainRenew:
