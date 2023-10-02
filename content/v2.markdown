@@ -204,7 +204,11 @@ Depending on the error, the response may include an `errors` key with more detai
 
 ### 403 - Permission Denied
 ~~~json
-{"message": "Permission Denied"}
+{"message": "Permission Denied. Required Scope: domains:*:read"}
+~~~
+
+~~~json
+{"message": "Permission Denied. Required Scope: registrar:{domain_name}:write"}
 ~~~
 
 ### 404 - Not found
