@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    adsf (1.4.7)
+    adsf (1.4.8)
       rack (>= 1.0.0, < 4.0.0)
       rackup (~> 2.1)
     ansi (1.5.0)
@@ -107,7 +107,7 @@ GEM
     puma (6.3.1)
       nio4r (~> 2.0)
     racc (1.7.1)
-    rack (3.0.7)
+    rack (3.0.8)
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
