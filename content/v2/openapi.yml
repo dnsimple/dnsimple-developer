@@ -21,6 +21,7 @@ servers:
     description: 'DNSimple Sandbox API used for testing'
 tags:
   - name: accounts
+  - name: billing
   - name: contacts
   - name: domain certificates
   - name: domain collaborators
@@ -93,6 +94,36 @@ paths:
         default:
           $ref: '#/components/responses/Error'
       summary: Whoami
+  '/{account}/billing/charges':
+    get:
+      description: Lists the billing charges for the account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/FilterStartDate'
+        - $ref: '#/components/parameters/FilterEndDate'
+        - $ref: '#/components/parameters/SortCharges'
+      operationId: listCharges
+      tags:
+        - billing
+      summary: List billing charges
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Charge'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                type: object
+          description: Billing charges listing.
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
   '/{account}/domains':
     get:
       description: Lists the domains in the account.
@@ -2843,6 +2874,20 @@ components:
       description: Only include results with the registrant_id field matching the given value
       schema:
         type: integer
+    FilterStartDate:
+      name: type
+      in: query
+      required: false
+      description: Only include results after the given date.
+      schema:
+        $ref: '#/components/schemas/Date'
+    FilterEndDate:
+      name: type
+      in: query
+      required: false
+      description: Only include results before the given date.
+      schema:
+        $ref: '#/components/schemas/Date'
     FilterType:
       name: type
       in: query
@@ -2892,6 +2937,17 @@ components:
           - 'common_name:desc'
           - 'expiration:asc'
           - 'expiration:desc'
+    SortCharges:
+      description: Sort results. Default sorting is by invoiced ascending.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'invoiced:asc'
+          - 'invoiced:desc'
     SortContacts:
       description: Sort results. Default sorting is by id ascending.
       name: sort
@@ -3451,6 +3507,65 @@ components:
         email: first@example.com
         created_at: '2013-11-08T17:23:15Z'
         updated_at: '2015-01-08T21:30:50Z'
+    Charge:
+      type: object
+      properties:
+        invoiced_at:
+          $ref: '#/components/schemas/DateTime'
+        total_amount:
+          type: string
+          description: The aggregate amount of all line items, that need to be paid.
+        balance_amount:
+          type: string
+          description: The amount that was paid via wallet.
+        reference:
+          type: string
+          description: The reference number of the invoice.
+        state:
+          type: string
+          enum:
+            - collected
+            - refunded
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChargeItem'
+      example:
+        invoiced_at: '2017-03-03T13:49:58.000Z'
+        total_amount: '50.00'
+        balance_amount: '50.00'
+        reference: '20170303-0001'
+        state: collected
+        items:
+          - description: 'Auto Renew example.com'
+            amount: '50.00'
+            product_id: 153
+            product_type: domain-renewal
+            product_reference: example.com
+    ChargeItem:
+      type: object
+      properties:
+        description:
+          type: string
+        amount:
+          type: string
+        product_id:
+          type: integer
+          description: The ID of the product that was charged.
+        product_type:
+          type: string
+          description: The type of the product that was charged.
+        product_reference:
+          type: string
+          description: |
+            A unique or representative reference. For example, the domain name that was charged.
+            Or the ID of the subscription or the order ID of the product.
+      example:
+        description: 'Auto Renew example.com'
+        amount: '50.00'
+        product_id: 153
+        product_type: domain-renewal
+        product_reference: example.com
     DelegationSigner:
       type: object
       example:
