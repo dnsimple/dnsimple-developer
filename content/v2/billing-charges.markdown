@@ -76,7 +76,7 @@ curl  -H 'Authorization: Bearer <token>' \
 Responds with HTTP 200.
 
 ~~~json
-<%= pretty_print_fixture("/api/listCharges/success.http") %>
+pretty_print_fixture("/api/listCharges/success.http")
 ~~~
 
 ### Errors
