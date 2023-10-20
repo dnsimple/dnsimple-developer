@@ -2875,14 +2875,14 @@ components:
       schema:
         type: integer
     FilterStartDate:
-      name: type
+      name: start_date
       in: query
       required: false
       description: Only include results after the given date.
       schema:
         $ref: '#/components/schemas/Date'
     FilterEndDate:
-      name: type
+      name: end_date
       in: query
       required: false
       description: Only include results before the given date.
