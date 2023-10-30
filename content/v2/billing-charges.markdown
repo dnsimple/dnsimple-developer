@@ -14,6 +14,8 @@ Please refer to the definition of the `Charge` data type in [our OpenAPI documen
 
 ## List charges {#listCharges}
 
+<%= render "v2-preview" %>
+
 Lists the billing charges for the account.
 
 ~~~
@@ -80,5 +82,7 @@ pretty_print_fixture("/api/listCharges/success.http")
 ~~~
 
 ### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be ordered.
 
 Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
