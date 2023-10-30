@@ -3551,15 +3551,18 @@ components:
           type: string
         product_id:
           type: integer
-          description: The ID of the product that was charged.
+          nullable: true
+          description: The ID of the product that was charged. Null when the product type is "manual".
         product_type:
           type: string
           description: The type of the product that was charged.
         product_reference:
           type: string
+          nullable: true
           description: |
             A unique or representative reference. For example, the domain name that was charged.
-            Or the ID of the subscription or the order ID of the product.
+            Or the ID of the subscription or the order ID of the product. Null when the product
+            type is "manual"
       example:
         description: 'Auto Renew example.com'
         amount: '50.00'
