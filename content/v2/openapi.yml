@@ -2878,14 +2878,14 @@ components:
       name: start_date
       in: query
       required: false
-      description: Only include results after the given date.
+      description: Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).
       schema:
         $ref: '#/components/schemas/Date'
     FilterEndDate:
       name: end_date
       in: query
       required: false
-      description: Only include results before the given date.
+      description: Only include results before the given date. Format is ISO8601 (YYYY-MM-DD).
       schema:
         $ref: '#/components/schemas/Date'
     FilterType:

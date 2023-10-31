@@ -30,10 +30,10 @@ GET /:account/billing/charges
 
 ### Filters
 
-| Name          | Description                                 |
-| ------------- | ------------------------------------------- |
-| `:start_date` | Only include results after the given date.  |
-| `:end_date`   | Only include results before the given date. |
+| Name          | Description                                                                 |
+| ------------- | --------------------------------------------------------------------------- |
+| `:start_date` | Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).  |
+| `:end_date`   | Only include results before the given date. Format is ISO8601 (YYYY-MM-DD). |
 
 The default period is the last 1 year.
 
