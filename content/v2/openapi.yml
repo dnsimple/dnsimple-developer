@@ -5283,6 +5283,9 @@ components:
         last_transferred_at:
           $ref: '#/components/schemas/DateTime'
           description: 'Returns the date the zone was last transferred. Used if it is a secondary zone.'
+        active:
+          type: boolean
+          description: 'Returns true if DNS services are active for the zone. If false, DNS services are disabled and DNS records will not be resolved.'
         created_at:
           $ref: '#/components/schemas/DateTime'
         updated_at:
@@ -5294,6 +5297,7 @@ components:
         reverse: false
         secondary: false
         last_transfferd_at: null
+        active: true
         created_at: '2015-04-23T07:40:03Z'
         updated_at: '2015-04-23T07:40:03Z'
     ZoneFile:

@@ -24,24 +24,24 @@ GET /:account/zones
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
 
 ### Filters
 
-Name | Description
------|------------
-`:name_like` | Only include zones containing given string
+| Name         | Description                                |
+| ------------ | ------------------------------------------ |
+| `:name_like` | Only include zones containing given string |
 
 ### Sorting
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
 
-Name | Description
------|------------
-`id` | Sort zones by ID
-`name` | Sort zones by name (alphabetical order)
+| Name   | Description                             |
+| ------ | --------------------------------------- |
+| `id`   | Sort zones by ID                        |
+| `name` | Sort zones by name (alphabetical order) |
 
 The default sorting policy is by ascending `name`.
 
@@ -79,10 +79,10 @@ GET /:account/zones/:zone
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `string` | The zone name
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
+| `:zone`    | `string`  | The zone name  |
 
 ### Example
 
@@ -110,10 +110,10 @@ Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `string` | The zone name
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
+| `:zone`    | `string`  | The zone name  |
 
 ### Example
 
@@ -147,10 +147,10 @@ This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `string` | The zone name
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
+| `:zone`    | `string`  | The zone name  |
 
 ### Example
 
@@ -198,10 +198,10 @@ Under Solo and Teams plans, active zones are charged when renewing your subscrip
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `string` | The zone name
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
+| `:zone`    | `string`  | The zone name  |
 
 ### Example
 
@@ -217,7 +217,7 @@ Activate DNS services for `example.com` in the account `1010`:
 Responds with HTTP 200 when the zone was successfully activated.
 
 ~~~json
-<%= pretty_print_fixture("/api/getZone/success.http") %>
+<%= pretty_print_fixture("/api/activateZoneService/success.http") %>
 ~~~
 
 ### Errors
@@ -238,10 +238,10 @@ Under Solo and Teams plans, active zones are charged when renewing your subscrip
 
 ### Parameters
 
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:zone` | `string` | The zone name
+| Name       | Type      | Description    |
+| ---------- | --------- | -------------- |
+| `:account` | `integer` | The account id |
+| `:zone`    | `string`  | The zone name  |
 
 ### Example
 
@@ -257,7 +257,7 @@ Activate DNS services for `example.com` in the account `1010`:
 Responds with HTTP 200 when the zone has been successfully deactivated.
 
 ~~~json
-<%= pretty_print_fixture("/api/getZone/success.http") %>
+<%= pretty_print_fixture("/api/deactivateZoneService/success.http") %>
 ~~~
 
 ### Errors
