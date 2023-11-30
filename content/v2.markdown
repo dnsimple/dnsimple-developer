@@ -431,6 +431,9 @@ Content-Length: 28
 {"message":"quota exceeded"}
 ~~~
 
+<warning>
+Individual API endpoints may have additional mechanisms in place to prevent abuse
+</warning>
 
 ## More Examples
 
