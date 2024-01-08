@@ -21,3 +21,12 @@ def pretty_print_fixture(filename)
   body = response.read_body
   body ? JSON.pretty_generate(JSON.parse(body)) : nil
 end
+
+def blog_articles
+  uri = URI('https://blog.dnsimple.com/feed.json')
+  # uri = URI('http://localhost:4000/feed.json')
+  res = Net::HTTP.get(uri)
+  feed = JSON.parse(res, { symbolize_names: true })
+
+  feed[:items].select { |item| item[:tags].downcase.include? "feature" }
+end
