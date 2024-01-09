@@ -24,9 +24,15 @@ end
 
 def blog_articles
   uri = URI('https://blog.dnsimple.com/feed.json')
-  # uri = URI('http://localhost:4000/feed.json')
   res = Net::HTTP.get(uri)
   feed = JSON.parse(res, { symbolize_names: true })
+  features = feed[:items].select { |item| item[:tags].downcase.include? "feature" }
 
-  feed[:items].select { |item| item[:tags].downcase.include? "feature" }
+  main = features.find { |item| item[:illustration] }
+  secondary = features.select { |item| item[:title] != main[:title] }
+
+  {
+    main:,
+    secondary: secondary.take(2)
+  }
 end
