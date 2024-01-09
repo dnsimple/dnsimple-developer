@@ -32,7 +32,7 @@ def blog_articles
   secondary = features.select { |item| item[:title] != main[:title] }
 
   {
-    main:,
+    main: main,
     secondary: secondary.take(2)
   }
 end
