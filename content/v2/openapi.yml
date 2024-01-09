@@ -3695,12 +3695,16 @@ components:
           type: number
           format: float
           description: The domain transfer price represented as a USD amount with dollars and cents.
+        restore_price:
+          type: number
+          format: float
+          description: The domain restore price represented as a USD amount with dollars and cents.
       example:
         domain: ruby.codes
         premium: false
         registration_price: 12.0
         renewal_price: 15.0
-        transfer_price: 15.0
+        restore_price: 25.0
     DomainRegistration:
       type: object
       properties:
