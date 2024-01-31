@@ -273,24 +273,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Add a collaborator
-  '/{account}/domains/{domain}/collaborators/{collaborator}':
-    delete:
-      description: Removes a collaborator from the domain.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-        - $ref: '#/components/parameters/Collaborator'
-      operationId: removeDomainCollaborator
-      tags:
-        - domain collaborators
-      responses:
-        '204':
-          description: Successfully removed collaborator
-        '400':
-          $ref: '#/components/responses/400'
-        '404':
-          $ref: '#/components/responses/404'
-      summary: Remove a collaborator
   '/{account}/domains/{domain}/dnssec':
     get:
       description: Gets the DNSSEC status for an existing domain.
@@ -1601,7 +1583,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a primary server
-
   '/{account}/secondary_dns/primaries/{primaryserver}/link':
     put:
       description: Link the primary server to a secondary zone.
@@ -1651,6 +1632,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Unlink a primary server from a secondary zone
+
   '/{account}/secondary_dns/zones':
     post:
       summary: Create a secondary zone
@@ -2168,6 +2150,24 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Start registrant chnange
+  '/{account}/domains/{domain}/collaborators/{collaborator}':
+    delete:
+      description: Removes a collaborator from the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Collaborator'
+      operationId: removeDomainCollaborator
+      tags:
+        - domain collaborators
+      responses:
+        '204':
+          description: Successfully removed collaborator
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Remove a collaborator
   '/{account}/registrar/registrant_changes/check':
     post:
       description: Retrieves the requirements of a registrant change.
@@ -2697,6 +2697,70 @@ paths:
         '204':
           description: Successfully deleted a webhook.
       summary: Delete a webhook
+  '/{account}/dns_analytics':
+    get:
+      description: Retrieve data about DNS queries for the zones in an account.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - startDate:
+          description:
+            Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).
+            It can be at most 31 days away from the end_date.
+            If omitted it defaults to 31 days ago.
+          name: start_date
+          style: form
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+        - endDate:
+          description:
+            Only include results before the given date. Format is ISO8601 (YYYY-MM-DD).
+            It can be at most 31 days away from the start_date.
+            If omitted it defaults to 1 day ago.
+          name: end_date
+          style: form
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+        - groupings:
+          description:
+            How to group the results about the account's DNS analytics.
+            Multiple groupings can be provided separated by commas.
+            If omitted defaults to grouping by volume.
+          name: groupings
+          style: form
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'date'
+              - 'volume'
+              - 'zone_name'
+        - $ref: '#/components/parameters/SortDNSAnalytics'
+        - page:
+          description: The page of the results requested. Defaults to 1.
+          name: page
+          style: form
+          in: query
+          required: false
+          schema:
+            type: integer
+        - per_page:
+          description: The amount of rows to return in each page. Defaults to 1000.
+          name: per_page
+          style: form
+          in: query
+          required: false
+          schema:
+            type: integer
+      operationId: dnsAnalytics
+      tags:
+        - billing
+        - zones
+      summary: Analytics about DNS queries
 components:
   securitySchemes:
     basicAuth:
@@ -2963,6 +3027,22 @@ components:
           - 'label:desc'
           - 'email:asc'
           - 'email:desc'
+    SortDNSAnalytics:
+      description: Sort results. Default sorting is ascending both by date, and zone name.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'date:asc'
+          - 'date:desc'
+          - 'volume:asc'
+          - 'volume:desc'
+          - 'zone_name:asc'
+          - 'zone_name:desc'
+    SortDomains:
     SortDomains:
       description: Sort results. Default sorting is ascending by name.
       name: sort
