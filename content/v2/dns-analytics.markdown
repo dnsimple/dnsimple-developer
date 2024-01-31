@@ -42,10 +42,10 @@ Applying groupings to the query will add columns to the response payload.
 
 ### Filters
 
-Name | Default value | Description
------|---------------|------------
-`:start_date` | The day before today | Only include results starting from the provided date
-`:end_date` | 31 days ago | Only include results up to the provided date
+Name | Default value                   | Description
+-----|---------------------------------|------------
+`:start_date` | The day before the current date | Only include results starting from the provided date
+`:end_date` | 31 days before the current date | Only include results up to the provided date
 
 <info>
 Both filters **must be used together**, and date values must be in **ISO 8601 format** (e.g. `2024-08-01`). Both dates are **inclusive**.
