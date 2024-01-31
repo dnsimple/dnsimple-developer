@@ -11,12 +11,12 @@ info:
 externalDocs:
   url: 'https://developer.dnsimple.com'
 security:
-  - basicAuth: []
-  - bearerAuth: []
+  - basicAuth: [ ]
+  - bearerAuth: [ ]
 servers:
   - url: 'https://api.dnsimple.com/v2'
     description: DNSimple Production API
-    variables: {}
+    variables: { }
   - url: 'https://api.sandbox.dnsimple.com/v2'
     description: 'DNSimple Sandbox API used for testing'
 tags:
@@ -48,7 +48,7 @@ paths:
   /accounts:
     get:
       description: Lists the accounts the current authenticated entity has access to.
-      parameters: []
+      parameters: [ ]
       operationId: listAccounts
       tags:
         - accounts
@@ -68,7 +68,7 @@ paths:
   /whoami:
     get:
       description: Retrieves the details about the current authenticated entity used to access the API.
-      parameters: []
+      parameters: [ ]
       operationId: whoami
       tags:
         - identity
@@ -740,8 +740,8 @@ paths:
                   type: array
                   items:
                     type: string
-                  default: []
-                  example: ['docs.example.com', 'status.example.com']
+                  default: [ ]
+                  example: [ 'docs.example.com', 'status.example.com' ]
                 signature_algorithm:
                   description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
                   type: string
@@ -2740,22 +2740,9 @@ paths:
               - 'volume'
               - 'zone_name'
         - $ref: '#/components/parameters/SortDNSAnalytics'
-        - page:
-          description: The page of the results requested. Defaults to 1.
-          name: page
-          style: form
-          in: query
-          required: false
-          schema:
-            type: integer
-        - per_page:
-          description: The amount of rows to return in each page. Defaults to 1000.
-          name: per_page
-          style: form
-          in: query
-          required: false
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationPerPage'
+
       operationId: dnsAnalytics
       tags:
         - billing
@@ -2986,6 +2973,25 @@ components:
       description: Only include results with a contact_id field exactly matching the given string
       schema:
         type: string
+    PaginationPage:
+      description: The page of the results requested. Defaults to 1.
+      name: page
+      style: form
+      in: query
+      required: false
+      schema:
+        type: integer
+    PaginationPerPage:
+      description:
+        The amount of rows to return in each page.
+        The default is usually 100. 
+        There are endpoints that override this default to accommodate specific use cases.
+      name: per_page
+      style: form
+      in: query
+      required: false
+      schema:
+        type: integer
     SortCertificates:
       description: Sort results. Default sorting is by id.
       name: sort
@@ -4674,7 +4680,7 @@ components:
         name: 'Primary Server'
         ip: '1.1.1.1'
         port: 4567
-        linked_secondary_zones: ['example.com']
+        linked_secondary_zones: [ 'example.com' ]
         created_at: '2016-08-11T10:16:03Z'
         updated_at: '2016-08-11T10:16:03Z'
     Push:
@@ -4737,7 +4743,7 @@ components:
         contact_id: 2
         domain_id: 2
         state: completed
-        extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+        extended_attributes: { "x-fi-registrant-idnumber": "1234" }
         registry_owner_change: false
         irt_lock_lifted_by: '2013-12-08'
         created_at: '2013-11-08T17:23:15Z'
@@ -4758,7 +4764,7 @@ components:
       example:
         contact_id: 2
         domain_id: 2
-        extended_attributes: [{ "name":"x-fi-registrant-birth-date" ,"title":"The registrant's birth date", "description":"Format is: YYYY-MM-DD.","required":false,"options":[] }]
+        extended_attributes: [ { "name": "x-fi-registrant-birth-date" ,"title": "The registrant's birth date", "description": "Format is: YYYY-MM-DD.","required": false,"options": [ ] } ]
         registry_owner_change: false
     SecondaryDNS:
       type: object
@@ -5903,7 +5909,7 @@ components:
             example:
               domain_id: "example.com"
               contact_id: "2"
-              extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+              extended_attributes: { "x-fi-registrant-idnumber": "1234" }
     RegistrantChangeCheck:
       description: Contact change attributes
       required: true
