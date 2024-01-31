@@ -8,6 +8,10 @@ excerpt: This page documents the DNS Analytics API v2 endpoint.
 * TOC
 {:toc}
 
+<note>
+  This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
+</note>
+
 ## Query DNS Analytics data {#query}
 
 Queries and returns DNS Analytics data available for the provided query parameters 
