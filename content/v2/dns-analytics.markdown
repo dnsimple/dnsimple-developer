@@ -70,7 +70,8 @@ The default sorting policy is by ascending `date`, then ascending `zone_name`.
 
 Pagination is supported in this endpoint:
 
-- The maximum supported page size (`per_page` query parameter) is 10,000 for this endpoint
+- The default page size (`per_page` query parameter) is 1,000
+- The maximum supported page size (`per_page` query parameter) is 10,000
 - Please refer to the [main guide](/v2/#pagination)
 
 ### Example: get total query volume data for the entire account
