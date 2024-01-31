@@ -34,6 +34,7 @@ Name | Description
 `:date` | Group rows by date
 
 No groupings will be applied by default unless specified.
+Multiple groupings can be provided, separated by a comma.
 
 <info>
 Applying groupings to the query will add columns to the response payload.
