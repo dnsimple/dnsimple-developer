@@ -2745,6 +2745,56 @@ paths:
         - $ref: '#/components/parameters/SortDNSAnalytics'
         - $ref: '#/components/parameters/PaginationPage'
         - $ref: '#/components/parameters/PaginationPerPage'
+      responses:
+        '200':
+          description: Successfully retrieved DNS analytics data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      rows:
+                        type: array
+                        items:
+                          type:
+                            - string
+                            - integer
+                          example: [example.com,102985]
+                      headers:
+                        type: array
+                        items:
+                          type: string
+                          example: zone_name,volume
+                  query:
+                    type: object
+                    properties:
+                      account_id:
+                        type: integer
+                      start_date:
+                        $ref: '#/components/schemas/Date'
+                      end_date:
+                        $ref: '#/components/schemas/Date'
+                      sort:
+                        type: string
+                        description: Sorting applied to the returned data.
+                        example: "date:asc,zone_name:asc"
+                      groupings:
+                        type: string
+                        description: Grouping applied to the returned data.
+                        example: "date,zone_name"
+                      page:
+                        type: integer
+                        description: The returned page numeber.
+                        example: 1
+                      per_page:
+                        type: integer
+                        description: The page size used to generate the data.
+                        example: 1000
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
       operationId: dnsAnalytics
       tags:
         - billing
