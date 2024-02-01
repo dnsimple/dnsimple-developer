@@ -2765,7 +2765,7 @@ paths:
                         type: array
                         items:
                           type: string
-                          example: zone_name,volume
+                          example: "zone_name,volume"
                   query:
                     type: object
                     properties:
