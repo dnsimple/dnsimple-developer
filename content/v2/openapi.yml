@@ -2699,7 +2699,9 @@ paths:
       summary: Delete a webhook
   '/{account}/dns_analytics':
     get:
-      description: Retrieve data about DNS queries for the zones in an account.
+      description:
+        Queries and returns DNS Analytics data available for the provided query parameters.
+        This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
       parameters:
         - $ref: '#/components/parameters/Account'
         - startDate:
@@ -2727,8 +2729,9 @@ paths:
         - groupings:
           description:
             How to group the results about the account's DNS analytics.
-            Multiple groupings can be provided separated by commas.
-            If omitted defaults to grouping by volume.
+            No groupings will be applied by default unless specified.
+            Multiple groupings can be provided, separated by a comma.
+            Applying groupings to the query will add columns to the response payload.
           name: groupings
           style: form
           in: query
@@ -2742,7 +2745,6 @@ paths:
         - $ref: '#/components/parameters/SortDNSAnalytics'
         - $ref: '#/components/parameters/PaginationPage'
         - $ref: '#/components/parameters/PaginationPerPage'
-
       operationId: dnsAnalytics
       tags:
         - billing
@@ -3034,7 +3036,7 @@ components:
           - 'email:asc'
           - 'email:desc'
     SortDNSAnalytics:
-      description: Sort results. Default sorting is ascending both by date, and zone name.
+      description: Sort results. Default sorting policy is by ascending date, then ascending zone_name.
       name: sort
       style: form
       in: query
