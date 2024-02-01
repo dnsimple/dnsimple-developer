@@ -2756,8 +2756,10 @@ paths:
                       rows:
                         type: array
                         items:
-                          type:
-                            - string | integer
+                          anyOf:
+                            - type: integer
+                            - type: string
+                            - $ref: '#/components/schemas/Date'
                           example: [example.com,102985]
                       headers:
                         type: array
