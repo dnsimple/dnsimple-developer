@@ -44,7 +44,7 @@ Applying groupings to the query will add columns to the response payload.
 
 Name | Default value                   | Description
 -----|---------------------------------|------------
-`:start_date` | 31 days before the current date | Only include results up to the provided date
+`:start_date` | 31 days before the current date | Only include results starting from the provided date
 `:end_date` | The day before the current date | Only include results starting from the provided date
 
 <info>
