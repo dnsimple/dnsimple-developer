@@ -3101,7 +3101,6 @@ components:
           - 'zone_name:asc'
           - 'zone_name:desc'
     SortDomains:
-    SortDomains:
       description: Sort results. Default sorting is ascending by name.
       name: sort
       style: form
