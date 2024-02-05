@@ -9,12 +9,12 @@ excerpt: This page documents the DNS Analytics API v2 endpoint.
 {:toc}
 
 <note>
-  This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
+  This API is currently in Public Beta. During the Public Beta period, changes may occur at any time.
 </note>
 
 ## Query DNS Analytics data {#query}
 
-Queries and returns DNS Analytics data available for the provided query parameters 
+Queries and returns DNS Analytics data available for the provided query parameters: 
 
 ~~~
 GET /:account/dns_analytics
@@ -71,9 +71,9 @@ The default sorting policy is by ascending `date`, then ascending `zone_name`.
 
 Pagination is supported in this endpoint:
 
-- The default page size (`per_page` query parameter) is 1,000
-- The maximum supported page size (`per_page` query parameter) is 10,000
-- Please refer to the [main guide](/v2/#pagination)
+- The default page size (`per_page` query parameter) is 1,000.
+- The maximum supported page size (`per_page` query parameter) is 10,000.
+- Please refer to the [main guide](/v2/#pagination).
 
 ### Example: get total query volume data for the entire account
 
@@ -111,4 +111,4 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized) if there are authentication issues.
