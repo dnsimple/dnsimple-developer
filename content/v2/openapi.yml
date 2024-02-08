@@ -2707,7 +2707,7 @@ paths:
         - name: start_date
           description:
             Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).
-            It can be a max. of 31 days away from the end_date.
+            It can be a max of 31 days away from the end_date.
             If omitted, it defaults to 31 days ago.
           style: form
           in: query
@@ -2717,7 +2717,7 @@ paths:
         - name: end_date
           description:
             Only include results before the given date. Format is ISO8601 (YYYY-MM-DD).
-            It can be a max. of 31 days away from the start_date.
+            It can be a max of 31 days away from the start_date.
             If omitted, it defaults to 1 day ago.
           style: form
           in: query
@@ -2785,7 +2785,7 @@ paths:
                         example: "date,zone_name"
                       page:
                         type: integer
-                        description: The returned page numeber.
+                        description: The returned page number.
                         example: 1
                       per_page:
                         type: integer
