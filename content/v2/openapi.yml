@@ -2149,7 +2149,7 @@ paths:
                     $ref: '#/components/schemas/RegistrantChange'
         '400':
           $ref: '#/components/responses/400'
-      summary: Start registrant chnange
+      summary: Start registrant change
   '/{account}/domains/{domain}/collaborators/{collaborator}':
     delete:
       description: Removes a collaborator from the domain.
@@ -2701,14 +2701,14 @@ paths:
     get:
       description:
         Queries and returns DNS Analytics data available for the provided query parameters.
-        This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
+        This API is currently in Public Beta. During the Public Beta period, changes may occur at any time.
       parameters:
         - $ref: '#/components/parameters/Account'
         - name: start_date
           description:
             Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).
-            It can be at most 31 days away from the end_date.
-            If omitted it defaults to 31 days ago.
+            It can be a max. of 31 days away from the end_date.
+            If omitted, it defaults to 31 days ago.
           style: form
           in: query
           required: false
@@ -2717,8 +2717,8 @@ paths:
         - name: end_date
           description:
             Only include results before the given date. Format is ISO8601 (YYYY-MM-DD).
-            It can be at most 31 days away from the start_date.
-            If omitted it defaults to 1 day ago.
+            It can be a max. of 31 days away from the start_date.
+            If omitted, it defaults to 1 day ago.
           style: form
           in: query
           required: false
@@ -2726,7 +2726,7 @@ paths:
             $ref: '#/components/schemas/Date'
         - name: groupings
           description:
-            How to group the results about the account's DNS analytics.
+            How to group the results of the account's DNS analytics.
             No groupings will be applied by default unless specified.
             Multiple groupings can be provided, separated by a comma.
             Applying groupings to the query will add columns to the response payload.
