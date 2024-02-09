@@ -11,12 +11,12 @@ info:
 externalDocs:
   url: 'https://developer.dnsimple.com'
 security:
-  - basicAuth: []
-  - bearerAuth: []
+  - basicAuth: [ ]
+  - bearerAuth: [ ]
 servers:
   - url: 'https://api.dnsimple.com/v2'
     description: DNSimple Production API
-    variables: {}
+    variables: { }
   - url: 'https://api.sandbox.dnsimple.com/v2'
     description: 'DNSimple Sandbox API used for testing'
 tags:
@@ -48,7 +48,7 @@ paths:
   /accounts:
     get:
       description: Lists the accounts the current authenticated entity has access to.
-      parameters: []
+      parameters: [ ]
       operationId: listAccounts
       tags:
         - accounts
@@ -68,7 +68,7 @@ paths:
   /whoami:
     get:
       description: Retrieves the details about the current authenticated entity used to access the API.
-      parameters: []
+      parameters: [ ]
       operationId: whoami
       tags:
         - identity
@@ -273,24 +273,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Add a collaborator
-  '/{account}/domains/{domain}/collaborators/{collaborator}':
-    delete:
-      description: Removes a collaborator from the domain.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-        - $ref: '#/components/parameters/Collaborator'
-      operationId: removeDomainCollaborator
-      tags:
-        - domain collaborators
-      responses:
-        '204':
-          description: Successfully removed collaborator
-        '400':
-          $ref: '#/components/responses/400'
-        '404':
-          $ref: '#/components/responses/404'
-      summary: Remove a collaborator
   '/{account}/domains/{domain}/dnssec':
     get:
       description: Gets the DNSSEC status for an existing domain.
@@ -758,8 +740,8 @@ paths:
                   type: array
                   items:
                     type: string
-                  default: []
-                  example: ['docs.example.com', 'status.example.com']
+                  default: [ ]
+                  example: [ 'docs.example.com', 'status.example.com' ]
                 signature_algorithm:
                   description: 'Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`'
                   type: string
@@ -1601,7 +1583,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a primary server
-
   '/{account}/secondary_dns/primaries/{primaryserver}/link':
     put:
       description: Link the primary server to a secondary zone.
@@ -1651,6 +1632,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Unlink a primary server from a secondary zone
+
   '/{account}/secondary_dns/zones':
     post:
       summary: Create a secondary zone
@@ -2167,7 +2149,25 @@ paths:
                     $ref: '#/components/schemas/RegistrantChange'
         '400':
           $ref: '#/components/responses/400'
-      summary: Start registrant chnange
+      summary: Start registrant change
+  '/{account}/domains/{domain}/collaborators/{collaborator}':
+    delete:
+      description: Removes a collaborator from the domain.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/Collaborator'
+      operationId: removeDomainCollaborator
+      tags:
+        - domain collaborators
+      responses:
+        '204':
+          description: Successfully removed collaborator
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Remove a collaborator
   '/{account}/registrar/registrant_changes/check':
     post:
       description: Retrieves the requirements of a registrant change.
@@ -2697,6 +2697,107 @@ paths:
         '204':
           description: Successfully deleted a webhook.
       summary: Delete a webhook
+  '/{account}/dns_analytics':
+    get:
+      description:
+        Queries and returns DNS Analytics data available for the provided query parameters.
+        This API is currently in Public Beta. During the Public Beta period, changes may occur at any time.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - name: start_date
+          description:
+            Only include results after the given date. Format is ISO8601 (YYYY-MM-DD).
+            It can be a max of 31 days away from the end_date.
+            If omitted, it defaults to 31 days ago.
+          style: form
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+        - name: end_date
+          description:
+            Only include results before the given date. Format is ISO8601 (YYYY-MM-DD).
+            It can be a max of 31 days away from the start_date.
+            If omitted, it defaults to 1 day ago.
+          style: form
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+        - name: groupings
+          description:
+            How to group the results of the account's DNS analytics.
+            No groupings will be applied by default unless specified.
+            Multiple groupings can be provided, separated by a comma.
+            Applying groupings to the query will add columns to the response payload.
+          style: form
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'date'
+              - 'volume'
+              - 'zone_name'
+        - $ref: '#/components/parameters/SortDNSAnalytics'
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationPerPage'
+      responses:
+        '200':
+          description: Successfully retrieved DNS analytics data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      rows:
+                        type: array
+                        items:
+                          anyOf:
+                            - type: integer
+                            - type: string
+                            - $ref: '#/components/schemas/Date'
+                          example: ["example.com", "2024-08-01", 102985]
+                      headers:
+                        type: array
+                        items:
+                          type: string
+                          example: "zone_name,volume"
+                  query:
+                    type: object
+                    properties:
+                      account_id:
+                        type: integer
+                      start_date:
+                        $ref: '#/components/schemas/Date'
+                      end_date:
+                        $ref: '#/components/schemas/Date'
+                      sort:
+                        type: string
+                        description: Sorting applied to the returned data.
+                        example: "date:asc,zone_name:asc"
+                      groupings:
+                        type: string
+                        description: Grouping applied to the returned data.
+                        example: "date,zone_name"
+                      page:
+                        type: integer
+                        description: The returned page number.
+                        example: 1
+                      per_page:
+                        type: integer
+                        description: The page size used to generate the data.
+                        example: 1000
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+      operationId: dnsAnalytics
+      tags:
+        - billing
+        - zones
+      summary: Analytics about DNS queries
 components:
   securitySchemes:
     basicAuth:
@@ -2922,6 +3023,25 @@ components:
       description: Only include results with a contact_id field exactly matching the given string
       schema:
         type: string
+    PaginationPage:
+      description: The page of the results requested. Defaults to 1.
+      name: page
+      style: form
+      in: query
+      required: false
+      schema:
+        type: integer
+    PaginationPerPage:
+      description:
+        The amount of rows to return in each page.
+        The default is usually 100. 
+        There are endpoints that override this default to accommodate specific use cases.
+      name: per_page
+      style: form
+      in: query
+      required: false
+      schema:
+        type: integer
     SortCertificates:
       description: Sort results. Default sorting is by id.
       name: sort
@@ -2963,6 +3083,15 @@ components:
           - 'label:desc'
           - 'email:asc'
           - 'email:desc'
+    SortDNSAnalytics:
+      description: Sort results. Default sorting policy is by ascending date, then ascending zone_name.
+      name: sort
+      style: form
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'volume:desc,zone_name:asc'
     SortDomains:
       description: Sort results. Default sorting is ascending by name.
       name: sort
@@ -4594,7 +4723,7 @@ components:
         name: 'Primary Server'
         ip: '1.1.1.1'
         port: 4567
-        linked_secondary_zones: ['example.com']
+        linked_secondary_zones: [ 'example.com' ]
         created_at: '2016-08-11T10:16:03Z'
         updated_at: '2016-08-11T10:16:03Z'
     Push:
@@ -4657,7 +4786,7 @@ components:
         contact_id: 2
         domain_id: 2
         state: completed
-        extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+        extended_attributes: { "x-fi-registrant-idnumber": "1234" }
         registry_owner_change: false
         irt_lock_lifted_by: '2013-12-08'
         created_at: '2013-11-08T17:23:15Z'
@@ -4678,7 +4807,7 @@ components:
       example:
         contact_id: 2
         domain_id: 2
-        extended_attributes: [{ "name":"x-fi-registrant-birth-date" ,"title":"The registrant's birth date", "description":"Format is: YYYY-MM-DD.","required":false,"options":[] }]
+        extended_attributes: [ { "name": "x-fi-registrant-birth-date" ,"title": "The registrant's birth date", "description": "Format is: YYYY-MM-DD.","required": false,"options": [ ] } ]
         registry_owner_change: false
     SecondaryDNS:
       type: object
@@ -5823,7 +5952,7 @@ components:
             example:
               domain_id: "example.com"
               contact_id: "2"
-              extended_attributes: { "x-fi-registrant-idnumber":"1234" }
+              extended_attributes: { "x-fi-registrant-idnumber": "1234" }
     RegistrantChangeCheck:
       description: Contact change attributes
       required: true
