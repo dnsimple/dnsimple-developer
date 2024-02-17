@@ -37,6 +37,7 @@ tags:
   - name: registrar privacy
   - name: registrar registration
   - name: registrar renewal
+  - name: registrar restore
   - name: registrar transfer
   - name: secondary dns
   - name: templates
@@ -1176,6 +1177,56 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRenewal'
+        '404':
+          $ref: '#/components/responses/404'
+  '/{account}/registrar/domains/{domain}/restores':
+    post:
+      description: |-
+        Explicitly restores an domain that can not be renewed anymore, if the registry supports this function.
+
+        Your account must be active for this command to complete successfully. You will be automatically charged the restore fee upon successful restore, so please be careful with this command.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+      operationId: domainRestore
+      tags:
+        - registrar restore
+      requestBody:
+        $ref: '#/components/requestBodies/DomainRestore'
+      responses:
+        '201':
+          description: Domain restore created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRestore'
+        '400':
+          $ref: '#/components/responses/400'
+      summary: Restore a domain
+  '/{account}/registrar/domains/{domain}/restores/{domainrestore}':
+    get:
+      description: Retrieves the details of an existing domain restore.
+      summary: Retrieve a domain restore
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Domain'
+        - $ref: '#/components/parameters/DomainRestore'
+      operationId: getDomainRestore
+      tags:
+        - registrar restore
+      responses:
+        '200':
+          description: Domain restore details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainRestore'
         '404':
           $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
@@ -2863,6 +2914,13 @@ components:
       description: The domain renewal id
       schema:
         type: integer
+    DomainRestore:
+      name: domainrestore
+      in: path
+      required: true
+      description: The domain restore id
+      schema:
+        type: integer
     DomainTransfer:
       name: domaintransfer
       in: path
@@ -3034,7 +3092,7 @@ components:
     PaginationPerPage:
       description:
         The amount of rows to return in each page.
-        The default is usually 100. 
+        The default is usually 100.
         There are endpoints that override this default to accommodate specific use cases.
       name: per_page
       style: form
@@ -3900,6 +3958,30 @@ components:
         id: 1
         domain_id: 999
         period: 1
+        state: new
+        created_at: '2016-12-09T19:46:45Z'
+        updated_at: '2016-12-09T19:46:45Z'
+    DomainRestore:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain_id:
+          type: integer
+        state:
+          type: string
+          enum:
+            - new
+            - restoring
+            - restored
+            - cancelled
+        created_at:
+          $ref: '#/components/schemas/DateTime'
+        updated_at:
+          $ref: '#/components/schemas/DateTime'
+      example:
+        id: 1
+        domain_id: 999
         state: new
         created_at: '2016-12-09T19:46:45Z'
         updated_at: '2016-12-09T19:46:45Z'
@@ -5846,6 +5928,19 @@ components:
                 description: 'Required as confirmation of the price, only if the domain is premium.'
             example:
               period: 2
+    DomainRestore:
+      description: Domain restore attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              premium_price:
+                type: string
+                description: 'Required as confirmation of the price, only if the domain is premium.'
+            example:
+              premium_price: '109.00'
     DomainTransfer:
       description: Domain transfer attributes
       required: true
