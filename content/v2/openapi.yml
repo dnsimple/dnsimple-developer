@@ -1205,6 +1205,10 @@ paths:
                     $ref: '#/components/schemas/DomainRestore'
         '400':
           $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          $ref: '#/components/responses/404'
       summary: Restore a domain
   '/{account}/registrar/domains/{domain}/restores/{domainrestore}':
     get:
@@ -1227,6 +1231,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRestore'
+        '401':
+          $ref: '#/components/responses/401'
         '404':
           $ref: '#/components/responses/404'
   '/{account}/registrar/domains/{domain}/authorize_transfer_out':
