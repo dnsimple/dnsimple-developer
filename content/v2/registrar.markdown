@@ -541,6 +541,102 @@ Responds with HTTP 200 on success.
 
 Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
+## Restore a domain {#restoreDomain}
+
+    POST /:account/registrar/domains/:domain/restores
+
+Restore a eligable expired domain name where your registration with DNSimple lapsed.
+
+Your account must be active for this command to complete successfully.
+You will be automatically charged the restore fee upon successful restore, so please be careful with this command.
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+
+### Example
+
+Restore the domain `example.com` in the account `1010`:
+
+    curl  -H 'Authorization: Bearer <token>' \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -X POST \
+          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/restores
+
+### Input
+
+Name | Type | Description
+-----|------|------------
+`premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
+
+##### Example with optional premium_price
+
+~~~json
+{
+  "premium_price": '109.00'
+}
+~~~
+
+### Response
+
+Responds with HTTP 201 when restore was processed and completed.
+
+Responds with HTTP 202 when restore was processed but is pending completion.
+
+~~~json
+<%= pretty_print_fixture("/api/restoreDomain/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 400](/v2#bad-request) if the domain cannot be restored.
+
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+
+Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+
+## Retrieve a Domain Restore {#getDomainRestore}
+
+Retrieves the details of an existing domain restore.
+
+~~~
+GET /:account/registrar/domains/:domain/restores/:domain_restore
+~~~
+
+### Parameters
+
+Name | Type | Description
+-----|------|------------
+`:account` | `integer` | The account id
+`:domain` | `string` | The domain name
+`:domain_restore` | `integer` | The domain restore id
+
+### Example
+
+Get the domain restore with ID `1` in the account `1010` for the domain `example.com`:
+
+~~~
+curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/restores/1
+~~~
+
+### Response
+
+Responds with HTTP 200 on success.
+
+~~~json
+<%= pretty_print_fixture("/api/getDomainRestore/success.http") %>
+~~~
+
+### Errors
+
+Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+
 ## Authorize a domain transfer out {#authorizeDomainTransferOut}
 
     POST /:account/registrar/domains/:domain/authorize_transfer_out
