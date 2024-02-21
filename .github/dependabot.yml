@@ -10,12 +10,29 @@ updates:
       - task
       - dependencies
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
       time: '12:00'
     open-pull-requests-limit: 10
     labels:
       - task
       - dependencies
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+      time: '16:00'
+    open-pull-requests-limit: 10
+    labels:
+      - task
+      - dependencies
+    groups:
+      javascript-dependencies:
+        patterns:
+          - '*'
+        update-types:
+          - patch
+          - minor
