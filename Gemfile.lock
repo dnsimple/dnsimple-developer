@@ -85,7 +85,7 @@ GEM
       nanoc-cli (~> 4.11, >= 4.11.14)
       nanoc-core (~> 4.11, >= 4.11.14)
     nio4r (2.7.0)
-    nokogiri (1.16.0)
+    nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.24.0)
