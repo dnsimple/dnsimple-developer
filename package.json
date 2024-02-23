@@ -5,7 +5,7 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@redocly/cli": "^1.9.1",
-    "concurrently": "^6.0.0",
+    "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^7.18.0",
     "eslint-config-standard": "^16.0.2",
