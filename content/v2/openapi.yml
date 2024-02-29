@@ -4296,6 +4296,30 @@ components:
           type: boolean
         domain:
           $ref: '#/components/schemas/Domain'
+    EventDomainRestoreStarted:
+      type: object
+      description: Payload for domain.restore:started
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRestore:
+      type: object
+      description: Payload for domain.restore
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
+    EventDomainRestoreCancelled:
+      type: object
+      description: Payload for domain.restore:cancelled
+      properties:
+        auto:
+          type: boolean
+        domain:
+          $ref: '#/components/schemas/Domain'
     EventDomainDelegationChange:
       type: object
       description: Payload for domain.delegation_change
