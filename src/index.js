@@ -1,13 +1,8 @@
-import Vue from "vue/dist/vue.esm.js"
+import { createApp } from 'vue';
 import Tabs from "./components/tabs.vue"
 import { Search } from "./search.js"
 
-var app = new Vue({
-  el: '.component',
-  components: {
-    Tabs,
-  },
-})
+createApp(Tabs).mount('.component')
 
 // Search
 const container = document.getElementById('main');
