@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^4.0.10",
+    "marked": "^12.0.0",
     "vue": "^2.6.12"
   },
   "resolutions": {
