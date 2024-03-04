@@ -100,6 +100,9 @@ The following events are available:
 * domain.renew
 * domain.renew:cancelled
 * domain.renew:started
+* domain.restore
+* domain.restore:cancelled
+* domain.restore:started
 * domain.resolution\_disable
 * domain.resolution\_enable
 * domain.transfer
