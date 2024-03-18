@@ -192,12 +192,12 @@
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-"@redocly/cli@^1.10.1":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.10.1.tgz#b4033cb41ccf434b11ab6d37bfc14a05350be954"
-  integrity sha512-ThR4c/BKjKdP78E4VbGiZp+KmozQXLsxpd8S3idPSpQtbyD+L6U4m1ovEtGWwQHvZkB83IlWwVKCiAWG8x4pfA==
+"@redocly/cli@^1.10.4":
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.10.4.tgz#2b7f0cf7f20470f6288aec68a7db25738c7fe111"
+  integrity sha512-Jgy6MOlWOcwu55Y3tUjM2ozfOt6F+nCXsxn2Rb1JAnluh43B7cGDkv+JSQ2D6KWgLGRnXolmpKlKD1/ASOyI/Q==
   dependencies:
-    "@redocly/openapi-core" "1.10.1"
+    "@redocly/openapi-core" "1.10.4"
     abort-controller "^3.0.0"
     chokidar "^3.5.1"
     colorette "^1.2.0"
@@ -216,12 +216,18 @@
     styled-components "^6.0.7"
     yargs "17.0.1"
 
-"@redocly/openapi-core@1.10.1", "@redocly/openapi-core@^1.0.0-rc.2":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.10.1.tgz#ebc62a255b0971faecc6846aa2a9a5de5734d46a"
-  integrity sha512-WpVmNsIRqWmK4LuE2OER4s4iYu/cAm+djyZZy9ciUflJtew7aIXsC1/7/SsKmWKpoPGzWEfNPRs1/OZ9CeKvAA==
+"@redocly/config@^0.1.1":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.1.2.tgz#a9f3005b9f26d7e009d34be471cc1cddc702a330"
+  integrity sha512-5U2GXa7SQ9IrbynOryc/GrW05a+WheeN2JcIUNcbYc9UCIbkNNIUqcibvN0KDI4fH2rEJUSEGWdBSdGK9IPxfw==
+
+"@redocly/openapi-core@1.10.4", "@redocly/openapi-core@^1.0.0-rc.2":
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.10.4.tgz#fb1c3ba0eaa7d76b3e4d76d711b9eac6aebc1069"
+  integrity sha512-GzvAuoVtHk75q/HqaRNqRUTZWYKpZ16HCOWIrx2txAvZrMoWCUNRVsELY91W/ilH/Cepj6t/Nh+bpJ7o/mcN/g==
   dependencies:
     "@redocly/ajv" "^8.11.0"
+    "@redocly/config" "^0.1.1"
     colorette "^1.2.0"
     js-levenshtein "^1.1.6"
     js-yaml "^4.1.0"
@@ -2140,10 +2146,10 @@ mark.js@^8.11.1:
   resolved "https://registry.yarnpkg.com/mark.js/-/mark.js-8.11.1.tgz#180f1f9ebef8b0e638e4166ad52db879beb2ffc5"
   integrity sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==
 
-marked@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-12.0.0.tgz#051ea8c8c7f65148a63003df1499515a2c6de716"
-  integrity sha512-Vkwtq9rLqXryZnWaQc86+FHLC6tr/fycMfYAhiOIXkrNmeGAyhSxjqu0Rs1i0bBqw5u0S7+lV9fdH2ZSVaoa0w==
+marked@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-12.0.1.tgz#8ab1eb15560c7cbe3b011074845d7ca6c4d392b0"
+  integrity sha512-Y1/V2yafOcOdWQCX0XpAKXzDakPOpn6U0YLxTJs3cww6VxOzZV1BTOOYWLvH3gX38cq+iLwljHHTnMtlDfg01Q==
 
 marked@^4.0.15:
   version "4.2.12"
