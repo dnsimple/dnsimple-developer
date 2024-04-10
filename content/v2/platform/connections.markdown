@@ -5,12 +5,10 @@ excerpt: This page documents the DNSimple Platform Connections API.
 
 # Connections API
 
+<%= render "v2-private-beta-platform" %>
+
 * TOC
 {:toc}
-
-<note>
-  The Connections API is part of the Platform API and is currently in Private Beta. During the Private Beta period changes may occur at any time.
-</note>
 
 ## Connection attributes
 

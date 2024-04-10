@@ -123,7 +123,7 @@ Responds with HTTP 400, if the domain isn't premium.
 
 Get a domain's price for registration, renewal, and transfer.
 
-<%= render "v2-preview" %>
+<%= render "v2-preview-endpoint" %>
 
 ~~~
 GET /:account/registrar/domains/:domain/prices

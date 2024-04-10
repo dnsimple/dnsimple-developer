@@ -171,7 +171,7 @@ Responds with [HTTP 428](/v2#precondition-required) if the private key cannot be
 
 ## Let's Encrypt: Order a certificate {#purchaseLetsencryptCertificate}
 
-<%= render "v2-preview" %>
+<%= render "v2-preview-endpoint" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
@@ -247,7 +247,7 @@ Name | Type | Description
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the certificate. Default: `false`.
 `name` | `string` | The certificate name. Default: `"www"`.
 `alternate_names` | `array<string>` | The certificate _alternate names_. Default: `[]`. Example: `["docs.example.com", "status.example.com"]`
-`signature_algorithm` | `string` | Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`, defaults to `ECDSA`. 
+`signature_algorithm` | `string` | Optional string to determine the signature algorithm to be used. Either `ECDSA` or `RSA`, defaults to `ECDSA`.
 
 ### Response
 
@@ -267,7 +267,7 @@ Responds with [HTTP 412](/v2#precondition-failed) if the account cannot order th
 
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
-<%= render "v2-preview" %>
+<%= render "v2-preview-endpoint" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
@@ -314,7 +314,7 @@ Responds with [HTTP 412](/v2#precondition-failed) if the account cannot issue th
 
 ## Let's Encrypt: Order a certificate renewal {#purchaseRenewalLetsencryptCertificate}
 
-<%= render "v2-preview" %>
+<%= render "v2-preview-endpoint" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
@@ -376,7 +376,7 @@ Responds with [HTTP 412](/v2#precondition-failed) if the account cannot renew th
 
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
 
-<%= render "v2-preview" %>
+<%= render "v2-preview-endpoint" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 

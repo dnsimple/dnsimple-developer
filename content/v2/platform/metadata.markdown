@@ -5,14 +5,10 @@ excerpt: This page documents the DNSimple Platform Metadata API.
 
 # Metadata API
 
+<%= render "v2-private-beta-platform" %>
+
 * TOC
 {:toc}
-
-<note>
-  The Metadata API is part of the Platform API and is currently in Private Beta. During the Private Beta period changes may occur at any time.
-</note>
-
----
 
 The Metadata API provides a key/value store that is attached to a specific resource (such as a domain, DNS record, etc) in a DNSimple account. A metadata value with a key that already exists will replace the previous value for that same key on a given resource.
 

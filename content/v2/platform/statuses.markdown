@@ -5,14 +5,10 @@ excerpt: This page documents the DNSimple Platform Statuses API.
 
 # Statuses API
 
+<%= render "v2-private-beta-platform" %>
+
 * TOC
 {:toc}
-
-<note>
-  The Statuses API is part of the Platform API and is currently in Private Beta. During the Private Beta period changes may occur at any time.
-</note>
-
----
 
 Statuses are used to indicate the latest known status of some resource in relation to an add-on. Statuses have a fixed set of states and are not time-specific. Statuses have a context value and a status with the same context for a given resource will replace a previous status with that context for that resource.
 

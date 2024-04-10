@@ -5,12 +5,10 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
 # Zone NS Records API
 
+<%= render "v2-public-beta-feature" %>
+
 * TOC
 {:toc}
-
-<note>
-  This endpoint is currently in Private Beta. During the Private Beta period changes may occur at any time.
-</note>
 
 
 ## Update zone NS records {#updateZoneNsRecords}

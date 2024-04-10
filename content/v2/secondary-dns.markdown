@@ -5,14 +5,12 @@ excerpt: This page documents the DNSimple secondary DNS API v2.
 
 # Secondary DNS API
 
+<%= render "v2-public-beta-feature" %>
+
 ### Table of Contents {#toc}
 
 * TOC
 {:toc}
-
-<note>
-  This endpoint is currently in Private Beta. During the Private Beta period changes may occur at any time.
-</note>
 
 ## Primary Server attributes {#primary-server-attributes}
 

@@ -8,11 +8,9 @@ excerpt: This page documents the DNSimple domain transfer lock API v2.
 * TOC
 {:toc}
 
-<note>
-  This API is currently in Public Beta. During the Public Beta period changes may occur at any time.
-</note>
-
 ## Enable domain transfer lock {#enableDomainTransferLock}
+
+<%= render "v2-beta-endpoint" %>
 
 Enables the transfer lock for the domain.
 
@@ -55,6 +53,8 @@ Responds with [HTTP 404](/v2#not-found) if the domain does not exist.
 
 
 ## Disable domain transfer lock {#disableDomainTransferLock}
+
+<%= render "v2-beta-endpoint" %>
 
 Disables the transfer lock for the domain.
 

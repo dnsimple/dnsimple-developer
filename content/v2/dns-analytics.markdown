@@ -3,16 +3,17 @@ title: DNS Analytics API | DNSimple API v2
 excerpt: This page documents the DNS Analytics API v2 endpoint.
 ---
 
-# DNS Analytics
+# DNS Analytics API
 
 * TOC
 {:toc}
 
-## Query DNS Analytics data {#query}
 
-<%= render "v2-preview" %>
+## Query DNS analytics data {#query}
 
-Queries and returns DNS Analytics data available for the provided query parameters: 
+<%= render "v2-preview-endpoint" %>
+
+Queries and returns DNS Analytics data available for the provided query parameters:
 
 ~~~
 GET /:account/dns_analytics
