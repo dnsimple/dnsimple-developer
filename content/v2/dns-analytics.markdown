@@ -9,7 +9,7 @@ excerpt: This page documents the DNS Analytics API v2 endpoint.
 {:toc}
 
 
-## Query DNS analytics data {#query}
+## Query DNS analytics data {#queryDnsAnalytics}
 
 <%= render "v2-preview-endpoint" %>
 

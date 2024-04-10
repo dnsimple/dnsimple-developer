@@ -2850,7 +2850,7 @@ paths:
                         example: 1000
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-      operationId: dnsAnalytics
+      operationId: queryDnsAnalytics
       tags:
         - billing
         - zones
