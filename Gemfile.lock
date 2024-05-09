@@ -27,6 +27,7 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     ffi (1.14.2)
+    google-protobuf (3.21.12)
     http_parser.rb (0.8.0)
     immutable-ruby (0.1.0)
       concurrent-ruby (~> 1.1)
@@ -80,6 +81,9 @@ GEM
       slow_enumerator_tools (~> 1.0)
       tty-platform (~> 0.2)
       zeitwerk (~> 2.1)
+    nanoc-dart-sass (1.0.3)
+      nanoc-core (~> 4.12)
+      sass-embedded (~> 1.56)
     nanoc-deploying (1.0.2)
       nanoc-checking (~> 1.0)
       nanoc-cli (~> 4.11, >= 4.11.15)
@@ -119,11 +123,9 @@ GEM
     rexml (3.2.5)
     rouge (4.2.0)
     ruby-progressbar (1.13.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-embedded (1.58.0)
+      google-protobuf (~> 3.21)
+      rake (>= 10.0.0)
     set (1.1.0)
     slow_enumerator_tools (1.1.0)
     sorted_set (1.0.3)
@@ -150,12 +152,12 @@ DEPENDENCIES
   minitest
   minitest-reporters
   nanoc (~> 4.12)
+  nanoc-dart-sass
   nanoc-live
   nokogiri
   puma (~> 6.4)
   rake
   rouge
-  sass
   systemu
 
 BUNDLED WITH
