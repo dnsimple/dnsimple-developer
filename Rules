@@ -17,8 +17,8 @@ postprocess do
   create_search_index
 end
 
-compile '/assets/css/*/' do
-  if item.identifier =~ %r{/_[^/]+/$}
+compile '/assets/css/**/*' do
+  if item.identifier.to_s =~ %r{/_\w+\.scss$}
     # don't compile partials
   else
     filter :dart_sass, :syntax => :scss, :style => :compressed
@@ -57,15 +57,15 @@ compile '*' do
 end
 
 
-route '/assets/css/*/' do
-  if item.identifier =~ %r{/_[^/]+/$}
+route '/assets/css/**/*' do
+  if item.identifier.to_s =~ %r{/_\w+\.scss$}
     # don't route partials
   else
-    item.identifier.chop + '.css'
+    item.identifier.without_ext + '.css'
   end
 end
 
-route '/assets/*/' do
+route '/assets/**/*' do
   item.identifier.to_s.chop + '.' + item[:extension]
 end
 
