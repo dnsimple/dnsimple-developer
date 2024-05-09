@@ -61,7 +61,7 @@ route '/assets/css/**/*' do
   if item.identifier.to_s =~ %r{/_\w+\.scss$}
     # don't route partials
   else
-    item.identifier.without_ext + '.css'
+    item.identifier.chop + '.css'
   end
 end
 
