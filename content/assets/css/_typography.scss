@@ -40,7 +40,7 @@ h3 {
   margin: 0;
   padding: 12px 0 8px 0;
   i {
-    margin-right: $base-unit/4;
+    margin-right: calc($base-unit / 4);
   }
 }
 
@@ -50,7 +50,7 @@ h5 {
 }
 
 p, pre, table {
-  margin: 0 0 $base-unit/1.5 0;
+  margin: 0 0 calc($base-unit / 1.5) 0;
 }
 
 a {
