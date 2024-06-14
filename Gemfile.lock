@@ -118,7 +118,7 @@ GEM
     rbtree (0.4.6)
     rexml (3.2.8)
       strscan (>= 3.0.9)
-    rouge (4.2.1)
+    rouge (4.3.0)
     ruby-progressbar (1.13.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
