@@ -81,7 +81,6 @@ watcher:
 
 base_url: https://developer.dnsimple.com
 
-google_universal_analytics_id: "UA-17301867-4"
 google_analytics_4_id: "G-ZNH6WB6RFQ"
 
 environments:
