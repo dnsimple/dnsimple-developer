@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "@redocly/cli": "^1.18.0",
     "@vue/compiler-sfc": "^3.4.21",
     "concurrently": "^8.2.2",
@@ -27,7 +27,7 @@
   "dependencies": {
     "highlightjs": "^9.16.2",
     "marked": "^13.0.2",
-    "vue": "^3.4.31"
+    "vue": "^3.4.32"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
