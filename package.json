@@ -27,7 +27,7 @@
   "dependencies": {
     "highlightjs": "^9.16.2",
     "marked": "^13.0.2",
-    "vue": "^3.4.32"
+    "vue": "^3.4.33"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
