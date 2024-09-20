@@ -116,8 +116,8 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rbtree (0.4.6)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.6)
+      strscan
     rouge (4.3.0)
     ruby-progressbar (1.13.0)
     sass (3.7.4)
