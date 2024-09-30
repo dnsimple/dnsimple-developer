@@ -67,7 +67,7 @@ end
 desc "Run the site"
 task run: [:compile] do
   Bundler.with_unbundled_env do
-    sh("node node_modules/concurrently/bin/concurrently.js 'bundle exec nanoc live' './node_modules/.bin/webpack --watch'")
+    sh("npx concurrently 'bundle exec nanoc live' './node_modules/.bin/webpack --watch'")
   end
 end
 
