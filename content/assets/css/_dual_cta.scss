@@ -1,0 +1,28 @@
+.dual-cta-container {
+  --border-radius: 1.2em;
+  margin-left: 0.5em;
+  display: inline-flex;
+
+  a {
+    padding: 0.5em 1.2em;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    color: var(--color);
+    white-space: nowrap;
+
+    &.primary {
+      background-color: var(--primary);
+      z-index: 2;
+      color: var(--elementInverse);
+    }
+
+    &.secondary {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      padding-left: 1.5em;
+      margin-left: -0.8em;
+      background-color: var(--surface2);
+    }
+  }
+}
