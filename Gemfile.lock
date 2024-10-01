@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    adsf (1.5.0)
+    adsf (1.5.2)
       rack (>= 1.0.0, < 4.0.0)
       rackup (~> 2.1)
     adsf-live (1.5.0)
