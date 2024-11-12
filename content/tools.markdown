@@ -11,16 +11,6 @@ excerpt: Tools built around the DNSimple Domain and DNS API.
 
 ## DNSimple tools
 
-### [DNSimple Slack integration](https://dnsimple.com/slack)
-
-With the official DNSimple Stack integration you can buy, connect, and operate your domains directly from your Slack channel.
-
-<small>
-[homepage](https://dnsimple.com/slack) &bull;
-[documentation](https://support.dnsimple.com/articles/slack-integration/) &bull;
-[announcement](https://blog.dnsimple.com/2016/05/introducing-the-slack-app/)
-</small>
-
 ### [Strillone](https://github.com/dnsimple/strillone)
 
 Strillone is a service to publish the events generated from a DNSimple account to a messaging service (such as Slack), using the [DNSimple webhooks](https://dnsimple.com/webhooks).
