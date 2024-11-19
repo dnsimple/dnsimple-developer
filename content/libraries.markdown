@@ -27,7 +27,7 @@ _Please keep in mind that some of these libraries may be incomplete or outdated.
 
 ### Ruby
 
-- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](http://fog.io/) module for DNSimple.
+- [fog-dnsimple](https://github.com/fog/fog-dnsimple) - The [fog](https://fog.github.io/) module for DNSimple.
 
 ### Python
 
