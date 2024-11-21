@@ -4056,6 +4056,7 @@ components:
         destination_email: john@example.com
         created_at: '2016-02-04T14:26:50Z'
         updated_at: '2016-02-04T14:26:50Z'
+        active: true
       properties:
         id:
           type: integer
@@ -4396,9 +4397,21 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
+    EventEmailForwardActivate:
+      type: object
+      description: Payload for email_forward.activate
+      properties:
+        email_forward:
+          $ref: '#/components/schemas/EmailForward'
     EventEmailForwardCreate:
       type: object
       description: Payload for email_forward.create
+      properties:
+        email_forward:
+          $ref: '#/components/schemas/EmailForward'
+    EventEmailForwardDeactivate:
+      type: object
+      description: Payload for email_forward.deactivate
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
