@@ -110,7 +110,9 @@ The following events are available:
 * domain.transfer:started
 * domain.transfer\_lock\_disable
 * domain.transfer\_lock\_enable
+* email\_forward.activate
 * email\_forward.create
+* email\_forward.deactivate
 * email\_forward.delete
 * email\_forward.update
 * name\_server.deregister
