@@ -45,7 +45,7 @@ Manage zones for on-premise and self-hosted CoreDNS instances with DNSimple.
 <small>
 [documentation](https://support.dnsimple.com/articles/integrated-dns-provider-coredns/) &bull;
 [source code](https://github.com/dnsimple/coredns-dnsimple) &bull;
-[announcement](https://blog.dnsimple.com/2023/07/coredns-integrated-provider/)
+[announcement](https://blog.dnsimple.com/2023/08/coredns-integrated-provider/)
 </small>
 
 
