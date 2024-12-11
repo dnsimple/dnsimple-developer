@@ -26,6 +26,7 @@
   --green:  hsl(100, 100%, 30%);;
   --gray:  hsl(50, 0%, 50%);;
   --orange:  hsl(30, 100%, 50%);;
+  --icon-color: hsl(0deg 0% 70%);
 }
 
 /* Dark Mode */
@@ -46,6 +47,7 @@
   --green:  hsl(100, 100%, 40%);;
   --gray:  hsl(50, 0%, 70%);;
   --orange:  hsl(30, 100%, 60%);;
+  --icon-color: hsl(248deg 31% 40%);
 }
 
 body {
@@ -186,4 +188,8 @@ input {
   .linux-foundation-logo {
     content: url("/assets/images/vendors/linux-foundation-color.png");
   }
+}
+
+footer .social-media path {
+  fill: var(--icon-color);
 }
