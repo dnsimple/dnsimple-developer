@@ -90,7 +90,7 @@ GEM
       listen (~> 3.0)
       nanoc-cli (~> 4.11, >= 4.11.14)
       nanoc-core (~> 4.11, >= 4.11.14)
-    nio4r (2.7.3)
+    nio4r (2.7.4)
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -101,7 +101,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.0)
     rack (3.1.7)
@@ -150,7 +150,7 @@ DEPENDENCIES
   nanoc (~> 4.13)
   nanoc-live
   nokogiri
-  puma (~> 6.4)
+  puma (~> 6.5)
   rake
   rouge
   sass
