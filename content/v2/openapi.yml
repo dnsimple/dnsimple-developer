@@ -3378,7 +3378,7 @@ components:
       example:
         id: 1
         email: example-account@example.com
-        plan_identifier: dnsimple-professional
+        plan_identifier: dnsimple-teams
         created_at: '2015-09-18T23:04:37Z'
         updated_at: '2016-06-09T20:03:39Z'
     WebhookAccount:
