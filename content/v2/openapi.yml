@@ -220,7 +220,11 @@ paths:
       summary: Delete a domain
   '/{account}/domains/{domain}/collaborators':
     get:
-      description: Lists collaborators for the domain.
+      deprecated: true
+      description: |-
+        Deprecated in favor of Domain Access Control.
+
+        Lists collaborators for the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -247,7 +251,10 @@ paths:
           $ref: '#/components/responses/404'
       summary: List collaborators
     post:
+      deprecated: true
       description: |-
+        Deprecated in favor of Domain Access Control.
+
         Adds a collaborator to the domain.
 
         At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn't have a DNSimple account, the system will invite them to register to DNSimple first and then to accept the collaboration invitation. In the other case, they are automatically added to the domain as collaborator. They can decide to reject the invitation later.
@@ -2209,7 +2216,11 @@ paths:
       summary: Start registrant change
   '/{account}/domains/{domain}/collaborators/{collaborator}':
     delete:
-      description: Removes a collaborator from the domain.
+      deprecated: true
+      description: |-
+        Deprecated in favor of Domain Access Control.
+
+        Removes a collaborator from the domain.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
