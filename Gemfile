@@ -23,4 +23,4 @@ group :nanoc do
   gem 'nanoc-live'
 end
 
-gem "puma", "~> 6.5"
+gem "puma", "~> 6.6"
