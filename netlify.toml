@@ -3,6 +3,11 @@
   command = "NANOC_ENV=production rake publish"
 
 [[headers]]
+  for = "/search.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
