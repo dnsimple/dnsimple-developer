@@ -1,15 +1,7 @@
 import { createApp } from 'vue';
 import Tabs from "./components/tabs.vue"
-import { Search } from "./search.js"
 
 createApp(Tabs).mount('.component')
-
-// Search
-const container = document.getElementById('main');
-const input = document.getElementById('input-search');
-const search = Search(container, input);
-
-search.init();
 
 function toggleColorMode (e) {
   // Switch to Light Mode
