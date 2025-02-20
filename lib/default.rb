@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'kramdown'
 
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::XMLSitemap
@@ -35,4 +36,13 @@ def blog_articles
     main: main,
     secondary: secondary.take(2)
   }
+end
+
+def find_active_banner
+  banners = YAML.load(File.read('banners.yml'), symbolize_names: true)
+  banners&.find { |banner| banner[:active] == true }
+end
+
+def as_markdown(str)
+  Kramdown::Document.new(str).to_html
 end

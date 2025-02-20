@@ -1,0 +1,8 @@
+- active: true
+  bg_color: "#e2d1e6"
+  text_color: "#333"
+  emoji: 📣 📣 📣
+  content: | #markdown
+    Ditch the manual DNS configurations. Join our webinar to learn how to automate your DNS infrastructure with **DNSimple's Terraform Provider!**
+  link_text: 🎟️ Secure your spot today! 🎟️
+  link_url: https://live.zoho.com/E41IwbdcDY
