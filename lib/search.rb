@@ -15,6 +15,7 @@ module Search
       index = []
 
       @items.each do |item|
+        next if item.attributes[:is_hidden]
         next unless item.attributes[:filename].end_with?('markdown')
 
         index << {
