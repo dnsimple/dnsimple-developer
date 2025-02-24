@@ -9,6 +9,12 @@
   background-size: 900px 10px;
 }
 
+#marketing-banner {
+  p {
+    display: inline;
+  }
+}
+
 #search {
   background: var(--elementInverse);
   color: var(--gray);
