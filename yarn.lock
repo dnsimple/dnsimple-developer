@@ -405,10 +405,10 @@
     require-from-string "^2.0.2"
     uri-js-replace "^1.0.1"
 
-"@redocly/cli@^1.33.1":
-  version "1.33.1"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.33.1.tgz#448062c48de570448ad1c8a7527e6ecc3ee3e038"
-  integrity sha512-co+Vr/RfH9Nca3eiYuYvbLxI+5RVOyJ+l56B0SmU5UHfticTUXirO0vxtFmkHmch6YIFVU6BCF4tFbj7ssF8iQ==
+"@redocly/cli@^1.34.1":
+  version "1.34.1"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.34.1.tgz#e237107f3f9aa9f3290f9651268c4c15c08458aa"
+  integrity sha512-12aTw7A/0n+8T7yKM1E8qlFRFPZnm2i1me0sZ1WOAiGT4I2j4iUcCp+93B0nrjIs1ZdNmrT0TTrMYLhsMJYjaQ==
   dependencies:
     "@opentelemetry/api" "1.9.0"
     "@opentelemetry/exporter-trace-otlp-http" "0.53.0"
@@ -416,8 +416,8 @@
     "@opentelemetry/sdk-trace-node" "1.26.0"
     "@opentelemetry/semantic-conventions" "1.27.0"
     "@redocly/config" "^0.22.0"
-    "@redocly/openapi-core" "1.33.1"
-    "@redocly/respect-core" "1.33.1"
+    "@redocly/openapi-core" "1.34.1"
+    "@redocly/respect-core" "1.34.1"
     abort-controller "^3.0.0"
     chokidar "^3.5.1"
     colorette "^1.2.0"
@@ -442,10 +442,10 @@
   resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.22.0.tgz#b2454f472f9d2b217d56f82e4f28d346901f3242"
   integrity sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==
 
-"@redocly/openapi-core@1.33.1", "@redocly/openapi-core@^1.4.0":
-  version "1.33.1"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.33.1.tgz#2a5604e3f16cb0aa00f632ca13e1f17ce1e17d94"
-  integrity sha512-tL3v8FVwdcCAcruOZV77uxH2ZFtnY3DRPG+rgmlm9hsu5uoatofVSJIJHUroz54KJ8ryeo28wQHhOr8iReGGEQ==
+"@redocly/openapi-core@1.34.1", "@redocly/openapi-core@^1.4.0":
+  version "1.34.1"
+  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.34.1.tgz#d303c0f129c9166e293e7e6ee88de77e29fd6e16"
+  integrity sha512-KI1QOGvDk6oREbTu0JORxZX1NBxraXUbXczv0LYDs9EPp06coq874hQORqSHGEUV/DX2A6gjv4Ax33g/LFJBww==
   dependencies:
     "@redocly/ajv" "^8.11.2"
     "@redocly/config" "^0.22.0"
@@ -457,14 +457,14 @@
     pluralize "^8.0.0"
     yaml-ast-parser "0.0.43"
 
-"@redocly/respect-core@1.33.1":
-  version "1.33.1"
-  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-1.33.1.tgz#adba673a311d49472d8328e90cdb669c576c6c48"
-  integrity sha512-Sh6TahtuvSzvejkfu74KErdMX6VtrNNRJAtwH9A6R1Igo8WVmrdoFE99uAp/dOL9bpAQPg4oKtrTF60avN7YYA==
+"@redocly/respect-core@1.34.1":
+  version "1.34.1"
+  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-1.34.1.tgz#707e31d444c7cb5a44e6463fa266c8ef676226fa"
+  integrity sha512-Lzea25WqwxVK5+aCiq/pr7lUFdsZPYSqNzl05Z4jEtuP1DEIxJNG31ID75dZt30pPtyxjaa/dBuccruYlYflzw==
   dependencies:
     "@faker-js/faker" "^7.6.0"
     "@redocly/ajv" "8.11.2"
-    "@redocly/openapi-core" "1.33.1"
+    "@redocly/openapi-core" "1.34.1"
     better-ajv-errors "^1.2.0"
     colorette "^2.0.20"
     concat-stream "^2.0.0"
