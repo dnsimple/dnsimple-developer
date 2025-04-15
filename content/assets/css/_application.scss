@@ -47,9 +47,10 @@
   &:before {
     display: block;
     float: left;
-    margin-left: -25px;
-    font-size: 16px;
-    line-height: 140%;
+    margin-left: -30px;
+    font-size: 1.4rem;
+    line-height: 100%;
+    color: var(--element2);
   }
 }
 
