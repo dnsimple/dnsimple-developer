@@ -47,33 +47,46 @@
   &:before {
     display: block;
     float: left;
-    margin-left: -25px;
-    font-size: 16px;
-    line-height: 140%;
+    margin-left: -30px;
+    font-size: 1.4rem;
+    line-height: 100%;
+    color: var(--element2);
   }
 }
 
 .marker-info {
+  box-shadow: -6px 0 0 0 var(--blue);
+
   &:before {
-    @include font-awesome("\f129");
+    @include font-awesome("\f05a");
+    color: var(--blue);
   }
 }
 
 .marker-tip {
+  box-shadow: -6px 0 0 0 var(--green);
+
   &:before {
-    @include font-awesome("\f075");
+    @include font-awesome("\f0eb");
+    color: var(--green);
   }
 }
 
 .marker-note {
+  box-shadow: -6px 0 0 0 var(--yellow);
+
   &:before {
-    @include font-awesome("\f303");
+    @include font-awesome("\f249");
+    color: var(--yellow);
   }
 }
 
 .marker-warning {
+  box-shadow: -6px 0 0 0 var(--orange);
+
   &:before {
     @include font-awesome("\f071");
+    color: var(--orange);
   }
 }
 
