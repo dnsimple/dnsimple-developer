@@ -138,7 +138,7 @@ Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
 
-Reponds with **HTTP 406** if a domain ownership verification is required. To verify ownership, delegate the domain to the verification name servers displayed in the error message. You will receive an email when the domain ownership is verified. Verifications expire after 48 hours.
+Responds with **HTTP 406** if domain ownership must be verified prior to adding the zone to your account. To verify ownership, delegate the domain to the verification name servers displayed in the error message. You will receive an email when the domain ownership is verified. Verifications expire after 48 hours.
 
 ## Retrieve a domain {#getDomain}
 
