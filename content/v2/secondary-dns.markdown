@@ -333,7 +333,7 @@ Responds with [HTTP 400](/v2#bad-request) if the secondary zone cannot be create
 
 Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
 
-Reponds with **HTTP 406** if a domain ownership verification is required. To verify ownership, delegate the domain to the verification name servers displayed in the error message. You will receive an email when the domain ownership is verified. Verifications expire after 48 hours.
+Responds with **HTTP 406** if domain ownership must be verified prior to adding the zone to your account. To verify ownership, delegate the domain to the verification name servers displayed in the error message. You will receive an email when the domain ownership is verified. Verifications expire after 48 hours.
 
 ## Delete secondary zone {#removeSecondaryZone}
 
