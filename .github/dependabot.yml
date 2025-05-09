@@ -1,10 +1,10 @@
+---
 version: 2
 updates:
   - package-ecosystem: bundler
     directory: /
     schedule:
-      interval: daily
-      time: '12:00'
+      interval: weekly
     open-pull-requests-limit: 10
     labels:
       - task
@@ -13,9 +13,7 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
-      time: '12:00'
-    open-pull-requests-limit: 10
+      interval: weekly
     labels:
       - task
       - dependencies
@@ -23,8 +21,7 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: daily
-      time: '16:00'
+      interval: weekly
     open-pull-requests-limit: 10
     labels:
       - task
