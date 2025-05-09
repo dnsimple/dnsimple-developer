@@ -47,6 +47,9 @@ However, please note that there is no public authoritative name server in the Sa
 
 To register domains with your sandbox account you will need an active subscription ([see below](#testing-subscriptions)). You can register every domain you want, as long as it's available because you are still sharing a system with other customers.
 
+<note>
+Domain registration and all other domain-related actions in the Sandbox are performed against the registry OT&E (Operational Test and Evaluation) environments, not the live production registries. This means that the domains you see or register in the Sandbox do not reflect the real-world status of domain registrations. You can test availability checks, registrations, transfers, and other domain operations as you would in production, but please do not assume that a domain registered in the real world is registered in Sandbox, or vice-versa.
+</note>
 
 ## Testing Certificates
 
