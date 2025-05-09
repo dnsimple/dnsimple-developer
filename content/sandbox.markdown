@@ -36,13 +36,16 @@ The API hostname is `api.sandbox.dnsimple.com`. This hostname follows the same [
 This site is generally an exact duplicate of the production application, but there are some exceptions. Instead of actually performing domain registration, charging credit cards, etc. it _mocks_ these functions.
 
 
+## Testing Zones and DNS
+
+In the Sandbox environment, you can add as many DNS zones and DNS records as you would in the production environment. This is useful for testing your API integrations, record formats, and automation workflows.
+
+However, please note that there is no public authoritative name server in the Sandbox. As a result, any zones or records you create will not publicly resolve.
+
+
 ## Testing Domains
 
 To register domains with your sandbox account you will need an active subscription ([see below](#testing-subscriptions)). You can register every domain you want, as long as it's available because you are still sharing a system with other customers.
-
-<note>
-Domains you register within the sandbox will not have any DNS service.
-</note>
 
 
 ## Testing Certificates
