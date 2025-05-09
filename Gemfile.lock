@@ -116,7 +116,7 @@ GEM
       ffi (~> 1.0)
     rbtree (0.4.6)
     rexml (3.3.9)
-    rouge (4.5.1)
+    rouge (4.5.2)
     ruby-progressbar (1.13.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
