@@ -6,6 +6,7 @@ gem 'builder'
 gem 'kramdown'
 gem 'mime-types'
 gem 'nokogiri'
+gem 'puma', '~> 6.6'
 gem 'rouge'
 gem 'sass'
 gem 'systemu'
@@ -22,5 +23,3 @@ end
 group :nanoc do
   gem 'nanoc-live'
 end
-
-gem "puma", "~> 6.6"
