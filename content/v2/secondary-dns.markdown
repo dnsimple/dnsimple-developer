@@ -58,7 +58,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 
 ## Create a primary server {#createPrimaryServer}
@@ -110,9 +110,9 @@ Responds with HTTP 201 on success, renders the primary server.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the primary server cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 
 ## Retrieve a Primary Server {#getPrimaryServer}
@@ -144,7 +144,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Delete primary server {#removePrimaryServer}
 
@@ -175,7 +175,7 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Link a primary server to a secondary zone {#linkPrimaryServer}
 
@@ -223,9 +223,9 @@ Responds with HTTP 200 on success. The linked zone will be present in the `linke
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be linked to the secondary zone.
+Responds with [HTTP 400](/v2/#bad-request) if the primary server cannot be linked to the secondary zone.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 
 ## Unlink a primary server from a secondary zone {#unlinkPrimaryServer}
@@ -274,9 +274,9 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the primary server cannot be unlinked from the secondary zone.
+Responds with [HTTP 400](/v2/#bad-request) if the primary server cannot be unlinked from the secondary zone.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Create a secondary zone {#createSecondaryZone}
 
@@ -329,9 +329,9 @@ Responds with HTTP 201 on success. The attribute `secondary` will be true.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the secondary zone cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the secondary zone cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Responds with **HTTP 406** if domain ownership must be verified prior to adding the zone to your account. To verify ownership, delegate the domain to the verification name servers displayed in the error message. You will receive an email when the domain ownership is verified. Verifications expire after 48 hours.
 

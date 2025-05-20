@@ -3,7 +3,7 @@ title: Dynamic DNS Shell Script
 excerpt: Set up Dynamic DNS with DDNS.horse or a simple shell script using our REST API.
 ---
 
-## What is Dynamic DNS?
+# What is Dynamic DNS?
 
 While many production environments are able to obtain static IP addresses, you may want to provide access to a device with a dynamic IP address. Dynamic DNS services provide the ability to update the DNS record for a given device automatically.
 

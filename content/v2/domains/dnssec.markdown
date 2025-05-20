@@ -44,9 +44,9 @@ Responds with HTTP 201.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if DNSSEC cannot be enabled for the domain.
+Responds with [HTTP 400](/v2/#bad-request) if DNSSEC cannot be enabled for the domain.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Disable DNSSEC {#disableDomainDnssec}
 
@@ -76,9 +76,9 @@ Responds with HTTP 204 (No content). Or HTTP 428 if DNSSEC is not currently enab
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if DNSSEC cannot be disabled for the domain.
+Responds with [HTTP 400](/v2/#bad-request) if DNSSEC cannot be disabled for the domain.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Retrieve DNSSEC status {#getDomainDnssec}
 
@@ -111,7 +111,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## List delegation signer records {#listDomainDelegationSignerRecords}
 
@@ -155,7 +155,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Create a delegation signer record {#createDomainDelegationSignerRecord}
 
@@ -214,9 +214,9 @@ Responds with HTTP 201 on success, renders the delegation signer record.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the delegation signer record cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the delegation signer record cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Retrieve a delegation signer record {#getDomainDelegationSignerRecord}
 
@@ -248,7 +248,7 @@ Responds with HTTP 200 on success, renders the delegation signer record.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Delete a Delegation Signer record {#deleteDomainDelegationSignerRecord}
 
@@ -276,6 +276,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the delegation signer record cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the delegation signer record cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

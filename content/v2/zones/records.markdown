@@ -102,7 +102,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Create a zone record {#createZoneRecord}
 
@@ -166,9 +166,9 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the record cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the record cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a zone record {#getZoneRecord}
@@ -205,7 +205,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Update a zone record {#updateZoneRecord}
 
@@ -269,9 +269,9 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the record cannot be updated.
+Responds with [HTTP 400](/v2/#bad-request) if the record cannot be updated.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Delete a zone record {#deleteZoneRecord}
 
@@ -321,9 +321,9 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the record cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the record cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
@@ -369,9 +369,9 @@ Responds with HTTP 200 when the zone record is not distributed.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 504](/v2#gateway-timeout) when the server failed to perform the check.
+Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform the check.
 
 ~~~json
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/error.http") %>

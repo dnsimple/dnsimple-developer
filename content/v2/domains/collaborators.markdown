@@ -6,7 +6,7 @@ excerpt: This page documents the DNSimple collaborators API v2.
 # Collaborators API
 
 <warning>
-All domain collaborator endpoints have been deprecated in favor of our [Domain Access Control](/articles/domain-access-control) feature.
+All domain collaborator endpoints have been deprecated in favor of our [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/) feature.
 </warning>
 
 * TOC
@@ -43,7 +43,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Add a collaborator {#addDomainCollaborator}
@@ -106,9 +106,9 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the collaborator cannot be added.
+Responds with [HTTP 400](/v2/#bad-request) if the collaborator cannot be added.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Remove a collaborator {#removeDomainCollaborator}
@@ -138,6 +138,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the collaborator cannot be removed
+Responds with [HTTP 400](/v2/#bad-request) if the collaborator cannot be removed
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

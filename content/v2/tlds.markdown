@@ -58,7 +58,7 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve the TLD {#getTld}
@@ -93,7 +93,7 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Lists the TLD Extended Attributes {#getTldExtendedAttributes}
 
@@ -130,4 +130,4 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

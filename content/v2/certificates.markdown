@@ -57,7 +57,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a certificate {#getCertificate}
@@ -92,7 +92,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Download a certificate {#downloadCertificate}
@@ -127,9 +127,9 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 428](/v2#precondition-required) if the certificate cannot be downloaded.
+Responds with [HTTP 428](/v2/#precondition-required) if the certificate cannot be downloaded.
 
 
 ## Retrieve a certificate private key {#getCertificatePrivateKey}
@@ -164,9 +164,9 @@ Responds with HTTP 200, renders the certificate private key.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 428](/v2#precondition-required) if the private key cannot be downloaded.
+Responds with [HTTP 428](/v2/#precondition-required) if the private key cannot be downloaded.
 
 
 ## Let's Encrypt: Order a certificate {#purchaseLetsencryptCertificate}
@@ -259,11 +259,11 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be ordered.
+Responds with [HTTP 400](/v2/#bad-request) if the certificate cannot be ordered.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account cannot order this certificate type.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot order this certificate type.
 
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
@@ -305,11 +305,11 @@ You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification whe
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be issued.
+Responds with [HTTP 400](/v2/#bad-request) if the certificate cannot be issued.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account cannot issue this certificate type.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot issue this certificate type.
 
 
 ## Let's Encrypt: Order a certificate renewal {#purchaseRenewalLetsencryptCertificate}
@@ -367,11 +367,11 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the certificate renewal cannot be ordered.
+Responds with [HTTP 400](/v2/#bad-request) if the certificate renewal cannot be ordered.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account cannot renew this certificate type.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot renew this certificate type.
 
 
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
@@ -419,8 +419,8 @@ You can subscribe to a [webhook](/v2/webhooks) to be notified once the certifica
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the certificate renewal cannot be issued.
+Responds with [HTTP 400](/v2/#bad-request) if the certificate renewal cannot be issued.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account cannot issue this certificate type.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot issue this certificate type.

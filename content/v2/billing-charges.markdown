@@ -85,6 +85,6 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the certificate cannot be ordered.
+Responds with [HTTP 400](/v2/#bad-request) if the certificate cannot be ordered.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
