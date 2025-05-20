@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple contacts API v2.
 
 ## Contact attributes {#contact-attributes}
 
-Please refer to the definition of the `Contact` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Contact` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List contacts {#listContacts}

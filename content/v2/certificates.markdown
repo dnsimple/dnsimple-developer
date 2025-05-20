@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple certificates API v2.
 
 ## Certificate attributes {#certificate-attributes}
 
-Please refer to the definition of the `Certificate` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Certificate` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List certificates {#listCertificates}
@@ -300,7 +300,7 @@ Responds with HTTP 202 on success.
 
 <tip>
 The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
-You can **subscribe to a [webhook](/v2/webhooks)** to receive a notification when the certificate is issued.
+You can **subscribe to a [webhook](/v2/webhooks/)** to receive a notification when the certificate is issued.
 </tip>
 
 ### Errors
@@ -414,7 +414,7 @@ Responds with HTTP 202 on success.
 
 <tip>
 The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
-You can subscribe to a [webhook](/v2/webhooks) to be notified once the certificate is issued.
+You can subscribe to a [webhook](/v2/webhooks/) to be notified once the certificate is issued.
 </tip>
 
 ### Errors

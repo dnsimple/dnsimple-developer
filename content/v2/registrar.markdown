@@ -208,7 +208,7 @@ Name | Type | Description
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
 <info>
-The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts) and will be the registered contact for this domain.
+The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts/) and will be the registered contact for this domain.
 </info>
 
 <info>

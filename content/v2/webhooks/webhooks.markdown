@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple webhooks API v2.
 {:toc}
 
 
-Webhooks are used for receiving notifications via an HTTP request whenever an event occurs in your DNSimple account. For more information visit the [Webhook and Events](/v2/webhooks/events) section.
+Webhooks are used for receiving notifications via an HTTP request whenever an event occurs in your DNSimple account. For more information visit the [Webhook and Events](/v2/webhooks/events/) section.
 
 You can register a webhook URLs using the API endpints below to subscribe to account events. The URL must use HTTPS and the webhook handler should be able to receive HTTP POST requests.
 

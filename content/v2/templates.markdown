@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple templates API v2.
 
 ## Template attributes {#template-attributes}
 
-Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List templates {#listTemplates}
