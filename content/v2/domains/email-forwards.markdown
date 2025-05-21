@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple email forwards API v2.
 
 ## Email Forward attributes {#email-forward-attributes}
 
-Please refer to the definition of the `EmailForward` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `EmailForward` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List email forwards {#listEmailForwards}
@@ -57,7 +57,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Create an email forward {#createEmailForward}
 
@@ -107,9 +107,9 @@ Responds with HTTP 201 on success, renders the email forward.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the email forward cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the email forward cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Retrieve an email forward {#getEmailForward}
 
@@ -141,7 +141,7 @@ Responds with HTTP 200, renders the email forward.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Delete an email forward {#deleteEmailForward}
@@ -174,6 +174,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the email forward cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the email forward cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

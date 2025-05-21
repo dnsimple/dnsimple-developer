@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple templates API v2.
 
 ## Template attributes {#template-attributes}
 
-Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Template` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List templates {#listTemplates}
@@ -56,7 +56,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Create a template {#createTemplate}
@@ -108,9 +108,9 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the template cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the template cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a template {#getTemplate}
@@ -148,7 +148,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Update a template {#updateTemplate}
 
@@ -195,9 +195,9 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the template cannot be updated.
+Responds with [HTTP 400](/v2/#bad-request) if the template cannot be updated.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Delete a template {#deleteTemplate}
 
@@ -232,6 +232,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the template cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the template cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

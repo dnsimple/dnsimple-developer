@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple TLDs API v2.
 
 ## TLD attributes {#tld-attributes}
 
-Please refer to the definition of the `TLD` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `TLD` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 ## TLD Types {#tld-types}
 
@@ -58,7 +58,7 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve the TLD {#getTld}
@@ -93,7 +93,7 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Lists the TLD Extended Attributes {#getTldExtendedAttributes}
 
@@ -130,4 +130,4 @@ curl -H 'Authorization: Bearer <token>' \
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

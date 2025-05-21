@@ -11,12 +11,12 @@ excerpt: This page documents the DNSimple services API v2.
 
 ## Service attributes {#service-attributes}
 
-Please refer to the definition of the `Service` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Service` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## Service Setting attributes {#service-setting-attributes}
 
-Please refer to the definition of the `ServiceSetting` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `ServiceSetting` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List services {#listServices}
@@ -52,7 +52,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Retrieve a service {#getService}
 
@@ -82,4 +82,4 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

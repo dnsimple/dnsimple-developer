@@ -40,9 +40,9 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if auto-renewal cannot be enabled.
+Responds with [HTTP 400](/v2/#bad-request) if auto-renewal cannot be enabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Disable domain auto-renewal {#disableDomainAutoRenewal}
 
@@ -75,6 +75,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if auto-renewal cannot be disabled.
+Responds with [HTTP 400](/v2/#bad-request) if auto-renewal cannot be disabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

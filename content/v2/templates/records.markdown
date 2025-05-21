@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple Template Records API v2.
 
 ## Template Record attributes {#template-record-attributes}
 
-Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List template records {#listTemplateRecords}
@@ -56,7 +56,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Create a template record {#createTemplateRecord}
 
@@ -112,9 +112,9 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the template record cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the template record cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Get a template record {#getTemplateRecord}
@@ -147,7 +147,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Delete a template record {#deleteTemplateRecord}
 
@@ -177,6 +177,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the template record cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the template record cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

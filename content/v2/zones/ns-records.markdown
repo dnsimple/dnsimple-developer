@@ -56,7 +56,7 @@ Name | Type | Description
 
 ### Response
 
-Responds with HTTP 200, including the zone's NS records as defined in [our OpenAPI documentation](/v2/openapi.yml).
+Responds with HTTP 200, including the zone's NS records as defined in [our OpenAPI documentation](/v2/openapi.yml/).
 
 ~~~json
 <%= pretty_print_fixture("/api/updateZoneNsRecords/success.http") %>
@@ -64,12 +64,12 @@ Responds with HTTP 200, including the zone's NS records as defined in [our OpenA
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the NS records cannot be set for the zone.
+Responds with [HTTP 400](/v2/#bad-request) if the NS records cannot be set for the zone.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
-Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding payments.
 
-Responds with [HTTP 404](/v2#unauthorized) if the zone or name server sets are not in the account.
+Responds with [HTTP 404](/v2/#unauthorized) if the zone or name server sets are not in the account.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account doesn't have access to the name server sets feature.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account doesn't have access to the name server sets feature.

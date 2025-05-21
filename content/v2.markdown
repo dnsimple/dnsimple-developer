@@ -7,7 +7,7 @@ excerpt: This page provides an overview of the official DNSimple API v2.
 
 This page provides an overview of the official DNSimple API v2.
 
-The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml) and [JSON](/v2/openapi.json) formats.
+The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml/) and [JSON](/v2/openapi.json/) formats.
 
 * TOC
 {:toc}
@@ -82,7 +82,7 @@ Note that Oauth2 tokens can be acquired [programmatically and via OAuth dance](/
 
 ### Account tokens vs User tokens
 
-API v2 offers 2 types of [tokens](https://support.dnsimple.com/articles/api-access-token): account tokens and user tokens.
+API v2 offers 2 types of [tokens](https://support.dnsimple.com/articles/api-access-token/): account tokens and user tokens.
 
 The user token gives you access to any resource associated to any account the user has access to. If you have been granted specific domain permissions using [Domain Access Control](https://support.dnsimple.com/articles/domain-access-control/), your access will be limited by your given role.
 
@@ -92,7 +92,7 @@ We recommend to use account tokens, unless your application needs multi-account 
 
 ## Authorization
 
-[Scoped account access tokens](https://support.dnsimple.com/articles/api-access-token#scoped-access-tokens), which allow granular permissions to specific resources (e.g. domains, certificates or zones) are [available for certain plans](https://dnsimple.com/pricing). When calling an API endpoint with a scoped access token, an authorization check will be performed to verify whether the access token is authorized to access the specified resource(s).
+[Scoped account access tokens](https://support.dnsimple.com/articles/api-access-token/#scoped-access-tokens), which allow granular permissions to specific resources (e.g. domains, certificates or zones) are [available for certain plans](https://dnsimple.com/pricing). When calling an API endpoint with a scoped access token, an authorization check will be performed to verify whether the access token is authorized to access the specified resource(s).
 
 ## Response Codes
 

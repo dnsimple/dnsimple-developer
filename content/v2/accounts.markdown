@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple accounts API v2 endpoint.
 
 ## Account attributes {#account-attributes}
 
-Please refer to the definition of the `Account` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Account` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List accounts {#listAccounts}
@@ -48,4 +48,4 @@ Responds with HTTP 200. Depending on how you are authenticated you will see all 
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

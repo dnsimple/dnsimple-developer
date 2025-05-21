@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple zones API v2.
 
 ## Zone attributes {#zones-attributes}
 
-Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml).
+Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml/).
 
 
 ## List zones {#listZones}
@@ -69,7 +69,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Retrieve a zone {#getZone}
 
@@ -102,7 +102,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Download a zone file {#getZoneFile}
 
@@ -133,7 +133,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Check zone distribution {#checkZoneDistribution}
 
@@ -176,7 +176,7 @@ Responds with HTTP 200 when the zone is not distributed.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform the check.
 
@@ -222,7 +222,7 @@ Responds with HTTP 200 when the zone was successfully activated.
 
 ### Errors
 
-Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
+Responds with [HTTP 404](/v2/#not-found) if the resource does not exist.
 
 ## Deactivate DNS services for the zone {#deactivateZoneService}
 
@@ -262,4 +262,4 @@ Responds with HTTP 200 when the zone has been successfully deactivated.
 
 ### Errors
 
-Responds with [HTTP 404](/v2#not-found) if the resource does not exist.
+Responds with [HTTP 404](/v2/#not-found) if the resource does not exist.
