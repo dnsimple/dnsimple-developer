@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple secondary DNS API v2.
 
 ## Primary Server attributes {#primary-server-attributes}
 
-Please refer to the definition of the `PrimaryServer` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `PrimaryServer` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List primary servers {#listPrimaryServers}

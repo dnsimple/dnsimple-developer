@@ -6,7 +6,7 @@ title: Getting started with the DNSimple API
 
 Welcome to the official [DNSimple](https://dnsimple.com/) Developer documentation.
 
-DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide an extensive API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort. The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml/) and [JSON](/v2/openapi.json/) formats.
+DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide an extensive API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort. The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml) and [JSON](/v2/openapi.json) formats.
 
 ## Core Concepts
 

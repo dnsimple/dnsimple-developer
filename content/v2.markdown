@@ -7,7 +7,7 @@ excerpt: This page provides an overview of the official DNSimple API v2.
 
 This page provides an overview of the official DNSimple API v2.
 
-The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml/) and [JSON](/v2/openapi.json/) formats.
+The complete definition of our API is available in OpenAPIv3 [YAML](/v2/openapi.yml) and [JSON](/v2/openapi.json) formats.
 
 * TOC
 {:toc}

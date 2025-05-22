@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple certificates API v2.
 
 ## Certificate attributes {#certificate-attributes}
 
-Please refer to the definition of the `Certificate` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `Certificate` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List certificates {#listCertificates}

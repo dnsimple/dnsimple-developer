@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple Template Records API v2.
 
 ## Template Record attributes {#template-record-attributes}
 
-Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `TemplateRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List template records {#listTemplateRecords}

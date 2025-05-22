@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple TLDs API v2.
 
 ## TLD attributes {#tld-attributes}
 
-Please refer to the definition of the `TLD` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `TLD` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 ## TLD Types {#tld-types}
 

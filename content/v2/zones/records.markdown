@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple zone records API v2.
 
 ## Zone record attributes {#zone-record-attributes}
 
-Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## Record Regions {#ZoneRecordRegions}

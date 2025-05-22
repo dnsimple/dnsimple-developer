@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple zones API v2.
 
 ## Zone attributes {#zones-attributes}
 
-Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `Zone` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List zones {#listZones}

@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple billing charges API v2 endpoint.
 
 ## Charges attributes {#charges-attributes}
 
-Please refer to the definition of the `Charge` data type in [our OpenAPI documentation](/v2/openapi.yml/).
+Please refer to the definition of the `Charge` data type in [our OpenAPI documentation](/v2/openapi.yml).
 
 
 ## List charges {#listCharges}
