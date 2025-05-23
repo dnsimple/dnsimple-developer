@@ -55,9 +55,9 @@ Responds with HTTP 201 on success, renders the push.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the push cannot be initiated.
+Responds with [HTTP 400](/v2/#bad-request) if the push cannot be initiated.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## List pushes {#listPushes}
 
@@ -89,7 +89,7 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Accept a push {#acceptPush}
 
@@ -133,9 +133,9 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the push cannot be accepted.
+Responds with [HTTP 400](/v2/#bad-request) if the push cannot be accepted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Reject a push {#rejectPush}
@@ -165,4 +165,4 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

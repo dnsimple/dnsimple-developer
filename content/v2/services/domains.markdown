@@ -42,7 +42,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Apply a service {#applyServiceToDomain}
 
@@ -85,9 +85,9 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the service cannot be applied to the domain.
+Responds with [HTTP 400](/v2/#bad-request) if the service cannot be applied to the domain.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Unapply a service {#unapplyServiceFromDomain}
 
@@ -122,6 +122,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the service cannot be unapplied.
+Responds with [HTTP 400](/v2/#bad-request) if the service cannot be unapplied.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

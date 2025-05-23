@@ -60,7 +60,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Create a contact {#createContact}
@@ -137,9 +137,9 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the contact cannot be created.
+Responds with [HTTP 400](/v2/#bad-request) if the contact cannot be created.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 
 ## Retrieve a contact {#getContact}
@@ -175,7 +175,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Update a contact {#updateContact}
 
@@ -217,9 +217,9 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the contact cannot be updated.
+Responds with [HTTP 400](/v2/#bad-request) if the contact cannot be updated.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Delete a contact {#deleteContact}
 
@@ -256,6 +256,6 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the contact cannot be deleted.
+Responds with [HTTP 400](/v2/#bad-request) if the contact cannot be deleted.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

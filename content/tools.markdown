@@ -51,7 +51,7 @@ Manage zones for on-premise and self-hosted CoreDNS instances with DNSimple.
 
 ## Community-developed tools
 
-- [Dynamic IP Updater in Bash](/ddns) (official)
+- [Dynamic IP Updater in Bash](/ddns/) (official)
 - [Dynamic IP Updater in Node.js](https://github.com/jcarley/node-dns) by [jcarley](https://github.com/jcarley)
 - [Dynamic IP Updater in Python](https://github.com/oleduc/dnsimple-dynamic-dns) by [oleduc](https://github.com/oleduc)
 - [Dynamic IP Updater in Ruby](https://github.com/hamstarr/dyn-dnsimple) by [hamstarr](https://github.com/hamstarr)
@@ -65,4 +65,4 @@ Manage zones for on-premise and self-hosted CoreDNS instances with DNSimple.
 
 
 If you've developed a tool for the API, [please let us know](https://dnsimple.com/contact) so we can add it here.
-Also, make sure to [check out the libraries](https://developer.dnsimple.com/libraries) you can use to build your own tools around our API.
+Also, make sure to [check out the libraries](https://developer.dnsimple.com/libraries/) you can use to build your own tools around our API.

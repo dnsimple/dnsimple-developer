@@ -45,11 +45,11 @@ Responds with HTTP 201 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the domain transfer lock cannot be enabled for the domain.
+Responds with [HTTP 400](/v2/#bad-request) if the domain transfer lock cannot be enabled for the domain.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 404](/v2#not-found) if the domain does not exist.
+Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
 
 
 ## Disable domain transfer lock {#disableDomainTransferLock}
@@ -88,11 +88,11 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the domain transfer lock cannot be disabled for the domain.
+Responds with [HTTP 400](/v2/#bad-request) if the domain transfer lock cannot be disabled for the domain.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 404](/v2#not-found) if the domain does not exist.
+Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
 
 
 ## Retrieve domain transfer lock status {#getDomainTransferLock}
@@ -128,6 +128,6 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 404](/v2#not-found) if the domain does not exist.
+Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
