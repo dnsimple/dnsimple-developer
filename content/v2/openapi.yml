@@ -24,7 +24,6 @@ tags:
   - name: billing
   - name: contacts
   - name: domain certificates
-  - name: domain collaborators
   - name: domain dnssec
   - name: domain emailforwards
   - name: domain pushes
@@ -218,69 +217,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a domain
-  '/{account}/domains/{domain}/collaborators':
-    get:
-      deprecated: true
-      description: |-
-        Deprecated in favor of Domain Access Control.
-
-        Lists collaborators for the domain.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: listDomainCollaborators
-      tags:
-        - domain collaborators
-      responses:
-        '200':
-          description: Successfully retrieved the collaborator list.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Collaborator'
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-        '400':
-          $ref: '#/components/responses/400'
-        '404':
-          $ref: '#/components/responses/404'
-      summary: List collaborators
-    post:
-      deprecated: true
-      description: |-
-        Deprecated in favor of Domain Access Control.
-
-        Adds a collaborator to the domain.
-
-        At the time of the add, a collaborator may or may not have a DNSimple account. In case the collaborator doesn't have a DNSimple account, the system will invite them to register to DNSimple first and then to accept the collaboration invitation. In the other case, they are automatically added to the domain as collaborator. They can decide to reject the invitation later.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: addDomainCollaborator
-      tags:
-        - domain collaborators
-      requestBody:
-        $ref: '#/components/requestBodies/CollaboratorCreate'
-      responses:
-        '201':
-          description: Successfully added collaborator
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/Collaborator'
-        '400':
-          $ref: '#/components/responses/400'
-        '404':
-          $ref: '#/components/responses/404'
-      summary: Add a collaborator
   '/{account}/domains/{domain}/dnssec':
     get:
       description: Gets the DNSSEC status for an existing domain.
@@ -2214,28 +2150,6 @@ paths:
         '400':
           $ref: '#/components/responses/400'
       summary: Start registrant change
-  '/{account}/domains/{domain}/collaborators/{collaborator}':
-    delete:
-      deprecated: true
-      description: |-
-        Deprecated in favor of Domain Access Control.
-
-        Removes a collaborator from the domain.
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-        - $ref: '#/components/parameters/Collaborator'
-      operationId: removeDomainCollaborator
-      tags:
-        - domain collaborators
-      responses:
-        '204':
-          description: Successfully removed collaborator
-        '400':
-          $ref: '#/components/responses/400'
-        '404':
-          $ref: '#/components/responses/404'
-      summary: Remove a collaborator
   '/{account}/registrar/registrant_changes/check':
     post:
       description: Retrieves the requirements of a registrant change.
@@ -2887,13 +2801,6 @@ components:
       in: path
       required: true
       description: The certificate id
-      schema:
-        type: integer
-    Collaborator:
-      name: collaborator
-      in: path
-      required: true
-      description: The collaborator id
       schema:
         type: integer
     Contact:
@@ -3621,37 +3528,6 @@ components:
           Xzc48AOBzUr8OeA4sHKJ79sJirOiWHNfD1swtvyVzsFZb6moiNwD3Ce/FzYCa3lQ
           U8blTH/uqpR2pSC6whzJ/lnSdqHUqhyp00000000000000000000
           -----END RSA PRIVATE KEY-----
-    Collaborator:
-      type: object
-      properties:
-        id:
-          type: integer
-        domain_id:
-          type: integer
-        domain_name:
-          type: string
-        user_id:
-          type: integer
-        user_email:
-          type: string
-        invitation:
-          type: boolean
-        created_at:
-          $ref: '#/components/schemas/DateTime'
-        updated_at:
-          $ref: '#/components/schemas/DateTime'
-        accepted_at:
-          $ref: '#/components/schemas/DateTime'
-      example:
-        id: 100
-        domain_id: 1
-        domain_name: example.com
-        user_id: 999
-        user_email: existing-user@example.com
-        invitation: false
-        created_at: '2016-10-07T08:53:41Z'
-        updated_at: '2016-10-07T08:53:41Z'
-        accepted_at: '2016-10-07T08:53:41Z'
     Contact:
       type: object
       properties:
@@ -5805,18 +5681,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   requestBodies:
-    CollaboratorCreate:
-      description: Collaborator attributes
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              email:
-                type: string
-          example:
-            email: john.doe@example.com
     ContactCreateOrUpdate:
       description: Contact create attributes
       required: true
