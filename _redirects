@@ -1,2 +1,4 @@
 /v2/webhooks /v2/webhooks/webhooks
 /v2/webhooks/index.html /v2/webhooks/webhooks/
+/v2/domains/collaborators /v2/domains/
+/v2/domains/collaborators/index.html /v2/domains/
