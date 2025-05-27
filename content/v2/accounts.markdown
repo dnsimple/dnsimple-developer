@@ -48,4 +48,4 @@ Responds with HTTP 200. Depending on how you are authenticated you will see all 
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.

@@ -110,4 +110,4 @@ Responds with HTTP 200.
 
 ### Errors
 
-Responds with [HTTP 401](/v2#unauthorized) if there are authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) if there are authentication issues.

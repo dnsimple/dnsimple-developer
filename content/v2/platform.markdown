@@ -14,7 +14,7 @@ excerpt: This page documents the DNSimple platform API.
 
 This API provides a means to publish information into DNSimple about add-ons that extend the functionality of the DNSimple service.
 
-- [Connections](/v2/platform/connections)
-- [Messages](/v2/platform/messages)
-- [Metadata](/v2/platform/metadata)
-- [Statuses](/v2/platform/statuses)
+- [Connections](/v2/platform/connections/)
+- [Messages](/v2/platform/messages/)
+- [Metadata](/v2/platform/metadata/)
+- [Statuses](/v2/platform/statuses/)

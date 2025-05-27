@@ -7,7 +7,7 @@ excerpt: Here's a list of libraries and API clients for interacting with the DNS
 
 There are several libraries available that use the DNSimple API. You can use these as a starting point or continue on through the documentation below.
 
-If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here. Also, make sure to [check out the tools](/tools) that are built on the DNSimple API.
+If you've developed a library for the API, [please let us know](https://dnsimple.com/contact) so we can add it here. Also, make sure to [check out the tools](/tools/) that are built on the DNSimple API.
 
 _Please keep in mind that some of these libraries may be incomplete or outdated._
 

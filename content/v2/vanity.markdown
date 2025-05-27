@@ -48,13 +48,13 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if vanity name servers cannot be enabled.
+Responds with [HTTP 400](/v2/#bad-request) if vanity name servers cannot be enabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding payments.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account doesn't have access to the vanity name server feature.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account doesn't have access to the vanity name server feature.
 
 
 ## Disable vanity name servers {#disableVanityNameServers}
@@ -87,10 +87,10 @@ Responds with HTTP 204 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if vanity name servers cannot be disabled.
+Responds with [HTTP 400](/v2/#bad-request) if vanity name servers cannot be disabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments.
+Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding payments.
 
-Responds with [HTTP 412](/v2#precondition-failed) if the account doesn't have access to the vanity name server feature.
+Responds with [HTTP 412](/v2/#precondition-failed) if the account doesn't have access to the vanity name server feature.

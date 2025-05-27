@@ -84,11 +84,11 @@ Responds with HTTP 201 if WHOIS privacy is only enabled because it was purchased
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if WHOIS privacy cannot be enabled.
+Responds with [HTTP 400](/v2/#bad-request) if WHOIS privacy cannot be enabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
-Responds with [HTTP 402](/v2#payment-required) if the account has outstanding payments. Response available only on legacy domains.
+Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding payments. Response available only on legacy domains.
 
 ## Disable WHOIS privacy {#disableWhoisPrivacy}
 
@@ -122,9 +122,9 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if WHOIS privacy cannot be disabled.
+Responds with [HTTP 400](/v2/#bad-request) if WHOIS privacy cannot be disabled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
 
 ## Renew WHOIS privacy {#renewWhoisPrivacy}
 
@@ -164,6 +164,6 @@ Responds with HTTP 201 if WHOIS privacy is renewed.
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if WHOIS privacy cannot be renewed.
+Responds with [HTTP 400](/v2/#bad-request) if WHOIS privacy cannot be renewed.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of case of authentication issues.
+Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
