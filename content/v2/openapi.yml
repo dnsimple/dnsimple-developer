@@ -3249,6 +3249,16 @@ components:
       format: date-time
       example: '2010-01-01T01:00:00Z'
       description: A date-time value formatted as ISO 8601.
+    DateTimeCreatedAt:
+      type: string
+      format: date-time
+      example: '2010-01-01T01:00:00Z'
+      description: A date-time value, representing when the entry was created, formatted as ISO 8601.
+    DateTimeUpdatedAt:
+      type: string
+      format: date-time
+      example: '2010-01-01T01:00:00Z'
+      description: A date-time value, representing when the entry was last updated, formatted as ISO 8601.
     NullableDate:
       type: string
       nullable: true
@@ -5101,6 +5111,7 @@ components:
         - 3
     TTL:
       type: integer
+      description: The Time To Live (TTL) value for the entry, in seconds.
       minimum: 0
       default: 3600
     User:
@@ -5505,7 +5516,6 @@ components:
           description: The content/value of the record (e.g., IP address for A records, hostname for CNAME records).
         ttl:
           $ref: '#/components/schemas/TTL'
-          description: The Time To Live (TTL) value for the record in seconds
         priority:
           type: integer
           description: The priority value for MX and SRV records. Lower values have higher priority.
@@ -5523,11 +5533,9 @@ components:
           type: boolean
           description: Returns true if a record is a system generated record and thus is not modifiable.
         created_at:
-          $ref: '#/components/schemas/DateTime'
-          description: When the record was created.
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
-          description: When the record was last updated.
+          $ref: '#/components/schemas/DateTimeCreatedAt'
     ZoneRecordRegion:
       type: string
       enum:
