@@ -3300,9 +3300,9 @@ components:
         plan_identifier:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         email: example-account@example.com
@@ -3338,9 +3338,9 @@ components:
         invitation_accepted_at:
           $ref: '#/components/schemas/NullableDateTime'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     Actor:
       type: object
       properties:
@@ -3396,9 +3396,9 @@ components:
             - rapidssl
             - letsencrypt
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
         expires_at:
           $ref: '#/components/schemas/DateTime'
         expires_on:
@@ -3575,9 +3575,9 @@ components:
         email:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         account_id: 1010
@@ -3687,9 +3687,9 @@ components:
         public_key:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     Domain:
       type: object
       example:
@@ -3731,9 +3731,9 @@ components:
         expires_on:
           $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     DomainCheckResult:
       type: object
       properties:
@@ -3821,9 +3821,9 @@ components:
         whois_privacy:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 999
@@ -3854,9 +3854,9 @@ components:
             - renewed
             - failed
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 999
@@ -3879,9 +3879,9 @@ components:
             - restored
             - cancelled
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 999
@@ -3912,9 +3912,9 @@ components:
         status_description:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 999
@@ -3937,9 +3937,9 @@ components:
         enabled:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         enabled: true
         created_at: '2017-02-03T17:43:22.000Z'
@@ -3976,9 +3976,9 @@ components:
           deprecated: true
           description: Deprecated in favor of destination_email.
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     EventAccountAddUser:
       type: object
       description: Payload for account.add_user event.
@@ -4614,9 +4614,9 @@ components:
         invoice_number:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     LetsencryptCertificatePurchase:
       type: object
       properties:
@@ -4640,9 +4640,9 @@ components:
         auto_renew:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         certificate_id: 1
@@ -4670,9 +4670,9 @@ components:
         auto_renew:
           type: boolean
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 999
         old_certificate_id: 200
@@ -4693,9 +4693,9 @@ components:
         ipv6:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         name: ns1.example.com
@@ -4715,9 +4715,9 @@ components:
         homepage_url:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     PrimaryServer:
       type: object
       properties:
@@ -4736,9 +4736,9 @@ components:
           items:
             type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         account_id: 2020
@@ -4760,9 +4760,9 @@ components:
         account_id:
           type: integer
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
         accepted_at:
           $ref: '#/components/schemas/NullableDateTime'
       example:
@@ -4799,9 +4799,9 @@ components:
         irt_lock_lifted_by:
           $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         account_id: 1010
@@ -4847,9 +4847,9 @@ components:
           items:
             type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     Service:
       type: object
       example:
@@ -4894,9 +4894,9 @@ components:
           nullable: true
           description: The default subdomain used when creating DNS records
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
         settings:
           type: array
           items:
@@ -4974,9 +4974,9 @@ components:
             - unsubscribed
             - not_subscribed
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     Template:
       type: object
       properties:
@@ -4991,9 +4991,9 @@ components:
         description:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         account_id: 1010
@@ -5021,9 +5021,9 @@ components:
         type:
           $ref: '#/components/schemas/TemplateRecordType'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 296
         template_id: 268
@@ -5122,9 +5122,9 @@ components:
         email:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         email: example-user@example.com
@@ -5142,9 +5142,9 @@ components:
         ipv6:
           type: string
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     Webhook:
       type: object
       properties:
@@ -5382,9 +5382,9 @@ components:
         expires_on:
           $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 2
@@ -5408,9 +5408,9 @@ components:
         expires_on:
           $ref: '#/components/schemas/Date'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         domain_id: 100
@@ -5437,22 +5437,24 @@ components:
           type: boolean
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
-          $ref: '#/components/schemas/DateTime'
-          description: 'Returns the date the zone was last transferred. Used if it is a secondary zone.'
+          type: string
+          format: date-time
+          example: '2010-01-01T01:00:00Z'
+          description: Returns the date the zone was last transferred. Used if it is a secondary zone.
         active:
           type: boolean
           description: 'Returns true if DNS services are active for the zone. If false, DNS services are disabled and DNS records will not be resolved.'
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         id: 1
         account_id: 1010
         name: example-alpha.com
         reverse: false
         secondary: false
-        last_transfferd_at: null
+        last_transferred_at: null
         active: true
         created_at: '2015-04-23T07:40:03Z'
         updated_at: '2015-04-23T07:40:03Z'
@@ -5534,7 +5536,7 @@ components:
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTimeCreatedAt'
+          $ref: '#/components/schemas/DateTimeUpdatedAt'
     ZoneRecordRegion:
       type: string
       enum:
