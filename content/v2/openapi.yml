@@ -5523,7 +5523,6 @@ components:
           default: 0
         type:
           $ref: '#/components/schemas/ZoneRecordType'
-          description: The type of DNS record (e.g., A, AAAA, CNAME, MX, TXT).
         regions:
           type: array
           description: The regions where this record is active. If empty, the record is active in all regions.
@@ -5550,7 +5549,7 @@ components:
         - FRA
     ZoneRecordType:
       type: string
-      description: Supported DNS record types at DNSimple. Note that some record types may only be available on specific plans.
+      description: The type of DNS record. Supported DNS record types are listed below. Note that some record types may only be available on specific plans.
       enum:
         - A
         - AAAA
