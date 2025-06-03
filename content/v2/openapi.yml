@@ -3249,6 +3249,16 @@ components:
       format: date-time
       example: '2010-01-01T01:00:00Z'
       description: A date-time value formatted as ISO 8601.
+    DateTimeCreatedAt:
+      type: string
+      format: date-time
+      example: '2010-01-01T01:00:00Z'
+      description: A date-time value, representing when the entry was created, formatted as ISO 8601.
+    DateTimeUpdatedAt:
+      type: string
+      format: date-time
+      example: '2010-01-01T01:00:00Z'
+      description: A date-time value, representing when the entry was last updated, formatted as ISO 8601.
     NullableDate:
       type: string
       nullable: true
@@ -5101,6 +5111,7 @@ components:
         - 3
     TTL:
       type: integer
+      description: The Time To Live (TTL) value for the entry, in seconds.
       minimum: 0
       default: 3600
     User:
@@ -5489,35 +5500,41 @@ components:
       properties:
         id:
           type: integer
+          description: The unique identifier for the record.
         zone_id:
           type: string
+          description: The unique identifier of the zone this record belongs to
         parent_id:
           type: integer
+          description: If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An example of child record is the TXT descriptive record created for an ALIAS record.
           nullable: true
-          description: 'If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An examle of child record is the TXT descriptive record created for an ALIAS record.'
         name:
           type: string
+          description: The name of the record (e.g., "www" for www.example.com).
         content:
           type: string
+          description: The content/value of the record (e.g., IP address for A records, hostname for CNAME records).
         ttl:
           $ref: '#/components/schemas/TTL'
         priority:
           type: integer
+          description: The priority value for MX and SRV records. Lower values have higher priority.
           nullable: true
           default: 0
         type:
           $ref: '#/components/schemas/ZoneRecordType'
         regions:
           type: array
+          description: The regions where this record is active. If empty, the record is active in all regions.
           items:
             $ref: '#/components/schemas/ZoneRecordRegion'
         system_record:
           type: boolean
           description: Returns true if a record is a system generated record and thus is not modifiable.
         created_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/DateTimeCreatedAt'
     ZoneRecordRegion:
       type: string
       enum:
@@ -5532,7 +5549,7 @@ components:
         - FRA
     ZoneRecordType:
       type: string
-      description: Supported DNS record types at DNSimple. Note that some record types may only be available on specific plans.
+      description: The type of DNS record. Supported DNS record types are listed below. Note that some record types may only be available on specific plans.
       enum:
         - A
         - AAAA
