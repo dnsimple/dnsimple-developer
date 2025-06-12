@@ -10,9 +10,10 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
   <%= render "colorscheme" %>
   <%= render "analytics" %>
+  <script src="https://dnsimple.com/components/marketing.js"></script>
 </head>
 <body>
-  <%= render "banner" %>
+  <dnsimple-marketing-banner max-width="1008" padding-left-small="10" padding-left="0"></dnsimple-marketing-banner>
   
   <header>
     <div class="mw8 center ph2">
@@ -30,10 +31,12 @@
                 <i class="fa fa-search"></i>
               </span>
             </a>
+            
           </div>
-        <div class="inline-flex flex-row-reverse flex-row-l mt3 mt0-l">
+        <div class="inline-flex flex-row-reverse flex-row-l mt3 mt0-l items-center">
+          <dnsimple-marketing-hiring background-color="#777bb3" text-color="#dfdeed" hover-color="#ffffff"></dnsimple-marketing-hiring>
           <!--- Light mode button --->
-          <button class="pointer bg-transparent outline-0 bn color-mode__btn light--hidden" aria-label="Toggle light mode">
+          <button class="pointer bg-transparent outline-0 bn color-mode__btn light--hidden ml2" aria-label="Toggle light mode">
             <svg
               style="width: 32px"
               class="sun-button v-mid"
