@@ -5099,6 +5099,12 @@ components:
           enum:
             - ds
             - key
+        name_server_min:
+          type: integer
+          description: minimum number of name servers required for this TLD
+        name_server_max:
+          type: integer
+          description: maximum number of name servers required for this TLD
       example:
         tld: ac
         tld_type: 2
@@ -5110,6 +5116,7 @@ components:
         renewal_enabled: true
         transfer_enabled: false
         dnssec_interface_type: 'ds'
+        name_server_min: 2
     TLDType:
       type: integer
       description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
