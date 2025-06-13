@@ -1,7 +1,7 @@
 POST /1djlwbe1 HTTP/1.1
 Host: example.com
 Accept-Encoding: gzip
-Connection: close
+Connection: keep-alive
 Content-Length: 635
 Content-Type: application/json
 User-Agent: DNSimple-Webhook-Notifier/46408cbfd86e25e0a375a09353a73c55a4825a28
