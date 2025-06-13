@@ -3,7 +3,7 @@ Host: example.com
 Content-Type: application/json
 User-Agent: DNSimple-Webhook-Notifier/46408cbfd86e25e0a375a09353a73c55a4825a28
 X-Request-Id: 02449375-8d36-45ba-9e73-cdb7615388f0
-Content-Length: 658
+Content-Length: 678
 Accept-Encoding: gzip
 Connection: close
 
