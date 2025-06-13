@@ -4107,12 +4107,16 @@ components:
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECDelete:
       type: object
       description: Payload for dnssec.delete
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECRotationStart:
       type: object
       description: Payload for dnssec.rotation_start
@@ -4121,6 +4125,8 @@ components:
           $ref: '#/components/schemas/DelegationSigner'
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECRotationComplete:
       type: object
       description: Payload for dnssec.rotation_complete
@@ -4129,6 +4135,8 @@ components:
           $ref: '#/components/schemas/DelegationSigner'
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDomainAutoRenewalDisable:
       type: object
       description: Payload for domain.auto_renewal_disable
@@ -5091,6 +5099,12 @@ components:
           enum:
             - ds
             - key
+        name_server_min:
+          type: integer
+          description: minimum number of name servers required for this TLD
+        name_server_max:
+          type: integer
+          description: maximum number of name servers required for this TLD
       example:
         tld: ac
         tld_type: 2
@@ -5102,6 +5116,7 @@ components:
         renewal_enabled: true
         transfer_enabled: false
         dnssec_interface_type: 'ds'
+        name_server_min: 2
     TLDType:
       type: integer
       description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
@@ -5166,15 +5181,19 @@ components:
           type: string
           description: 'The name attribute contains a string representing the name of event that occurred. It will always have an object and action separated by a period. It may optionally include a state for objects that go through state changes, for example `domain.registration:started`.'
           enum:
+            - account_invitation.accept
+            - account_invitation.create
+            - account_invitation.remove
+            - account_invitation.resend
             - account.add_user
             - account.billing_settings_update
             - account.payment_details_update
             - account.remove_user
             - account.update
-            - account_invitation.accept
-            - account_invitation.create
-            - account_invitation.remove
-            - account_invitation.resend
+            - account.user_invitation_accept
+            - account.user_invitation_revoke
+            - account.user_invite
+            - account.user_remove
             - certificate.auto_renewal_disable
             - certificate.auto_renewal_enable
             - certificate.auto_renewal_failed
@@ -5182,40 +5201,46 @@ components:
             - certificate.reissue
             - certificate.remove_private_key
             - contact.create
-            - contact.update
             - contact.delete
+            - contact.update
             - dnssec.create
             - dnssec.delete
-            - dnssec.rotation_start
             - dnssec.rotation_complete
+            - dnssec.rotation_start
             - domain.auto_renewal_disable
             - domain.auto_renewal_enable
             - domain.create
-            - domain.delete
-            - 'domain.register:started'
-            - domain.register
-            - 'domain.register:cancelled'
-            - 'domain.renew:started'
-            - domain.renew
-            - 'domain.renew:cancelled'
             - domain.delegation_change
-            - 'domain.registrant_change:started'
+            - domain.delete
+            - domain.register
+            - domain.register:cancelled
+            - domain.register:started
             - domain.registrant_change
-            - 'domain.registrant_change:cancelled'
+            - domain.registrant_change:cancelled
+            - domain.registrant_change:started
+            - domain.renew
+            - domain.renew:cancelled
+            - domain.renew:started
             - domain.resolution_disable
             - domain.resolution_enable
-            - 'domain.transfer:started'
+            - domain.restore
+            - domain.restore:cancelled
+            - domain.restore:started
             - domain.transfer
-            - 'domain.transfer:cancelled'
+            - domain.transfer_lock_disable
+            - domain.transfer_lock_enable
+            - domain.transfer:cancelled
+            - domain.transfer:started
             - email_forward.create
-            - email_forward.update
             - email_forward.delete
+            - email_forward.update
             - name_server.deregister
             - name_server.register
             - oauth_application.create
             - oauth_application.delete
             - oauth_application.reset_client_secret
             - oauth_application.revoke_access_tokens
+            - platform_status.create
             - push.accept
             - push.initiate
             - push.reject
@@ -5223,13 +5248,14 @@ components:
             - secondary_dns.delete
             - secondary_dns.update
             - subscription.migrate
+            - subscription.renew
             - subscription.subscribe
             - subscription.unsubscribe
+            - template_record.create
+            - template_record.delete
             - template.create
             - template.delete
             - template.update
-            - template_record.create
-            - template_record.delete
             - vanity.disable
             - vanity.enable
             - webhook.create
@@ -5238,11 +5264,11 @@ components:
             - whois_privacy.enable
             - whois_privacy.purchase
             - whois_privacy.renew
-            - zone.create
-            - zone.delete
             - zone_record.create
             - zone_record.delete
             - zone_record.update
+            - zone.create
+            - zone.delete
         api_version:
           type: string
           description: 'The api_version is the API version used to serialize the data in the payload. For version 2 of the API, this is the string v2. For example, you can expect a domain object to be serialized using the same domain attributes described in the corresponding API page.'
@@ -5255,13 +5281,13 @@ components:
           anyOf:
             - $ref: '#/components/schemas/EventAccountAddUser'
             - $ref: '#/components/schemas/EventAccountBillingSettingsUpdate'
-            - $ref: '#/components/schemas/EventAccountPaymentDetailsUpdate'
-            - $ref: '#/components/schemas/EventAccountRemoveUser'
-            - $ref: '#/components/schemas/EventAccountUpdate'
             - $ref: '#/components/schemas/EventAccountInvitationAccept'
             - $ref: '#/components/schemas/EventAccountInvitationCreate'
             - $ref: '#/components/schemas/EventAccountInvitationRemove'
             - $ref: '#/components/schemas/EventAccountInvitationResend'
+            - $ref: '#/components/schemas/EventAccountPaymentDetailsUpdate'
+            - $ref: '#/components/schemas/EventAccountRemoveUser'
+            - $ref: '#/components/schemas/EventAccountUpdate'
             - $ref: '#/components/schemas/EventCertificateAutoRenewalDisable'
             - $ref: '#/components/schemas/EventCertificateAutoRenewalEnable'
             - $ref: '#/components/schemas/EventCertificateAutoRenewalFailed'
@@ -5273,24 +5299,27 @@ components:
             - $ref: '#/components/schemas/EventContactUpdate'
             - $ref: '#/components/schemas/EventDNSSECCreate'
             - $ref: '#/components/schemas/EventDNSSECDelete'
-            - $ref: '#/components/schemas/EventDNSSECRotationStart'
             - $ref: '#/components/schemas/EventDNSSECRotationComplete'
+            - $ref: '#/components/schemas/EventDNSSECRotationStart'
             - $ref: '#/components/schemas/EventDomainAutoRenewalDisable'
             - $ref: '#/components/schemas/EventDomainAutoRenewalEnable'
             - $ref: '#/components/schemas/EventDomainCreate'
+            - $ref: '#/components/schemas/EventDomainDelegationChange'
             - $ref: '#/components/schemas/EventDomainDelete'
-            - $ref: '#/components/schemas/EventDomainRegisterStarted'
             - $ref: '#/components/schemas/EventDomainRegister'
             - $ref: '#/components/schemas/EventDomainRegisterCancelled'
-            - $ref: '#/components/schemas/EventDomainRenewStarted'
-            - $ref: '#/components/schemas/EventDomainRenew'
-            - $ref: '#/components/schemas/EventDomainRenewCancelled'
-            - $ref: '#/components/schemas/EventDomainDelegationChange'
-            - $ref: '#/components/schemas/EventDomainRegistrantChangeStarted'
+            - $ref: '#/components/schemas/EventDomainRegisterStarted'
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainRegistrantChangeCancelled'
+            - $ref: '#/components/schemas/EventDomainRegistrantChangeStarted'
+            - $ref: '#/components/schemas/EventDomainRenew'
+            - $ref: '#/components/schemas/EventDomainRenewCancelled'
+            - $ref: '#/components/schemas/EventDomainRenewStarted'
             - $ref: '#/components/schemas/EventDomainResolutionDisable'
             - $ref: '#/components/schemas/EventDomainResolutionEnable'
+            - $ref: '#/components/schemas/EventDomainRestore'
+            - $ref: '#/components/schemas/EventDomainRestoreCancelled'
+            - $ref: '#/components/schemas/EventDomainRestoreStarted'
             - $ref: '#/components/schemas/EventDomainTransfer'
             - $ref: '#/components/schemas/EventDomainTransferCancelled'
             - $ref: '#/components/schemas/EventDomainTransferLockDisable'
@@ -5304,9 +5333,9 @@ components:
             - $ref: '#/components/schemas/EventNameServerRegister'
             - $ref: '#/components/schemas/EventOauthApplicationCreate'
             - $ref: '#/components/schemas/EventOauthApplicationDelete'
-            - $ref: '#/components/schemas/EventOauthApplicationUpdate'
             - $ref: '#/components/schemas/EventOauthApplicationResetClientSecret'
             - $ref: '#/components/schemas/EventOauthApplicationRevokeAccessTokens'
+            - $ref: '#/components/schemas/EventOauthApplicationUpdate'
             - $ref: '#/components/schemas/EventPushAccept'
             - $ref: '#/components/schemas/EventPushInitiate'
             - $ref: '#/components/schemas/EventPushReject'
@@ -5323,9 +5352,9 @@ components:
             - $ref: '#/components/schemas/EventTemplateApply'
             - $ref: '#/components/schemas/EventTemplateCreate'
             - $ref: '#/components/schemas/EventTemplateDelete'
-            - $ref: '#/components/schemas/EventTemplateUpdate'
             - $ref: '#/components/schemas/EventTemplateRecordCreate'
             - $ref: '#/components/schemas/EventTemplateRecordDelete'
+            - $ref: '#/components/schemas/EventTemplateUpdate'
             - $ref: '#/components/schemas/EventVanityDisable'
             - $ref: '#/components/schemas/EventVanityEnable'
             - $ref: '#/components/schemas/EventWebhookCreate'
