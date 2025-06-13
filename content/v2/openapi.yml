@@ -4107,12 +4107,16 @@ components:
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECDelete:
       type: object
       description: Payload for dnssec.delete
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECRotationStart:
       type: object
       description: Payload for dnssec.rotation_start
@@ -4121,6 +4125,8 @@ components:
           $ref: '#/components/schemas/DelegationSigner'
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDNSSECRotationComplete:
       type: object
       description: Payload for dnssec.rotation_complete
@@ -4129,6 +4135,8 @@ components:
           $ref: '#/components/schemas/DelegationSigner'
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
+        zone:
+          $ref: '#/components/schemas/Zone'
     EventDomainAutoRenewalDisable:
       type: object
       description: Payload for domain.auto_renewal_disable
