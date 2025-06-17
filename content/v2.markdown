@@ -112,6 +112,7 @@ DNSimple uses conventional HTTP response codes to indicate success or failure of
 - `402 Payment Required` - Your account is not subscribed or not in good standing.
 - `403 Permission Denied` - The authenticated account doesn't have permissions to access the resource. See [Authorization](#authorization).
 - `404 Not Found` - The requested resource doesn't exist or the authenticated account doesn't have permissions to access the resource.
+- `412 Precondition Failed` - The authenticated account does not have the prerequisite feature available in the currently subscribed plan. See [Plans](https://support.dnsimple.com/articles/dnsimple-plans/).
 - `429 Too Many Requests` - You exceeded the allowed number of requests per hour and your request has temporarily been throttled. See [Rate limitting](#rate-limiting).
 
 ### Kaboom!
