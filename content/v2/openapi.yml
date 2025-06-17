@@ -5104,7 +5104,7 @@ components:
           description: minimum number of name servers required for this TLD
         name_server_max:
           type: integer
-          description: maximum number of name servers required for this TLD
+          description: maximum number of name servers allowed for this TLD
       example:
         tld: ac
         tld_type: 2
