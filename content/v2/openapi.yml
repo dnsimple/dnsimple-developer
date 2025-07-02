@@ -59,6 +59,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -3292,6 +3293,12 @@ components:
         total_pages: 1
     Account:
       type: object
+      required:
+        - id
+        - email
+        - plan_identifier
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
