@@ -80,14 +80,26 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
-                    type: object
-                    properties:
-                      account:
-                        $ref: '#/components/schemas/Account'
-                      user:
-                        $ref: '#/components/schemas/User'
+                    oneOf:
+                      - type: object
+                        required: [account]
+                        properties:
+                          account:
+                            $ref: '#/components/schemas/Account'
+                          user:
+                            type: object
+                            nullable: true
+                      - type: object
+                        required: [user]
+                        properties:
+                          user:
+                            $ref: '#/components/schemas/User'
+                          account:
+                            type: object
+                            nullable: true
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -5138,6 +5150,11 @@ components:
       default: 3600
     User:
       type: object
+      required:
+        - id
+        - email
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
