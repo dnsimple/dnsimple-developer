@@ -124,6 +124,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -131,7 +133,6 @@ paths:
                       $ref: '#/components/schemas/Charge'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Billing charges listing.
         '401':
           $ref: '#/components/responses/401'
@@ -3302,6 +3303,11 @@ components:
           type: string
     Pagination:
       type: object
+      required:
+        - current_page
+        - per_page
+        - total_entries
+        - total_pages
       properties:
         current_page:
           type: integer
@@ -3631,6 +3637,13 @@ components:
         updated_at: '2015-01-08T21:30:50Z'
     Charge:
       type: object
+      required:
+        - invoiced_at
+        - total_amount
+        - balance_amount
+        - reference
+        - state
+        - items
       properties:
         invoiced_at:
           $ref: '#/components/schemas/DateTime'
@@ -3666,6 +3679,12 @@ components:
             product_reference: example.com
     ChargeItem:
       type: object
+      required:
+        - description
+        - amount
+        - product_id
+        - product_type
+        - product_reference
       properties:
         description:
           type: string
