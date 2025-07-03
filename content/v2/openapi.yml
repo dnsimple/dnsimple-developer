@@ -324,6 +324,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -353,6 +354,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DelegationSigner'
@@ -3733,6 +3735,16 @@ components:
         product_reference: example.com
     DelegationSigner:
       type: object
+      required:
+        - id
+        - domain_id
+        - algorithm
+        - digest
+        - digest_type
+        - keytag
+        - public_key
+        - created_at
+        - updated_at
       example:
         id: 24
         domain_id: 1010
