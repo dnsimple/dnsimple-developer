@@ -154,6 +154,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -161,7 +163,6 @@ paths:
                       $ref: '#/components/schemas/Domain'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Domain listing.
     post:
       summary: Create a domain
@@ -185,6 +186,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Domain'
@@ -3711,6 +3713,18 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Domain:
       type: object
+      required:
+        - id
+        - account_id
+        - registrant_id
+        - name
+        - unicode_name
+        - state
+        - auto_renew
+        - private_whois
+        - expires_at
+        - created_at
+        - updated_at
       example:
         id: 1
         account_id: 1010
@@ -5833,6 +5847,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [name]
             properties:
               name:
                 type: string
