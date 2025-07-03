@@ -250,6 +250,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DNSSEC'
@@ -276,6 +277,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DNSSEC'
@@ -4015,6 +4017,10 @@ components:
         enabled: true
     DNSSEC:
       type: object
+      required:
+        - enabled
+        - created_at
+        - updated_at
       properties:
         enabled:
           type: boolean
