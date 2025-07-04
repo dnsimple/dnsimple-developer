@@ -2110,6 +2110,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -2125,7 +2126,7 @@ paths:
       tags:
         - contacts
       requestBody:
-        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+        $ref: '#/components/requestBodies/ContactUpdate'
       responses:
         '200':
           description: Successfully updated contact.
@@ -2133,6 +2134,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -6281,6 +6283,61 @@ components:
               - state_province
               - postal_code
               - country
+            properties:
+              label:
+                type: string
+                default: ''
+              first_name:
+                type: string
+              last_name:
+                type: string
+              address1:
+                type: string
+              address2:
+                type: string
+                nullable: true
+              city:
+                type: string
+              state_province:
+                type: string
+              postal_code:
+                type: string
+              country:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              fax:
+                type: string
+                nullable: true
+              organization_name:
+                type: string
+                description: 'The company name. If the organization_name is specified, then you must also include job_title.'
+              job_title:
+                type: string
+                description: The contact's job title. Required if the organization_name is specified.
+            example:
+              label: Default
+              first_name: First
+              last_name: User
+              job_title: CEO
+              organization_name: Awesome Company
+              email: first@example.com
+              phone: '+18001234567'
+              fax: '+18011234567'
+              address1: 'Italian Street, 10'
+              city: Roma
+              state_province: RM
+              postal_code: '00100'
+              country: IT
+    ContactUpdate:
+      description: Contact update attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
             properties:
               label:
                 type: string
