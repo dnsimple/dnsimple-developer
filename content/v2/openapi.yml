@@ -2062,6 +2062,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2078,7 +2079,7 @@ paths:
       tags:
         - contacts
       requestBody:
-        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+        $ref: '#/components/requestBodies/ContactCreate'
       responses:
         '201':
           description: Successfully created contact.
@@ -2086,6 +2087,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -3679,6 +3681,25 @@ components:
           -----END RSA PRIVATE KEY-----
     Contact:
       type: object
+      required:
+        - id
+        - account_id
+        - label
+        - first_name
+        - last_name
+        - organization_name
+        - job_title
+        - address1
+        - address2
+        - city
+        - state_province
+        - postal_code
+        - country
+        - phone
+        - fax
+        - email
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6243,13 +6264,23 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   requestBodies:
-    ContactCreateOrUpdate:
+    ContactCreate:
       description: Contact create attributes
       required: true
       content:
         application/json:
           schema:
             type: object
+            required:
+              - first_name
+              - last_name
+              - email
+              - phone
+              - address1
+              - city
+              - state_province
+              - postal_code
+              - country
             properties:
               label:
                 type: string
