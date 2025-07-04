@@ -1843,6 +1843,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -6086,6 +6087,19 @@ components:
     ZoneRecord:
       type: object
       description: A single DNS record in a zone.
+      required:
+        - id
+        - zone_id
+        - parent_id
+        - name
+        - content
+        - ttl
+        - priority
+        - type
+        - regions
+        - system_record
+        - created_at
+        - updated_at
       example:
         id: 1
         zone_id: example.com
@@ -6471,24 +6485,45 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              ns_names:
-                type: array
-                items:
-                  type: string
-                example:
-                  - ns1.dnsimple.com
-                  - ns2.dnsimple.com
-                  - ns3.dnsimple.com
-                  - ns4.dnsimple.com
-              ns_set_ids:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
+            anyOf:
+              - type: object
+                required: [ns_names]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
+              - type: object
+                required: [ns_set_ids]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
     DomainRegister:
       description: Domain registration attributes
       required: true
