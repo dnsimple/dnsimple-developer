@@ -953,6 +953,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainPremiumPrice'
@@ -3915,6 +3916,9 @@ components:
       type: string
     DomainPremiumPrice:
       type: object
+      required:
+        - premium_price
+        - action
       properties:
         premium_price:
           type: string
