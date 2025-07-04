@@ -656,6 +656,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/CertificateDownload'
@@ -3517,6 +3518,10 @@ components:
         expires_on: '2016-09-09'
     CertificateDownload:
       type: object
+      required:
+        - server
+        - root
+        - chain
       properties:
         server:
           type: string
