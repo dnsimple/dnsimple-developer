@@ -2237,6 +2237,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChangeCheck'
@@ -6647,6 +6648,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - domain_id
+              - contact_id
             properties:
               domain_id:
                 oneOf:
