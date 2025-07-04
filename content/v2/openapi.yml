@@ -1741,6 +1741,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -6006,6 +6007,16 @@ components:
     Zone:
       type: object
       description: Represents a DNS zone.
+      required:
+        - id
+        - account_id
+        - name
+        - reverse
+        - secondary
+        - last_transferred_at
+        - active
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6021,6 +6032,7 @@ components:
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
           type: string
+          nullable: true
           format: date-time
           example: '2010-01-01T01:00:00Z'
           description: Returns the date the zone was last transferred. Used if it is a secondary zone.
