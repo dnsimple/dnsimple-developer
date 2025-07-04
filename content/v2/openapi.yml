@@ -6376,6 +6376,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [contact_id]
             properties:
               contact_id:
                 type: integer
