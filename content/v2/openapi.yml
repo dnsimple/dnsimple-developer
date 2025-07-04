@@ -1872,6 +1872,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1897,6 +1898,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -6827,6 +6829,10 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - type
+              - content
             properties:
               name:
                 type: string
