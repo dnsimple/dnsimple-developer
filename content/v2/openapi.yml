@@ -1548,6 +1548,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacyRenewal'
@@ -5927,6 +5928,15 @@ components:
         updated_at: '2016-02-13T14:34:52Z'
     WhoisPrivacyRenewal:
       type: object
+      required:
+        - id
+        - domain_id
+        - whois_privacy_id
+        - state
+        - enabled
+        - expires_on
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
