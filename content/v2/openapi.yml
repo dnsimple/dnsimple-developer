@@ -2318,6 +2318,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -5349,6 +5350,17 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Service:
       type: object
+      required:
+        - id
+        - name
+        - sid
+        - description
+        - setup_description
+        - requires_setup
+        - default_subdomain
+        - created_at
+        - updated_at
+        - settings
       example:
         id: 2
         name: Service 2
@@ -5400,6 +5412,13 @@ components:
             $ref: '#/components/schemas/ServiceSetting'
     ServiceSetting:
       type: object
+      required:
+        - name
+        - label
+        - append
+        - description
+        - example
+        - password
       properties:
         name:
           type: string
@@ -5409,6 +5428,7 @@ components:
           description: The human-readable label value
         append:
           type: string
+          nullable: true
           description: Additional text to append to the input field
         description:
           type: string
