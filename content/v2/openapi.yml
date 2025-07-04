@@ -1812,6 +1812,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneDistribution'
@@ -3373,6 +3374,7 @@ components:
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
       type: object
+      required: [message]
       properties:
         message:
           type: string
@@ -6074,6 +6076,7 @@ components:
     ZoneDistribution:
       type: object
       description: Zone distribution check
+      required: [distributed]
       properties:
         distributed:
           type: boolean
