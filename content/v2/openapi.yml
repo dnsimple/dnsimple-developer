@@ -521,6 +521,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Push'
@@ -5099,6 +5100,14 @@ components:
         updated_at: '2016-08-11T10:16:03Z'
     Push:
       type: object
+      required:
+        - id
+        - domain_id
+        - contact_id
+        - account_id
+        - created_at
+        - updated_at
+        - accepted_at
       properties:
         id:
           type: integer
