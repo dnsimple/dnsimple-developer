@@ -1190,6 +1190,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRestore'
@@ -4061,6 +4062,12 @@ components:
         updated_at: '2016-12-09T19:46:45Z'
     DomainRestore:
       type: object
+      required:
+        - id
+        - domain_id
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
