@@ -900,6 +900,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -4882,6 +4883,12 @@ components:
           $ref: '#/components/schemas/Zone'
     ExtendedAttribute:
       type: object
+      required:
+        - name
+        - description
+        - required
+        - options
+        - title
       properties:
         name:
           type: string
@@ -4893,6 +4900,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExtendedAttributeOption'
+        title:
+          type: string
       example:
         name: uk_legal_type
         description: Legal type of registrant contact
@@ -4904,6 +4913,7 @@ components:
           - title: Non-UK Individual (representing self)
             value: FIND
             description: Non-UK Individual (representing self)
+        title: UK Legal Type
     TradeExtendedAttributes:
       type: object
       additionalProperties:
@@ -4913,6 +4923,10 @@ components:
         x-cat-accept-highly-regulated-tac: "1"
     ExtendedAttributeOption:
       type: object
+      required:
+        - title
+        - value
+        - description
       properties:
         title:
           type: string
