@@ -1695,6 +1695,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -6419,11 +6420,11 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
             properties:
               name:
                 type: string
-            required:
-              - name
     ServiceApply:
       description: 'Optional hash of settings for some specific services, corresponding to the service fields. For instance, Heroku requires a settings[app] setting.'
       required: false
