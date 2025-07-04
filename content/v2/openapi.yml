@@ -1549,6 +1549,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1556,7 +1558,6 @@ paths:
                       $ref: '#/components/schemas/PrimaryServer'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Primary Server listing.
     post:
       summary: Create a primary server
@@ -5039,6 +5040,15 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     PrimaryServer:
       type: object
+      required:
+        - id
+        - account_id
+        - name
+        - ip
+        - port
+        - linked_secondary_zones
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6348,6 +6358,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - ip
             properties:
               name:
                 type: string
@@ -6355,9 +6368,6 @@ components:
                 type: string
               port:
                 type: string
-            required:
-              - name
-              - ip
     RegistrantChangeCreate:
       description: Contact change attributes
       required: true
