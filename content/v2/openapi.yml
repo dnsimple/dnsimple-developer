@@ -851,6 +851,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -5449,6 +5450,19 @@ components:
         - URL
     TLD:
       type: object
+      required:
+        - tld
+        - tld_type
+        - whois_privacy
+        - auto_renew_only
+        - idn
+        - minimum_registration
+        - registration_enabled
+        - renewal_enabled
+        - transfer_enabled
+        - dnssec_interface_type
+        - name_server_min
+        - name_server_max
       properties:
         tld:
           type: string
