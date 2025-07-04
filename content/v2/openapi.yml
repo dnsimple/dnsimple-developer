@@ -604,6 +604,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -3419,6 +3420,22 @@ components:
       type: object
     Certificate:
       type: object
+      required:
+        - id
+        - domain_id
+        - contact_id
+        - name
+        - common_name
+        - years
+        - csr
+        - state
+        - auto_renew
+        - alternate_names
+        - authority_identifier
+        - created_at
+        - updated_at
+        - expires_at
+        - expires_on
       properties:
         id:
           type: integer
@@ -3496,6 +3513,7 @@ components:
         created_at: '2016-06-11T18:47:08Z'
         updated_at: '2016-06-11T18:47:37Z'
         expires_at: '2016-09-09T18:47:37Z'
+        expires_on: '2016-09-09'
     CertificateDownload:
       type: object
       properties:
