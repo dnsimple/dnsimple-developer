@@ -680,6 +680,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/CertificatePrivateKey'
@@ -3595,6 +3596,7 @@ components:
             -----END CERTIFICATE-----
     CertificatePrivateKey:
       type: object
+      required: [private_key]
       properties:
         private_key:
           type: string
