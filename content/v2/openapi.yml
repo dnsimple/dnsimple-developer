@@ -2409,6 +2409,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -2424,7 +2425,7 @@ paths:
       tags:
         - templates
       requestBody:
-        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+        $ref: '#/components/requestBodies/TemplateUpdate'
       responses:
         '200':
           description: Successfully updated a template.
@@ -2432,6 +2433,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -6123,6 +6125,24 @@ components:
             required:
               - sid
               - name
+            properties:
+              sid:
+                type: string
+              name:
+                type: string
+              description:
+                type: string
+            example:
+              name: Alpha
+              sid: alpha
+              description: This is an Alpha template.
+    TemplateUpdate:
+      description: Attributes for updating a template.
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
             properties:
               sid:
                 type: string
