@@ -1064,6 +1064,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainTransfer'
@@ -4074,6 +4075,15 @@ components:
         updated_at: '2016-12-09T19:46:45Z'
     DomainTransfer:
       type: object
+      required:
+        - id
+        - domain_id
+        - registrant_id
+        - state
+        - auto_renew
+        - whois_privacy
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6378,6 +6388,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - registrant_id
+              - auth_code
             properties:
               registrant_id:
                 type: integer
