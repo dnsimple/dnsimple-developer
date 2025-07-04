@@ -2176,6 +2176,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2202,6 +2203,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -2211,6 +2213,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -5237,6 +5240,17 @@ components:
         accepted_at: null
     RegistrantChange:
       type: object
+      required:
+        - id
+        - account_id
+        - contact_id
+        - domain_id
+        - state
+        - extended_attributes
+        - registry_owner_change
+        - irt_lock_lifted_by
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6608,6 +6622,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - domain_id
+              - contact_id
             properties:
               domain_id:
                 oneOf:
