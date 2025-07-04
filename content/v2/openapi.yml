@@ -423,6 +423,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -452,6 +453,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/EmailForward'
@@ -4047,6 +4049,14 @@ components:
         updated_at: '2017-02-03T17:43:22.000Z'
     EmailForward:
       type: object
+      required:
+        - id
+        - domain_id
+        - alias_email
+        - destination_email
+        - created_at
+        - updated_at
+        - active
       example:
         id: 1
         domain_id: 2
