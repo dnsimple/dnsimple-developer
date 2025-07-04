@@ -1465,6 +1465,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1489,6 +1490,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1498,6 +1500,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1519,6 +1522,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -5894,6 +5898,13 @@ components:
           pretty: example@example.com
     WhoisPrivacy:
       type: object
+      required:
+        - id
+        - domain_id
+        - enabled
+        - expires_on
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
