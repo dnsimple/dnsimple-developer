@@ -2361,6 +2361,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2377,7 +2378,7 @@ paths:
       tags:
         - templates
       requestBody:
-        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+        $ref: '#/components/requestBodies/TemplateCreate'
       responses:
         '201':
           description: Successfully created a template.
@@ -2385,6 +2386,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -5030,6 +5032,14 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Template:
       type: object
+      required:
+        - id
+        - account_id
+        - name
+        - sid
+        - description
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6103,13 +6113,16 @@ components:
             type: object
             example:
               app: my-app-name
-    TemplateCreateOrUpdate:
+    TemplateCreate:
       description: Attributes for creating a template.
       required: true
       content:
         application/json:
           schema:
             type: object
+            required:
+              - sid
+              - name
             properties:
               sid:
                 type: string
@@ -6117,9 +6130,6 @@ components:
                 type: string
               description:
                 type: string
-            required:
-              - sid
-              - name
             example:
               name: Alpha
               sid: alpha
