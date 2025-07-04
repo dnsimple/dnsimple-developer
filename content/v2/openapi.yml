@@ -1282,6 +1282,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -4726,6 +4727,13 @@ components:
         updated_at: '2017-10-19T08:18:53Z'
     NameServer:
       type: object
+      required:
+        - id
+        - name
+        - ipv4
+        - ipv6
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
