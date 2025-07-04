@@ -1138,6 +1138,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRenewal'
@@ -4022,6 +4023,13 @@ components:
         updated_at: '2016-12-09T19:35:31Z'
     DomainRenewal:
       type: object
+      required:
+        - id
+        - domain_id
+        - period
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6361,6 +6369,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [period]
             properties:
               period:
                 type: integer
