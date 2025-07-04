@@ -1924,6 +1924,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1948,6 +1949,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1965,8 +1967,6 @@ paths:
       operationId: deleteZoneRecord
       tags:
         - zones
-      requestBody:
-        $ref: '#/components/requestBodies/ZoneRecordDelete'
       responses:
         '204':
           description: Successfully deleted zone record.
@@ -6897,25 +6897,6 @@ components:
               priority: 20
               regions:
                 - global
-    ZoneRecordDelete:
-      description: Zone record delete attributes
-      required: false
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              integrated_zones:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
-            example:
-              integrated_zones:
-                - 1
-                - 2
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
