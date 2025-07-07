@@ -2781,9 +2781,16 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - data
+                  - query
+                  - pagination
                 properties:
                   data:
                     type: object
+                    required:
+                      - rows
+                      - headers
                     properties:
                       rows:
                         type: array
@@ -2800,6 +2807,14 @@ paths:
                           example: "zone_name,volume"
                   query:
                     type: object
+                    required:
+                      - account_id
+                      - start_date
+                      - end_date
+                      - sort
+                      - groupings
+                      - page
+                      - per_page
                     properties:
                       account_id:
                         type: integer
@@ -2813,6 +2828,7 @@ paths:
                         example: "date:asc,zone_name:asc"
                       groupings:
                         type: string
+                        nullable: true
                         description: Grouping applied to the returned data.
                         example: "date,zone_name"
                       page:
