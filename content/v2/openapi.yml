@@ -2574,6 +2574,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -5220,6 +5221,13 @@ components:
         updated_at: '2016-06-09T20:03:39Z'
     VanityNameServer:
       type: object
+      required:
+        - id
+        - name
+        - ipv4
+        - ipv6
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
