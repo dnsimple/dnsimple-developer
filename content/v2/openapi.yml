@@ -6220,6 +6220,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - message
+              - errors
             properties:
               message:
                 type: string
@@ -6277,6 +6280,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6290,6 +6294,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6303,6 +6308,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6325,6 +6331,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
