@@ -2469,6 +2469,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -2494,6 +2495,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/TemplateRecord'
@@ -5067,6 +5069,16 @@ components:
         updated_at: '2016-03-22T11:08:58Z'
     TemplateRecord:
       type: object
+      required:
+        - id
+        - template_id
+        - name
+        - content
+        - ttl
+        - priority
+        - type
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6161,6 +6173,21 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - type
+              - content
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              content:
+                type: string
+              ttl:
+                type: integer
+              priority:
+                type: integer
             example:
               name: ''
               type: MX
