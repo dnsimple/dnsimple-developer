@@ -2621,6 +2621,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -2641,6 +2642,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Webhook'
@@ -2668,12 +2670,11 @@ paths:
           application/json:
             schema:
               type: object
+              required: [url]
               properties:
                 url:
                   type: string
                   format: uri
-              required:
-                - url
   '/{account}/webhooks/{webhook}':
     get:
       description: Retrieves the details of a registered webhook.
@@ -3349,6 +3350,10 @@ components:
         updated_at: '2016-06-09T20:03:39Z'
     WebhookAccount:
       type: object
+      required:
+        - id
+        - display
+        - identifier
       properties:
         id:
           type: integer
@@ -3362,6 +3367,15 @@ components:
         identifier: example@example.com
     AccountInvitation:
       type: object
+      required:
+        - id
+        - account_id
+        - email
+        - token
+        - invitation_sent_at
+        - invitation_accepted_at
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3381,6 +3395,10 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Actor:
       type: object
+      required:
+        - id
+        - identifier
+        - pretty
       properties:
         id:
           type: integer
@@ -4045,6 +4063,9 @@ components:
     EventAccountAddUser:
       type: object
       description: Payload for account.add_user event.
+      required:
+        - account
+        - user
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4053,6 +4074,9 @@ components:
     EventAccountBillingSettingsUpdate:
       type: object
       description: Payload for account.billing_settings_update event.
+      required:
+        - account
+        - billing_settings
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4061,12 +4085,16 @@ components:
     EventAccountPaymentDetailsUpdate:
       type: object
       description: Payload for account.payment_details_update event.
+      required: [account]
       properties:
         account:
           $ref: '#/components/schemas/Account'
     EventAccountRemoveUser:
       type: object
       description: Payload for account.remove_user event.
+      required:
+        - account
+        - user
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4075,12 +4103,16 @@ components:
     EventAccountUpdate:
       type: object
       description: Payload for account.update event.
+      required: [account]
       properties:
         account:
           $ref: '#/components/schemas/Account'
     EventAccountInvitationAccept:
       type: object
       description: Payload for account_invitation.accept event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4089,6 +4121,9 @@ components:
     EventAccountInvitationCreate:
       type: object
       description: Payload for account_invitation.create event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4097,6 +4132,9 @@ components:
     EventAccountInvitationRemove:
       type: object
       description: Payload for account_invitation.remove event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4105,6 +4143,9 @@ components:
     EventAccountInvitationResend:
       type: object
       description: Payload for account_invitation.resend event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4113,60 +4154,72 @@ components:
     EventCertificateAutoRenewalDisable:
       type: object
       description: Payload for certificate.auto_renewal_disable
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateAutoRenewalEnable:
       type: object
       description: Payload for certificate.auto_renewal_enable
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateAutoRenewalFailed:
       type: object
       description: Payload for certificate.auto_renewal_failed
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateIssue:
       type: object
       description: Payload for certificate.issue
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateReissue:
       type: object
       description: Payload for certificate.reissue
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateRemovePrivateKey:
       type: object
       description: Payload for certificate.remove_private_key
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventContactCreate:
       type: object
       description: Payload for contact.create
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventContactDelete:
       type: object
       description: Payload for contact.delete
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventContactUpdate:
       type: object
       description: Payload for contact.udpate
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventDNSSECCreate:
       type: object
       description: Payload for dnssec.create
+      required:
+        - dnssec
+        - zone
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
@@ -4175,6 +4228,9 @@ components:
     EventDNSSECDelete:
       type: object
       description: Payload for dnssec.delete
+      required:
+        - dnssec
+        - zone
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
@@ -4183,6 +4239,10 @@ components:
     EventDNSSECRotationStart:
       type: object
       description: Payload for dnssec.rotation_start
+      required:
+        - delegation_signer_record
+        - dnssec
+        - zone
       properties:
         delegation_signer_record:
           $ref: '#/components/schemas/DelegationSigner'
@@ -4193,6 +4253,10 @@ components:
     EventDNSSECRotationComplete:
       type: object
       description: Payload for dnssec.rotation_complete
+      required:
+        - delegation_signer_record
+        - dnssec
+        - zone
       properties:
         delegation_signer_record:
           $ref: '#/components/schemas/DelegationSigner'
@@ -4203,47 +4267,57 @@ components:
     EventDomainAutoRenewalDisable:
       type: object
       description: Payload for domain.auto_renewal_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainAutoRenewalEnable:
       type: object
       description: Payload for domain.auto_renewal_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainCreate:
       type: object
       description: Payload for domain.create
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainDelete:
       type: object
       description: Payload for domain.delete
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegisterStarted:
       type: object
       description: Payload for domain.register:started
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegister:
       type: object
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegisterCancelled:
       type: object
       description: Payload for domain.register:cancelled
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRenewStarted:
       type: object
       description: Payload for domain.renew:started
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4252,6 +4326,9 @@ components:
     EventDomainRenew:
       type: object
       description: Payload for domain.renew
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4260,6 +4337,9 @@ components:
     EventDomainRenewCancelled:
       type: object
       description: Payload for domain.renew:cancelled
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4268,6 +4348,9 @@ components:
     EventDomainRestoreStarted:
       type: object
       description: Payload for domain.restore:started
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4276,6 +4359,9 @@ components:
     EventDomainRestore:
       type: object
       description: Payload for domain.restore
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4284,6 +4370,9 @@ components:
     EventDomainRestoreCancelled:
       type: object
       description: Payload for domain.restore:cancelled
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4292,6 +4381,9 @@ components:
     EventDomainDelegationChange:
       type: object
       description: Payload for domain.delegation_change
+      required:
+        - domain
+        - name_servers
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4302,6 +4394,9 @@ components:
     EventDomainRegistrantChangeStarted:
       type: object
       description: Payload for domain.registrant_change:started
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4310,6 +4405,9 @@ components:
     EventDomainRegistrantChange:
       type: object
       description: Payload for domain.registrant_change
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4318,6 +4416,9 @@ components:
     EventDomainRegistrantChangeCancelled:
       type: object
       description: Payload for domain.registrant_change:cancelled
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4326,42 +4427,49 @@ components:
     EventDomainResolutionDisable:
       type: object
       description: Payload for domain.resolution_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainResolutionEnable:
       type: object
       description: Payload for domain.resolution_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferStarted:
       type: object
       description: Payload for domain.transfer:started
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransfer:
       type: object
       description: Payload for domain.transfer
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferCancelled:
       type: object
       description: Payload for domain.transfer:cancelled
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferLockDisable:
       type: object
       description: Payload for domain.transfer_lock_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferLockEnable:
       type: object
       description: Payload for domain.transfer_lock_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4374,162 +4482,192 @@ components:
     EventEmailForwardCreate:
       type: object
       description: Payload for email_forward.create
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardDeactivate:
       type: object
       description: Payload for email_forward.deactivate
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardDelete:
       type: object
       description: Payload for email_forward.delete
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardUpdate:
       type: object
       description: Payload for email_forward.update
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventInvoiceCollect:
       type: object
       description: Payload for invoice.collect
+      required: [invoice]
       properties:
         invoice:
           $ref: '#/components/schemas/Invoice'
     EventNameServerDeregister:
       type: object
       description: Payload for name_server.deregister
+      required: [name_server]
       properties:
         name_server:
           type: object
+          required: [name]
           properties:
             name:
               type: string
     EventNameServerRegister:
       type: object
       description: Payload for name_server.register
+      required: [name_server]
       properties:
         name_server:
           type: object
+          required: [name]
           properties:
             name:
               type: string
     EventOauthApplicationCreate:
       type: object
       description: Payload for oauth_application.create
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationDelete:
       type: object
       description: Payload for oauth_application.delete
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationResetClientSecret:
       type: object
       description: Payload for oauth_application.reset_client_secret
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationRevokeAccessTokens:
       type: object
       description: Payload for oauth_application.revoke_access_tokens
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationUpdate:
       type: object
       description: Payload for oauth_application.update
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventPushAccept:
       type: object
       description: Payload for push.accept
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventPushInitiate:
       type: object
       description: Payload for push.initiate
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventPushReject:
       type: object
       description: Payload for push.reject
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventRecordCreate:
       type: object
       description: Payload for record.create
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventRecordDelete:
       type: object
       description: Payload for record.delete
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventRecordUpdate:
       type: object
       description: Payload for record.update
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventSecondaryDNSCreate:
       type: object
       description: Payload for secondary_dns.create
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSecondaryDNSDelete:
       type: object
       description: Payload for secondary_dns.delete
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSecondaryDNSUpdate:
       type: object
       description: Payload for secondary_dns.update
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSubscriptionMigrate:
       type: object
       description: Payload for subscription.migrate
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionRenew:
       type: object
       description: Payload for subscription.renew
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionSubscribe:
       type: object
       description: Payload for subscription.subscribe
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionUnsubscribe:
       type: object
       description: Payload for subscription.unsubscribe
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventTemplateApply:
       type: object
       description: Payload for template.apply
+      required:
+        - template
+        - zone
       properties:
         template:
           $ref: '#/components/schemas/Template'
@@ -4538,60 +4676,72 @@ components:
     EventTemplateCreate:
       type: object
       description: Payload for template.create
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateDelete:
       type: object
       description: Payload for template.delete
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateUpdate:
       type: object
       description: Payload for template.update
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateRecordCreate:
       type: object
       description: Payload for template_record.create
+      required: [template_record]
       properties:
         template_record:
           $ref: '#/components/schemas/TemplateRecord'
     EventTemplateRecordDelete:
       type: object
       description: Payload for template_record.delete
+      required: [template_record]
       properties:
         template_record:
           $ref: '#/components/schemas/TemplateRecord'
     EventVanityDisable:
       type: object
       description: Payload for vanity.disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventVanityEnable:
       type: object
       description: Payload for vanity.enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventWebhookCreate:
       type: object
       description: Payload for webhook.create
+      required: [webhook]
       properties:
         webhook:
           $ref: '#/components/schemas/Webhook'
     EventWebhookDelete:
       type: object
       description: Payload for webhook.delete
+      required: [webhook]
       properties:
         webhook:
           $ref: '#/components/schemas/Webhook'
     EventWhoisPrivacyDisable:
       type: object
       description: Payload for whois_privacy.disable
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4600,6 +4750,9 @@ components:
     EventWhoisPrivacyEnable:
       type: object
       description: Payload for whois_privacy.enable
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4608,6 +4761,9 @@ components:
     EventWhoisPrivacyPurchase:
       type: object
       description: Payload for whois_privacy.purchase
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4616,6 +4772,9 @@ components:
     EventWhoisPrivacyRenew:
       type: object
       description: Payload for whois_privacy.renew
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4624,12 +4783,14 @@ components:
     EventZoneCreate:
       type: object
       description: Payload for zone.create
+      required: [zone]
       properties:
         zone:
           $ref: '#/components/schemas/Zone'
     EventZoneDelete:
       type: object
       description: Payload for zone.delete
+      required: [zone]
       properties:
         zone:
           $ref: '#/components/schemas/Zone'
@@ -4679,6 +4840,11 @@ components:
         description: UK Individual (our default value)
     Invoice:
       type: object
+      required:
+        - id
+        - invoice_number
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4783,6 +4949,13 @@ components:
         updated_at: '2016-07-11T09:40:19Z'
     OauthApplication:
       type: object
+      required:
+        - id
+        - name
+        - description
+        - homepage_url
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4911,6 +5084,13 @@ components:
         registry_owner_change: false
     SecondaryDNS:
       type: object
+      required:
+        - id
+        - zone_id
+        - name_servers
+        - whitelisted_ips
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5010,6 +5190,12 @@ components:
         password: false
     Subscription:
       type: object
+      required:
+        - id
+        - plan_name
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5262,6 +5448,10 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Webhook:
       type: object
+      required:
+        - id
+        - url
+        - suppressed_at
       properties:
         id:
           type: integer
@@ -5269,13 +5459,20 @@ components:
           type: string
           format: uri
         suppressed_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/NullableDateTime'
       example:
         id: 1
         url: 'https://webhook.test'
         suppressed_at: '2022-06-07T17:45:13Z'
     WebhookPayload:
       type: object
+      required:
+        - name
+        - api_version
+        - request_identifier
+        - data
+        - account
+        - actor
       properties:
         name:
           type: string
