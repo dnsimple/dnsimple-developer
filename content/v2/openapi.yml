@@ -2819,9 +2819,9 @@ paths:
                       account_id:
                         type: integer
                       start_date:
-                        $ref: '#/components/schemas/Date'
+                        $ref: '#/components/schemas/NullableDate'
                       end_date:
-                        $ref: '#/components/schemas/Date'
+                        $ref: '#/components/schemas/NullableDate'
                       sort:
                         type: string
                         description: Sorting applied to the returned data.
