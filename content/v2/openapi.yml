@@ -1741,6 +1741,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1765,6 +1766,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -1787,6 +1789,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneFile'
@@ -1809,6 +1812,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneDistribution'
@@ -1839,6 +1843,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -1867,6 +1872,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1892,6 +1898,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1917,6 +1924,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1941,6 +1949,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1958,8 +1967,6 @@ paths:
       operationId: deleteZoneRecord
       tags:
         - zones
-      requestBody:
-        $ref: '#/components/requestBodies/ZoneRecordDelete'
       responses:
         '204':
           description: Successfully deleted zone record.
@@ -1983,6 +1990,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneDistribution'
@@ -2015,6 +2023,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -2040,6 +2049,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -2308,6 +2318,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2331,6 +2342,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Service'
@@ -3370,6 +3382,7 @@ components:
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
       type: object
+      required: [message]
       properties:
         message:
           type: string
@@ -5338,6 +5351,17 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Service:
       type: object
+      required:
+        - id
+        - name
+        - sid
+        - description
+        - setup_description
+        - requires_setup
+        - default_subdomain
+        - created_at
+        - updated_at
+        - settings
       example:
         id: 2
         name: Service 2
@@ -5389,6 +5413,13 @@ components:
             $ref: '#/components/schemas/ServiceSetting'
     ServiceSetting:
       type: object
+      required:
+        - name
+        - label
+        - append
+        - description
+        - example
+        - password
       properties:
         name:
           type: string
@@ -5398,6 +5429,7 @@ components:
           description: The human-readable label value
         append:
           type: string
+          nullable: true
           description: Additional text to append to the input field
         description:
           type: string
@@ -6006,6 +6038,16 @@ components:
     Zone:
       type: object
       description: Represents a DNS zone.
+      required:
+        - id
+        - account_id
+        - name
+        - reverse
+        - secondary
+        - last_transferred_at
+        - active
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -6021,6 +6063,7 @@ components:
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
           type: string
+          nullable: true
           format: date-time
           example: '2010-01-01T01:00:00Z'
           description: Returns the date the zone was last transferred. Used if it is a secondary zone.
@@ -6044,6 +6087,7 @@ components:
     ZoneFile:
       type: object
       description: A DNS zone file.
+      required: [zone]
       properties:
         zone:
           type: string
@@ -6059,6 +6103,7 @@ components:
     ZoneDistribution:
       type: object
       description: Zone distribution check
+      required: [distributed]
       properties:
         distributed:
           type: boolean
@@ -6068,6 +6113,19 @@ components:
     ZoneRecord:
       type: object
       description: A single DNS record in a zone.
+      required:
+        - id
+        - zone_id
+        - parent_id
+        - name
+        - content
+        - ttl
+        - priority
+        - type
+        - regions
+        - system_record
+        - created_at
+        - updated_at
       example:
         id: 1
         zone_id: example.com
@@ -6162,6 +6220,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - message
+              - errors
             properties:
               message:
                 type: string
@@ -6219,6 +6280,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6232,6 +6294,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6245,6 +6308,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6267,6 +6331,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -6453,24 +6518,45 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              ns_names:
-                type: array
-                items:
-                  type: string
-                example:
-                  - ns1.dnsimple.com
-                  - ns2.dnsimple.com
-                  - ns3.dnsimple.com
-                  - ns4.dnsimple.com
-              ns_set_ids:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
+            anyOf:
+              - type: object
+                required: [ns_names]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
+              - type: object
+                required: [ns_set_ids]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
     DomainRegister:
       description: Domain registration attributes
       required: true
@@ -6774,6 +6860,10 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - type
+              - content
             properties:
               name:
                 type: string
@@ -6838,25 +6928,6 @@ components:
               priority: 20
               regions:
                 - global
-    ZoneRecordDelete:
-      description: Zone record delete attributes
-      required: false
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              integrated_zones:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
-            example:
-              integrated_zones:
-                - 1
-                - 2
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
