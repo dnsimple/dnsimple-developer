@@ -85,7 +85,7 @@ paths:
                   data:
                     oneOf:
                       - type: object
-                        required: [account]
+                        required: [account, user]
                         properties:
                           account:
                             $ref: '#/components/schemas/Account'
@@ -93,7 +93,7 @@ paths:
                             type: object
                             nullable: true
                       - type: object
-                        required: [user]
+                        required: [account, user]
                         properties:
                           user:
                             $ref: '#/components/schemas/User'
