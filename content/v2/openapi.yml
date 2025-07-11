@@ -59,6 +59,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -79,14 +80,26 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
-                    type: object
-                    properties:
-                      account:
-                        $ref: '#/components/schemas/Account'
-                      user:
-                        $ref: '#/components/schemas/User'
+                    oneOf:
+                      - type: object
+                        required: [account]
+                        properties:
+                          account:
+                            $ref: '#/components/schemas/Account'
+                          user:
+                            type: object
+                            nullable: true
+                      - type: object
+                        required: [user]
+                        properties:
+                          user:
+                            $ref: '#/components/schemas/User'
+                          account:
+                            type: object
+                            nullable: true
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -111,6 +124,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -118,7 +133,6 @@ paths:
                       $ref: '#/components/schemas/Charge'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Billing charges listing.
         '401':
           $ref: '#/components/responses/401'
@@ -141,6 +155,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -148,7 +164,6 @@ paths:
                       $ref: '#/components/schemas/Domain'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Domain listing.
     post:
       summary: Create a domain
@@ -172,6 +187,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Domain'
@@ -193,6 +209,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Domain'
@@ -233,6 +250,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DNSSEC'
@@ -259,6 +277,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DNSSEC'
@@ -305,6 +324,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -334,6 +354,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DelegationSigner'
@@ -359,6 +380,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DelegationSigner'
@@ -401,6 +423,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -430,6 +453,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/EmailForward'
@@ -455,6 +479,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/EmailForward'
@@ -496,6 +521,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Push'
@@ -519,6 +545,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -579,6 +606,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -606,6 +634,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Certificate'
@@ -629,6 +658,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/CertificateDownload'
@@ -652,6 +682,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/CertificatePrivateKey'
@@ -700,6 +731,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/LetsencryptCertificatePurchase'
@@ -728,6 +760,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Certificate'
@@ -766,6 +799,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/LetsencryptCertificateRenewal'
@@ -795,6 +829,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Certificate'
@@ -816,6 +851,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -839,6 +875,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/TLD'
@@ -863,6 +900,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -887,6 +925,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainCheckResult'
@@ -914,6 +953,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainPremiumPrice'
@@ -937,6 +977,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainPrices'
@@ -967,6 +1008,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRegistration'
@@ -991,6 +1033,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRegistration'
@@ -1021,6 +1064,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainTransfer'
@@ -1045,6 +1089,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainTransfer'
@@ -1093,6 +1138,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRenewal'
@@ -1117,6 +1163,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRenewal'
@@ -1143,6 +1190,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRestore'
@@ -1171,6 +1219,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainRestore'
@@ -1212,6 +1261,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -1265,6 +1315,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -1311,6 +1362,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainTransferLock'
@@ -1332,6 +1384,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/DomainTransferLock'
@@ -1412,6 +1465,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1436,6 +1490,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1445,6 +1500,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1466,6 +1522,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacy'
@@ -1491,6 +1548,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/WhoisPrivacyRenewal'
@@ -1514,6 +1572,8 @@ paths:
           content:
             application/json:
               schema:
+                type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1521,7 +1581,6 @@ paths:
                       $ref: '#/components/schemas/PrimaryServer'
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-                type: object
           description: Primary Server listing.
     post:
       summary: Create a primary server
@@ -1561,6 +1620,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/PrimaryServer'
@@ -1599,6 +1659,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/PrimaryServer'
@@ -1624,6 +1685,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/PrimaryServer'
@@ -1656,6 +1718,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -1678,6 +1741,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1702,6 +1766,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -1724,6 +1789,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneFile'
@@ -1746,6 +1812,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneDistribution'
@@ -1776,6 +1843,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -1804,6 +1872,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -1829,6 +1898,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1854,6 +1924,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1878,6 +1949,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneRecord'
@@ -1895,8 +1967,6 @@ paths:
       operationId: deleteZoneRecord
       tags:
         - zones
-      requestBody:
-        $ref: '#/components/requestBodies/ZoneRecordDelete'
       responses:
         '204':
           description: Successfully deleted zone record.
@@ -1920,6 +1990,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/ZoneDistribution'
@@ -1952,6 +2023,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -1977,6 +2049,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Zone'
@@ -1999,6 +2072,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2015,7 +2089,7 @@ paths:
       tags:
         - contacts
       requestBody:
-        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+        $ref: '#/components/requestBodies/ContactCreate'
       responses:
         '201':
           description: Successfully created contact.
@@ -2023,6 +2097,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -2045,6 +2120,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -2060,7 +2136,7 @@ paths:
       tags:
         - contacts
       requestBody:
-        $ref: '#/components/requestBodies/ContactCreateOrUpdate'
+        $ref: '#/components/requestBodies/ContactUpdate'
       responses:
         '200':
           description: Successfully updated contact.
@@ -2068,6 +2144,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Contact'
@@ -2109,6 +2186,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2135,6 +2213,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -2144,6 +2223,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -2167,6 +2247,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChangeCheck'
@@ -2189,6 +2270,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -2212,6 +2294,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/RegistrantChange'
@@ -2235,6 +2318,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2258,6 +2342,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Service'
@@ -2343,6 +2428,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data, pagination]
                 properties:
                   data:
                     type: array
@@ -2359,7 +2445,7 @@ paths:
       tags:
         - templates
       requestBody:
-        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+        $ref: '#/components/requestBodies/TemplateCreate'
       responses:
         '201':
           description: Successfully created a template.
@@ -2367,6 +2453,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -2389,6 +2476,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -2404,7 +2492,7 @@ paths:
       tags:
         - templates
       requestBody:
-        $ref: '#/components/requestBodies/TemplateCreateOrUpdate'
+        $ref: '#/components/requestBodies/TemplateUpdate'
       responses:
         '200':
           description: Successfully updated a template.
@@ -2412,6 +2500,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Template'
@@ -2447,6 +2536,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -2472,6 +2562,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/TemplateRecord'
@@ -2493,6 +2584,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/TemplateRecord'
@@ -2549,6 +2641,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -2594,6 +2687,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     type: array
@@ -2614,6 +2708,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Webhook'
@@ -2641,12 +2736,11 @@ paths:
           application/json:
             schema:
               type: object
+              required: [url]
               properties:
                 url:
                   type: string
                   format: uri
-              required:
-                - url
   '/{account}/webhooks/{webhook}':
     get:
       description: Retrieves the details of a registered webhook.
@@ -2663,6 +2757,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [data]
                 properties:
                   data:
                     $ref: '#/components/schemas/Webhook'
@@ -2731,9 +2826,16 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - data
+                  - query
+                  - pagination
                 properties:
                   data:
                     type: object
+                    required:
+                      - rows
+                      - headers
                     properties:
                       rows:
                         type: array
@@ -2750,19 +2852,28 @@ paths:
                           example: "zone_name,volume"
                   query:
                     type: object
+                    required:
+                      - account_id
+                      - start_date
+                      - end_date
+                      - sort
+                      - groupings
+                      - page
+                      - per_page
                     properties:
                       account_id:
                         type: integer
                       start_date:
-                        $ref: '#/components/schemas/Date'
+                        $ref: '#/components/schemas/NullableDate'
                       end_date:
-                        $ref: '#/components/schemas/Date'
+                        $ref: '#/components/schemas/NullableDate'
                       sort:
                         type: string
                         description: Sorting applied to the returned data.
                         example: "date:asc,zone_name:asc"
                       groupings:
                         type: string
+                        nullable: true
                         description: Grouping applied to the returned data.
                         example: "date,zone_name"
                       page:
@@ -3271,11 +3382,17 @@ components:
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
       type: object
+      required: [message]
       properties:
         message:
           type: string
     Pagination:
       type: object
+      required:
+        - current_page
+        - per_page
+        - total_entries
+        - total_pages
       properties:
         current_page:
           type: integer
@@ -3292,6 +3409,12 @@ components:
         total_pages: 1
     Account:
       type: object
+      required:
+        - id
+        - email
+        - plan_identifier
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3311,6 +3434,10 @@ components:
         updated_at: '2016-06-09T20:03:39Z'
     WebhookAccount:
       type: object
+      required:
+        - id
+        - display
+        - identifier
       properties:
         id:
           type: integer
@@ -3324,6 +3451,15 @@ components:
         identifier: example@example.com
     AccountInvitation:
       type: object
+      required:
+        - id
+        - account_id
+        - email
+        - token
+        - invitation_sent_at
+        - invitation_accepted_at
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3343,6 +3479,10 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Actor:
       type: object
+      required:
+        - id
+        - identifier
+        - pretty
       properties:
         id:
           type: integer
@@ -3354,6 +3494,22 @@ components:
       type: object
     Certificate:
       type: object
+      required:
+        - id
+        - domain_id
+        - contact_id
+        - name
+        - common_name
+        - years
+        - csr
+        - state
+        - auto_renew
+        - alternate_names
+        - authority_identifier
+        - created_at
+        - updated_at
+        - expires_at
+        - expires_on
       properties:
         id:
           type: integer
@@ -3431,8 +3587,13 @@ components:
         created_at: '2016-06-11T18:47:08Z'
         updated_at: '2016-06-11T18:47:37Z'
         expires_at: '2016-09-09T18:47:37Z'
+        expires_on: '2016-09-09'
     CertificateDownload:
       type: object
+      required:
+        - server
+        - root
+        - chain
       properties:
         server:
           type: string
@@ -3506,6 +3667,7 @@ components:
             -----END CERTIFICATE-----
     CertificatePrivateKey:
       type: object
+      required: [private_key]
       properties:
         private_key:
           type: string
@@ -3540,6 +3702,25 @@ components:
           -----END RSA PRIVATE KEY-----
     Contact:
       type: object
+      required:
+        - id
+        - account_id
+        - label
+        - first_name
+        - last_name
+        - organization_name
+        - job_title
+        - address1
+        - address2
+        - city
+        - state_province
+        - postal_code
+        - country
+        - phone
+        - fax
+        - email
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3599,6 +3780,13 @@ components:
         updated_at: '2015-01-08T21:30:50Z'
     Charge:
       type: object
+      required:
+        - invoiced_at
+        - total_amount
+        - balance_amount
+        - reference
+        - state
+        - items
       properties:
         invoiced_at:
           $ref: '#/components/schemas/DateTime'
@@ -3634,6 +3822,12 @@ components:
             product_reference: example.com
     ChargeItem:
       type: object
+      required:
+        - description
+        - amount
+        - product_id
+        - product_type
+        - product_reference
       properties:
         description:
           type: string
@@ -3661,6 +3855,16 @@ components:
         product_reference: example.com
     DelegationSigner:
       type: object
+      required:
+        - id
+        - domain_id
+        - algorithm
+        - digest
+        - digest_type
+        - keytag
+        - public_key
+        - created_at
+        - updated_at
       example:
         id: 24
         domain_id: 1010
@@ -3692,6 +3896,18 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Domain:
       type: object
+      required:
+        - id
+        - account_id
+        - registrant_id
+        - name
+        - unicode_name
+        - state
+        - auto_renew
+        - private_whois
+        - expires_at
+        - created_at
+        - updated_at
       example:
         id: 1
         account_id: 1010
@@ -3736,6 +3952,10 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     DomainCheckResult:
       type: object
+      required:
+        - domain
+        - available
+        - premium
       properties:
         domain:
           type: string
@@ -3754,6 +3974,9 @@ components:
       type: string
     DomainPremiumPrice:
       type: object
+      required:
+        - premium_price
+        - action
       properties:
         premium_price:
           type: string
@@ -3766,6 +3989,12 @@ components:
         action: registration
     DomainPrices:
       type: object
+      required:
+        - domain
+        - premium
+        - registration_price
+        - renewal_price
+        - restore_price
       properties:
         domain:
           type: string
@@ -3797,6 +4026,16 @@ components:
         restore_price: 25.0
     DomainRegistration:
       type: object
+      required:
+        - id
+        - domain_id
+        - registrant_id
+        - period
+        - state
+        - auto_renew
+        - whois_privacy
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3836,6 +4075,13 @@ components:
         updated_at: '2016-12-09T19:35:31Z'
     DomainRenewal:
       type: object
+      required:
+        - id
+        - domain_id
+        - period
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3866,6 +4112,12 @@ components:
         updated_at: '2016-12-09T19:46:45Z'
     DomainRestore:
       type: object
+      required:
+        - id
+        - domain_id
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3890,6 +4142,15 @@ components:
         updated_at: '2016-12-09T19:46:45Z'
     DomainTransfer:
       type: object
+      required:
+        - id
+        - domain_id
+        - registrant_id
+        - state
+        - auto_renew
+        - whois_privacy
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -3926,6 +4187,7 @@ components:
         updated_at: '2016-12-09T19:43:43Z'
     DomainTransferLock:
       type: object
+      required: [enabled]
       properties:
         enabled:
           type: boolean
@@ -3933,6 +4195,10 @@ components:
         enabled: true
     DNSSEC:
       type: object
+      required:
+        - enabled
+        - created_at
+        - updated_at
       properties:
         enabled:
           type: boolean
@@ -3946,6 +4212,14 @@ components:
         updated_at: '2017-02-03T17:43:22.000Z'
     EmailForward:
       type: object
+      required:
+        - id
+        - domain_id
+        - alias_email
+        - destination_email
+        - created_at
+        - updated_at
+        - active
       example:
         id: 1
         domain_id: 2
@@ -3982,6 +4256,9 @@ components:
     EventAccountAddUser:
       type: object
       description: Payload for account.add_user event.
+      required:
+        - account
+        - user
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -3990,6 +4267,9 @@ components:
     EventAccountBillingSettingsUpdate:
       type: object
       description: Payload for account.billing_settings_update event.
+      required:
+        - account
+        - billing_settings
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -3998,12 +4278,16 @@ components:
     EventAccountPaymentDetailsUpdate:
       type: object
       description: Payload for account.payment_details_update event.
+      required: [account]
       properties:
         account:
           $ref: '#/components/schemas/Account'
     EventAccountRemoveUser:
       type: object
       description: Payload for account.remove_user event.
+      required:
+        - account
+        - user
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4012,12 +4296,16 @@ components:
     EventAccountUpdate:
       type: object
       description: Payload for account.update event.
+      required: [account]
       properties:
         account:
           $ref: '#/components/schemas/Account'
     EventAccountInvitationAccept:
       type: object
       description: Payload for account_invitation.accept event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4026,6 +4314,9 @@ components:
     EventAccountInvitationCreate:
       type: object
       description: Payload for account_invitation.create event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4034,6 +4325,9 @@ components:
     EventAccountInvitationRemove:
       type: object
       description: Payload for account_invitation.remove event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4042,6 +4336,9 @@ components:
     EventAccountInvitationResend:
       type: object
       description: Payload for account_invitation.resend event.
+      required:
+        - account
+        - account_invitation
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -4050,60 +4347,72 @@ components:
     EventCertificateAutoRenewalDisable:
       type: object
       description: Payload for certificate.auto_renewal_disable
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateAutoRenewalEnable:
       type: object
       description: Payload for certificate.auto_renewal_enable
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateAutoRenewalFailed:
       type: object
       description: Payload for certificate.auto_renewal_failed
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateIssue:
       type: object
       description: Payload for certificate.issue
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateReissue:
       type: object
       description: Payload for certificate.reissue
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventCertificateRemovePrivateKey:
       type: object
       description: Payload for certificate.remove_private_key
+      required: [certificate]
       properties:
         certificate:
           $ref: '#/components/schemas/Certificate'
     EventContactCreate:
       type: object
       description: Payload for contact.create
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventContactDelete:
       type: object
       description: Payload for contact.delete
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventContactUpdate:
       type: object
       description: Payload for contact.udpate
+      required: [contact]
       properties:
         contact:
           $ref: '#/components/schemas/Contact'
     EventDNSSECCreate:
       type: object
       description: Payload for dnssec.create
+      required:
+        - dnssec
+        - zone
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
@@ -4112,6 +4421,9 @@ components:
     EventDNSSECDelete:
       type: object
       description: Payload for dnssec.delete
+      required:
+        - dnssec
+        - zone
       properties:
         dnssec:
           $ref: '#/components/schemas/DNSSEC'
@@ -4120,6 +4432,10 @@ components:
     EventDNSSECRotationStart:
       type: object
       description: Payload for dnssec.rotation_start
+      required:
+        - delegation_signer_record
+        - dnssec
+        - zone
       properties:
         delegation_signer_record:
           $ref: '#/components/schemas/DelegationSigner'
@@ -4130,6 +4446,10 @@ components:
     EventDNSSECRotationComplete:
       type: object
       description: Payload for dnssec.rotation_complete
+      required:
+        - delegation_signer_record
+        - dnssec
+        - zone
       properties:
         delegation_signer_record:
           $ref: '#/components/schemas/DelegationSigner'
@@ -4140,47 +4460,57 @@ components:
     EventDomainAutoRenewalDisable:
       type: object
       description: Payload for domain.auto_renewal_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainAutoRenewalEnable:
       type: object
       description: Payload for domain.auto_renewal_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainCreate:
       type: object
       description: Payload for domain.create
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainDelete:
       type: object
       description: Payload for domain.delete
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegisterStarted:
       type: object
       description: Payload for domain.register:started
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegister:
       type: object
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRegisterCancelled:
       type: object
       description: Payload for domain.register:cancelled
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainRenewStarted:
       type: object
       description: Payload for domain.renew:started
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4189,6 +4519,9 @@ components:
     EventDomainRenew:
       type: object
       description: Payload for domain.renew
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4197,6 +4530,9 @@ components:
     EventDomainRenewCancelled:
       type: object
       description: Payload for domain.renew:cancelled
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4205,6 +4541,9 @@ components:
     EventDomainRestoreStarted:
       type: object
       description: Payload for domain.restore:started
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4213,6 +4552,9 @@ components:
     EventDomainRestore:
       type: object
       description: Payload for domain.restore
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4221,6 +4563,9 @@ components:
     EventDomainRestoreCancelled:
       type: object
       description: Payload for domain.restore:cancelled
+      required:
+        - auto
+        - domain
       properties:
         auto:
           type: boolean
@@ -4229,6 +4574,9 @@ components:
     EventDomainDelegationChange:
       type: object
       description: Payload for domain.delegation_change
+      required:
+        - domain
+        - name_servers
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4239,6 +4587,9 @@ components:
     EventDomainRegistrantChangeStarted:
       type: object
       description: Payload for domain.registrant_change:started
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4247,6 +4598,9 @@ components:
     EventDomainRegistrantChange:
       type: object
       description: Payload for domain.registrant_change
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4255,6 +4609,9 @@ components:
     EventDomainRegistrantChangeCancelled:
       type: object
       description: Payload for domain.registrant_change:cancelled
+      required:
+        - domain
+        - registrant
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4263,42 +4620,49 @@ components:
     EventDomainResolutionDisable:
       type: object
       description: Payload for domain.resolution_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainResolutionEnable:
       type: object
       description: Payload for domain.resolution_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferStarted:
       type: object
       description: Payload for domain.transfer:started
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransfer:
       type: object
       description: Payload for domain.transfer
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferCancelled:
       type: object
       description: Payload for domain.transfer:cancelled
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferLockDisable:
       type: object
       description: Payload for domain.transfer_lock_disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventDomainTransferLockEnable:
       type: object
       description: Payload for domain.transfer_lock_enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4311,162 +4675,192 @@ components:
     EventEmailForwardCreate:
       type: object
       description: Payload for email_forward.create
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardDeactivate:
       type: object
       description: Payload for email_forward.deactivate
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardDelete:
       type: object
       description: Payload for email_forward.delete
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventEmailForwardUpdate:
       type: object
       description: Payload for email_forward.update
+      required: [email_forward]
       properties:
         email_forward:
           $ref: '#/components/schemas/EmailForward'
     EventInvoiceCollect:
       type: object
       description: Payload for invoice.collect
+      required: [invoice]
       properties:
         invoice:
           $ref: '#/components/schemas/Invoice'
     EventNameServerDeregister:
       type: object
       description: Payload for name_server.deregister
+      required: [name_server]
       properties:
         name_server:
           type: object
+          required: [name]
           properties:
             name:
               type: string
     EventNameServerRegister:
       type: object
       description: Payload for name_server.register
+      required: [name_server]
       properties:
         name_server:
           type: object
+          required: [name]
           properties:
             name:
               type: string
     EventOauthApplicationCreate:
       type: object
       description: Payload for oauth_application.create
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationDelete:
       type: object
       description: Payload for oauth_application.delete
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationResetClientSecret:
       type: object
       description: Payload for oauth_application.reset_client_secret
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationRevokeAccessTokens:
       type: object
       description: Payload for oauth_application.revoke_access_tokens
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventOauthApplicationUpdate:
       type: object
       description: Payload for oauth_application.update
+      required: [oauth_application]
       properties:
         oauth_application:
           $ref: '#/components/schemas/OauthApplication'
     EventPushAccept:
       type: object
       description: Payload for push.accept
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventPushInitiate:
       type: object
       description: Payload for push.initiate
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventPushReject:
       type: object
       description: Payload for push.reject
+      required: [push]
       properties:
         push:
           $ref: '#/components/schemas/Push'
     EventRecordCreate:
       type: object
       description: Payload for record.create
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventRecordDelete:
       type: object
       description: Payload for record.delete
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventRecordUpdate:
       type: object
       description: Payload for record.update
+      required: [zone_record]
       properties:
         zone_record:
           $ref: '#/components/schemas/ZoneRecord'
     EventSecondaryDNSCreate:
       type: object
       description: Payload for secondary_dns.create
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSecondaryDNSDelete:
       type: object
       description: Payload for secondary_dns.delete
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSecondaryDNSUpdate:
       type: object
       description: Payload for secondary_dns.update
+      required: [configuration]
       properties:
         configuration:
           $ref: '#/components/schemas/SecondaryDNS'
     EventSubscriptionMigrate:
       type: object
       description: Payload for subscription.migrate
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionRenew:
       type: object
       description: Payload for subscription.renew
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionSubscribe:
       type: object
       description: Payload for subscription.subscribe
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventSubscriptionUnsubscribe:
       type: object
       description: Payload for subscription.unsubscribe
+      required: [subscription]
       properties:
         subscription:
           $ref: '#/components/schemas/Subscription'
     EventTemplateApply:
       type: object
       description: Payload for template.apply
+      required:
+        - template
+        - zone
       properties:
         template:
           $ref: '#/components/schemas/Template'
@@ -4475,60 +4869,72 @@ components:
     EventTemplateCreate:
       type: object
       description: Payload for template.create
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateDelete:
       type: object
       description: Payload for template.delete
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateUpdate:
       type: object
       description: Payload for template.update
+      required: [template]
       properties:
         template:
           $ref: '#/components/schemas/Template'
     EventTemplateRecordCreate:
       type: object
       description: Payload for template_record.create
+      required: [template_record]
       properties:
         template_record:
           $ref: '#/components/schemas/TemplateRecord'
     EventTemplateRecordDelete:
       type: object
       description: Payload for template_record.delete
+      required: [template_record]
       properties:
         template_record:
           $ref: '#/components/schemas/TemplateRecord'
     EventVanityDisable:
       type: object
       description: Payload for vanity.disable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventVanityEnable:
       type: object
       description: Payload for vanity.enable
+      required: [domain]
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
     EventWebhookCreate:
       type: object
       description: Payload for webhook.create
+      required: [webhook]
       properties:
         webhook:
           $ref: '#/components/schemas/Webhook'
     EventWebhookDelete:
       type: object
       description: Payload for webhook.delete
+      required: [webhook]
       properties:
         webhook:
           $ref: '#/components/schemas/Webhook'
     EventWhoisPrivacyDisable:
       type: object
       description: Payload for whois_privacy.disable
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4537,6 +4943,9 @@ components:
     EventWhoisPrivacyEnable:
       type: object
       description: Payload for whois_privacy.enable
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4545,6 +4954,9 @@ components:
     EventWhoisPrivacyPurchase:
       type: object
       description: Payload for whois_privacy.purchase
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4553,6 +4965,9 @@ components:
     EventWhoisPrivacyRenew:
       type: object
       description: Payload for whois_privacy.renew
+      required:
+        - domain
+        - whois_privacy
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
@@ -4561,17 +4976,25 @@ components:
     EventZoneCreate:
       type: object
       description: Payload for zone.create
+      required: [zone]
       properties:
         zone:
           $ref: '#/components/schemas/Zone'
     EventZoneDelete:
       type: object
       description: Payload for zone.delete
+      required: [zone]
       properties:
         zone:
           $ref: '#/components/schemas/Zone'
     ExtendedAttribute:
       type: object
+      required:
+        - name
+        - description
+        - required
+        - options
+        - title
       properties:
         name:
           type: string
@@ -4583,6 +5006,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExtendedAttributeOption'
+        title:
+          type: string
       example:
         name: uk_legal_type
         description: Legal type of registrant contact
@@ -4594,6 +5019,7 @@ components:
           - title: Non-UK Individual (representing self)
             value: FIND
             description: Non-UK Individual (representing self)
+        title: UK Legal Type
     TradeExtendedAttributes:
       type: object
       additionalProperties:
@@ -4603,6 +5029,10 @@ components:
         x-cat-accept-highly-regulated-tac: "1"
     ExtendedAttributeOption:
       type: object
+      required:
+        - title
+        - value
+        - description
       properties:
         title:
           type: string
@@ -4616,6 +5046,11 @@ components:
         description: UK Individual (our default value)
     Invoice:
       type: object
+      required:
+        - id
+        - invoice_number
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4627,6 +5062,13 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     LetsencryptCertificatePurchase:
       type: object
+      required:
+        - id
+        - certificate_id
+        - state
+        - auto_renew
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4655,7 +5097,7 @@ components:
         id: 1
         certificate_id: 1
         state: new
-        auto_renewal: true
+        auto_renew: true
         created_at: '2016-06-11T18:47:08Z'
         updated_at: '2016-06-11T18:47:37Z'
     LetsencryptCertificateRenewal:
@@ -4691,6 +5133,13 @@ components:
         updated_at: '2017-10-19T08:18:53Z'
     NameServer:
       type: object
+      required:
+        - id
+        - name
+        - ipv4
+        - ipv6
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4713,6 +5162,13 @@ components:
         updated_at: '2016-07-11T09:40:19Z'
     OauthApplication:
       type: object
+      required:
+        - id
+        - name
+        - description
+        - homepage_url
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4728,6 +5184,15 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     PrimaryServer:
       type: object
+      required:
+        - id
+        - account_id
+        - name
+        - ip
+        - port
+        - linked_secondary_zones
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4758,6 +5223,14 @@ components:
         updated_at: '2016-08-11T10:16:03Z'
     Push:
       type: object
+      required:
+        - id
+        - domain_id
+        - contact_id
+        - account_id
+        - created_at
+        - updated_at
+        - accepted_at
       properties:
         id:
           type: integer
@@ -4783,6 +5256,17 @@ components:
         accepted_at: null
     RegistrantChange:
       type: object
+      required:
+        - id
+        - account_id
+        - contact_id
+        - domain_id
+        - state
+        - extended_attributes
+        - registry_owner_change
+        - irt_lock_lifted_by
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4841,6 +5325,13 @@ components:
         registry_owner_change: false
     SecondaryDNS:
       type: object
+      required:
+        - id
+        - zone_id
+        - name_servers
+        - whitelisted_ips
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4860,6 +5351,17 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Service:
       type: object
+      required:
+        - id
+        - name
+        - sid
+        - description
+        - setup_description
+        - requires_setup
+        - default_subdomain
+        - created_at
+        - updated_at
+        - settings
       example:
         id: 2
         name: Service 2
@@ -4911,6 +5413,13 @@ components:
             $ref: '#/components/schemas/ServiceSetting'
     ServiceSetting:
       type: object
+      required:
+        - name
+        - label
+        - append
+        - description
+        - example
+        - password
       properties:
         name:
           type: string
@@ -4920,6 +5429,7 @@ components:
           description: The human-readable label value
         append:
           type: string
+          nullable: true
           description: Additional text to append to the input field
         description:
           type: string
@@ -4940,6 +5450,12 @@ components:
         password: false
     Subscription:
       type: object
+      required:
+        - id
+        - plan_name
+        - state
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -4987,6 +5503,14 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Template:
       type: object
+      required:
+        - id
+        - account_id
+        - name
+        - sid
+        - description
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5012,6 +5536,16 @@ components:
         updated_at: '2016-03-22T11:08:58Z'
     TemplateRecord:
       type: object
+      required:
+        - id
+        - template_id
+        - name
+        - content
+        - ttl
+        - priority
+        - type
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5067,6 +5601,19 @@ components:
         - URL
     TLD:
       type: object
+      required:
+        - tld
+        - tld_type
+        - whois_privacy
+        - auto_renew_only
+        - idn
+        - minimum_registration
+        - registration_enabled
+        - renewal_enabled
+        - transfer_enabled
+        - dnssec_interface_type
+        - name_server_min
+        - name_server_max
       properties:
         tld:
           type: string
@@ -5131,6 +5678,11 @@ components:
       default: 3600
     User:
       type: object
+      required:
+        - id
+        - email
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5147,6 +5699,13 @@ components:
         updated_at: '2016-06-09T20:03:39Z'
     VanityNameServer:
       type: object
+      required:
+        - id
+        - name
+        - ipv4
+        - ipv6
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5162,6 +5721,10 @@ components:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
     Webhook:
       type: object
+      required:
+        - id
+        - url
+        - suppressed_at
       properties:
         id:
           type: integer
@@ -5169,13 +5732,20 @@ components:
           type: string
           format: uri
         suppressed_at:
-          $ref: '#/components/schemas/DateTime'
+          $ref: '#/components/schemas/NullableDateTime'
       example:
         id: 1
         url: 'https://webhook.test'
         suppressed_at: '2022-06-07T17:45:13Z'
     WebhookPayload:
       type: object
+      required:
+        - name
+        - api_version
+        - request_identifier
+        - data
+        - account
+        - actor
       properties:
         name:
           type: string
@@ -5401,6 +5971,13 @@ components:
           pretty: example@example.com
     WhoisPrivacy:
       type: object
+      required:
+        - id
+        - domain_id
+        - enabled
+        - expires_on
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5423,6 +6000,15 @@ components:
         updated_at: '2016-02-13T14:34:52Z'
     WhoisPrivacyRenewal:
       type: object
+      required:
+        - id
+        - domain_id
+        - whois_privacy_id
+        - state
+        - enabled
+        - expires_on
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5452,6 +6038,16 @@ components:
     Zone:
       type: object
       description: Represents a DNS zone.
+      required:
+        - id
+        - account_id
+        - name
+        - reverse
+        - secondary
+        - last_transferred_at
+        - active
+        - created_at
+        - updated_at
       properties:
         id:
           type: integer
@@ -5467,6 +6063,7 @@ components:
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
           type: string
+          nullable: true
           format: date-time
           example: '2010-01-01T01:00:00Z'
           description: Returns the date the zone was last transferred. Used if it is a secondary zone.
@@ -5490,6 +6087,7 @@ components:
     ZoneFile:
       type: object
       description: A DNS zone file.
+      required: [zone]
       properties:
         zone:
           type: string
@@ -5505,6 +6103,7 @@ components:
     ZoneDistribution:
       type: object
       description: Zone distribution check
+      required: [distributed]
       properties:
         distributed:
           type: boolean
@@ -5514,6 +6113,19 @@ components:
     ZoneRecord:
       type: object
       description: A single DNS record in a zone.
+      required:
+        - id
+        - zone_id
+        - parent_id
+        - name
+        - content
+        - ttl
+        - priority
+        - type
+        - regions
+        - system_record
+        - created_at
+        - updated_at
       example:
         id: 1
         zone_id: example.com
@@ -5608,6 +6220,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - message
+              - errors
             properties:
               message:
                 type: string
@@ -5665,6 +6280,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -5678,6 +6294,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -5691,6 +6308,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -5713,6 +6331,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [message]
             properties:
               message:
                 type: string
@@ -5729,8 +6348,73 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   requestBodies:
-    ContactCreateOrUpdate:
+    ContactCreate:
       description: Contact create attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - first_name
+              - last_name
+              - email
+              - phone
+              - address1
+              - city
+              - state_province
+              - postal_code
+              - country
+            properties:
+              label:
+                type: string
+                default: ''
+              first_name:
+                type: string
+              last_name:
+                type: string
+              address1:
+                type: string
+              address2:
+                type: string
+                nullable: true
+              city:
+                type: string
+              state_province:
+                type: string
+              postal_code:
+                type: string
+              country:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              fax:
+                type: string
+                nullable: true
+              organization_name:
+                type: string
+                description: 'The company name. If the organization_name is specified, then you must also include job_title.'
+              job_title:
+                type: string
+                description: The contact's job title. Required if the organization_name is specified.
+            example:
+              label: Default
+              first_name: First
+              last_name: User
+              job_title: CEO
+              organization_name: Awesome Company
+              email: first@example.com
+              phone: '+18001234567'
+              fax: '+18011234567'
+              address1: 'Italian Street, 10'
+              city: Roma
+              state_province: RM
+              postal_code: '00100'
+              country: IT
+    ContactUpdate:
+      description: Contact update attributes
       required: true
       content:
         application/json:
@@ -5809,6 +6493,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [name]
             properties:
               name:
                 type: string
@@ -5833,24 +6518,45 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              ns_names:
-                type: array
-                items:
-                  type: string
-                example:
-                  - ns1.dnsimple.com
-                  - ns2.dnsimple.com
-                  - ns3.dnsimple.com
-                  - ns4.dnsimple.com
-              ns_set_ids:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
+            anyOf:
+              - type: object
+                required: [ns_names]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
+              - type: object
+                required: [ns_set_ids]
+                properties:
+                  ns_names:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - ns1.dnsimple.com
+                      - ns2.dnsimple.com
+                      - ns3.dnsimple.com
+                      - ns4.dnsimple.com
+                  ns_set_ids:
+                    type: array
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
     DomainRegister:
       description: Domain registration attributes
       required: true
@@ -5858,6 +6564,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [registrant_id]
             properties:
               registrant_id:
                 type: integer
@@ -5886,6 +6593,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [period]
             properties:
               period:
                 type: integer
@@ -5914,6 +6622,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - registrant_id
+              - auth_code
             properties:
               registrant_id:
                 type: integer
@@ -5970,6 +6681,7 @@ components:
         application/json:
           schema:
             type: object
+            required: [contact_id]
             properties:
               contact_id:
                 type: integer
@@ -5982,6 +6694,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - ip
             properties:
               name:
                 type: string
@@ -5989,9 +6704,6 @@ components:
                 type: string
               port:
                 type: string
-            required:
-              - name
-              - ip
     RegistrantChangeCreate:
       description: Contact change attributes
       required: true
@@ -5999,6 +6711,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - domain_id
+              - contact_id
             properties:
               domain_id:
                 oneOf:
@@ -6021,6 +6736,9 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - domain_id
+              - contact_id
             properties:
               domain_id:
                 oneOf:
@@ -6040,11 +6758,11 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
             properties:
               name:
                 type: string
-            required:
-              - name
     ServiceApply:
       description: 'Optional hash of settings for some specific services, corresponding to the service fields. For instance, Heroku requires a settings[app] setting.'
       required: false
@@ -6054,8 +6772,29 @@ components:
             type: object
             example:
               app: my-app-name
-    TemplateCreateOrUpdate:
+    TemplateCreate:
       description: Attributes for creating a template.
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - sid
+              - name
+            properties:
+              sid:
+                type: string
+              name:
+                type: string
+              description:
+                type: string
+            example:
+              name: Alpha
+              sid: alpha
+              description: This is an Alpha template.
+    TemplateUpdate:
+      description: Attributes for updating a template.
       required: true
       content:
         application/json:
@@ -6068,9 +6807,6 @@ components:
                 type: string
               description:
                 type: string
-            required:
-              - sid
-              - name
             example:
               name: Alpha
               sid: alpha
@@ -6082,6 +6818,21 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - type
+              - content
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              content:
+                type: string
+              ttl:
+                type: integer
+              priority:
+                type: integer
             example:
               name: ''
               type: MX
@@ -6109,6 +6860,10 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - name
+              - type
+              - content
             properties:
               name:
                 type: string
@@ -6173,25 +6928,6 @@ components:
               priority: 20
               regions:
                 - global
-    ZoneRecordDelete:
-      description: Zone record delete attributes
-      required: false
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              integrated_zones:
-                type: array
-                items:
-                  type: integer
-                example:
-                  - 1
-                  - 2
-            example:
-              integrated_zones:
-                - 1
-                - 2
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
