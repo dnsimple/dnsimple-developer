@@ -299,22 +299,6 @@ curl  -H 'Authorization: Bearer <token>' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records/5
 ~~~
 
-### Input
-
-The following fields are updateable. You can pass zero or any of them.
-
-Name | Type | Description
------|------|------------
-`integrated_zones` | `array` | Optional set of IDs identifying the zones where the record should be deleted. If not specified, the record deletion will be applied to the DNSimple zone and all integrated zones that support the record type. If specified, "dnsimple" must be included to delete the record from the DNSimple zone.
-
-##### Example
-
-~~~json
-{
-  "integrated_zones": [1, 2, "dnsimple"]
-}
-~~~
-
 ### Response
 
 Responds with HTTP 204 on success.
