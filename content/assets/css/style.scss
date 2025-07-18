@@ -1,3 +1,4 @@
+@use "sass:meta";
 //
 // Style manifest
 // --------------------------------------------------
@@ -5,12 +6,11 @@
 @import "../../dist/tachyons/css/tachyons.min.css";
 @import "../../dist/fontawesome/css/all.min.css";
 @import "../../dist/highlightjs/styles/github.css";
-@import "variables";
-@import "colorscheme";
-@import "mixins";
-@import "typography";
-@import "syntax";
-@import "template";
-@import "application";
-@import "tabs";
-@import "dual_cta";
+@import "variables.css";
+@import "colorscheme.css";
+@import "typography.css";
+@import "syntax.css";
+@import "template.css";
+@import "application.css";
+@import "tabs.css";
+@import "dual_cta.css";

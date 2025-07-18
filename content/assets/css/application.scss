@@ -58,7 +58,9 @@
   box-shadow: -6px 0 0 0 var(--blue);
 
   &:before {
-    @include font-awesome("\f05a");
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f05a";
     color: var(--blue);
   }
 }
@@ -67,7 +69,9 @@
   box-shadow: -6px 0 0 0 var(--green);
 
   &:before {
-    @include font-awesome("\f0eb");
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0eb";
     color: var(--green);
   }
 }
@@ -76,7 +80,9 @@
   box-shadow: -6px 0 0 0 var(--yellow);
 
   &:before {
-    @include font-awesome("\f249");
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f249";
     color: var(--yellow);
   }
 }
@@ -85,7 +91,9 @@
   box-shadow: -6px 0 0 0 var(--orange);
 
   &:before {
-    @include font-awesome("\f071");
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f071";
     color: var(--orange);
   }
 }
