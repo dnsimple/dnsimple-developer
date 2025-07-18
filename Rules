@@ -21,7 +21,7 @@ compile '/assets/css/*/' do
   if item.identifier =~ %r{/_[^/]+/$}
     # don't compile partials
   else
-    filter :sass, :syntax => :scss, :style => :compressed
+    filter :dart_sass, :syntax => :scss, :style => :compressed
     filter :relativize_paths, type: :css
   end
 end
