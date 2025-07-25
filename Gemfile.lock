@@ -26,7 +26,8 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    ffi (1.17.0)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     google-protobuf (4.29.3-arm64-darwin)
       bigdecimal
       rake (>= 13)
@@ -159,9 +160,9 @@ DEPENDENCIES
   nanoc (~> 4.13)
   nanoc-dart-sass
   nanoc-live
-  nokogiri
+  nokogiri (~> 1.18)
   puma (~> 6.6)
-  rake
+  rake (~> 13.3)
   rouge
   systemu
 
