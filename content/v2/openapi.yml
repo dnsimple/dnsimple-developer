@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.1
 info:
   title: DNSimple API
   version: 2.0.0
@@ -90,16 +90,14 @@ paths:
                           account:
                             $ref: '#/components/schemas/Account'
                           user:
-                            type: object
-                            nullable: true
+                            type: ["object", "null"]
                       - type: object
                         required: [account, user]
                         properties:
                           user:
                             $ref: '#/components/schemas/User'
                           account:
-                            type: object
-                            nullable: true
+                            type: ["object", "null"]
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -2872,8 +2870,7 @@ paths:
                         description: Sorting applied to the returned data.
                         example: "date:asc,zone_name:asc"
                       groupings:
-                        type: string
-                        nullable: true
+                        type: ["string", "null"]
                         description: Grouping applied to the returned data.
                         example: "date,zone_name"
                       page:
@@ -3371,13 +3368,11 @@ components:
       example: '2010-01-01T01:00:00Z'
       description: A date-time value, representing when the entry was last updated, formatted as ISO 8601.
     NullableDate:
-      type: string
-      nullable: true
+      type: ["string", "null"]
       format: date
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     NullableDateTime:
-      type: string
-      nullable: true
+      type: ["string", "null"]
       format: date-time
       description: 'A nullable date-time value. The value can be null, when present the value is formatted according to the ISO 8601 specification.'
     Error:
@@ -3598,8 +3593,7 @@ components:
         server:
           type: string
         root:
-          nullable: true
-          type: string
+          type: ["string", "null"]
         chain:
           type: array
           items:
@@ -3834,15 +3828,13 @@ components:
         amount:
           type: string
         product_id:
-          type: integer
-          nullable: true
+          type: ["integer", "null"]
           description: The ID of the product that was charged. Null when the product type is "manual".
         product_type:
           type: string
           description: The type of the product that was charged.
         product_reference:
-          type: string
-          nullable: true
+          type: ["string", "null"]
           description: |
             A unique or representative reference. For example, the domain name that was charged.
             Or the ID of the subscription or the order ID of the product. Null when the product
@@ -3926,8 +3918,7 @@ components:
         account_id:
           type: integer
         registrant_id:
-          nullable: true
-          type: integer
+          type: ["integer", "null"]
         name:
           type: string
         unicode_name:
@@ -5393,15 +5384,13 @@ components:
           type: string
           description: A human-readable description of the one-click service
         setup_description:
-          type: string
-          nullable: true
+          type: ["string", "null"]
           description: Describes setup requirements
         requires_setup:
           type: boolean
           description: Flag indicating whether setup is required
         default_subdomain:
-          type: string
-          nullable: true
+          type: ["string", "null"]
           description: The default subdomain used when creating DNS records
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
@@ -5428,8 +5417,7 @@ components:
           type: string
           description: The human-readable label value
         append:
-          type: string
-          nullable: true
+          type: ["string", "null"]
           description: Additional text to append to the input field
         description:
           type: string
@@ -5558,8 +5546,7 @@ components:
         ttl:
           $ref: '#/components/schemas/TTL'
         priority:
-          type: integer
-          nullable: true
+          type: ["string", "null"]
         type:
           $ref: '#/components/schemas/TemplateRecordType'
         created_at:
@@ -6062,8 +6049,7 @@ components:
           type: boolean
           description: 'Returns true for a secondary zone, false for a primary zone.'
         last_transferred_at:
-          type: string
-          nullable: true
+          type: ["string", "null"]
           format: date-time
           example: '2010-01-01T01:00:00Z'
           description: Returns the date the zone was last transferred. Used if it is a secondary zone.
@@ -6148,9 +6134,8 @@ components:
           type: string
           description: The unique identifier of the zone this record belongs to
         parent_id:
-          type: integer
+          type: ["integer", "null"]
           description: If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An example of child record is the TXT descriptive record created for an ALIAS record.
-          nullable: true
         name:
           type: string
           description: The name of the record (e.g., "www" for www.example.com).
@@ -6160,9 +6145,8 @@ components:
         ttl:
           $ref: '#/components/schemas/TTL'
         priority:
-          type: integer
+          type: ["integer", "null"]
           description: The priority value for MX and SRV records. Lower values have higher priority.
-          nullable: true
           default: 0
         type:
           $ref: '#/components/schemas/ZoneRecordType'
@@ -6376,8 +6360,7 @@ components:
               address1:
                 type: string
               address2:
-                type: string
-                nullable: true
+                type: ["string", "null"]
               city:
                 type: string
               state_province:
@@ -6391,8 +6374,7 @@ components:
               phone:
                 type: string
               fax:
-                type: string
-                nullable: true
+                type: ["string", "null"]
               organization_name:
                 type: string
                 description: 'The company name. If the organization_name is specified, then you must also include job_title.'
@@ -6431,8 +6413,7 @@ components:
               address1:
                 type: string
               address2:
-                type: string
-                nullable: true
+                type: ["string", "null"]
               city:
                 type: string
               state_province:
@@ -6446,8 +6427,7 @@ components:
               phone:
                 type: string
               fax:
-                type: string
-                nullable: true
+                type: ["string", "null"]
               organization_name:
                 type: string
                 description: 'The company name. If the organization_name is specified, then you must also include job_title.'
