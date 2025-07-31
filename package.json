@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "@redocly/cli": "^2.0.2",
     "@vue/compiler-sfc": "^3.4.21",
     "concurrently": "^9.2.0",
