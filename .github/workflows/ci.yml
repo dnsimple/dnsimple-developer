@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Node
         uses: actions/setup-node@v4
         with:
@@ -34,7 +34,7 @@ jobs:
     env:
       BUNDLE_JOBS: 3
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
