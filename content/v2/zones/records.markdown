@@ -315,7 +315,7 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 POST /:account/zones/:zone/batch
 ~~~
 
-This endpoint allows you to perform multiple record operations (create, update and/or delete) for a zone in a single request for improved performance and atomicity.
+This endpoint allows you to perform multiple record operations (create, update and/or delete) for a zone in a single request for efficiency and atomicity.
 
 <info>
 The batch change zone records API is a feature that is only available to the Enterprise plan.
