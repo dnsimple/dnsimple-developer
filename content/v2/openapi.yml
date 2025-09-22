@@ -3579,7 +3579,7 @@ components:
           - id: 67622509
     BatchChangeZoneRecordsInvalidRequestError:
       type: object
-      description: Client request error for batch operations
+      description: Client request error for batch change of zone records
       required:
         - message
         - errors
