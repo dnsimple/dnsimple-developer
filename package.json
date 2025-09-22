@@ -14,6 +14,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-standard": "^5.0.0",
+    "glob": "^11.0.3",
     "tachyons": "^4.12.0",
     "vue-loader": "^17.4.2",
     "webpack": "^5.101.0",
@@ -22,7 +23,8 @@
   "scripts": {
     "live": "concurrently 'bundle exec nanoc live' 'bundle exec rake compile'",
     "build": "npx webpack",
-    "openapi-lint": "redocly lint content/v2/openapi.yml"
+    "openapi-lint": "redocly lint content/v2/openapi.yml",
+    "validate-fixtures": "node validate-fixtures.js"
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
