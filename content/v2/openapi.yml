@@ -3517,6 +3517,66 @@ components:
           type: string
         pretty:
           type: string
+    BatchChangeZoneRecordsResponse:
+      type: object
+      description: Response from batch zone record operations
+      required:
+        - creates
+        - updates
+        - deletes
+      properties:
+        creates:
+          type: array
+          description: Zone records that were created
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        updates:
+          type: array
+          description: Zone records that were updated
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        deletes:
+          type: array
+          description: Zone records that were deleted (returns only ID)
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+                description: ID of the deleted zone record
+      example:
+        creates:
+          - id: 67623409
+            zone_id: example.com
+            parent_id: null
+            name: ab
+            content: 3.2.3.4
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T05:25:00Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        updates:
+          - id: 67622534
+            zone_id: example.com
+            parent_id: null
+            name: update1-1757049890
+            content: 3.2.3.40
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T04:40:15Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        deletes:
+          - id: 67622509
     BillingSettings:
       type: object
     Certificate:
@@ -6229,66 +6289,6 @@ components:
         - SSHFP
         - TXT
         - URL
-    BatchChangeZoneRecordsResponse:
-      type: object
-      description: Response from batch zone record operations
-      required:
-        - creates
-        - updates
-        - deletes
-      properties:
-        creates:
-          type: array
-          description: Zone records that were created
-          items:
-            $ref: '#/components/schemas/ZoneRecord'
-        updates:
-          type: array
-          description: Zone records that were updated
-          items:
-            $ref: '#/components/schemas/ZoneRecord'
-        deletes:
-          type: array
-          description: Zone records that were deleted (returns only ID)
-          items:
-            type: object
-            required:
-              - id
-            properties:
-              id:
-                type: integer
-                description: ID of the deleted zone record
-      example:
-        creates:
-          - id: 67623409
-            zone_id: example.com
-            parent_id: null
-            name: ab
-            content: 3.2.3.4
-            ttl: 3600
-            priority: null
-            type: A
-            regions:
-              - global
-            system_record: false
-            created_at: '2025-09-05T05:25:00Z'
-            updated_at: '2025-09-05T05:25:00Z'
-        updates:
-          - id: 67622534
-            zone_id: example.com
-            parent_id: null
-            name: update1-1757049890
-            content: 3.2.3.40
-            ttl: 3600
-            priority: null
-            type: A
-            regions:
-              - global
-            system_record: false
-            created_at: '2025-09-05T04:40:15Z'
-            updated_at: '2025-09-05T05:25:00Z'
-        deletes:
-          - id: 67622509
     BatchChangeZoneRecordsInvalidRequestError:
       type: object
       description: Client request error for batch operations
