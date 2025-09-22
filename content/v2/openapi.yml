@@ -3519,7 +3519,7 @@ components:
           type: string
     BatchChangeZoneRecordsResponse:
       type: object
-      description: Response from batch zone record operations
+      description: Response from batch change of zone records
       required:
         - creates
         - updates
@@ -3537,7 +3537,7 @@ components:
             $ref: '#/components/schemas/ZoneRecord'
         deletes:
           type: array
-          description: Zone records that were deleted (returns only ID)
+          description: Zone records that were deleted
           items:
             type: object
             required:
