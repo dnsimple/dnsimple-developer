@@ -2000,24 +2000,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BatchChangeZoneRecordsInvalidRequestError'
-              examples:
-                detailed-validation-error:
-                  value:
-                    message: Validation failed
-                    errors:
-                      creates:
-                        - index: 0
-                          message: Validation failed
-                          errors:
-                            base:
-                              - Matching record already exists for this zone
-                simple-validation-error:
-                  value:
-                    message: Validation failed
-                    errors:
-                      creates:
-                        - index: 0
-                          message: Region selection is not allowed for your plan
         '404':
           $ref: '#/components/responses/404'
       summary: Batch create, update, and/or delete records in a zone
@@ -6382,6 +6364,20 @@ components:
                       type: array
                       items:
                         type: string
+      examples:
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Validation failed
+                errors:
+                  base:
+                    - Matching record already exists for this zone
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Region selection is not allowed for your plan
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
