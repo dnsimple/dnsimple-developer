@@ -6513,6 +6513,83 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   requestBodies:
+    BatchChangeZoneRecords:
+      description: Batch change zone records input attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              creates:
+                type: array
+                description: Zone records to create
+                items:
+                  type: object
+                  required:
+                    - name
+                    - type
+                    - content
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      $ref: '#/components/schemas/ZoneRecordType'
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              updates:
+                type: array
+                description: Zone records to update
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to update
+                    name:
+                      type: string
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              deletes:
+                type: array
+                description: Zone record IDs to delete
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to delete
+            example:
+              creates:
+                - name: ab
+                  type: A
+                  content: 3.2.3.4
+                  ttl: 3600
+              updates:
+                - id: 67622534
+                  content: 3.2.3.40
+              deletes:
+                - id: 67622509
     ContactCreate:
       description: Contact create attributes
       required: true
@@ -7089,83 +7166,6 @@ components:
               priority: 20
               regions:
                 - global
-    BatchChangeZoneRecords:
-      description: Batch change zone records input attributes
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              creates:
-                type: array
-                description: Zone records to create
-                items:
-                  type: object
-                  required:
-                    - name
-                    - type
-                    - content
-                  properties:
-                    name:
-                      type: string
-                    type:
-                      $ref: '#/components/schemas/ZoneRecordType'
-                    content:
-                      type: string
-                    ttl:
-                      $ref: '#/components/schemas/TTL'
-                    priority:
-                      type: integer
-                    regions:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/ZoneRecordRegion'
-              updates:
-                type: array
-                description: Zone records to update
-                items:
-                  type: object
-                  required:
-                    - id
-                  properties:
-                    id:
-                      type: integer
-                      description: ID of the zone record to update
-                    name:
-                      type: string
-                    content:
-                      type: string
-                    ttl:
-                      $ref: '#/components/schemas/TTL'
-                    priority:
-                      type: integer
-                    regions:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/ZoneRecordRegion'
-              deletes:
-                type: array
-                description: Zone record IDs to delete
-                items:
-                  type: object
-                  required:
-                    - id
-                  properties:
-                    id:
-                      type: integer
-                      description: ID of the zone record to delete
-            example:
-              creates:
-                - name: ab
-                  type: A
-                  content: 3.2.3.4
-                  ttl: 3600
-              updates:
-                - id: 67622534
-                  content: 3.2.3.40
-              deletes:
-                - id: 67622509
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
