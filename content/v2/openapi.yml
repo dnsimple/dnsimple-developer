@@ -3577,6 +3577,95 @@ components:
             updated_at: '2025-09-05T05:25:00Z'
         deletes:
           - id: 67622509
+    BatchChangeZoneRecordsInvalidRequestError:
+      type: object
+      description: Client request error for batch operations
+      required:
+        - message
+        - errors
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            creates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed create operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            updates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed update operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            deletes:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed delete operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+      examples:
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Validation failed
+                errors:
+                  base:
+                    - Matching record already exists for this zone
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Region selection is not allowed for your plan
     BillingSettings:
       type: object
     Certificate:
@@ -6289,95 +6378,6 @@ components:
         - SSHFP
         - TXT
         - URL
-    BatchChangeZoneRecordsInvalidRequestError:
-      type: object
-      description: Client request error for batch operations
-      required:
-        - message
-        - errors
-      properties:
-        message:
-          type: string
-        errors:
-          type: object
-          properties:
-            creates:
-              type: array
-              items:
-                type: object
-                required:
-                  - index
-                  - message
-                properties:
-                  index:
-                    type: integer
-                    description: Index of the failed create operation
-                  message:
-                    type: string
-                    description: Error message for this operation
-                  errors:
-                    type: object
-                    description: Optional detailed validation errors
-                    additionalProperties:
-                      type: array
-                      items:
-                        type: string
-            updates:
-              type: array
-              items:
-                type: object
-                required:
-                  - index
-                  - message
-                properties:
-                  index:
-                    type: integer
-                    description: Index of the failed update operation
-                  message:
-                    type: string
-                    description: Error message for this operation
-                  errors:
-                    type: object
-                    description: Optional detailed validation errors
-                    additionalProperties:
-                      type: array
-                      items:
-                        type: string
-            deletes:
-              type: array
-              items:
-                type: object
-                required:
-                  - index
-                  - message
-                properties:
-                  index:
-                    type: integer
-                    description: Index of the failed delete operation
-                  message:
-                    type: string
-                    description: Error message for this operation
-                  errors:
-                    type: object
-                    description: Optional detailed validation errors
-                    additionalProperties:
-                      type: array
-                      items:
-                        type: string
-      examples:
-        - message: Validation failed
-          errors:
-            creates:
-              - index: 0
-                message: Validation failed
-                errors:
-                  base:
-                    - Matching record already exists for this zone
-        - message: Validation failed
-          errors:
-            creates:
-              - index: 0
-                message: Region selection is not allowed for your plan
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
