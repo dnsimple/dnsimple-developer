@@ -1995,7 +1995,101 @@ paths:
                   data:
                     $ref: '#/components/schemas/BatchChangeZoneRecordsResponse'
         '400':
-          $ref: '#/components/responses/400'
+          description: Validation failed for a batch operation
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - message
+                  - errors
+                properties:
+                  message:
+                    type: string
+                  errors:
+                    type: object
+                    properties:
+                      creates:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - index
+                            - message
+                          properties:
+                            index:
+                              type: integer
+                              description: Index of the failed create operation
+                            message:
+                              type: string
+                              description: Error message for this operation
+                            errors:
+                              type: object
+                              description: Optional detailed validation errors
+                              additionalProperties:
+                                type: array
+                                items:
+                                  type: string
+                      updates:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - index
+                            - message
+                          properties:
+                            index:
+                              type: integer
+                              description: Index of the failed update operation
+                            message:
+                              type: string
+                              description: Error message for this operation
+                            errors:
+                              type: object
+                              description: Optional detailed validation errors
+                              additionalProperties:
+                                type: array
+                                items:
+                                  type: string
+                      deletes:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - index
+                            - message
+                          properties:
+                            index:
+                              type: integer
+                              description: Index of the failed delete operation
+                            message:
+                              type: string
+                              description: Error message for this operation
+                            errors:
+                              type: object
+                              description: Optional detailed validation errors
+                              additionalProperties:
+                                type: array
+                                items:
+                                  type: string
+              examples:
+                detailed-validation-error:
+                  value:
+                    message: Validation failed
+                    errors:
+                      creates:
+                        - index: 0
+                          message: Validation failed
+                          errors:
+                            base:
+                              - Matching record already exists for this zone
+                simple-validation-error:
+                  value:
+                    message: Validation failed
+                    errors:
+                      creates:
+                        - index: 0
+                          message: The SPF record type has been discontinued
         '404':
           $ref: '#/components/responses/404'
       summary: Batch create, update, and/or delete records in a zone
