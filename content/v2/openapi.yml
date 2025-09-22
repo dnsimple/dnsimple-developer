@@ -1971,7 +1971,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a zone record
-  '/{account}/zones/{zone}/records/batch':
+  '/{account}/zones/{zone}/batch':
     post:
       description: |-
         Performs multiple record operations (create, update and/or delete) for a zone in a single request for atomicity and efficiency.
