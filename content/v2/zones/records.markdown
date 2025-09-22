@@ -317,6 +317,11 @@ POST /:account/zones/:zone/batch
 
 This endpoint allows you to perform multiple record operations (create, update and/or delete) for a zone in a single request for improved performance and atomicity.
 
+<info>
+The batch change zone records API is a feature that is only available to the Enterprise plan.
+If the feature is not enabled, you will receive an HTTP 412 response code.
+</info>
+
 ### Parameters
 
 Name | Type | Description
