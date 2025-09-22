@@ -1971,6 +1971,34 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a zone record
+  '/{account}/zones/{zone}/records/batch':
+    post:
+      description: |-
+        Performs multiple record operations (create, update and/or delete) for a zone in a single request for atomicity and efficiency.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: batchChangeZoneRecords
+      tags:
+        - zones
+      requestBody:
+        $ref: '#/components/requestBodies/BatchChangeZoneRecords'
+      responses:
+        '200':
+          description: Successfully processed batched zone record changes.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    $ref: '#/components/schemas/BatchChangeZoneRecordsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Batch create, update, and/or delete records in a zone
   '/{account}/zones/{zone}/records/{zonerecord}/distribution':
     get:
       description: Checks if a zone record is fully distributed to all our name servers across the globe.
@@ -6197,6 +6225,66 @@ components:
         - SSHFP
         - TXT
         - URL
+    BatchChangeZoneRecordsResponse:
+      type: object
+      description: Response from batch zone record operations
+      required:
+        - creates
+        - updates
+        - deletes
+      properties:
+        creates:
+          type: array
+          description: Zone records that were created
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        updates:
+          type: array
+          description: Zone records that were updated
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        deletes:
+          type: array
+          description: Zone records that were deleted (returns only ID)
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+                description: ID of the deleted zone record
+      example:
+        creates:
+          - id: 67623409
+            zone_id: example.com
+            parent_id: null
+            name: ab
+            content: 3.2.3.4
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T05:25:00Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        updates:
+          - id: 67622534
+            zone_id: example.com
+            parent_id: null
+            name: update1-1757049890
+            content: 3.2.3.40
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T04:40:15Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        deletes:
+          - id: 67622509
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
@@ -6908,6 +6996,83 @@ components:
               priority: 20
               regions:
                 - global
+    BatchChangeZoneRecords:
+      description: Batch change zone records input attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              creates:
+                type: array
+                description: Zone records to create
+                items:
+                  type: object
+                  required:
+                    - name
+                    - type
+                    - content
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      $ref: '#/components/schemas/ZoneRecordType'
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              updates:
+                type: array
+                description: Zone records to update
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to update
+                    name:
+                      type: string
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              deletes:
+                type: array
+                description: Zone record IDs to delete
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to delete
+            example:
+              creates:
+                - name: ab
+                  type: A
+                  content: 3.2.3.4
+                  ttl: 3600
+              updates:
+                - id: 67622534
+                  content: 3.2.3.40
+              deletes:
+                - id: 67622509
   headers:
     X-RateLimit-Limit:
       description: The maximum number of requests you can perform per hour.
