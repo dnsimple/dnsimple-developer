@@ -2089,7 +2089,7 @@ paths:
                     errors:
                       creates:
                         - index: 0
-                          message: The SPF record type has been discontinued
+                          message: Region selection is not allowed for your plan
         '404':
           $ref: '#/components/responses/404'
       summary: Batch create, update, and/or delete records in a zone
