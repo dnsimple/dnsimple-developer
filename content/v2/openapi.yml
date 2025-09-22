@@ -1995,7 +1995,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/BatchChangeZoneRecordsResponse'
         '400':
-          description: Validation failed for a batch operation
+          description: Invalid batch change zone records request error
           content:
             application/json:
               schema:
