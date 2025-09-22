@@ -1999,79 +1999,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                required:
-                  - message
-                  - errors
-                properties:
-                  message:
-                    type: string
-                  errors:
-                    type: object
-                    properties:
-                      creates:
-                        type: array
-                        items:
-                          type: object
-                          required:
-                            - index
-                            - message
-                          properties:
-                            index:
-                              type: integer
-                              description: Index of the failed create operation
-                            message:
-                              type: string
-                              description: Error message for this operation
-                            errors:
-                              type: object
-                              description: Optional detailed validation errors
-                              additionalProperties:
-                                type: array
-                                items:
-                                  type: string
-                      updates:
-                        type: array
-                        items:
-                          type: object
-                          required:
-                            - index
-                            - message
-                          properties:
-                            index:
-                              type: integer
-                              description: Index of the failed update operation
-                            message:
-                              type: string
-                              description: Error message for this operation
-                            errors:
-                              type: object
-                              description: Optional detailed validation errors
-                              additionalProperties:
-                                type: array
-                                items:
-                                  type: string
-                      deletes:
-                        type: array
-                        items:
-                          type: object
-                          required:
-                            - index
-                            - message
-                          properties:
-                            index:
-                              type: integer
-                              description: Index of the failed delete operation
-                            message:
-                              type: string
-                              description: Error message for this operation
-                            errors:
-                              type: object
-                              description: Optional detailed validation errors
-                              additionalProperties:
-                                type: array
-                                items:
-                                  type: string
+                $ref: '#/components/schemas/BatchChangeZoneRecordsInvalidRequestError'
               examples:
                 detailed-validation-error:
                   value:
@@ -6379,6 +6307,81 @@ components:
             updated_at: '2025-09-05T05:25:00Z'
         deletes:
           - id: 67622509
+    BatchChangeZoneRecordsInvalidRequestError:
+      type: object
+      description: Client request error for batch operations
+      required:
+        - message
+        - errors
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            creates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed create operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            updates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed update operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            deletes:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed delete operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
   responses:
     '400':
       description: A required parameter is missing or the request is invalid.
