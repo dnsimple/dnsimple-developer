@@ -439,7 +439,7 @@ Responds with HTTP 200 on success.
 
 ### Errors
 
-Responds with [HTTP 400](/v2/#bad-request) if validation fails for an operation. The error response includes details about the operation which failed:
+Responds with [HTTP 400](/v2/#bad-request) if validation fails for an operation. The error response includes details about the failed operation:
 
 ~~~json
 <%= pretty_print_fixture("/api/batchChangeZoneRecords/error_400_create_validation_failed.http") %>
