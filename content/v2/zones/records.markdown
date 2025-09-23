@@ -315,7 +315,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 POST /:account/zones/:zone/batch
 ~~~
 
-This endpoint allows you to perform multiple record operations (create, update and/or delete) for a zone in a single request for efficiency and atomicity.
+This endpoint allows you to perform multiple record operations (create, update and/or delete) for a zone in a single request for efficiency and atomicity. A limit is enforced on the total number of operations that can be performed per request.
+
+This endpoint cannot be used on zones that are linked to [integrated DNS providers](https://support.dnsimple.com/articles/integrated-dns-providers/).
 
 <info>
 The batch change zone records API is a feature that is only available to the Enterprise plan.
