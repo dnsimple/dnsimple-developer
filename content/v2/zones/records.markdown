@@ -344,7 +344,7 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Input
 
-All operation types are optional. You can specify any combination of `creates`, `updates`, and `deletes`.
+All operation types are optional. You can specify any combination of `creates`, `updates`, and `deletes`, as long as you respect the maximum batch size.
 
 Name | Type | Description
 -----|------|------------
