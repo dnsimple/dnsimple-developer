@@ -1971,6 +1971,38 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a zone record
+  '/{account}/zones/{zone}/batch':
+    post:
+      description: |-
+        Performs multiple record operations (create, update and/or delete) for a zone in a single request for atomicity and efficiency.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - $ref: '#/components/parameters/Zone'
+      operationId: batchChangeZoneRecords
+      tags:
+        - zones
+      requestBody:
+        $ref: '#/components/requestBodies/BatchChangeZoneRecords'
+      responses:
+        '200':
+          description: Successfully processed batched zone record changes.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    $ref: '#/components/schemas/BatchChangeZoneRecordsResponse'
+        '400':
+          description: Invalid batch change zone records request error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchChangeZoneRecordsInvalidRequestError'
+        '404':
+          $ref: '#/components/responses/404'
+      summary: Batch create, update, and/or delete records in a zone
   '/{account}/zones/{zone}/records/{zonerecord}/distribution':
     get:
       description: Checks if a zone record is fully distributed to all our name servers across the globe.
@@ -3485,6 +3517,155 @@ components:
           type: string
         pretty:
           type: string
+    BatchChangeZoneRecordsResponse:
+      type: object
+      description: Response from batch change of zone records
+      required:
+        - creates
+        - updates
+        - deletes
+      properties:
+        creates:
+          type: array
+          description: Zone records that were created
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        updates:
+          type: array
+          description: Zone records that were updated
+          items:
+            $ref: '#/components/schemas/ZoneRecord'
+        deletes:
+          type: array
+          description: Zone records that were deleted
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+                description: ID of the deleted zone record
+      example:
+        creates:
+          - id: 67623409
+            zone_id: example.com
+            parent_id: null
+            name: ab
+            content: 3.2.3.4
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T05:25:00Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        updates:
+          - id: 67622534
+            zone_id: example.com
+            parent_id: null
+            name: update1-1757049890
+            content: 3.2.3.40
+            ttl: 3600
+            priority: null
+            type: A
+            regions:
+              - global
+            system_record: false
+            created_at: '2025-09-05T04:40:15Z'
+            updated_at: '2025-09-05T05:25:00Z'
+        deletes:
+          - id: 67622509
+    BatchChangeZoneRecordsInvalidRequestError:
+      type: object
+      description: Client request error for batch change of zone records
+      required:
+        - message
+        - errors
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            creates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed create operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            updates:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed update operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+            deletes:
+              type: array
+              items:
+                type: object
+                required:
+                  - index
+                  - message
+                properties:
+                  index:
+                    type: integer
+                    description: Index of the failed delete operation
+                  message:
+                    type: string
+                    description: Error message for this operation
+                  errors:
+                    type: object
+                    description: Optional detailed validation errors
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+      examples:
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Validation failed
+                errors:
+                  base:
+                    - Matching record already exists for this zone
+        - message: Validation failed
+          errors:
+            creates:
+              - index: 0
+                message: Region selection is not allowed for your plan
     BillingSettings:
       type: object
     Certificate:
@@ -6332,6 +6513,83 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   requestBodies:
+    BatchChangeZoneRecords:
+      description: Batch change zone records input attributes
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              creates:
+                type: array
+                description: Zone records to create
+                items:
+                  type: object
+                  required:
+                    - name
+                    - type
+                    - content
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      $ref: '#/components/schemas/ZoneRecordType'
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              updates:
+                type: array
+                description: Zone records to update
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to update
+                    name:
+                      type: string
+                    content:
+                      type: string
+                    ttl:
+                      $ref: '#/components/schemas/TTL'
+                    priority:
+                      type: integer
+                    regions:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ZoneRecordRegion'
+              deletes:
+                type: array
+                description: Zone record IDs to delete
+                items:
+                  type: object
+                  required:
+                    - id
+                  properties:
+                    id:
+                      type: integer
+                      description: ID of the zone record to delete
+            example:
+              creates:
+                - name: ab
+                  type: A
+                  content: 3.2.3.4
+                  ttl: 3600
+              updates:
+                - id: 67622534
+                  content: 3.2.3.40
+              deletes:
+                - id: 67622509
     ContactCreate:
       description: Contact create attributes
       required: true
