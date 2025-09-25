@@ -311,6 +311,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Batch change zone records {#batchChangeZoneRecords}
 
+<%= render "v2-preview-endpoint" %>
+
 ~~~
 POST /:account/zones/:zone/batch
 ~~~
