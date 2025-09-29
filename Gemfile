@@ -6,7 +6,7 @@ gem "builder"
 gem "kramdown"
 gem "mime-types"
 gem "nokogiri", "~> 1.18"
-gem "puma", "~> 6.6"
+gem "puma", "~> 7.0"
 gem "rouge"
 gem "systemu"
 
