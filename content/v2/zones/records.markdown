@@ -311,7 +311,7 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Batch change zone records {#batchChangeZoneRecords}
 
-Please refer to the documentation [here](/v2/zones/batch-change-zone-records).
+Please refer to the documentation [here](/v2/zones/batch-change-zone-records/).
 
 ## Check zone record distribution {#checkZoneRecordDistribution}
 
