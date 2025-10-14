@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^7.0.0",
-    "@redocly/cli": "^2.0.2",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "@redocly/cli": "^2.5.0",
     "@vue/compiler-sfc": "^3.4.21",
-    "concurrently": "^9.2.0",
-    "copy-webpack-plugin": "^13.0.0",
+    "concurrently": "^9.2.1",
+    "copy-webpack-plugin": "^13.0.1",
     "eslint": "^7.18.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.32.0",
@@ -16,7 +16,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "tachyons": "^4.12.0",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.101.0",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   },
   "scripts": {
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^16.1.1",
-    "vue": "^3.5.18"
+    "marked": "^16.4.0",
+    "vue": "^3.5.22"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
