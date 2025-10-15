@@ -28,6 +28,21 @@ jobs:
       - name: Run linter
         run: yarn openapi-lint
 
+  validate_fixtures:
+    name: Validate JSON Fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.tool-versions'
+          cache: yarn
+      - name: Install JS Deps
+        run: yarn install --frozen-lockfile
+      - name: Validate JSON in HTTP fixtures
+        run: node .github/scripts/validate-fixtures-json.js
+
   test:
     name: Test
     runs-on: ubuntu-latest
