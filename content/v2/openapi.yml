@@ -3476,6 +3476,13 @@ components:
         id: 1
         display: Personal
         identifier: example@example.com
+    AccountIdentityProvider:
+      type: object
+      required:
+        - organization_identifier
+      properties:
+        organization_identifier:
+          type: string
     AccountInvitation:
       type: object
       required:
@@ -4425,15 +4432,18 @@ components:
           $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
-    EventAccountAddUser:
+    EventAccountAddSSOUser:
       type: object
-      description: Payload for account.add_user event.
+      description: Payload for account.sso_user_add event.
       required:
         - account
+        - account_identity_provider
         - user
       properties:
         account:
           $ref: '#/components/schemas/Account'
+        account_identity_provider:
+          $ref: '#/components/schemas/AccountIdentityProvider'
         user:
           $ref: '#/components/schemas/User'
     EventAccountBillingSettingsUpdate:
@@ -6017,7 +6027,7 @@ components:
           description: The request_identifier attribute is a UUID that provides a way to identify this request. You may use this UUID to ensure a webhook is processed once and only once by keeping a persistent history of the identifiers sent and never handling a webhook which was already processed.
         data:
           anyOf:
-            - $ref: '#/components/schemas/EventAccountAddUser'
+            - $ref: '#/components/schemas/EventAccountAddSSOUser'
             - $ref: '#/components/schemas/EventAccountBillingSettingsUpdate'
             - $ref: '#/components/schemas/EventAccountInvitationAccept'
             - $ref: '#/components/schemas/EventAccountInvitationCreate'
