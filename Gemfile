@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "rake", "~> 13.3"
-gem "nanoc", "~> 4.13"
+gem "nanoc", "~> 4.14"
 gem "builder"
 gem "kramdown"
 gem "mime-types"
