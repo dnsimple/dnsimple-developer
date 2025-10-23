@@ -12,6 +12,17 @@
 </script>
 <% end %>
 
+<% if @config[:google_analytics_4_id] != "" %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= @config[:google_analytics_4_id] %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%= @config[:google_analytics_4_id] %>');
+</script>
+<% end %>
+
 <% if @config[:ahrefs_id] != "" %>
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="<%= @config[:ahrefs_id] %>" async></script>
 <% end %>
