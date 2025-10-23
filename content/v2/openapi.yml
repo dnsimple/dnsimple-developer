@@ -5933,10 +5933,10 @@ components:
             - account_invitation.create
             - account_invitation.remove
             - account_invitation.resend
-            - account.add_user
             - account.billing_settings_update
             - account.payment_details_update
             - account.remove_user
+            - account.sso_user_add
             - account.update
             - account.user_invitation_accept
             - account.user_invitation_revoke
