@@ -38,6 +38,10 @@ compile '/robots/' do
   filter :erb
 end
 
+compile '/llms/' do
+  filter :erb
+end
+
 compile '/v2/feed/' do
   filter :erb
   layout 'empty'
@@ -74,6 +78,10 @@ route '/sitemap/' do
 end
 
 route '/robots/' do
+  item.identifier.chop + '.txt'
+end
+
+route '/llms/' do
   item.identifier.chop + '.txt'
 end
 
