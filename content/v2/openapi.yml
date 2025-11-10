@@ -6920,8 +6920,13 @@ components:
             properties:
               new_account_email:
                 type: string
+                deprecated: true
+                description: Deprecated - use new_account_token instead
+              new_account_token:
+                type: string
+                description: The token of the target DNSimple account
             example:
-              new_account_email: admin@example.com
+              new_account_token: token_string_value
     PushAccept:
       description: Attributes required to accept a push
       required: true
