@@ -35,13 +35,14 @@ Initiate a push from the source account `1010` for the `example.com` domain:
 
 Name | Type | Description
 -----|------|------------
-`new_account_email` | `string` | **Required** - The email address of the target DNSimple account.
+`domain_push_identifier` | `string` | **Required** - The domain push identifier of the target DNSimple account.
+`new_account_email` | `string` | **Deprecated** - Use `domain_push_identifier` instead. The email address of the target DNSimple account.
 
 ##### Example
 
 ~~~json
 {
-  "new_account_email": "admin@target-account.test"
+  "domain_push_identifier": "acc_xxxxxxxx-xxxx-7xxx-xxxx-xxxxxxxxxxxx"
 }
 ~~~
 

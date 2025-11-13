@@ -6920,8 +6920,13 @@ components:
             properties:
               new_account_email:
                 type: string
+                deprecated: true
+                description: Deprecated - use domain_push_identifier instead
+              domain_push_identifier:
+                type: string
+                description: The domain push identifier of the target DNSimple account
             example:
-              new_account_email: admin@example.com
+              domain_push_identifier: acc_xxxxxxxx-xxxx-7xxx-xxxx-xxxxxxxxxxxx
     PushAccept:
       description: Attributes required to accept a push
       required: true
