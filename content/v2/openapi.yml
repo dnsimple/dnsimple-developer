@@ -6921,12 +6921,12 @@ components:
               new_account_email:
                 type: string
                 deprecated: true
-                description: Deprecated - use new_account_token instead
-              new_account_token:
+                description: Deprecated - use domain_push_identifier instead
+              domain_push_identifier:
                 type: string
-                description: The token of the target DNSimple account
+                description: The domain push identifier of the target DNSimple account
             example:
-              new_account_token: token_string_value
+              domain_push_identifier: acc_xxxxxxxx-xxxx-7xxx-xxxx-xxxxxxxxxxxx
     PushAccept:
       description: Attributes required to accept a push
       required: true

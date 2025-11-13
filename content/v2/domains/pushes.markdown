@@ -35,14 +35,14 @@ Initiate a push from the source account `1010` for the `example.com` domain:
 
 Name | Type | Description
 -----|------|------------
-`new_account_token` | `string` | **Required** - The token of the target DNSimple account.
-`new_account_email` | `string` | **Deprecated** - Use `new_account_token` instead. The email address of the target DNSimple account.
+`domain_push_identifier` | `string` | **Required** - The domain push identifier of the target DNSimple account.
+`new_account_email` | `string` | **Deprecated** - Use `domain_push_identifier` instead. The email address of the target DNSimple account.
 
 ##### Example
 
 ~~~json
 {
-  "new_account_token": "token_string_value"
+  "domain_push_identifier": "acc_xxxxxxxx-xxxx-7xxx-xxxx-xxxxxxxxxxxx"
 }
 ~~~
 
