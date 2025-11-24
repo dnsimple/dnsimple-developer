@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Install Node
         uses: actions/setup-node@v6
         with:
@@ -32,7 +32,7 @@ jobs:
     name: Validate JSON Fixtures
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Install Node
         uses: actions/setup-node@v6
         with:
@@ -49,7 +49,7 @@ jobs:
     env:
       BUNDLE_JOBS: 3
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
