@@ -99,9 +99,9 @@ Responds with HTTP 202 if the registrant change has started and is pending compl
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the registrant change cannot be started.
+Responds with [HTTP 400](/v2#bad-request/) if the registrant change cannot be started.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized/) in case of authentication issues.
 
 ## Check registrant change requirements {#checkRegistrantChange}
 
@@ -138,9 +138,9 @@ Responds with HTTP 200 on success
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the check cannot be performed.
+Responds with [HTTP 400](/v2#bad-request/) if the check cannot be performed.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized/) in case of authentication issues.
 
 ## Retrieve a registrant change {#getRegistrantChange}
 
@@ -173,9 +173,9 @@ Responds with HTTP 200 on success
 
 ### Errors
 
-Responds with [HTTP 404](/v2#not-found) if the registrant change doesn't exist.
+Responds with [HTTP 404](/v2#not-found/) if the registrant change doesn't exist.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized/) in case of authentication issues.
 
 ## Cancel a registrant change {#deleteRegistrantChange}
 
@@ -215,9 +215,9 @@ The code block above shows the response for HTTP 202. HTTP 204 responses have no
 
 ### Errors
 
-Responds with [HTTP 400](/v2#bad-request) if the registrant change cannot be cancelled.
+Responds with [HTTP 400](/v2#bad-request/) if the registrant change cannot be cancelled.
 
-Responds with [HTTP 401](/v2#unauthorized) in case of authentication issues.
+Responds with [HTTP 401](/v2#unauthorized/) in case of authentication issues.
 
-Responds with [HTTP 404](/v2#not-found) if the registrant change doesn't exist.
+Responds with [HTTP 404](/v2#not-found/) if the registrant change doesn't exist.
 
