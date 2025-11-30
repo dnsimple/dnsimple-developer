@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple registrant changes API v2.
 Change the registrant contact for a registered domain.
 
 <info>
-Registrant changes allow you to update the registrant contact information for a domain. The process may require additional steps depending on the TLD and registry requirements, such as extended attributes.
+The process may require additional steps depending on the TLD and registry requirements, such as extended attributes.
 </info>
 
 
