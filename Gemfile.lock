@@ -51,7 +51,8 @@ GEM
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0507)
-    minitest (5.27.0)
+    minitest (6.0.0)
+      prism (~> 1.5)
     minitest-reporters (1.7.1)
       ansi
       builder
@@ -107,6 +108,7 @@ GEM
     parallel (1.27.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
+    prism (1.7.0)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
