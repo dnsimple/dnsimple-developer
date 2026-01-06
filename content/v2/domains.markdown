@@ -22,6 +22,10 @@ Lists the domains in the account.
 GET /:account/domains
 ~~~
 
+<note>
+When using a [scoped access token](/articles/api-access-token/#scoped-access-tokens) with granular domain permissions, this endpoint returns only the domains the token has access to.
+</note>
+
 ### Parameters
 
 Name | Type | Description
