@@ -1,8 +1,0 @@
-code {
-  .m, .mf, .mh, .mi, .mo { color: var(--blue) }; // Numbers
-  .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx ,.s1, .s2, .sr, .ss { color: var(--green); } // Strings
-  .cm, .c, .cp, .c1 { color: var(--gray); } // Comments
-  .k, .o, .kc, .kd, .kp, .kr { font-weight: bold } // keywords
-  .err, .gr { color: var(--orange) } // Errors
-  .nc { color: var(--blue); } // class names
-}

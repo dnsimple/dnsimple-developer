@@ -1,15 +1,5 @@
 @use "sass:math";
-
-$base-unit: 1.5em;
-$font-family: -apple-system, BlinkMacSystemFont,
-               'avenir next', avenir,
-               'helvetica neue', helvetica,
-               ubuntu,
-               roboto, noto,
-               'segoe ui', arial,
-               sans-serif;
-
-$font-monospace: Menlo,Consolas,Monaco,"Courier New",monospace;
+@use "variables" as *;
 
 body {
   font-family: $font-family;
