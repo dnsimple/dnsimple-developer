@@ -17,8 +17,8 @@ postprocess do
   create_search_index
 end
 
-compile '/assets/css/*/' do
-  if item.identifier =~ %r{/_[^/]+/$}
+compile '/assets/css/**/*' do
+  if item.identifier.to_s =~ %r{/_\w+\.scss$}
     # don't compile partials
   else
     filter :dart_sass, :syntax => :scss, :style => :compressed
@@ -26,77 +26,72 @@ compile '/assets/css/*/' do
   end
 end
 
-compile '/assets/*/' do
-  # don't filter or layout
-end
+# compile '/assets/*/' do
+#   # don't filter or layout
+# end
 
-compile '/sitemap/' do
+compile '/sitemap.*' do
   filter :erb
 end
 
-compile '/robots/' do
+compile '/robots.*' do
   filter :erb
 end
 
-compile '/llms/' do
+compile '/llms.*' do
   filter :erb
 end
 
-compile '/v2/feed/' do
+compile '/**/*.html' do
   filter :erb
-  layout 'empty'
+  layout '/default.*'
 end
 
-compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
-    filter :erb
-    filter :preprocess
-    filter :kramdown, toc_levels: [2], enable_coderay: false, input: "GFM", gfm_callout_types: ["TIP"]
-    filter :colorize_syntax, default_colorizer: :rouge
-    filter :postprocess
-    layout 'default'
-  end
+compile '/**/*.md' do
+  filter :erb
+  filter :preprocess
+  filter :kramdown, toc_levels: [2], enable_coderay: false, input: "GFM", gfm_callout_types: ["TIP"]
+  filter :colorize_syntax, default_colorizer: :rouge
+  filter :postprocess
+  layout '/default.*'
+end
+
+compile '/**/*' do
+  write item.identifier.to_s
 end
 
 
-route '/assets/css/*/' do
-  if item.identifier =~ %r{/_[^/]+/$}
+route '/assets/css/**/*' do
+  if item.identifier.to_s =~ %r{/_\w+\.scss$}
     # don't route partials
   else
-    item.identifier.chop + '.css'
+    item.identifier.without_ext + '.css'
   end
 end
 
-route '/assets/*/' do
-  item.identifier.to_s.chop + '.' + item[:extension]
+route '/assets/**/*' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
-route '/sitemap/' do
-  item.identifier.chop + '.xml'
+route '/sitemap.*' do
+  item.identifier.without_ext
 end
 
-route '/robots/' do
-  item.identifier.chop + '.txt'
+route '/robots.*' do
+  item.identifier.without_ext
 end
 
-route '/llms/' do
-  item.identifier.chop + '.txt'
+route '/llms.*' do
+  item.identifier.without_ext
 end
 
-route '/v2/feed/' do
-  item.identifier.chop + '.xml'
-end
-
-route '*' do
-  if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.to_s.chop + '.' + item[:extension]
+route '/**/*.{html,md}' do
+  if item.identifier =~ '/index.*'
+    '/index.html'
   else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    item.identifier.without_ext + '/index.html'
   end
 end
 
-layout '*', :erb
+
+layout '/**/*', :erb
