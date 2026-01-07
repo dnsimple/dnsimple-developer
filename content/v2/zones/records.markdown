@@ -16,10 +16,9 @@ Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI doc
 
 ## Record Regions {#ZoneRecordRegions}
 
-<info>
-The zone record **regions** is a feature that is only available to the Teams and Enterprise plans.
-If the feature is not enabled, you will receive an HTTP 412 response code.
-</info>
+> [!INFO]
+> The zone record **regions** is a feature that is only available to the Teams and Enterprise plans.
+> If the feature is not enabled, you will receive an HTTP 412 response code.
 
 Zone Record Regions lets you select geographical regions where you want a record to appear.
 
@@ -321,9 +320,8 @@ Checks if a zone change is fully distributed to all our nameservers across the g
 GET /:account/zones/:zone/records/:record/distribution
 ~~~
 
-<note>
-This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
-</note>
+> [!NOTE]
+> This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
 
 ### Parameters
 

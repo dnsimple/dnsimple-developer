@@ -98,9 +98,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Delegate to vanity name servers {#changeDomainDelegationToVanity}
 
-<note>
-This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
-</note>
+> [!NOTE]
+> This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 
     PUT /:account/registrar/domains/:domain/delegation/vanity
 
@@ -146,9 +145,8 @@ Responds with [HTTP 412](/v2/#precondition-failed) if the account doesn't have a
 
 ## Dedelegate from vanity name servers {#changeDomainDelegationFromVanity}
 
-<note>
-This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
-</note>
+> [!NOTE]
+> This method required the **vanity name servers** feature, that is [only available for certain plans](https://dnsimple.com/pricing). If the feature is not enabled, you will receive an HTTP 412 response code.
 
     DELETE /:account/registrar/domains/:domain/delegation/vanity
 

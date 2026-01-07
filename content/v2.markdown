@@ -27,9 +27,8 @@ In order to maintain compatibility in the future, all requests must specify an A
 
 We maintain a separate environment for testing called [Sandbox accounts](/sandbox/). Sandbox API calls must use the `api.sandbox.dnsimple.com` domain.
 
-<warning>
-Please use Sandbox for testing your API integration, **before using production**. Also note we will not refund you charges on your production account as a result of wrong API calls.
-</warning>
+> [!WARNING]
+> Please use Sandbox for testing your API integration, **before using production**. Also note we will not refund you charges on your production account as a result of wrong API calls.
 
 
 ## Current Version
@@ -349,9 +348,8 @@ For example:
 
     https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
-<info>
-Some endpoints can define specific defaults and maximum values for the `per_page` argument.
-</info>
+> [!INFO]
+> Some endpoints can define specific defaults and maximum values for the `per_page` argument.
 
 ## Filtering
 
@@ -435,9 +433,8 @@ Content-Length: 28
 {"message":"quota exceeded"}
 ~~~
 
-<warning>
-Individual API endpoints may have additional mechanisms in place to prevent abuse.
-</warning>
+> [!WARNING]
+> Individual API endpoints may have additional mechanisms in place to prevent abuse.
 
 ## More Examples
 

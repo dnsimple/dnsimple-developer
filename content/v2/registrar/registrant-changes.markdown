@@ -10,9 +10,8 @@ excerpt: This page documents the DNSimple registrant changes API v2.
 
 Change the registrant contact for a registered domain.
 
-<info>
-The process may require additional steps depending on the TLD and registry requirements, such as extended attributes.
-</info>
+> [!INFO]
+> The process may require additional steps depending on the TLD and registry requirements, such as extended attributes.
 
 
 ## List registrant changes {#listRegistrantChanges}
@@ -209,9 +208,8 @@ Responds with HTTP 202 if the registrant change is being cancelled (state is `ca
 <%= pretty_print_fixture("/api/deleteRegistrantChange/success_async.http") %>
 ~~~
 
-<note>
-The code block above shows the response for HTTP 202. HTTP 204 responses have no body.
-</note>
+> [!NOTE]
+> The code block above shows the response for HTTP 202. HTTP 204 responses have no body.
 
 ### Errors
 

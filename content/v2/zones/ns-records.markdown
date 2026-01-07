@@ -18,9 +18,8 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
 Update the NS records for a zone in a hosted domain in the account.
 
-<info>
-If vanity name servers are enabled for the domain, please ensure that they are included in the name server name parameters or referenced name server sets, for the vanity name server configuration to stay effective.
-</info>
+> [!INFO]
+> If vanity name servers are enabled for the domain, please ensure that they are included in the name server name parameters or referenced name server sets, for the vanity name server configuration to stay effective.
 
 ### Parameters
 
@@ -31,9 +30,8 @@ Name | Type | Description
 
 ### Example
 
-<info>
-This example assumes that name server set #1 includes `ns1.foo.bar` and `ns2.foo.bar`.
-</info>
+> [!INFO]
+> This example assumes that name server set #1 includes `ns1.foo.bar` and `ns2.foo.bar`.
 
 Update the NS records for the zone `example.com` in the account `1010`:
 

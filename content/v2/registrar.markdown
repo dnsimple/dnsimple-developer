@@ -11,9 +11,8 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 ## Check domain {#checkDomain}
 
-<warning>
-This API endpoint has stricter limits in place to avoid a high volume of requests. This endpoint should be used only to check a domain's state before issuing a domain registration or a domain transfer. For other use cases, we recommend using other services like [Domainr](https://domainr.com/).
-</warning>
+> [!WARNING]
+> This API endpoint has stricter limits in place to avoid a high volume of requests. This endpoint should be used only to check a domain's state before issuing a domain registration or a domain transfer. For other use cases, we recommend using other services like [Domainr](https://domainr.com/).
 
 Checks a domain name for availability.
 
@@ -47,9 +46,8 @@ Responds with HTTP 200 on success, returns the domain availability information.
 <%= pretty_print_fixture("/api/checkDomain/success.http") %>
 ~~~
 
-<note>
-If the domain is premium (`premium: true`), please [check the premium price](#getDomainPrices) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
-</note>
+> [!NOTE]
+> If the domain is premium (`premium: true`), please [check the premium price](#getDomainPrices) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
 
 ### Errors
 
@@ -59,9 +57,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Check domain premium price {#getDomainPremiumPrice}
 
-<note>
-Deprecated in favor of [getDomainPrices](#getDomainPrices).
-</note>
+> [!NOTE]
+> Deprecated in favor of [getDomainPrices](#getDomainPrices).
 
 Get the premium price for a domain.
 
@@ -172,11 +169,10 @@ Register a domain name with DNSimple.
 Your account must be active for this command to complete successfully.
 You will be automatically charged the registration fee upon successful registration, so please be careful with this command.
 
-<note>
-When registering a domain using Solo or Teams subscription, the DNS services
-for the zone will be automatically enabled. This will be charged on your
-following subscription renewal invoices.
-</note>
+> [!NOTE]
+> When registering a domain using Solo or Teams subscription, the DNS services
+> for the zone will be automatically enabled. This will be charged on your
+> following subscription renewal invoices.
 
 ### Parameters
 
@@ -207,13 +203,11 @@ Name | Type | Description
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
-<info>
-The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts/) and will be the registered contact for this domain.
-</info>
+> [!INFO]
+> The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts/) and will be the registered contact for this domain.
 
-<info>
-The `premium_price` can be fetched via the [prices endpoint](#getDomainPrices).
-</info>
+> [!INFO]
+> The `premium_price` can be fetched via the [prices endpoint](#getDomainPrices).
 
 ##### Example
 
@@ -289,11 +283,10 @@ Your account must be active for this command to complete successfully.
 You will be automatically charged the 1-year transfer fee upon successful transfer, so please be careful with this command.
 The transfer may take anywhere from a few minutes up to 7 days.
 
-<note>
-When transfering a domain using Solo or Teams subscription, the DNS services
-for the zone will be automatically enabled. This will be charged on your
-following subscription renewal invoices.
-</note>
+> [!NOTE]
+> When transfering a domain using Solo or Teams subscription, the DNS services
+> for the zone will be automatically enabled. This will be charged on your
+> following subscription renewal invoices.
 
 ### Parameters
 

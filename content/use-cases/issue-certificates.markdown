@@ -7,7 +7,7 @@ excerpt: In this tutorial, we'll cover how to issue a certificate with LetsEncry
 
 In this tutorial, we'll cover how to issue a certificate with LetsEncrypt for a domain you manage. We'll discuss how to request a certificate, and using webhooks to track when the certificate has been issued and is ready for installation.
 
-### How it works - overview 
+### How it works - overview
 
 1. A customer registers a domain with your service, or brings their domain and points it to your [vanity name servers](https://blog.dnsimple.com/2020/08/vanity-name-servers/).
 2. Your application requests to issue a certificate for your customer's domain, so you can provide a secure connection to your service.
@@ -33,14 +33,13 @@ For this tutorial, you'll be working with the following tools:
 * [Sinatra framework](http://sinatrarb.com/) - We'll use Sinatra to structure the application.
 * [Certificate resource](/v2/certificates/) - We'll use the DNSimple API to make the certificate requests.
 
-## Configure your DNSimple Application 
+## Configure your DNSimple Application
 
 1. Download the code from [our GitHub repository](https://github.com/dnsimple/dnsimple-api-examples/tree/main/ruby/use_cases/issue_certificates).
 2. Follow the instructions in the README on GitHub.
 
-<note>
-Certificate issue requests are only supported in Production.
-</note>
+> [!NOTE]
+> Certificate issue requests are only supported in Production.
 
 On startup, the application should have registered a webhook endpoint. Use the UI, or make the following call in a pry session `echo 'App::DnsimpleAdapter.all_webhooks.map(&:url)' | bundle exec pry`, to check that this is the case before proceeding.
 
@@ -109,6 +108,5 @@ The event contains useful information, like the certificate ID, which can be use
       end
 ~~~
 
-<note>
-Webhooks come with no order guarantee, and are guaranteed to be delivered at least once. This means a given webhook can be sent multiple times. You can use the `request_identifier`, which is present in every event, to keep track of which events have already been processed. We also recommend only using the underlying resource ID provided in the webhook event data to retrieve the resource; this adds protection from forged events.
-</note>
+> [!NOTE]
+> Webhooks come with no order guarantee, and are guaranteed to be delivered at least once. This means a given webhook can be sent multiple times. You can use the `request_identifier`, which is present in every event, to keep track of which events have already been processed. We also recommend only using the underlying resource ID provided in the webhook event data to retrieve the resource; this adds protection from forged events.
