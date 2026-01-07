@@ -11,7 +11,7 @@ excerpt: This page documents the DNS Analytics API v2 endpoint.
 
 ## Query DNS analytics data {#queryDnsAnalytics}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
 Queries and returns DNS Analytics data available for the provided query parameters:
 

@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple DNSSEC API v2.
 
 # DNSSEC API
 
-<%= render "v2-public-beta-feature" %>
+<%= render "/v2-public-beta-feature.*" %>
 
 ### Table of Contents {#toc}
 

@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple batch change zone records API v2.
 
 ## Batch change zone records {#batchChangeZoneRecords}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
 ~~~
 POST /:account/zones/:zone/batch

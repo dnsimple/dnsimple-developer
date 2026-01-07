@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple Platform Connections API.
 
 # Connections API
 
-<%= render "v2-private-beta-platform" %>
+<%= render "/v2-private-beta-platform.*" %>
 
 * TOC
 {:toc}
