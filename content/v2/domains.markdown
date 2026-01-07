@@ -81,9 +81,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Adds a domain to the account.
 
-<note>
-When creating a domain using a Solo or Teams subscription, the DNS services for the zone will be automatically enabled. This will be charged on your subsequent subscription renewal invoices.
-</note>
+> [!NOTE]
+> When creating a domain using a Solo or Teams subscription, the DNS services for the zone will be automatically enabled. This will be charged on your subsequent subscription renewal invoices.
 
 ~~~
 POST /:account/domains

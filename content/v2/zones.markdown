@@ -141,9 +141,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
-<note>
-This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
-</note>
+> [!NOTE]
+> This feature can't be tested in our <a href="/sandbox">Sandbox</a> environment.
 
 ### Parameters
 
@@ -192,9 +191,8 @@ Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform
 
 Activates DNS services for the zone.
 
-<note>
-Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
-</note>
+> [!NOTE]
+> Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
 
 ### Parameters
 
@@ -232,9 +230,8 @@ Responds with [HTTP 404](/v2/#not-found) if the resource does not exist.
 
 Deactivates DNS services for the zone.
 
-<note>
-Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
-</note>
+> [!NOTE]
+> Under Solo and Teams plans, active zones are charged when renewing your subscription to DNSimple.
 
 ### Parameters
 

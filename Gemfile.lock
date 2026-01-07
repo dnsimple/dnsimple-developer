@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/weppos/kramdown-parser-extended.git
+  revision: 966ae5b971ade291c5ca81f5950bf3ba2c96c3b6
+  specs:
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -158,6 +165,7 @@ DEPENDENCIES
   adsf
   builder
   kramdown
+  kramdown-parser-gfm!
   mime-types
   minitest
   minitest-reporters

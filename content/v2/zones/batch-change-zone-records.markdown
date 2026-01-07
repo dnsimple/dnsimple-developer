@@ -19,14 +19,12 @@ POST /:account/zones/:zone/batch
 
 This endpoint allows you to perform multiple record operations (create, update, and/or delete) for a zone in a single request for efficiency and atomicity. Any combination of create, update, and/or delete operations can be specified, though the total number of operations per request is subject to a maximum limit. Operations are processed in the following order: deletes, followed by updates, then creates.
 
-<note>
-Zones linked to [Integrated DNS Providers](https://support.dnsimple.com/articles/integrated-dns-providers/) do not support batch changes.
-</note>
+> [!NOTE]
+> Zones linked to [Integrated DNS Providers](https://support.dnsimple.com/articles/integrated-dns-providers/) do not support batch changes.
 
-<info>
-The batch change zone records API feature is only available on the Enterprise plan.
-If the feature is not enabled, you will receive an HTTP 412 response code.
-</info>
+> [!INFO]
+> The batch change zone records API feature is only available on the Enterprise plan.
+> If the feature is not enabled, you will receive an HTTP 412 response code.
 
 ### Parameters
 

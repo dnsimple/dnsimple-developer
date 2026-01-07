@@ -282,11 +282,10 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
     POST /:account/secondary_dns/zones
 
-<note>
-When creating a secondary zone using Solo or Teams subscription, the DNS services
-for the zone will be automatically enabled. This will be charged on your
-following subscription renewal invoices.
-</note>
+> [!NOTE]
+> When creating a secondary zone using Solo or Teams subscription, the DNS services
+> for the zone will be automatically enabled. This will be charged on your
+> following subscription renewal invoices.
 
 ### Parameters
 

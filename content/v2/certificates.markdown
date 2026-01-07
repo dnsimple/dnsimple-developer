@@ -179,9 +179,8 @@ Purchase a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate with DN
 
 The certificate itself is **free**, but some features of the certificate may require higher tier plans.
 
-<note>
-The domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
-</note>
+> [!NOTE]
+> The domain must be [delegated](https://support.dnsimple.com/articles/pointing-domain-to-dnsimple/) to DNSimple.
 
 ### Certificate name
 
@@ -204,10 +203,9 @@ Alternate names require a subscription to a Teams or Enterprise plan.
 
 To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
 
-<info>
-Let's Encrypt wildcard certificates is a feature that is only available to the Teams or Enterprise plans.
-If the feature is not enabled, you will receive an HTTP 412 response code.
-</info>
+> [!INFO]
+> Let's Encrypt wildcard certificates is a feature that is only available to the Teams or Enterprise plans.
+> If the feature is not enabled, you will receive an HTTP 412 response code.
 
 ### Auto renewal
 
@@ -298,10 +296,9 @@ Responds with HTTP 202 on success.
 <%= pretty_print_fixture("/api/issueLetsencryptCertificate/success.http") %>
 ~~~
 
-<tip>
-The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
-You can **subscribe to a [webhook](/v2/webhooks/)** to receive a notification when the certificate is issued.
-</tip>
+> [!TIP]
+> The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
+> You can **subscribe to a [webhook](/v2/webhooks/)** to receive a notification when the certificate is issued.
 
 ### Errors
 
@@ -320,9 +317,8 @@ Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot issue t
 
 Renew a [Let's Encrypt](https://dnsimple.com/letsencrypt) certificate [purchased](#purchaseLetsencryptCertificate) with DNSimple.
 
-<note>
-You must renew a certificate **only** if it does **NOT** use the **auto renewal** feature.
-</note>
+> [!NOTE]
+> You must renew a certificate **only** if it does **NOT** use the **auto renewal** feature.
 
 You can always enable or disable _auto renewal_ when renewing a certificate.
 
@@ -391,9 +387,8 @@ Name | Type | Description
 `:certificate` | `integer` | The certificate id
 `:certificate_renewal` | `integer` | The certificate renewal id
 
-<info>
-The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRenewalLetsencryptCertificate).
-</info>
+> [!INFO]
+> The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRenewalLetsencryptCertificate).
 
 ### Example
 
@@ -412,10 +407,9 @@ Responds with HTTP 202 on success.
 <%= pretty_print_fixture("/api/issueRenewalLetsencryptCertificate/success.http") %>
 ~~~
 
-<tip>
-The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
-You can subscribe to a [webhook](/v2/webhooks/) to be notified once the certificate is issued.
-</tip>
+> [!TIP]
+> The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.
+> You can subscribe to a [webhook](/v2/webhooks/) to be notified once the certificate is issued.
 
 ### Errors
 

@@ -53,7 +53,7 @@ compile '*' do
   else
     filter :erb
     filter :preprocess
-    filter :kramdown, toc_levels: [2], enable_coderay: false
+    filter :kramdown, toc_levels: [2], enable_coderay: false, input: "GFM", gfm_callout_types: ["TIP"]
     filter :colorize_syntax, default_colorizer: :rouge
     filter :postprocess
     layout 'default'
