@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
-    "@redocly/cli": "^2.14.0",
+    "@redocly/cli": "^2.14.3",
     "@vue/compiler-sfc": "^3.4.21",
     "concurrently": "^9.2.1",
     "copy-webpack-plugin": "^13.0.1",
