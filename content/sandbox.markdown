@@ -20,7 +20,7 @@ Sandbox data and systems are generally treated like production, however we may n
 
 The DNSimple Sandbox is independent from the DNSimple production site, you have to create another account and register some domains to test your integrations.
 
-> [!INFO]
+> [!NOTE]
 > Every action within the Sandbox will be free of charge.
 
 - Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._

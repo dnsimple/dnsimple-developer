@@ -35,7 +35,7 @@ Name | Description
 No groupings will be applied by default unless specified.
 Multiple groupings can be provided, separated by a comma.
 
-> [!INFO]
+> [!NOTE]
 > Applying groupings to the query will add columns to the response payload.
 
 ### Filters
@@ -45,7 +45,7 @@ Name | Default value                   | Description
 `:start_date` | 31 days before the current date | Only include results starting from the provided date
 `:end_date` | The day before the current date | Only include results up to the provided date
 
-> [!INFO]
+> [!NOTE]
 > Both dates are **inclusive**, and must be provided in **ISO 8601 format** (e.g. `2024-08-01`).
 
 > [!WARNING]

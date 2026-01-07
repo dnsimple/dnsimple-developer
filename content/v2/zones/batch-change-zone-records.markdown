@@ -22,7 +22,7 @@ This endpoint allows you to perform multiple record operations (create, update, 
 > [!NOTE]
 > Zones linked to [Integrated DNS Providers](https://support.dnsimple.com/articles/integrated-dns-providers/) do not support batch changes.
 
-> [!INFO]
+> [!NOTE]
 > The batch change zone records API feature is only available on the Enterprise plan.
 > If the feature is not enabled, you will receive an HTTP 412 response code.
 

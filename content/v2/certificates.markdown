@@ -203,7 +203,7 @@ Alternate names require a subscription to a Teams or Enterprise plan.
 
 To request a wildcard certificate that's valid for an unlimited number of names that belong to a single subdomain level, use `*` (e.g. `*.example.com`).
 
-> [!INFO]
+> [!NOTE]
 > Let's Encrypt wildcard certificates is a feature that is only available to the Teams or Enterprise plans.
 > If the feature is not enabled, you will receive an HTTP 412 response code.
 
@@ -387,7 +387,7 @@ Name | Type | Description
 `:certificate` | `integer` | The certificate id
 `:certificate_renewal` | `integer` | The certificate renewal id
 
-> [!INFO]
+> [!NOTE]
 > The `:certificate_renewal` ID is the one returned by the [renewal](#purchaseRenewalLetsencryptCertificate).
 
 ### Example

@@ -9,7 +9,7 @@ excerpt: This page documents the DNSimple vanity name servers API v2.
 {:toc}
 
 
-> [!INFO]
+> [!NOTE]
 > The vanity name servers is a feature that is only available to the Enterprise plan.
 > If the feature is not enabled, you will receive an HTTP 412 response code.
 

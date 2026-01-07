@@ -16,7 +16,7 @@ Please refer to the definition of the `ZoneRecord` data type in [our OpenAPI doc
 
 ## Record Regions {#ZoneRecordRegions}
 
-> [!INFO]
+> [!NOTE]
 > The zone record **regions** is a feature that is only available to the Teams and Enterprise plans.
 > If the feature is not enabled, you will receive an HTTP 412 response code.
 

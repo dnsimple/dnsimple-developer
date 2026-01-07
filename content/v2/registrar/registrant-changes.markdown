@@ -10,7 +10,7 @@ excerpt: This page documents the DNSimple registrant changes API v2.
 
 Change the registrant contact for a registered domain.
 
-> [!INFO]
+> [!NOTE]
 > The process may require additional steps depending on the TLD and registry requirements, such as extended attributes.
 
 

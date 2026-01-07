@@ -10,7 +10,7 @@ excerpt: This page documents the DNSimple WHOIS privacy API v2.
 
 Enable and disable WHOIS privacy on registered domains.
 
-> [!INFO]
+> [!NOTE]
 > Now you can enable WHOIS Privacy protection for any of your domains any time. As long as the domain is registered with us, and the TLD (Top Level Domain) supports WHOIS Privacy, the WHOIS Privacy service will stay enabled unless you disable it.
 
 

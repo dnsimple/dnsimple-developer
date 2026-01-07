@@ -348,7 +348,7 @@ For example:
 
     https://api.dnsimple.com/v2/1010/domains?per_page=100&page=2
 
-> [!INFO]
+> [!NOTE]
 > Some endpoints can define specific defaults and maximum values for the `per_page` argument.
 
 ## Filtering

@@ -203,10 +203,10 @@ Name | Type | Description
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 
-> [!INFO]
+> [!NOTE]
 > The `registrant_id` can be fetched via the [contacts endpoint](/v2/contacts/) and will be the registered contact for this domain.
 
-> [!INFO]
+> [!NOTE]
 > The `premium_price` can be fetched via the [prices endpoint](#getDomainPrices).
 
 ##### Example
