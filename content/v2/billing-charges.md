@@ -16,7 +16,7 @@ Please refer to the definition of the `Charge` data type in [our OpenAPI documen
 
 ## List charges {#listCharges}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
 Lists the billing charges for the account.
 

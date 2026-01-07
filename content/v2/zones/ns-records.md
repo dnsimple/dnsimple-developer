@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
 # Zone NS Records API
 
-<%= render "v2-public-beta-feature" %>
+<%= render "/v2-public-beta-feature.*" %>
 
 * TOC
 {:toc}
