@@ -10,7 +10,7 @@ excerpt: This page documents the DNSimple domain transfer lock API v2.
 
 ## Enable domain transfer lock {#enableDomainTransferLock}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
 Enables the transfer lock for the domain.
 
@@ -54,7 +54,7 @@ Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
 
 ## Disable domain transfer lock {#disableDomainTransferLock}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
 Disables the transfer lock for the domain.
 

@@ -1,7 +1,12 @@
+# The syntax to use for patterns in the Rules file. Can be either `"glob"`
+# (default) or `"legacy"`. The former will enable glob patterns, which behave
+# like Ruby’s File.fnmatch. The latter will enable Nanoc 3.x-style patterns.
+string_pattern_type: glob
+
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
-text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
+text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'txt', 'xhtml', 'xml' ]
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
@@ -27,20 +32,19 @@ prune:
   # Which files and directories you want to exclude from pruning. If you version
   # your output directory, you should probably exclude VCS directories such as
   # .git, .svn etc.
-  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+  exclude: [ '.git', '.hg', '.svn', 'CVS', '_test' ]
 
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
 # there is only a single data source that reads data from the "content/" and
 # "layout/" directories in the site directory.
-string_pattern_type: legacy
 data_sources:
   -
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.
     type: filesystem_unified
-    identifier_type: legacy
     encoding: utf-8
+    identifier_type: full
 
     # The path where items should be mounted (comparable to mount points in
     # Unix-like systems). This is "/" by default, meaning that items will have
@@ -69,7 +73,7 @@ watcher:
   # because recompiling the site will cause these directories to change, which
   # will cause the site to be recompiled, which will cause these directories
   # to change, which will cause the site to be recompiled again, and so on.
-  dirs_to_watch: [ 'content', 'layouts', 'lib' ]
+  dirs_to_watch: [ 'content', 'layouts', 'lib', 'files', 'dist' ]
 
   # A list of single files to watch for changes. As mentioned above, don't put
   # any files from the "output/" or "tmp/" directories in here.

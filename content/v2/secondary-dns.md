@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple secondary DNS API v2.
 
 # Secondary DNS API
 
-<%= render "v2-public-beta-feature" %>
+<%= render "/v2-public-beta-feature.*" %>
 
 ### Table of Contents {#toc}
 

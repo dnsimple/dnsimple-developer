@@ -171,7 +171,7 @@ Responds with [HTTP 428](/v2/#precondition-required) if the private key cannot b
 
 ## Let's Encrypt: Order a certificate {#purchaseLetsencryptCertificate}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt
 
@@ -265,7 +265,7 @@ Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot order t
 
 ## Let's Encrypt: Issue a certificate {#issueLetsencryptCertificate}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/issue
 
@@ -311,7 +311,7 @@ Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot issue t
 
 ## Let's Encrypt: Order a certificate renewal {#purchaseRenewalLetsencryptCertificate}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals
 
@@ -372,7 +372,7 @@ Responds with [HTTP 412](/v2/#precondition-failed) if the account cannot renew t
 
 ## Let's Encrypt: Issue a certificate renewal {#issueRenewalLetsencryptCertificate}
 
-<%= render "v2-preview-endpoint" %>
+<%= render "/v2-preview-endpoint.*" %>
 
     POST /:account/domains/:domain/certificates/letsencrypt/:certificate/renewals/:certificate_renewal/issue
 

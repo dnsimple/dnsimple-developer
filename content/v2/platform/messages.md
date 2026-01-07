@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple Platform Messages API.
 
 # Messages API
 
-<%= render "v2-private-beta-platform" %>
+<%= render "/v2-private-beta-platform.*" %>
 
 * TOC
 {:toc}
