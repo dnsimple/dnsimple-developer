@@ -4,5 +4,9 @@
 /node_modules
 /dist
 
-/.env
-/crash.log
+# Local configs
+.claude
+.env
+
+# Local files
+crash.log
