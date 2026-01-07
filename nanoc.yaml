@@ -10,8 +10,8 @@ output_dir: output
 
 # A list of index filenames, i.e. names of files that will be served by a web
 # server when a directory is requested. Usually, index files are named
-# “index.html”, but depending on the web server, this may be something else,
-# such as “default.htm”. This list is used by nanoc to generate pretty URLs.
+# "index.html", but depending on the web server, this may be something else,
+# such as "default.htm". This list is used by nanoc to generate pretty URLs.
 index_filenames: [ 'index.html' ]
 
 # Whether or not to generate a diff of the compiled content when compiling a
@@ -31,8 +31,8 @@ prune:
 
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
-# there is only a single data source that reads data from the “content/” and
-# “layout/” directories in the site directory.
+# there is only a single data source that reads data from the "content/" and
+# "layout/" directories in the site directory.
 string_pattern_type: legacy
 data_sources:
   -
@@ -43,10 +43,10 @@ data_sources:
     encoding: utf-8
 
     # The path where items should be mounted (comparable to mount points in
-    # Unix-like systems). This is “/” by default, meaning that items will have
-    # “/” prefixed to their identifiers. If the items root were “/en/”
+    # Unix-like systems). This is "/" by default, meaning that items will have
+    # "/" prefixed to their identifiers. If the items root were "/en/"
     # instead, an item at content/about.html would have an identifier of
-    # “/en/about/” instead of just “/about/”.
+    # "/en/about/" instead of just "/about/".
     items_root: /
 
     # The path where layouts should be mounted. The layouts root behaves the
@@ -56,23 +56,23 @@ data_sources:
     # Whether to allow periods in identifiers. When turned off, everything
     # past the first period is considered to be the extension, and when
     # turned on, only the characters past the last period are considered to
-    # be the extension. For example,  a file named “content/about.html.erb”
-    # will have the identifier “/about/” when turned off, but when turned on
-    # it will become “/about.html/” instead.
+    # be the extension. For example,  a file named "content/about.html.erb"
+    # will have the identifier "/about/" when turned off, but when turned on
+    # it will become "/about.html/" instead.
     allow_periods_in_identifiers: false
 
-# Configuration for the “watch” command, which watches a site for changes and
+# Configuration for the "watch" command, which watches a site for changes and
 # recompiles if necessary.
 watcher:
   # A list of directories to watch for changes. When editing this, make sure
-  # that the “output/” and “tmp/” directories are _not_ included in this list,
+  # that the "output/" and "tmp/" directories are _not_ included in this list,
   # because recompiling the site will cause these directories to change, which
   # will cause the site to be recompiled, which will cause these directories
   # to change, which will cause the site to be recompiled again, and so on.
   dirs_to_watch: [ 'content', 'layouts', 'lib' ]
 
-  # A list of single files to watch for changes. As mentioned above, don’t put
-  # any files from the “output/” or “tmp/” directories in here.
+  # A list of single files to watch for changes. As mentioned above, don't put
+  # any files from the "output/" or "tmp/" directories in here.
   files_to_watch: [ 'nanoc.yaml', 'Rules' ]
 
   # When to send notifications (using Growl or notify-send).
