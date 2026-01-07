@@ -11,7 +11,7 @@ The script below can be customized and run on a schedule from a tool, like cron.
 
 ## Dynamic DNS Shell Script
 
-~~~bash
+```bash
 #!/bin/bash
 
 TOKEN="your-oauth-token"  # The API v2 OAuth token
@@ -26,6 +26,6 @@ curl -H "Authorization: Bearer $TOKEN" \
      -X "PATCH" \
      -i "https://api.dnsimple.com/v2/$ACCOUNT_ID/zones/$ZONE_ID/records/$RECORD_ID" \
      -d "{\"content\":\"$IP\"}"
-~~~
+```
 
 Download the shell script: [ddns.sh](/ddns/ddns.sh)

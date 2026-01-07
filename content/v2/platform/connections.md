@@ -12,7 +12,7 @@ excerpt: This page documents the DNSimple Platform Connections API.
 
 ## Connection attributes
 
-~~~json
+```json
 {
   "id": 172,
   "account_id": 1,
@@ -22,15 +22,15 @@ excerpt: This page documents the DNSimple Platform Connections API.
   "updated_at": "Wed, 29 Jun 2010 12:45:03.217725000 UTC +00:00",
   "title": "Connection to MyApp"
 }
-~~~
+```
 
 ## Create Connection
 
 Create a connection in the account.
 
-~~~
+```
 POST /:account/platform/connections
-~~~
+```
 
 ### Parameters
 
@@ -49,12 +49,12 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "resource": "domain:123",
   "title": "Connection to MyApp"
 }
-~~~
+```
 
 ### Response
 
@@ -68,9 +68,9 @@ Responds with HTTP 404 if the resource doesn't exist.
 
 Destroy a connection in the account.
 
-~~~
+```
 DELETE /:account/platform/connections/:connection
-~~~
+```
 
 ### Parameters
 

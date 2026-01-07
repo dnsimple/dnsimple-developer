@@ -50,9 +50,9 @@ List records for the template `alpha` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listTemplateRecords/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -92,7 +92,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "",
   "type": "MX",
@@ -100,15 +100,15 @@ Name | Type | Description
   "ttl": 600,
   "priority": 10
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createTemplateRecord/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -141,9 +141,9 @@ Get the record `301` for the template `alpha` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getTemplateRecord/success.http") %>
-~~~
+```
 
 ### Errors
 

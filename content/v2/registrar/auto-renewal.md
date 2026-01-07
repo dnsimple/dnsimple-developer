@@ -13,9 +13,9 @@ excerpt: This page documents the DNSimple domain registration auto-renewal API v
 
 Enables auto renewal for the domain.
 
-~~~
+```
 PUT /:account/registrar/domains/:domain/auto_renewal
-~~~
+```
 
 ### Parameters
 
@@ -48,9 +48,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 Disables auto renewal for the domain.
 
-~~~
+```
 DELETE /:account/registrar/domains/:domain/auto_renewal
-~~~
+```
 
 ### Parameters
 

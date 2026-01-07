@@ -14,9 +14,9 @@ excerpt: This page documents the DNSimple domain transfer lock API v2.
 
 Enables the transfer lock for the domain.
 
-~~~
+```
 POST /:account/registrar/domains/:domain/transfer_lock
-~~~
+```
 
 ### Parameters
 
@@ -39,9 +39,9 @@ Enable the transfer lock for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/enableDomainTransferLock/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -58,9 +58,9 @@ Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
 
 Disables the transfer lock for the domain.
 
-~~~
+```
 DELETE /:account/registrar/domains/:domain/transfer_lock
-~~~
+```
 
 ### Parameters
 
@@ -82,9 +82,9 @@ Disable the transfer lock for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/disableDomainTransferLock/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -97,9 +97,9 @@ Responds with [HTTP 404](/v2/#not-found) if the domain does not exist.
 
 ## Retrieve domain transfer lock status {#getDomainTransferLock}
 
-~~~
+```
 GET /:account/registrar/domains/:domain/transfer_lock
-~~~
+```
 
 Get the status of the domain transfer lock, indicating whether it is currently enabled or disabled.
 
@@ -122,9 +122,9 @@ Get the domain transfer lock status for the domain `example.com` in the account 
 
 Responds with HTTP 200.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainTransferLock/success.http") %>
-~~~
+```
 
 ### Errors
 

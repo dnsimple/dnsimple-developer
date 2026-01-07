@@ -40,19 +40,19 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "new_account_identifier": "xxxxxxxx-xxxx-7xxx-xxxx-xxxxxxxxxxxx"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success, renders the push.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/initiatePush/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -84,9 +84,9 @@ List all the pending pushes for the target account `2020`:
 
 Responds with HTTP 200.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listPushes/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -122,11 +122,11 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "contact_id": "2"
 }
-~~~
+```
 
 ### Response
 

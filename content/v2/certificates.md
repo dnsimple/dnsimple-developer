@@ -51,9 +51,9 @@ List all certificates for the domain `dnsimple.us` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listCertificates/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -86,9 +86,9 @@ Get the certificate with the ID `101967` in the domain `bingo.pizza`, in the acc
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getCertificate/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -121,9 +121,9 @@ Download the certificate with the ID `1` in the domain `example.com`, in the acc
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/downloadCertificate/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -158,9 +158,9 @@ Download the certificate with the ID `1` in the domain `example.com`, in the acc
 
 Responds with HTTP 200, renders the certificate private key.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getCertificatePrivateKey/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -251,9 +251,9 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/purchaseLetsencryptCertificate/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -292,9 +292,9 @@ Issue a Let's Encrypt certificate with ID `101967`, for `bingo.pizza` in the acc
 
 Responds with HTTP 202 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/issueLetsencryptCertificate/success.http") %>
-~~~
+```
 
 > [!TIP]
 > The certificate will be in state `requesting`, and it can't be [downloaded](#download) until issued by Let's Encrypt.
@@ -357,9 +357,9 @@ Name | Type | Description
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/purchaseRenewalLetsencryptCertificate/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -403,9 +403,9 @@ Issue a Let's Encrypt certificate renewal with ID `65082`, for the certificate `
 
 Responds with HTTP 202 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/issueRenewalLetsencryptCertificate/success.http") %>
-~~~
+```
 
 > [!TIP]
 > The certificate will be in state `requesting`, and it can't be [downloaded](#downloadCertificate) until issued by Let's Encrypt.

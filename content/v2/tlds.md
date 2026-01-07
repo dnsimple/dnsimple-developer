@@ -26,9 +26,9 @@ Value | Description
 
 Returns the list of TLDs supported for registration or transfer.
 
-~~~
+```
 GET /tlds
-~~~
+```
 
 ### Sorting
 
@@ -44,17 +44,17 @@ The default sorting policy is by ascending `tld`.
 
 List all TLDs.
 
-~~~shell
+```shell
 curl -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/tlds
-~~~
+```
 
 ### Response
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listTlds/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -65,9 +65,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 Retrieves the details of a supported TLD.
 
-~~~
+```
 GET /tlds/:tld
-~~~
+```
 
 ### Parameters
 
@@ -79,17 +79,17 @@ Name | Type | Description
 
 Get the TLD with name `"com"`.
 
-~~~shell
+```shell
 curl -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/tlds/com
-~~~
+```
 
 ### Response
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getTld/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -97,9 +97,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Lists the TLD Extended Attributes {#getTldExtendedAttributes}
 
-~~~
+```
 GET /tlds/:tld/extended_attributes
-~~~
+```
 
 Some TLDs require extended attributes when registering or transferring a domain.
 This API interface provides information on the extended attributes for any particular TLD.
@@ -116,17 +116,17 @@ Name | Type | Description
 
 Get extended attributes for TLD with name `"com"`.
 
-~~~shell
+```shell
 curl -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/tlds/com/extended_attributes
-~~~
+```
 
 ### Response
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getTldExtendedAttributes/success.http") %>
-~~~
+```
 
 ### Errors
 

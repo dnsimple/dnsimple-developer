@@ -18,9 +18,9 @@ Please refer to the definition of the `Domain` data type in [our OpenAPI documen
 
 Lists the domains in the account.
 
-~~~
+```
 GET /:account/domains
-~~~
+```
 
 ### Parameters
 
@@ -51,27 +51,27 @@ The default sorting policy is by ascending `name`.
 
 List all domains in the account `1385`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1385/domains
-~~~
+```
 
 List all domains in the account `1385` that have name matching `"example"`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1385/domains?name_like=example
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listDomains/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -84,9 +84,9 @@ Adds a domain to the account.
 > [!NOTE]
 > When creating a domain using a Solo or Teams subscription, the DNS services for the zone will be automatically enabled. This will be charged on your subsequent subscription renewal invoices.
 
-~~~
+```
 POST /:account/domains
-~~~
+```
 
 ### Parameters
 
@@ -98,14 +98,14 @@ Name | Type | Description
 
 Create a domain in the account `1385`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '<json>' \
       https://api.dnsimple.com/v2/1385/domains
-~~~
+```
 
 ### Input
 
@@ -115,19 +115,19 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "example-beta.com"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success, renders the domain.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createDomain/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -143,9 +143,9 @@ Responds with **HTTP 406** if domain ownership must be verified prior to adding 
 
 Retrieves the details of an existing domain.
 
-~~~
+```
 GET /:account/domains/:domain
-~~~
+```
 
 ### Parameters
 
@@ -172,9 +172,9 @@ Get the domain `example-alpha.com` in the account `1385`:
 
 Responds with HTTP 200, renders the domain.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomain/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -185,9 +185,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Permanently deletes a domain from the account. It cannot be undone.
 
-~~~
+```
 DELETE /:account/domains/:domain
-~~~
+```
 
 For domains registered with DNSimple, this *will not delete the domain from the registry* or perform a refund.
 

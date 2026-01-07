@@ -14,7 +14,7 @@ Messages contain information that add-ons want displayed to users of a DNSimple 
 
 ## Message attributes
 
-~~~json
+```json
 {
   "id": 158,
   "owner_type": "OauthApplication",
@@ -28,15 +28,15 @@ Messages contain information that add-ons want displayed to users of a DNSimple 
   "created_at": "Wed, 29 Jun 2010 12:45:05.015709000 UTC +00:00",
   "updated_at": "Wed, 29 Jun 2010 12:45:05.015709000 UTC +00:00"
 }
-~~~
+```
 
 ## List Messages
 
 List messages in the account.
 
-~~~
+```
 GET /:account/platform/messages
-~~~
+```
 
 ### Parameters
 
@@ -48,9 +48,9 @@ Name | Type | Description
 
 Show a message in the account.
 
-~~~
+```
 GET /:account/platform/messages/:message
-~~~
+```
 
 ### Parameters
 
@@ -63,9 +63,9 @@ Name | Type | Description
 
 Create a message in the account.
 
-~~~
+```
 POST /:account/platform/messages
-~~~
+```
 
 ### Parameters
 
@@ -87,7 +87,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "resource": "domain:123",
   "url": "https://yourapp.com/some/path",
@@ -95,7 +95,7 @@ Name | Type | Description
   "message": "Your domain is now configured for MyApp",
   "expires\_at": "2022-01-18 18:40:52 UTC"
 }
-~~~
+```
 
 ### Response
 
@@ -109,9 +109,9 @@ Responds with HTTP 404 if the resource doesn't exist.
 
 Update a message in the account.
 
-~~~
+```
 POST /:account/platform/messages
-~~~
+```
 
 ### Parameters
 
@@ -134,7 +134,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "resource": "domain:123",
   "url": "https://yourapp.com/some/path",
@@ -142,7 +142,7 @@ Name | Type | Description
   "message": "Your domain is now updated",
   "expires\_at": "2022-01-19 18:40:52 UTC"
 }
-~~~
+```
 
 ### Response
 
@@ -156,9 +156,9 @@ Responds with HTTP 404 if the resource doesn't exist.
 
 Destroy a message in the account. **This cannot be undone.**
 
-~~~
+```
 DELETE /:account/platform/messages/:message
-~~~
+```
 
 ### Parameters
 

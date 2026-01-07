@@ -46,9 +46,9 @@ List all services.
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listServices/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -76,9 +76,9 @@ Get the service with ID `1`.
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getService/success.http") %>
-~~~
+```
 
 ### Errors
 

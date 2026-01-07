@@ -13,9 +13,9 @@ excerpt: This page documents the DNSimple batch change zone records API v2.
 
 <%= render "/v2-preview-endpoint.*" %>
 
-~~~
+```
 POST /:account/zones/:zone/batch
-~~~
+```
 
 This endpoint allows you to perform multiple record operations (create, update, and/or delete) for a zone in a single request for efficiency and atomicity. Any combination of create, update, and/or delete operations can be specified, though the total number of operations per request is subject to a maximum limit. Operations are processed in the following order: deletes, followed by updates, then creates.
 
@@ -37,14 +37,14 @@ Name | Type | Description
 
 Perform a batched change on records for the zone `example.com` in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '<json>' \
       https://api.dnsimple.com/v2/1010/zones/example.com/batch
-~~~
+```
 
 ### Input
 
@@ -92,7 +92,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "creates": [
     {
@@ -127,31 +127,31 @@ Name | Type | Description
     }
   ]
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/batchChangeZoneRecords/success.http") %>
-~~~
+```
 
 ### Errors
 
 Responds with [HTTP 400](/v2/#bad-request) if validation fails for an operation. The error response includes details about the failed operation:
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/batchChangeZoneRecords/error_400_create_validation_failed.http") %>
-~~~
+```
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/batchChangeZoneRecords/error_400_update_validation_failed.http") %>
-~~~
+```
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/batchChangeZoneRecords/error_400_delete_validation_failed.http") %>
-~~~
+```
 
 Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 

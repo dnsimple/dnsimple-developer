@@ -15,9 +15,9 @@ excerpt: This page documents the DNS Analytics API v2 endpoint.
 
 Queries and returns DNS Analytics data available for the provided query parameters:
 
-~~~
+```
 GET /:account/dns_analytics
-~~~
+```
 
 ### Parameters
 
@@ -73,27 +73,27 @@ Pagination is supported in this endpoint:
 
 ### Example: get total query volume data for the entire account
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1385/dns_analytics
-~~~
+```
 
 ### Example: get the top ten zones by volume in December, 2023
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1385/dns_analytics?groupings=zone_name&sort=volume:desc&per_page=10&start_date=2023-12-01&end_date=2023-12-31
-~~~
+```
 
 ### Example: get daily query volume for all zones in the account for the last 31 days, with custom sorting
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1385/dns_analytics?groupings=date,zone_name&sort=date:desc,zone_name:asc
-~~~
+```
 
 ### Response
 
@@ -101,9 +101,9 @@ Responds with HTTP 200.
 
 ##### Example
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/dnsAnalytics/success.http") %>
-~~~
+```
 
 ### Errors
 

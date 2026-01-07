@@ -52,9 +52,9 @@ List all primary servers in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listPrimaryServers/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -92,21 +92,21 @@ Create a primary server in the account `1010`:
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "Primary Production",
   "ip": "1.2.3.4",
   "port": 4567
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success, renders the primary server.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createPrimaryServer/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -138,9 +138,9 @@ Get the primary server with the ID `1` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getPrimaryServer/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -207,19 +207,19 @@ Link the primary server `1` to a secondary zone `example.com` in the account `10
 
 ##### Example
 
-~~~json
+```json
 {
   "zone": "example.com"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success. The linked zone will be present in the `linked_secondary_zones` attribute.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/linkPrimaryServer/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -258,19 +258,19 @@ Unlink the primary server `1` from a secondary zone `example.com` in the account
 
 ##### Example
 
-~~~json
+```json
 {
   "zone": "example.com"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/unlinkPrimaryServer/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -312,19 +312,19 @@ Create a secondary zone in the account `1010`:
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "secondaryexample.com"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success. The attribute `secondary` will be true.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createSecondaryZone/created.http") %>
-~~~
+```
 
 ### Errors
 

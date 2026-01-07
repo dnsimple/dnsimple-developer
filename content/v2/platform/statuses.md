@@ -14,7 +14,7 @@ Statuses are used to indicate the latest known status of some resource in relati
 
 ## Status attributes
 
-~~~json
+```json
 {
   "id": 164,
   "owner_type": "OauthApplication",
@@ -29,15 +29,15 @@ Statuses are used to indicate the latest known status of some resource in relati
   "updated_at": "Wed, 29 Jun 2010 12:45:04.967902000 UTC +00:00",
   "resource": "platform_connection:172"
 }
-~~~
+```
 
 ## List Statuses
 
 List statuses in the account.
 
-~~~
+```
 GET /:account/platform/statuses
-~~~
+```
 
 ### Parameters
 
@@ -49,9 +49,9 @@ Name | Type | Description
 
 Show a status in the account.
 
-~~~
+```
 GET /:account/platform/statuses/:status
-~~~
+```
 
 ### Parameters
 
@@ -64,9 +64,9 @@ Name | Type | Description
 
 Create a status in the account.
 
-~~~
+```
 POST /:account/platform/statuses
-~~~
+```
 
 ### Parameters
 
@@ -89,7 +89,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "resource": "domain:123",
   "state": "ok",
@@ -98,7 +98,7 @@ Name | Type | Description
   "title": "System OK",
   "message": "All systems are reporting OK."
 }
-~~~
+```
 
 ### Response
 
@@ -112,9 +112,9 @@ Responds with HTTP 404 if the resource doesn't exist.
 
 List statuses for a specific resource in chronological order.
 
-~~~
+```
 GET /:account/platform/statuses/:resource/history
-~~~
+```
 
 ### Parameters
 

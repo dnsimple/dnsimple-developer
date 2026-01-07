@@ -16,9 +16,9 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 
 Checks a domain name for availability.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/check
-~~~
+```
 
 ### Parameters
 
@@ -31,20 +31,20 @@ Name | Type | Description
 
 Check the domain `example.com` in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/check
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success, returns the domain availability information.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/checkDomain/success.http") %>
-~~~
+```
 
 > [!NOTE]
 > If the domain is premium (`premium: true`), please [check the premium price](#getDomainPrices) before to try to [register](#register), [renew](#renew), [transfer](#transfer).
@@ -62,9 +62,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Get the premium price for a domain.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/premium_price
-~~~
+```
 
 **Please note** that a premium price can be different for [registration](#register), [renewal](#renew), [transfer](#transfer).
 By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the `action` param.
@@ -86,35 +86,35 @@ Name | Type | Description
 
 Check the premium price for `example.com` domain:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
-~~~
+```
 
 Check the premium price for `example.com` domain renewal:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success, returns the domain premium price.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/success.http") %>
-~~~
+```
 
 Responds with HTTP 400, if the domain isn't premium.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
-~~~
+```
 
 ## Retrieve domain prices {#getDomainPrices}
 
@@ -122,9 +122,9 @@ Get a domain's price for registration, renewal, and transfer.
 
 <%= render "/v2-preview-endpoint.*" %>
 
-~~~
+```
 GET /:account/registrar/domains/:domain/prices
-~~~
+```
 
 ### Parameters
 
@@ -137,20 +137,20 @@ GET /:account/registrar/domains/:domain/prices
 
 Check the registration, renewal, and transfer price for `example.com` domain:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X GET \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/prices
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success, returns the domain pricing for registration, renewal, and transfer if the domain is premium.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainPrices/success.http") %>
-~~~
+```
 
 Responds with HTTP 400, if the domain TLD is not supported.
 
@@ -211,11 +211,11 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "registrant_id": 1
 }
-~~~
+```
 
 ### Response
 
@@ -223,9 +223,9 @@ Responds with HTTP 201 when registration was processed and completed.
 
 Responds with HTTP 202 when registration was processed but is pending completion.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/registerDomain/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -239,9 +239,9 @@ Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding p
 
 Retrieves the details of an existing domain registration.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/registrations/:domain_registration
-~~~
+```
 
 ### Parameters
 
@@ -255,19 +255,19 @@ Name | Type | Description
 
 Get the domain registration with ID `361` in the account `1010` for the domain `example.com`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/registrations/361
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainRegistration/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -319,16 +319,16 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "registrant_id": 1,
   "auth_code": "xjfjfjvhc293"
 }
-~~~
+```
 
 ##### Example with extended attributes
 
-~~~json
+```json
 {
   "registrant_id": 1,
   "auth_code": "xjfjfjvhc293",
@@ -337,7 +337,7 @@ Name | Type | Description
     "us_purpose": "P3"
   }
 }
-~~~
+```
 
 ### Response
 
@@ -345,9 +345,9 @@ Responds with HTTP 201 when transfer was processed and completed.
 
 Responds with HTTP 202 when transfer was processed but is pending completion.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/transferDomain/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -362,9 +362,9 @@ Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding p
 
 Retrieves the details of an existing domain transfer.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/transfers/:domain_transfer
-~~~
+```
 
 ### Parameters
 
@@ -378,19 +378,19 @@ Name | Type | Description
 
 Get the domain transfer with ID `361` in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/361
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainTransfer/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -400,9 +400,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 Cancels an in progress domain transfer.
 
-~~~
+```
 DELETE /:account/registrar/domains/:domain/transfers/:domain_transfer
-~~~
+```
 
 ### Parameters
 
@@ -416,20 +416,20 @@ Name | Type | Description
 
 Cancel the in progress domain transfer with ID `361` in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -X DELETE \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/transfers/361
-~~~
+```
 
 ### Response
 
 Responds with HTTP 202 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/cancelDomainTransfer/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -472,11 +472,11 @@ Name | Type | Description
 
 ##### Example with optional period
 
-~~~json
+```json
 {
   "period": 2
 }
-~~~
+```
 
 ### Response
 
@@ -484,9 +484,9 @@ Responds with HTTP 201 when renewal was processed and completed.
 
 Responds with HTTP 202 when renewal was processed but is pending completion.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/renewDomain/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -500,9 +500,9 @@ Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding p
 
 Retrieves the details of an existing domain renewal.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/renewals/:domain_renewal
-~~~
+```
 
 ### Parameters
 
@@ -516,19 +516,19 @@ Name | Type | Description
 
 Get the domain renewal with ID `1` in the account `1010` for the domain `example.com`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/renewals/1
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainRenewal/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -568,11 +568,11 @@ Name | Type | Description
 
 ##### Example with optional premium_price
 
-~~~json
+```json
 {
   "premium_price": '109.00'
 }
-~~~
+```
 
 ### Response
 
@@ -580,9 +580,9 @@ Responds with HTTP 201 when restore was processed and completed.
 
 Responds with HTTP 202 when restore was processed but is pending completion.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/restoreDomain/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -596,9 +596,9 @@ Responds with [HTTP 402](/v2/#payment-required) if the account has outstanding p
 
 Retrieves the details of an existing domain restore.
 
-~~~
+```
 GET /:account/registrar/domains/:domain/restores/:domain_restore
-~~~
+```
 
 ### Parameters
 
@@ -612,19 +612,19 @@ Name | Type | Description
 
 Get the domain restore with ID `1` in the account `1010` for the domain `example.com`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/registrar/domains/example.com/restores/1
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainRestore/success.http") %>
-~~~
+```
 
 ### Errors
 

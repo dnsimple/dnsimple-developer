@@ -50,9 +50,9 @@ List all templates in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listTemplates/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -90,21 +90,21 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "Alpha",
   "sid": "alpha",
   "description": "This is an Alpha template."
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createTemplate/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -142,9 +142,9 @@ Get the template with short name `example` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getTemplate/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -189,9 +189,9 @@ See [create](#create).
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/updateTemplate/success.http") %>
-~~~
+```
 
 ### Errors
 

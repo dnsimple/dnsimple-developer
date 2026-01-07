@@ -47,9 +47,9 @@ List all webhooks in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listWebhooks/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -85,19 +85,19 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "url": "https://test.host/handler"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createWebhook/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -130,9 +130,9 @@ Get the webhook with ID `1` in the account `1010`:
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getWebhook/success.http") %>
-~~~
+```
 
 ### Errors
 

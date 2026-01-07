@@ -34,7 +34,7 @@ For this tutorial, you'll need the following dependencies:
 
 You'll need to interact with the API extensively, so it's a good idea to create an adapter to encapsulate the interaction between your system and our API.
 
-~~~ruby
+```ruby
 require 'dnsimple'
 
 class DnsimpleAdapter
@@ -69,16 +69,16 @@ class DnsimpleAdapter
     end
   end
 end
-~~~
+```
 
 Now you can initialize the adapter with your *API Access Token* and *Account number*.
 
-~~~ruby
+```ruby
 DnsimpleAdapter.configure do |config|
   config.api_access_token = "<your access token>"
   config.account_id = "<your account number>"
 end
-~~~
+```
 
 
 ## Checking the domain's availability
@@ -87,20 +87,20 @@ When a user wants to register a domain, the first step is to check if the domain
 
 To do this, add a method to your adapter that wraps around the API's `check_domain` call.
 
-~~~ruby
+```ruby
     def check_domain(domain)
       client.registrar.check_domain(config[:account_id], domain).data
     end
-~~~
+```
 
 Now we can check if the domain is avialable by making a request and examining the [response](/v2/registrar/#checkDomain):
 
-~~~ruby
+```ruby
 domain_name = "makeideashappen.com"
 domain = DnsimpleAdapter.check_domain(domain_name)
 
 raise 'Domain is not available' unless domain.available
-~~~
+```
 
 If the requested domain is not available, we raise an error as a way to stop the execution of our code. However, it's a good idea to inform your customers that the domain is taken, and they should explore other options.
 
@@ -110,26 +110,26 @@ Some ccTLDs, like **.FR**, **.ASIA**, **.EU**, etc. require additional informati
 
 To do this, we can add a method to our adapter that makes a call and gets the extended attributes for a TLD.
 
-~~~ruby
+```ruby
     def tld_extended_attributes(tld)
       client.tlds.tld_extended_attributes(tld).data
     end
-~~~
+```
 
 This endpoint requires only the TLD be provided, so you need to extract it from your customer's input. There are some helpful libraries you can use instead of rolling out your own custom implementation.
 
-~~~ruby
+```ruby
 require 'public_suffix'
 
 domain_name = PublicSuffix.parse("makeideashappen.eu")
 domain_name.tld # => 'eu'
 
 extended_attributes = DnsimpleAdapter.tld_extended_attributes(domain_name.tld)
-~~~
+```
 
 If `extended_attributes` is an empty array, there are no extended attributes to present to the user. However, if there are attributes, they will have the following structure:
 
-~~~ruby
+```ruby
 {
   'name' => 'attribute-name',
   'title' => 'Title explaining what the field requires',
@@ -143,14 +143,14 @@ If `extended_attributes` is an empty array, there are no extended attributes to 
     }
   ]
 }
-~~~
+```
 
 * `required` indicates if the field MUST be filled in or if it can be left blank.
 * `options` if it's a blank array `[]`, it means the user must provide the value.
 
 For example **.EU** will return:
 
-~~~ruby
+```ruby
 { 'name' => 'x-eu-registrant-citizenship',
   'title' => 'Private Registrant European Citizenship',
   'description' =>
@@ -184,7 +184,7 @@ For example **.EU** will return:
     { 'title' => 'Slovenian', 'value' => 'si', 'description' => nil },
     { 'title' => 'Spanish', 'value' => 'es', 'description' => nil },
     { 'title' => 'Swedish', 'value' => 'se', 'description' => nil }] }
-~~~
+```
 
 Now that you know how to handle extended attributes, it's a good time to present them to your customer. Make sure to validate the presence of any required attributes. This is important because domain registration isn't possible without them.
 
@@ -192,15 +192,15 @@ Now that you know how to handle extended attributes, it's a good time to present
 
 For a domain to be registered, it needs to have an associated contact in our system. You'll probably want to provide your customer's contact details instead of your own, so the contact will need to be created in our system.
 
-~~~ruby
+```ruby
     def create_contact(contact_details)
       client.contacts.create_contact(config[:account_id], contact_details).data
     end
-~~~
+```
 
 To create the contact, you can call the `create_contact` method with your customer's details.
 
-~~~ruby
+```ruby
 customer_contact_details = {
   "email": 'john.smith@example.com',
   "first_name": 'John',
@@ -214,7 +214,7 @@ customer_contact_details = {
 }
 
 contact = DnsimpleAdapter.create_contact(customer_contact_details)
-~~~
+```
 
 You can see all available contact fields [here](/v2/contacts/#createContact).
 
@@ -224,18 +224,18 @@ Now that you have a contact available for your customer, store the `contact.id` 
 
 Before we proceed to registering the domain, make sure you have a webhook registered and listening to events to synchronize your local state to the domain's state. It can take some time for the domain to be fully registered, and webhooks help you notify your customer when the registration is complete.
 
-~~~ruby
+```ruby
     def register_webhook(url)
       client.webhooks.create_webhook(config[:account_id], { url: url }).data
     end
-~~~
+```
 
 You will likely only ever need to register a single webhook for your system. For this tutorial, we can use a third-party service [RequestBin](https://requestbin.com/) to provide us with a visualisation of the events we would expect to receive from our system. You can also use secure local proxy tunneling, like [Ngrok](https://ngrok.com/download), while developing and testing your webhook integration.
 
-~~~ruby
+```ruby
 url = '<url of HTTP event source>'
 DnsimpleAdapter.register_webhook(url)
-~~~
+```
 
 ## Registering the domain
 
@@ -248,7 +248,7 @@ Now that we've prepared all the required components, we can register the domain.
 
 We can create a method in our adapter to allow us to register domains via the API client.
 
-~~~ruby
+```ruby
     def register_domain(domain, registrant_id, whois_privacy: false, auto_renew: true, extended_attributes: {})
       client.registrar.register_domain(
         config[:account_id],
@@ -261,14 +261,14 @@ We can create a method in our adapter to allow us to register domains via the AP
         }
       ).data
     end
-~~~
+```
 
 We can register a user's chosen domain using all the previously-obtained information.
 
-~~~ruby
+```ruby
 domain_name = 'makeideashappen.com'
 domain_registration = DnsimpleAdapter.register_domain(domain_name, contanct.id)
-~~~
+```
 
 We didn't include any extended attributes, because there are none for **.COM**.
 The [domain registration](/v2/registrar/#registerDomain) will hold the domain's ID in our system (which you may want to store for later use, and possibly associate it with your users).
@@ -278,7 +278,7 @@ The webhook you registered will receive updates on the domain's registration sta
 
 Here's the complete adapter after all the additions we made throughout the tutorial:
 
-~~~ruby
+```ruby
 require 'dnsimple'
 require 'public_suffix'
 
@@ -343,4 +343,4 @@ class DnsimpleAdapter
     end
   end
 end
-~~~
+```

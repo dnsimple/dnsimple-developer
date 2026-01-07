@@ -20,9 +20,9 @@ Please refer to the definition of the `Charge` data type in [our OpenAPI documen
 
 Lists the billing charges for the account.
 
-~~~
+```
 GET /:account/billing/charges
-~~~
+```
 
 ### Parameters
 
@@ -53,35 +53,35 @@ The default sorting policy is by ascending `invoiced`.
 
 List all billing charges in the account `1385`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1385/billing/charges
-~~~
+```
 
 List all billing charges in the account `1385` that have been invoiced since `2023-01-01`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1385/billing/charges?start_date=2023-01-01
-~~~
+```
 
 List all billing charges in the account `1385` that have been invoiced between `2023-01-01` and `2023-02-01`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
         -H 'Accept: application/json' \
         https://api.dnsimple.com/v2/1385/billing/charges?start_date=2023-01-01&end_date=2023-02-01
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listCharges/success.http") %>
-~~~
+```
 
 ### Errors
 

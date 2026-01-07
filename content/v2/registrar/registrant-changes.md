@@ -56,9 +56,9 @@ List registrant changes for the account `1010`:
 
 Responds with HTTP 200 on success
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listRegistrantChanges/success.http") %>
-~~~
+```
 
 ## Start registrant change {#createRegistrantChange}
 
@@ -92,9 +92,9 @@ Responds with HTTP 201 if the registrant change is completed immediately.
 
 Responds with HTTP 202 if the registrant change has started and is pending completion.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createRegistrantChange/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -131,9 +131,9 @@ Check registrant change requirements for the domain `example.com` in the account
 
 Responds with HTTP 200 on success
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/checkRegistrantChange/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -166,9 +166,9 @@ Get registrant change `101` in the account `1010`:
 
 Responds with HTTP 200 on success
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getRegistrantChange/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -204,9 +204,9 @@ Responds with HTTP 204 if the registrant change is cancelled immediately.
 
 Responds with HTTP 202 if the registrant change is being cancelled (state is `cancelling`).
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/deleteRegistrantChange/success_async.http") %>
-~~~
+```
 
 > [!NOTE]
 > The code block above shows the response for HTTP 202. HTTP 204 responses have no body.

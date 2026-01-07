@@ -13,17 +13,17 @@ excerpt: This page documents the DNSimple identity API v2 endpoint.
 
 Retrieves the details about the current authenticated entity used to access the API.
 
-~~~
+```
 GET /whoami
-~~~
+```
 
 ### Example
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/whoami
-~~~
+```
 
 ### Response
 
@@ -31,15 +31,15 @@ Responds with HTTP 200. Either user or account may be nil, depending on how you 
 
 ##### Example when authenticated with an Account access token
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/whoami/success-account.http") %>
-~~~
+```
 
 ##### Example when authenticated with an User access token
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/whoami/success-user.http") %>
-~~~
+```
 
 ### Errors
 

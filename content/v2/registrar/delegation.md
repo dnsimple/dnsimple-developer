@@ -36,9 +36,9 @@ List name servers for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 200.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getDomainDelegation/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -74,20 +74,20 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 [
   "ns1.example.com",
   "ns2.example.com"
 ]
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/changeDomainDelegation/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -131,9 +131,9 @@ Update name servers for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 200 on success, renders the list of name server names.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/changeDomainDelegationToVanity/success.http") %>
-~~~
+```
 
 ### Errors
 

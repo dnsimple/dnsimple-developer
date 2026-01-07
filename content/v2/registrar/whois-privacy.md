@@ -44,9 +44,9 @@ Get WHOIS privacy for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 200 on success
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getWhoisPrivacy/success.http") %>
-~~~
+```
 
 ## Enable WHOIS privacy {#enableWhoisPrivacy}
 
@@ -76,9 +76,9 @@ Responds with HTTP 200 if WHOIS privacy is enabled.
 
 Responds with HTTP 201 if WHOIS privacy is only enabled because it was purchased previously. Response available only on legacy domains.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/enableWhoisPrivacy/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -114,9 +114,9 @@ Disable WHOIS privacy for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 200 if WHOIS privacy is disabled.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/disableWhoisPrivacy/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -126,9 +126,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Renew WHOIS privacy {#renewWhoisPrivacy}
 
-~~~
+```
 POST /:account/registrar/domains/:domain/whois_privacy/renewals
-~~~
+```
 
 > [!WARNING]
 > **The deprecation period for this endpoint began on 01 May 2023.**
@@ -155,9 +155,9 @@ Renew WHOIS privacy for the domain `example.com` in the account `1010`:
 
 Responds with HTTP 201 if WHOIS privacy is renewed.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/renewWhoisPrivacy/success.http") %>
-~~~
+```
 
 ### Errors
 

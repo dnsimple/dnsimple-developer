@@ -14,7 +14,7 @@ The Metadata API provides a key/value store that is attached to a specific resou
 
 ## Metadata attributes
 
-~~~json
+```json
 {
   "id": 103,
   "owner_type": "OauthApplication",
@@ -26,15 +26,15 @@ The Metadata API provides a key/value store that is attached to a specific resou
   "created_at": "Wed, 29 Jun 2010 12:45:05.037840000 UTC +00:00",
   "updated_at": "Wed, 29 Jun 2010 12:45:05.037840000 UTC +00:00"
 }
-~~~
+```
 
 ## List Metadata
 
 List metadata entries in the account for the specified resource.
 
-~~~
+```
 GET /:account/platform/metadata/:resource
-~~~
+```
 
 ### Parameters
 
@@ -47,9 +47,9 @@ Name | Type | Description
 
 Show the metadata entry in the account for the specified resource.
 
-~~~
+```
 GET /:account/platform/metadata/:resource/:metadata
-~~~
+```
 
 ### Parameters
 
@@ -63,9 +63,9 @@ Name | Type | Description
 
 Create a metadata entry in the account for the specified resource.
 
-~~~
+```
 POST /:account/platform/metadata/:resource
-~~~
+```
 
 ### Parameters
 
@@ -86,13 +86,13 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "resource": "domain:123",
   "key": "App Name",
   "value": "flying-cheeto-kite-surf"
 }
-~~~
+```
 
 ### Response
 
@@ -106,9 +106,9 @@ Responds with HTTP 404 if the resource doesn't exist.
 
 Destroy a metadata entry in the account for the specified resource. **This cannot be undone.**
 
-~~~
+```
 DELETE /:account/platform/metadata/:resource/:metadata
-~~~
+```
 
 ### Parameters
 

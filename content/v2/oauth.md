@@ -27,9 +27,9 @@ This starts the OAuth 2.0 authorization flow. This isn't an API call — it's th
 
 Your web or mobile app should redirect users to the following URL:
 
-~~~
+```
 GET https://dnsimple.com/oauth/authorize
-~~~
+```
 
 The following values should be passed as GET parameters:
 
@@ -57,9 +57,9 @@ If an error occurs, including if the user has chosen not to authorize the app, t
 
 This API method is used to exchange the `code` with a bearer token you can use to authenticate to the DNSimple API.
 
-~~~
+```
 POST https://api.dnsimple.com/v2/oauth/access_token
-~~~
+```
 
 The following values should be passed as POST parameters:
 
@@ -74,23 +74,23 @@ You'll receive a JSON response. If the request is successful, the response will 
 
 ##### Example Response
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/oauthAccessToken/success.http") %>
-~~~
+```
 
 ### Step 3 - API authentication
 
 The access token allows you to execute authenticated API requests on a behalf of the user account. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
 
-~~~
+```
 Authorization: Bearer ACCESS_TOKEN
-~~~
+```
 
 Replace `ACCESS_TOKEN` with the real token you received in the previous step. Here's an example with `curl`:
 
-~~~
+```
 $ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoami
-~~~
+```
 
 > [!NOTE]
 > If you are using the [sandbox environment](/sandbox/) replace `dnsimple.com` with `sandbox.dnsimple.com`.

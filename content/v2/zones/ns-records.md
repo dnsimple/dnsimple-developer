@@ -56,9 +56,9 @@ Name | Type | Description
 
 Responds with HTTP 200, including the zone's NS records as defined in [our OpenAPI documentation](/v2/openapi.yml).
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/updateZoneNsRecords/success.http") %>
-~~~
+```
 
 ### Errors
 

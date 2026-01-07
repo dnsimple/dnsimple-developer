@@ -41,9 +41,9 @@ When creating/updating a record, you can **optionally** select one or more regio
 
 ## List zone records {#listZoneRecords}
 
-~~~
+```
 GET /:account/zones/:zone/records
-~~~
+```
 
 ### Parameters
 
@@ -77,27 +77,27 @@ The default sorting policy is by ascending `id`.
 
 List records for the zone `example.com` in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records
-~~~
+```
 
 List records for the zone `example.com` with TXT zone records, in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records?type=TXT
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listZoneRecords/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -105,9 +105,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Create a zone record {#createZoneRecord}
 
-~~~
+```
 POST /:account/zones/:zone/records
-~~~
+```
 
 ### Parameters
 
@@ -120,14 +120,14 @@ Name | Type | Description
 
 Create a record for the zone `example.com` in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '<json>' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records
-~~~
+```
 
 ### Input
 
@@ -143,7 +143,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "name": "",
   "type": "MX",
@@ -153,15 +153,15 @@ Name | Type | Description
   "regions": ["SV1", "IAD"],
   "integrated_zones": [1, 2, "dnsimple"]
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createZoneRecord/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -172,9 +172,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Retrieve a zone record {#getZoneRecord}
 
-~~~
+```
 GET /:account/zones/:zone/records/:record
-~~~
+```
 
 ### Parameters
 
@@ -188,19 +188,19 @@ Name | Type | Description
 
 Get the record `5` for the zone `example.com`, in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records/5
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getZoneRecord/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -208,9 +208,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Update a zone record {#updateZoneRecord}
 
-~~~
+```
 PATCH /:account/zones/:zone/records/:record
-~~~
+```
 
 ### Parameters
 
@@ -224,14 +224,14 @@ Name | Type | Description
 
 Update the record with ID `5` for zone `example.com`, in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X PATCH \
       -d '<json>' \
       https://api.dnsimple.com/v2/1010/zones/example.com/records/5
-~~~
+```
 
 ### Input
 
@@ -248,7 +248,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "content": "mxb.example.com",
   "ttl": 3600,
@@ -256,15 +256,15 @@ Name | Type | Description
   "regions": ["global"],
   "integrated_zones": [1, 2, "dnsimple"]
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/updateZoneRecord/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -274,9 +274,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Delete a zone record {#deleteZoneRecord}
 
-~~~
+```
 DELETE /:account/zones/:zone/records/:record
-~~~
+```
 
 ### Parameters
 
@@ -290,13 +290,13 @@ Name | Type | Description
 
 Delete the record with ID `5` for zone `example.com`, in the account `1010`:
 
-~~~shell
+```shell
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
       https://api.dnsimple.com/v2/1010/zones/example.com/records/5
-~~~
+```
 
 ### Response
 
@@ -316,9 +316,9 @@ Please refer to the documentation [here](/v2/zones/batch-change-zone-records/).
 
 Checks if a zone change is fully distributed to all our nameservers across the globe.
 
-~~~
+```
 GET /:account/zones/:zone/records/:record/distribution
-~~~
+```
 
 > [!NOTE]
 > This feature is not available for testing in our <a href="/sandbox">Sandbox</a> environment.
@@ -343,15 +343,15 @@ Check the zone record distribution for `example.com` in the account `1010`:
 
 Responds with HTTP 200 when the zone record is fully distributed.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/success.http") %>
-~~~
+```
 
 Responds with HTTP 200 when the zone record is not distributed.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/failure.http") %>
-~~~
+```
 
 ### Errors
 
@@ -359,6 +359,6 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 Responds with [HTTP 504](/v2/#gateway-timeout) when the server failed to perform the check.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/checkZoneRecordDistribution/error.http") %>
-~~~
+```

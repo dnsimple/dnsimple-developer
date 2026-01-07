@@ -49,7 +49,7 @@ When your customer registers a domain through your service, or delegates it for 
 
 [lib/app/dnsimple.rb](https://github.com/dnsimple/dnsimple-api-examples/blob/main/ruby/use_cases/issue_certificates/lib/app/dnsimple.rb#L16)
 
-~~~ruby
+```ruby
     post '/issue_certificate' do
       certificate_order = App::DnsimpleAdapter.purchase_letsencrypt_certificate(
         parsed_request_body['domain'],
@@ -71,7 +71,7 @@ When your customer registers a domain through your service, or delegates it for 
     rescue ::Dnsimple::NotFoundError, ::Dnsimple::RequestError => e
       halt 400, json(error: { message: e.message })
     end
-~~~
+```
 
 In our sample application, we expose an endpoint `http://localhost:4567/dnsimple/issue_certificate` that takes the following parameters:
 
@@ -92,7 +92,7 @@ The event contains useful information, like the certificate ID, which can be use
 
 [lib/app/handlers/certificate_issue_event_handler.rb](https://github.com/dnsimple/dnsimple-api-examples/blob/main/ruby/use_cases/issue_certificates/lib/app/handlers/certificate_issue_event_handler.rb#L8)
 
-~~~ruby
+```ruby
       def handle(event)
         certificate = App::DnsimpleAdapter.download_certificate(
           event.data['certificate']['domain_id'],
@@ -106,7 +106,7 @@ The event contains useful information, like the certificate ID, which can be use
         # Now you can carry out your business logic of pushing the certificate to
         # your infrastructure automation tool and secrets store.
       end
-~~~
+```
 
 > [!NOTE]
 > Webhooks come with no order guarantee, and are guaranteed to be delivered at least once. This means a given webhook can be sent multiple times. You can use the `request_identifier`, which is present in every event, to keep track of which events have already been processed. We also recommend only using the underlying resource ID provided in the webhook event data to retrieve the resource; this adds protection from forged events.

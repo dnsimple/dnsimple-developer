@@ -16,9 +16,9 @@ Please refer to the definition of the `Contact` data type in [our OpenAPI docume
 
 ## List contacts {#listContacts}
 
-~~~
+```
 GET /:account/contacts
-~~~
+```
 
 List contacts in the account.
 
@@ -44,19 +44,19 @@ The default sorting policy is by ascending `id`.
 
 List all contacts in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/contacts
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/listContacts/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -65,9 +65,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Create a contact {#createContact}
 
-~~~
+```
 POST /:account/contacts
-~~~
+```
 
 ### Parameters
 
@@ -79,14 +79,14 @@ Name | Type | Description
 
 Create a contact in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '<json>' \
       https://api.dnsimple.com/v2/1010/contacts
-~~~
+```
 
 ### Input
 
@@ -109,7 +109,7 @@ Name | Type | Description
 
 ##### Example
 
-~~~json
+```json
 {
   "label": "Default",
   "first_name": "First",
@@ -125,15 +125,15 @@ Name | Type | Description
   "postal_code": "00100",
   "country": "IT"
 }
-~~~
+```
 
 ### Response
 
 Responds with HTTP 201 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/createContact/created.http") %>
-~~~
+```
 
 ### Errors
 
@@ -144,9 +144,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Retrieve a contact {#getContact}
 
-~~~
+```
 GET /:account/contacts/:contact
-~~~
+```
 
 ### Parameters
 
@@ -159,19 +159,19 @@ Name | Type | Description
 
 Get the contact with ID `1` in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/1010/contacts/1
-~~~
+```
 
 ### Response
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/getContact/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -179,9 +179,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Update a contact {#updateContact}
 
-~~~
+```
 PATCH /:account/contacts/:contact
-~~~
+```
 
 ### Parameters
 
@@ -194,14 +194,14 @@ Name | Type | Description
 
 Update the contact with ID `1` in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X PATCH \
       -d '<json>' \
       https://api.dnsimple.com/v2/1010/contacts/1
-~~~
+```
 
 ### Input
 
@@ -211,9 +211,9 @@ See [create](#create).
 
 Responds with HTTP 200 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/updateContact/success.http") %>
-~~~
+```
 
 ### Errors
 
@@ -223,9 +223,9 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Delete a contact {#deleteContact}
 
-~~~
+```
 DELETE /:account/contacts/:contact
-~~~
+```
 
 ### Parameters
 
@@ -238,21 +238,21 @@ Name | Type | Description
 
 Delete the contact with ID `1` in the account `1010`:
 
-~~~
+```
 curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
       https://api.dnsimple.com/v2/1010/contacts/1
-~~~
+```
 
 ### Response
 
 Responds with HTTP 204 on success.
 
-~~~json
+```json
 <%= pretty_print_fixture("/api/deleteContact/error-contact-in-use.http") %>
-~~~
+```
 
 ### Errors
 
