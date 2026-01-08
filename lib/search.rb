@@ -16,7 +16,7 @@ module Search
 
       @items.each do |item|
         next if item.attributes[:is_hidden]
-        next unless item.attributes[:filename].end_with?('markdown')
+        next unless item.attributes[:filename].end_with?('.md')
 
         index << {
           id: item.path,
