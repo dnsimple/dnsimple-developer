@@ -22,9 +22,8 @@ Lists the zones in the account.
 GET /:account/zones
 ```
 
-<note>
-When using a [scoped access token](/articles/api-access-token/#scoped-access-tokens) with granular zone permissions, this endpoint returns only the zones the token has access to.
-</note>
+> [!NOTE]
+> When using a [scoped access token](https://support.dnsimple.com/articles/api-access-token/#scoped-access-tokens) with granular zone permissions, this endpoint returns only the zones the token has access to.
 
 ### Parameters
 
