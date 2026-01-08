@@ -1,0 +1,31 @@
+// colors
+$accent-color: #4248af;
+$accent-color-alt: #f8bb00;
+
+$black:        #231f20;
+$white:        #fff;
+$green:        #43A047;
+$red:          #F44336;
+$blue:         #1A5EC6;
+$orange:       #FF7F2A;
+$yellow:       #f8c939;
+$yellow-700:   #cd8d2a;
+$gray-100:     #fafafa;
+$gray-200:     #f1f1f1;
+$gray-300:     #e4e4e4;
+$gray-500:     #979797;
+$gray-600:     #7e7e7e;
+$gray-700:     #4a4a4a;
+$gray-900:     #313131;
+$purple:       #64518E;
+
+// typography
+$base-unit: 1.5em;
+$font-family: -apple-system, BlinkMacSystemFont,
+               'avenir next', avenir,
+               'helvetica neue', helvetica,
+               ubuntu,
+               roboto, noto,
+               'segoe ui', arial,
+               sans-serif;
+$font-monospace: Menlo,Consolas,Monaco,"Courier New",monospace;
