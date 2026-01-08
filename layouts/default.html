@@ -127,12 +127,22 @@
     </div>
   </footer>
 
+<% if ENV['NANOC_ENV'] == 'production' %>
   <script
     type="text/javascript"
     src="https://support.dnsimple.com/widget.js"
     data-dnsimple-current-site-url="https://developer.dnsimple.com"
     data-dnsimple-getting-started-url="https://developer.dnsimple.com/getting-started/"
   ></script>
+<% else %>
+  <script
+    type="text/javascript"
+    src="https://support.dnsimple.com/widget.js"
+    data-dnsimple-current-site-url=""
+    data-dnsimple-getting-started-url="/getting-started/"
+    data-dnsimple-sources='[{"name": "DNSimple Developer", "url": ""}]'
+  ></script>
+<% end %>
   <script src="/dist/main.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
