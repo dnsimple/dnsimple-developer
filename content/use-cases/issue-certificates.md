@@ -49,6 +49,9 @@ When your customer registers a domain through your service, or delegates it for 
 
 [lib/app/dnsimple.rb](https://github.com/dnsimple/dnsimple-api-examples/blob/main/ruby/use_cases/issue_certificates/lib/app/dnsimple.rb#L16)
 
+> [!WARNING]
+> The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations.
+
 ```ruby
     post '/issue_certificate' do
       certificate_order = App::DnsimpleAdapter.purchase_letsencrypt_certificate(

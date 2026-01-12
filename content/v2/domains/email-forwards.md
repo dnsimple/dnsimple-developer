@@ -31,6 +31,9 @@ Name | Type | Description
 
 For general information about sorting, please refer to the [main guide](/v2/#sorting).
 
+> [!WARNING]
+> The `from` and `to` fields in Email Forward schema have been deprecated. The `from` field has been renamed to `alias_email` and the `to` field has been renamed to `destination_email` for clarity. Use `alias_email` and `destination_email` instead.
+
 Name | Description
 -----|------------
 `id` | Sort email forwards by ID

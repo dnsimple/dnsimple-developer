@@ -57,8 +57,8 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Check domain premium price {#getDomainPremiumPrice}
 
-> [!NOTE]
-> Deprecated in favor of [getDomainPrices](#getDomainPrices).
+> [!WARNING]
+> This endpoint has been deprecated in favor of [getDomainPrices](#getDomainPrices). The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to check if a domain is premium and retrieve the premium price. It has been superseded by the more comprehensive `getDomainPrices` endpoint which provides pricing information for all domain operations.
 
 Get the premium price for a domain.
 
