@@ -931,33 +931,17 @@ paths:
   '/{account}/registrar/domains/{domain}/premium_price':
     get:
       deprecated: true
-      description: |-
-        Deprecated in favor of getDomainPrices.
-
-        Retrieves the premium price for a premium domain.
-
-        Please note that a premium price can be different for registration, renewal, transfer. By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the action param.
+      description: 'This endpoint has been deprecated and removed. Use getDomainPrices instead.'
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-        - $ref: '#/components/parameters/DomainPremiumPriceAction'
       operationId: getDomainPremiumPrice
       tags:
         - registrar
       responses:
-        '200':
-          description: Successfully retrieved the premium price
-          content:
-            application/json:
-              schema:
-                type: object
-                required: [data]
-                properties:
-                  data:
-                    $ref: '#/components/schemas/DomainPremiumPrice'
-        '400':
-          $ref: '#/components/responses/400'
-      summary: Get domain premium price
+        '410':
+          description: This endpoint has been removed.
+      summary: Get domain premium price (deprecated)
   '/{account}/registrar/domains/{domain}/prices':
     get:
       description: Retrieve domain prices.
@@ -3069,13 +3053,6 @@ components:
       description: The zone record id
       schema:
         type: integer
-    DomainPremiumPriceAction:
-      name: action
-      in: query
-      required: false
-      description: 'Optional action between "registration", "renewal", and "transfer". If omitted, it defaults to "registration".'
-      schema:
-        type: string
     FilterName:
       name: name
       in: query
@@ -4151,21 +4128,6 @@ components:
         premium: true
     DomainNameServer:
       type: string
-    DomainPremiumPrice:
-      type: object
-      required:
-        - premium_price
-        - action
-      properties:
-        premium_price:
-          type: string
-          description: The price represented as a USD amount with dollars and cents.
-        action:
-          type: string
-          description: 'The action (registration, transfer, renewal) that the price is applied to.'
-      example:
-        premium_price: '109.00'
-        action: registration
     DomainPrices:
       type: object
       required:

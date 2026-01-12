@@ -58,63 +58,7 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 ## Check domain premium price {#getDomainPremiumPrice}
 
 > [!WARNING]
-> This endpoint has been deprecated in favor of [getDomainPrices](#getDomainPrices). The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to check if a domain is premium and retrieve the premium price. It has been superseded by the more comprehensive `getDomainPrices` endpoint which provides pricing information for all domain operations.
-
-Get the premium price for a domain.
-
-```
-GET /:account/registrar/domains/:domain/premium_price
-```
-
-**Please note** that a premium price can be different for [registration](#register), [renewal](#renew), [transfer](#transfer).
-By default this endpoint returns the premium price for registration. If you need to check a different price, you should specify it with the `action` param.
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:domain` | `string` | The domain name
-
-### Input
-
-Name | Type | Description
------|------|------------
-`action` | `string` | Optional action between `"registration"`, `"renewal"`, and `"transfer"`. If omitted, it defaults to `"registration"`.
-
-### Examples
-
-Check the premium price for `example.com` domain:
-
-```shell
-curl  -H 'Authorization: Bearer <token>' \
-      -H 'Accept: application/json' \
-      -X GET \
-      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price
-```
-
-Check the premium price for `example.com` domain renewal:
-
-```shell
-curl  -H 'Authorization: Bearer <token>' \
-      -H 'Accept: application/json' \
-      -X GET \
-      https://api.dnsimple.com/v2/1010/registrar/domains/example.com/premium_price?action=renewal
-```
-
-### Response
-
-Responds with HTTP 200 on success, returns the domain premium price.
-
-```json
-<%= pretty_print_fixture("/api/getDomainPremiumPrice/success.http") %>
-```
-
-Responds with HTTP 400, if the domain isn't premium.
-
-```json
-<%= pretty_print_fixture("/api/getDomainPremiumPrice/failure.http") %>
-```
+> This endpoint has been deprecated and removed. Use [getDomainPrices](#getDomainPrices) instead.
 
 ## Retrieve domain prices {#getDomainPrices}
 
