@@ -10,15 +10,15 @@ The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
-- Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
-- PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Ruby: Complete
+- Go: Flagged
+- Elixir: Flagged
+- Node.js: Flagged
+- Java: Flagged
+- C#: Complete
+- PHP: Flagged
+- Python: Flagged
+- Rust: Flagged
 
 ### 2022-06-01 - Certificate contact_id field
 
@@ -31,14 +31,14 @@ The `contact_id` field in Certificate schema has been deprecated. It is no longe
 **Client Status:**
 
 - Ruby: Not started
-- Go: Not started
+- Go: Flagged
 - Elixir: Not started
 - Node.js: Not started
-- Java: Not started
-- C#: Not started
-- PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Java: Complete
+- C#: Flagged
+- PHP: Flagged
+- Python: Flagged
+- Rust: Flagged
 
 ### 2021-01-25 - Email forwarding `from` field
 
@@ -50,15 +50,15 @@ The `from` field in Email Forward schema has been renamed to `alias_email` for c
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
+- Ruby: Complete
+- Go: Complete
 - Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
+- Node.js: Complete
+- Java: Complete
+- C#: Complete
 - PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Python: Complete
+- Rust: Complete
 
 ### 2021-01-25 - Email forwarding `to` field
 
@@ -70,15 +70,15 @@ The `to` field in Email Forward schema has been renamed to `destination_email` f
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
+- Ruby: Complete
+- Go: Complete
 - Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
+- Node.js: Complete
+- Java: Complete
+- C#: Complete
 - PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Python: Complete
+- Rust: Complete
 
 ### 2025-11-13 - Domain push `new_account_email` field
 
@@ -103,6 +103,7 @@ The `new_account_email` field in Domain Push request has been deprecated in favo
 ## Status Legend
 
 - **Not started** - Deprecation not yet addressed in client
+- **Flagged** - Deprecation endpoints are flagged in the client code
 - **In progress** - Work has begun on updating the client
 - **Complete** - Client has been updated with replacement
 - **N/A** - Not applicable to this client
