@@ -21,9 +21,7 @@ Enable and disable WHOIS privacy on registered domains.
 Get the WHOIS privacy details for a domain.
 
 > [!WARNING]
-> **The deprecation period for this endpoint began 01 May 2023.**
->
-> You can retrieve a domain WHOIS privacy state through [retrieve domain](/v2/domains/#getDomain)
+> This endpoint has been deprecated. You can retrieve a domain WHOIS privacy state through [retrieve domain](/v2/domains/#getDomain).
 
 ### Parameters
 
@@ -131,9 +129,7 @@ POST /:account/registrar/domains/:domain/whois_privacy/renewals
 ```
 
 > [!WARNING]
-> **The deprecation period for this endpoint began on 01 May 2023.**
->
-> You no longer need to renew the WHOIS privacy service. It will stay enabled unless you disable it.
+> This endpoint has been deprecated. You no longer need to renew the WHOIS privacy service. It will stay enabled unless you disable it.
 
 ### Parameters
 

@@ -80,6 +80,46 @@ The `to` field in Email Forward schema has been renamed to `destination_email` f
 - Python: Complete
 - Rust: Complete
 
+### 2023-05-01 - getWhoisPrivacy endpoint
+
+The endpoint `GET /:account/registrar/domains/:domain/whois_privacy` was used to retrieve the WHOIS privacy status for a domain. The WHOIS privacy state can now be retrieved through the `getDomain` endpoint.
+
+**Removal Date:** N/A
+
+**Replacement:** Use `getDomain` endpoint to retrieve domain WHOIS privacy state.
+
+**Client Status:**
+
+- Ruby: Not started
+- Go: Not started
+- Elixir: Not started
+- Node.js: Not started
+- Java: Not started
+- C#: Not started
+- PHP: Not started
+- Python: Not started
+- Rust: Not started
+
+### 2023-05-01 - renewWhoisPrivacy endpoint
+
+The endpoint `POST /:account/registrar/domains/:domain/whois_privacy/renewals` was used to renew the WHOIS privacy service for a domain. WHOIS privacy no longer needs to be renewed as it stays enabled unless explicitly disabled.
+
+**Removal Date:** N/A
+
+**Replacement:** None. WHOIS privacy no longer requires renewal.
+
+**Client Status:**
+
+- Ruby: Not started
+- Go: Not started
+- Elixir: Not started
+- Node.js: Not started
+- Java: Not started
+- C#: Not started
+- PHP: Not started
+- Python: Not started
+- Rust: Not started
+
 ### 2025-11-13 - Domain push `new_account_email` field
 
 The `new_account_email` field in Domain Push request has been deprecated in favor of `new_account_identifier`, which provides more flexibility in identifying the target account.
