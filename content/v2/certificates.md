@@ -11,7 +11,7 @@ excerpt: This page documents the DNSimple certificates API v2.
 
 ## Certificate attributes {#certificate-attributes}
 
-> [!WARNING]
+> [!WARNING] Deprecated since 01 June 2022
 > The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations.
 
 Please refer to the definition of the `Certificate` data type in [our OpenAPI documentation](/v2/openapi.yml).

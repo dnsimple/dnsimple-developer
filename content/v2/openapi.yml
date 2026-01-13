@@ -1449,6 +1449,7 @@ paths:
       summary: Disable domain auto-renewal
   '/{account}/registrar/domains/{domain}/whois_privacy':
     get:
+      deprecated: true
       description: Gets the whois privacy status for an existing domain.
       parameters:
         - $ref: '#/components/parameters/Account'
@@ -1529,6 +1530,7 @@ paths:
       summary: Disable WHOIS privacy
   '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
     post:
+      deprecated: true
       description: |-
         Renews the WHOIS privacy for the domain.
 
