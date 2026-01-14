@@ -28,7 +28,7 @@ export default [
     },
   },
   {
-    files: ['webpack.config.cjs', '.github/**/*.js'],
+    files: ['webpack.config.js', '.github/**/*.js'],
     languageOptions: {
       sourceType: 'commonjs',
       globals: {
