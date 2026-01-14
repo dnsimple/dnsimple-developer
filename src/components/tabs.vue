@@ -4,7 +4,7 @@
       {{ tab }}
     </div>
     <div class="tab-content ba pa3 b--moon-gray">
-      <div v-for="(tab, index) in tabs" :key="`tab${index}`" v-if="currentTab === tab">
+      <div v-for="(tab, index) in tabs" :key="`tab${index}`" v-show="currentTab === tab">
         <div v-html="contents[index]"></div>
       </div>
     </div>
