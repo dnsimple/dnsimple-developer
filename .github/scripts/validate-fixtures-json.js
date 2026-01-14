@@ -10,35 +10,35 @@ const path = require('path');
  */
 function extractJsonFromHttpFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  
+
   // Split by double newline to separate headers from body
   const parts = content.split(/\n\s*\n/, 2);
-  
-  if (parts.length < 2) {
+
+  if (parts.length < 2)
     return null;
-  }
-  
+
+
   const body = parts[1].trim();
-  if (!body) {
+  if (!body)
     return null;
-  }
-  
+
+
   // Check if content-type indicates JSON
   const headers = parts[0];
-  const isJsonContentType = headers.includes('Content-Type: application/json') || 
+  const isJsonContentType = headers.includes('Content-Type: application/json') ||
                            headers.includes('content-type: application/json');
-  
+
   // If no explicit JSON content-type, try to parse as JSON anyway
   // (some files might have JSON without proper content-type header)
-  if (!isJsonContentType) {
+  if (!isJsonContentType)
     try {
       JSON.parse(body);
       return body;
-    } catch (e) {
+    } catch {
       return null;
     }
-  }
-  
+
+
   return body;
 }
 
@@ -49,22 +49,22 @@ function extractJsonFromHttpFile(filePath) {
  */
 function findHttpFiles(dir) {
   const files = [];
-  
+
   function traverse(currentDir) {
     const items = fs.readdirSync(currentDir);
-    
+
     for (const item of items) {
       const fullPath = path.join(currentDir, item);
       const stat = fs.statSync(fullPath);
-      
-      if (stat.isDirectory()) {
+
+      if (stat.isDirectory())
         traverse(fullPath);
-      } else if (item.endsWith('.http')) {
+       else if (item.endsWith('.http'))
         files.push(fullPath);
-      }
+
     }
   }
-  
+
   traverse(dir);
   return files;
 }
@@ -77,21 +77,21 @@ function validateJsonInFixtures(fixturesDir) {
   const errors = [];
   let filesChecked = 0;
   let jsonFilesFound = 0;
-  
+
   console.log(`🔍 Scanning for HTTP fixtures in: ${fixturesDir}`);
-  
+
   const httpFiles = findHttpFiles(fixturesDir);
-  
+
   for (const filePath of httpFiles) {
     filesChecked++;
     const jsonContent = extractJsonFromHttpFile(filePath);
-    
-    if (!jsonContent) {
+
+    if (!jsonContent)
       continue;
-    }
-    
+
+
     jsonFilesFound++;
-    
+
     try {
       JSON.parse(jsonContent);
       console.log(`✅ ${filePath}`);
@@ -101,12 +101,12 @@ function validateJsonInFixtures(fixturesDir) {
       errors.push(errorMsg);
     }
   }
-  
+
   console.log('\n📊 Summary:');
   console.log(`Files checked: ${filesChecked}`);
   console.log(`JSON files found: ${jsonFilesFound}`);
   console.log(`Validation errors: ${errors.length}`);
-  
+
   if (errors.length > 0) {
     console.log('\n❌ Errors found:');
     errors.forEach(error => console.log(`  ${error}`));
