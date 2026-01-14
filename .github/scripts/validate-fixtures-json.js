@@ -14,14 +14,14 @@ function extractJsonFromHttpFile(filePath) {
   // Split by double newline to separate headers from body
   const parts = content.split(/\n\s*\n/, 2);
 
-  if (parts.length < 2) {
+  if (parts.length < 2)
     return null;
-  }
+
 
   const body = parts[1].trim();
-  if (!body) {
+  if (!body)
     return null;
-  }
+
 
   // Check if content-type indicates JSON
   const headers = parts[0];
@@ -30,14 +30,14 @@ function extractJsonFromHttpFile(filePath) {
 
   // If no explicit JSON content-type, try to parse as JSON anyway
   // (some files might have JSON without proper content-type header)
-  if (!isJsonContentType) {
+  if (!isJsonContentType)
     try {
       JSON.parse(body);
       return body;
-    } catch (_e) {
+    } catch {
       return null;
     }
-  }
+
 
   return body;
 }
@@ -57,11 +57,11 @@ function findHttpFiles(dir) {
       const fullPath = path.join(currentDir, item);
       const stat = fs.statSync(fullPath);
 
-      if (stat.isDirectory()) {
+      if (stat.isDirectory())
         traverse(fullPath);
-      } else if (item.endsWith('.http')) {
+       else if (item.endsWith('.http'))
         files.push(fullPath);
-      }
+
     }
   }
 
@@ -86,9 +86,9 @@ function validateJsonInFixtures(fixturesDir) {
     filesChecked++;
     const jsonContent = extractJsonFromHttpFile(filePath);
 
-    if (!jsonContent) {
+    if (!jsonContent)
       continue;
-    }
+
 
     jsonFilesFound++;
 
