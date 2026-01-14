@@ -57,7 +57,7 @@ jobs:
       - name: Install JS Deps
         run: yarn install --frozen-lockfile
       - name: Validate JSON in HTTP fixtures
-        run: node .github/scripts/validate-fixtures-json.js
+        run: node .github/scripts/validate-fixtures-json.cjs
 
   test:
     name: Test
