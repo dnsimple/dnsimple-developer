@@ -57,7 +57,7 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
 ## Check domain premium price {#getDomainPremiumPrice}
 
-> [!WARNING]
+> [!WARNING] Deprecated since 18 May 2021
 > This endpoint has been deprecated and removed. Use [getDomainPrices](#getDomainPrices) instead.
 
 ## Retrieve domain prices {#getDomainPrices}

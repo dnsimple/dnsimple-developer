@@ -33,7 +33,7 @@ Initiate a push from the source account `1010` for the `example.com` domain:
 
 ### Input
 
-> [!WARNING]
+> [!WARNING] Deprecated since 13 November 2025
 > The `new_account_email` field in Domain Push request has been deprecated in favor of `new_account_identifier`, which provides more flexibility in identifying the target account. Use `new_account_identifier` instead.
 
 Name | Type | Description

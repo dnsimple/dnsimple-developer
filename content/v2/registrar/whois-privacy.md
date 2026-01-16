@@ -16,37 +16,8 @@ Enable and disable WHOIS privacy on registered domains.
 
 ## Retrieve the domain WHOIS privacy {#getWhoisPrivacy}
 
-    GET /:account/registrar/domains/:domain/whois_privacy
-
-Get the WHOIS privacy details for a domain.
-
 > [!WARNING]
-> **The deprecation period for this endpoint began 01 May 2023.**
->
-> You can retrieve a domain WHOIS privacy state through [retrieve domain](/v2/domains/#getDomain)
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:domain` | `string`, `integer` | The domain name or id
-
-### Example
-
-Get WHOIS privacy for the domain `example.com` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy
-
-### Response
-
-Responds with HTTP 200 on success
-
-```json
-<%= pretty_print_fixture("/api/getWhoisPrivacy/success.http") %>
-```
+> This endpoint has been deprecated and removed. Use [retrieve domain](/v2/domains/#getDomain) instead.
 
 ## Enable WHOIS privacy {#enableWhoisPrivacy}
 
@@ -126,41 +97,5 @@ Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication is
 
 ## Renew WHOIS privacy {#renewWhoisPrivacy}
 
-```
-POST /:account/registrar/domains/:domain/whois_privacy/renewals
-```
-
 > [!WARNING]
-> **The deprecation period for this endpoint began on 01 May 2023.**
->
-> You no longer need to renew the WHOIS privacy service. It will stay enabled unless you disable it.
-
-### Parameters
-
-Name | Type | Description
------|------|------------
-`:account` | `integer` | The account id
-`:domain` | `string`, `integer` | The domain name or id
-
-### Example
-
-Renew WHOIS privacy for the domain `example.com` in the account `1010`:
-
-    curl  -H 'Authorization: Bearer <token>' \
-          -H 'Accept: application/json' \
-          -X POST \
-          https://api.dnsimple.com/v2/1010/registrar/domains/example.com/whois_privacy/renewals
-
-### Response
-
-Responds with HTTP 201 if WHOIS privacy is renewed.
-
-```json
-<%= pretty_print_fixture("/api/renewWhoisPrivacy/success.http") %>
-```
-
-### Errors
-
-Responds with [HTTP 400](/v2/#bad-request) if WHOIS privacy cannot be renewed.
-
-Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
+> This endpoint has been deprecated and removed. WHOIS privacy no longer requires renewal.
