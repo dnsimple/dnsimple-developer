@@ -84,41 +84,41 @@ The `to` field in Email Forward schema has been renamed to `destination_email` f
 
 The endpoint `GET /:account/registrar/domains/:domain/whois_privacy` was used to retrieve the WHOIS privacy status for a domain. The WHOIS privacy state can now be retrieved through the `getDomain` endpoint.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-01-14 (Completed)
 
 **Replacement:** Use `getDomain` endpoint to retrieve domain WHOIS privacy state.
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
-- Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
-- PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/447)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/237)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/305)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/265)
+- Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/231)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/208)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/147)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/484)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/87)
 
 ### 2023-05-01 - renewWhoisPrivacy endpoint
 
 The endpoint `POST /:account/registrar/domains/:domain/whois_privacy/renewals` was used to renew the WHOIS privacy service for a domain. WHOIS privacy no longer needs to be renewed as it stays enabled unless explicitly disabled.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-01-14 (Completed)
 
 **Replacement:** None. WHOIS privacy no longer requires renewal.
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
-- Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
-- PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/447)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/237)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/305)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/265)
+- Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/231)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/208)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/147)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/484)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/87)
 
 ### 2025-11-13 - Domain push `new_account_email` field
 
