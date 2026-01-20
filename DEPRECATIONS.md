@@ -6,19 +6,19 @@ This document tracks all deprecated features, methods, and fields in the DNSimpl
 
 The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to check if a domain is premium and retrieve the premium price. It has been superseded by the more comprehensive `getDomainPrices` endpoint which provides pricing information for all domain operations.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-01-20 (Completed)
 
 **Client Status:**
 
-- Ruby: Complete
-- Go: Flagged
-- Elixir: Flagged
-- Node.js: Flagged
-- Java: Flagged
-- C#: Complete
-- PHP: Flagged
-- Python: Flagged
-- Rust: Flagged
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/291)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/236)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/304)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/263)
+- Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/230)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/51)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/146)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/483)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/86)
 
 ### 2022-06-01 - Certificate contact_id field
 
