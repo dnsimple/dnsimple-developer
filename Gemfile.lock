@@ -108,7 +108,7 @@ GEM
       listen (~> 3.0)
       nanoc-cli (~> 4.11, >= 4.11.14)
       nanoc-core (~> 4.11, >= 4.11.14)
-    nio4r (2.7.4)
+    nio4r (2.7.5)
     nokogiri (1.19.0-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.0-x86_64-linux-gnu)
@@ -122,7 +122,7 @@ GEM
       method_source (~> 1.0)
       reline (>= 0.6.0)
     public_suffix (7.0.2)
-    puma (7.1.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.4)
@@ -173,7 +173,7 @@ DEPENDENCIES
   nanoc-dart-sass
   nanoc-live
   nokogiri (~> 1.19)
-  puma (~> 7.1)
+  puma (~> 7.2)
   rake (~> 13.3)
   rouge
   systemu

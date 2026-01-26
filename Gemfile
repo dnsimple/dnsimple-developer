@@ -7,7 +7,7 @@ gem "kramdown"
 gem "kramdown-parser-gfm", github: "weppos/kramdown-parser-extended"
 gem "mime-types"
 gem "nokogiri", "~> 1.19"
-gem "puma", "~> 7.1"
+gem "puma", "~> 7.2"
 gem "rouge"
 gem "systemu"
 
