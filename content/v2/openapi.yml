@@ -4320,12 +4320,15 @@ components:
       properties:
         enabled:
           type: boolean
+        active:
+          type: boolean
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
           $ref: '#/components/schemas/DateTimeUpdatedAt'
       example:
         enabled: true
+        active: true
         created_at: '2017-02-03T17:43:22.000Z'
         updated_at: '2017-02-03T17:43:22.000Z'
     EmailForward:
