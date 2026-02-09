@@ -1,20 +1,11 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist')
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-    ],
   },
   plugins: [
     new CopyPlugin({
@@ -25,6 +16,5 @@ module.exports = {
         { from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: 'fontawesome/webfonts', globOptions: { ignore: ['*.svg'] } },
       ]
     }),
-    new VueLoaderPlugin(),
   ],
 };

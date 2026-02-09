@@ -1,8 +1,3 @@
-import { createApp } from 'vue';
-import Tabs from "./components/tabs.vue";
-
-createApp(Tabs).mount('.component');
-
 function toggleColorMode (e) {
   // Switch to Light Mode
   if (e.currentTarget.classList.contains("light--hidden")) {
