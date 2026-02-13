@@ -232,6 +232,36 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Delete a domain
+  '/{account}/domains/research/status':
+    get:
+      description: Research a domain name for availability and registration status information.
+      parameters:
+        - $ref: '#/components/parameters/Account'
+        - name: domain
+          in: query
+          required: true
+          description: The domain name to research
+          schema:
+            type: string
+      operationId: getDomainsResearchStatus
+      tags:
+        - domains
+      summary: Domains research status
+      responses:
+        '200':
+          description: Domain research information retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DomainResearch'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
   '/{account}/domains/{domain}/dnssec':
     get:
       description: Gets the DNSSEC status for an existing domain.
@@ -4245,6 +4275,37 @@ components:
         whois_privacy: false
         created_at: '2016-12-09T19:35:31Z'
         updated_at: '2016-12-09T19:35:31Z'
+    DomainResearch:
+      type: object
+      required:
+        - request_id
+        - domain
+        - availability
+        - errors
+      properties:
+        request_id:
+          type: string
+          description: UUID identifier for this research request
+        domain:
+          type: string
+          description: The domain name that was researched
+        availability:
+          type: string
+          enum:
+            - available
+            - unavailable
+            - unknown
+          description: The availability status
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of error messages if the domain cannot be registered or researched
+      example:
+        request_id: 'f453dabc-a27e-4bf1-a93e-f263577ffaae'
+        domain: 'example.com'
+        availability: 'unavailable'
+        errors: []
     DomainRenewal:
       type: object
       required:
