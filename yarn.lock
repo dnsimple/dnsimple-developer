@@ -128,10 +128,10 @@
   resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.6.0.tgz#9ea331766084288634a9247fcd8b84f16ff4ba07"
   integrity sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==
 
-"@fortawesome/fontawesome-free@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-7.1.0.tgz#8eb76278515341720aa74485266f8be121089529"
-  integrity sha512-+WxNld5ZCJHvPQCr/GnzCTVREyStrAJjisUPtUxG5ngDA8TMlPnKp6dddlTpai4+1GNmltAeuk1hJEkBohwZYA==
+"@fortawesome/fontawesome-free@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-7.2.0.tgz#188c1053ce422ad1f934d7df242a973fcb89636d"
+  integrity sha512-3DguDv/oUE+7vjMeTSOjCSG+KeawgVQOHrKRnvUuqYh1mfArrh7s+s8hXW3e4RerBA1+Wh+hBqf8sJNpqNrBWg==
 
 "@humanfs/core@^0.19.1":
   version "0.19.1"
@@ -410,10 +410,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@redocly/ajv@8.17.1":
-  version "8.17.1"
-  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.1.tgz#e2b1722cbc8b4cd7e05da14a745d3ddd03293734"
-  integrity sha512-EDtsGZS964mf9zAUXAl9Ew16eYbeyAFWhsPr0fX6oaJxgd8rApYlPBf0joyhnUHz88WxrigyFtTaqqzXNzPgqw==
+"@redocly/ajv@8.17.4", "@redocly/ajv@^8.17.4":
+  version "8.17.4"
+  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.4.tgz#f7c1022bc3e7f01366f4cb6bc5b538b81cb7cea8"
+  integrity sha512-BieiCML/IgP6x99HZByJSt7fJE4ipgzO7KAFss92Bs+PEI35BhY7vGIysFXLT+YmS7nHtQjZjhOQyPPEf7xGHA==
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-uri "^3.0.1"
@@ -430,29 +430,19 @@
     require-from-string "^2.0.2"
     uri-js-replace "^1.0.1"
 
-"@redocly/ajv@^8.17.2":
-  version "8.17.3"
-  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.3.tgz#98b30ee03111b27a5acdcab15d3f51622836d0e8"
-  integrity sha512-NQsbJbB/GV7JVO88ebFkMndrnuGp/dTm5/2NISeg+JGcLzTfGBJZ01+V5zD8nKBOpi/dLLNFT+Ql6IcUk8ehng==
-  dependencies:
-    fast-deep-equal "^3.1.3"
-    fast-uri "^3.0.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-
-"@redocly/cli@^2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.16.0.tgz#e16b566229b849c7e342f6c91eb426b859677786"
-  integrity sha512-5ys+jqUVl8wk4SjdmoZOsZVOEJpikUD0YIzinrVz8RUzI5uS7lFVdd4xspFFpq1HwN2SnUYTsU3wTFERjSVGNA==
+"@redocly/cli@^2.18.1":
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.18.1.tgz#39e41ed9fe9e0878b6e66ff9cc63f064d7452275"
+  integrity sha512-x3OBHb3T6GM+b48hKZkyTAwT58lWyJbBFfTQbX5WQXPJMB/+2x/KhrUlbAOiGPBtkTNnVBG5iskTv7l6bs6tig==
   dependencies:
     "@opentelemetry/exporter-trace-otlp-http" "0.202.0"
     "@opentelemetry/resources" "2.0.1"
     "@opentelemetry/sdk-trace-node" "2.0.1"
     "@opentelemetry/semantic-conventions" "1.34.0"
-    "@redocly/openapi-core" "2.16.0"
-    "@redocly/respect-core" "2.16.0"
+    "@redocly/openapi-core" "2.18.1"
+    "@redocly/respect-core" "2.18.1"
     abort-controller "^3.0.0"
-    ajv "npm:@redocly/ajv@8.17.1"
+    ajv "npm:@redocly/ajv@8.17.4"
     ajv-formats "^3.0.1"
     colorette "^1.2.0"
     cookie "^0.7.2"
@@ -479,21 +469,21 @@
   resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.22.0.tgz#b2454f472f9d2b217d56f82e4f28d346901f3242"
   integrity sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==
 
-"@redocly/config@^0.41.4":
-  version "0.41.4"
-  resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.41.4.tgz#079d18433a62b2636124646cf2e54ed948f94aef"
-  integrity sha512-LaRKXpHyK5GxmgG2n2e8xp2NyUa8qZls3WMAVg5hKO4b2d7X5uU5F2jvH6JUTVdRW/VfStQqan5DQ1uQz7MVzg==
+"@redocly/config@^0.43.0":
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.43.0.tgz#855508c42b5b79cba1340191dea6183319371270"
+  integrity sha512-AbyFKRHKJ2VBmh9nO2lrG9tO2Gu/Lmnfdj4Uwoh7h/a7jWr1104t4fBgQZs/NwgGBAOkGmyQYAvardwyBeRGZA==
   dependencies:
     json-schema-to-ts "2.7.2"
 
-"@redocly/openapi-core@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-2.16.0.tgz#f80829e6f6056b74625ab0d189758d8038dddf26"
-  integrity sha512-/GzDiwmA9p7VCkN2Rzrgc6xU3f+Cpik4QXXwdtM5BykdhJas0K1nrRxgMJCwuxZPEOI9VzROWn56Hv1PJgajhA==
+"@redocly/openapi-core@2.18.1":
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-2.18.1.tgz#94b7ddd0c2d335c10e9f830e8301af26f09cc41f"
+  integrity sha512-1fjuH85SpFyIFHcdQiGoT5uWsoErs+qJyK+2HqaqTANkNO3ONpDBS6B79Z/mYUH44+LxeTTVzbDPBEcI0ZJHhQ==
   dependencies:
-    "@redocly/ajv" "^8.17.2"
-    "@redocly/config" "^0.41.4"
-    ajv "npm:@redocly/ajv@8.17.2"
+    "@redocly/ajv" "^8.17.4"
+    "@redocly/config" "^0.43.0"
+    ajv "npm:@redocly/ajv@8.17.4"
     ajv-formats "^3.0.1"
     colorette "^1.2.0"
     js-levenshtein "^1.1.6"
@@ -517,16 +507,16 @@
     pluralize "^8.0.0"
     yaml-ast-parser "0.0.43"
 
-"@redocly/respect-core@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-2.16.0.tgz#cddd4d6f7fda5b8c7a7180a18114a9e8cc4cdb13"
-  integrity sha512-AObN0S9eSJIIOfMzTcH10Lu+LjlMdYYaHdelu4l/PJj8L4hlpXpdkgC4vYUIq2s3cgSuDO8ngL3XyboUxUVRTA==
+"@redocly/respect-core@2.18.1":
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-2.18.1.tgz#d4b49e0d364679c6a54a499f398a421d53b828d4"
+  integrity sha512-o/XgvxuZZhZkugFxpICqdmgpz5oFzpmhO7v3hziHk1tc4CYtI1pG6PlTJuJv5ufGAlAMZOn93ymgl27A7x/GUA==
   dependencies:
     "@faker-js/faker" "^7.6.0"
     "@noble/hashes" "^1.8.0"
-    "@redocly/ajv" "8.17.1"
-    "@redocly/openapi-core" "2.16.0"
-    ajv "npm:@redocly/ajv@8.17.1"
+    "@redocly/ajv" "8.17.4"
+    "@redocly/openapi-core" "2.18.1"
+    ajv "npm:@redocly/ajv@8.17.4"
     better-ajv-errors "^1.2.0"
     colorette "^2.0.20"
     json-pointer "^0.6.2"
@@ -797,20 +787,10 @@ ajv@^8.0.0, ajv@^8.9.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-"ajv@npm:@redocly/ajv@8.17.1":
-  version "8.17.1"
-  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.1.tgz#e2b1722cbc8b4cd7e05da14a745d3ddd03293734"
-  integrity sha512-EDtsGZS964mf9zAUXAl9Ew16eYbeyAFWhsPr0fX6oaJxgd8rApYlPBf0joyhnUHz88WxrigyFtTaqqzXNzPgqw==
-  dependencies:
-    fast-deep-equal "^3.1.3"
-    fast-uri "^3.0.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-
-"ajv@npm:@redocly/ajv@8.17.2":
-  version "8.17.2"
-  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.2.tgz#17abe1f8b6d17c1d4185be5359bac394b13bec4d"
-  integrity sha512-rcbDZOfXAgGEJeJ30aWCVVJvxV9ooevb/m1/SFblO2qHs4cqTk178gx7T/vdslf57EA4lTofrwsq5K8rxK9g+g==
+"ajv@npm:@redocly/ajv@8.17.4":
+  version "8.17.4"
+  resolved "https://registry.yarnpkg.com/@redocly/ajv/-/ajv-8.17.4.tgz#f7c1022bc3e7f01366f4cb6bc5b538b81cb7cea8"
+  integrity sha512-BieiCML/IgP6x99HZByJSt7fJE4ipgzO7KAFss92Bs+PEI35BhY7vGIysFXLT+YmS7nHtQjZjhOQyPPEf7xGHA==
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-uri "^3.0.1"
@@ -1691,10 +1671,10 @@ mark.js@^8.11.1:
   resolved "https://registry.yarnpkg.com/mark.js/-/mark.js-8.11.1.tgz#180f1f9ebef8b0e638e4166ad52db879beb2ffc5"
   integrity sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==
 
-marked@^17.0.1:
-  version "17.0.1"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-17.0.1.tgz#9db34197ac145e5929572ee49ef701e37ee9b2e6"
-  integrity sha512-boeBdiS0ghpWcSwoNm/jJBwdpFaMnZWRzjA6SkUMYb40SVaN1x7mmfGKp0jvexGcx+7y2La5zRZsYFZI6Qpypg==
+marked@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-17.0.2.tgz#a103f82bed9653dd1d74c15f74107c84ddbe749d"
+  integrity sha512-s5HZGFQea7Huv5zZcAGhJLT3qLpAfnY7v7GWkICUr0+Wd5TFEtdlRR2XUL5Gg+RH7u2Df595ifrxR03mBaw7gA==
 
 marked@^4.3.0:
   version "4.3.0"
@@ -2657,10 +2637,10 @@ webpack-sources@^3.3.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.3.3.tgz#d4bf7f9909675d7a070ff14d0ef2a4f3c982c723"
   integrity sha512-yd1RBzSGanHkitROoPFd6qsrxt+oFhg/129YzheDGqeustzX0vTZJZsSsQjVQC4yzBQ56K55XU8gaNCtIzOnTg==
 
-webpack@^5.105.0:
-  version "5.105.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.105.0.tgz#38b5e6c5db8cbe81debbd16e089335ada05ea23a"
-  integrity sha512-gX/dMkRQc7QOMzgTe6KsYFM7DxeIONQSui1s0n/0xht36HvrgbxtM1xBlgx596NbpHuQU8P7QpKwrZYwUX48nw==
+webpack@^5.105.2:
+  version "5.105.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.105.2.tgz#f3b76f9fc36f1152e156e63ffda3bbb82e6739ea"
+  integrity sha512-dRXm0a2qcHPUBEzVk8uph0xWSjV/xZxenQQbLwnwP7caQCYpqG1qddwlyEkIDkYn0K8tvmcrZ+bOrzoQ3HxCDw==
   dependencies:
     "@types/eslint-scope" "^3.7.7"
     "@types/estree" "^1.0.8"
