@@ -5,7 +5,7 @@ excerpt: This page documents the DNSimple domain research API v2.
 
 # Domain Research API
 
-<%= render "v2-private-beta-feature" %>
+<%= render "/v2-private-beta-feature.*" %>
 
 ### Table of Contents {#toc}
 
