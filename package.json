@@ -5,10 +5,10 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@redocly/cli": "^2.18.1",
+    "@redocly/cli": "^2.19.1",
     "concurrently": "^9.2.1",
     "copy-webpack-plugin": "^13.0.1",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "globals": "^17.3.0",
     "tachyons": "^4.12.0",
     "webpack": "^5.105.2",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^17.0.2"
+    "marked": "^17.0.3"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
