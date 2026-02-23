@@ -3239,6 +3239,10 @@ components:
         enum:
           - 'id:asc'
           - 'id:desc'
+          - 'alias_email:asc'
+          - 'alias_email:desc'
+          - 'destination_email:asc'
+          - 'destination_email:desc'
     SortPrimaryServers:
       description: Sort results. Default sorting is ascending by id.
       name: sort
