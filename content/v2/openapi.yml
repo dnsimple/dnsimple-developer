@@ -105,6 +105,69 @@ paths:
         default:
           $ref: '#/components/responses/Error'
       summary: Whoami
+  /oauth/access_token:
+    post:
+      summary: Exchange authorization code for access token
+      description: |-
+        Exchanges an OAuth 2.0 authorization code for an access token.
+        Used in the authorization code grant flow.
+      operationId: oauthToken
+      tags:
+        - identity
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [client_id, client_secret, code, grant_type, redirect_uri, state]
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code:
+                  type: string
+                grant_type:
+                  type: string
+                  example: authorization_code
+                redirect_uri:
+                  type: string
+                  description: Must match the redirect_uri from the authorization request (used for validation only).
+                state:
+                  type: string
+                  description: Must match the state from the authorization request.
+      responses:
+        '200':
+          description: Access token issued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                    example: bearer
+                  scope:
+                    type: [string, 'null']
+                  account_id:
+                    type: integer
+        '400':
+          description: Invalid or expired code, invalid client credentials, or redirect_uri/state mismatch.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error code per OAuth 2.0 spec (e.g. invalid_request).
+                  error_description:
+                    type: string
+                    description: Human-readable description of the error.
   '/{account}/billing/charges':
     get:
       description: Lists the billing charges for the account.
