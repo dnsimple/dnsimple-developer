@@ -3302,10 +3302,10 @@ components:
         enum:
           - 'id:asc'
           - 'id:desc'
-          - 'from:asc'
-          - 'from:desc'
-          - 'to:asc'
-          - 'to:desc'
+          - 'alias_email:asc'
+          - 'alias_email:desc'
+          - 'destination_email:asc'
+          - 'destination_email:desc'
     SortPrimaryServers:
       description: Sort results. Default sorting is ascending by id.
       name: sort
@@ -4488,14 +4488,6 @@ components:
           type: string
           format: email
           description: The email recipient the messages are delivered to.
-        from:
-          type: string
-          deprecated: true
-          description: Deprecated in favor of alias_email.
-        to:
-          type: string
-          deprecated: true
-          description: Deprecated in favor of destination_email.
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
@@ -6939,8 +6931,8 @@ components:
                 format: email
                 description: The email recipient the messages are delivered to.
             example:
-              from: john.doe
-              to: john@example.com
+              alias_name: john.doe
+              destination_email: john@example.com
     PushInitiate:
       description: Push attributes
       required: true
