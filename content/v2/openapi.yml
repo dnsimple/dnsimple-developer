@@ -6226,6 +6226,7 @@ components:
             auto_renew: false
             private_whois: false
             expires_at: null
+            trustee_service: false
             created_at: '2014-12-06T15:56:55Z'
             updated_at: '2015-12-09T00:20:56Z'
         account:
