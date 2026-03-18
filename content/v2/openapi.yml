@@ -4243,7 +4243,6 @@ components:
         trustee_service_price:
           type: number
           format: float
-          nullable: true
           description: The trustee service price represented as a USD amount with dollars and cents.
       example:
         domain: ruby.codes
