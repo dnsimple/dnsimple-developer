@@ -4135,6 +4135,7 @@ components:
         - auto_renew
         - private_whois
         - expires_at
+        - trustee_service
         - created_at
         - updated_at
       example:
@@ -4147,6 +4148,7 @@ components:
         auto_renew: false
         private_whois: false
         expires_at: null
+        trustee_service: false
         created_at: '2014-12-06T15:56:55Z'
         updated_at: '2015-12-09T00:20:56Z'
       properties:
@@ -4172,6 +4174,8 @@ components:
           type: boolean
         expires_at:
           $ref: '#/components/schemas/NullableDateTime'
+        trustee_service:
+          type: boolean
         expires_on:
           $ref: '#/components/schemas/Date'
         created_at:
@@ -4246,8 +4250,8 @@ components:
         premium: false
         registration_price: 12.0
         renewal_price: 15.0
-        trustee_service_price: null
         restore_price: 25.0
+        trustee_service_price: 10.0
     DomainRegistration:
       type: object
       required:

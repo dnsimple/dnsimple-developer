@@ -13,4 +13,4 @@ x-request-id: e3c6fac1-a36d-42c3-8a04-d68f127add18
 x-runtime: 0.605907
 strict-transport-security: max-age=31536000
 
-{"data":{"domain":"ruby.codes","available":true,"premium":true,"trustee_service":true}}
+{"data":{"domain":"ruby.codes","available":true,"premium":true}}
