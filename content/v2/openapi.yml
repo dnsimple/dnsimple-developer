@@ -4184,6 +4184,7 @@ components:
         - domain
         - available
         - premium
+        - trustee_service
       properties:
         domain:
           type: string
@@ -4194,10 +4195,14 @@ components:
         premium:
           type: boolean
           description: 'True if the domain is a premium domain and thus will have a non-standard registration, renewal, and/or transfer fee.'
+        trustee_service:
+          type: boolean
+          description: 'True if trustee service is enabled for this domain.'
       example:
         domain: ruby.codes
         available: true
         premium: true
+        trustee_service: true
     DomainNameServer:
       type: string
     DomainPrices:
@@ -4231,11 +4236,17 @@ components:
           type: number
           format: float
           description: The domain restore price represented as a USD amount with dollars and cents.
+        trustee_service_price:
+          type: number
+          format: float
+          nullable: true
+          description: The trustee service price represented as a USD amount with dollars and cents.
       example:
         domain: ruby.codes
         premium: false
         registration_price: 12.0
         renewal_price: 15.0
+        trustee_service_price: null
         restore_price: 25.0
     DomainRegistration:
       type: object
@@ -4247,6 +4258,7 @@ components:
         - state
         - auto_renew
         - whois_privacy
+        - trustee_service
         - created_at
         - updated_at
       properties:
@@ -4272,6 +4284,8 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
+        trustee_service:
+          type: boolean
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
         updated_at:
@@ -4284,6 +4298,7 @@ components:
         state: new
         auto_renew: false
         whois_privacy: false
+        trustee_service: false
         created_at: '2016-12-09T19:35:31Z'
         updated_at: '2016-12-09T19:35:31Z'
     DomainResearch:
@@ -5852,6 +5867,8 @@ components:
         - dnssec_interface_type
         - name_server_min
         - name_server_max
+        - trustee_enabled
+        - trustee_only
       properties:
         tld:
           type: string
@@ -5890,6 +5907,12 @@ components:
         name_server_max:
           type: integer
           description: maximum number of name servers allowed for this TLD
+        trustee_enabled:
+          type: boolean
+          description: true if trustee service is enabled by default for this TLD
+        trustee_only:
+          type: boolean
+          description: true if trustee is required for this TLD
       example:
         tld: ac
         tld_type: 2
@@ -5902,6 +5925,8 @@ components:
         transfer_enabled: false
         dnssec_interface_type: 'ds'
         name_server_min: 2
+        trustee_enabled: false
+        trustee_only: false
     TLDType:
       type: integer
       description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
@@ -6846,6 +6871,9 @@ components:
               auto_renew:
                 type: boolean
                 description: 'Set to true to enable the auto-renewal of the domain. Default: false.'
+              trustee_service:
+                type: boolean
+                description: 'Set to true will attempt to purchase/enable trustee service as part of the registration. An extra cost may apply. Default: false.'
               extended_attributes:
                 type: object
                 description: Required for TLDs that require extended attributes.
@@ -6857,6 +6885,7 @@ components:
                 description: 'The nickname of a linked provider to register the domain through. If left blank, registration will go through DNSimple.'
             example:
               registrant_id: 1
+              trustee_service: true
     DomainRenew:
       description: Domain renewal attributes
       required: true

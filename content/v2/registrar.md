@@ -90,7 +90,7 @@ curl  -H 'Authorization: Bearer <token>' \
 
 ### Response
 
-Responds with HTTP 200 on success, returns the domain pricing for registration, renewal, and transfer if the domain is premium.
+Responds with HTTP 200 on success, returns the domain pricing for registration, renewal, transfer, trustee service, and whether the domain is premium.
 
 ```json
 <%= pretty_print_fixture("/api/getDomainPrices/success.http") %>
@@ -142,6 +142,7 @@ Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
 `whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: `false`.
+`trustee_service` | `bool` | Set to true to enable trustee service as part of the registration. An extra cost may apply. Default: `false`.
 `linked_provider` | `string` | When set to the nickname of a linked provider, registration of the domain will go through that provider. Otherwise, registration of the domain will go through DNSimple.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `false`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
@@ -157,7 +158,8 @@ Name | Type | Description
 
 ```json
 {
-  "registrant_id": 1
+  "registrant_id": 1,
+  "trustee_service": true
 }
 ```
 
