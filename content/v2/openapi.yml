@@ -5870,8 +5870,8 @@ components:
         - dnssec_interface_type
         - name_server_min
         - name_server_max
-        - trustee_enabled
-        - trustee_only
+        - trustee_service_enabled
+        - trustee_service_required
       properties:
         tld:
           type: string
@@ -5910,10 +5910,10 @@ components:
         name_server_max:
           type: integer
           description: maximum number of name servers allowed for this TLD
-        trustee_enabled:
+        trustee_service_enabled:
           type: boolean
           description: true if trustee service is enabled by default for this TLD
-        trustee_only:
+        trustee_service_required:
           type: boolean
           description: true if trustee is required for this TLD
       example:
@@ -5928,8 +5928,8 @@ components:
         transfer_enabled: false
         dnssec_interface_type: 'ds'
         name_server_min: 2
-        trustee_enabled: false
-        trustee_only: false
+        trustee_service_enabled: false
+        trustee_service_required: false
     TLDType:
       type: integer
       description: 'TLD types are: * 1 - gTLD (global TLD) * 2 - ccTLD (country-code TLD) * 3 - newTLD (new global TLD)'
