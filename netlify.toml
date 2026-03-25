@@ -3,7 +3,7 @@
   command = "rake publish"
 
 [build.environment]
-  JEKYLL_ENV = "production"
+  NANOC_ENV = "production"
 
 [[headers]]
   for = "/search.json"
