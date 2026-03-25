@@ -10,6 +10,10 @@ excerpt: We maintain an isolated test site, we highly recommend testing against 
 
 ---
 
+<div class="aspect-ratio aspect-ratio--16x9 z-0 mb4">
+  <iframe loading="lazy" src="https://www.youtube.com/embed/d6RoZ4TmwmA" class="aspect-ratio--object" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 We maintain an isolated test site at [sandbox.dnsimple.com](https://sandbox.dnsimple.com/). We highly recommend testing against our [sandbox environment](https://developer.dnsimple.com/sandbox/) before using our production environment. This will allow you to avoid real purchases, live charges on your credit card, and reduce the chance of your running up against rate limits.
 
 ### Disclaimer
