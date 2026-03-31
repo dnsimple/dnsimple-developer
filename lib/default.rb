@@ -8,6 +8,20 @@ require 'kramdown'
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::XMLSitemap
 
+# Items for the XML sitemap: hidden pages stay out; Platform API subtree is omitted
+# from the sitemap only (those pages remain in on-site search). With identifier_type
+# :full, those items use ids like /v2/platform.md and /v2/platform/connections.md.
+def sitemap_items
+  @items.reject do |item|
+    item[:is_hidden] || platform_sitemap_excluded?(item.identifier.to_s)
+  end
+end
+
+def platform_sitemap_excluded?(identifier)
+  id = identifier.to_s
+  id == '/v2/platform.md' || id.start_with?('/v2/platform/')
+end
+
 # Root directory of the project (two levels up from this file)
 ROOT = File.expand_path("../../", __FILE__)
 
