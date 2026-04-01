@@ -31,6 +31,8 @@ updates:
     labels:
       - task
       - dependencies
+    cooldown:
+      default-days: 3
     groups:
       javascript-dependencies:
         update-types:
