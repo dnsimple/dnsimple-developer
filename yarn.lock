@@ -391,17 +391,25 @@
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
 
-"@redocly/cli@^2.24.1":
-  version "2.24.1"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.24.1.tgz#12bff64b00334c57750771689d1205d83ed7711a"
-  integrity sha512-GTAKMPtyvO7vn3CrSp8Q5SJlMUr8q6wgMN/J4K5owphyp5gOQCZqMySyWcq+V5RPPXkTuIHZYEzgnecB6RF2bQ==
+"@redocly/cli-otel@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@redocly/cli-otel/-/cli-otel-0.1.2.tgz#28dc9a3d66b249c96a091ba1e7276e4385bfba4a"
+  integrity sha512-Bg7BoO5t1x3lVK+KhA5aGPmeXpQmdf6WtTYHhelKJCsQ+tRMiJoFAQoKHoBHAoNxXrhlS3K9lKFLHGmtxsFQfA==
+  dependencies:
+    ulid "^2.3.0"
+
+"@redocly/cli@^2.25.2":
+  version "2.25.2"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.25.2.tgz#5707228eba5cde61dda8c7360760c98b6db962b4"
+  integrity sha512-kn1SiHDss3t+Ami37T6ZH5ov1fiEXF1y488bUOUgrh0pEK8VOq8+HlPbdte/cH0K+dWPhuLyKNACd+KhMQPjCw==
   dependencies:
     "@opentelemetry/exporter-trace-otlp-http" "0.202.0"
     "@opentelemetry/resources" "2.0.1"
     "@opentelemetry/sdk-trace-node" "2.0.1"
     "@opentelemetry/semantic-conventions" "1.34.0"
-    "@redocly/openapi-core" "2.24.1"
-    "@redocly/respect-core" "2.24.1"
+    "@redocly/cli-otel" "0.1.2"
+    "@redocly/openapi-core" "2.25.2"
+    "@redocly/respect-core" "2.25.2"
     abort-controller "^3.0.0"
     ajv "npm:@redocly/ajv@8.18.0"
     ajv-formats "^3.0.1"
@@ -412,7 +420,7 @@
     handlebars "^4.7.6"
     https-proxy-agent "^7.0.5"
     mobx "^6.0.4"
-    picomatch "^4.0.3"
+    picomatch "^4.0.4"
     pluralize "^8.0.0"
     react "^17.0.0 || ^18.2.0 || ^19.2.1"
     react-dom "^17.0.0 || ^18.2.0 || ^19.2.1"
@@ -430,26 +438,26 @@
   resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.22.0.tgz#b2454f472f9d2b217d56f82e4f28d346901f3242"
   integrity sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==
 
-"@redocly/config@^0.44.1":
-  version "0.44.1"
-  resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.44.1.tgz#c5be9510f0f0fcde4b2bf80d972298f2cfbb8217"
-  integrity sha512-l6/ZE+/RBfNDdhzltau6cbW8+k5PgJbJBMqaBrlQlZQlmGBHMxqGyDaon4dPLj0jdi37gsMQ3yf95JBY/vaDSg==
+"@redocly/config@^0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@redocly/config/-/config-0.45.0.tgz#38afcd2ecdd56f44a80b23d0c733e2449a70f559"
+  integrity sha512-V+wNusPQUaYV1c5s9iptfKQ2Ggno4bMeiyXdNILxqZS87gttwPfqlqHKHKFyz006voS3JsR295cbpx3GlsIxKg==
   dependencies:
     json-schema-to-ts "2.7.2"
 
-"@redocly/openapi-core@2.24.1":
-  version "2.24.1"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-2.24.1.tgz#38c9a62f83b3962eca1ed4b7bd0505d3c5ed5563"
-  integrity sha512-Iqc/4DI/CIQkKys8HRHkX+bpF/UosVUE7lc7tuxIOKzVIOk5QhQMglbd2yzbAYgJF7YAtCDDAKWosvXnvTTWsA==
+"@redocly/openapi-core@2.25.2":
+  version "2.25.2"
+  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-2.25.2.tgz#9af7b3931eaaadcf36f4b194109cd201ae531ede"
+  integrity sha512-HIvxgwxQct/IdRJjjqu4g8BLpCik6I3zxp8JFJpRtmY1TSIZAOZjJwlkoh4uQcy/nCP+psSMgQvzjVGml3k6+w==
   dependencies:
     "@redocly/ajv" "^8.18.0"
-    "@redocly/config" "^0.44.1"
+    "@redocly/config" "^0.45.0"
     ajv "npm:@redocly/ajv@8.18.0"
     ajv-formats "^3.0.1"
     colorette "^1.2.0"
     js-levenshtein "^1.1.6"
     js-yaml "^4.1.0"
-    picomatch "^4.0.3"
+    picomatch "^4.0.4"
     pluralize "^8.0.0"
     yaml-ast-parser "0.0.43"
 
@@ -468,15 +476,15 @@
     pluralize "^8.0.0"
     yaml-ast-parser "0.0.43"
 
-"@redocly/respect-core@2.24.1":
-  version "2.24.1"
-  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-2.24.1.tgz#324e23e9a86550154935a2b5198ab161b71b2d29"
-  integrity sha512-WMeg9TmAc0ZINp6Tza+ZWhMuIBM28us6ZyLj5DKWZhkBZhKaTNhXlmTYES11uM35eie+mYZStTov4vXYL//wqg==
+"@redocly/respect-core@2.25.2":
+  version "2.25.2"
+  resolved "https://registry.yarnpkg.com/@redocly/respect-core/-/respect-core-2.25.2.tgz#76ab3a3b1a1459aeeaa06b32741280a07e7077fd"
+  integrity sha512-GpvmjY2x8u4pAGNts7slexuKDzDWHNUB4gey9/rSqvC8IaqY49vkvMuRodIBwCsqXhn2rpkJbar1UK3rAOuy7g==
   dependencies:
     "@faker-js/faker" "^7.6.0"
     "@noble/hashes" "^1.8.0"
     "@redocly/ajv" "^8.18.0"
-    "@redocly/openapi-core" "2.24.1"
+    "@redocly/openapi-core" "2.25.2"
     ajv "npm:@redocly/ajv@8.18.0"
     better-ajv-errors "^1.2.0"
     colorette "^2.0.20"
@@ -484,7 +492,7 @@
     jsonpath-rfc9535 "1.3.0"
     openapi-sampler "^1.7.1"
     outdent "^0.8.0"
-    picomatch "^4.0.3"
+    picomatch "^4.0.4"
 
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
@@ -1857,7 +1865,7 @@ picocolors@^1.1.1:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
 
-picomatch@^4.0.2, picomatch@^4.0.3:
+picomatch@^4.0.2, picomatch@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.4.tgz#fd6f5e00a143086e074dffe4c924b8fb293b0589"
   integrity sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==
@@ -2370,6 +2378,11 @@ uglify-js@^3.1.4:
   version "3.17.4"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.17.4.tgz#61678cf5fa3f5b7eb789bb345df29afb8257c22c"
   integrity sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==
+
+ulid@^2.3.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/ulid/-/ulid-2.4.0.tgz#9d9ee22e63f4390ee1bcd9ad09fca39d8ae0afed"
+  integrity sha512-fIRiVTJNcSRmXKPZtGzFQv9WRrZ3M9eoptl/teFJvjOzmpU+/K/JH6HZ8deBfb5vMEpicJcLn7JmvdknlMq7Zg==
 
 ulid@^3.0.1:
   version "3.0.2"
