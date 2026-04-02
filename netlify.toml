@@ -1,6 +1,6 @@
 [build]
   publish = "output"
-  command = "rake publish"
+  command = "bundle exec rake publish"
 
 [build.environment]
   NANOC_ENV = "production"
