@@ -20,10 +20,10 @@ updates:
     cooldown:
       default-days: 3
     groups:
-      actions-minor-patch:
+      actions-patch-minor:
         update-types:
-          - minor
           - patch
+          - minor
 
   - package-ecosystem: npm
     directory: /
@@ -39,4 +39,3 @@ updates:
       javascript-dependencies:
         update-types:
           - patch
-          - minor
