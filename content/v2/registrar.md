@@ -55,11 +55,6 @@ Responds with [HTTP 400](/v2/#bad-request) if the domain availability cannot be 
 
 Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
 
-## Check domain premium price {#getDomainPremiumPrice}
-
-> [!WARNING] Deprecated since 18 May 2021
-> This endpoint has been deprecated and removed. Use [getDomainPrices](#getDomainPrices) instead.
-
 ## Retrieve domain prices {#getDomainPrices}
 
 Get a domain's price for registration, renewal, and transfer.

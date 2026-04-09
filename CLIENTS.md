@@ -8,35 +8,25 @@ This report tracks endpoint coverage across all DNSimple API clients.
 
 ## Executive Summary
 
-The `openapi.yml` defines **114 operations** in total. Of those, **3 are deprecated and removed** (return `410 Gone`) and are excluded from the coverage comparison, leaving **111 active endpoints** per client.
+The `openapi.yml` defines **111 client-facing operations**.
 
-| Client | Missing (active) | Delta vs. prior report |
-|--------|:----------------:|:----------------------:|
-| Node   |        4         | -5 (was 9)             |
-| Ruby   |        8         | +1 (was 7)             |
-| Go     |        8         | +1 (was 7)             |
-| Python |        8         | +1 (was 7)             |
-| PHP    |       12         | +2 (was 10)            |
-| Java   |       12         | +2 (was 10)            |
-| Elixir |       12         | +2 (was 10)            |
-| C#     |       12         | +2 (was 10)            |
-| Rust   |       13         | +2 (was 11)            |
+| Client | Missing | Delta vs. prior report |
+|--------|:-------:|:----------------------:|
+| Node   |    4    | -5 (was 9)             |
+| Ruby   |    8    | +1 (was 7)             |
+| Go     |    8    | +1 (was 7)             |
+| Python |    8    | +1 (was 7)             |
+| PHP    |   12    | +2 (was 10)            |
+| Java   |   12    | +2 (was 10)            |
+| Elixir |   12    | +2 (was 10)            |
+| C#     |   12    | +2 (was 10)            |
+| Rust   |   13    | +2 (was 11)            |
 
 The deltas account for a newly-surfaced gap: **no client implements `updateZoneNsRecords`** except Node. That endpoint was not tracked in the previous INCONSISTENCIES report.
 
-## Deprecated / removed endpoints (excluded from comparison)
-
-These three operations are flagged `deprecated: true` in `openapi.yml` and respond with `410 Gone`. None of the clients currently ships an implementation for them in source, so they are not counted as gaps.
-
-| operationId             | HTTP                                                                | Note                                     |
-|-------------------------|---------------------------------------------------------------------|------------------------------------------|
-| `getDomainPremiumPrice` | `GET /{account}/registrar/domains/{domain}/premium_price`           | Use `getDomainPrices` instead            |
-| `getWhoisPrivacy`       | `GET /{account}/registrar/domains/{domain}/whois_privacy`           | Use `getDomain` instead                  |
-| `renewWhoisPrivacy`     | `POST /{account}/registrar/domains/{domain}/whois_privacy/renewals` | WHOIS privacy no longer requires renewal |
-
 ## Endpoint Coverage Matrix
 
-Legend: ✅ = implemented, ❌ = missing. `getWhoisPrivacy`, `getDomainPremiumPrice` and `renewWhoisPrivacy` are omitted (see above).
+Legend: ✅ = implemented, ❌ = missing.
 
 | operationId                            | C# | Elixir | Go | Java | Node | PHP | Python | Ruby | Rust |
 |----------------------------------------|:--:|:------:|:--:|:----:|:----:|:---:|:------:|:----:|:----:|
@@ -357,4 +347,3 @@ Missing in:
 
 - The `updateZoneNsRecords` endpoint (`PUT /{account}/zones/{zone}/ns_records`) is present in `openapi.yml` and implemented in the Node client, but was not tracked in the previous INCONSISTENCIES report. It is the only new gap surfaced by this audit.
 - The Node client is now the most complete, having picked up all seven Secondary DNS endpoints and `updateZoneNsRecords`. Its remaining gaps are `domainRestore`, `getDomainRestore`, `batchChangeZoneRecords`, and `queryDnsAnalytics`.
-- The deprecated `getDomainPremiumPrice`, `getWhoisPrivacy` (GET) and `renewWhoisPrivacy` operations were not found in any client's source tree. Clients that previously shipped them (e.g. earlier C# releases) have already removed them.
