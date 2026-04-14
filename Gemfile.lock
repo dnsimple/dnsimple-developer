@@ -124,7 +124,7 @@ GEM
       method_source (~> 1.0)
       reline (>= 0.6.0)
     public_suffix (7.0.5)
-    puma (7.2.0)
+    puma (8.0.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.6)
@@ -171,7 +171,7 @@ DEPENDENCIES
   nanoc-dart-sass
   nanoc-live
   nokogiri (~> 1.19)
-  puma (~> 7.2)
+  puma (~> 8.0)
   rake (~> 13.3)
   rouge
   systemu
