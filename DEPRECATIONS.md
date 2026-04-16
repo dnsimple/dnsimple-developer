@@ -30,15 +30,15 @@ The `contact_id` field in Certificate schema has been deprecated. It is no longe
 
 **Client Status:**
 
-- Ruby: [In progress](https://github.com/dnsimple/dnsimple-ruby/pull/465)
-- Go: [In progress](https://github.com/dnsimple/dnsimple-go/pull/256)
-- Elixir: [In progress](https://github.com/dnsimple/dnsimple-elixir/pull/328)
-- Node.js: [In progress](https://github.com/dnsimple/dnsimple-node/pull/285)
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/465)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/256)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/328)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/285)
 - Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/146)
-- C#: [In progress](https://github.com/dnsimple/dnsimple-csharp/pull/236)
-- PHP: [In progress](https://github.com/dnsimple/dnsimple-php/pull/164)
-- Python: [In progress](https://github.com/dnsimple/dnsimple-python/pull/501)
-- Rust: [In progress](https://github.com/dnsimple/dnsimple-rust/pull/108)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/236)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/164)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/501)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/108)
 
 ### 2021-01-25 - Email forwarding `from` field
 
