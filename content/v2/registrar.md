@@ -12,7 +12,7 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 ## Check domain {#checkDomain}
 
 > [!WARNING]
-> This API endpoint has stricter limits in place to avoid a high volume of requests. This endpoint should be used only to check a domain's state before issuing a domain registration or a domain transfer. For other use cases, we recommend using other services like [Domainr](https://domainr.com/).
+> This API endpoint has stricter rate limits in place to avoid a high volume of requests. It should be used only to check a domain's state before issuing a domain registration or a domain transfer. For high-volume availability lookups, use the [Domain Research API](/v2/domains/research/#getDomainsResearchStatus) instead, which is designed for that use case and requires dedicated paid access. [Contact sales](https://dnsimple.com/sales) to request access.
 
 Checks a domain name for availability.
 
