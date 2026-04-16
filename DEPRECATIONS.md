@@ -22,23 +22,23 @@ The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to
 
 ### 2022-05-17 - Certificate contact_id field
 
-The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations and its value is ignored on input. The field is still emitted on responses for backwards compatibility.
+The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations and its value is ignored on input.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-04-16
 
 **Replacement:** None. This field is no longer required.
 
 **Client Status:**
 
-- Ruby: Flagged ([#276](https://github.com/dnsimple/dnsimple-ruby/pull/276))
-- Go: Flagged
-- Elixir: Not started
-- Node.js: Not started
+- Ruby: In progress
+- Go: In progress
+- Elixir: In progress
+- Node.js: In progress
 - Java: Complete
-- C#: Flagged
-- PHP: Flagged
-- Python: Flagged
-- Rust: Flagged (tracked in [dnsimple-rust#105](https://github.com/dnsimple/dnsimple-rust/issues/105))
+- C#: In progress
+- PHP: In progress
+- Python: In progress
+- Rust: In progress
 
 ### 2021-01-25 - Email forwarding `from` field
 
