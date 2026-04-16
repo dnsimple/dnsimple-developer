@@ -52,11 +52,11 @@ The `from` field in Email Forward schema has been renamed to `alias_email` for c
 
 - Ruby: Complete
 - Go: Complete
-- Elixir: Flagged (still present in `EmailForward` defstruct)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/TBD)
 - Node.js: Complete
 - Java: Complete
 - C#: Complete
-- PHP: Flagged (still exposed as `$from` on the `EmailForward` struct)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/TBD)
 - Python: Complete
 - Rust: Complete
 
@@ -72,11 +72,11 @@ The `to` field in Email Forward schema has been renamed to `destination_email` f
 
 - Ruby: Complete
 - Go: Complete
-- Elixir: Flagged (still present in `EmailForward` defstruct)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/TBD)
 - Node.js: Complete
 - Java: Complete
 - C#: Complete
-- PHP: Flagged (still exposed as `$to` on the `EmailForward` struct)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/TBD)
 - Python: Complete
 - Rust: Complete
 
