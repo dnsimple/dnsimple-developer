@@ -22,23 +22,23 @@ The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to
 
 ### 2022-05-17 - Certificate contact_id field
 
-The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations and its value is ignored on input. The field is still emitted on responses for backwards compatibility.
+The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations and its value is ignored on input.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-04-16
 
 **Replacement:** None. This field is no longer required.
 
 **Client Status:**
 
-- Ruby: Flagged ([#276](https://github.com/dnsimple/dnsimple-ruby/pull/276))
-- Go: Flagged
-- Elixir: Not started
-- Node.js: Not started
-- Java: Complete
-- C#: Flagged
-- PHP: Flagged
-- Python: Flagged
-- Rust: Flagged (tracked in [dnsimple-rust#105](https://github.com/dnsimple/dnsimple-rust/issues/105))
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/465)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/256)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/328)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/285)
+- Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/146)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/236)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/164)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/501)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/108)
 
 ### 2021-01-25 - Email forwarding `from` field
 

@@ -3688,7 +3688,6 @@ components:
       required:
         - id
         - domain_id
-        - contact_id
         - name
         - common_name
         - years
@@ -3706,9 +3705,6 @@ components:
           type: integer
         domain_id:
           type: integer
-        contact_id:
-          type: integer
-          deprecated: true
         name:
           type: string
         common_name:
