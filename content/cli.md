@@ -88,6 +88,16 @@ make build
 
 The compiled binary is written to the `bin/` directory.
 
+## AI-focused design
+
+The DNSimple CLI is designed to work well for both humans and AI agents. Commands have predictable names, consistent flags, structured JSON output, and explicit context controls so agents can inspect account state before making changes.
+
+Use `dnsimple ai` inside an agent workflow to load the installed CLI context before asking the agent to write or run automation. For example, start with this instruction:
+
+> Load context from the `dnsimple ai` command.
+
+The command prints an AI-friendly description of available commands, flags, and common workflows. This helps an agent choose the right command, understand authentication and sandbox behavior, and avoid inventing unsupported CLI options.
+
 ## Authentication
 
 The CLI uses authentication contexts. A context stores the API token, account, and environment for later commands. You can keep multiple contexts, such as one for production and one for sandbox, and switch between them.
