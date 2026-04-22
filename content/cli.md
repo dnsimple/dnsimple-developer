@@ -1,6 +1,6 @@
 ---
 title: DNSimple CLI
-excerpt: Install and use the official DNSimple command-line interface for domains, DNS zones, records, certificates, webhooks, and account automation.
+excerpt: Install and use the official DNSimple command-line interface for registering domains, managing DNS zones, and more automation.
 ---
 
 # DNSimple CLI
@@ -160,6 +160,62 @@ dnsimple \
 
 The override chain is field-by-field: command flags take precedence, then matching environment variables, then the active stored context.
 
+## Output formats
+
+By default, commands print readable tables. Use `--json` for structured output:
+
+```shell
+dnsimple domains list --json
+dnsimple records list example.com --type A --json
+```
+
+JSON output preserves the API wrapper shape, including top-level `data` and optional `pagination` keys.
+
+Use `--format` for custom Go templates. The template is evaluated against the unwrapped resource data:
+
+```shell
+dnsimple domains get example.com --format '{{.Name}}'
+
+dnsimple domains list \
+  --format '{{range .}}{{.Name}}{{printf "\n"}}{{end}}'
+```
+
+To discover the available fields for a command, inspect the same command with `--json` and use the fields under `data`.
+
+## Sandbox
+
+Use Sandbox before running changes against production. Sandbox has a separate application, separate API host, and separate tokens:
+
+```shell
+dnsimple auth login --sandbox --name sandbox
+dnsimple --context sandbox domains list
+```
+
+You can also make one command use Sandbox without storing a context:
+
+```shell
+DNSIMPLE_TOKEN="$SANDBOX_TOKEN" dnsimple --sandbox --account 1010 zones list
+```
+
+Production tokens do not work in Sandbox, and Sandbox tokens do not work in production.
+
+## Shell completion
+
+Generate completion scripts for your shell:
+
+```shell
+dnsimple completion bash
+dnsimple completion zsh
+dnsimple completion fish
+dnsimple completion powershell
+```
+
+For quick loading examples, run:
+
+```shell
+dnsimple completion --help
+```
+
 ## Common workflows
 
 ### Inspect your account
@@ -181,7 +237,7 @@ dnsimple records list example.com --type A --name www
 dnsimple records list example.com --name-like api --all
 ```
 
-### Add DNS for a domain
+### Add DNS records for a zone
 
 This flow creates a hosted domain, activates DNS for its zone, and adds a record:
 
@@ -198,7 +254,7 @@ dnsimple records create example.com \
 
 `example.com` is both the domain name and the zone name. Use the same value with `domains`, `zones`, and `records` commands.
 
-### Update records safely
+### Update DNS records for a zone
 
 List the records first, copy the record ID you want to change, then update or delete that record:
 
@@ -271,70 +327,3 @@ dnsimple webhooks delete 12345
 ```
 
 See the [webhooks documentation](/v2/webhooks/webhooks/) for event payloads and delivery behavior.
-
-## Output formats
-
-By default, commands print readable tables. Use `--json` for structured output:
-
-```shell
-dnsimple domains list --json
-dnsimple records list example.com --type A --json
-```
-
-JSON output preserves the API wrapper shape, including top-level `data` and optional `pagination` keys.
-
-Use `--format` for custom Go templates. The template is evaluated against the unwrapped resource data:
-
-```shell
-dnsimple domains get example.com --format '{{.Name}}'
-
-dnsimple domains list \
-  --format '{{range .}}{{.Name}}{{printf "\n"}}{{end}}'
-```
-
-To discover the available fields for a command, inspect the same command with `--json` and use the fields under `data`.
-
-## Sandbox
-
-Use Sandbox before running changes against production. Sandbox has a separate application, separate API host, and separate tokens:
-
-```shell
-dnsimple auth login --sandbox --name sandbox
-dnsimple --context sandbox domains list
-```
-
-You can also make one command use Sandbox without storing a context:
-
-```shell
-DNSIMPLE_TOKEN="$SANDBOX_TOKEN" dnsimple --sandbox --account 1010 zones list
-```
-
-Production tokens do not work in Sandbox, and Sandbox tokens do not work in production.
-
-## Shell completion
-
-Generate completion scripts for your shell:
-
-```shell
-dnsimple completion bash
-dnsimple completion zsh
-dnsimple completion fish
-dnsimple completion powershell
-```
-
-For quick loading examples, run:
-
-```shell
-dnsimple completion --help
-```
-
-## AI-assisted workflows
-
-The CLI can print structured command, flag, and workflow context for AI tools:
-
-```shell
-dnsimple ai
-dnsimple ai | pbcopy
-```
-
-Use this when you want an assistant or agent to understand the installed CLI surface before writing a script.
