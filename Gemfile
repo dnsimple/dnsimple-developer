@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rake", "~> 13.3"
+gem "rake", "~> 13.4"
 gem "nanoc", "~> 4.14"
 gem "builder"
 gem "kramdown"
