@@ -208,9 +208,9 @@ For quick loading examples, run:
 dnsimple completion --help
 ```
 
-## Common workflows
+## Key commands
 
-### Inspect your account
+### Querying your account
 
 Start with read-only commands to confirm which account and environment you are using:
 
