@@ -89,6 +89,12 @@ pre {
   border: 1px solid var(--surface2);
 }
 
+blockquote {
+  background: var(--surface1);
+  border-left-color: var(--primary);
+  color: var(--element1);
+}
+
 input {
   background: var(--elementInverse);
   color: var(--element1);

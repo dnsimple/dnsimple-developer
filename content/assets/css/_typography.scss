@@ -41,7 +41,7 @@ h5 {
   font-size: 15px;
 }
 
-p, pre, table {
+p, pre, table, blockquote {
   margin: 0 0 math.div($base-unit, 1.5) 0;
 }
 
@@ -74,5 +74,19 @@ pre {
     padding: 0;
     background: transparent;
     font-family: $font-monospace;
+  }
+}
+
+blockquote {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid;
+  border-radius: 4px;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
   }
 }
