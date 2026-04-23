@@ -24,7 +24,7 @@ dnsimple whoami
 dnsimple domains list
 ```
 
-Create your API token from the DNSimple application:
+Create your [API token](https://support.dnsimple.com/articles/api-access-token/) from the DNSimple application:
 
 - Production tokens: [dnsimple.com/user](https://dnsimple.com/user)
 - Sandbox tokens: [sandbox.dnsimple.com/user](https://sandbox.dnsimple.com/user)
