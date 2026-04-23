@@ -5,7 +5,7 @@ excerpt: Install and use the official DNSimple command-line interface for regist
 
 # DNSimple CLI
 
-The DNSimple CLI brings the [DNSimple API v2](/v2/) to your terminal. Use it to inspect accounts, manage domains and DNS records, work with certificates, test against the [Sandbox](/sandbox/), and build scripts without writing raw HTTP requests.
+The DNSimple CLI brings the [DNSimple API](/v2/) to your terminal. Use it to inspect accounts, manage domains and DNS records, work with certificates, test against the [Sandbox](/sandbox/), and build scripts without writing raw HTTP requests.
 
 * TOC
 {:toc}
