@@ -14,20 +14,12 @@ The DNSimple CLI brings the [DNSimple API v2](/v2/) to your terminal. Use it to 
 
 ## Quick start
 
-Install the CLI, authenticate with an API token, then run your first command:
-
-```shell
-brew install dnsimple/tap/dnsimple
-
-dnsimple auth login
-dnsimple whoami
-dnsimple domains list
-```
-
 Create your [API token](https://support.dnsimple.com/articles/api-access-token/) from the DNSimple application:
 
 - Production tokens: [dnsimple.com/user](https://dnsimple.com/user)
 - Sandbox tokens: [sandbox.dnsimple.com/user](https://sandbox.dnsimple.com/user)
+
+Install the CLI, using one of the methods below. Then run `dnsimple auth login` to login using the auth token. If you are logging into a Sandbox environment, run `dnsimple auth login --sandbox`.
 
 The CLI currently supports API token authentication, including classic and scoped API tokens.
 
