@@ -142,7 +142,7 @@ Name | Type | Description
 -----|------|------------
 `registrant_id` | `integer` | **Required**. The ID of an existing [contact](/v2/contacts/#contact-attributes) in your account.
 `whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the registration. An extra cost may apply. Default: `false`.
-`trustee_service` | `bool` | Set to true to enable trustee service as part of the registration. An extra cost may apply. Default: `false`.
+`trustee` | `bool` | Set to true to enable trustee service as part of the registration. An extra cost may apply. Default: `false`.
 `linked_provider` | `string` | When set to the nickname of a linked provider, registration of the domain will go through that provider. Otherwise, registration of the domain will go through DNSimple.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `false`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
@@ -159,7 +159,7 @@ Name | Type | Description
 ```json
 {
   "registrant_id": 1,
-  "trustee_service": true
+  "trustee": true
 }
 ```
 
@@ -260,7 +260,7 @@ Name | Type | Description
 `auth_code` | `string` | **Required** for TLDS that require authorization-based transfer (the vast majority of TLDs).
 `whois_privacy` | `bool` | Set to true will attempt to purchase/enable the whois privacy as part of the transfer. An extra cost may apply. Default: `false`.
 `auto_renew` | `bool` | Set to true to enable the auto-renewal of the domain. Default: `false`.
-`trustee_service` | `bool` | Set to true to enable trustee service as part of the transfer. An extra cost may apply. Default: `false`.
+`trustee` | `bool` | Set to true to enable trustee service as part of the transfer. An extra cost may apply. Default: `false`.
 `extended_attributes` | `hash` | **Required** for TLDs that require [extended attributes](/v2/tlds/#getTldExtendedAttributes).
 `premium_price` | `string` | **Required** as confirmation of the price, only if the domain is premium.
 

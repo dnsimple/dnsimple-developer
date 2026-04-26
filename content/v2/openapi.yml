@@ -4135,7 +4135,7 @@ components:
         - auto_renew
         - private_whois
         - expires_at
-        - trustee_service
+        - trustee
         - created_at
         - updated_at
       example:
@@ -4148,7 +4148,7 @@ components:
         auto_renew: false
         private_whois: false
         expires_at: null
-        trustee_service: false
+        trustee: false
         created_at: '2014-12-06T15:56:55Z'
         updated_at: '2015-12-09T00:20:56Z'
       properties:
@@ -4174,7 +4174,7 @@ components:
           type: boolean
         expires_at:
           $ref: '#/components/schemas/NullableDateTime'
-        trustee_service:
+        trustee:
           type: boolean
         expires_on:
           $ref: '#/components/schemas/Date'
@@ -4188,7 +4188,7 @@ components:
         - domain
         - available
         - premium
-        - trustee_service
+        - trustee
       properties:
         domain:
           type: string
@@ -4199,14 +4199,14 @@ components:
         premium:
           type: boolean
           description: 'True if the domain is a premium domain and thus will have a non-standard registration, renewal, and/or transfer fee.'
-        trustee_service:
+        trustee:
           type: boolean
           description: 'True if trustee service is enabled for this domain.'
       example:
         domain: ruby.codes
         available: true
         premium: true
-        trustee_service: true
+        trustee: true
     DomainNameServer:
       type: string
     DomainPrices:
@@ -4261,7 +4261,7 @@ components:
         - state
         - auto_renew
         - whois_privacy
-        - trustee_service
+        - trustee
         - created_at
         - updated_at
       properties:
@@ -4287,7 +4287,7 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
-        trustee_service:
+        trustee:
           type: boolean
         created_at:
           $ref: '#/components/schemas/DateTimeCreatedAt'
@@ -4301,7 +4301,7 @@ components:
         state: new
         auto_renew: false
         whois_privacy: false
-        trustee_service: false
+        trustee: false
         created_at: '2016-12-09T19:35:31Z'
         updated_at: '2016-12-09T19:35:31Z'
     DomainResearch:
@@ -4411,7 +4411,7 @@ components:
         - state
         - auto_renew
         - whois_privacy
-        - trustee_service
+        - trustee
         - created_at
         - updated_at
       properties:
@@ -4433,7 +4433,7 @@ components:
           type: boolean
         whois_privacy:
           type: boolean
-        trustee_service:
+        trustee:
           type: boolean
         status_description:
           type: string
@@ -4448,7 +4448,7 @@ components:
         state: transferring
         auto_renew: false
         whois_privacy: false
-        trustee_service: false
+        trustee: false
         created_at: '2016-12-09T19:43:41Z'
         updated_at: '2016-12-09T19:43:43Z'
     DomainTransferLock:
@@ -6229,7 +6229,7 @@ components:
             auto_renew: false
             private_whois: false
             expires_at: null
-            trustee_service: false
+            trustee: false
             created_at: '2014-12-06T15:56:55Z'
             updated_at: '2015-12-09T00:20:56Z'
         account:
@@ -6879,7 +6879,7 @@ components:
               auto_renew:
                 type: boolean
                 description: 'Set to true to enable the auto-renewal of the domain. Default: false.'
-              trustee_service:
+              trustee:
                 type: boolean
                 description: 'Set to true will attempt to purchase/enable trustee service as part of the registration. An extra cost may apply. Default: false.'
               extended_attributes:
@@ -6893,7 +6893,7 @@ components:
                 description: 'The nickname of a linked provider to register the domain through. If left blank, registration will go through DNSimple.'
             example:
               registrant_id: 1
-              trustee_service: true
+              trustee: true
     DomainRenew:
       description: Domain renewal attributes
       required: true
@@ -6946,7 +6946,7 @@ components:
               auto_renew:
                 type: boolean
                 description: 'Set to true to enable the auto-renewal of the domain. Default: false.'
-              trustee_service:
+              trustee:
                 type: boolean
                 description: 'Set to true to use a trustee service for the transfer. An extra cost may apply. Default: false.'
               extended_attributes:
