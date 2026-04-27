@@ -4195,7 +4195,7 @@ components:
           type: number
           format: float
           description: The domain restore price represented as a USD amount with dollars and cents.
-        trustee_service_price:
+        trustee_price:
           type: number
           format: float
           description: The trustee service price represented as a USD amount with dollars and cents.
@@ -4205,7 +4205,7 @@ components:
         registration_price: 12.0
         renewal_price: 15.0
         restore_price: 25.0
-        trustee_service_price: 10.0
+        trustee_price: 10.0
     DomainRegistration:
       type: object
       required:
