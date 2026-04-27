@@ -20,31 +20,31 @@ The endpoint `GET /:account/registrar/domains/:domain/premium_price` was used to
 - Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/483)
 - Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/86)
 
-### 2022-06-01 - Certificate contact_id field
+### 2022-05-17 - Certificate contact_id field
 
-The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations.
+The `contact_id` field in Certificate schema has been deprecated. It is no longer a required field for certificate operations and its value is ignored on input.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-04-16
 
 **Replacement:** None. This field is no longer required.
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Flagged
-- Elixir: Not started
-- Node.js: Not started
-- Java: Complete
-- C#: Flagged
-- PHP: Flagged
-- Python: Flagged
-- Rust: Flagged
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/465)
+- Go: [Complete](https://github.com/dnsimple/dnsimple-go/pull/256)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/328)
+- Node.js: [Complete](https://github.com/dnsimple/dnsimple-node/pull/285)
+- Java: [Complete](https://github.com/dnsimple/dnsimple-java/pull/146)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/236)
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/164)
+- Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/501)
+- Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/108)
 
 ### 2021-01-25 - Email forwarding `from` field
 
-The `from` field in Email Forward schema has been renamed to `alias_email` for clarity.
+The `from` field in Email Forward schema has been renamed to `alias_email` for clarity. The server stopped emitting the field on responses on 2026-02-24 and stopped accepting it as input on 2026-03-03. Clients that still expose `from` will see it as null/unset.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-03-03 (Completed)
 
 **Replacement:** Use `alias_email` instead.
 
@@ -52,19 +52,19 @@ The `from` field in Email Forward schema has been renamed to `alias_email` for c
 
 - Ruby: Complete
 - Go: Complete
-- Elixir: Not started
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/329)
 - Node.js: Complete
 - Java: Complete
 - C#: Complete
-- PHP: Not started
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/165)
 - Python: Complete
 - Rust: Complete
 
 ### 2021-01-25 - Email forwarding `to` field
 
-The `to` field in Email Forward schema has been renamed to `destination_email` for clarity.
+The `to` field in Email Forward schema has been renamed to `destination_email` for clarity. The server stopped emitting the field on responses on 2026-02-24 and stopped accepting it as input on 2026-03-03. Clients that still expose `to` will see it as null/unset.
 
-**Removal Date:** N/A
+**Removal Date:** 2026-03-03 (Completed)
 
 **Replacement:** Use `destination_email` instead.
 
@@ -72,11 +72,11 @@ The `to` field in Email Forward schema has been renamed to `destination_email` f
 
 - Ruby: Complete
 - Go: Complete
-- Elixir: Not started
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/329)
 - Node.js: Complete
 - Java: Complete
 - C#: Complete
-- PHP: Not started
+- PHP: [Complete](https://github.com/dnsimple/dnsimple-php/pull/165)
 - Python: Complete
 - Rust: Complete
 
@@ -120,6 +120,26 @@ The endpoint `POST /:account/registrar/domains/:domain/whois_privacy/renewals` w
 - Python: [Complete](https://github.com/dnsimple/dnsimple-python/pull/484)
 - Rust: [Complete](https://github.com/dnsimple/dnsimple-rust/pull/87)
 
+### 2025-03-19 - DomainCollaborators endpoints
+
+The `/domains/:domain/collaborators` endpoints (list, add, remove) have been removed. The server returns HTTP 410 Gone for all collaborator endpoints.
+
+**Removal Date:** 2025-03-19 (Completed)
+
+**Replacement:** Use the Domain Access Control feature.
+
+**Client Status:**
+
+- Ruby: [Complete](https://github.com/dnsimple/dnsimple-ruby/pull/430) (11.0.0)
+- Go: Complete (5.0.0)
+- Elixir: [Complete](https://github.com/dnsimple/dnsimple-elixir/pull/285) (7.0.0)
+- Node.js: Complete (10.0.0)
+- Java: Complete (3.0.0)
+- C#: [Complete](https://github.com/dnsimple/dnsimple-csharp/pull/182) (0.20.0)
+- PHP: Complete (4.0.0)
+- Python: Complete (5.0.0)
+- Rust: Complete (3.0.0)
+
 ### 2025-11-13 - Domain push `new_account_email` field
 
 The `new_account_email` field in Domain Push request has been deprecated in favor of `new_account_identifier`, which provides more flexibility in identifying the target account.
@@ -130,15 +150,15 @@ The `new_account_email` field in Domain Push request has been deprecated in favo
 
 **Client Status:**
 
-- Ruby: Not started
-- Go: Not started
-- Elixir: Not started
-- Node.js: Not started
-- Java: Not started
-- C#: Not started
-- PHP: Not started
-- Python: Not started
-- Rust: Not started
+- Ruby: [Flagged](https://github.com/dnsimple/dnsimple-ruby/pull/462)
+- Go: [Flagged](https://github.com/dnsimple/dnsimple-go/pull/250) (8.3.0)
+- Elixir: [Flagged](https://github.com/dnsimple/dnsimple-elixir/pull/324)
+- Node.js: [Flagged](https://github.com/dnsimple/dnsimple-node/pull/280)
+- Java: [Flagged](https://github.com/dnsimple/dnsimple-java/pull/243)
+- C#: [Flagged](https://github.com/dnsimple/dnsimple-csharp/pull/230) (1.3.0)
+- PHP: [Flagged](https://github.com/dnsimple/dnsimple-php/pull/161)
+- Python: [Flagged](https://github.com/dnsimple/dnsimple-python/pull/497)
+- Rust: [Flagged](https://github.com/dnsimple/dnsimple-rust/pull/102) (5.3.0)
 
 ## Status Legend
 

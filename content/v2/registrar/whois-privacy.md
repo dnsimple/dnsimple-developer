@@ -14,11 +14,6 @@ Enable and disable WHOIS privacy on registered domains.
 > Now you can enable WHOIS Privacy protection for any of your domains any time. As long as the domain is registered with us, and the TLD (Top Level Domain) supports WHOIS Privacy, the WHOIS Privacy service will stay enabled unless you disable it.
 
 
-## Retrieve the domain WHOIS privacy {#getWhoisPrivacy}
-
-> [!WARNING]
-> This endpoint has been deprecated and removed. Use [retrieve domain](/v2/domains/#getDomain) instead.
-
 ## Enable WHOIS privacy {#enableWhoisPrivacy}
 
       PUT /:account/registrar/domains/:domain/whois_privacy
@@ -94,8 +89,3 @@ Responds with HTTP 200 if WHOIS privacy is disabled.
 Responds with [HTTP 400](/v2/#bad-request) if WHOIS privacy cannot be disabled.
 
 Responds with [HTTP 401](/v2/#unauthorized) in case of case of authentication issues.
-
-## Renew WHOIS privacy {#renewWhoisPrivacy}
-
-> [!WARNING]
-> This endpoint has been deprecated and removed. WHOIS privacy no longer requires renewal.

@@ -18,6 +18,9 @@ Research a domain name for availability and registration status information.
 
 This endpoint provides information about a domain's availability status, including whether it's available for registration, already registered, or has other restrictions that prevent registration.
 
+> [!NOTE]
+> This endpoint is designed for high-volume domain availability lookups and requires dedicated paid access. [Contact sales](https://dnsimple.com/sales) to request access. If you only need to check a domain's state before issuing a registration or transfer, use the [Check domain](/v2/registrar/#checkDomain) endpoint instead, which is rate-limited and intended for low-volume use.
+
 ~~~
 GET /:account/domains/research/status
 ~~~

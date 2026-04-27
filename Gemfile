@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-gem "rake", "~> 13.3"
+gem "rake", "~> 13.4"
 gem "nanoc", "~> 4.14"
 gem "builder"
 gem "kramdown"
 gem "kramdown-parser-gfm", github: "weppos/kramdown-parser-extended"
 gem "mime-types"
 gem "nokogiri", "~> 1.19"
-gem "puma", "~> 7.2"
+gem "puma", "~> 8.0"
 gem "rouge"
 gem "systemu"
 

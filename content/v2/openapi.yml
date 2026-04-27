@@ -1023,20 +1023,6 @@ paths:
                   data:
                     $ref: '#/components/schemas/DomainCheckResult'
       summary: Check domain
-  '/{account}/registrar/domains/{domain}/premium_price':
-    get:
-      deprecated: true
-      description: 'This endpoint has been deprecated and removed. Use getDomainPrices instead.'
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: getDomainPremiumPrice
-      tags:
-        - registrar
-      responses:
-        '410':
-          description: This endpoint has been removed.
-      summary: Get domain premium price (deprecated)
   '/{account}/registrar/domains/{domain}/prices':
     get:
       description: Retrieve domain prices.
@@ -1527,19 +1513,6 @@ paths:
           $ref: '#/components/responses/404'
       summary: Disable domain auto-renewal
   '/{account}/registrar/domains/{domain}/whois_privacy':
-    get:
-      deprecated: true
-      description: 'This endpoint has been deprecated and removed. Use getDomain instead.'
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: getWhoisPrivacy
-      tags:
-        - registrar privacy
-      responses:
-        '410':
-          description: This endpoint has been removed.
-      summary: WHOIS privacy status (deprecated)
     put:
       description: |-
         Enables the WHOIS privacy for the domain.
@@ -1597,20 +1570,6 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       summary: Disable WHOIS privacy
-  '/{account}/registrar/domains/{domain}/whois_privacy/renewals':
-    post:
-      deprecated: true
-      description: 'This endpoint has been deprecated and removed. WHOIS privacy no longer requires renewal.'
-      parameters:
-        - $ref: '#/components/parameters/Account'
-        - $ref: '#/components/parameters/Domain'
-      operationId: renewWhoisPrivacy
-      tags:
-        - registrar privacy
-      responses:
-        '410':
-          description: This endpoint has been removed.
-      summary: Renew WHOIS privacy (deprecated)
   '/{account}/secondary_dns/primaries':
     get:
       summary: List primary servers
@@ -3729,7 +3688,6 @@ components:
       required:
         - id
         - domain_id
-        - contact_id
         - name
         - common_name
         - years
@@ -3747,9 +3705,6 @@ components:
           type: integer
         domain_id:
           type: integer
-        contact_id:
-          type: integer
-          deprecated: true
         name:
           type: string
         common_name:

@@ -12,7 +12,7 @@ excerpt: This page documents the DNSimple registry/registrar API v2.
 ## Check domain {#checkDomain}
 
 > [!WARNING]
-> This API endpoint has stricter limits in place to avoid a high volume of requests. This endpoint should be used only to check a domain's state before issuing a domain registration or a domain transfer. For other use cases, we recommend using other services like [Domainr](https://domainr.com/).
+> This API endpoint has stricter rate limits in place to avoid a high volume of requests. It should be used only to check a domain's state before issuing a domain registration or a domain transfer. For high-volume availability lookups, use the [Domain Research API](/v2/domains/research/#getDomainsResearchStatus) instead, which is designed for that use case and requires dedicated paid access. [Contact sales](https://dnsimple.com/sales) to request access.
 
 Checks a domain name for availability.
 
@@ -54,11 +54,6 @@ Responds with HTTP 200 on success, returns the domain availability information.
 Responds with [HTTP 400](/v2/#bad-request) if the domain availability cannot be checked.
 
 Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
-
-## Check domain premium price {#getDomainPremiumPrice}
-
-> [!WARNING] Deprecated since 18 May 2021
-> This endpoint has been deprecated and removed. Use [getDomainPrices](#getDomainPrices) instead.
 
 ## Retrieve domain prices {#getDomainPrices}
 
