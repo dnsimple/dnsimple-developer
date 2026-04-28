@@ -67,14 +67,14 @@ dnsimple --version
 If you are developing or testing the CLI itself, install from source with Go 1.25 or newer:
 
 ```shell
-go install github.com/dnsimple/dnsimple-cli/cmd/dnsimple@latest
+go install github.com/dnsimple/cli/cmd/dnsimple@latest
 ```
 
 Or build from a local checkout:
 
 ```shell
-git clone https://github.com/dnsimple/dnsimple-cli.git
-cd dnsimple-cli
+git clone https://github.com/dnsimple/cli.git
+cd cli
 make build
 ```
 
