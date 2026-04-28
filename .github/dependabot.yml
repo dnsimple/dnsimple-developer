@@ -10,7 +10,7 @@ updates:
       - task
       - dependencies
     groups:
-      bundler-patch:
+      ruby-patch:
         update-types:
           - patch
 
@@ -40,6 +40,6 @@ updates:
     cooldown:
       default-days: 3
     groups:
-      npm-patch:
+      javascript-patch:
         update-types:
           - patch
