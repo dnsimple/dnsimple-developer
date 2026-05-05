@@ -5,7 +5,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@redocly/cli": "^2.30.0",
+    "@redocly/cli": "^2.30.3",
     "concurrently": "^9.2.1",
     "copy-webpack-plugin": "^14.0.0",
     "eslint": "^10.3.0",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^18.0.2"
+    "marked": "^18.0.3"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
