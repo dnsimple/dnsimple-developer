@@ -4887,7 +4887,7 @@ components:
           $ref: '#/components/schemas/Domain'
     EventDomainRegistrationStateChange:
       type: object
-      description: Prior and new domain registration states for a domain.update
+      description: Prior and new domain registration states for a domain.state_change webhook
       required: [from, to]
       properties:
         from:
@@ -4896,9 +4896,9 @@ components:
         to:
           type: string
           enum: [hosted, registered, expired]
-    EventDomainUpdate:
+    EventDomainStateChange:
       type: object
-      description: Payload for domain.update.
+      description: Payload for domain.state_change.
       required: [domain, state_change, reason]
       properties:
         domain:
@@ -6056,7 +6056,7 @@ components:
             - domain.transfer_lock_enable
             - domain.transfer:cancelled
             - domain.transfer:started
-            - domain.update
+            - domain.state_change
             - email_forward.create
             - email_forward.delete
             - email_forward.update
@@ -6151,7 +6151,7 @@ components:
             - $ref: '#/components/schemas/EventDomainTransferLockDisable'
             - $ref: '#/components/schemas/EventDomainTransferLockEnable'
             - $ref: '#/components/schemas/EventDomainTransferStarted'
-            - $ref: '#/components/schemas/EventDomainUpdate'
+            - $ref: '#/components/schemas/EventDomainStateChange'
             - $ref: '#/components/schemas/EventEmailForwardCreate'
             - $ref: '#/components/schemas/EventEmailForwardDelete'
             - $ref: '#/components/schemas/EventEmailForwardUpdate'
