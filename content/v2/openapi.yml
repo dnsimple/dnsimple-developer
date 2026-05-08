@@ -4357,6 +4357,27 @@ components:
         state: new
         created_at: '2016-12-09T19:46:45Z'
         updated_at: '2016-12-09T19:46:45Z'
+    DomainStateChangeTransition:
+      type: object
+      description: Prior and new domain registration states and reason for a domain.state_change webhook
+      required: [from, to, reason]
+      properties:
+        from:
+          type: string
+          enum: [hosted, registered, expired]
+        to:
+          type: string
+          enum: [hosted, registered, expired]
+        reason:
+          type: string
+          enum:
+            - registration
+            - transfer_in
+            - expiration
+            - transfer_out
+            - renewal
+            - restoration
+            - registration_removed
     DomainTransfer:
       type: object
       required:
@@ -4885,27 +4906,6 @@ components:
       properties:
         domain:
           $ref: '#/components/schemas/Domain'
-    EventDomainRegistrationStateChange:
-      type: object
-      description: Prior and new domain registration states and reason for a domain.state_change webhook
-      required: [from, to, reason]
-      properties:
-        from:
-          type: string
-          enum: [hosted, registered, expired]
-        to:
-          type: string
-          enum: [hosted, registered, expired]
-        reason:
-          type: string
-          enum:
-            - registration
-            - transfer_in
-            - expiration
-            - transfer_out
-            - renewal
-            - restoration
-            - registration_removed
     EventDomainStateChange:
       type: object
       description: Payload for domain.state_change.
@@ -4914,7 +4914,7 @@ components:
         domain:
           $ref: '#/components/schemas/Domain'
         state_change:
-          $ref: '#/components/schemas/EventDomainRegistrationStateChange'
+          $ref: '#/components/schemas/DomainStateChangeTransition'
     EventEmailForwardActivate:
       type: object
       description: Payload for email_forward.activate
