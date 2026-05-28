@@ -1,0 +1,16 @@
+HTTP/1.1 429 Too Many Requests
+server: nginx
+date: Mon, 25 May 2026 14:22:18 GMT
+content-type: application/json; charset=utf-8
+content-length: 41
+retry-after: Mon, 01 Jun 2026 00:00:00 GMT
+x-ratelimit-limit: 2400
+x-ratelimit-remaining: 2391
+x-ratelimit-reset: 1779976938
+x-work-with-us: Love automation? So do we! https://dnsimple.com/jobs
+cache-control: no-cache
+x-request-id: 9d4a3b27-1f55-4b8c-9e6d-2a8c4b8e9b0a
+x-runtime: 0.012345
+strict-transport-security: max-age=63072000
+
+{"message":"Monthly request cap reached"}

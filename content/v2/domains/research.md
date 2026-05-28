@@ -25,6 +25,20 @@ This endpoint provides information about a domain's availability status, includi
 GET /:account/domains/research/status
 ~~~
 
+### Access
+
+Access is gated by the **Domain Research** subscription on the account.
+
+Access tokens used with this endpoint must include the `domain_research_read` scope.
+
+### Usage visibility
+
+The account's month-to-date Domain Research request count is shown in the **API Limits & Usage** card on the API tokens page in the DNSimple app.
+
+### Monthly request cap
+
+This endpoint has a monthly request cap that depends on your subscription. Once an account reaches its cap, further requests in the same calendar month respond with [HTTP 429](#errors) and a `Retry-After` header indicating when the cap resets.
+
 ### Parameters
 
 Name | Type | Description
@@ -76,3 +90,5 @@ Name | Type | Description
 Responds with [HTTP 400](/v2/#bad-request) if the domain research request is invalid.
 
 Responds with [HTTP 401](/v2/#unauthorized) in case of authentication issues.
+
+Responds with [HTTP 429](/v2/#too-many-requests) if the account has reached its [monthly request cap](#monthly-request-cap). The response includes a `Retry-After` header set to the time at which the cap resets.
