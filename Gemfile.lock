@@ -138,7 +138,8 @@ GEM
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
-    rouge (4.7.0)
+    rouge (5.0.0)
+      strscan (~> 3.1)
     ruby-progressbar (1.13.0)
     sass-embedded (1.99.0-arm64-darwin)
       google-protobuf (~> 4.31)
@@ -147,6 +148,7 @@ GEM
     slow_enumerator_tools (1.1.0)
     sorted_set (1.1.0)
       rbtree
+    strscan (3.1.8)
     systemu (2.6.5)
     tty-color (0.6.0)
     tty-command (0.10.1)
