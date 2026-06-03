@@ -156,7 +156,7 @@ paths:
                   account_id:
                     type: integer
         '400':
-          description: Invalid or expired code, invalid client credentials, or redirect_uri/state mismatch.
+          description: Invalid or expired authorization code, client_id mismatch, unsupported grant_type, or redirect_uri/state mismatch.
           content:
             application/json:
               schema:
@@ -164,7 +164,20 @@ paths:
                 properties:
                   error:
                     type: string
-                    description: Error code per OAuth 2.0 spec (e.g. invalid_request).
+                    description: Error code per OAuth 2.0 spec (invalid_grant or invalid_request).
+                  error_description:
+                    type: string
+                    description: Human-readable description of the error.
+        '401':
+          description: Client authentication failed, for example an incorrect client_secret.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error code per OAuth 2.0 spec (invalid_client).
                   error_description:
                     type: string
                     description: Human-readable description of the error.

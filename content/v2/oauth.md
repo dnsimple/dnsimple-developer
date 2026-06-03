@@ -78,6 +78,14 @@ You'll receive a JSON response. If the request is successful, the response will 
 <%= pretty_print_fixture("/api/oauthAccessToken/success.http") %>
 ```
 
+##### Error Responses
+
+If the request fails, you'll receive a JSON response with an `error` code and an `error_description`. The HTTP status and the `error` value depend on the failure:
+
+`invalid_grant`   | **HTTP 400**. The authorization `code` is unknown or expired, or it was not issued to the supplied `client_id`.
+`invalid_client`  | **HTTP 401**. Client authentication failed, for example an incorrect `client_secret`.
+`invalid_request` | **HTTP 400**. The request is otherwise invalid, for example an unsupported `grant_type` or a `redirect_uri` / `state` that does not match the original authorization request.
+
 ### Step 3 - API authentication
 
 The access token allows you to execute authenticated API requests on a behalf of the user account. When you'd like to make API calls to DNSimple, simply include the authorization header with each request.
