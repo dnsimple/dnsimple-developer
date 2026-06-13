@@ -19,9 +19,12 @@ Create your [API token](https://support.dnsimple.com/articles/api-access-token/)
 - Production tokens: [dnsimple.com/user](https://dnsimple.com/user)
 - Sandbox tokens: [sandbox.dnsimple.com/user](https://sandbox.dnsimple.com/user)
 
-Install the CLI, using one of the methods below. Then run `dnsimple auth login` to login using the auth token. If you are logging into a Sandbox environment, run `dnsimple auth login --sandbox`.
+Install the CLI, using one of the methods below. Then run `dnsimple auth login` to authenticate. If you are logging into a Sandbox environment, run `dnsimple auth login --sandbox`.
 
-The CLI currently supports API token authentication, including classic and scoped API tokens.
+You can authenticate in two ways:
+
+- **Browser login** (default): run `dnsimple auth login` to authorize the CLI in your browser, with no token to copy.
+- **API token**: run `dnsimple auth login --with-token` to paste or pipe a [classic or scoped API token](https://support.dnsimple.com/articles/api-access-token/).
 
 ## Installation
 
@@ -92,15 +95,45 @@ The command prints an AI-friendly description of available commands, flags, and 
 
 ## Authentication
 
-The CLI uses authentication contexts. A context stores the API token, account, and environment for later commands. You can keep multiple contexts, such as one for production and one for sandbox, and switch between them.
+The CLI uses authentication contexts. A context stores your credential, account, and environment for later commands. You can keep multiple contexts, such as one for production and one for sandbox, and switch between them.
+
+There are two ways to log in. Browser login is the default; API token login is available with `--with-token`. Both store the result as a context.
+
+### Browser login
+
+By default, `dnsimple auth login` authenticates in your browser. The CLI opens the DNSimple authorization page; once you approve, it completes the login automatically, with no token to copy or paste.
 
 ```shell
-# Log in to production.
+# Log in to production in the browser.
 dnsimple auth login
 
-# Log in to sandbox and store it as a separate context.
+# Log in to sandbox in the browser.
 dnsimple auth login --sandbox
+```
 
+Browser login uses the OAuth 2.0 Authorization Code grant with PKCE and a loopback redirect; see the [OAuth documentation](/v2/oauth/) for the underlying flow. If the CLI cannot open a browser, for example on a machine with no display server, it prints the authorization URL so you can open it manually and keeps waiting for the callback.
+
+Browser login runs only on an interactive terminal. When standard input is not a terminal, for example a token piped in CI, `dnsimple auth login` reads an API token from stdin instead (see [Token login](#token-login)).
+
+### Token login
+
+To authenticate with an API token instead of the browser, pass `--with-token`. On a terminal it prompts you to paste the token, with the input hidden; with piped input it reads the token from stdin. The CLI supports classic and scoped [API tokens](https://support.dnsimple.com/articles/api-access-token/).
+
+```shell
+# Paste a token when prompted (input is hidden).
+dnsimple auth login --with-token
+
+# Pipe a token from stdin, for example in CI.
+printf '%s' "$DNSIMPLE_TOKEN" | dnsimple auth login --with-token --name ci
+```
+
+You can also pipe a token to a plain `dnsimple auth login`: when standard input is not a terminal, it reads the token from stdin without `--with-token`.
+
+### Managing contexts
+
+List, switch, and inspect stored contexts:
+
+```shell
 # List stored contexts. The active context is marked with *.
 dnsimple auth list
 
@@ -116,12 +149,6 @@ Use `--name` to choose your own context name:
 ```shell
 dnsimple auth login --name work
 dnsimple auth login --sandbox --name sandbox-work
-```
-
-For scripts or machines where interactive prompts are not convenient, read a token from standard input:
-
-```shell
-printf '%s' "$DNSIMPLE_TOKEN" | dnsimple auth login --with-token --name ci
 ```
 
 Remove a stored context when you no longer need it:
@@ -182,6 +209,8 @@ Use Sandbox before running changes against production. Sandbox has a separate ap
 dnsimple auth login --sandbox --name sandbox
 dnsimple --context sandbox domains list
 ```
+
+Browser login works here too: `dnsimple auth login --sandbox` opens the Sandbox authorization page on `sandbox.dnsimple.com`.
 
 You can also make one command use Sandbox without storing a context:
 
