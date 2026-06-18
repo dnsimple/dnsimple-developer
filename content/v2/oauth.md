@@ -18,7 +18,7 @@ Developers need to register their application before getting started. A register
 - **Public clients** are native, mobile, single-page, or command-line apps that cannot keep a secret. They authenticate with [PKCE](https://www.rfc-editor.org/rfc/rfc7636) (Proof Key for Code Exchange) instead of a client secret. See [Native and CLI apps](#native-and-cli-apps-loopback-redirect-uris).
 
 > [!NOTE]
-> Creating a public OAuth application is currently available upon request. Contact DNSimple support to enable public clients for your account.
+> If you do not see a client type choice when you register an application, your account registers web apps (confidential clients) by default. Public clients can be enabled on request; contact DNSimple support to register one for your account.
 
 ## Web Application Flow
 
@@ -117,9 +117,6 @@ $ curl -H "Authorization: Bearer ACCESS-TOKEN" https://api.dnsimple.com/v2/whoam
 ## Native and CLI apps (loopback redirect URIs)
 
 Native applications such as command-line tools and desktop apps are public clients: they cannot keep a client secret, so they secure the flow with [PKCE](https://www.rfc-editor.org/rfc/rfc7636) and receive the authorization `code` on a loopback callback running on the local machine.
-
-> [!NOTE]
-> Creating a public OAuth application is currently available upon request. Contact DNSimple support to enable public clients for your account.
 
 Register a loopback callback URL as your application's redirect URI:
 
