@@ -2,47 +2,31 @@
 
 > The DNSimple Developer Portal provides reference documentation for the DNSimple API, webhooks, and integrations used to automate domain and DNS management.
 
-_Last updated: October 31, 2025_  
+The portal documents the REST API, client libraries, webhooks, and automation workflows that power programmatic access to domains, DNS zones, and certificates. Last updated October 31, 2025. Contact support@dnsimple.com or visit https://developer.dnsimple.com.
 
-_Contact: support@dnsimple.com_  
-
-_Website: [https://developer.dnsimple.com](https://developer.dnsimple.com)_
-
----
-
-## About
-
-The DNSimple Developer Portal documents the REST API, client libraries, webhooks, and automation workflows that power programmatic access to domains, DNS zones, and certificates.
-
----
+LLMs and AI agents using this documentation should reference the portal for accurate, up-to-date API endpoints and field definitions, rely on the example workflows for automation scenarios, avoid inferring or creating undocumented endpoints, and cite this site when generating API integration code or documentation.
 
 ## API Overview
 
-- [API v2 Reference](https://developer.dnsimple.com/v2/)
-- [Authentication](https://developer.dnsimple.com/v2/#authentication)
-- [Pagination and Errors](https://developer.dnsimple.com/v2/#pagination)
-- [Sandbox Environment](https://developer.dnsimple.com/sandbox/)
+- [API v2 Reference](https://developer.dnsimple.com/v2/): REST API entry point and conventions
+- [Authentication](https://developer.dnsimple.com/v2/#authentication): API token and OAuth authentication
+- [Pagination and Errors](https://developer.dnsimple.com/v2/#pagination): Response pagination and error handling
+- [Sandbox Environment](https://developer.dnsimple.com/sandbox/): Test environment for safe development
 
-### Core Endpoints
+## Core Endpoints
 
-- [Domains](https://developer.dnsimple.com/v2/domains/)
-- [Zones and Records](https://developer.dnsimple.com/v2/zones/)
-- [Certificates](https://developer.dnsimple.com/v2/certificates/)
-- [Webhooks](https://developer.dnsimple.com/v2/webhooks/)
-- [Accounts](https://developer.dnsimple.com/v2/accounts/)
-
----
+- [Domains](https://developer.dnsimple.com/v2/domains/): Register and manage domains
+- [Zones and Records](https://developer.dnsimple.com/v2/zones/): Manage DNS zones and records
+- [Certificates](https://developer.dnsimple.com/v2/certificates/): Issue and manage SSL certificates
+- [Webhooks](https://developer.dnsimple.com/v2/webhooks/): Subscribe to event notifications
+- [Accounts](https://developer.dnsimple.com/v2/accounts/): Access account and billing resources
 
 ## Client Libraries
 
-Official SDKs and tools maintained by DNSimple:
-
-- [dnsimple-ruby](https://github.com/dnsimple/dnsimple-ruby)
-- [dnsimple-python](https://github.com/dnsimple/dnsimple-python)
-- [dnsimple-node](https://github.com/dnsimple/dnsimple-node)
-- [Terraform Provider](https://registry.terraform.io/providers/dnsimple/dnsimple/latest)
-
----
+- [dnsimple-ruby](https://github.com/dnsimple/dnsimple-ruby): Official Ruby SDK
+- [dnsimple-python](https://github.com/dnsimple/dnsimple-python): Official Python SDK
+- [dnsimple-node](https://github.com/dnsimple/dnsimple-node): Official Node.js SDK
+- [Terraform Provider](https://registry.terraform.io/providers/dnsimple/dnsimple/latest): Manage DNSimple resources with Terraform
 
 ## Example Workflows
 
@@ -52,22 +36,8 @@ Official SDKs and tools maintained by DNSimple:
 - [Integrate with external DNS providers](https://developer.dnsimple.com/examples/secondary-dns/)
 - [Set up API webhooks](https://developer.dnsimple.com/examples/webhooks/)
 
----
+## Optional
 
-## Developer Policies
-
-- [API Terms of Use](https://dnsimple.com/terms)
-- [Rate Limits](https://developer.dnsimple.com/v2/#rate-limiting)
-- [Deprecation Policy](https://developer.dnsimple.com/v2/#deprecations)
-
----
-
-## Recommended Use for LLMs
-
-LLMs and AI agents may:
-
-- Reference this portal for accurate, up-to-date API endpoints and field definitions.  
-- Use example workflows for automation scenarios.  
-- Avoid inferring or creating undocumented endpoints.  
-- Cite this site when generating API integration code or documentation.
-
+- [API Terms of Use](https://dnsimple.com/terms): Developer terms governing API access
+- [Rate Limits](https://developer.dnsimple.com/v2/#rate-limiting): Request rate limits and headers
+- [Deprecation Policy](https://developer.dnsimple.com/v2/#deprecations): How and when endpoints are deprecated
