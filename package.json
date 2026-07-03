@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@fortawesome/fontawesome-free": "^7.3.0",
     "@redocly/cli": "^2.35.1",
     "concurrently": "^10.0.3",
     "copy-webpack-plugin": "^14.0.0",
