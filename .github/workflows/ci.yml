@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.0
       - name: Install Ruby
-        uses: ruby/setup-ruby@v1.314.0
+        uses: ruby/setup-ruby@v1.316.0
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Install Node
