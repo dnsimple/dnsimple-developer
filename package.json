@@ -11,7 +11,7 @@
     "eslint": "^10.6.0",
     "globals": "^17.7.0",
     "tachyons": "^4.12.0",
-    "webpack": "^5.108.3",
+    "webpack": "^5.108.4",
     "webpack-cli": "^7.1.0"
   },
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^18.0.5"
+    "marked": "^18.0.6"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
