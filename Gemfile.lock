@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/weppos/kramdown-parser-extended.git
-  revision: 966ae5b971ade291c5ca81f5950bf3ba2c96c3b6
+  revision: 1711f5477822542a9bab39ba39296288a3d96c8d
   specs:
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
