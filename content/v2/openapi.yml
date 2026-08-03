@@ -4837,6 +4837,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NameServer'
+    EventDomainRegistrationNotice:
+      type: object
+      description: |
+        Payload for domain.registration_notice. Emitted when a registry sends an
+        informational notice about a domain that requires action by the account.
+      required: [domain, registration_notice]
+      properties:
+        domain:
+          $ref: '#/components/schemas/Domain'
+        registration_notice:
+          type: object
+          required: [type, message]
+          properties:
+            type:
+              type: string
+              description: |
+                Notice family. Values currently emitted:
+                - `de_holder_verification_notice`
+                - `de_holder_verification_suspension`
+            message:
+              type: string
+              description: Human-readable summary of the notice, with UTC ISO 8601 deadlines interpolated.
     EventDomainRegistrantChangeStarted:
       type: object
       description: Payload for domain.registrant_change:started
@@ -6053,6 +6075,7 @@ components:
             - domain.register
             - domain.register:cancelled
             - domain.register:started
+            - domain.registration_notice
             - domain.registrant_change
             - domain.registrant_change:cancelled
             - domain.registrant_change:started
@@ -6148,6 +6171,7 @@ components:
             - $ref: '#/components/schemas/EventDomainRegister'
             - $ref: '#/components/schemas/EventDomainRegisterCancelled'
             - $ref: '#/components/schemas/EventDomainRegisterStarted'
+            - $ref: '#/components/schemas/EventDomainRegistrationNotice'
             - $ref: '#/components/schemas/EventDomainRegistrantChange'
             - $ref: '#/components/schemas/EventDomainRegistrantChangeCancelled'
             - $ref: '#/components/schemas/EventDomainRegistrantChangeStarted'
