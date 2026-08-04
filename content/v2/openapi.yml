@@ -4853,7 +4853,7 @@ components:
             type:
               type: string
               description: |
-                Notice family. Values currently emitted:
+                Notice family. New values may be added at any time; treat an unknown value as informational and fall back to displaying `message` verbatim. Values currently emitted:
                 - `de_holder_verification_notice`
                 - `de_holder_verification_suspension`
             message:
