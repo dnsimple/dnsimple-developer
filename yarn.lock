@@ -146,10 +146,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@redocly/cli@^2.39.0":
-  version "2.39.0"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.39.0.tgz#3be41763fb2338b52c8d005644d716f089410a62"
-  integrity sha512-xA0Z9YMEhlzbpn/BVErlE2UzuKfahp9llBwEnVtAYuhWdF8UCIm+cgYX8f/gHQIJ/TKwB93awAewTOgEsbZFZw==
+"@redocly/cli@^2.44.0":
+  version "2.44.0"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-2.44.0.tgz#482b9f58e1054461eaf9472db88a3c06d2b0b473"
+  integrity sha512-7YAXJPhC20mdaUsdOzZim/Z21jYrSXUGl227miZ4mF+jv1wd4Pd44kzQ1RhjQtcNPxY9HIj8ROU2KCP3mg43yQ==
 
 "@types/esrecurse@^4.3.1":
   version "4.3.1"
