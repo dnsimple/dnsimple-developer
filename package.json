@@ -8,7 +8,7 @@
     "@redocly/cli": "^2.44.0",
     "concurrently": "^10.0.4",
     "copy-webpack-plugin": "^14.0.0",
-    "eslint": "^10.8.0",
+    "eslint": "^10.8.1",
     "globals": "^17.7.0",
     "tachyons": "^4.12.0",
     "webpack": "^5.109.2",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "highlightjs": "^9.16.2",
-    "marked": "^18.0.7"
+    "marked": "^18.0.9"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
