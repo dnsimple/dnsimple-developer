@@ -27,7 +27,7 @@ The DNSimple Sandbox is independent from the DNSimple production site, you have 
 > [!NOTE]
 > Every action within the Sandbox will be free of charge.
 
-- Go to [sandbox.dnsimple.com/signup](https://sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
+- Go to [app.sandbox.dnsimple.com/signup](https://app.sandbox.dnsimple.com/signup) and register your account. _It does not have to match your DNSimple live account._
 - Choose a plan that [matches the features that you'd like to test](https://sandbox.dnsimple.com/pricing). Please refer to the [Testing Subscriptions](#testing-subscriptions) section for payment information.
 
 ### URL

@@ -16,8 +16,8 @@ The DNSimple CLI brings the [DNSimple API](/v2/) to your terminal. Use it to ins
 
 Create your [API token](https://support.dnsimple.com/articles/api-access-token/) from the DNSimple application:
 
-- Production tokens: [dnsimple.com/user](https://dnsimple.com/user)
-- Sandbox tokens: [sandbox.dnsimple.com/user](https://sandbox.dnsimple.com/user)
+- Production tokens: [app.dnsimple.com/user](https://app.dnsimple.com/user)
+- Sandbox tokens: [app.sandbox.dnsimple.com/user](https://app.sandbox.dnsimple.com/user)
 
 Install the CLI, using one of the methods below. Then run `dnsimple auth login` to authenticate. If you are logging into a Sandbox environment, run `dnsimple auth login --sandbox`.
 
@@ -210,7 +210,7 @@ dnsimple auth login --sandbox --name sandbox
 dnsimple --context sandbox domains list
 ```
 
-Browser login works here too: `dnsimple auth login --sandbox` opens the Sandbox authorization page on `sandbox.dnsimple.com`.
+Browser login works here too: `dnsimple auth login --sandbox` opens the Sandbox authorization page on `app.sandbox.dnsimple.com`.
 
 You can also make one command use Sandbox without storing a context:
 
