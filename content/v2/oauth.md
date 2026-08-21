@@ -36,7 +36,7 @@ This starts the OAuth 2.0 authorization flow. This isn't an API call — it's th
 Your web or mobile app should redirect users to the following URL:
 
 ```
-GET https://dnsimple.com/oauth/authorize
+GET https://app.dnsimple.com/oauth/authorize
 ```
 
 The following values should be passed as GET parameters:
