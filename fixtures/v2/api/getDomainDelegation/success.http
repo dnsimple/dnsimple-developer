@@ -13,4 +13,4 @@ x-request-id: e53ac7b5-0d26-45bc-9226-09c2d34be293
 x-runtime: 0.192986
 strict-transport-security: max-age=31536000
 
-{"data":["ns1.dnsimple.com","ns2.dnsimple.com","ns3.dnsimple.com","ns4.dnsimple.com"]}
+{"data":["ns1.dnsimple-edge.com","ns2.dnsimple-edge.net","ns3.dnsimple-edge.io","ns4.dnsimple-edge.org"]}

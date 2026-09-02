@@ -160,6 +160,26 @@ The `new_account_email` field in Domain Push request has been deprecated in favo
 - Python: [Flagged](https://github.com/dnsimple/dnsimple-python/pull/497)
 - Rust: [Flagged](https://github.com/dnsimple/dnsimple-rust/pull/102) (5.3.0)
 
+### 2026-04-16 - Legacy NS1 and NS3 IP addresses
+
+The legacy Cloudflare IP addresses behind the `ns1.dnsimple.com` and `ns3.dnsimple.com` name servers (`162.159.24.4`, `2400:cb00:2049:1::a29f:1804`, `162.159.26.4`, and `2400:cb00:2049:1::a29f:1a04`) have been decommissioned. The canonical name server hostnames are now `ns1.dnsimple-edge.com`, `ns2.dnsimple-edge.net`, `ns3.dnsimple-edge.io`, and `ns4.dnsimple-edge.org`. The legacy `ns1.dnsimple.com` through `ns4.dnsimple.com` hostnames still resolve and answer from the edge infrastructure, so `getDomainDelegation` and `changeDomainDelegation` continue to accept and return them. Integrations that write glue records or A/AAAA records for name servers by IP address, including vanity name server setups, stopped resolving on the removal date unless they were updated to the replacement addresses.
+
+**Removal Date:** 2026-07-06 (Completed)
+
+**Replacement:** Use `ns1.dnsimple-edge.com` (`199.247.152.53`, `2620:111:8004::53`) and `ns3.dnsimple-edge.io` (`199.247.154.53`, `2620:111:8006::53`). See [Discontinuation of Legacy NS1 and NS3 IP Addresses](https://support.dnsimple.com/articles/announcement-ns1-ns3-ip-addresses/).
+
+**Client Status:**
+
+- Ruby: N/A
+- Go: N/A
+- Elixir: N/A
+- Node.js: N/A
+- Java: N/A
+- C#: N/A
+- PHP: N/A
+- Python: N/A
+- Rust: N/A
+
 ## Status Legend
 
 - **Not started** - Deprecation not yet addressed in client

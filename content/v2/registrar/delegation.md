@@ -10,6 +10,9 @@ excerpt: This page documents the DNSimple domain name servers API v2.
 
 Retrieve and manage delegation for a domain in DNSimple.
 
+> [!NOTE]
+> The canonical DNSimple name server hostnames are `ns1.dnsimple-edge.com`, `ns2.dnsimple-edge.net`, `ns3.dnsimple-edge.io`, and `ns4.dnsimple-edge.org`. The legacy `ns1.dnsimple.com` through `ns4.dnsimple.com` hostnames still resolve and answer from the same edge infrastructure, so a delegation that references them keeps working and this API accepts either form. The legacy IP addresses behind `ns1.dnsimple.com` and `ns3.dnsimple.com` were decommissioned on 6 July 2026, so an integration that writes glue records or A/AAAA records for name servers by IP must use the current addresses. See [Discontinuation of Legacy NS1 and NS3 IP Addresses](https://support.dnsimple.com/articles/announcement-ns1-ns3-ip-addresses/) for the addresses and the migration timeline.
+
 
 ## List domain name servers {#getDomainDelegation}
 
