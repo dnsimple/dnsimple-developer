@@ -4856,6 +4856,10 @@ components:
                 Notice family. New values may be added at any time; treat an unknown value as informational and fall back to displaying `message` verbatim. Values currently emitted:
                 - `de_holder_verification_notice`
                 - `de_holder_verification_suspension`
+                - `se_registrant_verification_notice`
+                - `icann_email_verification_notice`
+                - `icann_email_verification_suspension`
+                - `icann_email_verification_reactivation`
             message:
               type: string
               description: Human-readable summary of the notice, with UTC ISO 8601 deadlines interpolated.
