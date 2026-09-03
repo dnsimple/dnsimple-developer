@@ -168,18 +168,6 @@ The legacy Cloudflare IP addresses behind the `ns1.dnsimple.com` and `ns3.dnsimp
 
 **Replacement:** Use `ns1.dnsimple-edge.com` (`199.247.152.53`, `2620:111:8004::53`) and `ns3.dnsimple-edge.io` (`199.247.154.53`, `2620:111:8006::53`). See [Discontinuation of Legacy NS1 and NS3 IP Addresses](https://support.dnsimple.com/articles/announcement-ns1-ns3-ip-addresses/).
 
-**Client Status:**
-
-- Ruby: N/A
-- Go: N/A
-- Elixir: N/A
-- Node.js: N/A
-- Java: N/A
-- C#: N/A
-- PHP: N/A
-- Python: N/A
-- Rust: N/A
-
 ## Status Legend
 
 - **Not started** - Deprecation not yet addressed in client
