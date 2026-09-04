@@ -1323,7 +1323,10 @@ paths:
       summary: Authorize a domain transfer out
   '/{account}/registrar/domains/{domain}/delegation':
     get:
-      description: Lists the name servers for the domain.
+      description: |-
+        Lists the name servers for the domain.
+
+        The canonical DNSimple name server hostnames are ns1.dnsimple-edge.com, ns2.dnsimple-edge.net, ns3.dnsimple-edge.io, and ns4.dnsimple-edge.org. Domains delegated to the legacy ns1.dnsimple.com through ns4.dnsimple.com hostnames are returned as delegated to those hostnames, which still resolve and answer from the same edge infrastructure.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -1347,7 +1350,10 @@ paths:
           $ref: '#/components/responses/404'
       summary: List domain name servers
     put:
-      description: Changes the domain name servers.
+      description: |-
+        Changes the domain name servers.
+
+        Both the canonical dnsimple-edge hostnames and the legacy ns1.dnsimple.com through ns4.dnsimple.com hostnames are accepted. New delegations should use the canonical hostnames.
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
@@ -6356,11 +6362,11 @@ components:
         zone: |
           $ORIGIN example.com.
           $TTL 1h
-          example.com. 3600 IN SOA ns1.dnsimple.com. admin.dnsimple.com. 1453132552 86400 7200 604800 300
-          example.com. 3600 IN NS ns1.dnsimple.com.
-          example.com. 3600 IN NS ns2.dnsimple.com.
-          example.com. 3600 IN NS ns3.dnsimple.com.
-          example.com. 3600 IN NS ns4.dnsimple.com.
+          example.com. 3600 IN SOA ns1.dnsimple-edge.com. admin.dnsimple.com. 1453132552 86400 7200 604800 300
+          example.com. 3600 IN NS ns1.dnsimple-edge.com.
+          example.com. 3600 IN NS ns2.dnsimple-edge.net.
+          example.com. 3600 IN NS ns3.dnsimple-edge.io.
+          example.com. 3600 IN NS ns4.dnsimple-edge.org.
     ZoneDistribution:
       type: object
       description: Zone distribution check
@@ -6392,7 +6398,7 @@ components:
         zone_id: example.com
         parent_id: null
         name: ''
-        content: ns1.dnsimple.com admin.dnsimple.com 1458642070 86400 7200 604800 300
+        content: ns1.dnsimple-edge.com admin.dnsimple.com 1458642070 86400 7200 604800 300
         ttl: 3600
         priority: null
         type: SOA
@@ -6841,10 +6847,10 @@ components:
             items:
               type: string
             example:
-              - ns1.dnsimple.com
-              - ns2.dnsimple.com
-              - ns3.dnsimple.com
-              - ns4.dnsimple.com
+              - ns1.dnsimple-edge.com
+              - ns2.dnsimple-edge.net
+              - ns3.dnsimple-edge.io
+              - ns4.dnsimple-edge.org
     ZoneNsRecordsUpdate:
       description: Zone name server attributes
       content:
@@ -6859,10 +6865,10 @@ components:
                     items:
                       type: string
                     example:
-                      - ns1.dnsimple.com
-                      - ns2.dnsimple.com
-                      - ns3.dnsimple.com
-                      - ns4.dnsimple.com
+                      - ns1.dnsimple-edge.com
+                      - ns2.dnsimple-edge.net
+                      - ns3.dnsimple-edge.io
+                      - ns4.dnsimple-edge.org
                   ns_set_ids:
                     type: array
                     items:
@@ -6878,10 +6884,10 @@ components:
                     items:
                       type: string
                     example:
-                      - ns1.dnsimple.com
-                      - ns2.dnsimple.com
-                      - ns3.dnsimple.com
-                      - ns4.dnsimple.com
+                      - ns1.dnsimple-edge.com
+                      - ns2.dnsimple-edge.net
+                      - ns3.dnsimple-edge.io
+                      - ns4.dnsimple-edge.org
                   ns_set_ids:
                     type: array
                     items:
