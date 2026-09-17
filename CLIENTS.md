@@ -72,9 +72,9 @@ Legend: ✅ = implemented, ❌ = missing.
 | transferDomain                         | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | getDomainTransfer                      | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | cancelDomainTransfer                   | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
-| domainRenew                            | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
+| renewDomain                            | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | getDomainRenewal                       | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
-| domainRestore                          | ❌ | ❌    | ✅ | ❌  | ❌   | ❌ | ✅    | ✅  | ❌  |
+| restoreDomain                          | ❌ | ❌    | ✅ | ❌  | ❌   | ❌ | ✅    | ✅  | ❌  |
 | getDomainRestore                       | ❌ | ❌    | ✅ | ❌  | ❌   | ❌ | ✅    | ✅  | ❌  |
 | authorizeDomainTransferOut             | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | getDomainDelegation                    | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
@@ -148,7 +148,7 @@ Five distinct gaps account for the entire coverage delta. The `updateZoneNsRecor
 
 ### Gap 1 — Domain Restore (2 operations)
 
-- `POST /{account}/registrar/domains/{domain}/restores` (`domainRestore`)
+- `POST /{account}/registrar/domains/{domain}/restores` (`restoreDomain`)
 - `GET /{account}/registrar/domains/{domain}/restores/{domainrestore}` (`getDomainRestore`)
 
 Implemented by:
@@ -217,7 +217,7 @@ Missing in:
 
 ### Node.js (4 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -257,7 +257,7 @@ Missing in:
 
 ### PHP (12 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -272,7 +272,7 @@ Missing in:
 
 ### Java (12 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -287,7 +287,7 @@ Missing in:
 
 ### Elixir (12 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -302,7 +302,7 @@ Missing in:
 
 ### C# (12 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -317,7 +317,7 @@ Missing in:
 
 ### Rust (12 missing)
 
-1. `domainRestore`
+1. `restoreDomain`
 2. `getDomainRestore`
 3. `batchChangeZoneRecords`
 4. `queryDnsAnalytics`
@@ -333,4 +333,4 @@ Missing in:
 ## Notes
 
 - The `updateZoneNsRecords` endpoint (`PUT /{account}/zones/{zone}/ns_records`) is present in `openapi.yml` and implemented in the Node client, but was not tracked in the previous INCONSISTENCIES report. It is the only new gap surfaced by this audit.
-- The Node client is now the most complete, having picked up all seven Secondary DNS endpoints and `updateZoneNsRecords`. Its remaining gaps are `domainRestore`, `getDomainRestore`, `batchChangeZoneRecords`, and `queryDnsAnalytics`.
+- The Node client is now the most complete, having picked up all seven Secondary DNS endpoints and `updateZoneNsRecords`. Its remaining gaps are `restoreDomain`, `getDomainRestore`, `batchChangeZoneRecords`, and `queryDnsAnalytics`.
