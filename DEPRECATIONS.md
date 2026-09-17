@@ -168,6 +168,26 @@ The legacy Cloudflare IP addresses behind the `ns1.dnsimple.com` and `ns3.dnsimp
 
 **Replacement:** Use `ns1.dnsimple-edge.com` (`199.247.152.53`, `2620:111:8004::53`) and `ns3.dnsimple-edge.io` (`199.247.154.53`, `2620:111:8006::53`).
 
+### 2026-09-17 - Zone record `parent_id` field
+
+The `parent_id` field in the Zone Record schema identified the master record of a dependent record. The only feature that created dependent records was the ALIAS descriptive TXT record, and that feature is removed, so the API always returns a null value for the field.
+
+**Removal Date:** N/A
+
+**Replacement:** None. The field has no successor.
+
+**Client Status:**
+
+- Ruby: [Flagged](https://github.com/dnsimple/dnsimple-ruby/pull/486)
+- Go: [Flagged](https://github.com/dnsimple/dnsimple-go/pull/276)
+- Elixir: [Flagged](https://github.com/dnsimple/dnsimple-elixir/pull/355)
+- Node.js: [Flagged](https://github.com/dnsimple/dnsimple-node/pull/308)
+- Java: [Flagged](https://github.com/dnsimple/dnsimple-java/pull/266)
+- C#: [Flagged](https://github.com/dnsimple/dnsimple-csharp/pull/263)
+- PHP: [Flagged](https://github.com/dnsimple/dnsimple-php/pull/180)
+- Python: [Flagged](https://github.com/dnsimple/dnsimple-python/pull/517)
+- Rust: [Flagged](https://github.com/dnsimple/dnsimple-rust/pull/121)
+
 ## Status Legend
 
 - **Not started** - Deprecation not yet addressed in client

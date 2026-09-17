@@ -6416,7 +6416,8 @@ components:
           description: The unique identifier of the zone this record belongs to
         parent_id:
           type: ["integer", "null"]
-          description: If present represents the zone record this record relates to. The parent record is the master record, when the parent is updated or deleted the related record is also updated or deleted. An example of child record is the TXT descriptive record created for an ALIAS record.
+          deprecated: true
+          description: Deprecated - the value is always null.
         name:
           type: string
           description: The name of the record (e.g., "www" for www.example.com).
