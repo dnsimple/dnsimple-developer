@@ -20,7 +20,7 @@ The `openapi.yml` defines **111 client-facing operations**.
 | Java   |   12    | +2 (was 10)            |
 | Elixir |   12    | +2 (was 10)            |
 | C#     |   12    | +2 (was 10)            |
-| Rust   |   13    | +2 (was 11)            |
+| Rust   |   12    | +1 (was 11)            |
 
 The deltas account for a newly-surfaced gap: **no client implements `updateZoneNsRecords`** except Node. That endpoint was not tracked in the previous INCONSISTENCIES report.
 
@@ -33,7 +33,7 @@ Legend: ✅ = implemented, ❌ = missing.
 | listAccounts                           | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | whoami                                 | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | oauthToken                             | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
-| listCharges                            | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ❌  |
+| listCharges                            | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | listDomains                            | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | createDomain                           | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | getDomain                              | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
@@ -144,7 +144,7 @@ Legend: ✅ = implemented, ❌ = missing.
 
 ## Inconsistencies and Missing Endpoints
 
-Six distinct gaps account for the entire coverage delta. The `updateZoneNsRecords` gap is new in this report; every other gap was already tracked in issue [#174](https://github.com/dnsimple/dnsimple-engineering/issues/174).
+Five distinct gaps account for the entire coverage delta. The `updateZoneNsRecords` gap is new in this report; every other gap was already tracked in issue [#174](https://github.com/dnsimple/dnsimple-engineering/issues/174).
 
 ### Gap 1 — Domain Restore (2 operations)
 
@@ -212,18 +212,6 @@ Implemented by:
 Missing in:
 
 - C#, Elixir, Go, Java, PHP, Python, Ruby, Rust
-
-### Gap 6 — Billing List Charges (1 operation)
-
-`GET /{account}/billing/charges` (`listCharges`)
-
-Implemented by:
-
-- C#, Elixir, Go, Java, Node, PHP, Python, Ruby
-
-Missing in:
-
-- Rust
 
 ## Per-client gap list
 
@@ -327,21 +315,20 @@ Missing in:
 11. `unlinkPrimaryServer`
 12. `createSecondaryZone`
 
-### Rust (13 missing)
+### Rust (12 missing)
 
-1. `listCharges`
-2. `domainRestore`
-3. `getDomainRestore`
-4. `batchChangeZoneRecords`
-5. `queryDnsAnalytics`
-6. `updateZoneNsRecords`
-7. `listPrimaryServers`
-8. `createPrimaryServer`
-9. `getPrimaryServer`
-10. `removePrimaryServer`
-11. `linkPrimaryServer`
-12. `unlinkPrimaryServer`
-13. `createSecondaryZone`
+1. `domainRestore`
+2. `getDomainRestore`
+3. `batchChangeZoneRecords`
+4. `queryDnsAnalytics`
+5. `updateZoneNsRecords`
+6. `listPrimaryServers`
+7. `createPrimaryServer`
+8. `getPrimaryServer`
+9. `removePrimaryServer`
+10. `linkPrimaryServer`
+11. `unlinkPrimaryServer`
+12. `createSecondaryZone`
 
 ## Notes
 
