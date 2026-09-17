@@ -39,24 +39,24 @@ brew install dnsimple/tap/dnsimple
 You can also use the install script:
 
 ```shell
-curl -fsSL http://cli-beta.dnsimple.com/install.sh | sh
+curl -fsSL https://dnsimple.com/install.sh | sh
 ```
 
-The install script detects your operating system and architecture, downloads the latest release from the public [dnsimple/homebrew-tap release mirror](https://github.com/dnsimple/homebrew-tap/releases/latest), and installs the `dnsimple` binary.
+The install script detects your operating system and architecture, downloads the latest release from the [dnsimple/cli releases](https://github.com/dnsimple/cli/releases/latest), and installs the `dnsimple` binary.
 
 ### Windows
 
 Use the PowerShell installer:
 
 ```powershell
-irm "https://cli-beta.dnsimple.com/install.ps1" | iex
+irm "https://dnsimple.com/install.ps1" | iex
 ```
 
 The installer downloads the latest Windows archive, installs `dnsimple.exe`, and adds the install directory to your user `PATH`.
 
 You can also install manually:
 
-1. Download the latest `dnsimple_<version>_windows_amd64.zip` or `dnsimple_<version>_windows_arm64.zip` from the [public release mirror](https://github.com/dnsimple/homebrew-tap/releases/latest).
+1. Download the latest `dnsimple_<version>_windows_amd64.zip` or `dnsimple_<version>_windows_arm64.zip` from the [dnsimple/cli releases](https://github.com/dnsimple/cli/releases/latest).
 2. Extract `dnsimple.exe`.
 3. Move `dnsimple.exe` to a directory on your `PATH`, such as `%USERPROFILE%\bin`.
 4. Open a new terminal and verify the installation.
