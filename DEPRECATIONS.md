@@ -166,7 +166,7 @@ The legacy Cloudflare IP addresses behind the `ns1.dnsimple.com` and `ns3.dnsimp
 
 **Removal Date:** 2026-07-06 (Completed)
 
-**Replacement:** Use `ns1.dnsimple-edge.com` (`199.247.152.53`, `2620:111:8004::53`) and `ns3.dnsimple-edge.io` (`199.247.154.53`, `2620:111:8006::53`). See [Discontinuation of Legacy NS1 and NS3 IP Addresses](https://support.dnsimple.com/articles/announcement-ns1-ns3-ip-addresses/).
+**Replacement:** Use `ns1.dnsimple-edge.com` (`199.247.152.53`, `2620:111:8004::53`) and `ns3.dnsimple-edge.io` (`199.247.154.53`, `2620:111:8006::53`).
 
 ## Status Legend
 
