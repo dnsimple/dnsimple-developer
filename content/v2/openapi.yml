@@ -1202,7 +1202,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: domainRenew
+      operationId: renewDomain
       tags:
         - registrar renewal
       requestBody:
@@ -1254,7 +1254,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Account'
         - $ref: '#/components/parameters/Domain'
-      operationId: domainRestore
+      operationId: restoreDomain
       tags:
         - registrar restore
       requestBody:
