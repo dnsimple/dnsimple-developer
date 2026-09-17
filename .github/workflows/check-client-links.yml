@@ -1,0 +1,38 @@
+---
+name: Check client links
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+# The sweep runs in this repository only. A rename on this site must not turn
+# an unrelated pull request in a client repository red.
+jobs:
+  check_client_links:
+    name: Check client links
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1.321.0
+        with:
+          bundler-cache: true
+      - name: Check the client links
+        id: check
+        run: |
+          ruby _sweep/client_links.rb | tee report.txt
+          echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Write the report
+        run: |
+          {
+            echo '## Stale client links'
+            echo
+            echo '```'
+            cat report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Fail when a link is stale
+        run: exit ${{ steps.check.outputs.status }}

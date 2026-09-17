@@ -71,6 +71,15 @@ task run: [:compile] do
   end
 end
 
+namespace :links do
+  desc "Check the client library links against the pages and the anchors of this site"
+  task :clients do
+    # The script exits with 1 when it reports a stale link. That is a result,
+    # not a crash, so the task must not print a Ruby backtrace for it.
+    exit 1 unless system(RbConfig.ruby, "_sweep/client_links.rb")
+  end
+end
+
 namespace :test do
   Rake::TestTask.new(:ruby) do |t|
     t.libs << "_test"

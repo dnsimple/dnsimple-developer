@@ -13,6 +13,7 @@ These are the most important folders and files to keep in mind while working on 
 - `content`: this folder contains the markdown files that generate the site
 - `content/v2/openapi.yml`: the API definition described using the OpenAPI specification (see below)
 - `examples`: this folder contains the API response fixtures generated from real API calls you can use to test your integrations
+- `docs`: this folder contains the documentation for the people who work on this repository
 
 ## OpenAPI definition
 

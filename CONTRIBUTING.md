@@ -73,6 +73,10 @@ Provide a helpful tip:
 - Place callouts near relevant content, not at the end of sections
 - Ensure callouts provide actionable information relevant to the API documentation context
 
+## Checking the client links
+
+The DNSimple client libraries link to this site from their doc comments. Run `rake links:clients` to find the links that a page move or an anchor rename made stale. See [docs/client-links-sweep.md](docs/client-links-sweep.md).
+
 ## Creating new fixtures
 
 - Use the sandbox API. Avoid using the production API as much as possible.
