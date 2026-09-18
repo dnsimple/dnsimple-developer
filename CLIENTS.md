@@ -12,15 +12,15 @@ The `openapi.yml` defines **111 client-facing operations**.
 
 | Client | Missing | Delta vs. prior report |
 |--------|:-------:|:----------------------:|
-| Node   |    1    | -8 (was 9)             |
+| Node   |    0    | -9 (was 9)             |
 | Ruby   |    8    | +1 (was 7)             |
 | Go     |    8    | +1 (was 7)             |
 | Python |    8    | +1 (was 7)             |
-| PHP    |    9    | -1 (was 10)            |
-| Java   |    9    | -1 (was 10)            |
-| Elixir |    9    | -1 (was 10)            |
-| C#     |    9    | -1 (was 10)            |
-| Rust   |    9    | -2 (was 11)            |
+| PHP    |    8    | -2 (was 10)            |
+| Java   |    8    | -2 (was 10)            |
+| Elixir |    8    | -2 (was 10)            |
+| C#     |    8    | -2 (was 10)            |
+| Rust   |    8    | -3 (was 11)            |
 
 The deltas account for a newly-surfaced gap: **no client implements `updateZoneNsRecords`** except Node. That endpoint was not tracked in the previous INCONSISTENCIES report.
 
@@ -140,25 +140,13 @@ Legend: ✅ = implemented, ❌ = missing.
 | createWebhook                          | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | getWebhook                             | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 | deleteWebhook                          | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
-| queryDnsAnalytics                      | ❌ | ❌    | ✅ | ❌  | ❌   | ❌ | ✅    | ✅  | ❌  |
+| queryDnsAnalytics                      | ✅ | ✅    | ✅ | ✅  | ✅   | ✅ | ✅    | ✅  | ✅  |
 
 ## Inconsistencies and Missing Endpoints
 
-Three distinct gaps account for the entire coverage delta. The `updateZoneNsRecords` gap is new in this report; every other gap was already tracked in issue [#174](https://github.com/dnsimple/dnsimple-engineering/issues/174).
+Two distinct gaps account for the entire coverage delta. The `updateZoneNsRecords` gap is new in this report; every other gap was already tracked in issue [#174](https://github.com/dnsimple/dnsimple-engineering/issues/174).
 
-### Gap 1 — DNS Analytics Query (1 operation)
-
-`GET /{account}/dns_analytics` (`queryDnsAnalytics`)
-
-Implemented by:
-
-- Go, Python, Ruby
-
-Missing in:
-
-- C#, Elixir, Java, Node, PHP, Rust
-
-### Gap 2 — Update Zone NS Records (1 operation, new)
+### Gap 1 — Update Zone NS Records (1 operation, new)
 
 `PUT /{account}/zones/{zone}/ns_records` (`updateZoneNsRecords`)
 
@@ -170,7 +158,7 @@ Missing in:
 
 - C#, Elixir, Go, Java, PHP, Python, Ruby, Rust
 
-### Gap 3 — Secondary DNS (7 operations)
+### Gap 2 — Secondary DNS (7 operations)
 
 - `GET /{account}/secondary_dns/primaries` (`listPrimaryServers`)
 - `POST /{account}/secondary_dns/primaries` (`createPrimaryServer`)
@@ -190,9 +178,9 @@ Missing in:
 
 ## Per-client gap list
 
-### Node.js (1 missing)
+### Node.js (0 missing)
 
-1. `queryDnsAnalytics`
+None.
 
 ### Ruby (8 missing)
 
@@ -227,67 +215,62 @@ Missing in:
 7. `createSecondaryZone`
 8. `updateZoneNsRecords`
 
-### PHP (9 missing)
+### PHP (8 missing)
 
-1. `queryDnsAnalytics`
-2. `updateZoneNsRecords`
-3. `listPrimaryServers`
-4. `createPrimaryServer`
-5. `getPrimaryServer`
-6. `removePrimaryServer`
-7. `linkPrimaryServer`
-8. `unlinkPrimaryServer`
-9. `createSecondaryZone`
+1. `updateZoneNsRecords`
+2. `listPrimaryServers`
+3. `createPrimaryServer`
+4. `getPrimaryServer`
+5. `removePrimaryServer`
+6. `linkPrimaryServer`
+7. `unlinkPrimaryServer`
+8. `createSecondaryZone`
 
-### Java (9 missing)
+### Java (8 missing)
 
-1. `queryDnsAnalytics`
-2. `updateZoneNsRecords`
-3. `listPrimaryServers`
-4. `createPrimaryServer`
-5. `getPrimaryServer`
-6. `removePrimaryServer`
-7. `linkPrimaryServer`
-8. `unlinkPrimaryServer`
-9. `createSecondaryZone`
+1. `updateZoneNsRecords`
+2. `listPrimaryServers`
+3. `createPrimaryServer`
+4. `getPrimaryServer`
+5. `removePrimaryServer`
+6. `linkPrimaryServer`
+7. `unlinkPrimaryServer`
+8. `createSecondaryZone`
 
-### Elixir (9 missing)
+### Elixir (8 missing)
 
-1. `queryDnsAnalytics`
-2. `updateZoneNsRecords`
-3. `listPrimaryServers`
-4. `createPrimaryServer`
-5. `getPrimaryServer`
-6. `removePrimaryServer`
-7. `linkPrimaryServer`
-8. `unlinkPrimaryServer`
-9. `createSecondaryZone`
+1. `updateZoneNsRecords`
+2. `listPrimaryServers`
+3. `createPrimaryServer`
+4. `getPrimaryServer`
+5. `removePrimaryServer`
+6. `linkPrimaryServer`
+7. `unlinkPrimaryServer`
+8. `createSecondaryZone`
 
-### C# (9 missing)
+### C# (8 missing)
 
-1. `queryDnsAnalytics`
-2. `updateZoneNsRecords`
-3. `listPrimaryServers`
-4. `createPrimaryServer`
-5. `getPrimaryServer`
-6. `removePrimaryServer`
-7. `linkPrimaryServer`
-8. `unlinkPrimaryServer`
-9. `createSecondaryZone`
+1. `updateZoneNsRecords`
+2. `listPrimaryServers`
+3. `createPrimaryServer`
+4. `getPrimaryServer`
+5. `removePrimaryServer`
+6. `linkPrimaryServer`
+7. `unlinkPrimaryServer`
+8. `createSecondaryZone`
 
-### Rust (9 missing)
+### Rust (8 missing)
 
-1. `queryDnsAnalytics`
-2. `updateZoneNsRecords`
-3. `listPrimaryServers`
-4. `createPrimaryServer`
-5. `getPrimaryServer`
-6. `removePrimaryServer`
-7. `linkPrimaryServer`
-8. `unlinkPrimaryServer`
-9. `createSecondaryZone`
+1. `updateZoneNsRecords`
+2. `listPrimaryServers`
+3. `createPrimaryServer`
+4. `getPrimaryServer`
+5. `removePrimaryServer`
+6. `linkPrimaryServer`
+7. `unlinkPrimaryServer`
+8. `createSecondaryZone`
 
 ## Notes
 
 - The `updateZoneNsRecords` endpoint (`PUT /{account}/zones/{zone}/ns_records`) is present in `openapi.yml` and implemented in the Node client, but was not tracked in the previous INCONSISTENCIES report. It is the only new gap surfaced by this audit.
-- The Node client is now the most complete, having picked up all seven Secondary DNS endpoints and `updateZoneNsRecords`. Its remaining gap is `queryDnsAnalytics`.
+- The Node client is the only complete client. It implements every client-facing operation, including all seven Secondary DNS endpoints and `updateZoneNsRecords`.
