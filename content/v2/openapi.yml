@@ -2904,11 +2904,13 @@ paths:
                       rows:
                         type: array
                         items:
-                          anyOf:
-                            - type: integer
-                            - type: string
-                            - $ref: '#/components/schemas/Date'
-                          example: ["example.com", "2024-08-01", 102985]
+                          type: array
+                          items:
+                            anyOf:
+                              - type: integer
+                              - type: string
+                              - $ref: '#/components/schemas/Date'
+                        example: [["example.com", "2024-08-01", 102985]]
                       headers:
                         type: array
                         items:
