@@ -8,7 +8,7 @@
     "@redocly/cli": "^2.52.1",
     "concurrently": "^10.0.5",
     "copy-webpack-plugin": "^14.0.0",
-    "eslint": "^10.8.0",
+    "eslint": "^10.11.0",
     "globals": "^17.9.0",
     "tachyons": "^4.12.0",
     "webpack": "^5.109.2",
